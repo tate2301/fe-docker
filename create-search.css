@@ -1,0 +1,523 @@
+/* Color variables reference: 
+    grey: #959595;
+    white: #ffffff;
+*/
+
+/* Media breakpoints reference:
+    tablet: 768px;
+    desktop: 1200px;
+*/
+
+/* Font sizes reference:
+- mobile-title: 24px;
+- mobile-subtitle: 14px;
+- mobile text: 14px;
+- desktop-title: 32px;
+- desktop-subtitle: 17px;
+- desktop text: 13px;
+
+/* Element that incapsulates CSS: #create-app.create-app */
+
+
+/* Scaffolding */
+
+#create-app {
+    background-image: url('./img/bg-search.png');
+    background-size: 100%;
+}
+
+#create-app button,
+#create-app a {
+    outline-color: #eb5959;
+}
+
+#create-app ::-moz-selection {
+    background: rgba(250, 124, 19, 0.4);
+}
+
+#create-app ::selection {
+    background: rgba(250, 124, 19, 0.4);
+}
+
+/* Related to create-search */
+
+#create-app .create-search {
+    font-family: 'adobe-clean', sans-serif;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+#create-app .create-search .create-search__columns-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 16px;
+    padding-right: 16px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    padding-top: 52px;
+    margin-bottom: 32px;
+}
+
+#create-app .create-search .create-search__title-wrapper {
+    font-family: inherit;
+    margin-top: 32px;
+}
+
+#create-app .create-search .create-search__title {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    word-break: break-word;
+}
+
+#create-app .create-search .create-search__subtitle {
+    margin: 10px 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    word-break: break-word;
+}
+
+#create-app .create-search .create-search__input-wrapper {
+    margin-top: 20px;
+}
+
+#create-app .create-search .create-search__input {
+    width: 100%;
+    padding: 0 12px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 32px;
+    border-radius: 4px;
+    font-weight: 400;
+    color: #959595;
+    font-style: italic;
+    border: 0;
+}
+
+#create-app .create-search .create-search__input::-webkit-input-placeholder {
+    opacity: 1;
+    -webkit-transition: opacity 0.2s ease-in;
+    transition: opacity 0.2s ease-in;
+}
+
+#create-app .create-search .create-search__input::-moz-placeholder {
+    opacity: 1;
+    -moz-transition: opacity 0.2s ease-in;
+    transition: opacity 0.2s ease-in;
+}
+
+#create-app .create-search .create-search__input:-ms-input-placeholder {
+    opacity: 1;
+    -ms-transition: opacity 0.2s ease-in;
+    transition: opacity 0.2s ease-in;
+}
+
+#create-app .create-search .create-search__input::-ms-input-placeholder {
+    opacity: 1;
+    -ms-transition: opacity 0.2s ease-in;
+    transition: opacity 0.2s ease-in;
+}
+
+#create-app .create-search .create-search__input::placeholder {
+    opacity: 1;
+    -webkit-transition: opacity 0.2s ease-in;
+    -o-transition: opacity 0.2s ease-in;
+    transition: opacity 0.2s ease-in;
+}
+
+#create-app .create-search .create-search__input:focus {
+    outline-color: rgba(250, 124, 19, 0.4);
+}
+
+#create-app .create-search .create-search__input:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+
+#create-app .create-search .create-search__input:focus::-moz-placeholder {
+    opacity: 0;
+}
+
+#create-app .create-search .create-search__input:focus:-ms-input-placeholder {
+    opacity: 0;
+}
+
+#create-app .create-search .create-search__input:focus::-ms-input-placeholder {
+    opacity: 0;
+}
+
+#create-app .create-search .create-search__input:focus::placeholder {
+    opacity: 0;
+}
+
+#create-app .create-search .create-search__load-more-btn-wrapper {
+    margin-bottom: 64px;
+}
+
+#create-app .create-search .create-search__button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    max-width: 230px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px 30px;
+    font-size: 0px;
+    line-height: 0px;
+    font-family: inherit;
+    text-align: center;
+    text-decoration: none;
+    color: #111111;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 50px;
+    overflow: hidden;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    -webkit-transition: background-color 0.3s ease-in;
+    -o-transition: background-color 0.3s ease-in;
+    transition: background-color 0.3s ease-in;
+}
+
+#create-app .create-search .create-search__button-img {
+    -webkit-transition: -webkit-transform 0.3s ease-in;
+    transition: -webkit-transform 0.3s ease-in;
+    -o-transition: transform 0.3s ease-in;
+    transition: transform 0.3s ease-in;
+    transition: transform 0.3s ease-in, -webkit-transform 0.3s ease-in;
+    pointer-events: none;
+}
+
+#create-app .create-search .create-search__button-text {
+    position: relative;
+    top: 2px;
+    padding-left: 12px;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #5F5F5F;
+    -webkit-transition: color 0.3s ease-in;
+    -o-transition: color 0.3s ease-in;
+    transition: color 0.3s ease-in;
+    pointer-events: none;
+}
+
+#create-app .create-search .create-search__button:hover {
+    background-color: #2680EB;
+}
+
+#create-app .create-search__button:hover .create-search__button-text {
+    color: #ffffff;
+}
+
+/* Related to create-search__create-card */
+
+#create-app .create-search .create-search__create-cards {
+    margin-bottom: 32px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+#create-app .create-search .create-search__header {
+    display: none;
+}
+
+#create-app .create-search .create-search__create-card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    min-height: 110px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+#create-app .create-search .create-search__create-card-placeholder {
+    display: none;
+}
+
+#create-app .create-search .create-search__create-card:last-of-type {
+    margin-bottom: 0;
+}
+
+#create-app .create-search .create-search__create-card-info {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    padding: 15px 10px 10px;
+    background-color: #ffffff;
+}
+
+#create-app .create-search .create-search__create-card-img {
+    min-width: 40%;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+#create-app .create-search .create-search__create-card-tag-label {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#create-app .create-search .create-search__create-card-tag-label a {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    color: #353535;
+    text-transform: none;
+    text-decoration: none;
+    word-break: break-word;
+}
+
+#create-app .create-search .create-search__create-card-tag-label a:nth-of-type(n+3) {
+    display: none;
+}
+
+#create-app .create-search .create-search__create-card-tag-label a::after {
+    content: ' / ';
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#create-app .create-search .create-search__create-card-tag-label a:nth-of-type(n+2)::after {
+    display: none;
+}
+
+#create-app .create-search .create-search__create-card-title {
+    margin: 12px 0 0;
+    padding: 0;
+    line-height: 0;
+}
+
+#create-app .create-search .create-search__create-card-title a {
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 24px;
+    color: #353535;
+    font-weight: 600;
+    text-transform: none;
+    text-decoration: none;
+    word-break: break-word;
+}
+
+#create-app .create-search .create-search__create-card-author {
+    display: none;
+}
+
+#create-app .create-search .create-search__load-more-btn-wrapper {
+    margin-bottom: 32px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+#create-app .create-search .create-search__load-more-btn {
+    padding: 3px 8px;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    word-break: break-word;
+    border: 2px solid #ffffff;
+    border-radius: 32px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
+#create-app .create-search .create-search__load-more-btn:hover {
+    background-color: rgba(255, 255, 255, 0.41);
+}
+
+@media (min-width: 1200px) {
+
+    #create-app {
+        /* margin-top: 150px; */
+        padding-bottom: 65px;
+    }
+
+    /* Related to create-search */
+    #create-app .create-search .create-search__columns-wrapper {
+        margin-top: 0;
+        margin-bottom: 65px;
+        padding-top: 48px;
+        padding-left: 0;
+        padding-right: 0;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+    }
+
+    #create-app .create-search .create-search__title-wrapper {
+        margin-top: 0;
+    }
+
+    #create-app .create-search .create-search__title {
+        position: relative;
+        font-size: 32px;
+        line-height: 45px;
+        font-weight: 600;
+    }
+
+    #create-app .create-search .create-search__subtitle {
+        margin-top: 2px;
+        font-size: 17px;
+        line-height: 27px;
+    }
+
+    #create-app .create-search .create-search__input-wrapper {
+        margin-top: 35px;
+    }
+
+    #create-app .create-search .create-search__input {
+        width: 320px;
+        font-size: 13px;
+    }
+
+    #create-app .create-search .create-search__right-col {
+        padding-top: 8px;
+    }
+
+    #create-app .create-search .create-search__button {
+        position: relative;
+        min-width: 244px;
+        max-width: 244px;
+        padding: 9px 30px 10px;
+        font-size: 19px;
+        line-height: 27px;
+        font-weight: 600;
+        left: 3px;
+    }
+
+    #create-app .create-search .create-search__button-img {
+        position: relative;
+        top: 2px;
+    }
+
+    #create-app .create-search .create-search__button-text {
+        font-size: 16px;
+        padding-left: 11px;
+    }
+    
+    #create-app .create-search .create-search__collection-wrapper {
+        min-width: 1120px;
+    }
+
+    #create-app .create-search__collection-wrapper > *:not(.global-nav) {
+        max-width: 1120px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #create-app .create-search .create-search__create-cards {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        -webkit-box-align: stretch;
+            -ms-flex-align: stretch;
+                align-items: stretch;
+    }
+
+    #create-app .create-search .create-search__create-card {
+        max-width: 31.3%;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        margin-bottom: 32px;
+    }
+
+    #create-app .create-search .create-search__create-card-placeholder {
+        display: block;
+        width: 31.3%;
+        max-width: 31.3%;
+    }
+
+    #create-app .create-search .create-search__create-card:last-of-type {
+        margin-bottom: 32px;
+    }
+
+    #create-app .create-search .create-search__create-card-img {
+        min-height: 352px;
+    }
+
+    #create-app .create-search .create-search__create-card-title {
+        margin-top: 8px;
+        margin-bottom: 24px;
+    }
+
+    #create-app .create-search .create-search__create-card-title a {
+        font-size: 18px;
+        line-height: 25px;
+        color: #2c2c2c;
+        font-weight: 600;
+    }
+
+    #create-app .create-search .create-search__create-card-info {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        padding-top: 12px;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-bottom: 34px;
+    }
+
+    #create-app .create-search__tag-group-section {
+        margin-top: 75px;
+    }
+   
+    #create-app .create-search .create-search__create-card-tag-label a {
+        font-size: 16px;
+        line-height: 20px;
+        color: #2c2c2c;
+        font-weight: 400;
+    }
+}
