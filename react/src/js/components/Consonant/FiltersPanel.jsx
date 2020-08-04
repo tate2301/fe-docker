@@ -14,43 +14,36 @@ const filters = [
             {
                 id: '1',
                 name: 'Filter 1',
-                results: 23,
                 selected: false,
             },
             {
                 id: '2',
                 name: 'Filter 2',
-                results: 210,
                 selected: false,
             },
             {
                 id: '3',
                 name: 'Filter 3',
-                results: 3,
                 selected: false,
             },
             {
                 id: '4',
                 name: 'Filter 4',
-                results: 30,
                 selected: false,
             },
             {
                 id: '5',
                 name: 'Filter 5',
-                results: 30,
                 selected: false,
             },
             {
                 id: '6',
                 name: 'Filter 6',
-                results: 30,
                 selected: false,
             },
             {
                 id: '7',
                 name: 'Filter 7',
-                results: 30,
                 selected: false,
             },
         ],
@@ -63,25 +56,21 @@ const filters = [
             {
                 id: '1',
                 name: 'Filter item 5',
-                results: 23,
                 selected: false,
             },
             {
                 id: '2',
                 name: 'Filter item 6',
-                results: 210,
                 selected: false,
             },
             {
                 id: '3',
                 name: 'Filter item 7',
-                results: 3,
                 selected: false,
             },
             {
                 id: '4',
                 name: 'Filter item 8',
-                results: 30,
                 selected: false,
             },
         ],
@@ -229,12 +218,16 @@ export default class FilterPanel extends React.Component {
     }
 
     clearFilters() {
-        this.setState(prevState => prevState.filters.map(el => (
-            el.items.map((filter) => {
-                filter.selected = false;
-                return filter;
-            })
-        )), () => {
+        this.setState(prevState => ({
+            searchQuery: '',
+            filters: prevState.filters.map((el) => {
+                el.items.map((filter) => {
+                    filter.selected = false;
+                    return filter;
+                });
+                return el;
+            }),
+        }), () => {
             this.updateFiltersHeight();
         });
     }

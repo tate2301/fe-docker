@@ -37,6 +37,7 @@
 - .consonant-pagination_first;
 - .consonant-pagination_last;
 - .consonant-pagination--item_active;
+- .consonant-card_placeholder;
 */
 
 /* .consonant-page */
@@ -47,12 +48,13 @@
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: stretch;
 }
 
 .consonant-page .consonant-page--inner {
   max-width: 100%;
+  padding-bottom: 100px;
 }
 
 /* @todo clarify if we need create-app */
@@ -192,9 +194,9 @@
 
 .consonant-filters .consonant-filters--item {
   position: relative;
-  padding-top: 17px;
-  padding-bottom: 17px;
   border-bottom: 1px solid #EAEAEA;
+  outline: 0;
+  cursor: pointer;
 }
 
 .consonant-filters .consonant-filters--item:last-of-type {
@@ -207,7 +209,7 @@
   right: 16px;
   top: 0;
   bottom: 0;
-  margin: auto; 
+  margin: auto;
   width: 8px;
   height: 8px;
   border: 2px solid #d3d3d3;
@@ -222,12 +224,14 @@
 
 .consonant-filters .consonant-filters--item-name a {
   display: block;
+  padding-top: 17px;
+  padding-bottom: 17px;
   padding-right:  36px;
   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
-  line-height: 19px; 
+  line-height: 19px;
   text-transform: capitalize;
   text-decoration: none;
   color: #505050;
@@ -286,7 +290,7 @@
   position: relative;
   display: block;
   margin-top: 4px;
-  padding-right:  70px;
+  padding-right:  34px;
   overflow: hidden;
   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
   font-style: normal;
@@ -300,7 +304,7 @@
 
 .consonant-filters .consonant-filters--item-selcted-items::after {
   position: absolute;
-  right: 48px;
+  right: 12px;
   content: attr(data-qty);
   font-weight: 700;
   background-color: #fff;
@@ -358,8 +362,7 @@
 }
 
 .consonant-filters--item.consonant-filters--item_opened::after {
-  top: 23px;
-  transform: rotate(130deg);
+  display: none;
 }
 
 .consonant-filters .consonant-filters--item-list-item {
@@ -373,10 +376,9 @@
 }
 
 .consonant-filters .consonant-filters--item-list-item label {
+  position: relative;
   display: flex;
   align-items: center;
-  width: 100%;
-  position: relative;
   width: 100%;
   padding-top: 17px;
   padding-bottom: 0;
@@ -397,8 +399,8 @@
   border: 2px solid #959595;
   border-radius: 3px;
   transition:
-    border-color 0.3s ease-in-out,
-    background-color 0.3s ease-in-out;
+          border-color 0.3s ease-in-out,
+          background-color 0.3s ease-in-out;
 }
 
 .consonant-filters .consonant-filters--item-list-item-checkmark::after {
@@ -419,7 +421,7 @@
   transform: rotate(-45deg) translate3d(1px, 0, 0);
 }
 
-.consonant-filters .consonant-filters--item-list-item 
+.consonant-filters .consonant-filters--item-list-item
 input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   background-color: #2680eb;
   border-color: #2680eb;
@@ -441,33 +443,13 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   word-break: break-word;
 }
 
-.consonant-filters .consonant-filters--item-list-item-res {
-  max-width: 30%;
-  padding-left: 5px;
-  font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 15px;
-  line-height: 18px;
-  color: #A5A5A5;
-}
-
 .consonant-filters .consonant-filters--item-list-mob-footer {
   display: none;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   width: 100%;
   padding: 16px 20px;
   border-top: 1px solid #EAEAEA;
-}
-
-.consonant-filters .consonant-filters--item-list-mob-footer-total {
-  font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 16px;
-  color: #505050;
 }
 
 .consonant-filters .consonant-filters--item-list-mob-footer-btn {
@@ -878,19 +860,19 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
 }
 
 .consonant-select .consonant-select--option.consonant-select--option_selected::after {
-    content: '';
-    position: absolute;
-    width: 9px;
-    height: 4px;
-    top: 0;
-    bottom: 0;
-    right: 13px;
-    margin: auto;
-    border: 1px solid #2680EB;
-    border-top: 0;
-    border-right: 0;
-    transform: rotate(-45deg);
-    pointer-events: none;
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 4px;
+  top: 0;
+  bottom: 0;
+  right: 13px;
+  margin: auto;
+  border: 1px solid #2680EB;
+  border-top: 0;
+  border-right: 0;
+  transform: rotate(-45deg);
+  pointer-events: none;
 }
 
 .consonant-select .consonant-select--option:hover {
@@ -899,6 +881,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
 
 /* .consonant-card-collection */
 .consonant-card-collection {
+  margin-bottom: 13px;
   padding-left: 30px;
   padding-right: 30px;
   overflow: hidden;
@@ -916,6 +899,14 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   margin-bottom: 32px;
 }
 
+.consonant-card.consonant-card_placeholder {
+  visibility: hidden;
+  height: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
 .consonant-card .consonant-card--inner {
   flex-grow: 1;
   display: flex;
@@ -927,6 +918,9 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   width: 100%;
   height: 213px;
   background-color: #EAEAEA;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .consonant-card .consonant-card--label {
@@ -940,16 +934,10 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   color: #505050;
   text-decoration: none;
   word-break: break-word;
-  opacity: 0.4;
 }
 
 .consonant-card .consonant-card--title {
   margin: 0 0 16px;
-  font-size: 18px;
-  line-height: 21px;
-}
-
-.consonant-card .consonant-card--title a {
   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -958,7 +946,6 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   color: #323232;
   text-decoration: none;
   word-break: break-word;
-  opacity: 0.4;
 }
 
 .consonant-card .consonant-card--text {
@@ -971,7 +958,6 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   line-height: 16px;
   color: #747474;
   word-break: break-word;
-  opacity: 0.4;
   border-bottom: 1px solid #EAEAEA;
 }
 
@@ -993,8 +979,8 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   border: 2px solid #505050;
   text-decoration: none;
   word-break: break-word;
-  opacity: 0.3;
   border-radius: 30px;
+  user-select: none;
 }
 
 /* .consonant-pagination - filters styles */
@@ -1061,9 +1047,9 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   outline: 0;
   cursor: pointer;
   background-color: transparent;
-  transition: 
-    color 0.3s ease-in-out,
-    background-color 0.3s ease-in-out;
+  transition:
+          color 0.3s ease-in-out,
+          background-color 0.3s ease-in-out;
   overflow: hidden;
 }
 
@@ -1171,8 +1157,48 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   background-color: #9E0000;
 }
 
+/* .consonant-load-more */
+.consonant-load-more {
+  display: block;
+  text-align: center;
+  user-select: none;
+}
+
+.consonant-load-more--inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.consonant-load-more--text {
+  margin: 0 0 14px;
+  font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #505050;
+}
+
+.consonant-load-more--btn {
+  box-sizing: border-box;
+  padding: 5px 13px;
+  font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #505050;
+  text-transform: capitalize;
+  background-color: #fff;
+  border: 2px solid #505050;
+  border-radius: 30px;
+  outline: 0;
+  user-select: none;
+}
+
 @media only screen and (min-width: 600px)  {
-  
+
   /* .consonant-page */
   .consonant-page {
     background-color: #fff;
@@ -1238,6 +1264,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     align-items: stretch;
     min-width: 1012px;
     max-width: 1012px;
+    padding-bottom: 35px;
   }
 
   /* .consonant-filters */
@@ -1355,12 +1382,24 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     margin-top: 55px;
   }
 
+  .consonant-filters.consonant-filters_one-line aside + * {
+    margin-top: -61px;
+  }
+
   .consonant-filters.consonant-filters_two-lines + div {
     margin-top: 87px;
   }
 
+  .consonant-filters.consonant-filters_two-lines aside + * {
+    margin-top: -93px;
+  }
+
   .consonant-filters .consonant-filters_three-lines + div {
     margin-top: 119px;
+  }
+
+  .consonant-filters.consonant-filters_three-lines aside + * {
+    margin-top: -125px;
   }
 
   .consonant-filters .consonant-filters--list {
@@ -1374,18 +1413,16 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     border-color: transparent;
   }
 
-  .consonant-filters .consonant-filters--item {
+  .consonant-filters .consonant-filters--item-name a {
     padding-top: 16px;
     padding-bottom: 16px;
-  }
-
-  .consonant-filters .consonant-filters--item-name a {
     font-size: 14px;
     line-height: 16px;
     word-break: break-word;
   }
 
   .consonant-filters .consonant-filters--item::after {
+    display: block;
     right: 13px;
     border-color: #BCBCBC;
     transform: rotate(-45deg);
@@ -1414,7 +1451,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     padding: 16px 36px 16px 0;
     color: #707070;
   }
-  
+
   .consonant-filters .consonant-filters--item.consonant-filters--item_opened
   .consonant-filters--item-list {
     min-height: unset;
@@ -1429,12 +1466,6 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     line-height: 16px;
   }
 
-  .consonant-filters--item-list-item-res {
-    font-size: 14px;
-    line-height: 16px;
-    color: #959595;
-  }
-  
   /* .consonant-select */
   .consonant-select {
     width: 98px;
@@ -1504,19 +1535,19 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
 }
 
 @media only screen and (min-width: 1440px)  {
-   /* .consonant-page */
-   header + section.consonant-page,
-   header + section.consonant-page .consonant-page--inner {
-      min-width: 1199px;
-      max-width: 1199px;
-   }
+  /* .consonant-page */
+  header + section.consonant-page,
+  header + section.consonant-page .consonant-page--inner {
+    min-width: 1199px;
+    max-width: 1199px;
+  }
 
-   .consonant-filters .consonant-filters--info {
+  .consonant-filters .consonant-filters--info {
     min-width: calc(1199px - 204px - 32px);
     max-width: calc(1199px - 204px - 32px);
   }
 
-   /* .consonant-card-collection */
+  /* .consonant-card-collection */
   .consonant-card-collection {
     display: flex;
     justify-content: space-between;

@@ -1,54 +1,114 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import Card from './Card';
+import LoadMore from '../Consonant/LoadMore';
 
-// Fixtures;
-const cardsData = [
-    {
-        id: '1',
-        title: 'Nostrud exercitation ullamco laboris nisi ut aliquip ex ea ',
-        label: 'Lorem ipsum',
-        text: 'Nisi ut aliquip ex ea commodo consequat.',
-    },
-    {
-        id: '2',
-        title: 'Quisque sit amet euismod sem. Suspendisse dapibus consequat accumsan.',
-        label: 'Curabitur feugiat',
-        text: 'Morbi ac lobortis ante, vel pharetra augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris fermentum lorem felis, eget bibendum tellus accumsan vehicula.',
-    },
-    {
-        id: '3',
-        title: 'Donec malesuada neque at augue facilisis condimentum.',
-        label: 'Lorem ipsum',
-        text: 'Mauris feugiat, nisi eu pulvinar sagittis, quam tellus lobortis dui, vel euismod nunc purus quis augue. In eget rutrum dui, nec vulputate tellus. Nunc ornare varius urna eu auctor. Vivamus luctus suscipit lectus, nec ultrices est. Vivamus sed elementum dolor.',
-    },
-    {
-        id: '4',
-        title: 'Quisque pharetra, sapien a suscipit tincidunt, mi quam placerat leo',
-        label: 'Class aptent',
-        text: 'Integer faucibus nec elit sed pretium. Nunc et dui eu sapien convallis faucibus. Vivamus eu libero viverra, pulvinar enim id, iaculis tortor.',
-    },
-    {
-        id: '5',
-        title: 'Quisque pharetra, sapien a suscipit tincidunt, mi quam placerat leo',
-        label: 'Class aptent',
-        text: 'Integer faucibus nec elit sed pretium. Nunc et dui eu sapien convallis faucibus. Vivamus eu libero viverra, pulvinar enim id, iaculis tortor.',
-    },
-];
+const PARAMS = {
+    LOAD_POSTS_URL: 'http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v3/caas',
+    SHOW_ITEMS_PER_STEP: 7,
+};
+let prevTimer;
 
 export default class Collection extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            cards: cardsData,
+            cards: [],
+            initialScrollPos: 0,
+            showItemsPerPage: PARAMS.SHOW_ITEMS_PER_STEP,
+            pages: 1,
         };
+
+        this.loadCards = this.loadCards.bind(this);
+        this.getWrapperScrollPos = this.getWrapperScrollPos.bind(this);
+        this.setInitialScrollPos = this.setInitialScrollPos.bind(this);
+        this.handleInitialScrollPos = this.handleInitialScrollPos.bind(this);
+        this.loadPosts = this.loadPosts.bind(this);
+    }
+
+    componentDidMount() {
+        this.setInitialScrollPos();
+        window.addEventListener('resize', this.handleInitialScrollPos);
+
+        // Load cards on init;
+        this.loadPosts().then((res) => {
+            if (!res || !res.cards) return;
+
+            this.setState(prevState => ({
+                cards: [...prevState.cards, ...res.cards],
+            }));
+        });
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleInitialScrollPos);
+    }
+
+    setInitialScrollPos() {
+        this.setState({ initialScrollPos: Math.abs(this.getWrapperScrollPos()) });
+    }
+
+    getWrapperScrollPos() {
+        return parseInt(this.cardsWrapper.getBoundingClientRect().top, 10);
+    }
+
+    async loadPosts() {
+        const response = await fetch(PARAMS.LOAD_POSTS_URL);
+        const json = await response.json();
+        return json;
+    }
+
+    handleInitialScrollPos() {
+        const awaitTime = 100;
+
+        window.clearTimeout(prevTimer);
+        prevTimer = window.setTimeout(() => {
+            window.scrollTo(0, 0);
+            this.setInitialScrollPos();
+        }, awaitTime);
+    }
+
+    // Temporary, will be changed;
+    loadCards() {
+        const currentPos = this.getWrapperScrollPos();
+        this.setState(prevState => ({
+            pages: prevState.pages + 1,
+        }), () => {
+            window.scrollTo(0, Math.abs(currentPos) + this.state.initialScrollPos);
+        });
     }
 
     render() {
+        const { showItemsPerPage, pages } = this.state;
+        let cards = [...this.state.cards];
+        let cardsToShow = showItemsPerPage * pages;
+
+        if (cardsToShow > cards.length) cardsToShow = cards.length;
+        if (cards.length > cardsToShow) cards = cards.slice(0, cardsToShow);
+
         return (
-            <div className="consonant-card-collection">
-                {this.state.cards.map(card => <Card key={card.id} {...card} />)}
-            </div>
+            <Fragment>
+                <div
+                    className="consonant-card-collection"
+                    ref={(collection) => { this.cardsWrapper = collection; }}>
+                    {cards.map(card => <Card key={card.id} {...card} />)}
+                    <div className="consonant-card consonant-card_placeholder" />
+                    <div className="consonant-card consonant-card_placeholder" />
+                </div>
+                <LoadMore
+                    onClick={this.loadCards}
+                    shown={cardsToShow}
+                    total={this.state.cards.length} />
+            </Fragment>
         );
     }
 }
+
+Collection.propTypes = {
+    loadCards: PropTypes.bool,
+};
+
+Collection.defaultProps = {
+    loadCards: false,
+};

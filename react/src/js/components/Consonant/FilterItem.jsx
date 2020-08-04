@@ -8,7 +8,8 @@ const FilterItem = (props) => {
     const handleCheck = (evt) => {
         onCheck(id, evt.target.value);
     };
-    const handleClick = () => {
+    const handleClick = (clickEvt) => {
+        clickEvt.preventDefault();
         onClick(id);
     };
     const handleClear = () => {
@@ -30,20 +31,22 @@ const FilterItem = (props) => {
         }>
             <div className="consonant-filters--item-inner">
                 <h3 className="consonant-filters--item-name">
-                    <a href="#" onClick={handleClick}>{name}</a>
-                </h3>
-                <div
-                    className="consonant-filters--item-selcted-items"
-                    data-qty={countFilters() > 0 ? `+${countFilters()}` : ''}>
-                    {items.map((item, idx) => {
-                        let res = '';
+                    <a href="#" onClick={handleClick}>
+                        {name}
+                        <div
+                            className="consonant-filters--item-selcted-items"
+                            data-qty={countFilters() > 0 ? `+${countFilters()}` : ''}>
+                            {items.map((item, idx) => {
+                                let res = '';
 
-                        if (item.selected) {
-                            res = idx === items.length - 1 ? item.name : `${item.name}, `;
-                        }
-                        return res;
-                    })}
-                </div>
+                                if (item.selected) {
+                                    res = idx === items.length - 1 ? item.name : `${item.name}, `;
+                                }
+                                return res;
+                            })}
+                        </div>
+                    </a>
+                </h3>
                 {renderSelecedFilter()}
                 <ul className="consonant-filters--item-list">
                     {items.map(item => (
@@ -59,12 +62,10 @@ const FilterItem = (props) => {
                                 <span className="consonant-filters--item-list-item-checkmark" />
                                 <span className="consonant-filters--item-list-item-name">{item.name}</span>
                             </label>
-                            <span className="consonant-filters--item-list-item-res">{item.results}</span>
                         </li>
                     ))}
                 </ul>
                 <div className="consonant-filters--item-list-mob-footer">
-                    <span className="consonant-filters--item-list-mob-footer-total">430 Results</span>
                     <button
                         onClick={handleClick}
                         className="consonant-filters--item-list-mob-footer-btn">done

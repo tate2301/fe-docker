@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import ConsonantCardCollection from '../Consonant/Collection';
 import ConsonantFiltersPanel from '../Consonant/FiltersPanel';
-import ConsonantPagination from '../Consonant/Pagination';
 import ConsonantHeader from '../Consonant/Header';
 
 const ConsonantPage = () => (
@@ -11,8 +10,8 @@ const ConsonantPage = () => (
             <div className="consonant-page--inner">
                 <ConsonantFiltersPanel />
                 <div>
-                    <ConsonantCardCollection />
-                    <ConsonantPagination />
+                    <ConsonantCardCollection
+                        loadCards />
                 </div>
             </div>
         </section>
