@@ -1,95 +1,33 @@
 import React, { Fragment } from 'react';
-import ConsonantCardCollection from '../Consonant/Collection';
+import Collection from '../Consonant/Collection';
 import FiltersPanel from '../Consonant/FiltersPanel';
 import ConsonantHeader from '../Consonant/Header';
 import FiltersInfo from '../Consonant/FiltersInfo';
+import LoadMore from '../Consonant/LoadMore';
 
-// Fixtures;
-const filters = [
-    {
-        id: '1',
-        name: 'Filter number 1',
-        opened: false,
-        items: [
-            {
-                id: '1',
-                name: 'Filter 1',
-                selected: false,
-            },
-            {
-                id: '2',
-                name: 'Filter 2',
-                selected: false,
-            },
-            {
-                id: '3',
-                name: 'Filter 3',
-                selected: false,
-            },
-            {
-                id: '4',
-                name: 'Filter 4',
-                selected: false,
-            },
-            {
-                id: '5',
-                name: 'Filter 5',
-                selected: false,
-            },
-            {
-                id: '6',
-                name: 'Filter 6',
-                selected: false,
-            },
-            {
-                id: '7',
-                name: 'Filter 7',
-                selected: false,
-            },
-        ],
-    },
-    {
-        id: '2',
-        name: 'Filter number 2',
-        opened: false,
-        items: [
-            {
-                id: '1',
-                name: 'Filter item 5',
-                selected: false,
-            },
-            {
-                id: '2',
-                name: 'Filter item 6',
-                selected: false,
-            },
-            {
-                id: '3',
-                name: 'Filter item 7',
-                selected: false,
-            },
-            {
-                id: '4',
-                name: 'Filter item 8',
-                selected: false,
-            },
-        ],
-    },
-];
 const selectValues = [
     'Popular',
     'Date',
 ];
-let prevTimer;
+const PARAMS = {
+    LOAD_POSTS_URL: 'http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v3/caas',
+    SHOW_ITEMS_PER_STEP: 21,
+};
+let updateDimensionsTimer;
+let updateScrollPosTimer;
 
 export default class ConsonantPage extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            filters,
+            cards: [],
+            pages: 1,
+            filters: [],
             searchQuery: '',
             selelectedFilterBy: '',
+            initialScrollPos: 0,
+            showItemsPerPage: PARAMS.SHOW_ITEMS_PER_STEP,
             windowWidth: window.innerWidth,
             showMobileFilters: false,
         };
@@ -97,19 +35,45 @@ export default class ConsonantPage extends React.Component {
         this.updateDimensions = this.updateDimensions.bind(this);
         this.clearFilters = this.clearFilters.bind(this);
         this.clearFilterItems = this.clearFilterItems.bind(this);
+        this.loadData = this.loadData.bind(this);
+        this.setInitialScrollPos = this.setInitialScrollPos.bind(this);
+        this.setCardsToShowQty = this.setCardsToShowQty.bind(this);
+        this.getWrapperScrollPos = this.getWrapperScrollPos.bind(this);
+        this.getCardsToShowQty = this.getCardsToShowQty.bind(this);
         this.handleSelectChange = this.handleSelectChange.bind(this);
         this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
         this.handleFilterItemClick = this.handleFilterItemClick.bind(this);
         this.handleCheckBoxChange = this.handleCheckBoxChange.bind(this);
         this.handleFiltersToggle = this.handleFiltersToggle.bind(this);
+        this.handleInitialScrollPos = this.handleInitialScrollPos.bind(this);
     }
 
     componentDidMount() {
+        this.setInitialScrollPos();
         window.addEventListener('resize', this.updateDimensions);
+        window.addEventListener('resize', this.handleInitialScrollPos);
+
+        // Load data on init;
+        this.loadData().then((res) => {
+            if (!res || !res.cards || !res.filters) return;
+
+            this.setState(prevState => ({
+                cards: [...prevState.cards, ...res.cards],
+                filters: res.filters.map((el) => {
+                    el.opened = false;
+                    el.items = el.items.map((item) => {
+                        item.selected = false;
+                        return item;
+                    });
+                    return el;
+                }),
+            }));
+        });
     }
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateDimensions);
+        window.removeEventListener('resize', this.handleInitialScrollPos);
     }
 
     getSelectedFiltersItemsQty() {
@@ -125,11 +89,43 @@ export default class ConsonantPage extends React.Component {
         return res;
     }
 
+    getCardsToShowQty() {
+        let res = this.state.showItemsPerPage * this.state.pages;
+
+        if (res > this.state.cards.length) res = this.state.cards.length;
+
+        return res;
+    }
+
+    setCardsToShowQty() {
+        const currentPos = this.getWrapperScrollPos();
+        this.setState(prevState => ({
+            pages: prevState.pages + 1,
+        }), () => {
+            window.scrollTo(0, Math.abs(currentPos) + this.state.initialScrollPos);
+        });
+    }
+
+    getWrapperScrollPos() {
+        return 500;
+        // return parseInt(this.cardsWrapper.getBoundingClientRect().top, 10);
+    }
+
+    setInitialScrollPos() {
+        this.setState({ initialScrollPos: Math.abs(this.getWrapperScrollPos()) });
+    }
+
+    async loadData() {
+        const response = await fetch(PARAMS.LOAD_POSTS_URL);
+        const json = await response.json();
+        return json;
+    }
+
     updateDimensions = () => {
         const awaitTime = 100;
 
-        window.clearTimeout(prevTimer);
-        prevTimer = window.setTimeout(() => {
+        window.clearTimeout(updateDimensionsTimer);
+        updateDimensionsTimer = window.setTimeout(() => {
             this.setState({
                 windowWidth: window.innerWidth,
                 showMobileFilters: false,
@@ -160,6 +156,16 @@ export default class ConsonantPage extends React.Component {
                 return el;
             }),
         }));
+    }
+
+    handleInitialScrollPos() {
+        const awaitTime = 100;
+
+        window.clearTimeout(updateScrollPosTimer);
+        updateScrollPosTimer = window.setTimeout(() => {
+            window.scrollTo(0, 0);
+            this.setInitialScrollPos();
+        }, awaitTime);
     }
 
     handleSelectChange(val) {
@@ -229,7 +235,7 @@ export default class ConsonantPage extends React.Component {
                             windowWidth={this.state.windowWidth}
                             showMobileFilters={this.state.showMobileFilters}
                             searchQuery={this.state.searchQuery}
-                            cardsQty={123}
+                            cardsQty={this.state.cards.length}
                             onFilterClick={this.handleFilterItemClick}
                             onClearAllFilters={this.clearFilters}
                             onClearFilterItems={this.clearFilterItems}
@@ -239,7 +245,7 @@ export default class ConsonantPage extends React.Component {
                         <div>
                             <FiltersInfo
                                 filters={this.state.filters}
-                                cardsQty={111}
+                                cardsQty={this.state.cards.length}
                                 selectedFiltersQty={0}
                                 windowWidth={this.state.windowWidth}
                                 selectValues={selectValues}
@@ -247,8 +253,14 @@ export default class ConsonantPage extends React.Component {
                                 onSelect={this.handleSelectChange}
                                 onSearch={this.handleSearchInputChange}
                                 onMobileFiltersToggleClick={this.handleFiltersToggle} />
-                            <ConsonantCardCollection
-                                loadCards />
+                            <Collection
+                                showItemsPerPage={this.state.showItemsPerPage}
+                                pages={this.state.pages}
+                                cards={this.state.cards} />
+                            <LoadMore
+                                onClick={this.setCardsToShowQty}
+                                shown={this.getCardsToShowQty()}
+                                total={this.state.cards.length} />
                         </div>
                     </div>
                 </section>

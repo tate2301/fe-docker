@@ -79,7 +79,7 @@ const FiltersPanel = (props) => {
                 {filters.map(item =>
                     (<FilterItem
                         key={item.id}
-                        name={item.name}
+                        name={item.group}
                         items={item.items}
                         id={item.id}
                         isOpened={item.opened}

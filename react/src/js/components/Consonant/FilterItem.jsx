@@ -60,7 +60,7 @@ const FilterItem = (props) => {
                                     onChange={handleCheck}
                                     checked={item.selected} />
                                 <span className="consonant-filters--item-list-item-checkmark" />
-                                <span className="consonant-filters--item-list-item-name">{item.name}</span>
+                                <span className="consonant-filters--item-list-item-name">{item.label}</span>
                             </label>
                         </li>
                     ))}
