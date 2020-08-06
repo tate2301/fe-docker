@@ -35,6 +35,8 @@
 - .consonant-pagination_last;
 - .consonant-pagination--item_active;
 - .consonant-card_placeholder;
+- .consonant-loader_medium;
+- .consonant-loader_big;
 */
 
 /* .consonant-page */
@@ -77,6 +79,16 @@
 
 .consonant-filters > * {
   display: none;
+}
+
+.consonant-filters + div {
+  width: 100%;
+  text-align: center;
+}
+
+.consonant-filters .consonant-loader {
+  margin-top: 24px;
+  align-self: center;
 }
 
 .consonant-filters.consonant-filters_opened {
@@ -1190,6 +1202,87 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   user-select: none;
 }
 
+/* consonant-loader */
+.consonant-loader {
+  display: inline-block;
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+
+.consonant-loader::after {
+  content: '';
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 2px solid #EAEAEA;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.consonant-loader div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #2680EB;
+  border-radius: 50%;
+  animation: circle 1.3s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #2680EB transparent transparent transparent;
+  z-index: 1;
+  opacity: 1;
+}
+
+.consonant-loader div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.consonant-loader div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.consonant-loader div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+.consonant-loader.consonant-loader_medium {
+  width: 32px;
+  height: 32px;
+}
+
+.consonant-loader.consonant-loader_medium::after {
+  width: 32px;
+  height: 32px;
+  border-width: 4px;
+}
+
+.consonant-loader.consonant-loader_medium div {
+  width: 32px;
+  height: 32px;
+  border-width: 4px;
+}
+
+.consonant-loader.consonant-loader_big {
+  width: 64px;
+  height: 64px;
+}
+
+.consonant-loader.consonant-loader_big::after {
+  width: 64px;
+  height: 64px;
+  border-width: 5px;
+}
+
+.consonant-loader.consonant-loader_big div {
+  width: 64px;
+  height: 64px;
+  border-width: 5px;
+}
+
 @media only screen and (min-width: 600px)  {
 
   /* .consonant-page */
@@ -1526,5 +1619,16 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   /* .consonant-header */
   .consonant-header {
     height: 178px;
+  }
+}
+
+/* Related to animations */
+
+@keyframes circle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

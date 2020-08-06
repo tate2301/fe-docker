@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Search from './Search';
 import Select from './Select';
 import SelectedFilter from './SelectedFilter';
+import Loader from './Loader';
 
 const DESKTOP_MIN_WIDTH = 1200;
 
@@ -67,7 +68,9 @@ const FiltersInfo = (props) => {
     const desktopFiltersAsideInfo = (windowWidth >= DESKTOP_MIN_WIDTH &&
     <div className="consonant-filters-info--wrapper">
         <h2 className="consonant-filters-info--title">Lorem ipsum dolor sit amet.</h2>
-        <span className="consonant-filters-info--results">{cardsQty} results</span>
+        {filters.length > 0 &&
+            <span className="consonant-filters-info--results">{cardsQty} results</span>
+        }
     </div>
     );
 
@@ -76,10 +79,13 @@ const FiltersInfo = (props) => {
             {desktopFiltersAsideInfo}
             {mobileAsideInfoSearch}
             {mobileAsideInfoFilterBtn}
-            <Select
-                val={selelectedFilterBy}
-                values={selectValues}
-                onSelect={onSelect} />
+            {filters.length ?
+                <Select
+                    val={selelectedFilterBy}
+                    values={selectValues}
+                    onSelect={onSelect} /> :
+                <Loader />
+            }
             {desktopSelectedFilters}
         </aside>
     );

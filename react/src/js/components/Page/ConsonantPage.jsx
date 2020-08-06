@@ -4,11 +4,16 @@ import FiltersPanel from '../Consonant/FiltersPanel';
 import ConsonantHeader from '../Consonant/Header';
 import FiltersInfo from '../Consonant/FiltersInfo';
 import LoadMore from '../Consonant/LoadMore';
+import Loader from '../Consonant/Loader';
 
 const selectValues = [
     'Popular',
     'Date',
 ];
+const LOADER_SIZE = {
+    MEDIUM: 'medium',
+    BIG: 'big',
+};
 const PARAMS = {
     LOAD_POSTS_URL: 'http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v3/caas',
     SHOW_ITEMS_PER_STEP: 21,
@@ -253,14 +258,20 @@ export default class ConsonantPage extends React.Component {
                                 onSelect={this.handleSelectChange}
                                 onSearch={this.handleSearchInputChange}
                                 onMobileFiltersToggleClick={this.handleFiltersToggle} />
-                            <Collection
-                                showItemsPerPage={this.state.showItemsPerPage}
-                                pages={this.state.pages}
-                                cards={this.state.cards} />
-                            <LoadMore
-                                onClick={this.setCardsToShowQty}
-                                shown={this.getCardsToShowQty()}
-                                total={this.state.cards.length} />
+                            {this.state.cards.length > 0 ?
+                                <Fragment>
+                                    <Collection
+                                        showItemsPerPage={this.state.showItemsPerPage}
+                                        pages={this.state.pages}
+                                        cards={this.state.cards} />
+                                    <LoadMore
+                                        onClick={this.setCardsToShowQty}
+                                        shown={this.getCardsToShowQty()}
+                                        total={this.state.cards.length} />
+                                </Fragment> :
+                                <Loader
+                                    size={LOADER_SIZE.BIG} />
+                            }
                         </div>
                     </div>
                 </section>
