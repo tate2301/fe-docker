@@ -39,9 +39,10 @@ export default Search;
 Search.propTypes = {
     itemsQty: PropTypes.number,
     onSearch: PropTypes.func.isRequired,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string,
 };
 
 Search.defaultProps = {
+    value: '',
     itemsQty: 0,
 };
