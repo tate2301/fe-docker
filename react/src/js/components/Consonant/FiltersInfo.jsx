@@ -17,6 +17,7 @@ const FiltersInfo = (props) => {
         selectValues,
         onSelect,
         onSearch,
+        onSelectedFilterClick,
         onMobileFiltersToggleClick,
     } = props;
     const mobileAsideInfoSearch = (windowWidth < DESKTOP_MIN_WIDTH &&
@@ -57,10 +58,10 @@ const FiltersInfo = (props) => {
                     filter.selected &&
                     <SelectedFilter
                         key={filter.id}
-                        name={filter.name}
+                        name={filter.label}
                         id={filter.id}
                         parentId={el.id}
-                        onClick={this.handleCheckBoxChange} />
+                        onClick={onSelectedFilterClick} />
                 ))
             ))}
         </div>
@@ -103,6 +104,7 @@ FiltersInfo.propTypes = {
     onSearch: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired,
     onMobileFiltersToggleClick: PropTypes.func.isRequired,
+    onSelectedFilterClick: PropTypes.func.isRequired,
 };
 
 FiltersInfo.defaultProps = {

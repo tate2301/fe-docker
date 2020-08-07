@@ -102,10 +102,6 @@
   display: flex;
 }
 
-.consonant-filters.consonant-filters_opened .consonant-filters--selected-filters:empty {
-  display: none;
-}
-
 .consonant-filters.consonant-filters_opened .consonant-filters--list {
   display: block;
 }
@@ -580,8 +576,8 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   pointer-events: unset;
 }
 
-/* .consonant-filters - selected filters styles */
-.consonant-filters .consonant-filters--selected-filters {
+/* .consonant-filters-info - selected filters styles */
+.consonant-filters-info .consonant-filters--selected-filters {
   position: relative;
   flex-wrap: wrap;
   width: 100%;
@@ -594,11 +590,11 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   background-color: #fff;
 }
 
-.consonant-filters .consonant-filters--selected-filters:empty {
+.consonant-filters-info .consonant-filters--selected-filters:empty {
   display: none;
 }
 
-.consonant-filters .consonant-filters--selected-filter {
+.consonant-filters-info .consonant-filters--selected-filter {
   position: relative;
   max-width: 50vw;
   margin-right: 5px;
@@ -619,8 +615,8 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   overflow: hidden;
 }
 
-.consonant-filters .consonant-filters--selected-filter::before,
-.consonant-filters .consonant-filters--selected-filter::after {
+.consonant-filters-info .consonant-filters--selected-filter::before,
+.consonant-filters-info .consonant-filters--selected-filter::after {
   content: '';
   position: absolute;
   top: 0;
@@ -633,7 +629,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   transform: rotate(45deg);
 }
 
-.consonant-filters .consonant-filters--selected-filter::after {
+.consonant-filters-info .consonant-filters--selected-filter::after {
   transform: rotate(-45deg);
 }
 
@@ -1382,7 +1378,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     border-bottom: 1px solid #EAEAEA;
   }
 
-  .consonant-filters .consonant-filters--selected-filters {
+  .consonant-filters-info .consonant-filters--selected-filters {
     display: flex;
   }
 

@@ -6,7 +6,7 @@ const FilterItem = (props) => {
         name, id, items, isOpened, onCheck, onClick, onClearAll,
     } = props;
     const handleCheck = (evt) => {
-        onCheck(id, evt.target.value);
+        onCheck(id, evt.target.value, evt.target.checked);
     };
     const handleClick = (clickEvt) => {
         clickEvt.preventDefault();
@@ -40,7 +40,7 @@ const FilterItem = (props) => {
                                 let res = '';
 
                                 if (item.selected) {
-                                    res = idx === items.length - 1 ? item.name : `${item.name}, `;
+                                    res = idx === items.length - 1 ? item.label : `${item.label}, `;
                                 }
                                 return res;
                             })}

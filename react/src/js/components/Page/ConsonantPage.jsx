@@ -27,8 +27,10 @@ export default class ConsonantPage extends React.Component {
 
         this.state = {
             cards: [],
+            filteredCards: [],
             pages: 1,
             filters: [],
+            lastFilterWasChecked: false,
             searchQuery: '',
             selelectedFilterBy: '',
             initialScrollPos: 0,
@@ -51,6 +53,8 @@ export default class ConsonantPage extends React.Component {
         this.handleCheckBoxChange = this.handleCheckBoxChange.bind(this);
         this.handleFiltersToggle = this.handleFiltersToggle.bind(this);
         this.handleInitialScrollPos = this.handleInitialScrollPos.bind(this);
+        this.getActiveFiltersIds = this.getActiveFiltersIds.bind(this);
+        this.filterCards = this.filterCards.bind(this);
     }
 
     componentDidMount() {
@@ -72,7 +76,8 @@ export default class ConsonantPage extends React.Component {
                     });
                     return el;
                 }),
-            }));
+                lastFilterWasChecked: false,
+            }), () => { this.filterCards(); });
         });
     }
 
@@ -97,7 +102,7 @@ export default class ConsonantPage extends React.Component {
     getCardsToShowQty() {
         let res = this.state.showItemsPerPage * this.state.pages;
 
-        if (res > this.state.cards.length) res = this.state.cards.length;
+        if (res > this.state.filteredCards.length) res = this.state.filteredCards.length;
 
         return res;
     }
@@ -116,6 +121,17 @@ export default class ConsonantPage extends React.Component {
         // return parseInt(this.cardsWrapper.getBoundingClientRect().top, 10);
     }
 
+    getActiveFiltersIds() {
+        const filters = this.state.filters.reduce((acc, val) => {
+            val.items.forEach((el) => {
+                if (el.selected) acc.push(el.id);
+            });
+            return acc;
+        }, []);
+
+        return filters;
+    }
+
     setInitialScrollPos() {
         this.setState({ initialScrollPos: Math.abs(this.getWrapperScrollPos()) });
     }
@@ -124,6 +140,41 @@ export default class ConsonantPage extends React.Component {
         const response = await fetch(PARAMS.LOAD_POSTS_URL);
         const json = await response.json();
         return json;
+    }
+
+    filterCards() {
+        const filters = this.getActiveFiltersIds();
+        const checkCardsApplyToFilters = (cards, selectedFilters) => {
+            const res = cards.reduce((acc, card) => {
+                let filterPassed = false;
+
+                if (
+                    card.appliesTo &&
+                    selectedFilters.every(el => card.appliesTo.some(tag => tag.id === el))
+                ) { filterPassed = true; }
+
+                if (filterPassed) acc.push(card);
+                return acc;
+            }, []);
+            return res;
+        };
+
+        // If no filters selected, we show all cards;
+        if (!filters.length) this.setState(prevState => ({ filteredCards: [...prevState.cards] }));
+
+        // If a new filter was added, we filter within previous results;
+        if (filters.length && this.state.lastFilterWasChecked) {
+            this.setState(prevState => ({
+                filteredCards: checkCardsApplyToFilters(prevState.filteredCards, filters),
+            }));
+        }
+
+        // If a new filter was added, we filter within previous results;
+        if (filters.length && !this.state.lastFilterWasChecked) {
+            this.setState(prevState => ({
+                filteredCards: checkCardsApplyToFilters(prevState.cards, filters),
+            }));
+        }
     }
 
     updateDimensions = () => {
@@ -139,20 +190,24 @@ export default class ConsonantPage extends React.Component {
     };
 
     clearFilterItems(id) {
-        this.setState(prevState => prevState.filters.map((el) => {
-            if (el.id === id) {
-                el.items.map((item) => {
-                    item.selected = false;
-                    return item;
-                });
-            }
-            return el;
-        }));
+        this.setState(prevState => ({
+            filters: prevState.filters.map((el) => {
+                if (el.id === id) {
+                    el.items.map((item) => {
+                        item.selected = false;
+                        return item;
+                    });
+                }
+                return el;
+            }),
+            lastFilterWasChecked: false,
+        }), () => { this.filterCards(); });
     }
 
     clearFilters() {
         this.setState(prevState => ({
             searchQuery: '',
+            lastFilterWasChecked: false,
             filters: prevState.filters.map((el) => {
                 el.items.map((filter) => {
                     filter.selected = false;
@@ -160,7 +215,7 @@ export default class ConsonantPage extends React.Component {
                 });
                 return el;
             }),
-        }));
+        }), () => { this.filterCards(); });
     }
 
     handleInitialScrollPos() {
@@ -201,7 +256,7 @@ export default class ConsonantPage extends React.Component {
         });
     }
 
-    handleCheckBoxChange(filterId, itemId) {
+    handleCheckBoxChange(filterId, itemId, isChecked) {
         this.setState((prevState) => {
             const list = prevState.filters.map((filter) => {
                 if (filter.id === filterId) {
@@ -217,9 +272,11 @@ export default class ConsonantPage extends React.Component {
 
             return {
                 filters: list,
+                lastFilterWasChecked: isChecked,
             };
         }, () => {
             console.log('UPDATED STATE: ', this.state);
+            this.filterCards();
         });
     }
 
@@ -250,24 +307,25 @@ export default class ConsonantPage extends React.Component {
                         <div>
                             <FiltersInfo
                                 filters={this.state.filters}
-                                cardsQty={this.state.cards.length}
-                                selectedFiltersQty={0}
+                                cardsQty={this.state.filteredCards.length}
+                                selectedFiltersQty={this.getSelectedFiltersItemsQty()}
                                 windowWidth={this.state.windowWidth}
                                 selectValues={selectValues}
                                 selelectedFilterBy={this.state.selelectedFilterBy}
                                 onSelect={this.handleSelectChange}
                                 onSearch={this.handleSearchInputChange}
-                                onMobileFiltersToggleClick={this.handleFiltersToggle} />
+                                onMobileFiltersToggleClick={this.handleFiltersToggle}
+                                onSelectedFilterClick={this.handleCheckBoxChange} />
                             {this.state.cards.length > 0 ?
                                 <Fragment>
                                     <Collection
                                         showItemsPerPage={this.state.showItemsPerPage}
                                         pages={this.state.pages}
-                                        cards={this.state.cards} />
+                                        cards={this.state.filteredCards} />
                                     <LoadMore
                                         onClick={this.setCardsToShowQty}
                                         shown={this.getCardsToShowQty()}
-                                        total={this.state.cards.length} />
+                                        total={this.state.filteredCards.length} />
                                 </Fragment> :
                                 <Loader
                                     size={LOADER_SIZE.BIG} />

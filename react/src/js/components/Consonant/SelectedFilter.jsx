@@ -7,7 +7,7 @@ const SelectedFilter = (props) => {
     } = props;
 
     const handleClick = () => {
-        onClick(parentId, id);
+        onClick(parentId, id, false);
     };
 
     return (
