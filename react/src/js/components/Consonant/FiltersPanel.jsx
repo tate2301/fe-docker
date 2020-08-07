@@ -2,13 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FilterItem from './FilterItem';
 import ConsonantSearch from '../ConsonantSearch/ConsonantSearch';
-import Loader from './Loader';
 
 const DESKTOP_MIN_WIDTH = 1200;
-const LOADER_SIZE = {
-    MEDIUM: 'medium',
-    BIG: 'big',
-};
 
 const FiltersPanel = (props) => {
     const {
@@ -81,7 +76,7 @@ const FiltersPanel = (props) => {
             </div>
             {desktopFiltersSearch}
             {
-                filters.length ?
+                filters.length > 0 &&
                     <div className="consonant-filters--list">
                         {filters.map(item =>
                             (<FilterItem
@@ -93,8 +88,7 @@ const FiltersPanel = (props) => {
                                 onCheck={onCheckboxClick}
                                 onClick={onFilterClick}
                                 onClearAll={onClearFilterItems} />))}
-                    </div> :
-                    <Loader size={LOADER_SIZE.MEDIUM} />
+                    </div>
             }
             {mobileFiltersFooter}
         </div>

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Search from './Search';
 import Select from './Select';
 import SelectedFilter from './SelectedFilter';
-import Loader from './Loader';
 
 const DESKTOP_MIN_WIDTH = 1200;
 
@@ -80,12 +79,11 @@ const FiltersInfo = (props) => {
             {desktopFiltersAsideInfo}
             {mobileAsideInfoSearch}
             {mobileAsideInfoFilterBtn}
-            {filters.length ?
+            {filters.length > 0 &&
                 <Select
                     val={selelectedFilterBy}
                     values={selectValues}
-                    onSelect={onSelect} /> :
-                <Loader />
+                    onSelect={onSelect} />
             }
             {desktopSelectedFilters}
         </aside>

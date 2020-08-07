@@ -8,6 +8,7 @@ const LOADER_SIZE = {
 
 const Loader = (props) => {
     let { size } = props;
+    const { absolute } = props;
 
     switch (size) {
         case LOADER_SIZE.MEDIUM:
@@ -21,7 +22,9 @@ const Loader = (props) => {
     }
 
     return (
-        <div className={`consonant-loader ${size}`}>
+        <div className={
+            `consonant-loader ${size} ${absolute ? 'consonant-loader_absolute' : ''}`
+        }>
             <div />
             <div />
             <div />
@@ -34,8 +37,10 @@ export default Loader;
 
 Loader.propTypes = {
     size: PropTypes.string,
+    absolute: PropTypes.bool,
 };
 
 Loader.defaultProps = {
     size: '',
+    absolute: false,
 };

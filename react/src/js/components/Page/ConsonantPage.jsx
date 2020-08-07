@@ -9,6 +9,7 @@ import Loader from '../Consonant/Loader';
 const selectValues = [
     'Popular',
     'Date',
+    'Title',
 ];
 const LOADER_SIZE = {
     MEDIUM: 'medium',
@@ -18,6 +19,7 @@ const PARAMS = {
     LOAD_POSTS_URL: 'http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v3/caas',
     SHOW_ITEMS_PER_STEP: 21,
 };
+
 let updateDimensionsTimer;
 let updateScrollPosTimer;
 
@@ -55,6 +57,7 @@ export default class ConsonantPage extends React.Component {
         this.handleInitialScrollPos = this.handleInitialScrollPos.bind(this);
         this.getActiveFiltersIds = this.getActiveFiltersIds.bind(this);
         this.filterCards = this.filterCards.bind(this);
+        this.sortCards = this.sortCards.bind(this);
     }
 
     componentDidMount() {
@@ -173,7 +176,9 @@ export default class ConsonantPage extends React.Component {
         if (filters.length && !this.state.lastFilterWasChecked) {
             this.setState(prevState => ({
                 filteredCards: checkCardsApplyToFilters(prevState.cards, filters),
-            }));
+            }), () => {
+                console.log('AAA', this.state);
+            });
         }
     }
 
@@ -188,6 +193,26 @@ export default class ConsonantPage extends React.Component {
             });
         }, awaitTime);
     };
+
+    sortCards(field) {
+        const FIELD = {
+            popular: 'title',
+            date: 'lastModified',
+            title: 'title',
+        };
+        const val = FIELD[field.trim().toLowerCase()];
+
+        if (!val) return;
+
+        const sorted = [...this.state.filteredCards].sort((a, b) => {
+            if (a[val] < b[val]) return -1;
+
+            if (a[val] > b[val]) return 1;
+            return 0;
+        });
+
+        this.setState({ filteredCards: sorted });
+    }
 
     clearFilterItems(id) {
         this.setState(prevState => ({
@@ -229,8 +254,10 @@ export default class ConsonantPage extends React.Component {
     }
 
     handleSelectChange(val) {
+        if (val === this.state.selelectedFilterBy) return;
+
         this.setState({ selelectedFilterBy: val }, () => {
-            console.log('UPDATED STATE: ', this.state);
+            this.sortCards(this.state.selelectedFilterBy);
         });
     }
 
@@ -324,11 +351,12 @@ export default class ConsonantPage extends React.Component {
                                         cards={this.state.filteredCards} />
                                     <LoadMore
                                         onClick={this.setCardsToShowQty}
-                                        shown={this.getCardsToShowQty()}
+                                        show={this.getCardsToShowQty()}
                                         total={this.state.filteredCards.length} />
                                 </Fragment> :
                                 <Loader
-                                    size={LOADER_SIZE.BIG} />
+                                    size={LOADER_SIZE.BIG}
+                                    absolute />
                             }
                         </div>
                     </div>
