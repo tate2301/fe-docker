@@ -55,7 +55,6 @@
 .consonant-page .consonant-page--inner {
   min-width: 100%;
   max-width: 100%;
-  padding-bottom: 100px;
 }
 
 /* @todo clarify if we need create-app */
@@ -882,7 +881,6 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
 
 /* .consonant-card-collection */
 .consonant-card-collection {
-  margin-bottom: 13px;
   padding-left: 30px;
   padding-right: 30px;
   overflow: hidden;
@@ -951,7 +949,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
 }
 
 .consonant-card .consonant-card--text {
-  margin: 0 0 24px;
+  margin: 0;
   padding-bottom: 30px;
   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
   font-style: normal;
@@ -960,18 +958,19 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   line-height: 16px;
   color: #747474;
   word-break: break-word;
-  border-bottom: 1px solid #EAEAEA;
 }
 
 .consonant-card .consonant-card--btn-wrapper {
   margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid #EAEAEA;
   text-align: right;
 }
 
 .consonant-card .consonant-card--btn {
   display: inline-block;
   min-width: 100px;
-  padding: 4px 12px 8px;
+  padding: 6px 12px;
   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -1162,6 +1161,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
 /* .consonant-load-more */
 .consonant-load-more {
   display: block;
+  padding-bottom: 115px;
   text-align: center;
   user-select: none;
 }
@@ -1197,6 +1197,15 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   border-radius: 30px;
   outline: 0;
   user-select: none;
+  transition:
+    color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+}
+
+.consonant-load-more--btn:hover,
+.consonant-load-more--btn:active {
+  background-color: #4B4B4B;
+  color: #fff;
 }
 
 /* consonant-loader */
@@ -1215,6 +1224,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   right: 0;
   margin: auto;
   z-index: 1000;
+  overflow: hidden;
 }
 
 .consonant-loader::after {
@@ -1238,22 +1248,22 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   height: 16px;
   border: 2px solid #2680EB;
   border-radius: 50%;
-  animation: circle 1.3s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  animation: circle 1s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: #2680EB transparent transparent transparent;
-  z-index: 1;
+  z-index: 2;
   opacity: 1;
 }
 
 .consonant-loader div:nth-child(1) {
-  animation-delay: -0.45s;
-}
-
-.consonant-loader div:nth-child(2) {
   animation-delay: -0.3s;
 }
 
+.consonant-loader div:nth-child(2) {
+  animation-delay: -0.2s;
+}
+
 .consonant-loader div:nth-child(3) {
-  animation-delay: -0.15s;
+  animation-delay: -0.1s;
 }
 
 .consonant-loader.consonant-loader_medium {
@@ -1351,6 +1361,11 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   .consonant-filters + div {
     height: calc(100vh - 174px);
   }
+
+  /* .consonant-load-more */
+  .consonant-load-more {
+    padding-bottom: 121px;
+  }
 }
 
 @media only screen and (min-width: 1200px)  {
@@ -1361,7 +1376,6 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     align-items: stretch;
     min-width: 1012px;
     max-width: 1012px;
-    padding-bottom: 35px;
   }
 
   /* .consonant-filters */
@@ -1623,6 +1637,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     /* Max container width - filters - filters margin right */
     min-width: calc(1199px - 204px - 32px);
     max-width: calc(1199px - 204px - 32px);
+    margin-bottom: 8px;
   }
 
   /* .consonant-card */
@@ -1638,6 +1653,11 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
 
   .consonant-filters + div {
     height: calc(100vh - 178px);
+  }
+
+  /* .consonant-load-more */
+  .consonant-load-more {
+    padding-bottom: 140px;
   }
 }
 

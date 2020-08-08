@@ -17,7 +17,7 @@ const LOADER_SIZE = {
 };
 const PARAMS = {
     LOAD_POSTS_URL: 'http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v3/caas',
-    SHOW_ITEMS_PER_STEP: 21,
+    SHOW_ITEMS_PER_STEP: 8,
 };
 
 let updateDimensionsTimer;
@@ -126,8 +126,7 @@ export default class ConsonantPage extends React.Component {
     }
 
     getWrapperScrollPos() {
-        return 500;
-        // return parseInt(this.cardsWrapper.getBoundingClientRect().top, 10);
+        return parseInt(this.page.getBoundingClientRect().top, 10);
     }
 
     getActiveFiltersIds() {
@@ -223,8 +222,6 @@ export default class ConsonantPage extends React.Component {
         };
         const val = FIELD[field.trim().toLowerCase()];
 
-        console.log('SO CARDS TO SORT', this.state.filteredCards);
-
         if (!val) return;
 
         const sorted = [...this.state.filteredCards].sort((a, b) => {
@@ -249,8 +246,6 @@ export default class ConsonantPage extends React.Component {
             this.state.cards.forEach((el) => {
                 let pushToRes = false;
                 const copy = { ...el };
-
-                console.log('ELLLLL > ', copy.title);
 
                 // Filter cards per title;
                 if (copy.title.toLowerCase().trim().indexOf(query) >= 0) {
@@ -372,10 +367,7 @@ export default class ConsonantPage extends React.Component {
                 filters: list,
                 lastFilterWasChecked: isChecked,
             };
-        }, () => {
-            console.log('UPDATED STATE handleCheckBoxChange: ', this.state);
-            this.filterCards();
-        });
+        }, this.filterCards);
     }
 
     handleFiltersToggle() {
@@ -388,7 +380,9 @@ export default class ConsonantPage extends React.Component {
         return (
             <Fragment>
                 <ConsonantHeader />
-                <section className="consonant-page">
+                <section
+                    ref={(page) => { this.page = page; }}
+                    className="consonant-page">
                     <div className="consonant-page--inner">
                         <FiltersPanel
                             filters={this.state.filters}
