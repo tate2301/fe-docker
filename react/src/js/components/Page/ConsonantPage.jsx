@@ -42,6 +42,7 @@ export default class ConsonantPage extends React.Component {
         };
 
         this.updateDimensions = this.updateDimensions.bind(this);
+        this.clearAllFilters = this.clearAllFilters.bind(this);
         this.clearFilters = this.clearFilters.bind(this);
         this.clearFilterItems = this.clearFilterItems.bind(this);
         this.loadData = this.loadData.bind(this);
@@ -58,6 +59,7 @@ export default class ConsonantPage extends React.Component {
         this.getActiveFiltersIds = this.getActiveFiltersIds.bind(this);
         this.filterCards = this.filterCards.bind(this);
         this.sortCards = this.sortCards.bind(this);
+        this.searchCards = this.searchCards.bind(this);
     }
 
     componentDidMount() {
@@ -70,7 +72,11 @@ export default class ConsonantPage extends React.Component {
             if (!res || !res.cards || !res.filters) return;
 
             this.setState(prevState => ({
-                cards: [...prevState.cards, ...res.cards],
+                cards: [...prevState.cards, ...res.cards.map((card) => {
+                    card.initialTitle = card.title;
+                    card.initialText = card.text;
+                    return card;
+                })],
                 filters: res.filters.map((el) => {
                     el.opened = false;
                     el.items = el.items.map((item) => {
@@ -147,6 +153,7 @@ export default class ConsonantPage extends React.Component {
 
     filterCards() {
         const filters = this.getActiveFiltersIds();
+        const query = this.state.searchQuery;
         const checkCardsApplyToFilters = (cards, selectedFilters) => {
             const res = cards.reduce((acc, card) => {
                 let filterPassed = false;
@@ -161,24 +168,38 @@ export default class ConsonantPage extends React.Component {
             }, []);
             return res;
         };
+        const applySorting = () => {
+            if (this.state.selelectedFilterBy) {
+                this.sortCards(this.state.selelectedFilterBy);
+            }
+        };
 
-        // If no filters selected, we show all cards;
-        if (!filters.length) this.setState(prevState => ({ filteredCards: [...prevState.cards] }));
+        // In case of filters were reset or q-ty decreased, we need to update search;
+        if (
+            (query && !filters.length) ||
+            (query && !this.state.lastFilterWasChecked)
+        ) { this.searchCards(); }
 
-        // If a new filter was added, we filter within previous results;
-        if (filters.length && this.state.lastFilterWasChecked) {
-            this.setState(prevState => ({
-                filteredCards: checkCardsApplyToFilters(prevState.filteredCards, filters),
-            }));
+        // If no filters selected and no search, we show all cards;
+        if (!filters.length && !query) {
+            this.setState(prevState => ({ filteredCards: [...prevState.cards] }), applySorting);
         }
 
         // If a new filter was added, we filter within previous results;
-        if (filters.length && !this.state.lastFilterWasChecked) {
+        if (
+            (filters.length && this.state.lastFilterWasChecked) ||
+            (filters.length && query)
+        ) {
             this.setState(prevState => ({
-                filteredCards: checkCardsApplyToFilters(prevState.cards, filters),
-            }), () => {
-                console.log('AAA', this.state);
-            });
+                filteredCards: checkCardsApplyToFilters([...prevState.filteredCards], filters),
+            }), applySorting);
+        }
+
+        // If a filter was removed, we search from the beginning;
+        if (filters.length && !this.state.lastFilterWasChecked && !query) {
+            this.setState(prevState => ({
+                filteredCards: checkCardsApplyToFilters([...prevState.cards], filters),
+            }), applySorting);
         }
     }
 
@@ -196,11 +217,13 @@ export default class ConsonantPage extends React.Component {
 
     sortCards(field) {
         const FIELD = {
-            popular: 'title',
+            popular: 'initialTitle',
             date: 'lastModified',
-            title: 'title',
+            title: 'initialTitle',
         };
         const val = FIELD[field.trim().toLowerCase()];
+
+        console.log('SO CARDS TO SORT', this.state.filteredCards);
 
         if (!val) return;
 
@@ -212,6 +235,44 @@ export default class ConsonantPage extends React.Component {
         });
 
         this.setState({ filteredCards: sorted });
+    }
+
+    searchCards() {
+        const query = this.state.searchQuery;
+        const results = [];
+        const highlightText = (text, val) => text.replace(new RegExp(val, 'gi'), value => `<span class="consonant-search-result">${value}</span>`);
+
+        // In case we reset search, just show all results;
+        if (!query) {
+            this.setState(prevState => ({ filteredCards: [...prevState.cards] }));
+        } else {
+            this.state.cards.forEach((el) => {
+                let pushToRes = false;
+                const copy = { ...el };
+
+                console.log('ELLLLL > ', copy.title);
+
+                // Filter cards per title;
+                if (copy.title.toLowerCase().trim().indexOf(query) >= 0) {
+                    copy.title = highlightText(copy.title, query);
+                    pushToRes = true;
+                }
+
+                // Filter cards per text;
+                if (copy.text.toLowerCase().trim().indexOf(query) >= 0) {
+                    copy.text = highlightText(copy.text, query);
+                    pushToRes = true;
+                }
+
+                if (pushToRes) results.push(copy);
+            });
+
+            this.setState({ filteredCards: results }, () => {
+                if (this.state.selelectedFilterBy) {
+                    this.sortCards(this.state.selelectedFilterBy);
+                }
+            });
+        }
     }
 
     clearFilterItems(id) {
@@ -231,8 +292,6 @@ export default class ConsonantPage extends React.Component {
 
     clearFilters() {
         this.setState(prevState => ({
-            searchQuery: '',
-            lastFilterWasChecked: false,
             filters: prevState.filters.map((el) => {
                 el.items.map((filter) => {
                     filter.selected = false;
@@ -240,7 +299,18 @@ export default class ConsonantPage extends React.Component {
                 });
                 return el;
             }),
-        }), () => { this.filterCards(); });
+        }));
+    }
+
+    clearAllFilters() {
+        this.clearFilters();
+        this.setState({
+            searchQuery: '',
+            lastFilterWasChecked: false,
+        }, () => {
+            this.searchCards();
+            this.filterCards();
+        });
     }
 
     handleInitialScrollPos() {
@@ -262,10 +332,11 @@ export default class ConsonantPage extends React.Component {
     }
 
     handleSearchInputChange(val) {
+        this.clearFilters();
         this.setState({
-            searchQuery: val,
+            searchQuery: val.toLowerCase().trim(),
         }, () => {
-            console.log('UPDATED STATE: ', this.state);
+            this.searchCards();
         });
     }
 
@@ -302,7 +373,7 @@ export default class ConsonantPage extends React.Component {
                 lastFilterWasChecked: isChecked,
             };
         }, () => {
-            console.log('UPDATED STATE: ', this.state);
+            console.log('UPDATED STATE handleCheckBoxChange: ', this.state);
             this.filterCards();
         });
     }
@@ -326,7 +397,7 @@ export default class ConsonantPage extends React.Component {
                             searchQuery={this.state.searchQuery}
                             cardsQty={this.state.cards.length}
                             onFilterClick={this.handleFilterItemClick}
-                            onClearAllFilters={this.clearFilters}
+                            onClearAllFilters={this.clearAllFilters}
                             onClearFilterItems={this.clearFilterItems}
                             onCheckboxClick={this.handleCheckBoxChange}
                             onMobileFiltersToggleClick={this.handleFiltersToggle}

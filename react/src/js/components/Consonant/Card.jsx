@@ -13,10 +13,18 @@ const Card = (props) => {
                 style={{ backgroundImage: `url(${image})` }} />
             <div className="consonant-card--inner">
                 <span className="consonant-card--label">{label}</span>
-                <h2 className="consonant-card--title">{title}</h2>
-                <p className="consonant-card--text">{text}</p>
+                <h2
+                    className="consonant-card--title"
+                    dangerouslySetInnerHTML={{ __html: title }} />
+                <p
+                    className="consonant-card--text"
+                    dangerouslySetInnerHTML={{ __html: text }} />
                 <div className="consonant-card--btn-wrapper">
-                    <a href={ctaLink} className="consonant-card--btn">{ctaText}</a>
+                    <a
+                        href={ctaLink}
+                        target="_blank"
+                        className="consonant-card--btn">{ctaText}
+                    </a>
                 </div>
             </div>
         </div>

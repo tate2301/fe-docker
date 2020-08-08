@@ -1610,7 +1610,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     max-width: 1199px;
   }
 
-  ..consonant-filters-info {
+  .consonant-filters-info {
     min-width: calc(1199px - 204px - 32px);
     max-width: calc(1199px - 204px - 32px);
   }
@@ -1650,4 +1650,8 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.consonant-search-result {
+  background-color: rgba(250, 124, 19, 0.4);
 }
