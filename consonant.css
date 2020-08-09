@@ -234,6 +234,8 @@
 }
 
 .consonant-filters .consonant-filters--mobile-footer-total-res {
+  display: block;
+  margin-right: auto;
   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -245,7 +247,6 @@
 
 .consonant-filters .consonant-filters--mobile-footer-clear {
   display: block;
-  margin-left: auto;
   margin-right: 17px;
   padding: 0;
   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
@@ -260,7 +261,8 @@
 }
 
 .consonant-filters .consonant-filters--mobile-footer-btn {
-  padding: 6px 16px 10px;
+  min-width: 71px;
+  padding: 8px 16px 8px;
   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -316,15 +318,44 @@
   background-color: rgba(80, 80, 80, 0.8);
 }
 
-.consonant-filters--item.consonant-filters--item_opened
-.consonant-filters--item-list-mob-footer {
+.consonant-filters .consonant-filters--item .consonant-filters--item-inner {
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.consonant-filters .consonant-filters--item-inner .consonant-filters--mobile-footer {
+  display: none;
+}
+
+.consonant-filters--item.consonant-filters--item_opened .consonant-filters--item-inner
+.consonant-filters--mobile-footer {
   display: flex;
 }
 
-.consonant-filters .consonant-filters--item .consonant-filters--item-inner {
+.consonant-filters .consonant-filters--item.consonant-filters--item_opened .consonant-filters--item-inner {
+  position: relative;
+  box-shadow: 0px 3px 15px #5050501A;
+  border: 1px solid #EAEAEA;
+  border-radius: 4px;
+}
+
+.consonant-filters .consonant-filters--item.consonant-filters--item_opened .consonant-filters--item-inner::after {
+  content: '';
+  position: absolute;
+  display: block;
   width: 100%;
-  background-color: #fff;
-  border-radius: 5px;
+  height: 33px;
+  bottom: 65px;
+  left: 0;
+  right: 0;
+  background: transparent linear-gradient(180deg, #FFFFFF00 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box;
+  z-index: 1;
 }
 
 .consonant-filters .consonant-filters--item.consonant-filters--item_opened
@@ -332,9 +363,6 @@
   display: block;
   margin-top: auto;
   min-height: 50vh;
-  max-height: 80vh;
-  padding-left: 20px;
-  padding-right: 20px;
   border-top: 1px solid #EAEAEA;
   overflow-y: auto;
 }
@@ -356,11 +384,11 @@
 .consonant-filters .consonant-filters--item-list-item {
   display: flex;
   align-items: baseline;
-  margin-bottom: 2px;
+  transition: background-color 0.3s ease-in-out;
 }
 
-.consonant-filters .consonant-filters--item-list-item:last-of-type {
-  margin-bottom: 0;
+.consonant-filters .consonant-filters--item-list-item:hover {
+  background-color: #F4F4F4;
 }
 
 .consonant-filters .consonant-filters--item-list-item label {
@@ -368,8 +396,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  padding-top: 17px;
-  padding-bottom: 0;
+  padding: 8px 20px 6px;
   cursor: pointer;
 }
 
@@ -421,38 +448,15 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
 }
 
 .consonant-filters .consonant-filters--item-list-item-name {
+  padding-bottom: 1px;
   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 15px;
-  line-height: 18px;
+  font-size: 14px;
+  line-height: 19px;
   color: #505050;
   text-transform: capitalize;
   word-break: break-word;
-}
-
-.consonant-filters .consonant-filters--item-list-mob-footer {
-  display: none;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  padding: 16px 20px;
-  border-top: 1px solid #EAEAEA;
-}
-
-.consonant-filters .consonant-filters--item-list-mob-footer-btn {
-  padding: 6px 16px 10px;
-  font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 16px;
-  color: #FFFFFF;
-  text-transform: capitalize;
-  background-color: #1473E6;
-  border: 0;
-  border-radius: 20px;
-  outline: 0;
 }
 
 /* .consonant-search */
@@ -827,7 +831,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   word-break: break-word;
   border: 1px solid #EAEAEA;
   background-color: #fff;
-  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.149);
+  box-shadow: 0px 3px 15px #5050501A;
   transition: all 0.3s ease-in-out;
   z-index: -1;
   border-radius: 5px;
@@ -839,10 +843,14 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   z-index: 1;
 }
 
+.consonant-select input:not(:focus) + .consonant-select--options {
+  transition-delay: 0.5s;
+}
+
 .consonant-select .consonant-select--option {
   display: block;
   width: 100%;
-  padding: 6px 10px 10px;
+  padding: 9px 24px 9px 20px;
   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -857,26 +865,28 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
 
 .consonant-select .consonant-select--option.consonant-select--option_selected {
   position: relative;
+  color: #2680EB;
+  font-weight: 700;
 }
 
 .consonant-select .consonant-select--option.consonant-select--option_selected::after {
   content: '';
   position: absolute;
-  width: 9px;
-  height: 4px;
+  width: 10px;
+  height: 5px;
   top: 0;
   bottom: 0;
-  right: 13px;
+  right: 16px;
   margin: auto;
-  border: 1px solid #2680EB;
+  border: 2px solid #1473E6;
   border-top: 0;
   border-right: 0;
-  transform: rotate(-45deg);
+  transform: rotate(-45deg) translate3d(1px, -2px, 0);
   pointer-events: none;
 }
 
 .consonant-select .consonant-select--option:hover {
-  background-color: #f7f7f7;
+  background-color: #F4F4F4;
 }
 
 /* .consonant-card-collection */
@@ -1210,10 +1220,13 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
 
 /* consonant-loader */
 .consonant-loader {
+  box-sizing: border-box;
   display: inline-block;
   position: relative;
   width: 16px;
   height: 16px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .consonant-loader.consonant-loader_absolute {
@@ -1224,7 +1237,6 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   right: 0;
   margin: auto;
   z-index: 1000;
-  overflow: hidden;
 }
 
 .consonant-loader::after {
@@ -1247,23 +1259,25 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   width: 16px;
   height: 16px;
   border: 2px solid #2680EB;
-  border-radius: 50%;
-  animation: circle 1s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-radius: 100%;
+  animation: circle 1s ease-in infinite;
+  transform-origin: 50% 50%;
   border-color: #2680EB transparent transparent transparent;
   z-index: 2;
   opacity: 1;
+  overflow: visible;
 }
 
 .consonant-loader div:nth-child(1) {
-  animation-delay: -0.3s;
+  animation-delay: -0.1s;
 }
 
 .consonant-loader div:nth-child(2) {
-  animation-delay: -0.2s;
+  animation-delay: -0.14s;
 }
 
 .consonant-loader div:nth-child(3) {
-  animation-delay: -0.1s;
+  animation-delay: -0.14s;
 }
 
 .consonant-loader.consonant-loader_medium {
@@ -1382,7 +1396,6 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   .consonant-filters-info .consonant-filters-info--btn,
   .consonant-filters .consonant-filters--mobile-footer,
   .consonant-filters .consonant-filters--item-selcted-items,
-  .consonant-filters--item.consonant-filters--item_opened .consonant-filters--item-list-mob-footer,
   .consonant-filters .consonant-filters--mob-title,
   .consonant-filters-info .consonant-filters-info--search {
     display: none;
@@ -1487,9 +1500,19 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     overflow: hidden;
   }
 
+  .consonant-filters .consonant-filters--item.consonant-filters--item_opened
+  .consonant-filters--item-inner {
+    box-shadow: none;
+    border: 0;
+  }
+
   .consonant-filters
   .consonant-filters--item.consonant-filters--item_opened .consonant-filters--item-list {
     border-color: transparent;
+  }
+
+  .consonant-filters .consonant-filters--item-list-item label {
+    padding: 6px 8px;
   }
 
   .consonant-filters .consonant-filters--item-name a {
@@ -1525,9 +1548,15 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     border-radius: 0;
   }
 
+  .consonant-filters--item.consonant-filters--item_opened .consonant-filters--item-inner 
+  .consonant-filters--mobile-footer,
+  .consonant-filters--item .consonant-filters--item-inner .consonant-filters--mobile-footer {
+    display: none;
+  }
+
   .consonant-filters .consonant-filters--item.consonant-filters--item_opened
   .consonant-filters--item-name a {
-    padding: 16px 36px 16px 0;
+    padding: 16px 36px 8px 0;
     color: #707070;
   }
 
@@ -1535,8 +1564,6 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   .consonant-filters--item-list {
     min-height: unset;
     max-height: unset;
-    padding-left: 8px;
-    padding-right: 11px;
     overflow: hidden;
   }
 
@@ -1545,10 +1572,19 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     line-height: 16px;
   }
 
+  .consonant-filters .consonant-filters--item.consonant-filters--item_opened 
+  .consonant-filters--item-inner::after {
+    display: none;
+  }
+
   /* .consonant-select */
   .consonant-select {
     width: 98px;
     margin-bottom: 0;
+  }
+
+  .consonant-select--options {
+    min-width: 108px;
   }
 
   .consonant-select input {
@@ -1667,6 +1703,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   0% {
     transform: rotate(0deg);
   }
+  70%,
   100% {
     transform: rotate(360deg);
   }

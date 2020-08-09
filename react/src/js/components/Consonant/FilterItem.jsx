@@ -3,7 +3,15 @@ import PropTypes from 'prop-types';
 
 const FilterItem = (props) => {
     const {
-        name, id, items, isOpened, onCheck, onClick, onClearAll,
+        name,
+        id,
+        items,
+        itemsSelected,
+        isOpened,
+        onCheck,
+        onClick,
+        onClearAll,
+        results,
     } = props;
     const handleCheck = (evt) => {
         onCheck(id, evt.target.value, evt.target.checked);
@@ -15,13 +23,12 @@ const FilterItem = (props) => {
     const handleClear = () => {
         onClearAll(id);
     };
-    const countFilters = () => items.reduce((acc, val) => (val.selected ? acc + 1 : acc), 0);
-    const renderSelecedFilter = () => countFilters() > 0 && (
+    const renderSelecedFilter = () => itemsSelected > 0 && (
         <button
             type="button"
             className="consonant-filters--item-badge"
             onClick={handleClear}>
-            {countFilters()}
+            {itemsSelected}
         </button>
     );
 
@@ -35,7 +42,7 @@ const FilterItem = (props) => {
                         {name}
                         <div
                             className="consonant-filters--item-selcted-items"
-                            data-qty={countFilters() > 0 ? `+${countFilters()}` : ''}>
+                            data-qty={itemsSelected > 0 ? `+${itemsSelected}` : ''}>
                             {items.map((item, idx) => {
                                 let res = '';
 
@@ -65,10 +72,21 @@ const FilterItem = (props) => {
                         </li>
                     ))}
                 </ul>
-                <div className="consonant-filters--item-list-mob-footer">
+                <div className="consonant-filters--mobile-footer">
+                    <span className="consonant-filters--mobile-footer-total-res">{results} results</span>
+                    {
+                        itemsSelected > 0 &&
+                        <button
+                            type="button"
+                            onClick={handleClear}
+                            className="consonant-filters--mobile-footer-clear">Clear
+                        </button>
+                    }
                     <button
+                        type="button"
                         onClick={handleClick}
-                        className="consonant-filters--item-list-mob-footer-btn">done
+                        className="consonant-filters--mobile-footer-btn">
+                        {itemsSelected > 0 ? 'Apply' : 'Done'}
                     </button>
                 </div>
             </div>
@@ -85,9 +103,12 @@ FilterItem.propTypes = {
     onClick: PropTypes.func.isRequired,
     onClearAll: PropTypes.func.isRequired,
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
+    itemsSelected: PropTypes.number,
     isOpened: PropTypes.bool,
+    results: PropTypes.number.isRequired,
 };
 
 FilterItem.defaultProps = {
     isOpened: false,
+    itemsSelected: 0,
 };

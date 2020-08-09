@@ -34,7 +34,7 @@ export default class ConsonantPage extends React.Component {
             filters: [],
             lastFilterWasChecked: false,
             searchQuery: '',
-            selelectedFilterBy: '',
+            selelectedFilterBy: 'Popular',
             initialScrollPos: 0,
             showItemsPerPage: PARAMS.SHOW_ITEMS_PER_STEP,
             windowWidth: window.innerWidth,
@@ -390,6 +390,7 @@ export default class ConsonantPage extends React.Component {
                             showMobileFilters={this.state.showMobileFilters}
                             searchQuery={this.state.searchQuery}
                             cardsQty={this.state.cards.length}
+                            resQty={this.state.filteredCards.length}
                             onFilterClick={this.handleFilterItemClick}
                             onClearAllFilters={this.clearAllFilters}
                             onClearFilterItems={this.clearFilterItems}
@@ -405,6 +406,7 @@ export default class ConsonantPage extends React.Component {
                                 selectValues={selectValues}
                                 selelectedFilterBy={this.state.selelectedFilterBy}
                                 onSelect={this.handleSelectChange}
+                                searchQuery={this.state.searchQuery}
                                 onSearch={this.handleSearchInputChange}
                                 onMobileFiltersToggleClick={this.handleFiltersToggle}
                                 onSelectedFilterClick={this.handleCheckBoxChange} />

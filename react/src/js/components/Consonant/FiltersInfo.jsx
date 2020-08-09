@@ -16,6 +16,7 @@ const FiltersInfo = (props) => {
         selectValues,
         onSelect,
         onSearch,
+        searchQuery,
         onSelectedFilterClick,
         onMobileFiltersToggleClick,
     } = props;
@@ -23,6 +24,7 @@ const FiltersInfo = (props) => {
     <div className="consonant-filters-info--search">
         <Search
             itemsQty={cardsQty}
+            value={searchQuery}
             onSearch={onSearch} />
     </div>
     );
@@ -99,6 +101,7 @@ FiltersInfo.propTypes = {
     windowWidth: PropTypes.number,
     selectValues: PropTypes.arrayOf(PropTypes.string).isRequired,
     selelectedFilterBy: PropTypes.string,
+    searchQuery: PropTypes.string,
     onSearch: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired,
     onMobileFiltersToggleClick: PropTypes.func.isRequired,
@@ -108,6 +111,7 @@ FiltersInfo.propTypes = {
 FiltersInfo.defaultProps = {
     filters: [],
     cardsQty: 0,
+    searchQuery: '',
     selectedFiltersQty: 0,
     windowWidth: window.innerWidth,
     selelectedFilterBy: '',

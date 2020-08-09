@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FilterItem from './FilterItem';
-import ConsonantSearch from '../ConsonantSearch/ConsonantSearch';
+import Search from './Search';
 
 const DESKTOP_MIN_WIDTH = 1200;
 
@@ -18,7 +18,11 @@ const FiltersPanel = (props) => {
         onCheckboxClick,
         onMobileFiltersToggleClick,
         onSearch,
+        resQty,
     } = props;
+
+    const countSelectedInFilter = el => el.reduce((acc, val) => (val.selected ? acc + 1 : acc), 0);
+    const checkFilterSelected = () => filters.some(f => countSelectedInFilter(f.items) > 0);
 
     const mobileFiltersTitle = (windowWidth < DESKTOP_MIN_WIDTH &&
         <div className="consonant-filters--mob-title">
@@ -41,23 +45,27 @@ const FiltersPanel = (props) => {
         </button>
     );
     const desktopFiltersSearch = (windowWidth >= DESKTOP_MIN_WIDTH &&
-        <ConsonantSearch
+        <Search
             itemsQty={cardsQty}
             value={searchQuery}
             onSearch={onSearch} />
     );
     const mobileFiltersFooter = (windowWidth < DESKTOP_MIN_WIDTH &&
         <div className="consonant-filters--mobile-footer">
-            <span className="consonant-filters--mobile-footer-total-res">231 results</span>
-            <button
-                type="button"
-                className="consonant-filters--mobile-footer-clear"
-                onClick={onClearAllFilters}>Clear all
-            </button>
+            <span className="consonant-filters--mobile-footer-total-res">{resQty} results</span>
+            {
+                checkFilterSelected() &&
+                <button
+                    type="button"
+                    className="consonant-filters--mobile-footer-clear"
+                    onClick={onClearAllFilters}>Clear all
+                </button>
+            }
             <button
                 type="button"
                 className="consonant-filters--mobile-footer-btn"
-                onClick={onMobileFiltersToggleClick}>apply
+                onClick={onMobileFiltersToggleClick}>
+                {checkFilterSelected() ? 'Apply' : 'Done'}
             </button>
         </div>
     );
@@ -83,6 +91,8 @@ const FiltersPanel = (props) => {
                                 key={item.id}
                                 name={item.group}
                                 items={item.items}
+                                itemsSelected={countSelectedInFilter(item.items)}
+                                results={resQty}
                                 id={item.id}
                                 isOpened={item.opened}
                                 onCheck={onCheckboxClick}
@@ -109,6 +119,7 @@ FiltersPanel.propTypes = {
     onCheckboxClick: PropTypes.func.isRequired,
     onMobileFiltersToggleClick: PropTypes.func.isRequired,
     onSearch: PropTypes.func.isRequired,
+    resQty: PropTypes.number,
 };
 
 FiltersPanel.defaultProps = {
@@ -117,4 +128,5 @@ FiltersPanel.defaultProps = {
     showMobileFilters: false,
     searchQuery: '',
     cardsQty: 0,
+    resQty: 0,
 };
