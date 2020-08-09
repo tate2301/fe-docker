@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import 'whatwg-fetch';
 import Collection from '../Consonant/Collection';
 import FiltersPanel from '../Consonant/FiltersPanel';
 import ConsonantHeader from '../Consonant/Header';
@@ -145,7 +146,7 @@ export default class ConsonantPage extends React.Component {
     }
 
     async loadData() {
-        const response = await fetch(PARAMS.LOAD_POSTS_URL);
+        const response = await window.fetch(PARAMS.LOAD_POSTS_URL);
         const json = await response.json();
         return json;
     }
