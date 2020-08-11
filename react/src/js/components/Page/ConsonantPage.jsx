@@ -1,4 +1,6 @@
+/* eslint-disable react/no-unused-prop-types,semi */
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import 'whatwg-fetch';
 import Collection from '../Consonant/Collection';
 import FiltersPanel from '../Consonant/FiltersPanel';
@@ -27,6 +29,8 @@ let updateScrollPosTimer;
 export default class ConsonantPage extends React.Component {
     constructor(props) {
         super(props);
+
+        this.props = props;
 
         this.state = {
             cards: [],
@@ -61,6 +65,7 @@ export default class ConsonantPage extends React.Component {
         this.filterCards = this.filterCards.bind(this);
         this.sortCards = this.sortCards.bind(this);
         this.searchCards = this.searchCards.bind(this);
+        console.log(props.config);
     }
 
     componentDidMount() {
@@ -380,7 +385,7 @@ export default class ConsonantPage extends React.Component {
     render() {
         return (
             <Fragment>
-                <ConsonantHeader />
+                {this.props.config.headerEnabled && <ConsonantHeader />}
                 <section
                     ref={(page) => { this.page = page; }}
                     className="consonant-page">
@@ -433,3 +438,17 @@ export default class ConsonantPage extends React.Component {
         );
     }
 }
+
+ConsonantPage.propTypes = {
+    config: PropTypes.shape({
+        poc_label: PropTypes.string,
+        headerEnabled: PropTypes.bool,
+    }),
+};
+
+ConsonantPage.defaultProps = {
+    config: {
+        poc_label: 'Default value',
+        headerEnabled: true,
+    },
+};
