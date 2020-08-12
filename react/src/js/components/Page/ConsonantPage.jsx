@@ -24,7 +24,7 @@ const PARAMS = {
 };
 
 let updateDimensionsTimer;
-let updateScrollPosTimer;
+// let updateScrollPosTimer;
 
 export default class ConsonantPage extends React.Component {
     constructor(props) {
@@ -40,7 +40,7 @@ export default class ConsonantPage extends React.Component {
             lastFilterWasChecked: false,
             searchQuery: '',
             selelectedFilterBy: 'Popular',
-            initialScrollPos: 0,
+            // initialScrollPos: 0,
             showItemsPerPage: PARAMS.SHOW_ITEMS_PER_STEP,
             windowWidth: window.innerWidth,
             showMobileFilters: false,
@@ -69,9 +69,9 @@ export default class ConsonantPage extends React.Component {
     }
 
     componentDidMount() {
-        this.setInitialScrollPos();
-        window.addEventListener('resize', this.updateDimensions);
-        window.addEventListener('resize', this.handleInitialScrollPos);
+        // this.setInitialScrollPos();
+        // window.addEventListener('resize', this.updateDimensions);
+        // window.addEventListener('resize', this.handleInitialScrollPos);
 
         // Load data on init;
         this.loadData().then((res) => {
@@ -97,8 +97,8 @@ export default class ConsonantPage extends React.Component {
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', this.updateDimensions);
-        window.removeEventListener('resize', this.handleInitialScrollPos);
+        // window.removeEventListener('resize', this.updateDimensions);
+        // window.removeEventListener('resize', this.handleInitialScrollPos);
     }
 
     getSelectedFiltersItemsQty() {
@@ -123,12 +123,12 @@ export default class ConsonantPage extends React.Component {
     }
 
     setCardsToShowQty() {
-        const currentPos = this.getWrapperScrollPos();
-        this.setState(prevState => ({
-            pages: prevState.pages + 1,
-        }), () => {
-            window.scrollTo(0, Math.abs(currentPos) + this.state.initialScrollPos);
-        });
+        // const currentPos = this.getWrapperScrollPos();
+        // this.setState(prevState => ({
+        //     pages: prevState.pages + 1,
+        // }), () => {
+        //     window.scrollTo(0, Math.abs(currentPos) + this.state.initialScrollPos);
+        // });
     }
 
     getWrapperScrollPos() {
@@ -147,7 +147,7 @@ export default class ConsonantPage extends React.Component {
     }
 
     setInitialScrollPos() {
-        this.setState({ initialScrollPos: Math.abs(this.getWrapperScrollPos()) });
+        // this.setState({ initialScrollPos: Math.abs(this.getWrapperScrollPos()) });
     }
 
     async loadData() {
@@ -315,13 +315,13 @@ export default class ConsonantPage extends React.Component {
     }
 
     handleInitialScrollPos() {
-        const awaitTime = 100;
-
-        window.clearTimeout(updateScrollPosTimer);
-        updateScrollPosTimer = window.setTimeout(() => {
-            window.scrollTo(0, 0);
-            this.setInitialScrollPos();
-        }, awaitTime);
+        // const awaitTime = 100;
+        //
+        // window.clearTimeout(updateScrollPosTimer);
+        // updateScrollPosTimer = window.setTimeout(() => {
+        //     window.scrollTo(0, 0);
+        //     this.setInitialScrollPos();
+        // }, awaitTime);
     }
 
     handleSelectChange(val) {
