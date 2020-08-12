@@ -319,18 +319,20 @@ export default class ConsonantPage extends React.Component {
                 <ConsonantHeader />
                 <section className="consonant-page">
                     <div className="consonant-page--inner">
-                        <FiltersPanel
-                            filters={this.state.filters}
-                            windowWidth={this.state.windowWidth}
-                            showMobileFilters={this.state.showMobileFilters}
-                            searchQuery={this.state.searchQuery}
-                            cardsQty={this.state.cards.length}
-                            onFilterClick={this.handleFilterItemClick}
-                            onClearAllFilters={this.clearFilters}
-                            onClearFilterItems={this.clearFilterItems}
-                            onCheckboxClick={this.handleCheckBoxChange}
-                            onMobileFiltersToggleClick={this.handleFiltersToggle}
-                            onSearch={this.handleSearchInputChange} />
+                        <span>
+                            <FiltersPanel
+                                filters={this.state.filters}
+                                windowWidth={this.state.windowWidth}
+                                showMobileFilters={this.state.showMobileFilters}
+                                searchQuery={this.state.searchQuery}
+                                cardsQty={this.state.cards.length}
+                                onFilterClick={this.handleFilterItemClick}
+                                onClearAllFilters={this.clearFilters}
+                                onClearFilterItems={this.clearFilterItems}
+                                onCheckboxClick={this.handleCheckBoxChange}
+                                onMobileFiltersToggleClick={this.handleFiltersToggle}
+                                onSearch={this.handleSearchInputChange} />
+                        </span>
                         <div>
                             <FiltersInfo
                                 filters={this.state.filters}
