@@ -15,7 +15,7 @@ const Card = (props) => {
                     <a href="/">{title}</a>
                 </h2>
                 <p className="consonant-card--text">{text}</p>
-                <div className="consonant-card--btn-wrapper">
+                <div className="consonant-card--footer-wrapper">
                     <a href="/" className="consonant-card--btn">Learn more</a>
                 </div>
             </div>

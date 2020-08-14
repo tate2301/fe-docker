@@ -19,6 +19,7 @@ const Card = (props) => {
         bannerFontColor,
         bannerBackgroundColor,
         bannerIcon,
+        secondaryLabelText,
     } = props;
 
     return (
@@ -29,7 +30,7 @@ const Card = (props) => {
                 {
                     bannerDescription &&
                     <span
-                        class="consonant-card--banner"
+                        className="consonant-card--banner"
                         style={({
                             backgroundColor: bannerBackgroundColor,
                             color: bannerFontColor,
@@ -55,7 +56,21 @@ const Card = (props) => {
                 <p
                     className="consonant-card--text"
                     dangerouslySetInnerHTML={{ __html: text }} />
-                <div className="consonant-card--btn-wrapper">
+                <div className="consonant-card--footer-wrapper">
+                    <div className="consonant-card--footer-info">
+                        <button
+                            type="button"
+                            className="consonant-card--footer-btn"
+                            title="Click to bookmark">
+                            <svg width="16" height="12">
+                                <use href="#bookmark" />
+                            </svg>
+                        </button>
+                        {
+                            secondaryLabelText &&
+                            <span className="consonant-card--secondary-text">{secondaryLabelText}</span>
+                        }
+                    </div>
                     <a
                         href={ctaLink}
                         target="_blank"
@@ -81,6 +96,7 @@ Card.propTypes = {
     bannerFontColor: PropTypes.string,
     bannerBackgroundColor: PropTypes.string,
     bannerIcon: PropTypes.string,
+    secondaryLabelText: PropTypes.string,
 };
 
 Card.defaultProps = {
@@ -88,4 +104,5 @@ Card.defaultProps = {
     bannerBackgroundColor: bannerDefaults.bg,
     bannerIcon: '',
     bannerDescription: '',
+    secondaryLabelText: '',
 };
