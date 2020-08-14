@@ -13,6 +13,7 @@
   brown-grey: #505050;
   dark-grey: #323232;
   blue: #1473E6;
+  light-blue: #1492E6;
   greyish-white: #FDFDFD;
   white: #fff;
   blue: #2680EB;
@@ -39,6 +40,7 @@
 - .consonant-loader_medium;
 - .consonant-loader_big;
 - .consonant-loader_absolute;
+- .consonant-filters--bookmarks_selected;
 */
 
 /* .consonant-page */
@@ -98,7 +100,8 @@
 }
 
 .consonant-filters.consonant-filters_opened .consonant-filters--mobile-footer,
-.consonant-filters.consonant-filters_opened .consonant-filters--header {
+.consonant-filters.consonant-filters_opened .consonant-filters--header,
+.consonant-filters.consonant-filters_opened .consonant-filters--bookmarks {
   display: flex;
 }
 
@@ -458,6 +461,75 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   color: #505050;
   text-transform: capitalize;
   word-break: break-word;
+}
+
+/* consonant-filters - bookmarks */
+.consonant-filters--bookmarks {
+  position: relative;
+  margin-top: auto;
+  padding: 17px 16px;
+}
+
+.consonant-filters--bookmarks-btn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+}
+
+.consonant-filters--bookmarks-btn svg {
+  width: 16px;
+  height: 14px;
+  margin-right: 6px;
+  fill: transparent;
+  stroke: #707070;
+  stroke-width: 1;
+  transition: fill 0.3s ease-in-out, stroke 0.3s ease-in-out;
+}
+
+.consonant-filters--bookmarks + .consonant-filters--mobile-footer {
+  margin-top: 0;
+}
+
+.consonant-filters--bookmarks-title {
+  display: block;
+  padding-right: 36px;
+  font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 700;
+  color: #505050;
+  word-break: break-word;
+}
+
+.consonant-filters .consonant-filters--bookmarks
+.consonant-filters--item-badge {
+  display: block;
+  top: 0;
+  bottom: 0;
+  right: 16px;
+  margin: auto;
+}
+
+.consonant-filters--bookmarks.consonant-filters--bookmarks_selected
+.consonant-filters--item-badge {
+  font-size: 0;
+  line-height: 0;
+}
+
+.consonant-filters--bookmarks.consonant-filters--bookmarks_selected
+.consonant-filters--item-badge::before,
+.consonant-filters--bookmarks.consonant-filters--bookmarks_selected
+.consonant-filters--item-badge::after {
+  opacity: 1;
+}
+
+.consonant-filters--bookmarks.consonant-filters--bookmarks_selected svg {
+  fill: #1492E6;
+  stroke: #1492E6;
 }
 
 /* .consonant-search */
@@ -1496,6 +1568,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     margin-top: -6px;
     padding: 0 0 24px;
     border-bottom: 1px solid #EAEAEA;
+    order: -3;
   }
 
   .consonant-filters .consonant-filters--item-badge,
@@ -1667,6 +1740,42 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     display: none;
   }
 
+  /* consonant-filters - bookmarks */
+  .consonant-filters--bookmarks {
+    display: flex;
+    margin-top: -1px;
+    padding: 19px 0 14px;
+    order: -1;
+    background-color: #fff;
+  }
+
+  .consonant-filters--bookmarks.consonant-filters--bookmarks_selected
+  .consonant-filters--item-badge {
+    right: 30px;
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  .consonant-filters--bookmarks.consonant-filters--bookmarks_selected
+  .consonant-filters--item-badge::before,
+  .consonant-filters--bookmarks.consonant-filters--bookmarks_selected
+  .consonant-filters--item-badge::after {
+    opacity: 0;
+  }
+
+  .consonant-filters--bookmarks.consonant-filters--bookmarks_selected
+  .consonant-filters--item-badge:hover {
+    font-size: 0;
+    line-height: 0;
+  }
+
+  .consonant-filters--bookmarks.consonant-filters--bookmarks_selected
+  .consonant-filters--item-badge:hover::before,
+  .consonant-filters--bookmarks.consonant-filters--bookmarks_selected
+  .consonant-filters--item-badge:hover::after {
+    opacity: 1;
+  }
+
   /* .consonant-select */
   .consonant-select {
     width: 98px;
@@ -1688,6 +1797,10 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   }
 
   /* .consonant-search */
+  .consonant-search {
+    order: -2;
+  }
+
   .consonant-search .consonant-search--input-title {
     display: block;
   }

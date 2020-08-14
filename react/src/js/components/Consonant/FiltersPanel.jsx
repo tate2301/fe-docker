@@ -100,6 +100,19 @@ const FiltersPanel = (props) => {
                                 onClearAll={onClearFilterItems} />))}
                     </div>
             }
+            <div className="consonant-filters--bookmarks consonant-filters--bookmarks_selected">
+                <button
+                    type="button"
+                    className="consonant-filters--bookmarks-btn">
+                    <svg
+                        width="16"
+                        height="14"
+                        className="consonant-filters--bookmarks-ico"><use href="#heart" />
+                    </svg>
+                    <span className="consonant-filters--bookmarks-title">My favorites</span>
+                </button>
+                <button type="button" className="consonant-filters--item-badge">50</button>
+            </div>
             {mobileFiltersFooter}
         </div>
     );

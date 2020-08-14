@@ -390,7 +390,7 @@ export default class ConsonantPage extends React.Component {
                     ref={(page) => { this.page = page; }}
                     className="consonant-page">
                     <div className="consonant-page--inner">
-                        <span>
+                        <div>
                             <FiltersPanel
                                 filters={this.state.filters}
                                 windowWidth={this.state.windowWidth}
@@ -404,7 +404,7 @@ export default class ConsonantPage extends React.Component {
                                 onCheckboxClick={this.handleCheckBoxChange}
                                 onMobileFiltersToggleClick={this.handleFiltersToggle}
                                 onSearch={this.handleSearchInputChange} />
-                        </span>
+                        </div>
                         <div>
                             <FiltersInfo
                                 filters={this.state.filters}
