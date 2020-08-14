@@ -11,9 +11,9 @@ const Card = (props) => {
         id,
         title,
         label,
-        text,
+        description,
         ctaLink,
-        ctaText,
+        ctaLabel,
         image,
         bannerDescription,
         bannerFontColor,
@@ -26,9 +26,9 @@ const Card = (props) => {
         <div className="consonant-card" id={id}>
             <div
                 className="consonant-card--img"
-                style={{ backgroundImage: `url(${image})` }}>
+                style={{ backgroundImage: `url("${image}")` }}>
                 {
-                    bannerDescription &&
+                    bannerDescription && bannerFontColor &&
                     <span
                         className="consonant-card--banner"
                         style={({
@@ -55,7 +55,7 @@ const Card = (props) => {
                     dangerouslySetInnerHTML={{ __html: title }} />
                 <p
                     className="consonant-card--text"
-                    dangerouslySetInnerHTML={{ __html: text }} />
+                    dangerouslySetInnerHTML={{ __html: description }} />
                 <div className="consonant-card--footer-wrapper">
                     <div className="consonant-card--footer-info">
                         <button
@@ -74,7 +74,7 @@ const Card = (props) => {
                     <a
                         href={ctaLink}
                         target="_blank"
-                        className="consonant-card--btn">{ctaText}
+                        className="consonant-card--btn">{ctaLabel}
                     </a>
                 </div>
             </div>
@@ -87,10 +87,10 @@ export default Card;
 Card.propTypes = {
     id: PropTypes.string.isRequired,
     ctaLink: PropTypes.string.isRequired,
-    ctaText: PropTypes.string.isRequired,
+    ctaLabel: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     bannerDescription: PropTypes.string,
     bannerFontColor: PropTypes.string,
