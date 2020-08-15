@@ -17,6 +17,9 @@ const FiltersPanel = (props) => {
         onClearFilterItems,
         onCheckboxClick,
         onMobileFiltersToggleClick,
+        showFavs,
+        favsQty,
+        onFavsClick,
         onSearch,
         resQty,
     } = props;
@@ -100,19 +103,24 @@ const FiltersPanel = (props) => {
                                 onClearAll={onClearFilterItems} />))}
                     </div>
             }
-            <div className="consonant-filters--bookmarks consonant-filters--bookmarks_selected">
-                <button
-                    type="button"
-                    className="consonant-filters--bookmarks-btn">
+            <button
+                type="button"
+                onClick={onFavsClick}
+                className={
+                    showFavs ?
+                        'consonant-filters--bookmarks consonant-filters--bookmarks_selected' :
+                        'consonant-filters--bookmarks'
+                }>
+                <span className="consonant-filters--bookmarks-ico-wrapper">
                     <svg
                         width="16"
                         height="14"
                         className="consonant-filters--bookmarks-ico"><use href="#heart" />
                     </svg>
                     <span className="consonant-filters--bookmarks-title">My favorites</span>
-                </button>
-                <button type="button" className="consonant-filters--item-badge">50</button>
-            </div>
+                </span>
+                <span className="consonant-filters--item-badge">{favsQty}</span>
+            </button>
             {mobileFiltersFooter}
         </div>
     );
@@ -124,6 +132,8 @@ FiltersPanel.propTypes = {
     filters: PropTypes.arrayOf(PropTypes.object),
     windowWidth: PropTypes.number,
     showMobileFilters: PropTypes.bool,
+    showFavs: PropTypes.bool,
+    favsQty: PropTypes.number,
     searchQuery: PropTypes.string,
     cardsQty: PropTypes.number,
     onFilterClick: PropTypes.func.isRequired,
@@ -131,6 +141,7 @@ FiltersPanel.propTypes = {
     onClearFilterItems: PropTypes.func.isRequired,
     onCheckboxClick: PropTypes.func.isRequired,
     onMobileFiltersToggleClick: PropTypes.func.isRequired,
+    onFavsClick: PropTypes.func.isRequired,
     onSearch: PropTypes.func.isRequired,
     resQty: PropTypes.number,
 };
@@ -138,8 +149,10 @@ FiltersPanel.propTypes = {
 FiltersPanel.defaultProps = {
     filters: [],
     windowWidth: window.innerWidth,
+    showFavs: false,
     showMobileFilters: false,
     searchQuery: '',
     cardsQty: 0,
     resQty: 0,
+    favsQty: 0,
 };

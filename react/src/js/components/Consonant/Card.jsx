@@ -20,7 +20,14 @@ const Card = (props) => {
         bannerBackgroundColor,
         bannerIcon,
         secondaryLabelText,
+        isBookmarked,
+        onClick,
     } = props;
+
+    const handleClick = (clickEvt) => {
+        clickEvt.stopPropagation();
+        onClick(id);
+    };
 
     return (
         <div className="consonant-card" id={id}>
@@ -60,8 +67,13 @@ const Card = (props) => {
                     <div className="consonant-card--footer-info">
                         <button
                             type="button"
-                            className="consonant-card--footer-btn"
-                            title="Click to bookmark">
+                            className={
+                                isBookmarked ?
+                                    'consonant-card--footer-btn consonant-card--footer-btn_active' :
+                                    'consonant-card--footer-btn'
+                            }
+                            title="Click to bookmark"
+                            onClick={handleClick}>
                             <svg width="16" height="12">
                                 <use href="#bookmark" />
                             </svg>
@@ -89,7 +101,7 @@ Card.propTypes = {
     ctaLink: PropTypes.string.isRequired,
     ctaLabel: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
+    label: PropTypes.string,
     description: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     bannerDescription: PropTypes.string,
@@ -97,6 +109,8 @@ Card.propTypes = {
     bannerBackgroundColor: PropTypes.string,
     bannerIcon: PropTypes.string,
     secondaryLabelText: PropTypes.string,
+    isBookmarked: PropTypes.bool.isRequired,
+    onClick: PropTypes.func.isRequired,
 };
 
 Card.defaultProps = {
@@ -105,4 +119,5 @@ Card.defaultProps = {
     bannerIcon: '',
     bannerDescription: '',
     secondaryLabelText: '',
+    label: '',
 };

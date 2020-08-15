@@ -468,9 +468,13 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   position: relative;
   margin-top: auto;
   padding: 17px 16px;
+  background-color: #fff;
+  border: 0;
+  border-top: 1px solid #EAEAEA;
+  outline: 0;
 }
 
-.consonant-filters--bookmarks-btn {
+.consonant-filters--bookmarks-ico-wrapper {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -480,7 +484,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   outline: 0;
 }
 
-.consonant-filters--bookmarks-btn svg {
+.consonant-filters--bookmarks-ico-wrapper svg {
   width: 16px;
   height: 14px;
   margin-right: 6px;
@@ -514,17 +518,14 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   margin: auto;
 }
 
-.consonant-filters--bookmarks.consonant-filters--bookmarks_selected
-.consonant-filters--item-badge {
-  font-size: 0;
-  line-height: 0;
+.consonant-filters .consonant-filters--bookmarks > .consonant-filters--item-badge:hover {
+  font-size: 14px;
+  line-height: 14px;
 }
 
-.consonant-filters--bookmarks.consonant-filters--bookmarks_selected
-.consonant-filters--item-badge::before,
-.consonant-filters--bookmarks.consonant-filters--bookmarks_selected
-.consonant-filters--item-badge::after {
-  opacity: 1;
+.consonant-filters--bookmarks .consonant-filters--item-badge::before,
+.consonant-filters--bookmarks .consonant-filters--item-badge::after {
+  display: none;
 }
 
 .consonant-filters--bookmarks.consonant-filters--bookmarks_selected svg {
@@ -1744,36 +1745,15 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   .consonant-filters--bookmarks {
     display: flex;
     margin-top: -1px;
-    padding: 19px 0 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid #EAEAEA;
     order: -1;
-    background-color: #fff;
   }
 
-  .consonant-filters--bookmarks.consonant-filters--bookmarks_selected
-  .consonant-filters--item-badge {
+  .consonant-filters .consonant-filters--bookmarks .consonant-filters--item-badge {
     right: 30px;
     font-size: 14px;
     line-height: 14px;
-  }
-
-  .consonant-filters--bookmarks.consonant-filters--bookmarks_selected
-  .consonant-filters--item-badge::before,
-  .consonant-filters--bookmarks.consonant-filters--bookmarks_selected
-  .consonant-filters--item-badge::after {
-    opacity: 0;
-  }
-
-  .consonant-filters--bookmarks.consonant-filters--bookmarks_selected
-  .consonant-filters--item-badge:hover {
-    font-size: 0;
-    line-height: 0;
-  }
-
-  .consonant-filters--bookmarks.consonant-filters--bookmarks_selected
-  .consonant-filters--item-badge:hover::before,
-  .consonant-filters--bookmarks.consonant-filters--bookmarks_selected
-  .consonant-filters--item-badge:hover::after {
-    opacity: 1;
   }
 
   /* .consonant-select */

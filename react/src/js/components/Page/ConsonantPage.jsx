@@ -35,6 +35,7 @@ export default class ConsonantPage extends React.Component {
         this.state = {
             cards: [],
             filteredCards: [],
+            bookmarkedCards: [],
             pages: 1,
             filters: [],
             lastFilterWasChecked: false,
@@ -44,6 +45,7 @@ export default class ConsonantPage extends React.Component {
             showItemsPerPage: PARAMS.SHOW_ITEMS_PER_STEP,
             windowWidth: window.innerWidth,
             showMobileFilters: false,
+            showFavourites: false,
         };
 
         this.updateDimensions = this.updateDimensions.bind(this);
@@ -62,9 +64,16 @@ export default class ConsonantPage extends React.Component {
         this.handleFiltersToggle = this.handleFiltersToggle.bind(this);
         this.handleInitialScrollPos = this.handleInitialScrollPos.bind(this);
         this.getActiveFiltersIds = this.getActiveFiltersIds.bind(this);
+        this.getBookMarksFromLS = this.getBookMarksFromLS.bind(this);
         this.filterCards = this.filterCards.bind(this);
         this.sortCards = this.sortCards.bind(this);
         this.searchCards = this.searchCards.bind(this);
+        this.showFavourites = this.showFavourites.bind(this);
+        this.handleCardBookmarking = this.handleCardBookmarking.bind(this);
+        this.updateCardsWithBookmarks = this.updateCardsWithBookmarks.bind(this);
+        this.handleShowFavsClick = this.handleShowFavsClick.bind(this);
+        this.resetFavourites = this.resetFavourites.bind(this);
+        this.setBookMarksToLS = this.setBookMarksToLS.bind(this);
         console.log(props.config);
     }
 
@@ -80,7 +89,8 @@ export default class ConsonantPage extends React.Component {
             this.setState(prevState => ({
                 cards: [...prevState.cards, ...res.cards.map((card) => {
                     card.initialTitle = card.title;
-                    card.initialText = card.text;
+                    card.initialText = card.description;
+                    card.isBookmarked = false;
                     return card;
                 })],
                 filters: res.filters.map((el) => {
@@ -92,7 +102,10 @@ export default class ConsonantPage extends React.Component {
                     return el;
                 }),
                 lastFilterWasChecked: false,
-            }), () => { this.filterCards(); });
+            }), () => {
+                this.filterCards();
+                this.getBookMarksFromLS();
+            });
         });
     }
 
@@ -122,15 +135,6 @@ export default class ConsonantPage extends React.Component {
         return res;
     }
 
-    setCardsToShowQty() {
-        const currentPos = this.getWrapperScrollPos();
-        this.setState(prevState => ({
-            pages: prevState.pages + 1,
-        }), () => {
-            window.scrollTo(0, Math.abs(currentPos) + this.state.initialScrollPos);
-        });
-    }
-
     getWrapperScrollPos() {
         return parseInt(this.page.getBoundingClientRect().top, 10);
     }
@@ -144,6 +148,30 @@ export default class ConsonantPage extends React.Component {
         }, []);
 
         return filters;
+    }
+
+    getBookMarksFromLS() {
+        const data = JSON.parse(localStorage.getItem('bookmarks'));
+        if (Array.isArray(data) && data.length) {
+            this.setState({ bookmarkedCards: data }, this.updateCardsWithBookmarks);
+        }
+    }
+
+    setCardsToShowQty() {
+        const currentPos = this.getWrapperScrollPos();
+        this.setState(prevState => ({
+            pages: prevState.pages + 1,
+        }), () => {
+            window.scrollTo(0, Math.abs(currentPos) + this.state.initialScrollPos);
+        });
+    }
+
+    setBookMarksToLS() {
+        try {
+            localStorage.setItem('bookmarks', JSON.stringify(this.state.bookmarkedCards, null, 2));
+        } catch (e) {
+            alert('We could not save your bookmarks, please try to reload thші page.');
+        }
     }
 
     setInitialScrollPos() {
@@ -260,15 +288,18 @@ export default class ConsonantPage extends React.Component {
                 }
 
                 // Filter cards per text;
-                if (copy.text.toLowerCase().trim().indexOf(query) >= 0) {
-                    copy.text = highlightText(copy.text, query);
+                if (copy.description.toLowerCase().trim().indexOf(query) >= 0) {
+                    copy.description = highlightText(copy.description, query);
                     pushToRes = true;
                 }
 
                 if (pushToRes) results.push(copy);
             });
 
-            this.setState({ filteredCards: results }, () => {
+            this.setState({
+                filteredCards: results,
+                showFavourites: false,
+            }, () => {
                 if (this.state.selelectedFilterBy) {
                     this.sortCards(this.state.selelectedFilterBy);
                 }
@@ -303,14 +334,36 @@ export default class ConsonantPage extends React.Component {
         }));
     }
 
-    clearAllFilters() {
+    clearAllFilters(isFavs) {
+        const showFavourites = typeof isFavs !== 'boolean' ? false : isFavs;
+
         this.clearFilters();
         this.setState({
             searchQuery: '',
             lastFilterWasChecked: false,
+            showFavourites,
         }, () => {
-            this.searchCards();
-            this.filterCards();
+            if (!showFavourites) {
+                this.searchCards();
+                this.filterCards();
+            }
+        });
+    }
+
+    showFavourites() {
+        this.setState(prevState => ({
+            filteredCards: prevState.cards.filter(card => card.isBookmarked),
+        }), () => {
+            this.sortCards(this.state.selelectedFilterBy);
+        });
+    }
+
+    resetFavourites() {
+        this.setState(prevState => ({
+            filteredCards: prevState.cards,
+            showFavourites: false,
+        }), () => {
+            this.sortCards(this.state.selelectedFilterBy);
         });
     }
 
@@ -356,6 +409,8 @@ export default class ConsonantPage extends React.Component {
     }
 
     handleCheckBoxChange(filterId, itemId, isChecked) {
+        if (this.state.showFavourites) this.resetFavourites();
+
         this.setState((prevState) => {
             const list = prevState.filters.map((filter) => {
                 if (filter.id === filterId) {
@@ -382,6 +437,56 @@ export default class ConsonantPage extends React.Component {
         }));
     }
 
+    updateCardsWithBookmarks() {
+        const doCheck = arr => arr.map((el) => {
+            if (this.state.bookmarkedCards.some(item => el.id === item)) {
+                el.isBookmarked = true;
+            } else {
+                el.isBookmarked = false;
+            }
+            return el;
+        });
+
+        // Update state;
+        this.setState(prevState => ({
+            cards: doCheck(prevState.cards),
+            filteredCards: doCheck(prevState.filteredCards),
+        }), () => {
+            if (this.state.showFavourites) this.showFavourites();
+        });
+    }
+
+    handleCardBookmarking(id) {
+        // Update bookmarked IDs;
+        const searchIdx = this.state.bookmarkedCards.indexOf(id);
+        const processBookmarks = () => {
+            this.updateCardsWithBookmarks();
+            this.setBookMarksToLS();
+        };
+
+        if (searchIdx >= 0) {
+            this.setState(prevState => ({
+                bookmarkedCards: prevState.bookmarkedCards.filter(el => el !== id),
+            }), processBookmarks);
+        } else {
+            this.setState(prevState => ({
+                bookmarkedCards: [...prevState.bookmarkedCards, id],
+            }), processBookmarks);
+        }
+    }
+
+    handleShowFavsClick(clickEvt) {
+        clickEvt.stopPropagation();
+        this.setState(prevState => ({ showFavourites: !prevState.showFavourites }), () => {
+            if (this.state.showFavourites) {
+                this.clearAllFilters(true);
+                this.showFavourites();
+            } else {
+                this.resetFavourites();
+            }
+        });
+    }
+
     render() {
         return (
             <Fragment>
@@ -401,6 +506,9 @@ export default class ConsonantPage extends React.Component {
                                 onFilterClick={this.handleFilterItemClick}
                                 onClearAllFilters={this.clearAllFilters}
                                 onClearFilterItems={this.clearFilterItems}
+                                onFavsClick={this.handleShowFavsClick}
+                                showFavs={this.state.showFavourites}
+                                favsQty={this.state.bookmarkedCards.length}
                                 onCheckboxClick={this.handleCheckBoxChange}
                                 onMobileFiltersToggleClick={this.handleFiltersToggle}
                                 onSearch={this.handleSearchInputChange} />
@@ -423,7 +531,8 @@ export default class ConsonantPage extends React.Component {
                                     <Collection
                                         showItemsPerPage={this.state.showItemsPerPage}
                                         pages={this.state.pages}
-                                        cards={this.state.filteredCards} />
+                                        cards={this.state.filteredCards}
+                                        onCardBookmark={this.handleCardBookmarking} />
                                     <LoadMore
                                         onClick={this.setCardsToShowQty}
                                         show={this.getCardsToShowQty()}
