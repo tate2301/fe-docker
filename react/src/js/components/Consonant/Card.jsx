@@ -2,11 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Tooltip from './Tooltip';
 
-const bannerDefaults = {
-    bg: '#1473E6',
-    color: '#fff',
-};
-
 const tooltipText = {
     unselected: 'Save breakout session',
     selected: 'Unsave breakout session',
@@ -41,7 +36,9 @@ const Card = (props) => {
                 className="consonant-card--img"
                 style={{ backgroundImage: `url("${image}")` }}>
                 {
-                    bannerDescription && bannerFontColor &&
+                    bannerDescription &&
+                    bannerFontColor &&
+                    bannerBackgroundColor &&
                     <span
                         className="consonant-card--banner"
                         style={({
@@ -62,7 +59,10 @@ const Card = (props) => {
                 }
             </div>
             <div className="consonant-card--inner">
-                <span className="consonant-card--label">{label}</span>
+                {
+                    label &&
+                    <span className="consonant-card--label">{label}</span>
+                }
                 <h2
                     className="consonant-card--title"
                     dangerouslySetInnerHTML={{ __html: title }} />
@@ -123,10 +123,10 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-    bannerFontColor: bannerDefaults.color,
-    bannerBackgroundColor: bannerDefaults.bg,
     bannerIcon: '',
     bannerDescription: '',
+    bannerFontColor: '',
+    bannerBackgroundColor: '',
     secondaryLabelText: '',
     label: '',
 };

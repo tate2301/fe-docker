@@ -60,6 +60,12 @@
   max-width: 100%;
 }
 
+.consonant-page .consonant-page--inner > div:last-of-type {
+  min-height: 70vh;
+  position: relative;
+  flex-grow: 1;
+}
+
 /* @todo clarify if we need create-app */
 #create-app.consonant {
   background-color: #fff;
@@ -507,6 +513,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   font-weight: 700;
   color: #505050;
   word-break: break-word;
+  transition: color 0.3s ease-in-out;
 }
 
 .consonant-filters .consonant-filters--bookmarks
@@ -593,6 +600,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   border-radius: 5px;
   transition: border-color 0.3s ease-in-out;
   outline: 0;
+  box-shadow: none;
 }
 
 .consonant-search input::placeholder {
@@ -1088,34 +1096,41 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
 
 .consonant-card--secondary-text {
   display: block;
-  /* width - svg_width - svg_margin-right */
-  max-width: calc(100% - 16px - 24px);
+  padding-right: 8px;
   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
+  text-align: left;
   font-size: 14px;
   line-height: 22px;
   color: #747474;
   font-weight: 400;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  word-break: break-word;
 }
 
 .consonant-card .consonant-card--btn {
   display: inline-block;
   min-width: 100px;
   max-width: 100px;
-  padding: 6px 12px;
+  padding: 5px 9px 7px;
   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
+  text-align: center;
   line-height: 16px;
-  color: #505050;
-  border: 2px solid #505050;
+  color: #4B4B4B;
+  border: 2px solid #4B4B4B;
   text-decoration: none;
   word-break: break-word;
   border-radius: 30px;
   user-select: none;
+  transition: 
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+
+.consonant-card .consonant-card--btn:hover {
+  background-color: #4B4B4B;
+  color: #fff;
 }
 
 .consonant-card .consonant-card--banner {
@@ -1552,6 +1567,10 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     max-width: 756px;
   }
 
+  .consonant-page .consonant-page--inner > div:last-of-type {
+    min-height: 80vh;
+  }
+
   /* .consonant-card-collection */
   .consonant-card-collection {
     display: flex;
@@ -1566,6 +1585,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   .consonant-card {
     min-width: 362px;
     max-width: 362px;
+    padding-bottom: 0;
   }
 
   .consonant-card .consonant-card--inner {
@@ -1694,6 +1714,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   }
 
   .consonant-filters {
+    width: 204px;
     max-width: 204px;
     margin-right: 32px;
     padding-top: 123px;
@@ -1727,6 +1748,11 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     font-size: 14px;
     line-height: 16px;
     word-break: break-word;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .consonant-filters .consonant-filters--item-name a:hover {
+    color: #707070;
   }
 
   .consonant-filters .consonant-filters--item::after {
@@ -1796,6 +1822,10 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     right: 30px;
     font-size: 14px;
     line-height: 14px;
+  }
+
+  .consonant-filters .consonant-filters--bookmarks-title:hover {
+    color: #707070;
   }
 
   /* .consonant-select */
@@ -1920,6 +1950,14 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   .consonant-card {
     min-width: 300px;
     max-width: 300px;
+  }
+
+  .consonant-card--footer-btn {
+    margin-right: 12px;
+  }
+
+  .consonant-card--secondary-text {
+    font-size: 12px;
   }
 
   /* .consonant-header */

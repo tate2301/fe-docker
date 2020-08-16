@@ -21,6 +21,7 @@ const LOADER_SIZE = {
 const PARAMS = {
     LOAD_POSTS_URL: 'http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v4/webinars',
     SHOW_ITEMS_PER_STEP: 8,
+    TRUNCATE_TEXT_QTY: 200,
 };
 
 let updateDimensionsTimer;
@@ -85,10 +86,15 @@ export default class ConsonantPage extends React.Component {
         // Load data on init;
         this.loadData().then((res) => {
             if (!res || !res.cards || !res.filters) return;
+            const truncateString = (str, num) => {
+                if (str.length <= num) return str;
+                return `${str.slice(0, num)}...`;
+            }
 
             this.setState(prevState => ({
                 cards: [...prevState.cards, ...res.cards.map((card) => {
                     card.initialTitle = card.title;
+                    card.description = truncateString(card.description, PARAMS.TRUNCATE_TEXT_QTY);
                     card.initialText = card.description;
                     card.isBookmarked = false;
                     return card;
