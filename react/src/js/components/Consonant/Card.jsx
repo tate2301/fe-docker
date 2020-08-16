@@ -1,9 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Tooltip from './Tooltip';
 
 const bannerDefaults = {
     bg: '#1473E6',
     color: '#fff',
+};
+
+const tooltipText = {
+    unselected: 'Save breakout session',
+    selected: 'Unsave breakout session',
 };
 
 const Card = (props) => {
@@ -66,17 +72,20 @@ const Card = (props) => {
                 <div className="consonant-card--footer-wrapper">
                     <div className="consonant-card--footer-info">
                         <button
+                            data-tooltip-wrapper
                             type="button"
                             className={
                                 isBookmarked ?
                                     'consonant-card--footer-btn consonant-card--footer-btn_active' :
                                     'consonant-card--footer-btn'
                             }
-                            title="Click to bookmark"
                             onClick={handleClick}>
                             <svg width="16" height="12">
                                 <use href="#bookmark" />
                             </svg>
+                            <Tooltip text={
+                                isBookmarked ? tooltipText.selected : tooltipText.unselected
+                            } />
                         </button>
                         {
                             secondaryLabelText &&
