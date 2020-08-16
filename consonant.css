@@ -1109,7 +1109,6 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
 .consonant-card .consonant-card--btn {
   display: inline-block;
   min-width: 100px;
-  max-width: 100px;
   padding: 5px 9px 7px;
   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
   font-style: normal;
