@@ -1,0 +1,210 @@
+@filter-highlight-color: #deefff;
+
+dexter-filter-panel {
+    width: 100%;
+
+    @media @for-desktop-up {
+        width: 300/@rootRem;
+    }
+
+    @media only screen and (max-width: (@card2Wide * @rootSize/16)) {
+        width: @narrowCard2WideNoOutsideMargin;
+    }
+
+    @media only screen and (max-width: (@narrowCard2Wide * @rootSize/16)) {
+        width: 100%;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    header,
+    .tag-List_Group {
+        margin-bottom: 5/@rootRem;
+    }
+
+    .tag-List {
+        ul {
+            list-style: none;
+        }
+    }
+
+    .tag-List_active-FilterList {
+        list-style: none;
+        margin: 0;
+
+        li {
+            padding: 0;
+            float: left;
+        }
+
+        button:after {
+            content: '';
+            display: block;
+            float: right;
+            height: 1.777778rem;
+            width: 1.777778rem;
+            background: data-uri('image/svg+xml;base64', '../../img/icons/spectrum/tag-close-grey-800.svg') center/12px no-repeat;
+        }
+    }
+
+    .tag-List_Group {
+        background: #fff;
+        position: relative;
+
+        > input {
+            position: absolute;
+            margin: 0;
+            opacity: 0.001;
+            width: 100%;
+            height: 52px;
+            appearance: none;
+
+            &:focus ~ label {
+                border-color: @spectrum-blue-400;
+            }
+        }
+
+        > label:extend(.type .bold) {
+            display: flex;
+            border: 1px solid #eaeaea;
+            color: #505050;
+            font-size: 1rem;
+            line-height: 52px;
+            margin: 0;
+        }
+
+        &:hover > input ~ label,
+        &:hover > input:checked ~ label ~ ul {
+            border-color: @spectrum-blue-400;
+        }
+
+        .tag-List_Group-header:focus {
+            outline: 0;
+        }
+
+        .tag-List_Group-header-arrow {
+            display: inline-block;
+            transition: transform 0.125s;
+        }
+
+        &.is-Open {
+            .tag-List_Group-header-arrow {
+                -webkit-transform: rotate(90deg);
+                transform: rotate(90deg);
+            }
+
+            ul {
+                display: block;
+            }
+
+            .card {
+                .card.narrowWidth();
+            }
+        }
+
+        ul {
+            display: none;
+            border: 1px solid #eaeaea;
+            border-width: 0 1px 1px 1px;
+            padding: 20px 0;
+            list-style: none;
+            margin: 0;
+        }
+
+        li {
+            font-size: 0.777778rem;
+            font-weight: 300;
+            cursor: pointer;
+            position: relative;
+
+            input[type *= "checkbox"]:checked + label:after {
+                background: @spectrum-blue-500 data-uri('image/svg+xml;base64', '../../img/icons/spectrum/checkbox-check-grey-50.svg') center/12px no-repeat;
+            }
+
+            .card {
+                .card.regularWidth();
+            }
+        }
+
+        li label {
+            padding-left: 40px;
+            line-height: 40px;
+            display: block;
+            cursor: pointer;
+            position: relative;
+
+            &:hover,
+            &:focus {
+                outline: none;
+                background-color: @filter-highlight-color;
+                border-radius: 2px;
+            }
+        }
+
+        li label:after {
+            content: ' ';
+            position: absolute;
+            right: 26px;
+            border: 1px solid #ccc;
+            width: 14px;
+            height: 14px;
+            top: 13px;
+            border-radius: 1px;
+        }
+
+        li input {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            opacity: 0;
+            right: 26px;
+            top: 13px;
+
+            &:focus ~ label {
+                background-color: @filter-highlight-color;
+            }
+        }
+    }
+
+    header,
+    .tag-List_Group-header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        line-height: 52px;
+    }
+
+    .tag-List_Clear {
+        padding: 0;
+        background: none;
+        font-size: 0.888889rem;
+        color: #1373e6;
+        font-weight: 300;
+    }
+
+    header h2 {
+        font-weight: 900;
+        font-size: 1.1111rem;
+        line-height: 52px;
+        margin: 0;
+    }
+
+    .tag-List_Group-header:extend(.type .sans) {
+        justify-content: flex-start;
+        background: none;
+        padding: 0;
+        font-size: 1rem;
+        cursor: pointer;
+
+        &-arrow {
+            width: 40px;
+            height: 52px;
+            background: data-uri('image/svg+xml;base64', '../../img/icons/spectrum/accordian-chevron-blue-500.svg') center/14px no-repeat;
+        }
+    }
+}

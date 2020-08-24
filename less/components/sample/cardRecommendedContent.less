@@ -1,0 +1,68 @@
+@recommendedContentTextColor: #323232;
+@recommendedContentFontSize: 16/@rootRem;
+
+.card-collection_cards.recommendedContent {
+    justify-content: center;
+
+    /* remove collection forced left alignment and use justify-content above
+     to center the remainder cards
+     */
+    &:after {
+        content: unset;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        height: 554/@rootRem;
+        width: 384/@rootRem;
+        border: 1px solid #95989a;
+
+        &_img {
+            height: 220/@rootRem;
+            min-height: 220/@rootRem;
+            background-size: cover;
+            background-position: 50% center;
+
+            .card_hero {
+                display: flex;
+                height: 100%;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        &_info:extend(.type .sans) {
+            font-size: @recommendedContentFontSize;
+            background-color: white;
+            padding: 2.25rem 1.75rem 1.75rem 2.25rem;
+            max-height: 554px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .tag_label {
+                font-size: 14/@rootRem;
+                font-style: italic;
+            }
+
+            .card_title:extend(.type .bold, .type .sans) {
+                font-size: 22/@rootRem;
+                line-height: 2rem;
+                margin-bottom: 0.75rem;
+                color: @recommendedContentTextColor;
+            }
+
+            .card_description {
+                height: 100%;
+                overflow: hidden;
+                font-size: @recommendedContentFontSize;
+                line-height: 30/@rootRem;
+                color: @recommendedContentTextColor;
+            }
+
+            .card_cta:extend(.type .bold) {}
+        }
+    }
+}

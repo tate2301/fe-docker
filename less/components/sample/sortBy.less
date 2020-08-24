@@ -1,0 +1,105 @@
+@import (reference) '../../references/main';
+
+.card-collection_sort {
+    position: relative;
+    margin: 0 28/@rootRem;
+
+    span {
+        border-right: 2px solid;
+        padding: 0 20px;
+        text-transform: capitalize;
+    }
+
+    span,
+    .sortby_label {
+        color: @spectrum-grey-700;
+        font-size: 15/@rootRem;
+        line-height: 52/@rootRem;
+    }
+
+    .sortby_label {
+        padding: 0 20px;
+        background: none;
+        position: relative;
+        cursor: pointer;
+        &:focus:extend(.focus) {}
+
+        &:after {
+            content: '';
+            background: data-uri('image/svg+xml;base64', '../../img/icons/spectrum/accordian-chevron-grey-700.svg') no-repeat;
+            background-size: 14px;
+            background-position: 50%;
+            height: 14px;
+            width: 14px;
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transition: transform 0.125s;
+            transform: translateY(-50%);
+        }
+
+        &.active:after {
+            transform: translateY(-50%) rotate(90deg);
+        }
+    }
+
+    .sortby_popup {
+        background: #fff;
+        border: 1px solid #95989a;
+        border-radius: 0.1666667rem;
+        margin-top: -0.55556rem;
+        padding: 0.44444rem;
+        position: absolute;
+        opacity: 0;
+        right: -0.5rem;
+        transition: opacity 0.125s;
+        width: 8.2222rem;
+        z-index: -1;
+
+        ul,
+        li {
+            margin: 0;
+        }
+
+        li {
+            line-height: 1rem;
+            visibility: hidden;
+        }
+
+        &.active {
+            opacity: 1;
+            z-index: 2;
+
+            ul li {
+                visibility: visible;
+            }
+        }
+    }
+
+    .sortby {
+        position: relative;
+        cursor: pointer;
+        width: 100%;
+        background: none;
+        text-align: left;
+        font-size: 100%;
+        margin: 0;
+        padding: 0;
+        display: block;
+        line-height: 1rem;
+
+        &.active {
+            color: #1373e6;
+
+            &:after {
+                position: absolute;
+                right: 0;
+                content: '';
+                background: data-uri('image/svg+xml;base64', '../../img/icons/spectrum/checkbox-check-blue-500.svg') center/14px no-repeat;
+                height: 18px;
+                width: 14px;
+            }
+        }
+    }
+}

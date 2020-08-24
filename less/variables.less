@@ -1,0 +1,31 @@
+// Base REM
+@rootSize: 16;
+@rootRem: unit(@rootSize, rem);
+
+// Breakpoints
+// Reference: https://medium.freecodecamp.org/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862
+@size-responsive-phone-only: 37.4375rem; // 599px
+@size-responsive-tablet-portrait-up: (@size-responsive-phone-only + 0.0625rem); // 600px
+@size-responsive-tablet-portrait-max: 56.1875rem; // 899px
+@size-responsive-tablet-landscape-up: (@size-responsive-tablet-portrait-max + 0.0625rem); // 900px
+@size-responsive-tablet-landscape-max: 74.9375rem; // 1199px
+@size-responsive-desktop: (@size-responsive-tablet-landscape-max + 0.0625rem); // 1200px
+@size-responsive-max: 90rem; // 1440px
+
+// Link and Button Colors, should be equivalent to spectrum values
+@alert: rgba(252, 205, 1, 1);
+@alert-hover-color: rgba(251, 161, 20, 1);
+@spectrum-color: rgba(255, 255, 255, 1);
+@spectrum-color-gray: rgba(42, 42, 42, 1);
+@spectrum-color-button-hover: rgba(18, 105, 208, 1);
+@spectrum-color-button-active: rgba(16, 86, 167, 1);
+@spectrum-blue-400: rgb(38, 128, 235);
+@spectrum-blue-500: rgba(20, 115, 230, 1);
+@spectrum-grey-100: rgb(245, 245, 245);
+@spectrum-grey-700: rgba(112, 112, 112, 1);
+@spectrum-grey-800: rgba(75, 75, 75, 1);
+@spectrum-grey-900: rgba(44, 44, 44, 1);
+
+@sides: top, right, bottom, left;
+
+@size-height-fiftyish-percent: 48%;

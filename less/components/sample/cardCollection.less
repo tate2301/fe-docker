@@ -1,0 +1,315 @@
+// card variables are defined in card.less
+@import 'filterPanel';
+
+.card-collection {
+    &_header,
+    &_cards,
+    &_footer {
+        display: flex;
+        flex-wrap: flex;
+        margin: 0 auto; // Keep it centered
+    }
+
+    &_header {
+        justify-content: flex-end;
+        position: relative;
+        margin-bottom: 5/@rootRem;
+    }
+
+    &_cards {
+        flex-flow: row wrap;
+        justify-content: flex-start;
+
+        @media only screen and (max-width: (@narrowCard2Wide * @rootSize/16)) {
+            justify-content: center;
+        }
+
+        // left align cards in the last row
+        &:after {
+            content: "";
+            flex: 0 0 auto;
+            width: @card-width/@rootRem;
+        }
+
+        h3.no-Results {
+            background: #fff;
+            width: 100%;
+            padding: 2rem;
+            text-align: center;
+            font-weight: 700;
+        }
+    }
+
+    &_footer {
+        padding-bottom: 90/@rootRem;
+    }
+}
+
+dexter-card-collection {
+    display: flex;
+
+    &[data-page-type *= "archive"] {
+        padding-top: 80/@rootRem;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        justify-content: center;
+
+        @media @for-tablet-portrait-up {
+            max-width: 820/@rootRem;
+
+            .display-filters-btn {
+                display: none;
+            }
+        }
+
+        @media @for-desktop-up {
+            max-width: 1188/@rootRem;
+        }
+
+        @media @for-phone-only {
+            .display-filters-btn {
+                display: block;
+            }
+
+            .card-collection_header {
+                display: none;
+
+                &.filters-show-headers {
+                    display: flex;
+                }
+            }
+
+            dexter-filter-panel {
+                display: none;
+
+                &.filters-show-headers {
+                    display: block;
+                }
+            }
+        }
+
+        .display-filters-btn {
+            width: 100%;
+            margin-left: 1rem;
+            background: #fff;
+            height: 56/@rootRem;
+        }
+
+        .card-collection {
+            &_header {
+                background: #fff;
+            }
+
+            &_cards {
+                justify-content: center;
+            }
+
+            @media @for-desktop-up {
+                &_header,
+                &_cards,
+                &_footer {
+                    width: 796/@rootRem;
+                }
+            }
+
+            .card {
+                // set wide card to single width
+                &.wide {
+                    width: inherit;
+                }
+            }
+
+            @media only screen and (max-width: unit((@cardSingleWide * 1.125), rem)) {
+                width: 100%;
+
+                .card-collection_cards {
+                    justify-content: center;
+                    width: 100%;
+                }
+
+                .card {
+                    width: 100%;
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+            }
+
+            @media only screen and (max-width: unit((@narrowCardSingleWide * 1.125), rem)) {
+                width: 100%;
+
+                .card {
+                    width: 100%;
+                    min-width: initial;
+
+                    &.wide {
+                        width: 100%;
+                        min-width: initial;
+                    }
+
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+            }
+
+            @media only screen and (min-width: (@narrowCard2Wide * @rootSize/16)) {
+                width: @narrowCard2Wide;
+
+                .card-collection_cards {
+                    justify-content: space-between;
+                }
+
+                .card-collection_sort {
+                    margin-right: @card-margin-narrow/@rootRem;
+                }
+
+                .card {
+                    .card.narrowWidth();
+                }
+            }
+
+            @media only screen and (min-width: (@card2Wide * @rootSize/16)) {
+                width: @card2Wide;
+
+                .card-collection_sort {
+                    margin-right: @card-margin/@rootRem;
+                }
+
+                .card {
+                    .card.regularWidth();
+
+                    margin: 0 0 25/@rootRem 0;
+                }
+            }
+        }
+    }
+
+    &[data-page-type *= "collection"],
+    &[data-page-type *= "landing"],
+    &[data-page-type *= "recommendedContent"] {
+        @media only screen and (min-width: (@card2Wide * @rootSize/16)) {
+            .card-collection_sort {
+                margin-right: @card-margin/@rootRem;
+            }
+
+            .card-collection_sort .sortby_label {
+                line-height: inherit;
+            }
+
+            .card-collection_sort .sortby_popup {
+                top: 2rem;
+            }
+
+            .card {
+                .card.regularWidth();
+            }
+        }
+
+        .card-collection {
+            margin: 0 auto;
+            width: 100%;
+
+            &_header {
+                margin-bottom: 0;
+            }
+
+            &_header,
+            &_cards,
+            &_footer {
+
+                @media only screen and (max-width: unit((@cardSingleWide * 1.125), rem)) {
+                    width: 100%;
+
+                    .card {
+                        .card.narrowWidth(1);
+
+                        margin-left: 0;
+                        margin-right: 0;
+                    }
+                }
+
+                @media only screen and (max-width: unit((@narrowCardSingleWide * 1.125), rem)) {
+                    width: 100%;
+
+                    .card {
+                        width: 100%;
+                        min-width: initial;
+
+                        &.wide {
+                            width: 100%;
+                            min-width: initial;
+                        }
+
+                        margin-left: 0;
+                        margin-right: 0;
+                    }
+                }
+
+                @media only screen and (min-width: unit((@cardSingleWide * 1.125), rem)) {
+                    .card-collection_cards {
+                        .fullViewportWidth();
+                    }
+
+                    .card {
+                        .card.regularWidth();
+
+                        &.wide {
+                            width: inherit; // set wide card to single width
+                        }
+                    }
+                }
+
+                @media only screen and (min-width: (@narrowCard2Wide * @rootSize/16)) {
+                    width: @narrowCard2Wide;
+
+                    .card-collection_sort {
+                        margin-right: @card-margin-narrow/@rootRem;
+                    }
+
+                    .card {
+                        .card.narrowWidth();
+                        // set wide card to single width
+                        &.wide {
+                            width: inherit;
+                        }
+                    }
+                }
+
+                @media only screen and (min-width: (@card2Wide * @rootSize/16)) {
+                    width: @card2Wide;
+
+                    .card-collection_sort {
+                        margin-right: @card-margin/@rootRem;
+                    }
+
+                    .card {
+                        .card.regularWidth();
+                    }
+                }
+
+                @media only screen and (min-width: (@narrowCard3Wide * @rootSize/16)) {
+                    width: @narrowCard3Wide;
+
+                    .card-collection_sort {
+                        margin-right: @card-margin-narrow/@rootRem;
+                    }
+
+                    .card {
+                        .card.narrowWidth();
+                    }
+                }
+
+                @media only screen and (min-width: (@card3Wide * @rootSize/16)) {
+                    width: @card3Wide;
+
+                    .card-collection_sort {
+                        margin-right: @card-margin/@rootRem;
+                    }
+
+                    .card {
+                        .card.regularWidth();
+                    }
+                }
+            }
+        }
+    }
+}

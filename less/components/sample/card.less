@@ -1,0 +1,510 @@
+@card-width: 385;
+@card-width-narrow: 350;
+@card-height: 542;
+@card-margin: 25;
+@card-margin-narrow: 12.5;
+
+@narrowCardSingleWide: unit(((@card-width-narrow*1 + @card-margin-narrow*2) / @rootSize), rem);
+@cardSingleWide: unit(((@card-width + @card-margin*2) / @rootSize), rem); // 385+25*2 = 435
+@narrowCard2Wide: unit(((@card-width-narrow*2 + @card-margin-narrow*4) / @rootSize), rem); // 350*2+12.5*4 = 750
+@narrowCard2WideNoOutsideMargin: unit(((@card-width-narrow*2 + @card-margin-narrow*2) / @rootSize), rem);
+@card2Wide: unit(((@card-width*2 + @card-margin*4) / @rootSize), rem);
+@narrowCard3Wide: unit(((@card-width-narrow*3 + @card-margin-narrow*6) / @rootSize), rem);
+@card3Wide: unit(((@card-width*3 + @card-margin*6) / @rootSize), rem);
+
+.card {
+    height: @card-height/@rootRem;
+    min-width: @card-width-narrow/@rootRem;
+
+    .widecardWidth(@width; @cardWidth) when (@width = 1) {
+        &.wide {
+            width: @cardWidth/@rootRem;
+        }
+    }
+
+    .widecardWidth(@width; @cardWidth; @cardMargin) when (@width = 2) {
+        &.wide {
+            width: (@cardWidth*2 + @cardMargin*2)/@rootRem;
+        }
+    }
+
+    .regularWidth(@wideCardWidth: 2) {
+        width: @card-width/@rootRem;
+        margin: @card-margin/@rootRem;
+        .widecardWidth(@wideCardWidth, @card-width, @card-margin);
+    }
+
+    .narrowWidth(@wideCardWidth: 2) {
+        width: @card-width-narrow/@rootRem;
+        margin: @card-margin-narrow/@rootRem;
+        .widecardWidth(@wideCardWidth, @card-width-narrow, @card-margin-narrow);
+    }
+}
+
+// Every card type must be listed here due to AEM automatically applying
+// the "card" class when a single card is added to the page
+.card.card_standard,
+.card.card_static,
+.card.card_subscription,
+.card.card_featured,
+.card.card_showmore {
+    // For single card default to regular width
+    .card.regularWidth();
+
+    .card_title {
+        margin: 0;
+    }
+
+    .card_img {
+        position: relative;
+    }
+}
+
+// the nested card class only happens in page.  Margins are user controlled, so do not apply.
+.card > .card,
+.cardreference > .card,
+.cardreference > dexter-card-subscription > .card {
+    margin: 0;
+}
+
+// In the case of a card placed *directly* in a position component (article page),
+// use margin auto to center the cards within a traditional AEM grid wrapper.
+// HACK: The 24px to prevent the need for article re-authoring on NS for launch.
+// HACK: This would normally be done in a position component.
+.dexter-Position > .aem-Grid > .cardreference > .card {
+    margin: unit((24/@rootSize), rem);
+
+    @media (max-width: @size-responsive-tablet-portrait-max) {
+        width: auto;
+        max-width: unit((375/@rootSize), rem);
+        margin: unit((24/@rootSize), rem) auto;
+
+        .card_bg {
+            width: 100%;
+        }
+    }
+}
+
+.card_standard {
+    border: 1px solid #95989a;
+
+    .card_title {
+        @fontSize: 30/@rootRem;
+        @lineHeight: 1.3333;
+        @linesToShow: 4;
+
+        font-size: @fontSize;
+        // use adobe clean serif
+        &:extend(.type .serif);
+
+        padding: 36/@rootRem 28/@rootRem 0 40/@rootRem;
+        color: #2d2d2d;
+
+        .lineclamp(@fontSize; @lineHeight; @linesToShow; 50/@rootRem);
+
+        a {
+            color: inherit;
+        }
+    }
+
+    .card_img {
+        height: 265/@rootRem;
+
+        .card_hero {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        a {
+            display: block;
+        }
+    }
+
+    .card_bg {
+        height: 275/@rootRem;
+        background-color: #fff;
+    }
+
+    .tag_label {
+        &:extend(.type .bold);
+        // Place tag at bottom of image
+        position: absolute;
+        bottom: 0;
+        height: 50/@rootRem;
+        min-width: 190/@rootRem;
+        max-width: 100%;
+        line-height: 50/@rootRem;
+        padding: 0 40/@rootRem;
+        text-transform: uppercase;
+        font-size: 14/@rootRem;
+        white-space: nowrap;
+        overflow: hidden;
+
+        a {
+            color: #fff;
+        }
+    }
+
+    .card_author {
+        font-size: 15/@rootRem;
+        color: #9d9d9d;
+        margin: 22/@rootRem 0 0 40/@rootRem;
+    }
+}
+
+.titleGradient() {
+    .card_standard {
+        .card_title {
+            a {
+                display: block;
+                position: relative;
+                max-height: 155/@rootRem;
+
+                &:after {
+                    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 1));
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    text-align: right;
+                    width: 35%;
+                    height: 2rem;
+                }
+            }
+        }
+    }
+}
+
+// Internet Explorer
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .titleGradient();
+}
+
+// Edge
+@supports (-ms-ime-align:auto) {
+    .titleGradient();
+}
+
+// Firefox
+@-moz-document url-prefix() {
+    .titleGradient();
+}
+
+.card_static {
+    border: 1px solid #95989a;
+
+    .card_bg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        background-repeat: no-repeat;
+
+        img {
+            margin-top: 60/@rootRem;
+            height: 30/@rootRem;
+        }
+    }
+
+    .card_title:extend(.type .bold) {
+        padding-top: 25/@rootRem;
+        padding-bottom: 20/@rootRem;
+        font-size: 40/@rootRem;
+        text-align: center;
+        min-height: 100/@rootRem;
+        max-width: 303/@rootRem;
+        color: #fff;
+    }
+
+    .card_description:extend(.type .serif) {
+        padding-top: 20/@rootRem;
+        width: 233/@rootRem;
+        color: #fff;
+        font-size: 16/@rootRem;
+        line-height: 1.8;
+        text-align: center;
+    }
+}
+
+.card_subscription {
+    // entire container, keeps perspective for card flip
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    display: inline-block;
+    border: 1px solid #95989a;
+
+    .card_bg {
+        height: @size-height-fiftyish-percent;
+        display: flex;
+        flex-direction: column;
+
+        > div {
+            flex-grow: 1;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        > div:last-child {
+            align-items: center;
+        }
+    }
+
+    .card_title:extend(.type .bold .sans) {
+        max-height: 140/@rootRem;
+        padding: 0 30/@rootRem;
+        font-size: 30/@rootRem;
+        width: 100%;
+        font-weight: 900;
+        color: white;
+    }
+
+    .card_description {
+        max-height: 140/@rootRem;
+        flex-grow: 1;
+        margin: 0;
+        padding: 0 30/@rootRem;
+        font-size: 16/@rootRem;
+        color: white;
+    }
+
+    .card_img {
+        height: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .card_input,
+    .card_consentNotice {
+        padding: 0 45/@rootRem 0;
+    }
+
+    .card_input {
+        .card_name,
+        .card_email {
+            position: relative;
+        }
+
+        .card_name {
+            margin-bottom: 15/@rootRem;
+        }
+
+        ::placeholder {
+            color: #aaa;
+        }
+
+        input {
+            width: 100%; //300/@rootRem;
+            height: 53/@rootRem;
+            padding-left: 20/@rootRem;
+        }
+
+        // Error cases
+        .required,
+        .invalid {
+            border: 2px solid red;
+        }
+
+        .required ~ .error_requiredText,
+        .invalid ~ .error_invalidEmailText {
+            display: block;
+        }
+
+        div[class ^= 'error_'] {
+            display: none;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 0 8px 8px 0;
+            max-height: 200px;
+            transition: 0.28s;
+            overflow: hidden;
+            color: red;
+            font-style: italic;
+            font-size: 14/@rootRem;
+        }
+    }
+
+    .card_consentNotice {
+        margin: 1rem 0 -0.5rem 0;
+
+        p,
+        a {
+            font-family: "adobe-clean", sans-serif;
+            font-size: unit((11/@rootSize), rem);
+            line-height: unit((14/@rootSize), rem);
+            padding-bottom: 0;
+            text-align: center;
+        }
+
+        p {
+            color: white;
+        }
+
+        a {
+            color: @spectrum-blue-400;
+        }
+    }
+
+    .cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: unit((80/@rootSize), rem);
+        max-width: 200/@rootRem;
+        margin: auto auto 1rem;
+
+        .link.button_cta {
+            margin: 0;
+        }
+    }
+
+    .server_error {
+        background-color: lightcoral;
+        border: 1px solid red;
+        margin: 10px auto -20px;
+        width: 85%;
+        height: 40/@rootRem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .thankyou_view {
+        > div {
+            height: 50%;
+        }
+
+        .card_title {
+            font-size: 70/@rootRem;
+            line-height: 60/@rootRem;
+            padding: 25/@rootRem 30/@rootRem 0;
+            text-align: left;
+            max-height: 135/@rootRem;
+        }
+
+        .card_description {
+            padding-top: 15/@rootRem;
+        }
+
+        .link {
+            text-decoration: underline;
+        }
+    }
+
+    // CSS for card flipping
+    // flip the pane when flip class is added
+    &.flip .flipper {
+        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+    }
+
+    //IE 11 feature detection
+    // Each card face must be transformed individually
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        &.flip .flipper .front {
+            transform: rotateY(180deg);
+        }
+
+        &.flip .flipper .back {
+            transform: scaleX(-1);
+        }
+    }
+
+    .front,
+    .back {
+        width: 100%;
+        height: 100%;
+
+        // hide back of pane during swap
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    /* flip speed goes here */
+    .flipper {
+        height: 100%;
+        transition: 0.6s;
+        -webkit-transition: 0.6s;
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+        position: relative;
+    }
+
+    /* front pane, placed above back */
+    .front {
+        z-index: 2;
+        // for firefox 31
+        transform: rotateY(0deg);
+        -webkit-transform: rotateY(0deg);
+    }
+
+    /* back, initially hidden pane */
+    .back {
+        transform: rotateY(-180deg);
+        -webkit-transform: rotateY(-180deg);
+    }
+}
+
+.card_featured {
+    overflow: hidden;
+
+    .card_img {
+        display: flex;
+        justify-content: flex-end;
+        background-repeat: no-repeat;
+        background-position: left;
+        width: 100%;
+        height: 100%;
+    }
+
+    .card_bg {
+        width: 391/@rootRem;
+        z-index: 1;
+        padding: 40/@rootRem;
+    }
+
+    .card_title {
+        @fontSize: 48/@rootRem;
+        @lineHeight: 1.1;
+
+        font-size: @fontSize;
+        line-height: @lineHeight;
+        // use adobe clean serif
+        &:extend(.type .serif);
+
+        margin-bottom: 20/@rootRem;
+    }
+
+    .card_description {
+        font-size: 15/@rootRem;
+        line-height: 1.3333;
+    }
+}
+
+.card_showmore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    > svg {
+        height: 80/@rootRem;
+        width: 80/@rootRem;
+        margin-bottom: 25/@rootRem;
+        cursor: pointer;
+    }
+
+    > span {
+        color: @spectrum-blue-500;
+        font-size: 20/@rootRem;
+        cursor: pointer;
+        &:extend(.type .bold);
+    }
+}

@@ -1,0 +1,187 @@
+.pagination {
+    margin: 24/@rootRem 0;
+    font-size: 16/@rootRem;
+    display: inline-block;
+    width: 100%;
+
+    span {
+        margin-right: 10/@rootRem;
+        margin-left: 1.5%;
+        color: @spectrum-grey-700;
+        font-weight: lighter;
+
+        & + button > i {
+            margin-right: 5/@rootRem;
+        }
+    }
+
+    & &_next {
+        margin-right: 12/@rootRem;
+        text-align: left;
+    }
+
+    & &_prev {
+        margin-left: 15/@rootRem;
+        text-align: right;
+
+        & > i:after {
+            left: -10/@rootRem;
+        }
+    }
+
+    i[class ^= "spectrumIcon_"]:after {
+        position: absolute;
+        content: '';
+        width: 18/@rootRem;
+        height: 18/@rootRem;
+        // center align
+        top: 50%;
+        bottom: 50%;
+        transform: translate(-50%, -50%);
+        background-size: 18/@rootRem 18/@rootRem;
+        background-repeat: no-repeat;
+
+        // Internet Explorer
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            display: block;
+            transform: translate(0, 0);
+            top: -1px;
+            left: -14/@rootRem;
+            margin-left: 1px;
+        }
+    }
+
+    button {
+        cursor: pointer;
+        font-size: inherit;
+        font-weight: lighter;
+        font-family: inherit;
+        color: @spectrum-blue-500;
+        padding: 0;
+        margin: 0;
+        background-color: transparent;
+        line-height: 1.4em;
+        vertical-align: baseline;
+
+        &:hover,
+        &:active,
+        &:focus {
+            background: none;
+            text-decoration: underline;
+            color: #409ef8;
+        }
+
+        @-moz-document url-prefix() { // firefox only
+            // firefox not accounting for the width of the :after icon
+            &.pagination_last {
+                width: 1em;
+                padding-right: 10/@rootRem;
+            }
+        }
+
+        // Internet Explorer
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            &.pagination_last {
+                width: 1em;
+            }
+        }
+
+        > i {
+            font-size: 0.75em;
+            line-height: inherit;
+            margin-left: 10/@rootRem;
+            position: relative;
+        }
+
+        > i[class ^= "spectrumIcon_"]:after {
+            position: absolute;
+            content: '';
+            width: 18/@rootRem;
+            height: 18/@rootRem;
+            // center align
+            top: 50%;
+            bottom: 50%;
+            transform: translate(-50%, -50%);
+            background-size: 18/@rootRem 18/@rootRem;
+            background-repeat: no-repeat;
+
+            // Internet Explorer
+            @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                display: block;
+                transform: translate(0, 0);
+                top: -1px;
+                left: -14/@rootRem;
+                margin-left: 1px;
+            }
+        }
+    }
+
+    ul {
+        margin: 0 9/@rootRem 0 5/@rootRem;
+        display: inline;
+
+        li {
+            display: inline-block;
+            padding: 0 10/@rootRem;
+            border: none;
+            border-radius: 0;
+            border-right: 1/@rootRem solid #ccc;
+            font-weight: bold;
+            line-height: 1.4em;
+            min-width: 0;
+            flex-basis: auto;
+            margin: 0;
+
+            &.active {
+                button {
+                    color: #000;
+                    font-weight: bold;
+                }
+            }
+
+            &:last-child {
+                border-right: none;
+            }
+        }
+
+        & ~ ul.pagination_mobile {
+            display: none;
+        }
+
+        @media @for-phone-only {
+            & ~ ul.pagination_mobile {
+                display: inline-block;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 340px) {
+        // on tiny phone screen put "Page" text on separate line
+        & {
+            margin-left: 1em;
+        }
+
+        & > span:after {
+            content: "\A\A";
+            white-space: pre;
+        }
+    }
+
+    .spectrumIcon {
+        &_chevronDoubleLeft:after {
+            background: data-uri('image/svg+xml;base64', '../../img/icons/spectrum/chevron-double-left-blue-500.svg');
+        }
+
+        &_chevronDoubleRight:after {
+            background: data-uri('image/svg+xml;base64', '../../img/icons/spectrum/chevron-double-right-blue-500.svg');
+        }
+
+        &_chevronLeft:after {
+            background: data-uri('image/svg+xml;base64', '../../img/icons/spectrum/chevron-left-blue-500.svg');
+        }
+
+        &_chevronRight:after {
+            background: data-uri('image/svg+xml;base64', '../../img/icons/spectrum/chevron-right-blue-500.svg');
+        }
+    }
+}

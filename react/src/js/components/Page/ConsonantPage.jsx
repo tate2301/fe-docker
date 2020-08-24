@@ -19,7 +19,7 @@ const LOADER_SIZE = {
     BIG: 'big',
 };
 const PARAMS = {
-    LOAD_POSTS_URL: 'http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v4/success-stories',
+    LOAD_POSTS_URL: 'http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v4/webinars',
     SHOW_ITEMS_PER_STEP: 8,
     TRUNCATE_TEXT_QTY: 200,
 };

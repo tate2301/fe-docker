@@ -1,7 +1,32 @@
 const path = require('path');
 
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+
+const extractStyles = new ExtractTextPlugin({
+    filename: './app.css', // this is output name for file
+    disable: false,
+    allChunks: true,
+});
+
+const listStyles = new StyleLintPlugin({
+    files: '**/*.less',
+    syntax: 'less',
+    fix: true,
+});
+
+const plugins = [
+    extractStyles,
+    listStyles,
+];
+
 module.exports = {
-    entry: './react/src/js/app.jsx',
+    entry: {
+        app: [
+            './react/src/js/app.jsx',
+            './less/app.less', // this is entry point for less file
+        ],
+    },
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
@@ -32,7 +57,30 @@ module.exports = {
                     fix: true,
                 },
             },
+            {
+                test: /\.css$/,
+                loader: 'ignore-loader',
+            },
+            {
+                test: /\.less$/,
+                use: extractStyles.extract({
+                    use: [{
+                        loader: 'css-loader',
+                        options: {
+                            url: false,
+                            minimize: true,
+                        },
+                    },
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            url: false,
+                        },
+                    }],
+                }),
+            },
         ],
     },
+    plugins,
     devtool: 'eval-source-map',
 };
