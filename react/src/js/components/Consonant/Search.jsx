@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 const Search = (props) => {
     const { itemsQty, value, onSearch } = props;
     const handleSearch = (evt) => {
-        onSearch(evt.target.value);
+        // eslint-disable-next-line semi
+        console.log(evt);
+        // onSearch(evt.target.value);
     };
 
     const clearSearch = () => {

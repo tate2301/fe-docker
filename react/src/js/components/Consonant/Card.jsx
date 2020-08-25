@@ -1,11 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Tooltip from './Tooltip';
-
-const tooltipText = {
-    unselected: 'Save breakout session',
-    selected: 'Unsave breakout session',
-};
 
 const Card = (props) => {
     const {
@@ -21,14 +15,7 @@ const Card = (props) => {
         bannerBackgroundColor,
         bannerIcon,
         secondaryLabelText,
-        isBookmarked,
-        onClick,
     } = props;
-
-    const handleClick = (clickEvt) => {
-        clickEvt.stopPropagation();
-        onClick(id);
-    };
 
     return (
         <div className="consonant-card" id={id}>
@@ -71,22 +58,6 @@ const Card = (props) => {
                     dangerouslySetInnerHTML={{ __html: description }} />
                 <div className="consonant-card--footer-wrapper">
                     <div className="consonant-card--footer-info">
-                        <button
-                            data-tooltip-wrapper
-                            type="button"
-                            className={
-                                isBookmarked ?
-                                    'consonant-card--footer-btn consonant-card--footer-btn_active' :
-                                    'consonant-card--footer-btn'
-                            }
-                            onClick={handleClick}>
-                            <svg width="16" height="12">
-                                <use href="#bookmark" />
-                            </svg>
-                            <Tooltip text={
-                                isBookmarked ? tooltipText.selected : tooltipText.unselected
-                            } />
-                        </button>
                         {
                             secondaryLabelText &&
                             <span className="consonant-card--secondary-text">{secondaryLabelText}</span>
@@ -118,8 +89,6 @@ Card.propTypes = {
     bannerBackgroundColor: PropTypes.string,
     bannerIcon: PropTypes.string,
     secondaryLabelText: PropTypes.string,
-    isBookmarked: PropTypes.bool.isRequired,
-    onClick: PropTypes.func.isRequired,
 };
 
 Card.defaultProps = {
