@@ -71,7 +71,152 @@
 
 <script type="text/javascript">
 
-    var config = {headerEnabled: true};
+    var config = {
+        collection: {
+            resultsPerPage: 6,
+            endpoint: "http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v4/webinars",
+            title: "Lorem ipsum dolor sit amet.",
+            totalCardLimit: 150,
+        },
+        featuredCards: [
+            {
+                "title": "Digital Bites Webinar Series",
+                "appliesTo": [
+                    {
+                        "id": "adobe-com-enterprise:content-type/webinar"
+                    },
+                    {
+                        "id": "adobe-com-enterprise:availability/upcoming"
+                    },
+                    {
+                        "id": "adobe-com-enterprise:topic/digital-trends"
+                    }
+                ],
+                "id": "6d6438c8-5aa2-36be-bfd0-18a9f6e4cd9c",
+                "description": "This month and next will be devoted exclusively to you — making you a true expert in creating agile, creative, and consistent experiences. The kinds of experiences your customers demand (and will love). Over the next few months, we’re going to focus on modernizing the nuts and bolts of your operation.",
+                "image": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/104643%20Adobe_Digital-Bites-web-graphics_marquee%201600x600.jpg",
+                "lastModified": "2020-07-02T09:41:35.933Z",
+                "bannerDescription": "Upcoming",
+                "ctaLabel": "Learn more",
+                "ctaLink": "https://www.adobe.com/uk/enterprise/events/webinars/digital-bites-webinar-series.html",
+                "bannerBackgroundColor": "#CB6F10",
+                "bannerFontColor": "#FFFFFF",
+                "secondaryLabelText": "May 27, 1–2:00 MT",
+                "bannerIcon": "",
+                "position": 5,
+            },
+            {
+                "title": "Driving Video Content Velocity – Announcing Adobe Stock Audio",
+                "appliesTo": [
+                    {
+                        "id": "adobe-com-enterprise:content-type/webinar"
+                    },
+                    {
+                        "id": "adobe-com-enterprise:availability/upcoming"
+                    },
+                    {
+                        "id": "adobe-com-enterprise:topic/Stock"
+                    }
+                ],
+                "id": "ac578dee-f01b-3ea0-a282-2116619e4251",
+                "description": "During this one-hour webinar Richard West (Strategic Development, EMEA) will be joined by Byron Wijayawardena (Strategic Development Manager, UK&I, Adobe) and will show you how to enhance and optimise your video workflow. We will take a deep dive into the new features of Adobe Premiere Pro, our premium video editing application and show you how you can bring your content to life by incorporating audio directly from Adobe Stock Audio.",
+                "image": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Adobe_Stock_Audio_Banner_1600x%20600.jpg",
+                "lastModified": "2020-07-30T08:45:42.881Z",
+                "bannerDescription": "Live",
+                "ctaLabel": "Learn more",
+                "ctaLink": "https://www.adobe.com/uk/enterprise/events/webinars/stock_audio.html",
+                "bannerBackgroundColor": "#FFFFFF",
+                "bannerFontColor": "#D7373F",
+                "secondaryLabelText": "May 27, 1–2:00 MT",
+                "bannerIcon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg",
+                "position": 2,
+            }
+        ],
+        header: {
+            enabled: false,
+        },
+        filterPanel: {
+            enabled: true,
+            type: 'side',
+            filters: [
+                {
+                    "group": "Topic",
+                    "id": "adobe-com-enterprise:topic",
+                    "items": [
+                        {
+                            "label": "Business Continuity",
+                            "id": "adobe-com-enterprise:topic/business-continuity"
+                        },
+                        {
+                            "label": "Creativity and Design",
+                            "id": "adobe-com-enterprise:topic/creativity-design"
+                        },
+                        {
+                            "label": "Customer Intelligence",
+                            "id": "adobe-com-enterprise:topic/customer-intelligence"
+                        },
+                        {
+                            "label": "Data Management Platform",
+                            "id": "adobe-com-enterprise:topic/data-management-platform"
+                        },
+                        {
+                            "label": "Digital Foundation",
+                            "id": "adobe-com-enterprise:topic/digital-foundation"
+                        },
+                        {
+                            "label": "Digital Trends",
+                            "id": "adobe-com-enterprise:topic/digital-trends"
+                        },
+                        {
+                            "label": "Document Management",
+                            "id": "adobe-com-enterprise:topic/document-management"
+                        },
+                        {
+                            "label": "Marketing Automation",
+                            "id": "adobe-com-enterprise:topic/marketing-automation"
+                        },
+                        {
+                            "label": "Personalization",
+                            "id": "adobe-com-enterprise:topic/personalization"
+                        },
+                        {
+                            "label": "Stock",
+                            "id": "adobe-com-enterprise:topic/Stock"
+                        }
+                    ]
+                },
+                {
+                    "group": "Availability",
+                    "id": "adobe-com-enterprise:availability",
+                    "items": [
+                        {
+                            "label": "On-Demand",
+                            "id": "adobe-com-enterprise:availability/on-demand"
+                        },
+                        {
+                            "label": "Upcoming",
+                            "id": "adobe-com-enterprise:availability/upcoming"
+                        }
+                    ]
+                }
+            ],
+            clearText: 'Clear all',
+        },
+        sort: {
+            enabled: true,
+            sortFieldOneLabel : 'Date',
+            sortFieldTwoLabel: 'Title'
+        },
+        pagination: {
+            enabled: true,
+            type: 'load-more'
+        },
+        bookmarks: {
+            enabled: true,
+            cardIcon: 'path-to-some.svg',
+            filterPanelIcon: 'path-to-some.svg'
+        }
+    };
     var cardCollection = new WrapperCardCollectionComponent(config, document.getElementById("someDivId"));
 </script>
 </body>
