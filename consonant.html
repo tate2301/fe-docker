@@ -103,7 +103,6 @@
                 "bannerFontColor": "#FFFFFF",
                 "secondaryLabelText": "May 27, 1–2:00 MT",
                 "bannerIcon": "",
-                "position": 5,
             },
             {
                 "title": "Driving Video Content Velocity – Announcing Adobe Stock Audio",
@@ -129,7 +128,6 @@
                 "bannerFontColor": "#D7373F",
                 "secondaryLabelText": "May 27, 1–2:00 MT",
                 "bannerIcon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg",
-                "position": 2,
             }
         ],
         header: {
@@ -215,7 +213,9 @@
         bookmarks: {
             enabled: true,
             cardIcon: 'path-to-some.svg',
-            filterPanelIcon: 'path-to-some.svg'
+            filterPanelIcon: 'path-to-some.svg',
+            saveLabel: 'Save breakout session',
+            unsaveLabel: 'Unsave breakout session',
         }
     };
     var cardCollection = new WrapperCardCollectionComponent(config, document.getElementById("someDivId"));
