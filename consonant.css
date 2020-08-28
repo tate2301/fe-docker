@@ -1691,6 +1691,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   .consonant-filters-info .consonant-filters-info--results {
     display: block;
     max-width: 25%;
+    margin-left: auto;
     font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
     font-style: normal;
     font-weight: 700;
