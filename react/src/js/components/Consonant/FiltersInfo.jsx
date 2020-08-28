@@ -8,6 +8,7 @@ const DESKTOP_MIN_WIDTH = 1200;
 
 const FiltersInfo = (props) => {
     const {
+        title,
         filters,
         cardsQty,
         selectedFiltersQty,
@@ -69,7 +70,10 @@ const FiltersInfo = (props) => {
     );
     const desktopFiltersAsideInfo = (windowWidth >= DESKTOP_MIN_WIDTH &&
     <div className="consonant-filters-info--wrapper">
-        <h2 className="consonant-filters-info--title">Lorem ipsum dolor sit amet.</h2>
+        {
+            title &&
+            <h2 className="consonant-filters-info--title">{title}</h2>
+        }
         {filters.length > 0 &&
             <span className="consonant-filters-info--results">{cardsQty} results</span>
         }
@@ -95,6 +99,7 @@ const FiltersInfo = (props) => {
 export default FiltersInfo;
 
 FiltersInfo.propTypes = {
+    title: PropTypes.string,
     filters: PropTypes.arrayOf(PropTypes.object),
     cardsQty: PropTypes.number,
     selectedFiltersQty: PropTypes.number,
@@ -109,6 +114,7 @@ FiltersInfo.propTypes = {
 };
 
 FiltersInfo.defaultProps = {
+    title: '',
     filters: [],
     cardsQty: 0,
     searchQuery: '',
