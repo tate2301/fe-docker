@@ -8,6 +8,7 @@ const DESKTOP_MIN_WIDTH = 1200;
 
 const FiltersInfo = (props) => {
     const {
+        enabled,
         title,
         filters,
         cardsQty,
@@ -29,26 +30,26 @@ const FiltersInfo = (props) => {
             onSearch={onSearch} />
     </div>
     );
-    const mobileAsideInfoFilterBtn = (windowWidth < DESKTOP_MIN_WIDTH &&
-    <div className="consonant-filters-info--btn-wrapper">
-        <button
-            type="button"
-            className={
-                selectedFiltersQty > 0 ?
-                    'consonant-filters-info--btn consonant-filters-info--btn_with-filters' :
-                    'consonant-filters-info--btn'
-            }
-            onClick={onMobileFiltersToggleClick}>
-            <span className="consonant-filters-info--btn-ico" />
-            <span className="consonant-filters-info--btn-text">filters</span>
-            {
-                selectedFiltersQty > 0 &&
-                <span className="consonant-filters-info--btn-selected">
-                    {selectedFiltersQty}
-                </span>
-            }
-        </button>
-    </div>
+    const mobileAsideInfoFilterBtn = (windowWidth < DESKTOP_MIN_WIDTH && enabled &&
+        <div className="consonant-filters-info--btn-wrapper">
+            <button
+                type="button"
+                className={
+                    selectedFiltersQty > 0 ?
+                        'consonant-filters-info--btn consonant-filters-info--btn_with-filters' :
+                        'consonant-filters-info--btn'
+                }
+                onClick={onMobileFiltersToggleClick}>
+                <span className="consonant-filters-info--btn-ico" />
+                <span className="consonant-filters-info--btn-text">filters</span>
+                {
+                    selectedFiltersQty > 0 &&
+                    <span className="consonant-filters-info--btn-selected">
+                        {selectedFiltersQty}
+                    </span>
+                }
+            </button>
+        </div>
     );
     const desktopSelectedFilters = (
         windowWidth >= DESKTOP_MIN_WIDTH &&
@@ -99,6 +100,7 @@ const FiltersInfo = (props) => {
 export default FiltersInfo;
 
 FiltersInfo.propTypes = {
+    enabled: PropTypes.bool.isRequired,
     title: PropTypes.string,
     filters: PropTypes.arrayOf(PropTypes.object),
     cardsQty: PropTypes.number,

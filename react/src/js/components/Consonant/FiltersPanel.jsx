@@ -13,10 +13,13 @@ const FiltersPanel = (props) => {
         searchQuery,
         cardsQty,
         onFilterClick,
+        clearText,
         onClearAllFilters,
         onClearFilterItems,
         onCheckboxClick,
         onMobileFiltersToggleClick,
+        showFavsMenuLink,
+        showFavsIcon,
         showFavs,
         favsQty,
         onFavsClick,
@@ -44,7 +47,7 @@ const FiltersPanel = (props) => {
         <button
             type="button"
             className="consonant-filters--clear-link"
-            onClick={onClearAllFilters}>clear all
+            onClick={onClearAllFilters}>{clearText}
         </button>
     );
     const desktopFiltersSearch = (windowWidth >= DESKTOP_MIN_WIDTH &&
@@ -61,7 +64,7 @@ const FiltersPanel = (props) => {
                 <button
                     type="button"
                     className="consonant-filters--mobile-footer-clear"
-                    onClick={onClearAllFilters}>Clear all
+                    onClick={onClearAllFilters}>{clearText}
                 </button>
             }
             <button
@@ -103,24 +106,29 @@ const FiltersPanel = (props) => {
                                 onClearAll={onClearFilterItems} />))}
                     </div>
             }
-            <button
-                type="button"
-                onClick={onFavsClick}
-                className={
-                    showFavs ?
-                        'consonant-filters--bookmarks consonant-filters--bookmarks_selected' :
-                        'consonant-filters--bookmarks'
-                }>
-                <span className="consonant-filters--bookmarks-ico-wrapper">
-                    <svg
-                        width="16"
-                        height="14"
-                        className="consonant-filters--bookmarks-ico"><use href="#heart" />
-                    </svg>
-                    <span className="consonant-filters--bookmarks-title">My favorites</span>
-                </span>
-                <span className="consonant-filters--item-badge">{favsQty}</span>
-            </button>
+            { showFavsMenuLink &&
+                <button
+                    type="button"
+                    onClick={onFavsClick}
+                    className={
+                        showFavs ?
+                            'consonant-filters--bookmarks consonant-filters--bookmarks_selected' :
+                            'consonant-filters--bookmarks'
+                    }>
+                    <span className="consonant-filters--bookmarks-ico-wrapper">
+                        { showFavsIcon ?
+                            <img src={showFavsIcon} width="16" alt="" loading="lazy" /> :
+                            <svg
+                                width="16"
+                                height="14"
+                                className="consonant-filters--bookmarks-ico"><use href="#heart" />
+                            </svg>
+                        }
+                        <span className="consonant-filters--bookmarks-title">My favorites</span>
+                    </span>
+                    <span className="consonant-filters--item-badge">{favsQty}</span>
+                </button>
+            }
             {mobileFiltersFooter}
         </div>
     );
@@ -132,11 +140,14 @@ FiltersPanel.propTypes = {
     filters: PropTypes.arrayOf(PropTypes.object),
     windowWidth: PropTypes.number,
     showMobileFilters: PropTypes.bool,
+    showFavsMenuLink: PropTypes.bool.isRequired,
+    showFavsIcon: PropTypes.string.isRequired,
     showFavs: PropTypes.bool,
     favsQty: PropTypes.number,
     searchQuery: PropTypes.string,
     cardsQty: PropTypes.number,
     onFilterClick: PropTypes.func.isRequired,
+    clearText: PropTypes.string.isRequired,
     onClearAllFilters: PropTypes.func.isRequired,
     onClearFilterItems: PropTypes.func.isRequired,
     onCheckboxClick: PropTypes.func.isRequired,

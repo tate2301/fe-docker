@@ -18,6 +18,11 @@ const LOADER_SIZE = {
     MEDIUM: 'medium',
     BIG: 'big',
 };
+const FILTER_LOGIC = {
+    AND: 'and',
+    OR: 'or',
+    XOR: 'xor',
+};
 const TRUNCATE_TEXT_QTY = 200;
 let updateDimensionsTimer;
 let updateScrollPosTimer;
@@ -70,12 +75,9 @@ export default class ConsonantPage extends React.Component {
         this.handleShowFavsClick = this.handleShowFavsClick.bind(this);
         this.resetFavourites = this.resetFavourites.bind(this);
         this.setBookMarksToLS = this.setBookMarksToLS.bind(this);
-        console.log(props.config);
     }
 
     componentDidMount() {
-        console.log('So props received', this.props);
-
         this.setInitialScrollPos();
         window.addEventListener('resize', this.updateDimensions);
         window.addEventListener('resize', this.handleInitialScrollPos);
@@ -105,6 +107,7 @@ export default class ConsonantPage extends React.Component {
             };
 
             const { featuredCards } = this.props.config;
+            const { filters } = this.props.config.filterPanel;
 
             const processCard = (card) => {
                 card.initialTitle = card.title;
@@ -122,11 +125,11 @@ export default class ConsonantPage extends React.Component {
 
             res.cards = applyCardLimitToLoadedCards(res.cards);
 
-            if (!res || !res.cards || !res.filters) return;
+            if (!res || !res.cards) return;
 
             this.setState(prevState => ({
                 cards: [...prevState.cards, ...res.cards.map(card => processCard(card))],
-                filters: res.filters.map((el) => {
+                filters: filters.map((el) => {
                     el.opened = false;
                     el.items = el.items.map((item) => {
                         item.selected = false;
@@ -221,13 +224,21 @@ export default class ConsonantPage extends React.Component {
     filterCards() {
         const filters = this.getActiveFiltersIds();
         const query = this.state.searchQuery;
+        let { filterLogic } = this.props.config.filterPanel;
+        filterLogic = filterLogic.toLowerCase().trim();
+
         const checkCardsApplyToFilters = (cards, selectedFilters) => {
             const res = cards.reduce((acc, card) => {
                 let filterPassed = false;
 
                 if (
                     card.appliesTo &&
+                    (filterLogic === FILTER_LOGIC.XOR || filterLogic === FILTER_LOGIC.AND) &&
                     selectedFilters.every(el => card.appliesTo.some(tag => tag.id === el))
+                ) { filterPassed = true; } else if (
+                    card.appliesTo &&
+                    (filterLogic === FILTER_LOGIC.OR) &&
+                    selectedFilters.some(el => card.appliesTo.some(tag => tag.id === el))
                 ) { filterPassed = true; }
 
                 if (filterPassed) acc.push(card);
@@ -241,14 +252,22 @@ export default class ConsonantPage extends React.Component {
             }
         };
 
-        // In case of filters were reset or q-ty decreased, we need to update search;
+        /* In case of filters were reset or q-ty decreased, or filterLogic is XOR or OR
+        we need to update search; */
         if (
             (query && !filters.length) ||
-            (query && !this.state.lastFilterWasChecked)
+            (query && !this.state.lastFilterWasChecked) ||
+            (filterLogic === FILTER_LOGIC.XOR) ||
+            (filterLogic === FILTER_LOGIC.OR)
         ) { this.searchCards(); }
 
-        // If no filters selected and no search, we show all cards;
-        if (!filters.length && !query) {
+        /* If no filters selected and no search, or filterLogic is XOR or OR and no search,
+        we show all cards; */
+        if (
+            (!filters.length && !query) ||
+            (filterLogic === FILTER_LOGIC.OR && !query) ||
+            (filterLogic === FILTER_LOGIC.XOR && !query)
+        ) {
             this.setState(prevState => ({ filteredCards: [...prevState.cards] }), applySorting);
         }
 
@@ -443,7 +462,12 @@ export default class ConsonantPage extends React.Component {
     }
 
     handleCheckBoxChange(filterId, itemId, isChecked) {
+        const { filterLogic } = this.props.config.filterPanel;
+
         if (this.state.showFavourites) this.resetFavourites();
+
+        // If xor filterLogic set, we reset all filters;
+        if (filterLogic.toLowerCase().trim() === FILTER_LOGIC.XOR && isChecked) this.clearFilters();
 
         this.setState((prevState) => {
             const list = prevState.filters.map((filter) => {
@@ -531,25 +555,31 @@ export default class ConsonantPage extends React.Component {
                     className="consonant-page">
                     <div className="consonant-page--inner">
                         <div>
-                            <FiltersPanel
-                                filters={this.state.filters}
-                                windowWidth={this.state.windowWidth}
-                                showMobileFilters={this.state.showMobileFilters}
-                                searchQuery={this.state.searchQuery}
-                                cardsQty={this.state.cards.length}
-                                resQty={this.state.filteredCards.length}
-                                onFilterClick={this.handleFilterItemClick}
-                                onClearAllFilters={this.clearAllFilters}
-                                onClearFilterItems={this.clearFilterItems}
-                                onFavsClick={this.handleShowFavsClick}
-                                showFavs={this.state.showFavourites}
-                                favsQty={this.state.bookmarkedCards.length}
-                                onCheckboxClick={this.handleCheckBoxChange}
-                                onMobileFiltersToggleClick={this.handleFiltersToggle}
-                                onSearch={this.handleSearchInputChange} />
+                            {this.props.config.filterPanel.enabled &&
+                                <FiltersPanel
+                                    filters={this.state.filters}
+                                    windowWidth={this.state.windowWidth}
+                                    showMobileFilters={this.state.showMobileFilters}
+                                    searchQuery={this.state.searchQuery}
+                                    cardsQty={this.state.cards.length}
+                                    resQty={this.state.filteredCards.length}
+                                    onFilterClick={this.handleFilterItemClick}
+                                    clearText={this.props.config.filterPanel.clearText}
+                                    onClearAllFilters={this.clearAllFilters}
+                                    onClearFilterItems={this.clearFilterItems}
+                                    showFavsMenuLink={this.props.config.bookmarks.enabled}
+                                    showFavsIcon={this.props.config.bookmarks.filterPanelIcon}
+                                    onFavsClick={this.handleShowFavsClick}
+                                    showFavs={this.state.showFavourites}
+                                    favsQty={this.state.bookmarkedCards.length}
+                                    onCheckboxClick={this.handleCheckBoxChange}
+                                    onMobileFiltersToggleClick={this.handleFiltersToggle}
+                                    onSearch={this.handleSearchInputChange} />
+                            }
                         </div>
                         <div>
                             <FiltersInfo
+                                enabled={this.props.config.filterPanel.enabled}
                                 title={this.props.config.collection.title}
                                 filters={this.state.filters}
                                 cardsQty={this.state.filteredCards.length}
@@ -568,11 +598,16 @@ export default class ConsonantPage extends React.Component {
                                         showItemsPerPage={this.state.showItemsPerPage}
                                         pages={this.state.pages}
                                         cards={this.state.filteredCards}
-                                        onCardBookmark={this.handleCardBookmarking} />
-                                    <LoadMore
-                                        onClick={this.setCardsToShowQty}
-                                        show={this.getCardsToShowQty()}
-                                        total={this.state.filteredCards.length} />
+                                        allowBookmarking={this.props.config.bookmarks.enabled}
+                                        onCardBookmark={this.handleCardBookmarking}
+                                        cardBookmarkIcon={this.props.config.bookmarks.cardIcon} />
+                                    {
+                                        this.props.config.pagination.enabled &&
+                                        <LoadMore
+                                            onClick={this.setCardsToShowQty}
+                                            show={this.getCardsToShowQty()}
+                                            total={this.state.filteredCards.length} />
+                                    }
                                 </Fragment> :
                                 <Loader
                                     size={LOADER_SIZE.BIG}
@@ -598,6 +633,22 @@ ConsonantPage.propTypes = {
         header: PropTypes.shape({
             enabled: PropTypes.bool,
         }),
+        filterPanel: PropTypes.shape({
+            enabled: PropTypes.bool,
+            type: PropTypes.string,
+            filters: PropTypes.arrayOf(PropTypes.object),
+            clearText: PropTypes.string,
+            filterLogic: PropTypes.string,
+        }),
+        pagination: PropTypes.shape({
+            enabled: PropTypes.bool,
+            type: PropTypes.string,
+        }),
+        bookmarks: PropTypes.shape({
+            enabled: PropTypes.bool,
+            cardIcon: PropTypes.string,
+            filterPanelIcon: PropTypes.string,
+        }),
         poc_label: PropTypes.string,
     }),
 };
@@ -612,6 +663,22 @@ ConsonantPage.defaultProps = {
         featuredCards: [],
         header: {
             enabled: true,
+        },
+        filterPanel: {
+            enabled: true,
+            type: 'side',
+            filters: [],
+            clearText: 'Clear all',
+            filterLogic: 'and',
+        },
+        pagination: {
+            enabled: true,
+            type: 'load-more',
+        },
+        bookmarks: {
+            enabled: true,
+            cardIcon: '',
+            filterPanelIcon: '',
         },
         poc_label: 'Default value',
     },

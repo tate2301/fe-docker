@@ -490,7 +490,8 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   outline: 0;
 }
 
-.consonant-filters--bookmarks-ico-wrapper svg {
+.consonant-filters--bookmarks-ico-wrapper svg,
+.consonant-filters--bookmarks-ico-wrapper img {
   width: 16px;
   height: 14px;
   margin-right: 6px;
@@ -673,6 +674,10 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   align-items: center;
   padding-top: 23px;
   background-color: #fff;
+}
+
+.consonant-filters-info > *:last-child {
+  margin-left: auto;
 }
 
 .consonant-filters-info .consonant-filters--selected-filters:empty {
