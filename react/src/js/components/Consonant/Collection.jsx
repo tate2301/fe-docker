@@ -5,7 +5,13 @@ import Card from './Card';
 const DEFAULT_SHOW_ITEMS_PER_PAGE = 8;
 
 const Collection = (props) => {
-    const { showItemsPerPage, pages, onCardBookmark } = props;
+    const {
+        showItemsPerPage,
+        pages,
+        allowBookmarking,
+        onCardBookmark,
+        cardBookmarkIcon,
+    } = props;
     let cards = [...props.cards];
     let cardsToShow = showItemsPerPage * pages;
 
@@ -14,7 +20,14 @@ const Collection = (props) => {
 
     return (
         <div className="consonant-card-collection">
-            {cards.map(card => <Card key={card.id} {...card} onClick={onCardBookmark} />)}
+            {cards.map(card => (
+                <Card
+                    key={card.id}
+                    {...card}
+                    onClick={onCardBookmark}
+                    bookmarkIcon={cardBookmarkIcon}
+                    allowBookmarking={allowBookmarking} />
+            ))}
             <div className="consonant-card consonant-card_placeholder" />
             <div className="consonant-card consonant-card_placeholder" />
         </div>
@@ -27,7 +40,9 @@ Collection.propTypes = {
     showItemsPerPage: PropTypes.number,
     pages: PropTypes.number,
     cards: PropTypes.arrayOf(PropTypes.object),
+    allowBookmarking: PropTypes.bool.isRequired,
     onCardBookmark: PropTypes.func.isRequired,
+    cardBookmarkIcon: PropTypes.string.isRequired,
 };
 
 Collection.defaultProps = {
