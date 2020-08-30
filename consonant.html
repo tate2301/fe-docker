@@ -139,6 +139,7 @@
                 {
                     "group": "Topic",
                     "id": "adobe-com-enterprise:topic",
+                    "icon": 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg',
                     "items": [
                         {
                             "label": "Business Continuity",
@@ -185,6 +186,7 @@
                 {
                     "group": "Availability",
                     "id": "adobe-com-enterprise:availability",
+                    "icon": 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg',
                     "items": [
                         {
                             "label": "On-Demand",
@@ -202,8 +204,7 @@
         },
         sort: {
             enabled: true,
-            sortFieldOneLabel : 'Date',
-            sortFieldTwoLabel: 'Title'
+            labels : ['Featured - ***', 'Date - ***', 'Title - ***'],
         },
         pagination: {
             enabled: false,
@@ -211,8 +212,14 @@
         },
         bookmarks: {
             enabled: true,
-            cardIcon: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg',
-            filterPanelIcon: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg',
+            cardSavedIcon: '',
+            cardUnsavedIcon: '',
+            selectBookmarksIcon: '',
+            unselectBookmarksIcon: '',
+        },
+        search: {
+            enabled: false,
+            placeholderText: 'Search here...',
         }
     };
     var cardCollection = new WrapperCardCollectionComponent(config, document.getElementById("someDivId"));
