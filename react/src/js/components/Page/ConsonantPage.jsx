@@ -162,7 +162,7 @@ export default class ConsonantPage extends React.Component {
         const defaultProps = {
             collection: {
                 resultsPerPage: 9,
-                endpoint: '"http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v4/webinars',
+                endpoint: 'http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v4/webinars',
                 title: 'Hello, world',
                 totalCardLimit: 0,
             },

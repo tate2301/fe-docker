@@ -232,6 +232,7 @@
 
 .consonant-filters .consonant-filters--item.consonant-filters--item_opened
 .consonant-filters--item-name img {
+  display: none;
   position: relative;
   top: 4px;
 }
@@ -1765,6 +1766,11 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     display: block;
     padding: 0;
     overflow: hidden;
+  }
+
+  .consonant-filters .consonant-filters--item.consonant-filters--item_opened
+  .consonant-filters--item-name img {
+    display: block;
   }
 
   .consonant-filters .consonant-filters--item.consonant-filters--item_opened
