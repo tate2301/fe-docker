@@ -163,7 +163,7 @@ export default class ConsonantPage extends React.Component {
             collection: {
                 resultsPerPage: 9,
                 endpoint: 'http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v4/webinars',
-                title: 'Hello, world',
+                title: '',
                 totalCardLimit: 0,
             },
             featuredCards: [],
@@ -196,7 +196,6 @@ export default class ConsonantPage extends React.Component {
                 enabled: true,
                 placeholderText: 'Search here...',
             },
-            poc_label: 'Default value',
         };
 
         if (
