@@ -72,14 +72,14 @@
 <script type="text/javascript">
     var config = {
         collection: {
-            resultsPerPage: 500,
+            resultsPerPage: 9,
             endpoint: "http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v4/webinars",
             title: "Hello, world",
-            totalCardLimit: 0,
+            totalCardLimit: 10,
         },
         featuredCards: [
             {
-                "title": "Digital Bites Webinar Series+++",
+                "title": "Digital Bites Webinar Series",
                 "appliesTo": [
                     {
                         "id": "adobe-com-enterprise:content-type/webinar"
@@ -104,7 +104,7 @@
                 "bannerIcon": "",
             },
             {
-                "title": "Driving Video Content Velocity – Announcing Adobe Stock Audio+++",
+                "title": "Driving Video Content Velocity – Announcing Adobe Stock Audio",
                 "appliesTo": [
                     {
                         "id": "adobe-com-enterprise:content-type/webinar"
@@ -203,11 +203,11 @@
             filterLogic: 'and',
         },
         sort: {
-            enabled: false,
+            enabled: true,
             labels : ['Featured - ***', 'Date - ***', 'Title - ***'],
         },
         pagination: {
-            enabled: false,
+            enabled: true,
             type: 'load-more'
         },
         bookmarks: {
@@ -218,7 +218,7 @@
             unselectBookmarksIcon: '',
         },
         search: {
-            enabled: false,
+            enabled: true,
             placeholderText: 'Search here...',
         }
     };

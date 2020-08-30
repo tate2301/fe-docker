@@ -30,7 +30,6 @@ let updateScrollPosTimer;
 export default class ConsonantPage extends React.Component {
     constructor(props) {
         super(props);
-
         this.props = props;
 
         this.state = {
@@ -43,7 +42,7 @@ export default class ConsonantPage extends React.Component {
             searchQuery: '',
             selelectedFilterBy: 'featured',
             initialScrollPos: 0,
-            showItemsPerPage: this.props.config.collection.resultsPerPage,
+            showItemsPerPage: this.getConfig('collection', 'resultsPerPage'),
             windowWidth: window.innerWidth,
             showMobileFilters: false,
             showFavourites: false,
@@ -78,8 +77,6 @@ export default class ConsonantPage extends React.Component {
     }
 
     componentDidMount() {
-        console.log('So props received', this.props);
-
         this.setInitialScrollPos();
         window.addEventListener('resize', this.updateDimensions);
         window.addEventListener('resize', this.handleInitialScrollPos);
@@ -92,7 +89,7 @@ export default class ConsonantPage extends React.Component {
             };
             const applyCardLimitToLoadedCards = (data) => {
                 const currentCardsQty = this.state.cards.length;
-                const limit = this.props.config.collection.totalCardLimit;
+                const limit = this.getConfig('collection', 'totalCardLimit');
 
                 // No limit, return all;
                 if (limit <= 0) return data;
@@ -113,7 +110,7 @@ export default class ConsonantPage extends React.Component {
             ];
 
             let { featuredCards } = this.props.config;
-            const { filters } = this.props.config.filterPanel;
+            const filters = this.getConfig('filterPanel', 'filters');
 
             const processCard = (card) => {
                 card.initialTitle = card.title;
@@ -159,6 +156,57 @@ export default class ConsonantPage extends React.Component {
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateDimensions);
         window.removeEventListener('resize', this.handleInitialScrollPos);
+    }
+
+    getConfig(object, key) {
+        const defaultProps = {
+            collection: {
+                resultsPerPage: 9,
+                endpoint: '"http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v4/webinars',
+                title: 'Hello, world',
+                totalCardLimit: 0,
+            },
+            featuredCards: [],
+            header: {
+                enabled: true,
+            },
+            filterPanel: {
+                enabled: true,
+                type: 'side',
+                filters: [],
+                clearText: 'Clear all',
+                filterLogic: 'and',
+            },
+            sort: {
+                enabled: true,
+                labels: ['Featured', 'Date', 'Title'],
+            },
+            pagination: {
+                enabled: true,
+                type: 'load-more',
+            },
+            bookmarks: {
+                enabled: true,
+                cardSavedIcon: '',
+                cardUnsavedIcon: '',
+                selectBookmarksIcon: '',
+                unselectBookmarksIcon: '',
+            },
+            search: {
+                enabled: true,
+                placeholderText: 'Search here...',
+            },
+            poc_label: 'Default value',
+        };
+
+        if (
+            !this.props.config[object] ||
+            (
+                !this.props.config[object][key] &&
+                typeof this.props.config[object][key] !== 'boolean'
+            )
+        ) { return defaultProps[object][key] }
+        return this.props.config[object][key];
     }
 
     getSelectedFiltersItemsQty() {
@@ -227,7 +275,7 @@ export default class ConsonantPage extends React.Component {
     }
 
     async loadData() {
-        const response = await window.fetch(this.props.config.collection.endpoint);
+        const response = await window.fetch(this.getConfig('collection', 'endpoint'));
         const json = await response.json();
         return json;
     }
@@ -235,7 +283,7 @@ export default class ConsonantPage extends React.Component {
     filterCards() {
         const filters = this.getActiveFiltersIds();
         const query = this.state.searchQuery;
-        let { filterLogic } = this.props.config.filterPanel;
+        let filterLogic = this.getConfig('filterPanel', 'filterLogic');
         filterLogic = filterLogic.toLowerCase().trim();
 
         const checkCardsApplyToFilters = (cards, selectedFilters) => {
@@ -486,7 +534,7 @@ export default class ConsonantPage extends React.Component {
     }
 
     handleCheckBoxChange(filterId, itemId, isChecked) {
-        const { filterLogic } = this.props.config.filterPanel;
+        const filterLogic = this.getConfig('filterPanel', 'filterLogic');
 
         if (this.state.showFavourites) this.resetFavourites();
 
@@ -571,17 +619,16 @@ export default class ConsonantPage extends React.Component {
     }
 
     render() {
-        const { bookmarks } = this.props.config;
         return (
             <Fragment>
-                {this.props.config.header.enabled && <ConsonantHeader />}
+                {this.getConfig('header', 'enabled') && <ConsonantHeader />}
                 <section
                     ref={(page) => { this.page = page; }}
                     className="consonant-page">
                     <div className="consonant-page--inner">
                         <div>
-                            {this.props.config.filterPanel.enabled &&
-                            this.props.config.pagination.enabled &&
+                            {this.getConfig('filterPanel', 'enabled') &&
+                            this.getConfig('pagination', 'enabled') &&
                                 <FiltersPanel
                                     filters={this.state.filters}
                                     windowWidth={this.state.windowWidth}
@@ -589,37 +636,37 @@ export default class ConsonantPage extends React.Component {
                                     searchQuery={this.state.searchQuery}
                                     resQty={this.state.filteredCards.length}
                                     onFilterClick={this.handleFilterItemClick}
-                                    clearText={this.props.config.filterPanel.clearText}
+                                    clearText={this.getConfig('filterPanel', 'clearText')}
                                     onClearAllFilters={this.clearAllFilters}
                                     onClearFilterItems={this.clearFilterItems}
-                                    showFavsMenuLink={bookmarks.enabled}
-                                    selectBookmarksIcon={bookmarks.selectBookmarksIcon}
-                                    unselectBookmarksIcon={bookmarks.unselectBookmarksIcon}
+                                    showFavsMenuLink={this.getConfig('bookmarks', 'enabled')}
+                                    selectBookmarksIcon={this.getConfig('bookmarks', 'selectBookmarksIcon')}
+                                    unselectBookmarksIcon={this.getConfig('bookmarks', 'unselectBookmarksIcon')}
                                     onFavsClick={this.handleShowFavsClick}
                                     showFavs={this.state.showFavourites}
                                     favsQty={this.state.bookmarkedCards.length}
                                     onCheckboxClick={this.handleCheckBoxChange}
                                     onMobileFiltersToggleClick={this.handleFiltersToggle}
-                                    searchEnabled={this.props.config.search.enabled}
-                                    searchPlaceholder={this.props.config.search.placeholderText}
+                                    searchEnabled={this.getConfig('search', 'enabled')}
+                                    searchPlaceholder={this.getConfig('search', 'placeholderText')}
                                     onSearch={this.handleSearchInputChange} />
                             }
                         </div>
                         <div>
                             <FiltersInfo
-                                enabled={this.props.config.filterPanel.enabled}
-                                title={this.props.config.collection.title}
+                                enabled={this.getConfig('filterPanel', 'enabled')}
+                                title={this.getConfig('collection', 'title')}
                                 filters={this.state.filters}
                                 cardsQty={this.state.filteredCards.length}
-                                showSelectAndResults={this.props.config.pagination.enabled}
-                                showSelect={this.props.config.sort.enabled}
+                                showSelectAndResults={this.getConfig('pagination', 'enabled')}
+                                showSelect={this.getConfig('sort', 'enabled')}
                                 selectedFiltersQty={this.getSelectedFiltersItemsQty()}
                                 windowWidth={this.state.windowWidth}
-                                selectValues={this.props.config.sort.labels}
+                                selectValues={this.getConfig('sort', 'labels')}
                                 selelectedFilterBy={this.state.selelectedFilterBy}
                                 onSelect={this.handleSelectChange}
-                                searchEnabled={this.props.config.search.enabled}
-                                searchPlaceholder={this.props.config.search.placeholderText}
+                                searchEnabled={this.getConfig('search', 'enabled')}
+                                searchPlaceholder={this.getConfig('search', 'placeholderText')}
                                 searchQuery={this.state.searchQuery}
                                 onSearch={this.handleSearchInputChange}
                                 onMobileFiltersToggleClick={this.handleFiltersToggle}
@@ -630,12 +677,12 @@ export default class ConsonantPage extends React.Component {
                                         showItemsPerPage={this.state.showItemsPerPage}
                                         pages={this.state.pages}
                                         cards={this.state.filteredCards}
-                                        allowBookmarking={bookmarks.enabled}
+                                        allowBookmarking={this.getConfig('bookmarks', 'enabled')}
                                         onCardBookmark={this.handleCardBookmarking}
-                                        cardUnsavedIco={bookmarks.cardUnsavedIcon}
-                                        cardSavedIco={bookmarks.cardSavedIcon} />
+                                        cardUnsavedIco={this.getConfig('bookmarks', 'cardUnsavedIcon')}
+                                        cardSavedIco={this.getConfig('bookmarks', 'cardSavedIcon')} />
                                     {
-                                        this.props.config.pagination.enabled &&
+                                        this.getConfig('pagination', 'enabled') &&
                                         <LoadMore
                                             onClick={this.setCardsToShowQty}
                                             show={this.getCardsToShowQty()}
@@ -658,7 +705,7 @@ ConsonantPage.propTypes = {
     config: PropTypes.shape({
         collection: PropTypes.shape({
             resultsPerPage: PropTypes.number,
-            endpoint: PropTypes.string.isRequired,
+            endpoint: PropTypes.string,
             title: PropTypes.string,
             totalCardLimit: PropTypes.number,
         }),
@@ -692,47 +739,9 @@ ConsonantPage.propTypes = {
             enabled: PropTypes.bool,
             placeholderText: PropTypes.string,
         }),
-        poc_label: PropTypes.string,
     }),
 };
 
 ConsonantPage.defaultProps = {
-    config: {
-        collection: {
-            resultsPerPage: 9,
-            title: '',
-            totalCardLimit: 0, // No totalCardLimit by default;
-        },
-        featuredCards: [],
-        header: {
-            enabled: true,
-        },
-        filterPanel: {
-            enabled: true,
-            type: 'side',
-            filters: [],
-            clearText: 'Clear all',
-            filterLogic: 'and',
-        },
-        sort: {
-            enabled: true,
-            labels: ['Featured', 'Date', 'Title'],
-        },
-        pagination: {
-            enabled: true,
-            type: 'load-more',
-        },
-        bookmarks: {
-            enabled: true,
-            cardSavedIcon: '',
-            cardUnsavedIcon: '',
-            selectBookmarksIcon: '',
-            unselectBookmarksIcon: '',
-        },
-        search: {
-            enabled: true,
-            placeholderText: 'Search here...',
-        },
-        poc_label: 'Default value',
-    },
+    config: {},
 };

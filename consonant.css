@@ -954,7 +954,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
 .consonant-select .consonant-select--option {
   display: block;
   width: 100%;
-  padding: 9px 26px 9px 20px;
+  padding: 9px 30px 9px 20px;
   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -1870,7 +1870,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
 
   /* .consonant-select */
   .consonant-select {
-    width: 98px;
+    width: 112px;
     margin-bottom: 0;
   }
 
