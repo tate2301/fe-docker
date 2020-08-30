@@ -8,7 +8,7 @@ const Select = (props) => {
         onSelect(evt.target.innerText);
     };
 
-    const checkValuesAreSame = value => value.toLowerCase() === val.toLowerCase();
+    const checkValuesAreSame = value => value.toLowerCase().indexOf(val.toLowerCase().trim()) >= 0;
 
     return (
         <div className="consonant-select">

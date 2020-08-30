@@ -9,11 +9,6 @@ import FiltersInfo from '../Consonant/FiltersInfo';
 import LoadMore from '../Consonant/LoadMore';
 import Loader from '../Consonant/Loader';
 
-const selectValues = [
-    'Popular',
-    'Date',
-    'Title',
-];
 const LOADER_SIZE = {
     MEDIUM: 'medium',
     BIG: 'big',
@@ -22,6 +17,11 @@ const FILTER_LOGIC = {
     AND: 'and',
     OR: 'or',
     XOR: 'xor',
+};
+const SORTING_OPTION = {
+    FEATURED: 'initialTitle',
+    DATE: 'lastModified',
+    TITLE: 'initialTitle',
 };
 const TRUNCATE_TEXT_QTY = 200;
 let updateDimensionsTimer;
@@ -41,7 +41,7 @@ export default class ConsonantPage extends React.Component {
             filters: [],
             lastFilterWasChecked: false,
             searchQuery: '',
-            selelectedFilterBy: 'Popular',
+            selelectedFilterBy: this.props.config.sort.enabled ? 'title' : 'featured',
             initialScrollPos: 0,
             showItemsPerPage: this.props.config.collection.resultsPerPage,
             windowWidth: window.innerWidth,
@@ -108,7 +108,7 @@ export default class ConsonantPage extends React.Component {
                 return data.slice(0, limit - currentCardsQty);
             };
 
-            const { featuredCards } = this.props.config;
+            let { featuredCards } = this.props.config;
             const { filters } = this.props.config.filterPanel;
 
             const processCard = (card) => {
@@ -120,6 +120,11 @@ export default class ConsonantPage extends React.Component {
             };
 
             if (Array.isArray(featuredCards) && featuredCards.length) {
+                featuredCards = featuredCards.map((el) => {
+                    el.isFeatured = true;
+                    return el;
+                });
+
                 this.setState(prevState => ({
                     cards: [...featuredCards.map(card => processCard(card)), ...prevState.cards],
                 }));
@@ -304,21 +309,24 @@ export default class ConsonantPage extends React.Component {
     };
 
     sortCards(field) {
-        const FIELD = {
-            popular: 'initialTitle',
-            date: 'lastModified',
-            title: 'initialTitle',
-        };
-        const val = FIELD[field.trim().toLowerCase()];
+        const val = SORTING_OPTION[field.toUpperCase().trim()];
+        const featuredLabel = 'featured';
 
         if (!val) return;
 
         const sorted = [...this.state.filteredCards].sort((a, b) => {
             if (a[val] < b[val]) return -1;
-
             if (a[val] > b[val]) return 1;
             return 0;
         });
+
+        // In case of featured, move featured items to the top;
+        if (field === featuredLabel) {
+            sorted.sort((a) => {
+                if (a.isFeatured) return -1;
+                return 0;
+            });
+        }
 
         this.setState({ filteredCards: sorted });
     }
@@ -433,9 +441,19 @@ export default class ConsonantPage extends React.Component {
     }
 
     handleSelectChange(val) {
-        if (val === this.state.selelectedFilterBy) return;
+        let sortingType;
 
-        this.setState({ selelectedFilterBy: val }, () => {
+        Object.keys(SORTING_OPTION).forEach((key) => {
+            const updatedKey = key.toLowerCase().trim();
+
+            if (val.toLowerCase().indexOf(updatedKey) >= 0) {
+                sortingType = updatedKey;
+            }
+        });
+
+        if (sortingType === this.state.selelectedFilterBy) return;
+
+        this.setState({ selelectedFilterBy: sortingType }, () => {
             this.sortCards(this.state.selelectedFilterBy);
         });
     }
@@ -587,7 +605,7 @@ export default class ConsonantPage extends React.Component {
                                 cardsQty={this.state.filteredCards.length}
                                 selectedFiltersQty={this.getSelectedFiltersItemsQty()}
                                 windowWidth={this.state.windowWidth}
-                                selectValues={selectValues}
+                                selectValues={this.props.config.sort.labels}
                                 selelectedFilterBy={this.state.selelectedFilterBy}
                                 onSelect={this.handleSelectChange}
                                 searchQuery={this.state.searchQuery}
@@ -642,6 +660,10 @@ ConsonantPage.propTypes = {
             clearText: PropTypes.string,
             filterLogic: PropTypes.string,
         }),
+        sort: PropTypes.shape({
+            enabled: PropTypes.bool,
+            labels: PropTypes.arrayOf(PropTypes.string),
+        }),
         pagination: PropTypes.shape({
             enabled: PropTypes.bool,
             type: PropTypes.string,
@@ -672,6 +694,10 @@ ConsonantPage.defaultProps = {
             filters: [],
             clearText: 'Clear all',
             filterLogic: 'and',
+        },
+        sort: {
+            enabled: true,
+            labels: ['Featured', 'Date', 'Title'],
         },
         pagination: {
             enabled: true,
