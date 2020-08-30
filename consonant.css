@@ -217,7 +217,23 @@
 }
 
 .consonant-filters .consonant-filters--item-name {
+  display: flex;
+  align-items: center;
   margin: 0;
+}
+
+.consonant-filters .consonant-filters--item-name img {
+  display: block;
+  max-width: 16px;
+  height: auto;
+  max-height: 16px;
+  margin-right: 6px;
+}
+
+.consonant-filters .consonant-filters--item.consonant-filters--item_opened
+.consonant-filters--item-name img {
+  position: relative;
+  top: 4px;
 }
 
 .consonant-filters .consonant-filters--item-name a {
@@ -493,7 +509,8 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
 .consonant-filters--bookmarks-ico-wrapper svg,
 .consonant-filters--bookmarks-ico-wrapper img {
   width: 16px;
-  height: 14px;
+  height: auto;
+  max-height: 16px;
   margin-right: 6px;
   fill: transparent;
   stroke: #707070;
@@ -1086,6 +1103,12 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   background-color: transparent;
 }
 
+.consonant-card--footer-btn img {
+  max-width: 16px;
+  height: auto;
+  max-height: 16px;
+}
+
 .consonant-card--footer-btn svg {
   width: 16px;
   height: 23px;
@@ -1655,6 +1678,10 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   }
 
   .consonant-filters-info {
+    min-width: calc(1012px - 204px - 32px);
+    max-width: calc(1012px - 204px - 32px);
+    margin-left: auto;
+    margin-right: auto;
     padding: 67px 0 28px;
   }
 
@@ -1667,6 +1694,10 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     padding-right: 30px;
   }
 
+  .consonant-filters-info .consonant-filters-info--wrapper:last-child {
+    padding-right: 0;
+  }
+
   .consonant-filters-info .consonant-filters-info--wrapper::after {
     content: '';
     position: absolute;
@@ -1677,6 +1708,10 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     bottom: 0;
     right: 16px;
     margin: auto;
+  }
+
+  .consonant-filters-info .consonant-filters-info--wrapper:only-child::after {
+    display: none;
   }
 
   .consonant-filters-info .consonant-filters-info--title {

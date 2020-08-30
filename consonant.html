@@ -72,10 +72,10 @@
 <script type="text/javascript">
     var config = {
         collection: {
-            resultsPerPage: 5,
+            resultsPerPage: 500,
             endpoint: "http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v4/webinars",
             title: "Hello, world",
-            totalCardLimit: 10,
+            totalCardLimit: 0,
         },
         featuredCards: [
             {
@@ -91,7 +91,7 @@
                         "id": "adobe-com-enterprise:topic/digital-trends"
                     }
                 ],
-                "id": "6d6438c8-5aa2-36be-bfd0-18a9f6e4cd9c-test",
+                "id": "6d6438c8-5aa2-36be-bfd0-18a9f6e4cd9c",
                 "description": "This month and next will be devoted exclusively to you — making you a true expert in creating agile, creative, and consistent experiences. The kinds of experiences your customers demand (and will love). Over the next few months, we’re going to focus on modernizing the nuts and bolts of your operation.",
                 "image": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/104643%20Adobe_Digital-Bites-web-graphics_marquee%201600x600.jpg",
                 "lastModified": "2020-07-02T09:41:35.933Z",
@@ -116,7 +116,7 @@
                         "id": "adobe-com-enterprise:topic/Stock"
                     }
                 ],
-                "id": "ac578dee-f01b-3ea0-a282-2116619e4251-test",
+                "id": "ac578dee-f01b-3ea0-a282-2116619e4251",
                 "description": "During this one-hour webinar Richard West (Strategic Development, EMEA) will be joined by Byron Wijayawardena (Strategic Development Manager, UK&I, Adobe) and will show you how to enhance and optimise your video workflow. We will take a deep dive into the new features of Adobe Premiere Pro, our premium video editing application and show you how you can bring your content to life by incorporating audio directly from Adobe Stock Audio.",
                 "image": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Adobe_Stock_Audio_Banner_1600x%20600.jpg",
                 "lastModified": "2020-07-30T08:45:42.881Z",
@@ -216,9 +216,6 @@
             cardUnsavedIcon: '',
             selectBookmarksIcon: '',
             unselectBookmarksIcon: '',
-            // Remove below;
-            filterPanelIcon: '',
-            cardIcon: '',
         },
         search: {
             enabled: false,

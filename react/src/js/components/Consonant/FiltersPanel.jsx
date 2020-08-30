@@ -10,8 +10,9 @@ const FiltersPanel = (props) => {
         filters,
         windowWidth,
         showMobileFilters,
+        searchEnabled,
+        searchPlaceholder,
         searchQuery,
-        cardsQty,
         onFilterClick,
         clearText,
         onClearAllFilters,
@@ -19,7 +20,8 @@ const FiltersPanel = (props) => {
         onCheckboxClick,
         onMobileFiltersToggleClick,
         showFavsMenuLink,
-        showFavsIcon,
+        selectBookmarksIcon,
+        unselectBookmarksIcon,
         showFavs,
         favsQty,
         onFavsClick,
@@ -50,9 +52,11 @@ const FiltersPanel = (props) => {
             onClick={onClearAllFilters}>{clearText}
         </button>
     );
-    const desktopFiltersSearch = (windowWidth >= DESKTOP_MIN_WIDTH &&
+    const desktopFiltersSearch = (
+        windowWidth >= DESKTOP_MIN_WIDTH &&
+        searchEnabled &&
         <Search
-            itemsQty={cardsQty}
+            placeholderText={searchPlaceholder}
             value={searchQuery}
             onSearch={onSearch} />
     );
@@ -96,6 +100,7 @@ const FiltersPanel = (props) => {
                             (<FilterItem
                                 key={item.id}
                                 name={item.group}
+                                icon={item.icon}
                                 items={item.items}
                                 itemsSelected={countSelectedInFilter(item.items)}
                                 results={resQty}
@@ -116,8 +121,12 @@ const FiltersPanel = (props) => {
                             'consonant-filters--bookmarks'
                     }>
                     <span className="consonant-filters--bookmarks-ico-wrapper">
-                        { showFavsIcon ?
-                            <img src={showFavsIcon} width="16" alt="" loading="lazy" /> :
+                        {(selectBookmarksIcon && unselectBookmarksIcon) ?
+                            <img
+                                src={showFavs ? unselectBookmarksIcon : selectBookmarksIcon}
+                                width="16"
+                                alt=""
+                                loading="lazy" /> :
                             <svg
                                 width="16"
                                 height="14"
@@ -141,11 +150,11 @@ FiltersPanel.propTypes = {
     windowWidth: PropTypes.number,
     showMobileFilters: PropTypes.bool,
     showFavsMenuLink: PropTypes.bool.isRequired,
-    showFavsIcon: PropTypes.string.isRequired,
+    selectBookmarksIcon: PropTypes.string.isRequired,
+    unselectBookmarksIcon: PropTypes.string.isRequired,
     showFavs: PropTypes.bool,
     favsQty: PropTypes.number,
     searchQuery: PropTypes.string,
-    cardsQty: PropTypes.number,
     onFilterClick: PropTypes.func.isRequired,
     clearText: PropTypes.string.isRequired,
     onClearAllFilters: PropTypes.func.isRequired,
@@ -153,6 +162,8 @@ FiltersPanel.propTypes = {
     onCheckboxClick: PropTypes.func.isRequired,
     onMobileFiltersToggleClick: PropTypes.func.isRequired,
     onFavsClick: PropTypes.func.isRequired,
+    searchEnabled: PropTypes.bool.isRequired,
+    searchPlaceholder: PropTypes.string.isRequired,
     onSearch: PropTypes.func.isRequired,
     resQty: PropTypes.number,
 };
@@ -163,7 +174,6 @@ FiltersPanel.defaultProps = {
     showFavs: false,
     showMobileFilters: false,
     searchQuery: '',
-    cardsQty: 0,
     resQty: 0,
     favsQty: 0,
 };

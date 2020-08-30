@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Search = (props) => {
-    const { itemsQty, value, onSearch } = props;
+    const { value, onSearch, placeholderText } = props;
     const handleSearch = (evt) => {
         onSearch(evt.target.value);
     };
@@ -18,7 +18,7 @@ const Search = (props) => {
                 <span className="consonant-search--input-wrapper">
                     <input
                         type="search"
-                        placeholder={onSearch ? `Search within ${itemsQty} items` : 'Search'}
+                        placeholder={placeholderText}
                         value={value}
                         onChange={handleSearch}
                         required />
@@ -37,12 +37,12 @@ const Search = (props) => {
 export default Search;
 
 Search.propTypes = {
-    itemsQty: PropTypes.number,
     onSearch: PropTypes.func.isRequired,
     value: PropTypes.string,
+    placeholderText: PropTypes.string,
 };
 
 Search.defaultProps = {
     value: '',
-    itemsQty: 0,
+    placeholderText: 'Search here...',
 };

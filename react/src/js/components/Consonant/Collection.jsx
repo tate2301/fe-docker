@@ -10,7 +10,8 @@ const Collection = (props) => {
         pages,
         allowBookmarking,
         onCardBookmark,
-        cardBookmarkIcon,
+        cardSavedIco,
+        cardUnsavedIco,
     } = props;
     let cards = [...props.cards];
     let cardsToShow = showItemsPerPage * pages;
@@ -25,7 +26,8 @@ const Collection = (props) => {
                     key={card.id}
                     {...card}
                     onClick={onCardBookmark}
-                    bookmarkIcon={cardBookmarkIcon}
+                    cardSavedIco={cardSavedIco}
+                    cardUnsavedIco={cardUnsavedIco}
                     allowBookmarking={allowBookmarking} />
             ))}
             <div className="consonant-card consonant-card_placeholder" />
@@ -42,7 +44,8 @@ Collection.propTypes = {
     cards: PropTypes.arrayOf(PropTypes.object),
     allowBookmarking: PropTypes.bool.isRequired,
     onCardBookmark: PropTypes.func.isRequired,
-    cardBookmarkIcon: PropTypes.string.isRequired,
+    cardSavedIco: PropTypes.string.isRequired,
+    cardUnsavedIco: PropTypes.string.isRequired,
 };
 
 Collection.defaultProps = {

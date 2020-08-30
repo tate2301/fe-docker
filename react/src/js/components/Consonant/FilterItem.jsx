@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const FilterItem = (props) => {
     const {
         name,
+        icon,
         id,
         items,
         itemsSelected,
@@ -38,6 +39,13 @@ const FilterItem = (props) => {
         }>
             <div className="consonant-filters--item-inner">
                 <h3 className="consonant-filters--item-name">
+                    {icon &&
+                    <img
+                        src={icon}
+                        width="16"
+                        alt=""
+                        loading="lazy" />
+                    }
                     <a href="#" onClick={handleClick}>
                         {name}
                         <div
@@ -99,6 +107,7 @@ export default FilterItem;
 FilterItem.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
     onCheck: PropTypes.func.isRequired,
     onClick: PropTypes.func.isRequired,
     onClearAll: PropTypes.func.isRequired,
