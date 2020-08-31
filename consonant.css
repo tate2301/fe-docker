@@ -289,6 +289,7 @@
 
 .consonant-filters .consonant-filters--mobile-footer-btn {
   min-width: 71px;
+  margin-left: auto;
   padding: 8px 16px 8px;
   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
   font-style: normal;
@@ -1681,6 +1682,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   .consonant-filters-info {
     min-width: calc(1012px - 204px - 32px);
     max-width: calc(1012px - 204px - 32px);
+    min-height: 127px;
     margin-left: auto;
     margin-right: auto;
     padding: 67px 0 28px;

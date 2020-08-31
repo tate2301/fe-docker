@@ -13,7 +13,7 @@ const FiltersInfo = (props) => {
         filters,
         cardsQty,
         showSelect,
-        showSelectAndResults,
+        showTotalResults,
         selectedFiltersQty,
         windowWidth,
         selelectedFilterBy,
@@ -26,6 +26,7 @@ const FiltersInfo = (props) => {
         onSelectedFilterClick,
         onMobileFiltersToggleClick,
     } = props;
+
     const mobileAsideInfoSearch = (windowWidth < DESKTOP_MIN_WIDTH && searchEnabled &&
     <div className="consonant-filters-info--search">
         <Search
@@ -36,8 +37,8 @@ const FiltersInfo = (props) => {
     );
     const mobileAsideInfoFilterBtn = (
         windowWidth < DESKTOP_MIN_WIDTH &&
+        filters.length > 0 &&
         enabled &&
-        showSelectAndResults &&
         <div className="consonant-filters-info--btn-wrapper">
             <button
                 type="button"
@@ -82,7 +83,7 @@ const FiltersInfo = (props) => {
             title &&
             <h2 className="consonant-filters-info--title">{title}</h2>
         }
-        {filters.length > 0 && showSelectAndResults &&
+        {showTotalResults &&
             <span className="consonant-filters-info--results">{cardsQty} results</span>
         }
     </div>
@@ -93,10 +94,7 @@ const FiltersInfo = (props) => {
             {desktopFiltersAsideInfo}
             {mobileAsideInfoSearch}
             {mobileAsideInfoFilterBtn}
-            {
-                filters.length > 0 &&
-                showSelectAndResults &&
-                showSelect &&
+            {selectValues.length && showSelect &&
                 <Select
                     val={selelectedFilterBy}
                     values={selectValues}
@@ -114,12 +112,15 @@ FiltersInfo.propTypes = {
     title: PropTypes.string,
     filters: PropTypes.arrayOf(PropTypes.object),
     cardsQty: PropTypes.number,
-    showSelectAndResults: PropTypes.bool.isRequired,
+    showTotalResults: PropTypes.bool.isRequired,
     showSelect: PropTypes.bool.isRequired,
     selectedFiltersQty: PropTypes.number,
     windowWidth: PropTypes.number,
-    selectValues: PropTypes.arrayOf(PropTypes.string).isRequired,
-    selelectedFilterBy: PropTypes.string,
+    selectValues: PropTypes.arrayOf(PropTypes.object).isRequired,
+    selelectedFilterBy: PropTypes.shape({
+        label: PropTypes.string,
+        sort: PropTypes.string,
+    }).isRequired,
     searchQuery: PropTypes.string,
     searchEnabled: PropTypes.bool.isRequired,
     searchPlaceholder: PropTypes.string.isRequired,
@@ -136,5 +137,4 @@ FiltersInfo.defaultProps = {
     searchQuery: '',
     selectedFiltersQty: 0,
     windowWidth: window.innerWidth,
-    selelectedFilterBy: '',
 };

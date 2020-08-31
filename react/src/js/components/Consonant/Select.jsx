@@ -4,33 +4,23 @@ import PropTypes from 'prop-types';
 const Select = (props) => {
     const { val, values, onSelect } = props;
 
-
-    const handleSelect = (evt) => {
-        onSelect(evt.target.innerText);
-    };
-
-    const checkValuesAreSame = value => value.toLowerCase().indexOf(val.toLowerCase().trim()) >= 0;
-
     return (
         <div className="consonant-select">
             <input
                 type="text"
-                value={
-                    values.filter(el => el.toLowerCase().indexOf(val.toLowerCase()) >= 0)[0] ||
-                    'Please select'
-                }
+                value={val.label || 'Please select'}
                 readOnly />
             <div className="consonant-select--options">
                 {values.map(item => (
                     <button
-                        key={item}
+                        key={item.label}
                         type="button"
-                        className={checkValuesAreSame(item) ?
+                        className={item.label === val.label ?
                             'consonant-select--option consonant-select--option_selected' :
                             'consonant-select--option'
                         }
-                        onClick={handleSelect}>
-                        {item}
+                        onClick={() => { onSelect(item); }}>
+                        {item.label}
                     </button>
                 ))}
             </div>
@@ -41,7 +31,10 @@ const Select = (props) => {
 export default Select;
 
 Select.propTypes = {
-    val: PropTypes.string.isRequired,
+    val: PropTypes.shape({
+        label: PropTypes.string,
+        sort: PropTypes.string,
+    }).isRequired,
     onSelect: PropTypes.func.isRequired,
-    values: PropTypes.arrayOf(PropTypes.string).isRequired,
+    values: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

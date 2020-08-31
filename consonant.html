@@ -72,10 +72,10 @@
 <script type="text/javascript">
     var config = {
         collection: {
-            resultsPerPage: 500,
+            resultsPerPage: 8,
             endpoint: "http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v4/webinars",
             title: "Hello, world",
-            totalCardLimit: 0,
+            totalCardLimit: -1,
         },
         featuredCards: [
             {
@@ -155,7 +155,7 @@
             }
         ],
         header: {
-            enabled: false,
+            enabled: true,
         },
         filterPanel: {
             enabled: true,
@@ -241,7 +241,7 @@
                 {
                     label: '*** Title ***',
                     sort: 'title'
-                }
+                },
             ],
         },
         pagination: {
@@ -260,7 +260,7 @@
             placeholderText: 'Search here...',
         },
         totalResults: {
-            display: true
+            display: true,
         }
     };
     var cardCollection = new WrapperCardCollectionComponent(config, document.getElementById("someDivId"));

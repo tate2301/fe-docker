@@ -10,6 +10,7 @@ const FiltersPanel = (props) => {
         filters,
         windowWidth,
         showMobileFilters,
+        showTotalResults,
         searchEnabled,
         searchPlaceholder,
         searchQuery,
@@ -62,7 +63,9 @@ const FiltersPanel = (props) => {
     );
     const mobileFiltersFooter = (windowWidth < DESKTOP_MIN_WIDTH &&
         <div className="consonant-filters--mobile-footer">
+            {showTotalResults &&
             <span className="consonant-filters--mobile-footer-total-res">{resQty} results</span>
+            }
             {
                 checkFilterSelected() &&
                 <button
@@ -149,6 +152,7 @@ FiltersPanel.propTypes = {
     filters: PropTypes.arrayOf(PropTypes.object),
     windowWidth: PropTypes.number,
     showMobileFilters: PropTypes.bool,
+    showTotalResults: PropTypes.bool,
     showFavsMenuLink: PropTypes.bool.isRequired,
     selectBookmarksIcon: PropTypes.string.isRequired,
     unselectBookmarksIcon: PropTypes.string.isRequired,
@@ -173,6 +177,7 @@ FiltersPanel.defaultProps = {
     windowWidth: window.innerWidth,
     showFavs: false,
     showMobileFilters: false,
+    showTotalResults: true,
     searchQuery: '',
     resQty: 0,
     favsQty: 0,

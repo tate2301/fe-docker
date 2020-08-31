@@ -40,7 +40,7 @@ export default class ConsonantPage extends React.Component {
             filters: [],
             lastFilterWasChecked: false,
             searchQuery: '',
-            selelectedFilterBy: 'featured',
+            selelectedFilterBy: this.getDefaultSortOption(),
             initialScrollPos: 0,
             showItemsPerPage: this.getConfig('collection', 'resultsPerPage'),
             windowWidth: window.innerWidth,
@@ -92,7 +92,7 @@ export default class ConsonantPage extends React.Component {
                 const limit = this.getConfig('collection', 'totalCardLimit');
 
                 // No limit, return all;
-                if (limit <= 0) return data;
+                if (limit < 0) return data;
 
                 /* Limit is exceeded (for example, featured cards were added),
                     we need decrease it to max allowed; */
@@ -164,7 +164,7 @@ export default class ConsonantPage extends React.Component {
                 resultsPerPage: 9,
                 endpoint: 'http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v4/webinars',
                 title: '',
-                totalCardLimit: 0,
+                totalCardLimit: -1,
             },
             featuredCards: [],
             header: {
@@ -179,7 +179,20 @@ export default class ConsonantPage extends React.Component {
             },
             sort: {
                 enabled: true,
-                labels: ['Featured', 'Date', 'Title'],
+                options: [
+                    {
+                        label: 'Featured',
+                        sort: 'featured',
+                    },
+                    {
+                        label: 'Date',
+                        sort: 'date',
+                    },
+                    {
+                        label: 'Title',
+                        sort: 'title',
+                    },
+                ],
             },
             pagination: {
                 enabled: true,
@@ -196,16 +209,37 @@ export default class ConsonantPage extends React.Component {
                 enabled: true,
                 placeholderText: 'Search here...',
             },
+            totalResults: {
+                display: true,
+            },
         };
 
         if (
             !this.props.config[object] ||
             (
                 !this.props.config[object][key] &&
-                typeof this.props.config[object][key] !== 'boolean'
+                (
+                    typeof this.props.config[object][key] !== 'boolean' &&
+                    typeof this.props.config[object][key] !== 'number'
+                )
             )
         ) { return defaultProps[object][key] }
         return this.props.config[object][key];
+    }
+
+    getDefaultSortOption() {
+        const { sort } = this.props.config;
+        let res = {
+            label: 'Featured',
+            sort: 'featured',
+        };
+
+        if (sort && sort.options) {
+            const filtered = sort.options.filter(el => el.sort === 'featured');
+            if (filtered && filtered.length) [res] = filtered;
+        }
+
+        return res;
     }
 
     getSelectedFiltersItemsQty() {
@@ -305,8 +339,8 @@ export default class ConsonantPage extends React.Component {
             return res;
         };
         const applySorting = () => {
-            if (this.state.selelectedFilterBy) {
-                this.sortCards(this.state.selelectedFilterBy);
+            if (this.state.selelectedFilterBy && this.state.selelectedFilterBy.sort) {
+                this.sortCards(this.state.selelectedFilterBy.sort);
             }
         };
 
@@ -373,10 +407,10 @@ export default class ConsonantPage extends React.Component {
 
         // In case of featured, move featured items to the top;
         if (field === featuredLabel) {
-            sorted.sort((a) => {
-                if (a.isFeatured) return -1;
-                return 0;
-            });
+            sorted.sort(a => (a.isFeatured ? -1 : 0))
+                .sort((a, b) => (
+                    (a.isFeatured && b.isFeatured) &&
+                    (a.initialTitle < b.initialTitle) ? -1 : 0));
         }
 
         this.setState({ filteredCards: sorted });
@@ -414,8 +448,8 @@ export default class ConsonantPage extends React.Component {
                 filteredCards: results,
                 showFavourites: false,
             }, () => {
-                if (this.state.selelectedFilterBy) {
-                    this.sortCards(this.state.selelectedFilterBy);
+                if (this.state.selelectedFilterBy && this.state.selelectedFilterBy.sort) {
+                    this.sortCards(this.state.selelectedFilterBy.sort);
                 }
             });
         }
@@ -468,7 +502,7 @@ export default class ConsonantPage extends React.Component {
         this.setState(prevState => ({
             filteredCards: prevState.cards.filter(card => card.isBookmarked),
         }), () => {
-            this.sortCards(this.state.selelectedFilterBy);
+            this.sortCards(this.state.selelectedFilterBy.sort);
         });
     }
 
@@ -477,7 +511,7 @@ export default class ConsonantPage extends React.Component {
             filteredCards: prevState.cards,
             showFavourites: false,
         }), () => {
-            this.sortCards(this.state.selelectedFilterBy);
+            this.sortCards(this.state.selelectedFilterBy.sort);
         });
     }
 
@@ -491,21 +525,11 @@ export default class ConsonantPage extends React.Component {
         }, awaitTime);
     }
 
-    handleSelectChange(val) {
-        let sortingType;
+    handleSelectChange(option) {
+        if (option.label === this.state.selelectedFilterBy.label) return;
 
-        Object.keys(SORTING_OPTION).forEach((key) => {
-            const updatedKey = key.toLowerCase().trim();
-
-            if (val.toLowerCase().indexOf(updatedKey) >= 0) {
-                sortingType = updatedKey;
-            }
-        });
-
-        if (sortingType === this.state.selelectedFilterBy) return;
-
-        this.setState({ selelectedFilterBy: sortingType }, () => {
-            this.sortCards(this.state.selelectedFilterBy);
+        this.setState({ selelectedFilterBy: option }, () => {
+            this.sortCards(this.state.selelectedFilterBy.sort);
         });
     }
 
@@ -627,11 +651,11 @@ export default class ConsonantPage extends React.Component {
                     <div className="consonant-page--inner">
                         <div>
                             {this.getConfig('filterPanel', 'enabled') &&
-                            this.getConfig('pagination', 'enabled') &&
                                 <FiltersPanel
                                     filters={this.state.filters}
                                     windowWidth={this.state.windowWidth}
                                     showMobileFilters={this.state.showMobileFilters}
+                                    showTotalResults={this.getConfig('totalResults', 'display')}
                                     searchQuery={this.state.searchQuery}
                                     resQty={this.state.filteredCards.length}
                                     onFilterClick={this.handleFilterItemClick}
@@ -657,11 +681,11 @@ export default class ConsonantPage extends React.Component {
                                 title={this.getConfig('collection', 'title')}
                                 filters={this.state.filters}
                                 cardsQty={this.state.filteredCards.length}
-                                showSelectAndResults={this.getConfig('pagination', 'enabled')}
                                 showSelect={this.getConfig('sort', 'enabled')}
+                                showTotalResults={this.getConfig('totalResults', 'display')}
                                 selectedFiltersQty={this.getSelectedFiltersItemsQty()}
                                 windowWidth={this.state.windowWidth}
-                                selectValues={this.getConfig('sort', 'labels')}
+                                selectValues={this.getConfig('sort', 'options')}
                                 selelectedFilterBy={this.state.selelectedFilterBy}
                                 onSelect={this.handleSelectChange}
                                 searchEnabled={this.getConfig('search', 'enabled')}
@@ -690,6 +714,7 @@ export default class ConsonantPage extends React.Component {
                                 </Fragment> :
                                 <Loader
                                     size={LOADER_SIZE.BIG}
+                                    hidden={!this.getConfig('collection', 'totalCardLimit')}
                                     absolute />
                             }
                         </div>
@@ -721,7 +746,7 @@ ConsonantPage.propTypes = {
         }),
         sort: PropTypes.shape({
             enabled: PropTypes.bool,
-            labels: PropTypes.arrayOf(PropTypes.string),
+            options: PropTypes.arrayOf(PropTypes.object),
         }),
         pagination: PropTypes.shape({
             enabled: PropTypes.bool,
@@ -737,6 +762,9 @@ ConsonantPage.propTypes = {
         search: PropTypes.shape({
             enabled: PropTypes.bool,
             placeholderText: PropTypes.string,
+        }),
+        totalResults: PropTypes.shape({
+            display: PropTypes.bool,
         }),
     }),
 };
