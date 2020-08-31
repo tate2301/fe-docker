@@ -79,7 +79,7 @@
         },
         featuredCards: [
             {
-                "title": "Digital Bites Webinar Series+++",
+                "title": "Featured 1",
                 "appliesTo": [
                     {
                         "id": "adobe-com-enterprise:content-type/webinar"
@@ -104,7 +104,7 @@
                 "bannerIcon": "",
             },
             {
-                "title": "Driving Video Content Velocity – Announcing Adobe Stock Audio+++",
+                "title": "Featured 2",
                 "appliesTo": [
                     {
                         "id": "adobe-com-enterprise:content-type/webinar"
@@ -127,6 +127,31 @@
                 "bannerFontColor": "#D7373F",
                 "secondaryLabelText": "May 27, 1–2:00 MT",
                 "bannerIcon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg",
+            },
+            {
+                "title":"Featured 3",
+                "appliesTo":[
+                    {
+                        "id":"adobe-com-enterprise:content-type/webinar"
+                    },
+                    {
+                        "id":"adobe-com-enterprise:availability/on-demand"
+                    },
+                    {
+                        "id":"adobe-com-enterprise:topic/digital-foundation"
+                    }
+                ],
+                "id":"79c4132f-d4f4-3291-8d31-6bea27759a79",
+                "description":"Adobe’s Business Agility Webinar series reveals practical strategies to help businesses pivot to new demands.\r\n\r\nWe’re hosting a Business Agility Webinar series to help brands who have been impacted by the current situation.",
+                "image":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/1440x400acomfullbanner_2.png",
+                "lastModified":"2020-08-06T09:13:35.392Z",
+                "bannerDescription":"On-Demand",
+                "ctaLabel":"Learn more",
+                "ctaLink":"https://www.adobe.com/uk/enterprise/events/webinars/business-agility-on-demand.html",
+                "bannerBackgroundColor":"#1473E6",
+                "bannerFontColor":"#FFFFFF",
+                "secondaryLabelText":"May 27, 1–2:00 MT",
+                "bannerIcon":""
             }
         ],
         header: {
@@ -204,7 +229,20 @@
         },
         sort: {
             enabled: true,
-            labels : ['Featured - ***', 'Date - ***', 'Title - ***'],
+            options: [
+                {
+                    label: '*** Featured ***',
+                    sort: 'featured'
+                },
+                {
+                    label: '*** Date ***',
+                    sort: 'date'
+                },
+                {
+                    label: '*** Title ***',
+                    sort: 'title'
+                }
+            ],
         },
         pagination: {
             enabled: true,
