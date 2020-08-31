@@ -239,6 +239,7 @@
 
 .consonant-filters .consonant-filters--item-name a {
   display: block;
+  width: 100%;
   padding-top: 17px;
   padding-bottom: 17px;
   padding-right:  36px;
@@ -285,6 +286,10 @@
   background-color: transparent;
   border: 0;
   outline: 0;
+}
+
+.consonant-filters .consonant-filters--mobile-footer-clear + .consonant-filters--mobile-footer-btn {
+  margin-left: 0;
 }
 
 .consonant-filters .consonant-filters--mobile-footer-btn {
