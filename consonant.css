@@ -58,7 +58,7 @@
 }
 
 .consonant-page .consonant-page--inner {
-  min-width: 100%;
+  width: 100%;
   max-width: 100%;
 }
 
@@ -1594,7 +1594,6 @@ input[type=search]::-ms-clear {
 
   /* .consonant-page */
   .consonant-page .consonant-page--inner {
-    min-width: 504px;
     max-width: 504px;
     margin-left: auto;
     margin-right: auto;
@@ -1619,7 +1618,6 @@ input[type=search]::-ms-clear {
 @media only screen and (min-width: 900px)  {
   /* .consonant-page */
   .consonant-page .consonant-page--inner {
-    min-width: 756px;
     max-width: 756px;
   }
 
@@ -1669,7 +1667,6 @@ input[type=search]::-ms-clear {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    min-width: 1200px;
     max-width: 1200px;
   }
 
@@ -2008,7 +2005,6 @@ input[type=search]::-ms-clear {
   /* .consonant-page */
   header + section.consonant-page,
   header + section.consonant-page .consonant-page--inner {
-    min-width: 1199px;
     max-width: 1199px;
   }
 

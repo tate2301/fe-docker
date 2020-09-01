@@ -691,7 +691,7 @@ export default class ConsonantPage extends React.Component {
                                         unsaveBookmarkText={this.getConfig('bookmarks', 'unsaveBookmarkText')} />
                                     {
                                         this.getConfig('pagination', 'enabled') &&
-                                        <div className="aaa" ref={(page) => { this.page = page; }}>
+                                        <div ref={(page) => { this.page = page; }}>
                                             <LoadMore
                                                 onClick={this.setCardsToShowQty}
                                                 show={this.getCardsToShowQty()}
