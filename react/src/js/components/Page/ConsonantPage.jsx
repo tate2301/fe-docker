@@ -25,7 +25,6 @@ const SORTING_OPTION = {
 };
 const TRUNCATE_TEXT_QTY = 200;
 let updateDimensionsTimer;
-let updateScrollPosTimer;
 
 export default class ConsonantPage extends React.Component {
     constructor(props) {
@@ -42,7 +41,6 @@ export default class ConsonantPage extends React.Component {
             searchQuery: '',
             selectOpened: false,
             selelectedFilterBy: this.getDefaultSortOption(),
-            initialScrollPos: 0,
             showItemsPerPage: this.getConfig('collection', 'resultsPerPage'),
             windowWidth: window.innerWidth,
             showMobileFilters: false,
@@ -54,16 +52,13 @@ export default class ConsonantPage extends React.Component {
         this.clearFilters = this.clearFilters.bind(this);
         this.clearFilterItems = this.clearFilterItems.bind(this);
         this.loadData = this.loadData.bind(this);
-        this.setInitialScrollPos = this.setInitialScrollPos.bind(this);
         this.setCardsToShowQty = this.setCardsToShowQty.bind(this);
-        this.getWrapperScrollPos = this.getWrapperScrollPos.bind(this);
         this.getCardsToShowQty = this.getCardsToShowQty.bind(this);
         this.handleSelectChange = this.handleSelectChange.bind(this);
         this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
         this.handleFilterItemClick = this.handleFilterItemClick.bind(this);
         this.handleCheckBoxChange = this.handleCheckBoxChange.bind(this);
         this.handleFiltersToggle = this.handleFiltersToggle.bind(this);
-        this.handleInitialScrollPos = this.handleInitialScrollPos.bind(this);
         this.getActiveFiltersIds = this.getActiveFiltersIds.bind(this);
         this.getBookMarksFromLS = this.getBookMarksFromLS.bind(this);
         this.filterCards = this.filterCards.bind(this);
@@ -79,9 +74,7 @@ export default class ConsonantPage extends React.Component {
     }
 
     componentDidMount() {
-        this.setInitialScrollPos();
         window.addEventListener('resize', this.updateDimensions);
-        window.addEventListener('resize', this.handleInitialScrollPos);
 
         // Load data on init;
         this.loadData().then((res) => {
@@ -151,7 +144,6 @@ export default class ConsonantPage extends React.Component {
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateDimensions);
-        window.removeEventListener('resize', this.handleInitialScrollPos);
     }
 
     getConfig(object, key) {
@@ -262,11 +254,6 @@ export default class ConsonantPage extends React.Component {
         return res;
     }
 
-    getWrapperScrollPos() {
-        console.log('getWrapperScrollPos() result is, ', parseInt(this.page.getBoundingClientRect().top, 10));
-        return parseInt(this.page.getBoundingClientRect().top, 10);
-    }
-
     getActiveFiltersIds() {
         const filters = this.state.filters.reduce((acc, val) => {
             val.items.forEach((el) => {
@@ -287,14 +274,10 @@ export default class ConsonantPage extends React.Component {
     }
 
     setCardsToShowQty() {
-        const currentPos = this.getWrapperScrollPos();
-        console.log('Current position, ', currentPos);
-        console.log('Initial scroll pos, ', this.state.initialScrollPos);
+        const currentPos = window.pageYOffset;
         this.setState(prevState => ({
             pages: prevState.pages + 1,
-        }), () => {
-            window.scrollTo(0, Math.abs(currentPos) + this.state.initialScrollPos);
-        });
+        }), () => { window.scrollTo(0, currentPos); });
     }
 
     setBookMarksToLS() {
@@ -303,10 +286,6 @@ export default class ConsonantPage extends React.Component {
         } catch (e) {
             alert('We could not save your bookmarks, please try to reload thші page.');
         }
-    }
-
-    setInitialScrollPos() {
-        this.setState({ initialScrollPos: Math.abs(this.getWrapperScrollPos()) });
     }
 
     async loadData() {
@@ -517,16 +496,6 @@ export default class ConsonantPage extends React.Component {
         });
     }
 
-    handleInitialScrollPos() {
-        const awaitTime = 100;
-
-        window.clearTimeout(updateScrollPosTimer);
-        updateScrollPosTimer = window.setTimeout(() => {
-            window.scrollTo(0, 0);
-            this.setInitialScrollPos();
-        }, awaitTime);
-    }
-
     handleSelectChange(option) {
         if (option.label === this.state.selelectedFilterBy.label) {
             this.setState({ selectOpened: false });
@@ -658,7 +627,6 @@ export default class ConsonantPage extends React.Component {
             <Fragment>
                 {this.getConfig('header', 'enabled') && <ConsonantHeader />}
                 <section
-                    ref={(page) => { this.page = page; }}
                     className="consonant-page">
                     <div className="consonant-page--inner">
                         <div>
@@ -723,10 +691,12 @@ export default class ConsonantPage extends React.Component {
                                         unsaveBookmarkText={this.getConfig('bookmarks', 'unsaveBookmarkText')} />
                                     {
                                         this.getConfig('pagination', 'enabled') &&
-                                        <LoadMore
-                                            onClick={this.setCardsToShowQty}
-                                            show={this.getCardsToShowQty()}
-                                            total={this.state.filteredCards.length} />
+                                        <div className="aaa" ref={(page) => { this.page = page; }}>
+                                            <LoadMore
+                                                onClick={this.setCardsToShowQty}
+                                                show={this.getCardsToShowQty()}
+                                                total={this.state.filteredCards.length} />
+                                        </div>
                                     }
                                 </Fragment> :
                                 <Loader
