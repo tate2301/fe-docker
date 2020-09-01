@@ -2,11 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Tooltip from './Tooltip';
 
-const tooltipText = {
-    unselected: 'Save breakout session',
-    selected: 'Unsave breakout session',
-};
-
 const Card = (props) => {
     const {
         id,
@@ -26,6 +21,8 @@ const Card = (props) => {
         cardSavedIco,
         cardUnsavedIco,
         onClick,
+        saveBookmarkText,
+        unsaveBookmarkText,
     } = props;
 
     const handleClick = (clickEvt) => {
@@ -96,7 +93,7 @@ const Card = (props) => {
                                         </svg>
                                     }
                                     <Tooltip text={
-                                        isBookmarked ? tooltipText.selected : tooltipText.unselected
+                                        isBookmarked ? unsaveBookmarkText : saveBookmarkText
                                     } />
                                 </button>
 
@@ -137,6 +134,8 @@ Card.propTypes = {
     cardSavedIco: PropTypes.string.isRequired,
     cardUnsavedIco: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
+    saveBookmarkText: PropTypes.string,
+    unsaveBookmarkText: PropTypes.string,
 };
 
 Card.defaultProps = {
@@ -146,4 +145,6 @@ Card.defaultProps = {
     bannerBackgroundColor: '',
     secondaryLabelText: '',
     label: '',
+    saveBookmarkText: 'Save card',
+    unsaveBookmarkText: 'Unsave card',
 };

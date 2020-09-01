@@ -12,6 +12,8 @@ const Collection = (props) => {
         onCardBookmark,
         cardSavedIco,
         cardUnsavedIco,
+        saveBookmarkText,
+        unsaveBookmarkText,
     } = props;
     let cards = [...props.cards];
     let cardsToShow = showItemsPerPage * pages;
@@ -28,7 +30,9 @@ const Collection = (props) => {
                     onClick={onCardBookmark}
                     cardSavedIco={cardSavedIco}
                     cardUnsavedIco={cardUnsavedIco}
-                    allowBookmarking={allowBookmarking} />
+                    allowBookmarking={allowBookmarking}
+                    saveBookmarkText={saveBookmarkText}
+                    unsaveBookmarkText={unsaveBookmarkText} />
             ))}
             <div className="consonant-card consonant-card_placeholder" />
             <div className="consonant-card consonant-card_placeholder" />
@@ -46,10 +50,14 @@ Collection.propTypes = {
     onCardBookmark: PropTypes.func.isRequired,
     cardSavedIco: PropTypes.string.isRequired,
     cardUnsavedIco: PropTypes.string.isRequired,
+    saveBookmarkText: PropTypes.string,
+    unsaveBookmarkText: PropTypes.string,
 };
 
 Collection.defaultProps = {
     showItemsPerPage: DEFAULT_SHOW_ITEMS_PER_PAGE,
     pages: 1,
     cards: [],
+    saveBookmarkText: 'Save card',
+    unsaveBookmarkText: 'Unsave card',
 };

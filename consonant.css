@@ -53,6 +53,7 @@
   margin-right: auto;
   justify-content: space-between;
   align-items: stretch;
+  overflow: hidden;
 }
 
 .consonant-page .consonant-page--inner {
@@ -82,7 +83,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: white;
+  background-color: #fff;
   overflow: visible;
   user-select: none;
 }
@@ -214,6 +215,7 @@
   transform: rotate(-135deg);
   border-top: 0;
   border-right: 0;
+  pointer-events: none;
 }
 
 .consonant-filters .consonant-filters--item-name {
@@ -497,7 +499,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   position: relative;
   margin-top: auto;
   padding: 17px 16px;
-  background-color: #fff;
+  background-color: transparent;
   border: 0;
   border-top: 1px solid #EAEAEA;
   outline: 0;
@@ -626,6 +628,20 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   transition: border-color 0.3s ease-in-out;
   outline: 0;
   box-shadow: none;
+}
+
+.consonant-search input::-webkit-search-decoration,
+.consonant-search input::-webkit-search-cancel-button,
+.consonant-search input::-webkit-search-results-button,
+.consonant-search input::-webkit-search-results-decoration {
+  display: none;
+}
+
+input[type=search]::-ms-reveal,
+input[type=search]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .consonant-search input::placeholder {
@@ -821,6 +837,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
 
 /* consonant-filters-info */
 .consonant-filters-info {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -829,7 +846,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   padding: 48px 30px 20px;
   top: 0;
   left: 0;
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .consonant-filters-info .consonant-filters-info--btn-wrapper {
@@ -853,7 +870,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   line-height: 30px;
   text-transform: capitalize;
   color: #505050;
-  background-color: #fff;
+  background-color: transparent;
   outline: 0;
   user-select: none;
 }
@@ -917,7 +934,8 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
 }
 
 .consonant-select input {
-  max-width: 100%;
+  box-sizing: border-box;
+  max-width: 140px;
   padding: 0 34px 0 12px;
   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
   font-weight: normal;
@@ -929,6 +947,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   outline: 0;
   border: 1px solid #EAEAEA;
   border-radius: 5px;
+  background-color: transparent;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -1005,7 +1024,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   padding-left: 30px;
   padding-right: 30px;
   overflow: hidden;
-  background-color: #fff;
+  background-color: transparent;
 }
 
 /* .consonant-card */
@@ -1018,6 +1037,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   text-align: left;
   border: 1px solid #EAEAEA;
   border-radius: 5px;
+  background-color: #fff;
 }
 
 .consonant-card.consonant-card_placeholder {
@@ -1410,7 +1430,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   line-height: 19px;
   color: #505050;
   text-transform: capitalize;
-  background-color: #fff;
+  background-color: transparent;
   border: 2px solid #505050;
   border-radius: 30px;
   outline: 0;
@@ -1567,10 +1587,6 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
 @media only screen and (min-width: 600px)  {
 
   /* .consonant-page */
-  .consonant-page {
-    background-color: #fff;
-  }
-
   .consonant-page .consonant-page--inner {
     min-width: 504px;
     max-width: 504px;
@@ -1645,10 +1661,14 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   /* .consonant-page */
   .consonant-page .consonant-page--inner {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: stretch;
-    min-width: 1012px;
-    max-width: 1012px;
+    min-width: 1200px;
+    max-width: 1200px;
+  }
+
+  .consonant-page .consonant-page--inner > div:last-of-type {
+    flex-grow: 0;
   }
 
   /* .consonant-filters */
@@ -1723,7 +1743,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   }
 
   .consonant-filters-info .consonant-filters-info--title {
-    max-width: 70%;
+    max-width: 540px;
     margin: 0;
     font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
     font-style: normal;
@@ -1766,6 +1786,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     max-width: 204px;
     margin-right: 32px;
     padding-top: 123px;
+    background-color: transparent;
     overflow: visible;
   }
 
@@ -1825,12 +1846,13 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   .consonant-filters .consonant-filters--item.consonant-filters--item_opened {
     position: relative;
     padding: 0;
-    background-color: #fff;
+    background-color: transparent;
     border-bottom-color: transparent;
   }
 
   .consonant-filters .consonant-filters--item .consonant-filters--item-inner {
     border-radius: 0;
+    background-color: transparent;
   }
 
   .consonant-filters--item.consonant-filters--item_opened .consonant-filters--item-inner 
@@ -1892,6 +1914,7 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   }
 
   .consonant-select input {
+    max-width: 112px;
     padding-left: 0;
     padding-right: 10px;
     border-color: transparent;
@@ -1997,6 +2020,11 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
     min-width: calc(1199px - 204px - 32px);
     max-width: calc(1199px - 204px - 32px);
     margin-bottom: 8px;
+  }
+
+  /* .consonant-filters-info */
+  .consonant-filters-info .consonant-filters-info--title {
+    max-width: 720px;
   }
 
   /* .consonant-card */

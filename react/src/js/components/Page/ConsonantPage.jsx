@@ -199,6 +199,8 @@ export default class ConsonantPage extends React.Component {
                 cardUnsavedIcon: '',
                 selectBookmarksIcon: '',
                 unselectBookmarksIcon: '',
+                saveBookmarkText: 'Save card',
+                unsaveBookmarkText: 'Unsave card',
             },
             search: {
                 enabled: true,
@@ -259,6 +261,7 @@ export default class ConsonantPage extends React.Component {
     }
 
     getWrapperScrollPos() {
+        console.log('getWrapperScrollPos() result is, ', parseInt(this.page.getBoundingClientRect().top, 10));
         return parseInt(this.page.getBoundingClientRect().top, 10);
     }
 
@@ -283,6 +286,8 @@ export default class ConsonantPage extends React.Component {
 
     setCardsToShowQty() {
         const currentPos = this.getWrapperScrollPos();
+        console.log('Current position, ', currentPos);
+        console.log('Initial scroll pos, ', this.state.initialScrollPos);
         this.setState(prevState => ({
             pages: prevState.pages + 1,
         }), () => {
@@ -412,7 +417,7 @@ export default class ConsonantPage extends React.Component {
     }
 
     searchCards() {
-        const query = this.state.searchQuery;
+        const query = this.state.searchQuery.trim();
         const results = [];
         const highlightText = (text, val) => text.replace(new RegExp(val, 'gi'), value => `<span class="consonant-search-result">${value}</span>`);
 
@@ -531,7 +536,7 @@ export default class ConsonantPage extends React.Component {
     handleSearchInputChange(val) {
         this.clearFilters();
         this.setState({
-            searchQuery: val.toLowerCase().trim(),
+            searchQuery: val.toLowerCase(),
         }, () => {
             this.searchCards();
         });
@@ -699,7 +704,9 @@ export default class ConsonantPage extends React.Component {
                                         allowBookmarking={this.getConfig('bookmarks', 'enabled')}
                                         onCardBookmark={this.handleCardBookmarking}
                                         cardUnsavedIco={this.getConfig('bookmarks', 'cardUnsavedIcon')}
-                                        cardSavedIco={this.getConfig('bookmarks', 'cardSavedIcon')} />
+                                        cardSavedIco={this.getConfig('bookmarks', 'cardSavedIcon')}
+                                        saveBookmarkText={this.getConfig('bookmarks', 'saveBookmarkText')}
+                                        unsaveBookmarkText={this.getConfig('bookmarks', 'unsaveBookmarkText')} />
                                     {
                                         this.getConfig('pagination', 'enabled') &&
                                         <LoadMore
