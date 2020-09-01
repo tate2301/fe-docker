@@ -40,6 +40,7 @@ export default class ConsonantPage extends React.Component {
             filters: [],
             lastFilterWasChecked: false,
             searchQuery: '',
+            selectOpened: false,
             selelectedFilterBy: this.getDefaultSortOption(),
             initialScrollPos: 0,
             showItemsPerPage: this.getConfig('collection', 'resultsPerPage'),
@@ -72,6 +73,7 @@ export default class ConsonantPage extends React.Component {
         this.handleCardBookmarking = this.handleCardBookmarking.bind(this);
         this.updateCardsWithBookmarks = this.updateCardsWithBookmarks.bind(this);
         this.handleShowFavsClick = this.handleShowFavsClick.bind(this);
+        this.handleSelectOpen = this.handleSelectOpen.bind(this);
         this.resetFavourites = this.resetFavourites.bind(this);
         this.setBookMarksToLS = this.setBookMarksToLS.bind(this);
     }
@@ -417,7 +419,7 @@ export default class ConsonantPage extends React.Component {
     }
 
     searchCards() {
-        const query = this.state.searchQuery.trim();
+        const query = this.state.searchQuery.trim().toLowerCase();
         const results = [];
         const highlightText = (text, val) => text.replace(new RegExp(val, 'gi'), value => `<span class="consonant-search-result">${value}</span>`);
 
@@ -526,9 +528,15 @@ export default class ConsonantPage extends React.Component {
     }
 
     handleSelectChange(option) {
-        if (option.label === this.state.selelectedFilterBy.label) return;
+        if (option.label === this.state.selelectedFilterBy.label) {
+            this.setState({ selectOpened: false });
+            return;
+        }
 
-        this.setState({ selelectedFilterBy: option }, () => {
+        this.setState({
+            selelectedFilterBy: option,
+            selectOpened: false,
+        }, () => {
             this.sortCards(this.state.selelectedFilterBy.sort);
         });
     }
@@ -536,7 +544,7 @@ export default class ConsonantPage extends React.Component {
     handleSearchInputChange(val) {
         this.clearFilters();
         this.setState({
-            searchQuery: val.toLowerCase(),
+            searchQuery: val,
         }, () => {
             this.searchCards();
         });
@@ -588,6 +596,10 @@ export default class ConsonantPage extends React.Component {
         this.setState(prevState => ({
             showMobileFilters: !prevState.showMobileFilters,
         }));
+    }
+
+    handleSelectOpen() {
+        this.setState(prevState => ({ selectOpened: !prevState.selectOpened }));
     }
 
     updateCardsWithBookmarks() {
@@ -688,6 +700,8 @@ export default class ConsonantPage extends React.Component {
                                 windowWidth={this.state.windowWidth}
                                 selectValues={this.getConfig('sort', 'options')}
                                 selelectedFilterBy={this.state.selelectedFilterBy}
+                                selectOpened={this.state.selectOpened}
+                                onSelectOpen={this.handleSelectOpen}
                                 onSelect={this.handleSelectChange}
                                 searchEnabled={this.getConfig('search', 'enabled')}
                                 searchPlaceholder={this.getConfig('search', 'placeholderText')}

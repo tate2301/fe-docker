@@ -18,6 +18,8 @@ const FiltersInfo = (props) => {
         windowWidth,
         selelectedFilterBy,
         selectValues,
+        selectOpened,
+        onSelectOpen,
         onSelect,
         searchEnabled,
         searchPlaceholder,
@@ -96,8 +98,10 @@ const FiltersInfo = (props) => {
             {mobileAsideInfoFilterBtn}
             {selectValues.length && showSelect &&
                 <Select
+                    opened={selectOpened}
                     val={selelectedFilterBy}
                     values={selectValues}
+                    onOpen={onSelectOpen}
                     onSelect={onSelect} />
             }
             {desktopSelectedFilters}
@@ -125,6 +129,8 @@ FiltersInfo.propTypes = {
     searchEnabled: PropTypes.bool.isRequired,
     searchPlaceholder: PropTypes.string.isRequired,
     onSearch: PropTypes.func.isRequired,
+    selectOpened: PropTypes.bool,
+    onSelectOpen: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired,
     onMobileFiltersToggleClick: PropTypes.func.isRequired,
     onSelectedFilterClick: PropTypes.func.isRequired,
@@ -136,5 +142,6 @@ FiltersInfo.defaultProps = {
     cardsQty: 0,
     searchQuery: '',
     selectedFiltersQty: 0,
+    selectOpened: false,
     windowWidth: window.innerWidth,
 };

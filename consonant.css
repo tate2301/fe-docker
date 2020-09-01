@@ -32,6 +32,7 @@
 - .consonant-filters--item_opened;
 - .consonant-filters-info--btn_with-filters;
 - .consonant-select--option_selected;
+- .consonant-select--btn_active;
 - .consonant-pagination_first;
 - .consonant-pagination_last;
 - .consonant-pagination--item_active;
@@ -713,7 +714,7 @@ input[type=search]::-ms-clear {
   justify-content: flex-start;
   align-items: center;
   padding-top: 23px;
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .consonant-filters-info > *:last-child {
@@ -933,15 +934,19 @@ input[type=search]::-ms-clear {
   pointer-events: none;
 }
 
-.consonant-select input {
+.consonant-select .consonant-select--btn {
   box-sizing: border-box;
+  display: block;
+  width: 100%;
   max-width: 140px;
   padding: 0 34px 0 12px;
   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
   font-weight: normal;
   font-size: 14px;
   line-height: 30px;
+  text-align: left;
   text-transform: capitalize;
+  white-space: nowrap;
   color: #505050;
   cursor: pointer;
   outline: 0;
@@ -949,6 +954,7 @@ input[type=search]::-ms-clear {
   border-radius: 5px;
   background-color: transparent;
   overflow: hidden;
+  outline: 0;
   text-overflow: ellipsis;
 }
 
@@ -968,13 +974,13 @@ input[type=search]::-ms-clear {
   overflow: hidden;
 }
 
-.consonant-select input:focus + .consonant-select--options {
+.consonant-select--btn.consonant-select--btn_active + .consonant-select--options {
   opacity: 1;
   z-index: 2;
 }
 
-.consonant-select input:not(:focus) + .consonant-select--options {
-  transition-delay: 0.5s;
+.consonant-select--btn:not(.consonant-select--btn_active) + .consonant-select--options {
+  transition-delay: 0.2s;
 }
 
 .consonant-select .consonant-select--option {
@@ -1913,7 +1919,7 @@ input[type=search]::-ms-clear {
     min-width: 108px;
   }
 
-  .consonant-select input {
+  .consonant-select .consonant-select--btn {
     max-width: 112px;
     padding-left: 0;
     padding-right: 10px;

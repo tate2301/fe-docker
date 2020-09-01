@@ -2,14 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Select = (props) => {
-    const { val, values, onSelect } = props;
+    const {
+        opened,
+        val,
+        values,
+        onOpen,
+        onSelect,
+    } = props;
 
     return (
         <div className="consonant-select">
-            <input
-                type="text"
-                value={val.label || 'Please select'}
-                readOnly />
+            <button
+                type="button"
+                className={opened ?
+                    'consonant-select--btn consonant-select--btn_active' :
+                    'consonant-select--btn'
+                }
+                onBlur={onOpen}
+                onClick={onOpen}>{val.label || 'Please select'}
+            </button>
             <div className="consonant-select--options">
                 {values.map(item => (
                     <button
@@ -31,10 +42,16 @@ const Select = (props) => {
 export default Select;
 
 Select.propTypes = {
+    opened: PropTypes.bool,
     val: PropTypes.shape({
         label: PropTypes.string,
         sort: PropTypes.string,
     }).isRequired,
+    onOpen: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired,
     values: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
+Select.defaultProps = {
+    opened: false,
 };
