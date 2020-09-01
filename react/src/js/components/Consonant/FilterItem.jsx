@@ -13,6 +13,7 @@ const FilterItem = (props) => {
         onClick,
         onClearAll,
         results,
+        clearFilterText,
     } = props;
     const handleCheck = (evt) => {
         onCheck(id, evt.target.value, evt.target.checked);
@@ -87,7 +88,7 @@ const FilterItem = (props) => {
                         <button
                             type="button"
                             onClick={handleClear}
-                            className="consonant-filters--mobile-footer-clear">Clear
+                            className="consonant-filters--mobile-footer-clear">{clearFilterText}
                         </button>
                     }
                     <button
@@ -115,9 +116,11 @@ FilterItem.propTypes = {
     itemsSelected: PropTypes.number,
     isOpened: PropTypes.bool,
     results: PropTypes.number.isRequired,
+    clearFilterText: PropTypes.string,
 };
 
 FilterItem.defaultProps = {
     isOpened: false,
     itemsSelected: 0,
+    clearFilterText: 'Clear',
 };

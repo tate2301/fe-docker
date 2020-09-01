@@ -108,10 +108,6 @@ export default class ConsonantPage extends React.Component {
                 ...featured,
                 ...cards.filter(card => !featured.some(el => card.id === el.id)),
             ];
-
-            let { featuredCards } = this.props.config;
-            const filters = this.getConfig('filterPanel', 'filters');
-
             const processCard = (card) => {
                 card.initialTitle = card.title;
                 card.description = truncateString(card.description, TRUNCATE_TEXT_QTY);
@@ -120,23 +116,21 @@ export default class ConsonantPage extends React.Component {
                 return card
             };
 
-            if (Array.isArray(featuredCards) && featuredCards.length) {
-                featuredCards = featuredCards.map((el) => {
-                    el.isFeatured = true;
-                    return el;
-                });
-
-                this.setState(prev => ({
-                    cards: removeSameCardIds(featuredCards, prev.cards).map(c => processCard(c)),
-                }));
-            }
-
-            res.cards = applyCardLimitToLoadedCards(res.cards);
+            let { featuredCards } = this.props.config || [];
+            const filters = this.getConfig('filterPanel', 'filters');
 
             if (!res || !res.cards) return;
 
-            this.setState(prevState => ({
-                cards: removeSameCardIds(prevState.cards, res.cards).map(card => processCard(card)),
+            let cards = removeSameCardIds(this.state.cards, res.cards);
+
+            featuredCards = featuredCards.map((el) => {
+                el.isFeatured = true;
+                return el;
+            });
+            cards = removeSameCardIds(featuredCards, cards);
+            cards = applyCardLimitToLoadedCards(cards).map(card => processCard(card));
+            this.setState({
+                cards,
                 filters: filters.map((el) => {
                     el.opened = false;
                     el.items = el.items.map((item) => {
@@ -146,7 +140,7 @@ export default class ConsonantPage extends React.Component {
                     return el;
                 }),
                 lastFilterWasChecked: false,
-            }), () => {
+            }, () => {
                 this.filterCards();
                 this.getBookMarksFromLS();
             });
@@ -174,7 +168,8 @@ export default class ConsonantPage extends React.Component {
                 enabled: true,
                 type: 'side',
                 filters: [],
-                clearText: 'Clear all',
+                clearAllFiltersText: 'Clear all',
+                clearFilterText: 'Clear',
                 filterLogic: 'and',
             },
             sort: {
@@ -659,7 +654,8 @@ export default class ConsonantPage extends React.Component {
                                     searchQuery={this.state.searchQuery}
                                     resQty={this.state.filteredCards.length}
                                     onFilterClick={this.handleFilterItemClick}
-                                    clearText={this.getConfig('filterPanel', 'clearText')}
+                                    clearFilterText={this.getConfig('filterPanel', 'clearFilterText')}
+                                    clearAllFiltersText={this.getConfig('filterPanel', 'clearAllFiltersText')}
                                     onClearAllFilters={this.clearAllFilters}
                                     onClearFilterItems={this.clearFilterItems}
                                     showFavsMenuLink={this.getConfig('bookmarks', 'enabled')}
@@ -741,7 +737,8 @@ ConsonantPage.propTypes = {
             enabled: PropTypes.bool,
             type: PropTypes.string,
             filters: PropTypes.arrayOf(PropTypes.object),
-            clearText: PropTypes.string,
+            clearAllFiltersText: PropTypes.string,
+            clearFilterText: PropTypes.string,
             filterLogic: PropTypes.string,
         }),
         sort: PropTypes.shape({

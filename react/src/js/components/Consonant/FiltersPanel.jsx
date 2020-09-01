@@ -15,7 +15,8 @@ const FiltersPanel = (props) => {
         searchPlaceholder,
         searchQuery,
         onFilterClick,
-        clearText,
+        clearFilterText,
+        clearAllFiltersText,
         onClearAllFilters,
         onClearFilterItems,
         onCheckboxClick,
@@ -29,6 +30,7 @@ const FiltersPanel = (props) => {
         onSearch,
         resQty,
     } = props;
+
 
     const countSelectedInFilter = el => el.reduce((acc, val) => (val.selected ? acc + 1 : acc), 0);
     const checkFilterSelected = () => filters.some(f => countSelectedInFilter(f.items) > 0);
@@ -50,7 +52,7 @@ const FiltersPanel = (props) => {
         <button
             type="button"
             className="consonant-filters--clear-link"
-            onClick={onClearAllFilters}>{clearText}
+            onClick={onClearAllFilters}>{clearAllFiltersText}
         </button>
     );
     const desktopFiltersSearch = (
@@ -71,7 +73,7 @@ const FiltersPanel = (props) => {
                 <button
                     type="button"
                     className="consonant-filters--mobile-footer-clear"
-                    onClick={onClearAllFilters}>{clearText}
+                    onClick={onClearAllFilters}>{clearAllFiltersText}
                 </button>
             }
             <button
@@ -111,7 +113,8 @@ const FiltersPanel = (props) => {
                                 isOpened={item.opened}
                                 onCheck={onCheckboxClick}
                                 onClick={onFilterClick}
-                                onClearAll={onClearFilterItems} />))}
+                                onClearAll={onClearFilterItems}
+                                clearFilterText={clearFilterText} />))}
                     </div>
             }
             { showFavsMenuLink &&
@@ -160,7 +163,8 @@ FiltersPanel.propTypes = {
     favsQty: PropTypes.number,
     searchQuery: PropTypes.string,
     onFilterClick: PropTypes.func.isRequired,
-    clearText: PropTypes.string.isRequired,
+    clearFilterText: PropTypes.string.isRequired,
+    clearAllFiltersText: PropTypes.string.isRequired,
     onClearAllFilters: PropTypes.func.isRequired,
     onClearFilterItems: PropTypes.func.isRequired,
     onCheckboxClick: PropTypes.func.isRequired,
