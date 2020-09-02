@@ -44,7 +44,7 @@
 - .consonant-filters--bookmarks_selected;
 */
 
-/* .consonant-page */
+/* 
 .consonant-page {
   position: relative;
   display: flex;
@@ -68,13 +68,12 @@
   flex-grow: 1;
 }
 
-/* @todo clarify if we need create-app */
 #create-app.consonant {
   background-color: #fff;
   background-image: none;
-}
+} */
 
-/* .consonant-filters - display logic */
+/* 
 .consonant-filters {
   position: static;
   display: flex;
@@ -95,7 +94,6 @@
 
 .consonant-filters + div {
   width: 100%;
-  /* 100vh - header height */
   height: calc(100vh - 176px);
   position: relative;
   text-align: center;
@@ -121,7 +119,6 @@
   display: none;
 }
 
-/* .consonant-filters - filters styles */
 .consonant-filters--header {
   display: none;
   width: 100%;
@@ -334,7 +331,7 @@
   content: attr(data-qty);
   font-weight: 700;
   background-color: #fff;
-}
+} */
 
 /* .consonant-filters - one filter styles */
 .consonant-filters .consonant-filters--item.consonant-filters--item_opened {

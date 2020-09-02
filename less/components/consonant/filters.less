@@ -1,0 +1,273 @@
+/* Available modificators:
+- .consonant-filters_opened;
+*/
+
+.consonant-filters {
+    position: static;
+
+    &:extend(
+        .flex,
+        .flex .direction .column
+    );
+    .full-width;
+    .position-absolute-0;
+
+    background-color: @spectrum-color;
+    overflow: visible;
+    user-select: none;
+
+    > * {
+        .hide-all;
+    }
+
+    + div {
+        .full-width;
+
+        height: calc(100vh - @header-mobile-height);
+        position: relative;
+
+        &:extend(.horizontal-align .center);
+    }
+
+    .consonant-filters_opened {
+        position: fixed;
+        z-index: 1000001;
+
+        &:extend(.flex);
+
+        .consonant-filters--mobile-footer,
+        .consonant-filters--header,
+        .consonant-filters--bookmarks {
+            &:extend(.flex);
+        }
+
+        .consonant-filters--list {
+            display: block;
+        }
+    }
+
+    // We need anti-BEM approach here;
+    > .consonant-search {
+        .hide-all;
+    }
+
+    .consonant-filters--header {
+        .hide-all;
+        .full-width;
+
+        &:extend(
+            .flex,
+            .flex .justify .between,
+            .flex .align .center
+        );
+
+        padding: 14/@rootRem unit((@rootRem * 0.75), px);
+        border-bottom: 1px solid @color-lightest-grey;
+    }
+
+    .consonant-filters--desk-title {
+        .hide-all;
+        .no-margin;
+
+        max-width: 70%;
+        font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        color: @spectrum-grey-900;
+        word-break: break-word;
+    }
+}
+
+// .consonant-filters .consonant-filters--mob-title {
+//   display: flex;
+//   align-items: center;
+// }
+
+// .consonant-filters .consonant-filters--mob-back {
+//   display: block;
+//   width: 32px;
+//   height: 32px;
+//   margin-right: 13px;
+//   font-size: 0;
+//   line-height: 0;
+//   border: 1px solid #EAEAEA;
+//   border-radius: 50%;
+//   background: #fff url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxNCAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjk4OTkgNC4wMDAwNkgzLjQxMzg4TDUuNjk5ODggMS43MTcwNkM1Ljc5MjkyIDEuNjI0MDIgNS44NjY3MiAxLjUxMzU2IDUuOTE3MDggMS4zOTJDNS45Njc0MyAxLjI3MDQzIDUuOTkzMzUgMS4xNDAxNCA1Ljk5MzM1IDEuMDA4NTZDNS45OTMzNSAwLjg3Njk4MSA1Ljk2NzQzIDAuNzQ2Njg5IDUuOTE3MDggMC42MjUxMjVDNS44NjY3MiAwLjUwMzU2IDUuNzkyOTIgMC4zOTMxMDQgNS42OTk4OCAwLjMwMDA2MkM1LjYwNjg0IDAuMjA3MDIxIDUuNDk2MzggMC4xMzMyMTYgNS4zNzQ4MiAwLjA4Mjg2MjNDNS4yNTMyNSAwLjAzMjUwODUgNS4xMjI5NiAwLjAwNjU5MTggNC45OTEzOCAwLjAwNjU5MThDNC43MjU2NCAwLjAwNjU5MTggNC40NzA3OCAwLjExMjE1NiA0LjI4Mjg4IDAuMzAwMDYyTDAuMjk5ODc4IDQuMjkzMDZDMC4yMDY5MDIgNC4zODU5NCAwLjEzMzE0MyA0LjQ5NjIyIDAuMDgyODE4NyA0LjYxNzYyQzAuMDMyNDk0NCA0LjczOTAyIDAuMDA2NTkxOCA0Ljg2OTE1IDAuMDA2NTkxOCA1LjAwMDU2QzAuMDA2NTkxOCA1LjEzMTk4IDAuMDMyNDk0NCA1LjI2MjEgMC4wODI4MTg3IDUuMzgzNUMwLjEzMzE0MyA1LjUwNDkgMC4yMDY5MDIgNS42MTUxOSAwLjI5OTg3OCA1LjcwODA2TDQuMjgyODggOS43MDAwNkM0LjM3NTkyIDkuNzkzMSA0LjQ4NjM4IDkuODY2OTEgNC42MDc5NCA5LjkxNzI2QzQuNzI5NTEgOS45Njc2MiA0Ljg1OTggOS45OTM1MyA0Ljk5MTM4IDkuOTkzNTNDNS4xMjI5NiA5Ljk5MzUzIDUuMjUzMjUgOS45Njc2MiA1LjM3NDgyIDkuOTE3MjZDNS40OTYzOCA5Ljg2NjkxIDUuNjA2ODQgOS43OTMxIDUuNjk5ODggOS43MDAwNkM1Ljc5MjkyIDkuNjA3MDIgNS44NjY3MiA5LjQ5NjU2IDUuOTE3MDggOS4zNzVDNS45Njc0MyA5LjI1MzQzIDUuOTkzMzUgOS4xMjMxNCA1Ljk5MzM1IDguOTkxNTZDNS45OTMzNSA4Ljg1OTk4IDUuOTY3NDMgOC43Mjk2OSA1LjkxNzA4IDguNjA4MTJDNS44NjY3MiA4LjQ4NjU2IDUuNzkyOTIgOC4zNzYxIDUuNjk5ODggOC4yODMwNkwzLjQxMzg4IDYuMDAwMDZIMTIuOTg5OUMxMy4yNTUxIDYuMDAwMDYgMTMuNTA5NCA1Ljg5NDcgMTMuNjk3IDUuNzA3MTdDMTMuODg0NSA1LjUxOTYzIDEzLjk4OTkgNS4yNjUyOCAxMy45ODk5IDUuMDAwMDZDMTMuOTg5OSA0LjczNDg1IDEzLjg4NDUgNC40ODA0OSAxMy42OTcgNC4yOTI5NkMxMy41MDk0IDQuMTA1NDIgMTMuMjU1MSA0LjAwMDA2IDEyLjk4OTkgNC4wMDAwNloiIGZpbGw9IiM1MDUwNTAiLz4KPC9zdmc+Cg==) no-repeat 50% 50%;
+//   background-position: contain;
+//   outline: 0;
+// }
+
+// .consonant-filters--mob-title span {
+//   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
+//   font-style: normal;
+//   font-weight: normal;
+//   font-size: 16px;
+//   line-height: 19px;
+//   color: #505050;
+// }
+
+// .consonant-filters .consonant-filters--clear-link {
+//   display: none;
+//   padding: 0;
+//   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
+//   font-size: 14px;
+//   line-height: 16px;
+//   font-weight: 700;
+//   color: #BCBCBC;
+//   text-transform: capitalize;
+//   word-break: break-word;
+//   background-color: transparent;
+//   outline: 0;
+// }
+
+// .consonant-filters--list {
+//   padding-left: 16px;
+//   padding-right: 16px;
+//   overflow-y: auto;
+// }
+
+// .consonant-filters .consonant-filters--item {
+//   position: relative;
+//   border-bottom: 1px solid #EAEAEA;
+//   outline: 0;
+//   cursor: pointer;
+// }
+
+// .consonant-filters .consonant-filters--item:last-of-type {
+//   border-bottom: 0;
+// }
+
+// .consonant-filters .consonant-filters--item::after {
+//   content: '';
+//   position: absolute;
+//   right: 16px;
+//   top: 0;
+//   bottom: 0;
+//   margin: auto;
+//   width: 8px;
+//   height: 8px;
+//   border: 2px solid #d3d3d3;
+//   transform: rotate(-135deg);
+//   border-top: 0;
+//   border-right: 0;
+//   pointer-events: none;
+// }
+
+// .consonant-filters .consonant-filters--item-name {
+//   display: flex;
+//   align-items: center;
+//   margin: 0;
+// }
+
+// .consonant-filters .consonant-filters--item-name img {
+//   display: block;
+//   max-width: 16px;
+//   height: auto;
+//   max-height: 16px;
+//   margin-right: 6px;
+// }
+
+// .consonant-filters .consonant-filters--item.consonant-filters--item_opened
+// .consonant-filters--item-name img {
+//   display: none;
+//   position: relative;
+//   top: 4px;
+// }
+
+// .consonant-filters .consonant-filters--item-name a {
+//   display: block;
+//   width: 100%;
+//   padding-top: 17px;
+//   padding-bottom: 17px;
+//   padding-right:  36px;
+//   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
+//   font-style: normal;
+//   font-weight: 700;
+//   font-size: 16px;
+//   line-height: 19px;
+//   text-transform: capitalize;
+//   text-decoration: none;
+//   color: #505050;
+//   cursor: pointer;
+// }
+
+// .consonant-filters .consonant-filters--mobile-footer {
+//   margin-top: auto;
+//   align-items: center;
+//   padding: 16px;
+//   border-top: 1px solid #EAEAEA;
+// }
+
+// .consonant-filters .consonant-filters--mobile-footer-total-res {
+//   display: block;
+//   margin-right: auto;
+//   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
+//   font-style: normal;
+//   font-weight: 700;
+//   font-size: 14px;
+//   line-height: 16px;
+//   color: #505050;
+//   text-transform: capitalize;
+// }
+
+// .consonant-filters .consonant-filters--mobile-footer-clear {
+//   display: block;
+//   margin-right: 17px;
+//   padding: 0;
+//   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
+//   font-style: normal;
+//   font-weight: 700;
+//   font-size: 14px;
+//   line-height: 16px;
+//   color: #1473E6;
+//   background-color: transparent;
+//   border: 0;
+//   outline: 0;
+// }
+
+// .consonant-filters .consonant-filters--mobile-footer-clear + .consonant-filters--mobile-footer-btn {
+//   margin-left: 0;
+// }
+
+// .consonant-filters .consonant-filters--mobile-footer-btn {
+//   min-width: 71px;
+//   margin-left: auto;
+//   padding: 8px 16px 8px;
+//   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
+//   font-style: normal;
+//   font-weight: 700;
+//   font-size: 14px;
+//   line-height: 16px;
+//   color: #FFFFFF;
+//   text-transform: capitalize;
+//   background-color: #1473E6;
+//   border: 0;
+//   border-radius: 20px;
+//   outline: 0;
+// }
+
+// .consonant-filters .consonant-filters--item-selcted-items {
+//   position: relative;
+//   display: block;
+//   margin-top: 4px;
+//   padding-right:  34px;
+//   overflow: hidden;
+//   font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
+//   font-style: normal;
+//   font-weight: normal;
+//   font-size: 14px;
+//   line-height: 16px;
+//   color: #959595;
+//   white-space: nowrap;
+//   text-overflow: ellipsis;
+// }
+
+// .consonant-filters .consonant-filters--item-selcted-items::after {
+//   position: absolute;
+//   right: 12px;
+//   content: attr(data-qty);
+//   font-weight: 700;
+//   background-color: #fff;
+// }

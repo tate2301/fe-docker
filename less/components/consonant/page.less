@@ -1,0 +1,24 @@
+.consonant-page {
+    &:extend(
+        .flex,
+        .flex .justify .between,
+        .flex .align .stretch
+    );
+
+    position: relative;
+    width: 100%;
+    max-width: @size-responsive-desktop;
+    overflow: hidden;
+    .margin-auto;
+
+    .consonant-page--inner {
+        .full-width;
+
+        & > div:last-of-type {
+            min-height: 70vh;
+            position: relative;
+
+            &:extend(.flex .size-on-axis .grow-1);
+        }
+    }
+}
