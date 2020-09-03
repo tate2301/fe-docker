@@ -1,5 +1,6 @@
 @consonant-search-search-ico-src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAxNSAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEzLjkyIDEyLjY3NUwxMC41ODYgOS4zNDIwMUMxMS4zOTAyIDguMjE5NTEgMTEuNzQyNyA2LjgzNTYgMTEuNTczNSA1LjQ2NTE3QzExLjQwNDMgNC4wOTQ3NSAxMC43MjU5IDIuODM4MDkgOS42NzI5MyAxLjk0NDgzQzguNjE5OTUgMS4wNTE1NiA3LjI2OTUxIDAuNTg3MDQ2IDUuODg5ODQgMC42NDM1NThDNC41MTAxNyAwLjcwMDA3MSAzLjIwMjI0IDEuMjczNDcgMi4yMjU4NSAyLjI0OTg2QzEuMjQ5NDYgMy4yMjYyNSAwLjY3NjA1MyA0LjUzNDE5IDAuNjE5NTQxIDUuOTEzODZDMC41NjMwMjkgNy4yOTM1MiAxLjAyNzU0IDguNjQzOTcgMS45MjA4MSA5LjY5Njk0QzIuODE0MDcgMTAuNzQ5OSA0LjA3MDczIDExLjQyODQgNS40NDExNiAxMS41OTc1QzYuODExNTggMTEuNzY2NyA4LjE5NTQ5IDExLjQxNDIgOS4zMTggMTAuNjFMMTIuNjUxIDEzLjk0M0MxMi44MjMyIDE0LjA5MDUgMTMuMDQ0NiAxNC4xNjc1IDEzLjI3MTEgMTQuMTU4OEMxMy40OTc3IDE0LjE1IDEzLjcxMjUgMTQuMDU2MSAxMy44NzI4IDEzLjg5NThDMTQuMDMzMSAxMy43MzU1IDE0LjEyNyAxMy41MjA3IDE0LjEzNTcgMTMuMjk0MkMxNC4xNDQ1IDEzLjA2NzcgMTQuMDY3NCAxMi44NDYyIDEzLjkyIDEyLjY3NFYxMi42NzVaTTIuMjY2IDYuMTUwMDFDMi4yNjYgNS4zODY1OCAyLjQ5MjM4IDQuNjQwMjggMi45MTY1MiA0LjAwNTUxQzMuMzQwNjYgMy4zNzA3NCAzLjk0MzUxIDIuODc1OTkgNC42NDg4NCAyLjU4Mzg0QzUuMzU0MTYgMi4yOTE2OCA2LjEzMDI4IDIuMjE1MjQgNi44NzkwNCAyLjM2NDE4QzcuNjI3ODEgMi41MTMxMiA4LjMxNTYgMi44ODA3NSA4Ljg1NTQzIDMuNDIwNThDOS4zOTUyNiAzLjk2MDQxIDkuNzYyODkgNC42NDgyIDkuOTExODMgNS4zOTY5NkMxMC4wNjA4IDYuMTQ1NzMgOS45ODQzMiA2LjkyMTg1IDkuNjkyMTcgNy42MjcxN0M5LjQwMDAyIDguMzMyNDkgOC45MDUyNyA4LjkzNTM0IDguMjcwNSA5LjM1OTQ5QzcuNjM1NzIgOS43ODM2MyA2Ljg4OTQzIDEwLjAxIDYuMTI1OTkgMTAuMDFDNS4xMDIyNiAxMC4wMSA0LjEyMDQ1IDkuNjAzMzQgMy4zOTY1NiA4Ljg3OTQ1QzIuNjcyNjcgOC4xNTU1NSAyLjI2NiA3LjE3Mzc1IDIuMjY2IDYuMTUwMDFWNi4xNTAwMVoiIGZpbGw9IiM1MDUwNTAiLz4KPC9zdmc+Cg==';
 @consonant-search-search-ico-size: unit((@consonant-root-rem * 0.9375), px);
+@consonant-search-input-clear-size: unit((@consonant-root-rem * 1.25), px);
 
 .consonant-search {
     position: relative;
@@ -99,7 +100,51 @@
             padding-right: unit((@consonant-root-rem * 2), px);
             border-color: @consonant-color-blue-2;
 
-            .b;
+            &::placeholder {
+                opacity: 0;
+            }
+        }
+
+        &:valid + .consonant-search--input-clear {
+            opacity: 1;
+            pointer-events: unset;
+        }
+    }
+
+    .consonant-search--input-clear {
+        opacity: 0;
+        position: absolute;
+        width: @consonant-search-input-clear-size;
+        height: @consonant-search-input-clear-size;
+        top: 0;
+        bottom: 0;
+        right: unit((@consonant-root-rem * 0.375), px);
+        margin: auto;
+        font-size: 0;
+        line-height: 0;
+        border: 0;
+        border-radius: 50%;
+        background-color: @consonant-color-lightest-grey-2;
+        outline: 0;
+        pointer-events: none;
+        transition: all @transition-time @transition-func;
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            width: unit((@consonant-root-rem * 0.5), px);
+            height: 1px;
+
+            .position-absolute-0;
+
+            margin: auto;
+            background-color: @consonant-color-dark-grey-1;
+            transform: rotate(45deg);
+        }
+
+        &:after {
+            transform: rotate(-45deg);
         }
     }
 }
