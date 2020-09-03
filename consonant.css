@@ -1,22 +1,23 @@
 /* Colors reference: 
-  black: #2C2C2C;
-  gray: #BCBCBC;
+  +++black: #2C2C2C;
+  +++gray: #BCBCBC;
+  ++++F4F4F4;
   $lightest-grey: #f7f7f7;
-  light-grey: #EAEAEA;
-  light-grey-2: #959595;
-  light-grey-3: #D3D3D3;
+  +++light-grey: #EAEAEA;
+  +++light-grey-2: #959595;
+  +++light-grey-3: #D3D3D3;
   light-grey-4: #A5A5A5;
   light-grey-5: #4B4B4B;
   light-grey-6: #B3B3B3;
-  dark-grey: #747474;
-  dark-grey-2: #707070;
-  brown-grey: #505050;
+  +++dark-grey: #747474;
+  +++dark-grey-2: #707070;
+  +++brown-grey: #505050;
   dark-grey: #323232;
-  blue: #1473E6;
-  light-blue: #1492E6;
+  +++blue: #1473E6;
+  +++light-blue: #1492E6;
   greyish-white: #FDFDFD;
-  white: #fff;
-  blue: #2680EB;
+  +++white: #fff;
+  +++blue: #2680EB;
   dark-red: #9E0000;
 */
 
@@ -334,7 +335,8 @@
 } */
 
 /* .consonant-filters - one filter styles */
-.consonant-filters .consonant-filters--item.consonant-filters--item_opened {
+
+/* .consonant-filters .consonant-filters--item.consonant-filters--item_opened {
   position: fixed;
   display: flex;
   width: 100%;
@@ -490,10 +492,11 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
   color: #505050;
   text-transform: capitalize;
   word-break: break-word;
-}
+} */
 
 /* consonant-filters - bookmarks */
-.consonant-filters--bookmarks {
+
+/* .consonant-filters--bookmarks {
   position: relative;
   margin-top: auto;
   padding: 17px 16px;
@@ -563,10 +566,11 @@ input[type=checkbox]:checked + .consonant-filters--item-list-item-checkmark {
 .consonant-filters--bookmarks.consonant-filters--bookmarks_selected svg {
   fill: #1492E6;
   stroke: #1492E6;
-}
+} */
 
 /* .consonant-search */
-.consonant-search {
+
+/* .consonant-search {
   position: relative;
   padding-bottom: 12px;
 }
@@ -698,7 +702,7 @@ input[type=search]::-ms-clear {
 .consonant-search input:valid + .consonant-search--input-clear {
   opacity: 1;
   pointer-events: unset;
-}
+} */
 
 /* .consonant-filters-info - selected filters styles */
 .consonant-filters-info .consonant-filters--selected-filters {

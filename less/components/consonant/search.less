@@ -1,0 +1,105 @@
+@consonant-search-search-ico-src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAxNSAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEzLjkyIDEyLjY3NUwxMC41ODYgOS4zNDIwMUMxMS4zOTAyIDguMjE5NTEgMTEuNzQyNyA2LjgzNTYgMTEuNTczNSA1LjQ2NTE3QzExLjQwNDMgNC4wOTQ3NSAxMC43MjU5IDIuODM4MDkgOS42NzI5MyAxLjk0NDgzQzguNjE5OTUgMS4wNTE1NiA3LjI2OTUxIDAuNTg3MDQ2IDUuODg5ODQgMC42NDM1NThDNC41MTAxNyAwLjcwMDA3MSAzLjIwMjI0IDEuMjczNDcgMi4yMjU4NSAyLjI0OTg2QzEuMjQ5NDYgMy4yMjYyNSAwLjY3NjA1MyA0LjUzNDE5IDAuNjE5NTQxIDUuOTEzODZDMC41NjMwMjkgNy4yOTM1MiAxLjAyNzU0IDguNjQzOTcgMS45MjA4MSA5LjY5Njk0QzIuODE0MDcgMTAuNzQ5OSA0LjA3MDczIDExLjQyODQgNS40NDExNiAxMS41OTc1QzYuODExNTggMTEuNzY2NyA4LjE5NTQ5IDExLjQxNDIgOS4zMTggMTAuNjFMMTIuNjUxIDEzLjk0M0MxMi44MjMyIDE0LjA5MDUgMTMuMDQ0NiAxNC4xNjc1IDEzLjI3MTEgMTQuMTU4OEMxMy40OTc3IDE0LjE1IDEzLjcxMjUgMTQuMDU2MSAxMy44NzI4IDEzLjg5NThDMTQuMDMzMSAxMy43MzU1IDE0LjEyNyAxMy41MjA3IDE0LjEzNTcgMTMuMjk0MkMxNC4xNDQ1IDEzLjA2NzcgMTQuMDY3NCAxMi44NDYyIDEzLjkyIDEyLjY3NFYxMi42NzVaTTIuMjY2IDYuMTUwMDFDMi4yNjYgNS4zODY1OCAyLjQ5MjM4IDQuNjQwMjggMi45MTY1MiA0LjAwNTUxQzMuMzQwNjYgMy4zNzA3NCAzLjk0MzUxIDIuODc1OTkgNC42NDg4NCAyLjU4Mzg0QzUuMzU0MTYgMi4yOTE2OCA2LjEzMDI4IDIuMjE1MjQgNi44NzkwNCAyLjM2NDE4QzcuNjI3ODEgMi41MTMxMiA4LjMxNTYgMi44ODA3NSA4Ljg1NTQzIDMuNDIwNThDOS4zOTUyNiAzLjk2MDQxIDkuNzYyODkgNC42NDgyIDkuOTExODMgNS4zOTY5NkMxMC4wNjA4IDYuMTQ1NzMgOS45ODQzMiA2LjkyMTg1IDkuNjkyMTcgNy42MjcxN0M5LjQwMDAyIDguMzMyNDkgOC45MDUyNyA4LjkzNTM0IDguMjcwNSA5LjM1OTQ5QzcuNjM1NzIgOS43ODM2MyA2Ljg4OTQzIDEwLjAxIDYuMTI1OTkgMTAuMDFDNS4xMDIyNiAxMC4wMSA0LjEyMDQ1IDkuNjAzMzQgMy4zOTY1NiA4Ljg3OTQ1QzIuNjcyNjcgOC4xNTU1NSAyLjI2NiA3LjE3Mzc1IDIuMjY2IDYuMTUwMDFWNi4xNTAwMVoiIGZpbGw9IiM1MDUwNTAiLz4KPC9zdmc+Cg==';
+@consonant-search-search-ico-size: unit((@consonant-root-rem * 0.9375), px);
+
+.consonant-search {
+    position: relative;
+    padding-bottom: 12/@consonant-root-rem;
+
+    label {
+        max-width: 100%;
+
+        &:extend(
+            .flex,
+            .flex .wrap
+        );
+
+        cursor: pointer;
+        word-break: break-word;
+    }
+
+    .consonant-search--input-title {
+        .hide-all;
+
+        margin: 0 0 5/@consonant-root-rem;
+
+        .font(
+            12/@consonant-root-rem,
+            14/@consonant-root-rem,
+            400,
+            @consonant-color-dark-grey-1
+        );
+
+        cursor: pointer;
+    }
+
+    .consonant-search--input-wrapper {
+        position: relative;
+        display: block;
+        width: 100%;
+
+        &:after {
+            content: '';
+            width: @consonant-search-search-ico-size;
+            height: @consonant-search-search-ico-size;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: unit((@consonant-root-rem * 0.625), px);
+            margin: auto;
+            background: transparent url(@consonant-search-search-ico-src) no-repeat 0 0;
+            background-size: cover;
+            z-index: 1;
+        }
+    }
+
+    input {
+        box-sizing: border-box;
+
+        .full-width;
+
+        padding:
+            0
+            unit((@consonant-root-rem * 0.5), px)
+            0
+            unit((@consonant-root-rem * 2), px);
+
+        .font(
+            @line-height: 30/@consonant-root-rem,
+            @color: @consonant-color-brown-grey
+        );
+
+        border: 1px solid @consonant-color-lightest-grey;
+        border-radius: unit((@consonant-root-rem * 0.3125), px);
+        transition: border-color @transition-time @transition-func;
+        outline: 0;
+        box-shadow: none;
+
+        &::-webkit-search-decoration,
+        &::-webkit-search-cancel-button,
+        &::-webkit-search-results-button,
+        &::-webkit-search-results-decoration {
+            .hide-all;
+        }
+
+        &::-ms-reveal,
+        &::-ms-clear {
+            .hide-all;
+
+            width: 0;
+            height: 0;
+        }
+
+        &::placeholder {
+            font-style: italic;
+            color: @consonant-color-light-grey-2;
+            transition: opacity @transition-time @transition-func;
+        }
+
+        &:focus {
+            padding-right: unit((@consonant-root-rem * 2), px);
+            border-color: @consonant-color-blue-2;
+
+            .b;
+        }
+    }
+}
