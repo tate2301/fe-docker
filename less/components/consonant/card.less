@@ -6,6 +6,7 @@
 @consonant-card-footer-btn-img-size: unit((@consonant-root-rem), px);
 @consonant-card-footer-btn-svg-height: unit((@consonant-root-rem * 1.4375), px);
 @consonant-card-btn-min-width: unit((@consonant-root-rem * 6.25), px);
+@consonant-card-900-break-width: unit((@consonant-root-rem * 22.625), px);
 
 .consonant-card {
     &:extend(
@@ -196,5 +197,18 @@
         background-color: @consonant-color-blue;
         user-select: none;
         overflow-y: auto;
+    }
+
+    @media @for-tablet-landscape-up {
+        min-width: @consonant-card-900-break-width;
+        max-width: @consonant-card-900-break-width;
+        padding-bottom: 0;
+
+        .consonant-card--inner {
+            padding:
+                20/@consonant-root-rem
+                unit((@consonant-root-rem * 1.5), px)
+                24/@consonant-root-rem;
+        }
     }
 }

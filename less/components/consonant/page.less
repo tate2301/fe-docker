@@ -1,3 +1,6 @@
+@consonant-page-600-break-width: unit((@consonant-root-rem * 31.5), px);
+@consonant-page-900-break-width: unit((@consonant-root-rem * 47.25), px);
+
 .consonant-page {
     &:extend(
         .flex,
@@ -14,11 +17,31 @@
     .consonant-page--inner {
         .full-width;
 
-        & > div:last-of-type {
+        & > div:last-of-type,
+        & > span:last-of-type {
+            display: block;
             min-height: 70vh;
             position: relative;
 
             &:extend(.flex .size-on-axis .grow-1);
+        }
+    }
+
+    @media @for-tablet-portrait-up {
+        .consonant-page--inner {
+            max-width: @consonant-page-600-break-width;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    @media @for-tablet-landscape-up {
+        .consonant-page--inner {
+            max-width: @consonant-page-900-break-width;
+
+            > div:last-of-type {
+                min-height: 80vh;
+            }
         }
     }
 }

@@ -1,8 +1,13 @@
 @header-mobile-height: 176/@consonant-root-rem;
+@header-900-break-height: unit((@consonant-root-rem * 10.875), px);
 
 .consonant-header {
     min-width: 100%;
     max-width: 100%;
     height: @header-mobile-height;
     background-color: @consonant-color-dark-red;
+
+    @media @for-tablet-landscape-up {
+        height: @header-900-break-height;
+    }
 }

@@ -621,6 +621,12 @@
         padding: 0;
         list-style-type: none;
     }
+
+    @media @for-tablet-landscape-up {
+        & + div {
+            height: calc(~ '100vh - ' @header-900-break-height);
+        }
+    }
 }
 
 .consonant-filters--selected-filters {

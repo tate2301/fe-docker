@@ -1,6 +1,33 @@
+@consonant-card-collection-600-break-width: unit((@consonant-root-rem * 23.625), px);
+@consonant-card-collection-900-break-width: unit((@consonant-root-rem * 47.25), px);
+
 .consonant-card-collection {
     padding-left: unit((@consonant-root-rem * 1.875), px);
     padding-right: unit((@consonant-root-rem * 1.875), px);
     overflow: hidden;
     background-color: transparent;
+
+    @media @for-tablet-portrait-up {
+        max-width: @consonant-card-collection-600-break-width;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media @for-tablet-landscape-up {
+    .consonant-card-collection {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        // &:extend(
+        //     .flex,
+        //     .flex .justify .between,
+        //     .flex .wrap
+        // );
+        min-width: @consonant-card-collection-900-break-width;
+        max-width: @consonant-card-collection-900-break-width;
+        margin-top: unit((@consonant-root-rem * 0.25), px) * -1;
+    }
 }

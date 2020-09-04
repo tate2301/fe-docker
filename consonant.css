@@ -1597,22 +1597,19 @@ input[type=search]::-ms-clear {
   transform: rotate(45deg);
 } */
 
-@media only screen and (min-width: 600px)  {
+/* @media only screen and (min-width: 600px)  {
 
-  /* .consonant-page */
   .consonant-page .consonant-page--inner {
     max-width: 504px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  /* .consonant-filters-info */
   .consonant-filters-info {
     padding-left: 0;
     padding-right: 0;
   }
 
-  /* .consonant-card-collection */
   .consonant-card-collection {
     max-width: 378px;
     margin-left: auto;
@@ -1620,19 +1617,17 @@ input[type=search]::-ms-clear {
     padding-left: 0;
     padding-right: 0;
   }
-}
+} */
 
-@media only screen and (min-width: 900px)  {
-  /* .consonant-page */
+/* @media only screen and (min-width: 900px)  {
   .consonant-page .consonant-page--inner {
     max-width: 756px;
   }
-
+  
   .consonant-page .consonant-page--inner > div:last-of-type {
     min-height: 80vh;
   }
-
-  /* .consonant-card-collection */
+  
   .consonant-card-collection {
     display: flex;
     justify-content: space-between;
@@ -1642,7 +1637,6 @@ input[type=search]::-ms-clear {
     margin-top: -4px;
   }
 
-  /* .consonant-card */
   .consonant-card {
     min-width: 362px;
     max-width: 362px;
@@ -1653,7 +1647,6 @@ input[type=search]::-ms-clear {
     padding: 20px 24px 24px;
   }
 
-  /* .consonant-header */
   .consonant-header {
     height: 174px;
   }
@@ -1661,12 +1654,10 @@ input[type=search]::-ms-clear {
   .consonant-filters + div {
     height: calc(100vh - 174px);
   }
-
-  /* .consonant-load-more */
   .consonant-load-more {
     padding-bottom: 121px;
   }
-}
+} */
 
 @media only screen and (min-width: 1200px)  {
   /* .consonant-page */
