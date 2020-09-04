@@ -1,0 +1,346 @@
+{
+    "cards": [
+        {
+            "title": "Some Title 1 ",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/biking"
+                }
+            ],
+            "id": "6d6438c8-1",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 2",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/hiking"
+                }
+            ],
+            "id": "6d6438c8-2",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 3",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/running"
+                }
+            ],
+            "id": "6d6438c8-3",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 4",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/skiing"
+                }
+            ],
+            "id": "6d6438c8-4",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 5",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/surfing"
+                }
+            ],
+            "id": "6d6438c8-5",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 6",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/swimming"
+                }
+            ],
+            "id": "6d6438c8-6",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 7",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/others"
+                }
+            ],
+            "id": "6d6438c8-7",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 8",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/coat"
+                }
+            ],
+            "id": "6d6438c8-8",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 9",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/footwear"
+                }
+            ],
+            "id": "6d6438c8-9",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 10",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/glasses"
+                }
+            ],
+            "id": "6d6438c8-10",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 11",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/gloves"
+                }
+            ],
+            "id": "6d6438c8-11",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 12",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/hat"
+                }
+            ],
+            "id": "6d6438c8-12",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 13",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/helmet"
+                }
+            ],
+            "id": "6d6438c8-13",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 14",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/pancho"
+                }
+            ],
+            "id": "6d6438c8-14",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 15",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/pants"
+                }
+            ],
+            "id": "6d6438c8-15",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 16",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/scarf"
+                }
+            ],
+            "id": "6d6438c8-16",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 17",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/shirt"
+                }
+            ],
+            "id": "6d6438c8-17",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 18",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/shorts"
+                }
+            ],
+            "id": "6d6438c8-18",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        }
+    ]
+}
