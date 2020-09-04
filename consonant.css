@@ -1804,6 +1804,7 @@ input[type=search]::-ms-clear {
     display: block;
     padding: 0;
     overflow: hidden;
+    z-index: 1;
   }
 
   .consonant-filters .consonant-filters--item.consonant-filters--item_opened

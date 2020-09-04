@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unused-prop-types,semi */
+/* eslint-disable */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import 'whatwg-fetch';
@@ -630,7 +630,7 @@ export default class ConsonantPage extends React.Component {
                 <section
                     className="consonant-page">
                     <div className="consonant-page--inner">
-                        <div>
+                        <span>
                             {this.getConfig('filterPanel', 'enabled') &&
                                 <FiltersPanel
                                     filters={this.state.filters}
@@ -656,8 +656,8 @@ export default class ConsonantPage extends React.Component {
                                     searchPlaceholder={this.getConfig('search', 'placeholderText')}
                                     onSearch={this.handleSearchInputChange} />
                             }
-                        </div>
-                        <div>
+                        </span>
+                        <span>
                             <FiltersInfo
                                 enabled={this.getConfig('filterPanel', 'enabled')}
                                 title={this.getConfig('collection', 'title')}
@@ -706,7 +706,7 @@ export default class ConsonantPage extends React.Component {
                                     hidden={!this.getConfig('collection', 'totalCardLimit')}
                                     absolute />
                             }
-                        </div>
+                        </span>
                     </div>
                 </section>
             </Fragment>
