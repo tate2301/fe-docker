@@ -1,0 +1,49 @@
+.consonant-load-more {
+    display: block;
+    padding-bottom: 115/@consonant-root-rem;
+    text-align: center;
+    user-select: none;
+
+    .consonant-load-more--inner {
+        &:extend(
+            .flex,
+            .flex .direction .column,
+            .flex .align .center
+        );
+    }
+
+    .consonant-load-more--text {
+        margin: 0 0 14/@consonant-root-rem;
+
+        .font(
+            @line-height: 19/@consonant-root-rem,
+            @color: @consonant-color-brown-grey
+        );
+    }
+
+    .consonant-load-more--btn {
+        box-sizing: border-box;
+        padding: 5/@consonant-root-rem unit((@consonant-root-rem * 0.8125), px);
+
+        .font(
+            @line-height: 19/@consonant-root-rem,
+            @color: @consonant-color-brown-grey
+        );
+
+        text-transform: capitalize;
+        background-color: transparent;
+        border: 2px solid @consonant-color-brown-grey;
+        border-radius: unit((@consonant-root-rem * 1.875), px);
+        outline: 0;
+        user-select: none;
+        transition:
+            color @transition-time @transition-func,
+            background-color @transition-time @transition-func;
+
+        &:hover,
+        &:active {
+            background-color: @consonant-color-light-grey-3;
+            color: @consonant-color-white;
+        }
+    }
+}

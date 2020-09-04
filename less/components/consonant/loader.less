@@ -1,0 +1,92 @@
+/* Available modificators:
+- .consonant-loader_absolute;
+- .consonant-loader_medium;
+- .consonant-loader_big;
+*/
+
+@consonant-loader-size: unit((@consonant-root-rem), px);
+@consonant-loader-md-size: unit((@consonant-root-rem * 2), px);
+@consonant-loader-big-size: unit((@consonant-root-rem * 4), px);
+
+.consonant-loader {
+    box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+    width: @consonant-loader-size;
+    height: @consonant-loader-size;
+    border-radius: 50%;
+    overflow: hidden;
+
+    &.consonant-loader_absolute {
+        position: absolute;
+
+        .position-absolute-0;
+
+        margin: auto;
+        z-index: 1000;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        box-sizing: border-box;
+
+        .position-absolute-0;
+
+        border: 2px solid @consonant-color-lightest-grey;
+        border-radius: 50%;
+        z-index: 0;
+    }
+
+    div {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        width: @consonant-loader-size;
+        height: @consonant-loader-size;
+        border: 2px solid @consonant-color-blue-2;
+        border-radius: 100%;
+        animation: circle 1s ease-in infinite;
+        transform-origin: 50% 50%;
+        border-color: @consonant-color-blue-2 transparent transparent transparent;
+        z-index: 2;
+        opacity: 1;
+        overflow: visible;
+
+        &:nth-child(1) {
+            animation-delay: -0.1s;
+        }
+
+        &:nth-child(2) {
+            animation-delay: -0.14s;
+        }
+
+        &:nth-child(3) {
+            animation-delay: -0.14s;
+        }
+    }
+
+    &.consonant-loader_medium {
+        width: @consonant-loader-md-size;
+        height: @consonant-loader-md-size;
+
+        &:after,
+        div {
+            width: @consonant-loader-md-size;
+            height: @consonant-loader-md-size;
+            border-width: unit((@consonant-root-rem * 0.25), px);
+        }
+    }
+
+    &.consonant-loader_big {
+        width: @consonant-loader-big-size;
+        height: @consonant-loader-big-size;
+
+        &:after,
+        div {
+            width: @consonant-loader-big-size;
+            height: @consonant-loader-big-size;
+            border-width: unit((@consonant-root-rem * 0.3125), px);
+        }
+    }
+}

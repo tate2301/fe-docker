@@ -1,0 +1,169 @@
+/* Available modificators:
+- .consonant-pagination--item_active;
+- .consonant-pagination_last;
+- .consonant-pagination_first;
+*/
+
+@consonant-pagination-btn-max-width: unit((@consonant-root-rem * 4.375), px);
+
+.consonant-pagination {
+    &:extend(
+        .flex .justify .between,
+        .flex .align .center
+    );
+
+    .full-width;
+
+    display: none;
+    overflow: hidden;
+    user-select: none;
+
+    .consonant-pagination--paginator {
+        &:extend(
+            .flex,
+            .flex .align .center
+        );
+    }
+
+    .consonant-pagination--btn {
+        max-width: @consonant-pagination-btn-max-width;
+        padding-left: 0;
+        padding-right: 0;
+
+        .font(@color: @consonant-color-brown-grey);
+
+        text-transform: capitalize;
+        background-color: transparent;
+
+        .no-border-no-outline;
+    }
+
+    .consonant-pagination--items {
+        &:extend(
+            .flex,
+            .flex .align .center
+        );
+
+        margin: 0;
+        padding:
+            0
+            unit((@consonant-root-rem * 1.25), px)
+            0
+            unit((@consonant-root-rem * 1.5), px);
+        list-style-type: none;
+    }
+
+    .consonant-pagination--item {
+        margin-right: unit((@consonant-root-rem * 0.5625), px);
+
+        &:hover .consonant-pagination--item-btn {
+            color: @consonant-color-dark-grey-2;
+        }
+
+        &:active .consonant-pagination--item-btn {
+            color: @consonant-color-lightest-grey-3;
+        }
+
+        &:hover .consonant-pagination--item-btn:disabled,
+        &:active .consonant-pagination--item-btn:disabled,
+        .consonant-pagination--item-btn:disabled {
+            color: @consonant-color-lightest-grey-4;
+            pointer-events: none;
+            background-color: transparent;
+        }
+
+        &.consonant-pagination--item_active {
+            &:hover .consonant-pagination--item-btn,
+            &:active .consonant-pagination--item-btn,
+            .consonant-pagination--item-btn {
+                background-color: @consonant-color-lightest-grey-3;
+            }
+
+            .consonant-pagination--item-btn:disabled {
+                background-color: @consonant-color-lightest-grey;
+            }
+        }
+
+        &:nth-of-type(n+9) {
+            display: none;
+        }
+
+        &:nth-of-type(9) {
+            display: list-item;
+            pointer-events: none;
+
+            .consonant-pagination--item-btn {
+                display: flex;
+
+                .no-font;
+
+                &:after {
+                    content: '...';
+
+                    .font(@color: @consonant-color-brown-grey);
+                }
+            }
+        }
+
+        &:last-of-type {
+            display: list-item;
+            margin-right: 0;
+        }
+    }
+
+    .consonant-pagination--item-btn {
+        position: relative;
+        max-width: @consonant-pagination-btn-max-width;
+        padding: 8/@consonant-root-rem unit((@consonant-root-rem * 0.75), px);
+
+        .font(@color: @consonant-color-light-grey-3);
+
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        border-radius: unit((@consonant-root-rem * 1.875), px);
+        outline: 0;
+        cursor: pointer;
+        background-color: transparent;
+        transition:
+            color @transition-time @transition-func,
+            background-color @transition-time @transition-func;
+        overflow: hidden;
+
+        &:after {
+            content: '';
+            position: absolute;
+
+            .position-absolute-0;
+
+            margin: auto;
+            border: 2px solid transparent;
+            border-radius: unit((@consonant-root-rem * 1.875), px);
+            z-index: 1;
+            transition: border-color @transition-time @transition-func;
+        }
+
+        &:focus:after {
+            border-color: @consonant-color-blue-2;
+        }
+    }
+
+    .consonant-pagination--summary {
+        &:extend(
+            .flex,
+            .flex .align .center
+        );
+
+        .font(@color: @consonant-color-brown-grey);
+
+        strong {
+            padding-left: unit((@consonant-root-rem * 0.3125), px);
+            padding-right: unit((@consonant-root-rem * 0.3125), px);
+            font-weight: 700;
+        }
+    }
+
+    &.consonant-pagination_last .consonant-pagination--btn:last-of-type,
+    &.consonant-pagination_first .consonant-pagination--btn:first-of-type {
+        visibility: hidden;
+    }
+}

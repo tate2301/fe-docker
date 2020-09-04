@@ -8,6 +8,7 @@ import ConsonantHeader from '../Consonant/Header';
 import FiltersInfo from '../Consonant/FiltersInfo';
 import LoadMore from '../Consonant/LoadMore';
 import Loader from '../Consonant/Loader';
+import Pagination from '../Consonant/Pagination';
 
 const LOADER_SIZE = {
     MEDIUM: 'medium',
@@ -696,6 +697,7 @@ export default class ConsonantPage extends React.Component {
                                                 onClick={this.setCardsToShowQty}
                                                 show={this.getCardsToShowQty()}
                                                 total={this.state.filteredCards.length} />
+                                            <Pagination />
                                         </div>
                                     }
                                 </Fragment> :
