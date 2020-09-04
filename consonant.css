@@ -7,15 +7,15 @@
   +++light-grey-2: #959595;
   +++light-grey-3: #D3D3D3;
   light-grey-4: #A5A5A5;
-  light-grey-5: #4B4B4B;
+  +++light-grey-5: #4B4B4B;
   light-grey-6: #B3B3B3;
   +++dark-grey: #747474;
   +++dark-grey-2: #707070;
   +++brown-grey: #505050;
-  dark-grey: #323232;
+  +++dark-grey: #323232;
   +++blue: #1473E6;
   +++light-blue: #1492E6;
-  greyish-white: #FDFDFD;
+  +++greyish-white: #FDFDFD;
   +++white: #fff;
   +++blue: #2680EB;
   dark-red: #9E0000;
@@ -705,7 +705,8 @@ input[type=search]::-ms-clear {
 } */
 
 /* .consonant-filters-info - selected filters styles */
-.consonant-filters-info .consonant-filters--selected-filters {
+
+/* .consonant-filters-info .consonant-filters--selected-filters {
   position: relative;
   flex-wrap: wrap;
   width: 100%;
@@ -837,7 +838,6 @@ input[type=search]::-ms-clear {
   width: 100%;
 }
 
-/* consonant-filters-info */
 .consonant-filters-info {
   box-sizing: border-box;
   display: flex;
@@ -909,10 +909,11 @@ input[type=search]::-ms-clear {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-}
+} */
 
 /* Custom select */
-.consonant-select {
+
+/* .consonant-select {
   position: relative;
   width: 140px;
   margin-bottom: 10px;
@@ -1024,18 +1025,19 @@ input[type=search]::-ms-clear {
 
 .consonant-select .consonant-select--option:hover {
   background-color: #F4F4F4;
-}
+} */
 
 /* .consonant-card-collection */
-.consonant-card-collection {
+/* .consonant-card-collection {
   padding-left: 30px;
   padding-right: 30px;
   overflow: hidden;
   background-color: transparent;
-}
+} */
 
 /* .consonant-card */
-.consonant-card {
+
+/* .consonant-card {
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -1227,7 +1229,7 @@ input[type=search]::-ms-clear {
   max-height: 16px;
   margin-right: 7px;
   object-fit: contain;
-}
+} */
 
 /* .consonant-pagination - filters styles */
 .consonant-pagination {
