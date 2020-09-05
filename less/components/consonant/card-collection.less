@@ -1,5 +1,6 @@
 @consonant-card-collection-600-break-width: unit((@consonant-root-rem * 23.625), px);
 @consonant-card-collection-900-break-width: unit((@consonant-root-rem * 47.25), px);
+@consonant-card-collection-1200-break-width: unit((@consonant-root-rem * 48.5), px);
 
 .consonant-card-collection {
     padding-left: unit((@consonant-root-rem * 1.875), px);
@@ -14,20 +15,20 @@
         padding-left: 0;
         padding-right: 0;
     }
-}
 
-@media @for-tablet-landscape-up {
-    .consonant-card-collection {
+    @media @for-tablet-landscape-up {
+        // Can't use extend here, limitation of LESS;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        // &:extend(
-        //     .flex,
-        //     .flex .justify .between,
-        //     .flex .wrap
-        // );
         min-width: @consonant-card-collection-900-break-width;
         max-width: @consonant-card-collection-900-break-width;
         margin-top: unit((@consonant-root-rem * 0.25), px) * -1;
+    }
+
+    @media @for-desktop-up {
+        min-width: @consonant-card-collection-1200-break-width;
+        max-width: @consonant-card-collection-1200-break-width;
+        overflow: visible;
     }
 }

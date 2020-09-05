@@ -1659,8 +1659,7 @@ input[type=search]::-ms-clear {
   }
 } */
 
-@media only screen and (min-width: 1200px)  {
-  /* .consonant-page */
+/* @media only screen and (min-width: 1200px)  {
   .consonant-page .consonant-page--inner {
     display: flex;
     justify-content: center;
@@ -1672,7 +1671,6 @@ input[type=search]::-ms-clear {
     flex-grow: 0;
   }
 
-  /* .consonant-filters */
   .consonant-filters-info .consonant-filters-info--btn,
   .consonant-filters .consonant-filters--mobile-footer,
   .consonant-filters .consonant-filters--item-selcted-items,
@@ -1688,23 +1686,23 @@ input[type=search]::-ms-clear {
     border-bottom: 1px solid #EAEAEA;
     order: -3;
   }
-
+  
   .consonant-filters .consonant-filters--item-badge,
   .consonant-filters .consonant-filters--desk-title {
     display: block;
   }
-
+  
   .consonant-filters > .consonant-search {
     display: block;
     padding-top: 13px;
     padding-bottom: 32px;
     border-bottom: 1px solid #EAEAEA;
   }
-
+  
   .consonant-filters-info .consonant-filters--selected-filters {
     display: flex;
   }
-
+  
   .consonant-filters-info {
     min-width: calc(1012px - 204px - 32px);
     max-width: calc(1012px - 204px - 32px);
@@ -1713,7 +1711,7 @@ input[type=search]::-ms-clear {
     margin-right: auto;
     padding: 67px 0 28px;
   }
-
+  
   .consonant-filters-info .consonant-filters-info--wrapper {
     position: relative;
     flex-grow: 1;
@@ -1722,11 +1720,11 @@ input[type=search]::-ms-clear {
     align-items: center;
     padding-right: 30px;
   }
-
+  
   .consonant-filters-info .consonant-filters-info--wrapper:last-child {
     padding-right: 0;
   }
-
+  
   .consonant-filters-info .consonant-filters-info--wrapper::after {
     content: '';
     position: absolute;
@@ -1738,11 +1736,11 @@ input[type=search]::-ms-clear {
     right: 16px;
     margin: auto;
   }
-
+  
   .consonant-filters-info .consonant-filters-info--wrapper:only-child::after {
     display: none;
   }
-
+  
   .consonant-filters-info .consonant-filters-info--title {
     max-width: 540px;
     margin: 0;
@@ -1756,7 +1754,7 @@ input[type=search]::-ms-clear {
     overflow: hidden;
     white-space: nowrap;
   }
-
+  
   .consonant-filters-info .consonant-filters-info--results {
     display: block;
     max-width: 25%;
@@ -1771,17 +1769,17 @@ input[type=search]::-ms-clear {
     white-space: nowrap;
     overflow: hidden;
   }
-
+  
   .consonant-filters .consonant-filters--clear-link {
     display: block;
     transition: color 0.3s ease-in-out;
   }
-
+  
   .consonant-filters .consonant-filters--clear-link:hover,
   .consonant-filters .consonant-filters--clear-link:active {
     color: #1473E6;
   }
-
+  
   .consonant-filters {
     width: 204px;
     max-width: 204px;
@@ -1790,34 +1788,34 @@ input[type=search]::-ms-clear {
     background-color: transparent;
     overflow: visible;
   }
-
+  
   .consonant-filters .consonant-filters--list {
     display: block;
     padding: 0;
     overflow: hidden;
     z-index: 1;
   }
-
+  
   .consonant-filters .consonant-filters--item.consonant-filters--item_opened
   .consonant-filters--item-name img {
     display: block;
   }
-
+  
   .consonant-filters .consonant-filters--item.consonant-filters--item_opened
   .consonant-filters--item-inner {
     box-shadow: none;
     border: 0;
   }
-
+  
   .consonant-filters
   .consonant-filters--item.consonant-filters--item_opened .consonant-filters--item-list {
     border-color: transparent;
   }
-
+  
   .consonant-filters .consonant-filters--item-list-item label {
     padding: 6px 8px;
   }
-
+  
   .consonant-filters .consonant-filters--item-name a {
     padding-top: 16px;
     padding-bottom: 16px;
@@ -1826,125 +1824,122 @@ input[type=search]::-ms-clear {
     word-break: break-word;
     transition: color 0.3s ease-in-out;
   }
-
+  
   .consonant-filters .consonant-filters--item-name a:hover {
     color: #707070;
   }
-
+  
   .consonant-filters .consonant-filters--item::after {
     display: block;
     right: 13px;
     border-color: #BCBCBC;
     transform: rotate(-45deg);
   }
-
+  
   .consonant-filters .consonant-filters--item.consonant-filters--item_opened::after {
     top: 24px;
     bottom: unset;
     border-color: #959595;
     transform: rotate(135deg);
   }
-
+  
   .consonant-filters .consonant-filters--item.consonant-filters--item_opened {
     position: relative;
     padding: 0;
     background-color: transparent;
     border-bottom-color: transparent;
   }
-
+  
   .consonant-filters .consonant-filters--item .consonant-filters--item-inner {
     border-radius: 0;
     background-color: transparent;
   }
-
+  
   .consonant-filters--item.consonant-filters--item_opened .consonant-filters--item-inner 
   .consonant-filters--mobile-footer,
   .consonant-filters--item .consonant-filters--item-inner .consonant-filters--mobile-footer {
     display: none;
   }
-
+  
   .consonant-filters .consonant-filters--item.consonant-filters--item_opened
   .consonant-filters--item-name a {
     padding: 16px 36px 8px 0;
     color: #707070;
   }
-
+  
   .consonant-filters .consonant-filters--item.consonant-filters--item_opened
   .consonant-filters--item-list {
     min-height: unset;
     max-height: unset;
     overflow: hidden;
   }
-
+  
   .consonant-filters--item-list-item-name {
     font-size: 14px;
     line-height: 16px;
   }
-
+  
   .consonant-filters .consonant-filters--item.consonant-filters--item_opened 
   .consonant-filters--item-inner::after {
     display: none;
   }
-
-  /* consonant-filters - bookmarks */
-  .consonant-filters--bookmarks {
+  
+.consonant-filters--bookmarks {
     display: flex;
     margin-top: -1px;
     padding: 16px 0;
     border-bottom: 1px solid #EAEAEA;
     order: -1;
   }
-
+  
   .consonant-filters .consonant-filters--bookmarks .consonant-filters--item-badge {
     right: 30px;
     font-size: 14px;
     line-height: 14px;
   }
-
+  
   .consonant-filters .consonant-filters--bookmarks-title:hover {
     color: #707070;
   }
-
-  /* .consonant-select */
-  .consonant-select {
+  
+.consonant-select {
     width: 112px;
     margin-bottom: 0;
   }
-
+  
   .consonant-select--options {
     min-width: 108px;
   }
-
+  
   .consonant-select .consonant-select--btn {
     max-width: 112px;
     padding-left: 0;
     padding-right: 10px;
     border-color: transparent;
   }
-
+  
   .consonant-select::after {
     right: 0;
   }
-
-  /* .consonant-search */
+  
   .consonant-search {
     order: -2;
   }
-
+  
   .consonant-search .consonant-search--input-title {
     display: block;
   }
-
+  
   .consonant-search .consonant-search--input-clear {
     width: 24px;
     height: 24px;
   }
-
+  
   .consonant-search .consonant-search--input-clear::before,
   .consonant-search .consonant-search--input-clear::after {
     width: 10px;
   }
-
+  
   .consonant-search .consonant-search--input-clear:hover {
     background-color: #1473E6;
   }
@@ -1953,43 +1948,37 @@ input[type=search]::-ms-clear {
   .consonant-search .consonant-search--input-clear:hover::after {
     background-color: #fff;
   }
-
-  /* .consonant-card-collection */
+  
   .consonant-card-collection {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    /* Max container width - filters - filters margin right */
     min-width: calc(1012px - 204px - 32px);
     max-width: calc(1012px - 204px - 32px);
     overflow: visible;
   }
-
-  /* .consonant-card */
+  
   .consonant-card {
     min-width: 370px;
     max-width: 370px;
   }
-
-  /* .consonant-pagination */
+  
   .consonant-pagination {
     display: flex;
   }
-
-  /* .consonant-header */
+  
   .consonant-header {
     height: 170px;
   }
-
+  
   .consonant-filters + div {
     height: calc(100vh - 170px);
   }
-
-  /* .consonant-tooltip */
+  
   .consonant-tooltip {
     display: block;
   }
-
+  
   [data-tooltip-wrapper]:hover .consonant-tooltip {
     z-index: 6000000;
     animation-name: fade-in-up;
@@ -1998,7 +1987,7 @@ input[type=search]::-ms-clear {
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
   }
-}
+} */
 
 @media only screen and (min-width: 1440px)  {
   /* .consonant-page */

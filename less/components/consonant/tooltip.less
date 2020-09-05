@@ -5,6 +5,17 @@
 [data-tooltip-wrapper] {
     position: relative;
     overflow: visible;
+
+    @media @for-desktop-up {
+        &:hover .consonant-tooltip {
+            z-index: 6000000;
+            animation-name: fade-in-up;
+            animation-duration: @transition-time;
+            animation-delay: 0.2s;
+            animation-timing-function: @transition-func;
+            animation-fill-mode: forwards;
+        }
+    }
 }
 
 .consonant-tooltip {
@@ -40,5 +51,9 @@
         background-color: @consonant-color-dark-grey-1;
         transform-origin: 50% 50%;
         transform: rotate(45deg);
+    }
+
+    @media @for-desktop-up {
+        display: block;
     }
 }

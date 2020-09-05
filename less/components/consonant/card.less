@@ -7,6 +7,7 @@
 @consonant-card-footer-btn-svg-height: unit((@consonant-root-rem * 1.4375), px);
 @consonant-card-btn-min-width: unit((@consonant-root-rem * 6.25), px);
 @consonant-card-900-break-width: unit((@consonant-root-rem * 22.625), px);
+@consonant-card-1200-break-width: unit((@consonant-root-rem * 23.125), px);
 
 .consonant-card {
     &:extend(
@@ -210,5 +211,10 @@
                 unit((@consonant-root-rem * 1.5), px)
                 24/@consonant-root-rem;
         }
+    }
+
+    @media @for-desktop-up {
+        min-width: @consonant-card-1200-break-width;
+        max-width: @consonant-card-1200-break-width;
     }
 }
