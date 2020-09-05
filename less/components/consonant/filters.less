@@ -40,7 +40,7 @@
     + div {
         .full-width;
 
-        height: calc(100vh - @header-mobile-height);
+        height: calc(~ '100vh - ' @header-mobile-height);
         position: relative;
 
         &:extend(.horizontal-align .center);
@@ -567,7 +567,8 @@
             14/@consonant-root-rem,
             14/@consonant-root-rem,
             700,
-            @consonant-color-white
+            @consonant-color-white,
+            center
         );
 
         white-space: nowrap;
@@ -653,6 +654,8 @@
 
                 .consonant-filters--item-name img {
                     display: block;
+                    position: relative;
+                    top: unit((@consonant-root-rem * 0.25), px);
                 }
 
                 .consonant-filters--item-inner {
@@ -750,10 +753,10 @@
             display: block;
         }
 
-        > .consonant-search {
+        & > .consonant-search {
             display: block;
-            padding-top: 13px/@consonant-root-rem;
-            padding-bottom: 32px/@consonant-root-rem;
+            padding-top: 13/@consonant-root-rem;
+            padding-bottom: 32/@consonant-root-rem;
             border-bottom: 1px solid @consonant-color-lightest-grey;
         }
 
@@ -778,6 +781,16 @@
                 right: unit((@consonant-root-rem * 1.875), px);
                 font-size: 14/@consonant-root-rem;
                 line-height: 14/@consonant-root-rem;
+
+                &:hover,
+                &:active {
+                    .font(
+                        @line-height: 14/@consonant-root-rem,
+                        @weight: 700,
+                        @color: @consonant-color-white,
+                        @align: center
+                    );
+                }
             }
 
             .consonant-filters--bookmarks-title:hover {
@@ -787,7 +800,6 @@
 
         & + div {
             height: calc(~ '100vh - ' @header-1200-break-height);
-            border: 2px solid red;
         }
     }
 }
