@@ -228,6 +228,7 @@
                     right: 0;
                     background: transparent linear-gradient(180deg, fade(@consonant-color-white, 80%) 0%, @consonant-color-white 100%) no-repeat 0% 0%;
                     z-index: 1;
+                    pointer-events: none;
                 }
 
                 .consonant-filters--mobile-footer {
@@ -800,6 +801,12 @@
 
         & + div {
             height: calc(~ '100vh - ' @header-1200-break-height);
+        }
+    }
+
+    @media @for-big-desktop-up {
+        & + div {
+            height: calc(~ '100vh - ' @header-1440-break-height);
         }
     }
 }

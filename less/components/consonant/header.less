@@ -1,6 +1,7 @@
 @header-mobile-height: 176/@consonant-root-rem;
 @header-900-break-height: unit((@consonant-root-rem * 10.875), px);
 @header-1200-break-height: unit((@consonant-root-rem * 10.625), px);
+@header-1440-break-height: unit((@consonant-root-rem * 11.125), px);
 
 .consonant-header {
     min-width: 100%;
@@ -14,5 +15,9 @@
 
     @media @for-desktop-up {
         height: @header-1200-break-height;
+    }
+
+    @media @for-big-desktop-up {
+        height: @header-1440-break-height;
     }
 }

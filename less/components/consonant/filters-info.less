@@ -4,6 +4,8 @@
 @consonant-filters-info-1200-break-width: unit((@consonant-root-rem * 48.5), px);
 @consonant-filters-info-1200-break-height: unit((@consonant-root-rem * 7.9375), px);
 @consonant-filters-info-title-width: unit((@consonant-root-rem * 33.75), px);
+@consonant-filters-info-1440-break-width: unit((@consonant-root-rem * 60.1875), px);
+@consonant-filters-info-title-1440-break-width: unit((@consonant-root-rem * 45), px);
 
 .consonant-filters-info {
     box-sizing: border-box;
@@ -174,6 +176,15 @@
         .consonant-filters-info--btn,
         .consonant-filters-info--search {
             .hide-all;
+        }
+    }
+
+    @media @for-big-desktop-up {
+        min-width: @consonant-filters-info-1440-break-width;
+        max-width: @consonant-filters-info-1440-break-width;
+
+        .consonant-filters-info--title {
+            max-width: @consonant-filters-info-title-1440-break-width;
         }
     }
 }

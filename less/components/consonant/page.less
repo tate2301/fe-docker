@@ -1,6 +1,7 @@
 @consonant-page-600-break-width: unit((@consonant-root-rem * 31.5), px);
 @consonant-page-900-break-width: unit((@consonant-root-rem * 47.25), px);
 @consonant-page-1200-break-width: unit((@consonant-root-rem * 75), px);
+@consonant-page-1440-break-width: unit((@consonant-root-rem * 74.9375), px);
 
 .consonant-page {
     &:extend(
@@ -59,5 +60,12 @@
                 flex-grow: 0;
             }
         }
+    }
+}
+
+@media @for-big-desktop-up {
+    header + section.consonant-page,
+    header + section.consonant-page .consonant-page--inner {
+        max-width: @consonant-page-1440-break-width;
     }
 }

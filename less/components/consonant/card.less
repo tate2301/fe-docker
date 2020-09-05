@@ -8,6 +8,7 @@
 @consonant-card-btn-min-width: unit((@consonant-root-rem * 6.25), px);
 @consonant-card-900-break-width: unit((@consonant-root-rem * 22.625), px);
 @consonant-card-1200-break-width: unit((@consonant-root-rem * 23.125), px);
+@consonant-card-1440-break-width: unit((@consonant-root-rem * 18.75), px);
 
 .consonant-card {
     &:extend(
@@ -216,5 +217,18 @@
     @media @for-desktop-up {
         min-width: @consonant-card-1200-break-width;
         max-width: @consonant-card-1200-break-width;
+    }
+
+    @media @for-big-desktop-up {
+        min-width: @consonant-card-1440-break-width;
+        max-width: @consonant-card-1440-break-width;
+
+        .consonant-card--footer-btn {
+            margin-right: unit((@consonant-root-rem * 0.75), px);
+        }
+
+        .consonant-card--secondary-text {
+            font-size: 12/@consonant-root-rem;
+        }
     }
 }

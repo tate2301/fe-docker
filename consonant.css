@@ -1989,66 +1989,58 @@ input[type=search]::-ms-clear {
   }
 } */
 
-@media only screen and (min-width: 1440px)  {
-  /* .consonant-page */
+/* @media only screen and (min-width: 1440px)  {
   header + section.consonant-page,
   header + section.consonant-page .consonant-page--inner {
     max-width: 1199px;
   }
-
+  
   .consonant-filters-info {
     min-width: calc(1199px - 204px - 32px);
     max-width: calc(1199px - 204px - 32px);
   }
-
-  /* .consonant-card-collection */
+  
   .consonant-card-collection {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    /* Max container width - filters - filters margin right */
     min-width: calc(1199px - 204px - 32px);
     max-width: calc(1199px - 204px - 32px);
     margin-bottom: 8px;
   }
-
-  /* .consonant-filters-info */
+  
   .consonant-filters-info .consonant-filters-info--title {
     max-width: 720px;
   }
-
-  /* .consonant-card */
+  
   .consonant-card {
     min-width: 300px;
     max-width: 300px;
   }
-
+  
   .consonant-card--footer-btn {
     margin-right: 12px;
   }
-
+  
   .consonant-card--secondary-text {
     font-size: 12px;
   }
-
-  /* .consonant-header */
+  
   .consonant-header {
     height: 178px;
   }
-
+  
   .consonant-filters + div {
     height: calc(100vh - 178px);
   }
-
-  /* .consonant-load-more */
+  
   .consonant-load-more {
     padding-bottom: 140px;
   }
-}
+} */
 
-/* Related to animations */
 
-@keyframes circle {
+/* @keyframes circle {
   0% {
     transform: rotate(0deg);
   }
@@ -2067,8 +2059,8 @@ input[type=search]::-ms-clear {
     opacity: 1;
     transform: none;
   }
-}
+} */
 
-.consonant-search-result {
+/* .consonant-search-result {
   background-color: rgba(250, 124, 19, 0.4);
-}
+} */

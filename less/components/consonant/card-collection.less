@@ -1,6 +1,7 @@
 @consonant-card-collection-600-break-width: unit((@consonant-root-rem * 23.625), px);
 @consonant-card-collection-900-break-width: unit((@consonant-root-rem * 47.25), px);
 @consonant-card-collection-1200-break-width: unit((@consonant-root-rem * 48.5), px);
+@consonant-card-collection-1440-break-width: unit((@consonant-root-rem * 60.1875), px);
 
 .consonant-card-collection {
     padding-left: unit((@consonant-root-rem * 1.875), px);
@@ -30,5 +31,15 @@
         min-width: @consonant-card-collection-1200-break-width;
         max-width: @consonant-card-collection-1200-break-width;
         overflow: visible;
+    }
+
+    @media @for-big-desktop-up {
+        // Can't use extend here, limitation of LESS;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        min-width: @consonant-card-collection-1440-break-width;
+        max-width: @consonant-card-collection-1440-break-width;
+        margin-bottom: 8/@consonant-root-rem;
     }
 }
