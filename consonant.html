@@ -11,10 +11,9 @@
     <meta name="robots" content="noodp" />
 
     <meta name="template" content="northstar-collection" />
-
-    <link rel="stylesheet" href="./all.css" type="text/css">
+    
     <link rel="stylesheet" href="./dist/app.css" type="text/css">
-
+    
     <title>CaaS</title>
 
 </head>
@@ -65,15 +64,19 @@
     </div>
 </div>
 
+
+
 <script type="text/javascript" src="./dist/main.js"></script>
 
 <script type="text/javascript">
     var config = {
         collection: {
-            resultsPerPage: 6,
-            endpoint: "http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v4/webinars",
+            resultsPerPage: 3,
+            endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.json",
             title: "A great collection",
-            totalCardLimit: 24,
+            totalCardLimit: -1,
+            showBookmarksOnly: true, // this will only show bookmarks from local storage
+            cardStyle: "1:1" // could also be "3:2" or "full-card"
         },
         featuredCards: [
             {
@@ -157,12 +160,13 @@
         },
         filterPanel: {
             enabled: true,
-            type: 'side',
+            type: 'top',
             filters: [
                 {
                     "group": "Topic",
                     "id": "adobe-com-enterprise:topic",
                     "icon": 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg',
+                    "openedOnLoad": false,
                     "items": [
                         {
                             "label": "Business Continuity",
@@ -228,7 +232,12 @@
         },
         sort: {
             enabled: true,
+            defaultSort: 'title',
             options: [
+                {
+                    label: 'Some Label',
+                    sort: 'title'
+                },
                 {
                     label: '*** Featured ***',
                     sort: 'featured'
@@ -236,10 +245,6 @@
                 {
                     label: '*** Date ***',
                     sort: 'date'
-                },
-                {
-                    label: '*** Title ***',
-                    sort: 'title'
                 },
             ],
         },
@@ -249,6 +254,7 @@
         },
         bookmarks: {
             enabled: true,
+            bookmarkOnlyCollection: true,
             cardSavedIcon: '',
             cardUnsavedIcon: '',
             selectBookmarksIcon: '',

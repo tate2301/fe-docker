@@ -7,7 +7,9 @@
     "test": "jest --coverage",
     "serve": "serve",
     "watch": "npm run serve & webpack -w",
-    "start": "npm run serve"
+    "start": "npm run serve",
+    "deploy-css": "s3-deploy './consonant-latest.css' --cwd './' --region us-west-1 --bucket caas-chimera",
+    "deploy-js": "s3-deploy './dist/main-latest.js' --cwd './dist/' --region us-west-1 --bucket caas-chimera"
   },
   "author": "",
   "license": "ISC",
@@ -80,6 +82,7 @@
     "postcss-sass": "0.2.0",
     "regenerator-runtime": "^0.11.1",
     "reset-css": "2.2.1",
+    "s3-deploy": "^1.4.0",
     "serve": "^11.3.0",
     "sinon": "3.2.1",
     "style-loader": "0.14.1",
