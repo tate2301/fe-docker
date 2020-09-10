@@ -51,7 +51,7 @@ const Card = (props) => {
                                 src={bannerIcon}
                                 alt=""
                                 loading="lazy"
-                                width="16"
+                                width="8"
                                 className="consonant-card--banner-icon" />
                         }
                         {bannerDescription}
