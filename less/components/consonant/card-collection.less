@@ -9,7 +9,7 @@
     overflow: hidden;
     background-color: transparent;
 
-    @media @for-tablet-portrait-up {
+    @media @consonant-for-tablet-portrait-up {
         max-width: @consonant-card-collection-600-break-width;
         margin-left: auto;
         margin-right: auto;
@@ -17,7 +17,7 @@
         padding-right: 0;
     }
 
-    @media @for-tablet-landscape-up {
+    @media @consonant-for-tablet-landscape-up {
         // Can't use extend here, limitation of LESS;
         display: flex;
         justify-content: space-between;
@@ -27,13 +27,13 @@
         margin-top: unit((@consonant-root-rem * 0.25), px) * -1;
     }
 
-    @media @for-desktop-up {
+    @media @consonant-for-desktop-up {
         min-width: @consonant-card-collection-1200-break-width;
         max-width: @consonant-card-collection-1200-break-width;
         overflow: visible;
     }
 
-    @media @for-big-desktop-up {
+    @media @consonant-for-big-desktop-up {
         // Can't use extend here, limitation of LESS;
         display: flex;
         justify-content: space-between;
