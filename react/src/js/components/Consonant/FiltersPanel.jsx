@@ -133,11 +133,7 @@ const FiltersPanel = (props) => {
                                 width="16"
                                 alt=""
                                 loading="lazy" /> :
-                            <svg
-                                width="16"
-                                height="14"
-                                className="consonant-filters--bookmarks-ico"><use href="#heart" />
-                            </svg>
+                            <span className="consonant-filters--bookmarks-ico" />
                         }
                         <span className="consonant-filters--bookmarks-title">My favorites</span>
                     </span>

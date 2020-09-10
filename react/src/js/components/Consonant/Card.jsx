@@ -88,9 +88,7 @@ const Card = (props) => {
                                             width="16"
                                             alt=""
                                             loading="lazy" /> :
-                                        <svg width="16" height="12">
-                                            <use href="#bookmark" />
-                                        </svg>
+                                        <span className="consonant-card--bookmark-ico" />
                                     }
                                     <Tooltip text={
                                         isBookmarked ? unsaveBookmarkText : saveBookmarkText
