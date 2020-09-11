@@ -108,6 +108,7 @@ export default class ConsonantPage extends React.Component {
                 card.description = truncateString(card.description, TRUNCATE_TEXT_QTY);
                 card.initialText = card.description;
                 card.isBookmarked = false;
+                card.videoURL = "Some URL";
                 return card
             };
 

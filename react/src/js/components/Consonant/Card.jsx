@@ -30,6 +30,7 @@ const Card = (props) => {
         saveBookmarkText,
         unsaveBookmarkText,
         cardStyle,
+        videoURL,
     } = props;
 
     const handleClick = (clickEvt) => {
@@ -74,6 +75,7 @@ const Card = (props) => {
                         {bannerDescription}
                     </span>
                 }
+                { videoURL && <span className="consonant-card--video-ico" />}
             </div>
             <div className="consonant-card--inner">
                 {
@@ -162,6 +164,7 @@ Card.propTypes = {
     saveBookmarkText: PropTypes.string,
     unsaveBookmarkText: PropTypes.string,
     cardStyle: PropTypes.string,
+    videoURL: PropTypes.string,
 };
 
 Card.defaultProps = {
@@ -174,4 +177,5 @@ Card.defaultProps = {
     saveBookmarkText: 'Save card',
     unsaveBookmarkText: 'Unsave card',
     cardStyle: '',
+    videoURL: '',
 };
