@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Tooltip from './Tooltip';
 
@@ -83,47 +83,57 @@ const Card = (props) => {
                 <h2
                     className="consonant-card--title"
                     dangerouslySetInnerHTML={{ __html: title }} />
-                <p
-                    className="consonant-card--text"
-                    dangerouslySetInnerHTML={{ __html: description }} />
-                <div className="consonant-card--footer-wrapper">
-                    <div className="consonant-card--footer-info">
-                        {
-                            allowBookmarking &&
-                                <button
-                                    data-tooltip-wrapper
-                                    type="button"
-                                    className={
-                                        isBookmarked ?
-                                            'consonant-card--footer-btn consonant-card--footer-btn_active' :
-                                            'consonant-card--footer-btn'
-                                    }
-                                    onClick={handleClick}>
-                                    {(cardSavedIco && cardUnsavedIco) ?
-                                        <img
-                                            src={isBookmarked ? cardSavedIco : cardUnsavedIco}
-                                            width="16"
-                                            alt=""
-                                            loading="lazy" /> :
-                                        <span className="consonant-card--bookmark-ico" />
-                                    }
-                                    <Tooltip text={
-                                        isBookmarked ? unsaveBookmarkText : saveBookmarkText
-                                    } />
-                                </button>
+                {
+                    ![CARD_STYLE.SQUARE, CARD_STYLE.FULL]
+                        .some(el => el === cardStyle.toLowerCase().trim()) &&
+                        <Fragment>
+                            <p
+                                className="consonant-card--text"
+                                dangerouslySetInnerHTML={{ __html: description }} />
+                            <div className="consonant-card--footer-wrapper">
+                                <div className="consonant-card--footer-info">
+                                    {
+                                        allowBookmarking &&
+                                        <button
+                                            data-tooltip-wrapper
+                                            type="button"
+                                            className={
+                                                isBookmarked ?
+                                                    'consonant-card--footer-btn consonant-card--footer-btn_active' :
+                                                    'consonant-card--footer-btn'
+                                            }
+                                            onClick={handleClick}>
+                                            {(cardSavedIco && cardUnsavedIco) ?
+                                                <img
+                                                    src={
+                                                        isBookmarked ?
+                                                            cardSavedIco :
+                                                            cardUnsavedIco
+                                                    }
+                                                    width="16"
+                                                    alt=""
+                                                    loading="lazy" /> :
+                                                <span className="consonant-card--bookmark-ico" />
+                                            }
+                                            <Tooltip text={
+                                                isBookmarked ? unsaveBookmarkText : saveBookmarkText
+                                            } />
+                                        </button>
 
-                        }
-                        {
-                            secondaryLabelText &&
-                            <span className="consonant-card--secondary-text">{secondaryLabelText}</span>
-                        }
-                    </div>
-                    <a
-                        href={ctaLink}
-                        target="_blank"
-                        className="consonant-card--btn">{ctaLabel}
-                    </a>
-                </div>
+                                    }
+                                    {
+                                        secondaryLabelText &&
+                                        <span className="consonant-card--secondary-text">{secondaryLabelText}</span>
+                                    }
+                                </div>
+                                <a
+                                    href={ctaLink}
+                                    target="_blank"
+                                    className="consonant-card--btn">{ctaLabel}
+                                </a>
+                            </div>
+                        </Fragment>
+                }
             </div>
         </div>
     );
