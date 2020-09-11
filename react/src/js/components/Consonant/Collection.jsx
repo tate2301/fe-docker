@@ -14,6 +14,7 @@ const Collection = (props) => {
         cardUnsavedIco,
         saveBookmarkText,
         unsaveBookmarkText,
+        cardsStyle,
     } = props;
     let cards = [...props.cards];
     let cardsToShow = showItemsPerPage * pages;
@@ -32,7 +33,11 @@ const Collection = (props) => {
                     cardUnsavedIco={cardUnsavedIco}
                     allowBookmarking={allowBookmarking}
                     saveBookmarkText={saveBookmarkText}
-                    unsaveBookmarkText={unsaveBookmarkText} />
+                    unsaveBookmarkText={unsaveBookmarkText}
+                    cardStyle={
+                        cardsStyle && cardsStyle.toLowerCase() !== 'none' ? cardsStyle
+                            : card.cardStyle
+                    } />
             ))}
             <div className="consonant-card consonant-card_placeholder" />
             <div className="consonant-card consonant-card_placeholder" />
@@ -52,6 +57,7 @@ Collection.propTypes = {
     cardUnsavedIco: PropTypes.string.isRequired,
     saveBookmarkText: PropTypes.string,
     unsaveBookmarkText: PropTypes.string,
+    cardsStyle: PropTypes.string,
 };
 
 Collection.defaultProps = {
@@ -60,4 +66,5 @@ Collection.defaultProps = {
     cards: [],
     saveBookmarkText: 'Save card',
     unsaveBookmarkText: 'Unsave card',
+    cardsStyle: 'none',
 };

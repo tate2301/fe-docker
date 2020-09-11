@@ -1,4 +1,6 @@
 /* Available modificators:
+- .consonant-card_square;
+- .consonant-card_full;
 - .consonant-card_placeholder;
 */
 
@@ -69,7 +71,7 @@
 
         .font(
             18/@consonant-root-rem,
-            21/@consonant-root-rem,
+            22/@consonant-root-rem,
             700,
             @consonant-color-dark-grey-4
         );
@@ -215,10 +217,123 @@
         }
     }
 
+    &.consonant-card_square {
+        .consonant-card--img {
+            min-height: calc(@consonant-card-collection-less-600-break-width ~ ' - 2px');
+            max-height: calc(@consonant-card-collection-less-600-break-width ~ ' - 2px');
+        }
+
+        .consonant-card--text {
+            .hide-all;
+        }
+
+        .consonant-card--title {
+            color: @consonant-color-dark-grey-5;
+        }
+
+        .consonant-card--banner {
+            top: 24/@consonant-root-rem;
+        }
+
+        .consonant-card--footer-wrapper {
+            .hide-all;
+        }
+    }
+
+    &.consonant-card_full {
+        position: relative;
+        padding-top: calc(@consonant-card-collection-less-600-break-width ~ ' - 2px');
+        padding-bottom: 0;
+
+        .consonant-card--banner {
+            top: 24/@consonant-root-rem;
+        }
+
+        .consonant-card--img {
+            position: absolute;
+            max-height: unset;
+            height: unset;
+            z-index: 0;
+
+            .position-absolute-0;
+        }
+
+        .consonant-card--inner {
+            position: relative;
+            padding-top: 36/@consonant-root-rem;
+            padding-bottom: 28/@consonant-root-rem;
+            background:
+                transparent
+                linear-gradient(
+                    180deg,
+                    rgba(0, 0, 0, 0) 0%,
+                    rgba(0, 0, 0, 0.501) 36%,
+                    rgba(0, 0, 0, 0.701) 100%
+                ) 0% 0% no-repeat padding-box;
+
+            &:after {
+                content: '';
+                position: absolute;
+                right: unit((@consonant-root-rem * 1.5), px);
+                bottom: unit((@consonant-root-rem * 2), px);
+                width: unit((@consonant-root-rem * 0.75), px);
+                height: unit((@consonant-root-rem * 0.75), px);
+                border: 1px solid @consonant-color-white;
+                box-shadow: 1px 1px 0 0 @consonant-color-white;
+                border-top: 0;
+                border-left: 0;
+                transform: rotate(-45deg);
+            }
+        }
+
+        .consonant-card--label {
+            color: @consonant-color-white;
+            z-index: 1;
+        }
+
+        .consonant-card--title {
+            padding-right: unit((@consonant-root-rem * 1.5), px);
+            color: @consonant-color-light-grey-4;
+            z-index: 1;
+        }
+
+        .consonant-card--text {
+            .hide-all;
+        }
+
+        .consonant-card--footer-wrapper {
+            .hide-all;
+        }
+    }
+
+    @media @consonant-for-tablet-portrait-up {
+        &.consonant-card_square {
+            .consonant-card--img {
+                min-height: calc(@consonant-card-collection-600-break-width ~ ' - 2px');
+                max-height: calc(@consonant-card-collection-600-break-width ~ ' - 2px');
+            }
+        }
+
+        &.consonant-card_full {
+            padding-top: calc(@consonant-card-collection-600-break-width ~ ' - 2px');
+        }
+    }
+
     @media @consonant-for-tablet-landscape-up {
         min-width: @consonant-card-900-break-width;
         max-width: @consonant-card-900-break-width;
         padding-bottom: 0;
+
+        &.consonant-card_square {
+            .consonant-card--img {
+                min-height: calc(@consonant-card-900-break-width ~ ' - 2px');
+                max-height: calc(@consonant-card-900-break-width ~ ' - 2px');
+            }
+        }
+
+        &.consonant-card_full {
+            padding-top: calc(@consonant-card-900-break-width ~ ' - 2px');
+        }
 
         .consonant-card--inner {
             padding:
@@ -231,11 +346,33 @@
     @media @consonant-for-desktop-up {
         min-width: @consonant-card-1200-break-width;
         max-width: @consonant-card-1200-break-width;
+
+        &.consonant-card_square {
+            .consonant-card--img {
+                min-height: calc(@consonant-card-1200-break-width ~ ' - 2px');
+                max-height: calc(@consonant-card-1200-break-width ~ ' - 2px');
+            }
+        }
+
+        &.consonant-card_full {
+            padding-top: calc(@consonant-card-1200-break-width ~ ' - 2px');
+        }
     }
 
     @media @consonant-for-big-desktop-up {
         min-width: @consonant-card-1440-break-width;
         max-width: @consonant-card-1440-break-width;
+
+        &.consonant-card_square {
+            .consonant-card--img {
+                min-height: calc(@consonant-card-1440-break-width ~ ' - 2px');
+                max-height: calc(@consonant-card-1440-break-width ~ ' - 2px');
+            }
+        }
+
+        &.consonant-card_full {
+            padding-top: calc(@consonant-card-1440-break-width ~ ' - 2px');
+        }
 
         .consonant-card--footer-btn {
             margin-right: unit((@consonant-root-rem * 0.75), px);

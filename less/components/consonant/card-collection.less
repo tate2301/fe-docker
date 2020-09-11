@@ -1,20 +1,20 @@
+@consonant-card-collection-less-600-break-width: unit((@consonant-root-rem * 19.6875), px);
 @consonant-card-collection-600-break-width: unit((@consonant-root-rem * 23.625), px);
 @consonant-card-collection-900-break-width: unit((@consonant-root-rem * 47.25), px);
 @consonant-card-collection-1200-break-width: unit((@consonant-root-rem * 48.5), px);
 @consonant-card-collection-1440-break-width: unit((@consonant-root-rem * 60.1875), px);
 
 .consonant-card-collection {
-    padding-left: unit((@consonant-root-rem * 1.875), px);
-    padding-right: unit((@consonant-root-rem * 1.875), px);
+    min-width: @consonant-card-collection-less-600-break-width;
+    max-width: @consonant-card-collection-less-600-break-width;
+    margin-left: auto;
+    margin-right: auto;
     overflow: hidden;
     background-color: transparent;
 
     @media @consonant-for-tablet-portrait-up {
+        min-width: @consonant-card-collection-600-break-width;
         max-width: @consonant-card-collection-600-break-width;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 0;
-        padding-right: 0;
     }
 
     @media @consonant-for-tablet-landscape-up {

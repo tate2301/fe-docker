@@ -2,6 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Tooltip from './Tooltip';
 
+const CARD_STYLE = {
+    WIDE: '3:2',
+    SQUARE: '1:1',
+    FULL: 'full-card',
+};
+
 const Card = (props) => {
     const {
         id,
@@ -23,6 +29,7 @@ const Card = (props) => {
         onClick,
         saveBookmarkText,
         unsaveBookmarkText,
+        cardStyle,
     } = props;
 
     const handleClick = (clickEvt) => {
@@ -30,8 +37,18 @@ const Card = (props) => {
         onClick(id);
     };
 
+    const setClassName = () => {
+        const res = ['consonant-card'];
+        const style = cardStyle.toLowerCase().trim();
+
+        if (style === CARD_STYLE.FULL) res.push('consonant-card_full');
+        if (style === CARD_STYLE.SQUARE) res.push('consonant-card_square');
+
+        return res.join(' ');
+    };
+
     return (
-        <div className="consonant-card" id={id}>
+        <div className={setClassName()} id={id}>
             <div
                 className="consonant-card--img"
                 style={{ backgroundImage: `url("${image}")` }}>
@@ -134,6 +151,7 @@ Card.propTypes = {
     onClick: PropTypes.func.isRequired,
     saveBookmarkText: PropTypes.string,
     unsaveBookmarkText: PropTypes.string,
+    cardStyle: PropTypes.string,
 };
 
 Card.defaultProps = {
@@ -145,4 +163,5 @@ Card.defaultProps = {
     label: '',
     saveBookmarkText: 'Save card',
     unsaveBookmarkText: 'Unsave card',
+    cardStyle: '',
 };

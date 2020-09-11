@@ -153,6 +153,7 @@ export default class ConsonantPage extends React.Component {
                 endpoint: 'http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v4/webinars',
                 title: '',
                 totalCardLimit: -1,
+                cardStyle: "none",
             },
             featuredCards: [],
             header: {
@@ -688,7 +689,9 @@ export default class ConsonantPage extends React.Component {
                                         cardUnsavedIco={this.getConfig('bookmarks', 'cardUnsavedIcon')}
                                         cardSavedIco={this.getConfig('bookmarks', 'cardSavedIcon')}
                                         saveBookmarkText={this.getConfig('bookmarks', 'saveBookmarkText')}
-                                        unsaveBookmarkText={this.getConfig('bookmarks', 'unsaveBookmarkText')} />
+                                        unsaveBookmarkText={this.getConfig('bookmarks', 'unsaveBookmarkText')}
+                                        cardsStyle={this.getConfig('collection', 'cardStyle')}
+                                    />
                                     {
                                         this.getConfig('pagination', 'enabled') &&
                                         <div ref={(page) => { this.page = page; }}>
@@ -719,6 +722,7 @@ ConsonantPage.propTypes = {
             endpoint: PropTypes.string,
             title: PropTypes.string,
             totalCardLimit: PropTypes.number,
+            cardStyle: PropTypes.string,
         }),
         featuredCards: PropTypes.arrayOf(PropTypes.object),
         header: PropTypes.shape({
