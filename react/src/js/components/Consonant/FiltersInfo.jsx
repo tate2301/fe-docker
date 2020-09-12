@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Search from './Search';
 import Select from './Select';
 import SelectedFilter from './SelectedFilter';
 
 const DESKTOP_MIN_WIDTH = 1200;
+const TABLET_MIN_WIDTH = 768;
 
 const FiltersInfo = (props) => {
     const {
@@ -27,15 +28,19 @@ const FiltersInfo = (props) => {
         searchQuery,
         onSelectedFilterClick,
         onMobileFiltersToggleClick,
+        children,
     } = props;
 
-    const mobileAsideInfoSearch = (windowWidth < DESKTOP_MIN_WIDTH && searchEnabled &&
-    <div className="consonant-filters-info--search">
-        <Search
-            placeholderText={searchPlaceholder}
-            value={searchQuery}
-            onSearch={onSearch} />
-    </div>
+    const mobileAsideInfoSearch = (
+        windowWidth < DESKTOP_MIN_WIDTH &&
+        searchEnabled &&
+        (!children || (children && windowWidth < TABLET_MIN_WIDTH)) &&
+        <div className="consonant-filters-info--search">
+            <Search
+                placeholderText={searchPlaceholder}
+                value={searchQuery}
+                onSearch={onSearch} />
+        </div>
     );
     const mobileAsideInfoFilterBtn = (
         windowWidth < DESKTOP_MIN_WIDTH &&
@@ -85,24 +90,69 @@ const FiltersInfo = (props) => {
             title &&
             <h2 className="consonant-filters-info--title">{title}</h2>
         }
-        {showTotalResults &&
+        {!children && showTotalResults &&
             <span className="consonant-filters-info--results">{cardsQty} results</span>
         }
     </div>
     );
 
     return (
-        <aside className="consonant-filters-info">
+        <aside className={
+            children ?
+                'consonant-filters-info consonant-filters-info-top-filter' :
+                'consonant-filters-info'
+        }>
             {desktopFiltersAsideInfo}
             {mobileAsideInfoSearch}
-            {mobileAsideInfoFilterBtn}
-            {selectValues.length && showSelect &&
+            {!children && mobileAsideInfoFilterBtn}
+            {
+                selectValues.length &&
+                showSelect &&
+                (!children || (children && windowWidth < TABLET_MIN_WIDTH)) &&
                 <Select
                     opened={selectOpened}
                     val={selelectedFilterBy}
                     values={selectValues}
                     onOpen={onSelectOpen}
-                    onSelect={onSelect} />
+                    onSelect={onSelect}
+                    smallOnMobile={!!children} />
+            }
+            {
+                children &&
+                    <div className="consonant-filters-info--top-filters-wrapper">
+                        <div className="consonant-filters-info--top-filters-wrapper-inner">
+                            {props.children}
+                            {
+                                windowWidth >= TABLET_MIN_WIDTH &&
+                                <Fragment>
+                                    {
+                                        showTotalResults &&
+                                        <span className="consonant-filters-info--results">
+                                            {cardsQty} results
+                                        </span>
+                                    }
+                                    {
+                                        searchEnabled &&
+                                        <Search
+                                            placeholderText={searchPlaceholder}
+                                            value={searchQuery}
+                                            onSearch={onSearch} />
+                                    }
+                                </Fragment>
+                            }
+                        </div>
+                        {
+                            windowWidth >= TABLET_MIN_WIDTH &&
+                            selectValues.length &&
+                            showSelect &&
+                            <Select
+                                opened={selectOpened}
+                                val={selelectedFilterBy}
+                                values={selectValues}
+                                onOpen={onSelectOpen}
+                                onSelect={onSelect} />
+                        }
+                    </div>
             }
             {desktopSelectedFilters}
         </aside>
@@ -134,6 +184,7 @@ FiltersInfo.propTypes = {
     onSelect: PropTypes.func.isRequired,
     onMobileFiltersToggleClick: PropTypes.func.isRequired,
     onSelectedFilterClick: PropTypes.func.isRequired,
+    children: PropTypes.element,
 };
 
 FiltersInfo.defaultProps = {
@@ -144,4 +195,5 @@ FiltersInfo.defaultProps = {
     selectedFiltersQty: 0,
     selectOpened: false,
     windowWidth: window.innerWidth,
+    children: '',
 };

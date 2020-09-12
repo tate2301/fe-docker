@@ -1,9 +1,14 @@
+/* Available modificators:
+- .consonant-select_small-mobile;
+*/
+
 @consonant-select-width: unit((@consonant-root-rem * 8.75), px);
 @consonant-select-width-arr-size: unit((@consonant-root-rem * 0.375), px);
 @consonant-select-option-selected-width: unit((@consonant-root-rem * 0.625), px);
 @consonant-select-1200-break-width: unit((@consonant-root-rem * 7), px);
 @consonant-select-options-1200-break-width: unit((@consonant-root-rem * 6.75), px);
 @consonant-select-btn-1200-break-width: unit((@consonant-root-rem * 7), px);
+@consonant-select-small-mobile-width: unit((@consonant-root-rem * 4.5625), px);
 
 .consonant-select {
     position: relative;
@@ -129,6 +134,28 @@
                 border-right: 0;
                 transform: rotate(-45deg) translate3d(1px, -2px, 0);
                 pointer-events: none;
+            }
+        }
+    }
+
+    &.consonant-select_small-mobile {
+        max-width: @consonant-select-small-mobile-width;
+        margin-right: 8/@consonant-root-rem;
+
+        .consonant-select--options {
+            width: @consonant-select-small-mobile-width * 2;
+            max-width: @consonant-select-small-mobile-width * 2;
+        }
+    }
+
+    @media @consonant-for-tablet-landscape-up {
+        &.consonant-select_small-mobile {
+            max-width: @consonant-select-width;
+            margin-right: 0;
+
+            .consonant-select--options {
+                width: unset;
+                max-width: unset;
             }
         }
     }

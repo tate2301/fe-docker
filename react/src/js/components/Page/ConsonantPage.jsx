@@ -18,6 +18,10 @@ const FILTER_LOGIC = {
     OR: 'or',
     XOR: 'xor',
 };
+const FILTER_PANEL = {
+    SIDE: 'side',
+    TOP: 'top',
+};
 const SORTING_OPTION = {
     FEATURED: 'initialTitle',
     DATE: 'lastModified',
@@ -71,6 +75,7 @@ export default class ConsonantPage extends React.Component {
         this.handleSelectOpen = this.handleSelectOpen.bind(this);
         this.resetFavourites = this.resetFavourites.bind(this);
         this.setBookMarksToLS = this.setBookMarksToLS.bind(this);
+        this.renderFiltersPanel = this.renderFiltersPanel.bind(this);
     }
 
     componentDidMount() {
@@ -108,7 +113,7 @@ export default class ConsonantPage extends React.Component {
                 card.description = truncateString(card.description, TRUNCATE_TEXT_QTY);
                 card.initialText = card.description;
                 card.isBookmarked = false;
-                return card
+                return card;
             };
 
             let { featuredCards } = this.props.config || [];
@@ -623,6 +628,34 @@ export default class ConsonantPage extends React.Component {
         });
     }
 
+    renderFiltersPanel() {
+        return <FiltersPanel
+            filters={this.state.filters}
+            windowWidth={this.state.windowWidth}
+            showMobileFilters={this.state.showMobileFilters}
+            showTotalResults={this.getConfig('totalResults', 'display')}
+            searchQuery={this.state.searchQuery}
+            resQty={this.state.filteredCards.length}
+            onFilterClick={this.handleFilterItemClick}
+            clearFilterText={this.getConfig('filterPanel', 'clearFilterText')}
+            clearAllFiltersText={this.getConfig('filterPanel', 'clearAllFiltersText')}
+            onClearAllFilters={this.clearAllFilters}
+            onClearFilterItems={this.clearFilterItems}
+            showFavsMenuLink={this.getConfig('bookmarks', 'enabled')}
+            selectBookmarksIcon={this.getConfig('bookmarks', 'selectBookmarksIcon')}
+            unselectBookmarksIcon={this.getConfig('bookmarks', 'unselectBookmarksIcon')}
+            onFavsClick={this.handleShowFavsClick}
+            showFavs={this.state.showFavourites}
+            favsQty={this.state.bookmarkedCards.length}
+            onCheckboxClick={this.handleCheckBoxChange}
+            onMobileFiltersToggleClick={this.handleFiltersToggle}
+            searchEnabled={this.getConfig('search', 'enabled')}
+            searchPlaceholder={this.getConfig('search', 'placeholderText')}
+            onSearch={this.handleSearchInputChange}
+            type={this.getConfig('filterPanel', 'type')}
+        />
+    }
+
     render() {
         return (
             <Fragment>
@@ -631,30 +664,10 @@ export default class ConsonantPage extends React.Component {
                     className="consonant-page">
                     <div className="consonant-page--inner">
                         <span>
-                            {this.getConfig('filterPanel', 'enabled') &&
-                                <FiltersPanel
-                                    filters={this.state.filters}
-                                    windowWidth={this.state.windowWidth}
-                                    showMobileFilters={this.state.showMobileFilters}
-                                    showTotalResults={this.getConfig('totalResults', 'display')}
-                                    searchQuery={this.state.searchQuery}
-                                    resQty={this.state.filteredCards.length}
-                                    onFilterClick={this.handleFilterItemClick}
-                                    clearFilterText={this.getConfig('filterPanel', 'clearFilterText')}
-                                    clearAllFiltersText={this.getConfig('filterPanel', 'clearAllFiltersText')}
-                                    onClearAllFilters={this.clearAllFilters}
-                                    onClearFilterItems={this.clearFilterItems}
-                                    showFavsMenuLink={this.getConfig('bookmarks', 'enabled')}
-                                    selectBookmarksIcon={this.getConfig('bookmarks', 'selectBookmarksIcon')}
-                                    unselectBookmarksIcon={this.getConfig('bookmarks', 'unselectBookmarksIcon')}
-                                    onFavsClick={this.handleShowFavsClick}
-                                    showFavs={this.state.showFavourites}
-                                    favsQty={this.state.bookmarkedCards.length}
-                                    onCheckboxClick={this.handleCheckBoxChange}
-                                    onMobileFiltersToggleClick={this.handleFiltersToggle}
-                                    searchEnabled={this.getConfig('search', 'enabled')}
-                                    searchPlaceholder={this.getConfig('search', 'placeholderText')}
-                                    onSearch={this.handleSearchInputChange} />
+                            {
+                                this.getConfig('filterPanel', 'enabled') &&
+                                this.getConfig('filterPanel', 'type') === FILTER_PANEL.SIDE &&
+                                this.renderFiltersPanel()
                             }
                         </span>
                         <span>
@@ -677,7 +690,14 @@ export default class ConsonantPage extends React.Component {
                                 searchQuery={this.state.searchQuery}
                                 onSearch={this.handleSearchInputChange}
                                 onMobileFiltersToggleClick={this.handleFiltersToggle}
-                                onSelectedFilterClick={this.handleCheckBoxChange} />
+                                onSelectedFilterClick={this.handleCheckBoxChange}
+                            >
+                                {
+                                    this.getConfig('filterPanel', 'enabled') &&
+                                    this.getConfig('filterPanel', 'type') === FILTER_PANEL.TOP &&
+                                    this.renderFiltersPanel()
+                                }
+                            </FiltersInfo>
                             {this.state.cards.length > 0 ?
                                 <Fragment>
                                     <Collection

@@ -4,9 +4,14 @@ import FilterItem from './FilterItem';
 import Search from './Search';
 
 const DESKTOP_MIN_WIDTH = 1200;
+const FILTER_PANEL = {
+    SIDE: 'side',
+    TOP: 'top',
+};
 
 const FiltersPanel = (props) => {
     const {
+        type,
         filters,
         windowWidth,
         showMobileFilters,
@@ -63,7 +68,9 @@ const FiltersPanel = (props) => {
             value={searchQuery}
             onSearch={onSearch} />
     );
-    const mobileFiltersFooter = (windowWidth < DESKTOP_MIN_WIDTH &&
+    const mobileFiltersFooter = (
+        windowWidth < DESKTOP_MIN_WIDTH &&
+        type === FILTER_PANEL.SIDE &&
         <div className="consonant-filters--mobile-footer">
             {showTotalResults &&
             <span className="consonant-filters--mobile-footer-total-res">{resQty} results</span>
@@ -85,18 +92,26 @@ const FiltersPanel = (props) => {
         </div>
     );
 
+    const defineClassNames = () => {
+        const res = ['consonant-filters'];
+        const filtersType = type.toLowerCase().trim();
+
+        if (showMobileFilters) res.push('consonant-filters_opened');
+        if (filtersType === FILTER_PANEL.TOP) res.push('consonant-filters_top');
+
+        return res.join(' ');
+    };
+
     return (
-        <div
-            className={
-                showMobileFilters ?
-                    'consonant-filters consonant-filters_opened' :
-                    'consonant-filters'
-            }>
-            <div className="consonant-filters--header">
-                {mobileFiltersTitle}
-                {desktopFiltersTitle}
-                {desktopFiltersClearBtn}
-            </div>
+        <div className={defineClassNames()}>
+            {
+                type === FILTER_PANEL.SIDE &&
+                <div className="consonant-filters--header">
+                    {mobileFiltersTitle}
+                    {desktopFiltersTitle}
+                    {desktopFiltersClearBtn}
+                </div>
+            }
             {desktopFiltersSearch}
             {
                 filters.length > 0 &&
@@ -114,10 +129,20 @@ const FiltersPanel = (props) => {
                                 onCheck={onCheckboxClick}
                                 onClick={onFilterClick}
                                 onClearAll={onClearFilterItems}
-                                clearFilterText={clearFilterText} />))}
+                                clearFilterText={clearFilterText}
+                                isTopFilter={type === FILTER_PANEL.TOP} />))}
                     </div>
             }
-            { showFavsMenuLink &&
+            {
+                type === FILTER_PANEL.TOP &&
+                filters.length > 0 &&
+                <button
+                    type="button"
+                    className="consonant-filters--top-clear-btn"
+                    onClick={onClearAllFilters}>{clearAllFiltersText}
+                </button>
+            }
+            { showFavsMenuLink && type === FILTER_PANEL.SIDE &&
                 <button
                     type="button"
                     onClick={onFavsClick}
@@ -148,6 +173,7 @@ const FiltersPanel = (props) => {
 export default FiltersPanel;
 
 FiltersPanel.propTypes = {
+    type: PropTypes.string,
     filters: PropTypes.arrayOf(PropTypes.object),
     windowWidth: PropTypes.number,
     showMobileFilters: PropTypes.bool,
@@ -173,6 +199,7 @@ FiltersPanel.propTypes = {
 };
 
 FiltersPanel.defaultProps = {
+    type: FILTER_PANEL.SIDE,
     filters: [],
     windowWidth: window.innerWidth,
     showFavs: false,
