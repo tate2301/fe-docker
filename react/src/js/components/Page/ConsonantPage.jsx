@@ -9,6 +9,7 @@ import Loader from '../Consonant/Loader';
 import Search from '../Consonant/Search';
 import Select from '../Consonant/Select';
 import FilterPanelSide from '../Consonant/FilterPanel/FilterPanelSide';
+import FiltersPanelTop from '../Consonant/FilterPanel/FilterPanelTop';
 import Bookmarks from '../Consonant/Bookmarks';
 
 const DESKTOP_MIN_WIDTH = 1200;
@@ -650,7 +651,7 @@ export default class ConsonantPage extends React.Component {
                         <span>
                             {
                                 this.getConfig('filterPanel', 'enabled') &&
-                                this.getConfig('filterPanel', 'type') === FILTER_PANEL.SIDE ?
+                                this.getConfig('filterPanel', 'type') === FILTER_PANEL.SIDE &&
                                     <FilterPanelSide
                                         filters={this.state.filters}
                                         windowWidth={this.state.windowWidth}
@@ -678,37 +679,52 @@ export default class ConsonantPage extends React.Component {
                                                 onClick={this.handleShowFavsClick}
                                                 qty={this.state.bookmarkedCards.length} />
                                         }
-                                    </FilterPanelSide> :
-                                    this.getConfig('filterPanel', 'enabled') &&
-                                        <div><h1>TOP</h1></div>
+                                    </FilterPanelSide>
                             }
                         </span>
                         <span>
-                            <FiltersInfo
-                                enabled={this.getConfig('filterPanel', 'enabled')}
-                                title={this.getConfig('collection', 'title')}
-                                filters={this.state.filters}
-                                cardsQty={this.state.filteredCards.length}
-                                showTotalResults={this.getConfig('totalResults', 'display')}
-                                selectedFiltersQty={this.getSelectedFiltersItemsQty()}
-                                windowWidth={this.state.windowWidth}
-                                onMobileFiltersToggleClick={this.handleFiltersToggle}
-                                onSelectedFilterClick={this.handleCheckBoxChange}>
-                                {
-                                    this.getConfig('search', 'enabled') &&
-                                    window.innerWidth < DESKTOP_MIN_WIDTH &&
-                                        this.renderSearch('searchFilterPanel')
-                                }
-                                {
-                                    this.getConfig('sort', 'enabled') &&
-                                    <Select
-                                        opened={this.state.selectOpened}
-                                        val={this.state.selelectedFilterBy}
-                                        values={this.getConfig('sort', 'options')}
-                                        onOpen={this.handleSelectOpen}
-                                        onSelect={this.handleSelectChange} />
-                                }
-                            </FiltersInfo>
+                            {this.getConfig('filterPanel', 'enabled') &&
+                            this.getConfig('filterPanel', 'type') === FILTER_PANEL.TOP &&
+                                <FiltersPanelTop
+                                    filters={this.state.filters}
+                                    resQty={this.state.filteredCards.length}
+                                    onCheckboxClick={this.handleCheckBoxChange}
+                                    onFilterClick={this.handleFilterItemClick}
+                                    onClearFilterItems={this.clearFilterItems}
+                                    clearFilterText={this.getConfig('filterPanel', 'clearFilterText')}
+                                    clearAllFiltersText={this.getConfig('filterPanel', 'clearAllFiltersText')}
+                                    showTotalResults={this.getConfig('totalResults', 'display')}
+                                >
+                                    {this.renderSearch('filtersTopSearch')}
+                                </FiltersPanelTop>
+                            }
+                            {this.getConfig('filterPanel', 'type') !== FILTER_PANEL.TOP &&
+                                <FiltersInfo
+                                    enabled={this.getConfig('filterPanel', 'enabled')}
+                                    title={this.getConfig('collection', 'title')}
+                                    filters={this.state.filters}
+                                    cardsQty={this.state.filteredCards.length}
+                                    showTotalResults={this.getConfig('totalResults', 'display')}
+                                    selectedFiltersQty={this.getSelectedFiltersItemsQty()}
+                                    windowWidth={this.state.windowWidth}
+                                    onMobileFiltersToggleClick={this.handleFiltersToggle}
+                                    onSelectedFilterClick={this.handleCheckBoxChange}>
+                                    {
+                                        this.getConfig('search', 'enabled') &&
+                                        window.innerWidth < DESKTOP_MIN_WIDTH &&
+                                            this.renderSearch('searchFilterPanel')
+                                    }
+                                    {
+                                        this.getConfig('sort', 'enabled') &&
+                                        <Select
+                                            opened={this.state.selectOpened}
+                                            val={this.state.selelectedFilterBy}
+                                            values={this.getConfig('sort', 'options')}
+                                            onOpen={this.handleSelectOpen}
+                                            onSelect={this.handleSelectChange} />
+                                    }
+                                </FiltersInfo>
+                            }
                             {this.state.cards.length > 0 ?
                                 <Fragment>
                                     <Collection

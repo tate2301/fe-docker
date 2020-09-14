@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import FilterItem from '../FilterItem';
 
 const DESKTOP_MIN_WIDTH = 1200;
-const FiltersPanel = (props) => {
+const FilterPanelSide = (props) => {
     const {
         filters,
         windowWidth,
@@ -104,9 +104,9 @@ const FiltersPanel = (props) => {
     );
 };
 
-export default FiltersPanel;
+export default FilterPanelSide;
 
-FiltersPanel.propTypes = {
+FilterPanelSide.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.element),
         PropTypes.arrayOf(PropTypes.bool),
@@ -127,7 +127,7 @@ FiltersPanel.propTypes = {
     resQty: PropTypes.number,
 };
 
-FiltersPanel.defaultProps = {
+FilterPanelSide.defaultProps = {
     filters: [],
     windowWidth: window.innerWidth,
     showMobileFilters: false,

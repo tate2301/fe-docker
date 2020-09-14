@@ -1,4 +1,5 @@
 /* Available modificators:
+- .consonant-filters_top;
 - .consonant-filters_opened;
 - .consonant-filters--item_selected;
 */
@@ -38,8 +39,7 @@
     }
 
     + div {
-        .full-width;
-
+        width: 100%;
         height: calc(~ '100vh - ' @header-mobile-height);
         position: relative;
 
@@ -550,6 +550,11 @@
         margin: 0;
         padding: 0;
         list-style-type: none;
+    }
+
+    // Top filter;
+    &.consonant-filters_top {
+        border: 2px solid red;
     }
 
     @media @consonant-for-tablet-landscape-up {
