@@ -17,6 +17,7 @@ const FiltersPanel = (props) => {
         onCheckboxClick,
         onMobileFiltersToggleClick,
         resQty,
+        children,
     } = props;
 
     const countSelectedInFilter = el => el.reduce((acc, val) => (val.selected ? acc + 1 : acc), 0);
@@ -63,7 +64,10 @@ const FiltersPanel = (props) => {
         </div>
     );
 
-    console.log('CHILDREN', props.children);
+    const renderChildren = (idx, key) => {
+        if (children[idx]) return children[idx];
+        return children.key === key ? children : null;
+    };
 
     return (
         <div className={showMobileFilters ? 'consonant-filters consonant-filters_opened' : 'consonant-filters'}>
@@ -74,7 +78,7 @@ const FiltersPanel = (props) => {
                     {desktopFiltersClearBtn}
                 </div>
             }
-            {props.children[0] ? props.children[0] : props.children.search}
+            {renderChildren(0, 'search')}
             {
                 filters.length > 0 &&
                     <div className="consonant-filters--list">
@@ -94,7 +98,7 @@ const FiltersPanel = (props) => {
                                 clearFilterText={clearFilterText} />))}
                     </div>
             }
-            {props.children[1] ? props.children[1] : props.children.bookmarks}
+            {renderChildren(1, 'bookmarks')}
             {mobileFiltersFooter}
         </div>
     );

@@ -7,6 +7,7 @@ import FiltersInfo from '../Consonant/FiltersInfo';
 import LoadMore from '../Consonant/LoadMore';
 import Loader from '../Consonant/Loader';
 import Search from '../Consonant/Search';
+import Select from '../Consonant/Select';
 import FilterPanelSide from '../Consonant/FilterPanel/FilterPanelSide';
 import Bookmarks from '../Consonant/Bookmarks';
 
@@ -77,10 +78,11 @@ export default class ConsonantPage extends React.Component {
         this.handleSelectOpen = this.handleSelectOpen.bind(this);
         this.resetFavourites = this.resetFavourites.bind(this);
         this.setBookMarksToLS = this.setBookMarksToLS.bind(this);
+        this.renderSearch = this.renderSearch.bind(this);
     }
 
     componentDidMount() {
-        console.log(this.state.showMobileFilters);
+        console.log(this.state.selectOpened);
         window.addEventListener('resize', this.updateDimensions);
 
         // Load data on init;
@@ -630,6 +632,14 @@ export default class ConsonantPage extends React.Component {
         });
     }
 
+    renderSearch(key) {
+        return (<Search
+            key={key}
+            placeholderText={this.getConfig('search', 'placeholderText')}
+            value={this.state.searchQuery}
+            onSearch={this.handleSearchInputChange} />);
+    }
+
     render() {
         return (
             <Fragment>
@@ -657,11 +667,7 @@ export default class ConsonantPage extends React.Component {
                                         {
                                             window.innerWidth >= DESKTOP_MIN_WIDTH &&
                                             this.getConfig('search', 'enabled') &&
-                                            <Search
-                                                key="search"
-                                                placeholderText={this.getConfig('search', 'placeholderText')}
-                                                value={this.state.searchQuery}
-                                                onSearch={this.handleSearchInputChange} />
+                                            this.renderSearch('search')
                                         }
                                         { this.getConfig('bookmarks', 'enabled') &&
                                             <Bookmarks
@@ -673,7 +679,8 @@ export default class ConsonantPage extends React.Component {
                                                 qty={this.state.bookmarkedCards.length} />
                                         }
                                     </FilterPanelSide> :
-                                    <div><h1>TOP</h1></div>
+                                    this.getConfig('filterPanel', 'enabled') &&
+                                        <div><h1>TOP</h1></div>
                             }
                         </span>
                         <span>
@@ -682,21 +689,26 @@ export default class ConsonantPage extends React.Component {
                                 title={this.getConfig('collection', 'title')}
                                 filters={this.state.filters}
                                 cardsQty={this.state.filteredCards.length}
-                                showSelect={this.getConfig('sort', 'enabled')}
                                 showTotalResults={this.getConfig('totalResults', 'display')}
                                 selectedFiltersQty={this.getSelectedFiltersItemsQty()}
                                 windowWidth={this.state.windowWidth}
-                                selectValues={this.getConfig('sort', 'options')}
-                                selelectedFilterBy={this.state.selelectedFilterBy}
-                                selectOpened={this.state.selectOpened}
-                                onSelectOpen={this.handleSelectOpen}
-                                onSelect={this.handleSelectChange}
-                                searchEnabled={this.getConfig('search', 'enabled')}
-                                searchPlaceholder={this.getConfig('search', 'placeholderText')}
-                                searchQuery={this.state.searchQuery}
-                                onSearch={this.handleSearchInputChange}
                                 onMobileFiltersToggleClick={this.handleFiltersToggle}
-                                onSelectedFilterClick={this.handleCheckBoxChange} />
+                                onSelectedFilterClick={this.handleCheckBoxChange}>
+                                {
+                                    this.getConfig('search', 'enabled') &&
+                                    window.innerWidth < DESKTOP_MIN_WIDTH &&
+                                        this.renderSearch('searchFilterPanel')
+                                }
+                                {
+                                    this.getConfig('sort', 'enabled') &&
+                                    <Select
+                                        opened={this.state.selectOpened}
+                                        val={this.state.selelectedFilterBy}
+                                        values={this.getConfig('sort', 'options')}
+                                        onOpen={this.handleSelectOpen}
+                                        onSelect={this.handleSelectChange} />
+                                }
+                            </FiltersInfo>
                             {this.state.cards.length > 0 ?
                                 <Fragment>
                                     <Collection
