@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import 'whatwg-fetch';
@@ -158,7 +157,7 @@ export default class ConsonantPage extends React.Component {
                 endpoint: 'http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v4/webinars',
                 title: '',
                 totalCardLimit: -1,
-                cardStyle: "none",
+                cardStyle: 'none',
             },
             featuredCards: [],
             header: {
@@ -220,7 +219,7 @@ export default class ConsonantPage extends React.Component {
                     typeof this.props.config[object][key] !== 'number'
                 )
             )
-        ) { return defaultProps[object][key] }
+        ) { return defaultProps[object][key]; }
         return this.props.config[object][key];
     }
 
@@ -629,7 +628,7 @@ export default class ConsonantPage extends React.Component {
     }
 
     renderFiltersPanel() {
-        return <FiltersPanel
+        return (<FiltersPanel
             filters={this.state.filters}
             windowWidth={this.state.windowWidth}
             showMobileFilters={this.state.showMobileFilters}
@@ -652,8 +651,7 @@ export default class ConsonantPage extends React.Component {
             searchEnabled={this.getConfig('search', 'enabled')}
             searchPlaceholder={this.getConfig('search', 'placeholderText')}
             onSearch={this.handleSearchInputChange}
-            type={this.getConfig('filterPanel', 'type')}
-        />
+            type={this.getConfig('filterPanel', 'type')} />);
     }
 
     render() {
@@ -690,8 +688,7 @@ export default class ConsonantPage extends React.Component {
                                 searchQuery={this.state.searchQuery}
                                 onSearch={this.handleSearchInputChange}
                                 onMobileFiltersToggleClick={this.handleFiltersToggle}
-                                onSelectedFilterClick={this.handleCheckBoxChange}
-                            >
+                                onSelectedFilterClick={this.handleCheckBoxChange}>
                                 {
                                     this.getConfig('filterPanel', 'enabled') &&
                                     this.getConfig('filterPanel', 'type') === FILTER_PANEL.TOP &&
@@ -710,8 +707,7 @@ export default class ConsonantPage extends React.Component {
                                         cardSavedIco={this.getConfig('bookmarks', 'cardSavedIcon')}
                                         saveBookmarkText={this.getConfig('bookmarks', 'saveBookmarkText')}
                                         unsaveBookmarkText={this.getConfig('bookmarks', 'unsaveBookmarkText')}
-                                        cardsStyle={this.getConfig('collection', 'cardStyle')}
-                                    />
+                                        cardsStyle={this.getConfig('collection', 'cardStyle')} />
                                     {
                                         this.getConfig('pagination', 'enabled') &&
                                         <div ref={(page) => { this.page = page; }}>

@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="robots" content="noodp" />
+
+    <meta name="template" content="northstar-collection" />
+
+    <link rel="stylesheet" href="./all.css" type="text/css">
+    <link rel="stylesheet" href="./dist/app.css" type="text/css">
+    
+    <title>CaaS</title>
+
+</head>
+
+<body class="page basicpage spectrum spectrum--lightest">
+
+<div class="root responsivegrid">
+    <div class="aem-Grid aem-Grid--12 aem-Grid--default--12">
+        <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+            <div class="position aem-GridColumn aem-GridColumn--default--12">
+                <div id="root_content_position"
+                     class="dexter-Position mobile-place-static mobile-place-left mobile-place-top mobile-padding-top-0 mobile-padding-right-0 mobile-padding-bottom-0 mobile-padding-left-0 mobile-margin-top-0 mobile-margin-right-0 mobile-margin-bottom-0 mobile-margin-left-0 is-Editor-false"
+                     style="background-color: transparent; background-position: 50% 50%;">
+                    <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+                        <div class="cardcollection aem-GridColumn aem-GridColumn--default--12">
+                            <section id="create-app" class="create-app consonant">
+                                <div class="collection-Container  create-card-collection">
+                                    <div class="container create-card-collection__outer-wrapper">
+                                        <div id="someDivId"></div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript" src="./dist/main.js"></script>
+
+<script type="text/javascript">
+    var config = {
+        collection: {
+            resultsPerPage: 3,
+            endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.json",
+            title: "A great collection",
+            totalCardLimit: -1,
+            showBookmarksOnly: true, // this will only show bookmarks from local storage
+            cardStyle: "none" // could also be "3:2" or "full-card"
+        },
+        featuredCards: [],
+        header: {
+            enabled: false,
+        },
+        filterPanel: {
+            enabled: true,
+            type: 'side',
+            filters: [
+                {
+                    "group": "Activity",
+                    "id": "we-retail:activity",
+                    "icon": 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg',
+                    "items": [
+                        {
+                            "label": "Biking",
+                            "id": "we-retail:activity/biking"
+                        },
+                        {
+                            "label": "Hiking",
+                            "id": "we-retail:activity/hiking"
+                        },
+                        {
+                            "label": "Running",
+                            "id": "we-retail:activity/running"
+                        },
+                        {
+                            "label": "Skiing",
+                            "id": "we-retail:activity/skiing"
+                        },
+                        {
+                            "label": "Surfing",
+                            "id": "we-retail:activity/surfing"
+                        },
+                        {
+                            "label": "Swimming",
+                            "id": "we-retail:activity/swimming"
+                        },
+                        {
+                            "label": "Others",
+                            "id": "we-retail:activity/Others"
+                        }
+                    ]
+                },
+                {
+                    "group": "apparel",
+                    "id": "we-retail:apparel",
+                    "icon": 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg',
+                    "items": [
+                        {
+                            "label": "Coat",
+                            "id": "we-retail:apparel/coat"
+                        },
+                        {
+                            "label": "Footweara",
+                            "id": "we-retail:apparel/footwear"
+                        }
+                    ]
+                }
+            ],
+            clearAllFiltersText: 'Clear',
+            clearFilterText: 'Clear filter',
+            filterLogic: 'and',
+        },
+        sort: {
+            enabled: true,
+            defaultSort: 'title',
+            options: [
+                {
+                    label: 'Title',
+                    sort: 'title'
+                },
+                {
+                    label: 'Featured',
+                    sort: 'featured'
+                },
+                {
+                    label: 'Date',
+                    sort: 'date'
+                },
+            ],
+        },
+        pagination: {
+            enabled: true,
+            type: 'load-more'
+        },
+        bookmarks: {
+            enabled: true,
+            bookmarkOnlyCollection: true,
+            cardSavedIcon: '',
+            cardUnsavedIcon: '',
+            selectBookmarksIcon: '',
+            unselectBookmarksIcon: '',
+            saveBookmarkText: 'Save card',
+            unsaveBookmarkText: 'Unsave card'
+        },
+        search: {
+            enabled: true,
+            placeholderText: 'Search here...',
+            searchFields: [
+                'title',
+                'description',
+                'meta-1',
+                'meta-2',
+                'author',
+                'categories'
+            ]
+        },
+        totalResults: {
+            display: true,
+        }
+    };
+    var cardCollection = new WrapperCardCollectionComponent(config, document.getElementById("someDivId"));
+</script>
+</body>
+
+</html>
