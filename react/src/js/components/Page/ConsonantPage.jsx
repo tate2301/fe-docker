@@ -2,12 +2,15 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import 'whatwg-fetch';
 import Collection from '../Consonant/Collection';
-import FiltersPanel from '../Consonant/FiltersPanel';
 import ConsonantHeader from '../Consonant/Header';
 import FiltersInfo from '../Consonant/FiltersInfo';
 import LoadMore from '../Consonant/LoadMore';
 import Loader from '../Consonant/Loader';
+import Search from '../Consonant/Search';
+import FilterPanelSide from '../Consonant/FilterPanel/FilterPanelSide';
+import Bookmarks from '../Consonant/Bookmarks';
 
+const DESKTOP_MIN_WIDTH = 1200;
 const LOADER_SIZE = {
     MEDIUM: 'medium',
     BIG: 'big',
@@ -74,10 +77,10 @@ export default class ConsonantPage extends React.Component {
         this.handleSelectOpen = this.handleSelectOpen.bind(this);
         this.resetFavourites = this.resetFavourites.bind(this);
         this.setBookMarksToLS = this.setBookMarksToLS.bind(this);
-        this.renderFiltersPanel = this.renderFiltersPanel.bind(this);
     }
 
     componentDidMount() {
+        console.log(this.state.showMobileFilters);
         window.addEventListener('resize', this.updateDimensions);
 
         // Load data on init;
@@ -627,33 +630,6 @@ export default class ConsonantPage extends React.Component {
         });
     }
 
-    renderFiltersPanel() {
-        return (<FiltersPanel
-            filters={this.state.filters}
-            windowWidth={this.state.windowWidth}
-            showMobileFilters={this.state.showMobileFilters}
-            showTotalResults={this.getConfig('totalResults', 'display')}
-            searchQuery={this.state.searchQuery}
-            resQty={this.state.filteredCards.length}
-            onFilterClick={this.handleFilterItemClick}
-            clearFilterText={this.getConfig('filterPanel', 'clearFilterText')}
-            clearAllFiltersText={this.getConfig('filterPanel', 'clearAllFiltersText')}
-            onClearAllFilters={this.clearAllFilters}
-            onClearFilterItems={this.clearFilterItems}
-            showFavsMenuLink={this.getConfig('bookmarks', 'enabled')}
-            selectBookmarksIcon={this.getConfig('bookmarks', 'selectBookmarksIcon')}
-            unselectBookmarksIcon={this.getConfig('bookmarks', 'unselectBookmarksIcon')}
-            onFavsClick={this.handleShowFavsClick}
-            showFavs={this.state.showFavourites}
-            favsQty={this.state.bookmarkedCards.length}
-            onCheckboxClick={this.handleCheckBoxChange}
-            onMobileFiltersToggleClick={this.handleFiltersToggle}
-            searchEnabled={this.getConfig('search', 'enabled')}
-            searchPlaceholder={this.getConfig('search', 'placeholderText')}
-            onSearch={this.handleSearchInputChange}
-            type={this.getConfig('filterPanel', 'type')} />);
-    }
-
     render() {
         return (
             <Fragment>
@@ -664,8 +640,40 @@ export default class ConsonantPage extends React.Component {
                         <span>
                             {
                                 this.getConfig('filterPanel', 'enabled') &&
-                                this.getConfig('filterPanel', 'type') === FILTER_PANEL.SIDE &&
-                                this.renderFiltersPanel()
+                                this.getConfig('filterPanel', 'type') === FILTER_PANEL.SIDE ?
+                                    <FilterPanelSide
+                                        filters={this.state.filters}
+                                        windowWidth={this.state.windowWidth}
+                                        showTotalResults={this.getConfig('totalResults', 'display')}
+                                        onFilterClick={this.handleFilterItemClick}
+                                        clearFilterText={this.getConfig('filterPanel', 'clearFilterText')}
+                                        clearAllFiltersText={this.getConfig('filterPanel', 'clearAllFiltersText')}
+                                        onClearAllFilters={this.clearAllFilters}
+                                        onClearFilterItems={this.clearFilterItems}
+                                        onCheckboxClick={this.handleCheckBoxChange}
+                                        onMobileFiltersToggleClick={this.handleFiltersToggle}
+                                        showMobileFilters={this.state.showMobileFilters}
+                                        resQty={this.state.filteredCards.length}>
+                                        {
+                                            window.innerWidth >= DESKTOP_MIN_WIDTH &&
+                                            this.getConfig('search', 'enabled') &&
+                                            <Search
+                                                key="search"
+                                                placeholderText={this.getConfig('search', 'placeholderText')}
+                                                value={this.state.searchQuery}
+                                                onSearch={this.handleSearchInputChange} />
+                                        }
+                                        { this.getConfig('bookmarks', 'enabled') &&
+                                            <Bookmarks
+                                                key="bookmarks"
+                                                selectedIco={this.getConfig('bookmarks', 'selectBookmarksIcon')}
+                                                unselectedIco={this.getConfig('bookmarks', 'unselectBookmarksIcon')}
+                                                selected={this.state.showFavourites}
+                                                onClick={this.handleShowFavsClick}
+                                                qty={this.state.bookmarkedCards.length} />
+                                        }
+                                    </FilterPanelSide> :
+                                    <div><h1>TOP</h1></div>
                             }
                         </span>
                         <span>
@@ -688,13 +696,7 @@ export default class ConsonantPage extends React.Component {
                                 searchQuery={this.state.searchQuery}
                                 onSearch={this.handleSearchInputChange}
                                 onMobileFiltersToggleClick={this.handleFiltersToggle}
-                                onSelectedFilterClick={this.handleCheckBoxChange}>
-                                {
-                                    this.getConfig('filterPanel', 'enabled') &&
-                                    this.getConfig('filterPanel', 'type') === FILTER_PANEL.TOP &&
-                                    this.renderFiltersPanel()
-                                }
-                            </FiltersInfo>
+                                onSelectedFilterClick={this.handleCheckBoxChange} />
                             {this.state.cards.length > 0 ?
                                 <Fragment>
                                     <Collection
