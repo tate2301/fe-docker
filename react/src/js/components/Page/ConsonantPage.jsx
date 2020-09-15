@@ -11,8 +11,10 @@ import Select from '../Consonant/Select';
 import FilterPanelSide from '../Consonant/FilterPanel/FilterPanelSide';
 import FiltersPanelTop from '../Consonant/FilterPanel/FilterPanelTop';
 import Bookmarks from '../Consonant/Bookmarks';
+import SearchIco from '../Consonant/SearchIco';
 
 const DESKTOP_MIN_WIDTH = 1200;
+const TABLET_MIN_WIDTH = 768;
 const LOADER_SIZE = {
     MEDIUM: 'medium',
     BIG: 'big',
@@ -80,10 +82,11 @@ export default class ConsonantPage extends React.Component {
         this.resetFavourites = this.resetFavourites.bind(this);
         this.setBookMarksToLS = this.setBookMarksToLS.bind(this);
         this.renderSearch = this.renderSearch.bind(this);
+        this.renderSelect = this.renderSelect.bind(this);
+        this.handleSearchIcoClick = this.handleSearchIcoClick.bind(this);
     }
 
     componentDidMount() {
-        console.log(this.state.selectOpened);
         window.addEventListener('resize', this.updateDimensions);
 
         // Load data on init;
@@ -633,12 +636,26 @@ export default class ConsonantPage extends React.Component {
         });
     }
 
+    handleSearchIcoClick() {
+        alert(1);
+    }
+
     renderSearch(key) {
         return (<Search
             key={key}
             placeholderText={this.getConfig('search', 'placeholderText')}
             value={this.state.searchQuery}
             onSearch={this.handleSearchInputChange} />);
+    }
+
+    renderSelect(smallOnMobile) {
+        return (<Select
+            opened={this.state.selectOpened}
+            val={this.state.selelectedFilterBy}
+            values={this.getConfig('sort', 'options')}
+            onOpen={this.handleSelectOpen}
+            onSelect={this.handleSelectChange}
+            smallOnMobile={smallOnMobile} />);
     }
 
     render() {
@@ -691,11 +708,21 @@ export default class ConsonantPage extends React.Component {
                                     onCheckboxClick={this.handleCheckBoxChange}
                                     onFilterClick={this.handleFilterItemClick}
                                     onClearFilterItems={this.clearFilterItems}
+                                    onClearAllFilters={this.clearAllFilters}
                                     clearFilterText={this.getConfig('filterPanel', 'clearFilterText')}
                                     clearAllFiltersText={this.getConfig('filterPanel', 'clearAllFiltersText')}
-                                    showTotalResults={this.getConfig('totalResults', 'display')}
-                                >
+                                    showTotalResults={this.getConfig('totalResults', 'display')}>
                                     {this.renderSearch('filtersTopSearch')}
+                                    {
+                                        this.getConfig('search', 'enabled') &&
+                                        window.innerWidth >= TABLET_MIN_WIDTH &&
+                                            <SearchIco onClick={this.handleSearchIcoClick} />
+
+                                    }
+                                    {
+                                        this.getConfig('sort', 'enabled') &&
+                                        this.renderSelect(true)
+                                    }
                                 </FiltersPanelTop>
                             }
                             {this.getConfig('filterPanel', 'type') !== FILTER_PANEL.TOP &&
@@ -716,12 +743,7 @@ export default class ConsonantPage extends React.Component {
                                     }
                                     {
                                         this.getConfig('sort', 'enabled') &&
-                                        <Select
-                                            opened={this.state.selectOpened}
-                                            val={this.state.selelectedFilterBy}
-                                            values={this.getConfig('sort', 'options')}
-                                            onOpen={this.handleSelectOpen}
-                                            onSelect={this.handleSelectChange} />
+                                        this.renderSelect(false)
                                     }
                                 </FiltersInfo>
                             }

@@ -19,6 +19,7 @@
 @consonant-filters-item-badge-height: unit((@consonant-root-rem * 1.5), px);
 @consonant-filters-item-badge-line-width: unit((@consonant-root-rem * 0.625), px);
 @consonant-filters-1200-break-width: unit((@consonant-root-rem * 12.75), px);
+@consonant-filters-top-filters-fade-width: unit((@consonant-root-rem * 3.5), px);
 
 .consonant-filters {
     position: static;
@@ -554,7 +555,199 @@
 
     // Top filter;
     &.consonant-filters_top {
-        border: 2px solid red;
+        &:extend(
+            .flex,
+            .flex .wrap,
+            .flex .justify .start,
+            .flex .align .stretch
+        );
+
+        .full-width;
+
+        margin: 0;
+        padding:
+            14/@consonant-root-rem
+            unit((@consonant-root-rem * 1.875), px)
+            20/@consonant-root-rem;
+
+        .consonant-filters--top-inner {
+            &:extend(
+                .flex,
+                .flex .justify .between,
+                .flex .align .stretch
+            );
+
+            max-width: 100%;
+        }
+
+        .consonant-filters--top-search-wrapper {
+            display: block;
+            order: -2;
+        }
+
+        .consonant-filters--top-filters-wrapper {
+            flex-grow: 1;
+            max-width: calc(~ '100% - ' @consonant-select-small-mobile-width ~ ' - ' unit((@consonant-root-rem * 0.5), px));
+
+            &:extend(
+                .flex,
+                .flex .justify .end,
+                .flex .align .stretch
+            );
+
+            .consonant-filters--top-filters {
+                &:extend(
+                    .flex,
+                    .flex .justify .start,
+                    .flex .align .stretch
+                );
+
+                margin-right: unit((@consonant-root-rem), px);
+                overflow-y: auto;
+
+                .consonant-filters--item {
+                    margin-right: 8/@consonant-root-rem;
+                    border: 0;
+
+                    &:after {
+                        width: unit((@consonant-root-rem * 0.375), px);
+                        height: unit((@consonant-root-rem * 0.375), px);
+                        top: 0;
+                        bottom: 0;
+                        right: unit((@consonant-root-rem * 0.5), px);
+                        margin: auto;
+                        border-color: @consonant-color-dark-grey-1;
+                        border-width: 1px;
+                        transform: rotate(-45deg) translate3d(2px, -1px, 0);
+                    }
+
+                    &.consonant-filters--item_selected {
+                        &:after {
+                            display: none;
+                        }
+
+                        & > .consonant-filters--item-inner .consonant-filters--item-name a {
+                            border-color: @consonant-color-brown-grey;
+                            padding-right: 0;
+                        }
+
+                        .consonant-filters--item-selcted-items {
+                            position: relative;
+                            margin: 0 0 0 9/@consonant-root-rem;
+                            padding: 0 6/@consonant-root-rem;
+                            overflow: visible;
+
+                            .font(
+                                14/@consonant-root-rem,
+                                19/@consonant-root-rem,
+                                400,
+                                @consonant-color-dark-grey-4
+                            );
+
+                            &:after {
+                                content: '';
+                                position: absolute;
+                                width: 1px;
+                                height: calc(~ '100% + 4px + 3px');
+                                left: 0;
+                                top: unit((@consonant-root-rem * 0.25), px) * -1;
+                                background-color: @consonant-color-lightest-grey;
+                            }
+
+                            &:empty {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    img {
+                        .hide-all;
+                    }
+                }
+            }
+        }
+
+        *:not(.consonant-filters--item_opened) > .consonant-filters--item-inner .consonant-filters--item-name a {
+            &:extend(
+                .flex,
+                .flex .justify .between,
+                .flex .align .center
+            );
+
+            padding:
+                5/@consonant-root-rem
+                unit((@consonant-root-rem * 1.0625), px)
+                6/@consonant-root-rem
+                unit((@consonant-root-rem * 0.75), px);
+            white-space: nowrap;
+
+            .font(
+                14/@consonant-root-rem,
+                19/@consonant-root-rem,
+                400,
+                @consonant-color-dark-grey-4,
+                left
+            );
+
+            border: 1px solid @consonant-color-lightest-grey;
+            border-radius: 4/@consonant-root-rem;
+        }
+
+        .consonant-filters--top-filters-btn-wrapper {
+            &:extend(
+                .flex,
+                .flex .justify .center,
+                .flex .align .center
+            );
+
+            position: relative;
+            max-width: 40%;
+
+            &:after {
+                content: '';
+                position: absolute;
+                width: @consonant-filters-top-filters-fade-width;
+                height: 100%;
+                background:
+                    transparent
+                    linear-gradient(
+                        270deg,
+                        rgba(255, 255, 255, 1) 0%,
+                        rgba(255, 255, 255, 0) 100%
+                    ) 0% 0% no-repeat padding-box;
+                top: 0;
+                bottom: 0;
+                right: 100%;
+                margin: auto;
+                z-index: 2;
+                pointer-events: none;
+            }
+
+            .consonant-filters--top-filters-btn {
+                padding: 0;
+                max-width: 100%;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+
+                .font(
+                    14/@consonant-root-rem,
+                    19/@consonant-root-rem,
+                    700,
+                    @consonant-color-blue,
+                    right
+                );
+
+                background-color: transparent;
+                border: 0;
+                outline: 0;
+            }
+        }
+
+        .consonant-filters--top-select-wrapper {
+            display: block;
+            order: -1;
+        }
     }
 
     @media @consonant-for-tablet-landscape-up {

@@ -14,6 +14,7 @@ const FilterItem = (props) => {
         onClearAll,
         results,
         clearFilterText,
+        isTopFilter,
     } = props;
     const handleCheck = (evt) => {
         onCheck(id, evt.target.value, evt.target.checked);
@@ -34,8 +35,17 @@ const FilterItem = (props) => {
         </button>
     );
 
+    const defineClassNames = () => {
+        const res = ['consonant-filters--item'];
+
+        if (isOpened) res.push('consonant-filters--item_opened');
+        if (items.filter(item => item.selected).length > 0) res.push('consonant-filters--item_selected');
+
+        return res.join(' ');
+    };
+
     return (
-        <div className={isOpened ? 'consonant-filters--item consonant-filters--item_opened' : 'consonant-filters--item'}>
+        <div className={defineClassNames()}>
             <div className="consonant-filters--item-inner">
                 <h3 className="consonant-filters--item-name">
                     {icon &&
@@ -51,6 +61,12 @@ const FilterItem = (props) => {
                             className="consonant-filters--item-selcted-items"
                             data-qty={itemsSelected > 0 ? `+${itemsSelected}` : ''}>
                             {
+                                isTopFilter &&
+                                items.filter(item => item.selected).length > 0 &&
+                                items.filter(item => item.selected).length
+                            }
+                            {
+                                !isTopFilter &&
                                 items.map((item, idx) => {
                                     let res = '';
 
@@ -117,10 +133,12 @@ FilterItem.propTypes = {
     isOpened: PropTypes.bool,
     results: PropTypes.number.isRequired,
     clearFilterText: PropTypes.string,
+    isTopFilter: PropTypes.bool,
 };
 
 FilterItem.defaultProps = {
     isOpened: false,
     itemsSelected: 0,
     clearFilterText: 'Clear',
+    isTopFilter: false,
 };
