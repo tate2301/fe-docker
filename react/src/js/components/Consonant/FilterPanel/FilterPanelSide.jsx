@@ -64,10 +64,15 @@ const FilterPanelSide = (props) => {
         </div>
     );
 
-    const renderChildren = (idx, key) => {
-        if (children[idx]) return children[idx];
-        return children.key === key ? children : null;
+    let updatedChildren = [];
+    const renderChildren = (key) => {
+        const res = updatedChildren.filter(el => el.key === key);
+
+        return res.length > 0 ? res : null;
     };
+
+    if (!Array.isArray(children)) updatedChildren.push(children);
+    else updatedChildren = children;
 
     return (
         <div className={showMobileFilters ? 'consonant-filters consonant-filters_opened' : 'consonant-filters'}>
@@ -78,7 +83,7 @@ const FilterPanelSide = (props) => {
                     {desktopFiltersClearBtn}
                 </div>
             }
-            {renderChildren(0, 'search')}
+            {renderChildren('filtersSideSearch')}
             {
                 filters.length > 0 &&
                     <div className="consonant-filters--list">
@@ -98,7 +103,7 @@ const FilterPanelSide = (props) => {
                                 clearFilterText={clearFilterText} />))}
                     </div>
             }
-            {renderChildren(1, 'bookmarks')}
+            {renderChildren(1, 'filtersSideBookmarks')}
             {mobileFiltersFooter}
         </div>
     );

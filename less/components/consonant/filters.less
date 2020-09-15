@@ -20,6 +20,7 @@
 @consonant-filters-item-badge-line-width: unit((@consonant-root-rem * 0.625), px);
 @consonant-filters-1200-break-width: unit((@consonant-root-rem * 12.75), px);
 @consonant-filters-top-filters-fade-width: unit((@consonant-root-rem * 3.5), px);
+@consonant-filters-top-select-wrapper-width: unit((@consonant-root-rem * 4.5625), px);
 
 .consonant-filters {
     position: static;
@@ -555,12 +556,7 @@
 
     // Top filter;
     &.consonant-filters_top {
-        &:extend(
-            .flex,
-            .flex .wrap,
-            .flex .justify .start,
-            .flex .align .stretch
-        );
+        display: block;
 
         .full-width;
 
@@ -574,7 +570,7 @@
             &:extend(
                 .flex,
                 .flex .justify .between,
-                .flex .align .stretch
+                .flex .align .start
             );
 
             max-width: 100%;
@@ -587,13 +583,35 @@
 
         .consonant-filters--top-filters-wrapper {
             flex-grow: 1;
-            max-width: calc(~ '100% - ' @consonant-select-small-mobile-width ~ ' - ' unit((@consonant-root-rem * 0.5), px));
+            max-width: calc(~ '100% - ' @consonant-filters-top-select-wrapper-width ~ ' - ' unit((@consonant-root-rem * 0.5), px));
 
             &:extend(
                 .flex,
                 .flex .justify .end,
-                .flex .align .stretch
+                .flex .align .start
             );
+
+            &:only-child {
+                max-width: 100%;
+                justify-content: flex-start;
+            }
+
+            .consonant-filters--top-filters-title {
+                display: none;
+                margin-right: unit((@consonant-root-rem * 0.75), px);
+                min-width: 10%;
+                max-width: 20%;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+
+                .font(
+                    16/@consonant-root-rem,
+                    32/@consonant-root-rem,
+                    600,
+                    @consonant-color-dark-grey-2
+                );
+            }
 
             .consonant-filters--top-filters {
                 &:extend(
@@ -621,14 +639,22 @@
                         transform: rotate(-45deg) translate3d(2px, -1px, 0);
                     }
 
-                    &.consonant-filters--item_selected {
+                    & > .consonant-filters--item-inner {
+                        background-color: @consonant-color-greyish-white-2;
+                    }
+
+                    &.consonant-filters--item_selected:not(.consonant-filters--item_opened) {
                         &:after {
                             display: none;
                         }
 
-                        & > .consonant-filters--item-inner .consonant-filters--item-name a {
-                            border-color: @consonant-color-brown-grey;
-                            padding-right: 0;
+                        & > .consonant-filters--item-inner {
+                            background-color: @consonant-color-lightest-grey-2;
+
+                            .consonant-filters--item-name a {
+                                border-color: @consonant-color-brown-grey;
+                                padding-right: 0;
+                            }
                         }
 
                         .consonant-filters--item-selcted-items {
@@ -732,7 +758,7 @@
 
                 .font(
                     14/@consonant-root-rem,
-                    19/@consonant-root-rem,
+                    32/@consonant-root-rem,
                     700,
                     @consonant-color-blue,
                     right
@@ -746,11 +772,58 @@
 
         .consonant-filters--top-select-wrapper {
             display: block;
+            max-width: @consonant-filters-top-select-wrapper-width;
+            margin-right: unit((@consonant-root-rem * 0.5), px);
             order: -1;
+            overflow: visible;
+
+            &:only-child {
+                max-width: @consonant-select-width;
+            }
+        }
+
+        .consonant-filters--top-search-ico-wrapper,
+        .consonant-filters--top-results-qty {
+            display: none;
         }
     }
 
     @media @consonant-for-tablet-landscape-up {
+        &.consonant-filters_top {
+            max-width: @consonant-card-collection-900-break-width;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 0;
+            padding-right: 0;
+            padding-bottom: 32/@consonant-root-rem;
+
+            .consonant-filters--top-filters-wrapper {
+                max-width: calc(~ '100% - ' @consonant-select-width ~ ' - ' unit((@consonant-root-rem), px));
+                justify-content: flex-start;
+                margin-right: unit((@consonant-root-rem), px);
+
+                .consonant-filters--top-filters-title {
+                    display: block;
+                }
+
+                .consonant-filters--top-filters {
+                    align-items: flex-start;
+                    flex-wrap: wrap;
+                    overflow-y: hidden;
+                }
+
+                .consonant-filters--item {
+                    margin-bottom: 8/@consonant-root-rem;
+                }
+            }
+
+            .consonant-filters--top-select-wrapper {
+                max-width: @consonant-select-width;
+                order: 0;
+                margin-left: auto;
+            }
+        }
+
         & + div {
             height: calc(~ '100vh - ' @header-900-break-height);
         }

@@ -17,10 +17,15 @@ const FiltersInfo = (props) => {
         children,
     } = props;
 
-    const renderChildren = (idx, key) => {
-        if (children[idx]) return children[idx];
-        return children.key === key ? children : null;
+    let updatedChildren = [];
+    const renderChildren = (key) => {
+        const res = updatedChildren.filter(el => el.key === key);
+
+        return res.length > 0 ? res : null;
     };
+
+    if (!Array.isArray(children)) updatedChildren.push(children);
+    else updatedChildren = children;
 
     return (
         <aside className="consonant-filters-info">
@@ -31,7 +36,7 @@ const FiltersInfo = (props) => {
                 </div>
             }
             <div className="consonant-filters-info--search">
-                {renderChildren(0, 'searchFilterPanel')}
+                {renderChildren('searchFiltersInfo')}
             </div>
             {windowWidth < DESKTOP_MIN_WIDTH && filters.length > 0 && enabled &&
                 <div className="consonant-filters-info--btn-wrapper">
@@ -54,7 +59,7 @@ const FiltersInfo = (props) => {
                     </button>
                 </div>
             }
-            {renderChildren(1, 'select')}
+            {renderChildren('selectFiltersInfo')}
             {windowWidth >= DESKTOP_MIN_WIDTH && selectedFiltersQty > 0 &&
                 <div
                     className="consonant-filters--selected-filters">

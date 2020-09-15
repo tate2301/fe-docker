@@ -648,14 +648,15 @@ export default class ConsonantPage extends React.Component {
             onSearch={this.handleSearchInputChange} />);
     }
 
-    renderSelect(smallOnMobile) {
+    renderSelect(autoWidth, key) {
         return (<Select
             opened={this.state.selectOpened}
             val={this.state.selelectedFilterBy}
             values={this.getConfig('sort', 'options')}
             onOpen={this.handleSelectOpen}
             onSelect={this.handleSelectChange}
-            smallOnMobile={smallOnMobile} />);
+            key={key}
+            autoWidth={autoWidth} />);
     }
 
     render() {
@@ -685,11 +686,11 @@ export default class ConsonantPage extends React.Component {
                                         {
                                             window.innerWidth >= DESKTOP_MIN_WIDTH &&
                                             this.getConfig('search', 'enabled') &&
-                                            this.renderSearch('search')
+                                            this.renderSearch('filtersSideSearch')
                                         }
                                         { this.getConfig('bookmarks', 'enabled') &&
                                             <Bookmarks
-                                                key="bookmarks"
+                                                key="filtersSideBookmarks"
                                                 selectedIco={this.getConfig('bookmarks', 'selectBookmarksIcon')}
                                                 unselectedIco={this.getConfig('bookmarks', 'unselectBookmarksIcon')}
                                                 selected={this.state.showFavourites}
@@ -712,16 +713,20 @@ export default class ConsonantPage extends React.Component {
                                     clearFilterText={this.getConfig('filterPanel', 'clearFilterText')}
                                     clearAllFiltersText={this.getConfig('filterPanel', 'clearAllFiltersText')}
                                     showTotalResults={this.getConfig('totalResults', 'display')}>
-                                    {this.renderSearch('filtersTopSearch')}
+                                    {this.getConfig('search', 'enabled') &&
+                                        this.renderSearch('filtersTopSearch')
+                                    }
                                     {
                                         this.getConfig('search', 'enabled') &&
                                         window.innerWidth >= TABLET_MIN_WIDTH &&
-                                            <SearchIco onClick={this.handleSearchIcoClick} />
+                                            <SearchIco
+                                                key="filtersTopSearchIco"
+                                                onClick={this.handleSearchIcoClick} />
 
                                     }
                                     {
                                         this.getConfig('sort', 'enabled') &&
-                                        this.renderSelect(true)
+                                        this.renderSelect(true, 'filtersTopSelect')
                                     }
                                 </FiltersPanelTop>
                             }
@@ -739,11 +744,11 @@ export default class ConsonantPage extends React.Component {
                                     {
                                         this.getConfig('search', 'enabled') &&
                                         window.innerWidth < DESKTOP_MIN_WIDTH &&
-                                            this.renderSearch('searchFilterPanel')
+                                            this.renderSearch('searchFiltersInfo')
                                     }
                                     {
                                         this.getConfig('sort', 'enabled') &&
-                                        this.renderSelect(false)
+                                        this.renderSelect(false, 'selectFiltersInfo')
                                     }
                                 </FiltersInfo>
                             }

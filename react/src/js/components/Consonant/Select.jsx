@@ -8,13 +8,13 @@ const Select = (props) => {
         values,
         onOpen,
         onSelect,
-        smallOnMobile,
+        autoWidth,
     } = props;
 
     return (
         <div className={
-            smallOnMobile ?
-                'consonant-select consonant-select_small-mobile' :
+            autoWidth ?
+                'consonant-select consonant-select_auto-width' :
                 'consonant-select'
         }>
             <button
@@ -55,10 +55,10 @@ Select.propTypes = {
     onOpen: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired,
     values: PropTypes.arrayOf(PropTypes.object).isRequired,
-    smallOnMobile: PropTypes.bool,
+    autoWidth: PropTypes.bool,
 };
 
 Select.defaultProps = {
     opened: false,
-    smallOnMobile: false,
+    autoWidth: false,
 };
