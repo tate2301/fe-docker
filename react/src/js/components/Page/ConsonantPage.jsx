@@ -49,6 +49,7 @@ export default class ConsonantPage extends React.Component {
             filters: [],
             lastFilterWasChecked: false,
             searchQuery: '',
+            showTopFilterSearch: false,
             selectOpened: false,
             selelectedFilterBy: this.getDefaultSortOption(),
             showItemsPerPage: this.getConfig('collection', 'resultsPerPage'),
@@ -636,16 +637,17 @@ export default class ConsonantPage extends React.Component {
         });
     }
 
-    handleSearchIcoClick() {
-        alert(1);
+    handleSearchIcoClick(evt) {
+        this.setState({ showTopFilterSearch: evt.type === 'click' });
     }
 
-    renderSearch(key) {
+    renderSearch(key, onBlur = false) {
         return (<Search
             key={key}
             placeholderText={this.getConfig('search', 'placeholderText')}
             value={this.state.searchQuery}
-            onSearch={this.handleSearchInputChange} />);
+            onSearch={this.handleSearchInputChange}
+            onBlur={onBlur} />);
     }
 
     renderSelect(autoWidth, key) {
@@ -712,9 +714,10 @@ export default class ConsonantPage extends React.Component {
                                     onClearAllFilters={this.clearAllFilters}
                                     clearFilterText={this.getConfig('filterPanel', 'clearFilterText')}
                                     clearAllFiltersText={this.getConfig('filterPanel', 'clearAllFiltersText')}
-                                    showTotalResults={this.getConfig('totalResults', 'display')}>
+                                    showTotalResults={this.getConfig('totalResults', 'display')}
+                                    showSearchbar={this.state.showTopFilterSearch}>
                                     {this.getConfig('search', 'enabled') &&
-                                        this.renderSearch('filtersTopSearch')
+                                        this.renderSearch('filtersTopSearch', this.handleSearchIcoClick)
                                     }
                                     {
                                         this.getConfig('search', 'enabled') &&

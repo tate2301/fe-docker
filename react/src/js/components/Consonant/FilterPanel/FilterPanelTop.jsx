@@ -9,6 +9,7 @@ const FiltersPanelTop = (props) => {
         filters,
         resQty,
         showTotalResults,
+        showSearchbar,
         onCheckboxClick,
         onFilterClick,
         onClearAllFilters,
@@ -29,15 +30,14 @@ const FiltersPanelTop = (props) => {
     if (!Array.isArray(children)) updatedChildren.push(children);
     else updatedChildren = children;
 
-    console.log('RECEIVED CHILDREN', updatedChildren);
-
     return (
         <div className="consonant-filters consonant-filters_top">
             {
                 updatedChildren.some(el => el.key === 'filtersTopSearch') &&
-                <div className="consonant-filters--top-search-wrapper">
-                    {renderChildren('filtersTopSearch')}
-                </div>
+                window.innerWidth < TABLET_MIN_WIDTH &&
+                    <div className="consonant-filters--top-search-wrapper">
+                        {renderChildren('filtersTopSearch')}
+                    </div>
             }
             <div className="consonant-filters--top-inner">
                 {filters.length > 0 &&
@@ -73,13 +73,19 @@ const FiltersPanelTop = (props) => {
                     </div>
                 }
                 {window.innerWidth >= TABLET_MIN_WIDTH && showTotalResults &&
-                    <span className="consonant-filters--top-results-qty">{resQty}</span>
+                    <span className="consonant-filters--top-results-qty">
+                        <strong>{resQty} </strong>results
+                    </span>
                 }
                 {
                     updatedChildren.some(el => el.key === 'filtersTopSearchIco') &&
                     window.innerWidth >= TABLET_MIN_WIDTH &&
                         <div className="consonant-filters--top-search-ico-wrapper">
-                            {renderChildren('filtersTopSearchIco')}
+                            {
+                                showSearchbar ?
+                                    renderChildren('filtersTopSearch') :
+                                    renderChildren('filtersTopSearchIco')
+                            }
                         </div>
                 }
                 {updatedChildren.some(el => el.key === 'filtersTopSelect') &&
@@ -110,11 +116,13 @@ FiltersPanelTop.propTypes = {
     clearFilterText: PropTypes.string.isRequired,
     clearAllFiltersText: PropTypes.string.isRequired,
     showTotalResults: PropTypes.bool,
+    showSearchbar: PropTypes.bool,
 };
 
 FiltersPanelTop.defaultProps = {
     filters: [],
     resQty: 0,
     showTotalResults: true,
+    showSearchbar: false,
     children: [],
 };

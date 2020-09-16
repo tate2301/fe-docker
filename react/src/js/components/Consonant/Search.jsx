@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Search = (props) => {
-    const { value, onSearch, placeholderText } = props;
+    const {
+        value, onSearch, onBlur, placeholderText,
+    } = props;
+
     const handleSearch = (evt) => {
         onSearch(evt.target.value);
     };
@@ -21,6 +24,7 @@ const Search = (props) => {
                         placeholder={placeholderText}
                         value={value}
                         onChange={handleSearch}
+                        onBlur={onBlur}
                         required />
                     <button
                         type="button"
@@ -38,6 +42,7 @@ export default Search;
 
 Search.propTypes = {
     onSearch: PropTypes.func.isRequired,
+    onBlur: PropTypes.func,
     value: PropTypes.string,
     placeholderText: PropTypes.string,
 };
@@ -45,4 +50,5 @@ Search.propTypes = {
 Search.defaultProps = {
     value: '',
     placeholderText: 'Search here...',
+    onBlur: () => {},
 };

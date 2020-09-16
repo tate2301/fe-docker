@@ -21,6 +21,8 @@
 @consonant-filters-1200-break-width: unit((@consonant-root-rem * 12.75), px);
 @consonant-filters-top-filters-fade-width: unit((@consonant-root-rem * 3.5), px);
 @consonant-filters-top-select-wrapper-width: unit((@consonant-root-rem * 4.5625), px);
+@consonant-filters-top-qty-hor-space: unit((@consonant-root-rem * 1.25), px);
+@consonant-filters-top-search-width: unit((@consonant-root-rem * 16.75), px);
 
 .consonant-filters {
     position: static;
@@ -823,6 +825,54 @@
                 max-width: @consonant-select-width;
                 order: 0;
                 margin-left: auto;
+            }
+
+            // Can't use extend here, limitation of LESS;
+            .consonant-filters--top-search-ico-wrapper {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-width: calc(@consonant-search-ico-size ~ ' + ' unit((@consonant-root-rem * 2.5), px));
+                min-height: unit((@consonant-root-rem * 2), px);
+
+                & > div {
+                    position: absolute;
+                    width: @consonant-filters-top-search-width;
+                    top: 0;
+                    right: unit((@consonant-root-rem * 1.25), px);
+                    z-index: 1;
+                }
+            }
+
+            .consonant-filters--top-results-qty {
+                position: relative;
+                display: block;
+                min-width: unit((@consonant-root-rem * 6.875), px);
+                padding-left: @consonant-filters-top-qty-hor-space;
+                padding-right: @consonant-filters-top-qty-hor-space;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    width: 1px;
+                    height: unit((@consonant-root-rem * 2), px);
+                    background-color: @consonant-color-lightest-grey;
+                    z-index: 1;
+                }
+
+                .font(
+                    14/@consonant-root-rem,
+                    32/@consonant-root-rem,
+                    400,
+                    @consonant-color-brown-grey,
+                    center
+                );
             }
         }
 
