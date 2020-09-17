@@ -93,8 +93,7 @@ FiltersInfo.propTypes = {
     onMobileFiltersToggleClick: PropTypes.func.isRequired,
     onSelectedFilterClick: PropTypes.func.isRequired,
     children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.element),
-        PropTypes.arrayOf(PropTypes.bool),
+        PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.bool, PropTypes.element])),
         PropTypes.element,
         PropTypes.bool,
     ]),
