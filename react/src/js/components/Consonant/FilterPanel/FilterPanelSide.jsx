@@ -103,7 +103,7 @@ const FilterPanelSide = (props) => {
                                 clearFilterText={clearFilterText} />))}
                     </div>
             }
-            {renderChildren(1, 'filtersSideBookmarks')}
+            {renderChildren('filtersSideBookmarks')}
             {mobileFiltersFooter}
         </div>
     );

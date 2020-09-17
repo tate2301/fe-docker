@@ -127,7 +127,6 @@ export default class ConsonantPage extends React.Component {
                 card.isBookmarked = false;
                 return card;
             };
-
             const filterCardsPerDateRange = (cards) => {
                 if (!Array.isArray(cards)) return [];
 
@@ -146,7 +145,7 @@ export default class ConsonantPage extends React.Component {
             let { featuredCards } = this.props.config || [];
             const filters = this.getConfig('filterPanel', 'filters');
 
-            if (!res || !res.cards) return;
+            if (!res || (res.cards && res.cards.length <= 0)) return;
 
             let cards = removeSameCardIds(this.state.cards, res.cards);
 
@@ -155,12 +154,19 @@ export default class ConsonantPage extends React.Component {
                 return el;
             });
             cards = removeSameCardIds(featuredCards, cards);
+
+            // If this.config.bookmarks.bookmarkOnlyCollection;
+            if (this.getConfig('bookmarks', 'bookmarkOnlyCollection')) {
+                this.getBookMarksFromLS(false);
+                cards = cards.filter(c => this.state.bookmarkedCards.some(el => el === c.id));
+            }
+
             cards = filterCardsPerDateRange(cards);
             cards = applyCardLimitToLoadedCards(cards).map(card => processCard(card));
             this.setState({
                 cards,
                 filters: filters.map((el) => {
-                    el.opened = false;
+                    el.opened = window.innerWidth >= DESKTOP_MIN_WIDTH ? el.openedOnLoad : false;
                     el.items = el.items.map((item) => {
                         item.selected = false;
                         return item;
@@ -224,6 +230,7 @@ export default class ConsonantPage extends React.Component {
             },
             bookmarks: {
                 enabled: true,
+                bookmarkOnlyCollection: false,
                 cardSavedIcon: '',
                 cardUnsavedIcon: '',
                 selectBookmarksIcon: '',
@@ -301,11 +308,14 @@ export default class ConsonantPage extends React.Component {
         return filters;
     }
 
-    getBookMarksFromLS() {
+    getBookMarksFromLS(doUpdate = true) {
         const data = JSON.parse(localStorage.getItem('bookmarks'));
 
         if (Array.isArray(data)) {
-            this.setState({ bookmarkedCards: data }, this.updateCardsWithBookmarks);
+            this.setState(
+                { bookmarkedCards: data },
+                () => { if (doUpdate) this.updateCardsWithBookmarks(); },
+            );
         }
     }
 

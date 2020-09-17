@@ -11,7 +11,7 @@
 .bookmarks {
     position: relative;
     margin-top: auto;
-    padding: 17/@consonant-root-rem unit((@consonant-root-rem), px);
+    padding: 19/@consonant-root-rem unit((@consonant-root-rem), px);
     background-color: transparent;
 
     .no-border-no-outline;
@@ -69,7 +69,7 @@
         .no-border-no-outline;
     }
 
-    .bookmarks--ico-wrapper .bookmarks-ico,
+    .bookmarks--ico-wrapper .bookmarks--ico,
     .bookmarks--ico-wrapper img {
         display: block;
         width: @bookmarks-ico-wrapper-max-size;
@@ -78,11 +78,8 @@
         margin-right: unit((@consonant-root-rem * 0.375), px);
     }
 
-    .bookmarks-ico {
-        min-width: @bookmarks-heart-ico-width;
-        max-width: @bookmarks-heart-ico-width;
-        min-height: @bookmarks-heart-ico-height;
-        max-height: @bookmarks-heart-ico-height;
+    .bookmarks--ico {
+        min-height: @bookmarks-ico-wrapper-max-size;
         background: transparent url(@consonant-filters-heart-data) no-repeat 0 0;
         background-size: contain;
     }
@@ -90,9 +87,10 @@
     .bookmarks--title {
         display: block;
         padding-right: unit((@consonant-root-rem * 2.25), px);
+        padding-bottom: unit((@consonant-root-rem * 0.0625), px);
 
         .font(
-            @line-height: 21/@consonant-root-rem,
+            @line-height: 16/@consonant-root-rem,
             @weight: 700,
             @color: @consonant-color-brown-grey
         );
