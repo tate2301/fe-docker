@@ -125,6 +125,21 @@ export default class ConsonantPage extends React.Component {
                 return card;
             };
 
+            const filterCardsPerDateRange = (cards) => {
+                if (!Array.isArray(cards)) return [];
+
+                const currentDate = new Date().getTime();
+
+                return cards.filter((card) => {
+                    if (!card.showCardFrom) return card;
+
+                    const dates = card.showCardFrom.split(' - ').map(date => new Date(date).getTime());
+
+                    return dates.every(date => Number.isInteger(date)) &&
+                    (currentDate >= dates[0] && currentDate <= dates[1]) ? card : null;
+                });
+            };
+
             let { featuredCards } = this.props.config || [];
             const filters = this.getConfig('filterPanel', 'filters');
 
@@ -137,6 +152,7 @@ export default class ConsonantPage extends React.Component {
                 return el;
             });
             cards = removeSameCardIds(featuredCards, cards);
+            cards = filterCardsPerDateRange(cards);
             cards = applyCardLimitToLoadedCards(cards).map(card => processCard(card));
             this.setState({
                 cards,
@@ -641,7 +657,7 @@ export default class ConsonantPage extends React.Component {
         this.setState({ showTopFilterSearch: evt.type === 'click' });
     }
 
-    renderSearch(key, onBlur = false) {
+    renderSearch(key, onBlur) {
         return (<Search
             key={key}
             placeholderText={this.getConfig('search', 'placeholderText')}
