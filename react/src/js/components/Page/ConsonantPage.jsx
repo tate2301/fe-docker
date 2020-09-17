@@ -30,8 +30,10 @@ const FILTER_PANEL = {
 };
 const SORTING_OPTION = {
     FEATURED: 'initialTitle',
-    DATE: 'lastModified',
-    TITLE: 'initialTitle',
+    DATEASC: 'lastModified',
+    DATEDESC: 'lastModified',
+    TITLEASC: 'initialTitle',
+    TITLEDESC: 'initialTitle',
 };
 const TRUNCATE_TEXT_QTY = 200;
 let updateDimensionsTimer;
@@ -64,14 +66,15 @@ export default class ConsonantPage extends React.Component {
         this.clearFilterItems = this.clearFilterItems.bind(this);
         this.loadData = this.loadData.bind(this);
         this.setCardsToShowQty = this.setCardsToShowQty.bind(this);
+        this.getDefaultSortOption = this.getDefaultSortOption.bind(this);
         this.getCardsToShowQty = this.getCardsToShowQty.bind(this);
+        this.getActiveFiltersIds = this.getActiveFiltersIds.bind(this);
+        this.getBookMarksFromLS = this.getBookMarksFromLS.bind(this);
         this.handleSelectChange = this.handleSelectChange.bind(this);
         this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
         this.handleFilterItemClick = this.handleFilterItemClick.bind(this);
         this.handleCheckBoxChange = this.handleCheckBoxChange.bind(this);
         this.handleFiltersToggle = this.handleFiltersToggle.bind(this);
-        this.getActiveFiltersIds = this.getActiveFiltersIds.bind(this);
-        this.getBookMarksFromLS = this.getBookMarksFromLS.bind(this);
         this.filterCards = this.filterCards.bind(this);
         this.sortCards = this.sortCards.bind(this);
         this.searchCards = this.searchCards.bind(this);
@@ -199,6 +202,7 @@ export default class ConsonantPage extends React.Component {
             },
             sort: {
                 enabled: true,
+                defaultSort: 'featured',
                 options: [
                     {
                         label: 'Featured',
@@ -250,6 +254,7 @@ export default class ConsonantPage extends React.Component {
     }
 
     getDefaultSortOption() {
+        const query = this.getConfig('sort', 'defaultSort');
         const { sort } = this.props.config;
         let res = {
             label: 'Featured',
@@ -257,7 +262,7 @@ export default class ConsonantPage extends React.Component {
         };
 
         if (sort && sort.options) {
-            const filtered = sort.options.filter(el => el.sort === 'featured');
+            const filtered = sort.options.filter(el => el.sort === query);
             if (filtered && filtered.length) [res] = filtered;
         }
 
@@ -407,18 +412,25 @@ export default class ConsonantPage extends React.Component {
 
     sortCards(field) {
         const val = SORTING_OPTION[field.toUpperCase().trim()];
-        const featuredLabel = 'featured';
+        let sorted;
 
         if (!val) return;
 
-        const sorted = [...this.state.filteredCards].sort((a, b) => {
-            if (a[val] < b[val]) return -1;
-            if (a[val] > b[val]) return 1;
-            return 0;
-        });
+        // Sorting for featured and date;
+        if (['dateascending', 'datedescending'].some(el => el === field.toLowerCase())) {
+            sorted = [...this.state.filteredCards].sort((a, b) => {
+                if (a[val] < b[val]) return -1;
+                if (a[val] > b[val]) return 1;
+                return 0;
+            });
+        } else {
+            sorted = [...this.state.filteredCards].sort((a, b) => a[val].localeCompare(b[val], 'en', { numeric: true }));
+        }
+
+        if (field.toLowerCase().indexOf('desc') >= 0) sorted.reverse();
 
         // In case of featured, move featured items to the top;
-        if (field === featuredLabel) {
+        if (field === 'featured') {
             sorted.sort(a => (a.isFeatured ? -1 : 0))
                 .sort((a, b) => (
                     (a.isFeatured && b.isFeatured) &&
