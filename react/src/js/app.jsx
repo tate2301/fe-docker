@@ -6,7 +6,7 @@ import authorWatch from './watch';
 import SearchPageDOM from "./components/Page/SearchPageDOM";
 import CollectionPageDOM from "./components/Page/CollectionPageDOM";
 import ConsonantPageDOM from "./components/Page/ConsonantPageDOM";
-import ConsonantPage from "./components/Page/ConsonantPage";
+import ConsonantWrapper from "./components/Page/ConsonantWrapper";
 
 const searchPage = new SearchPageDOM();
 const collectionPage = new CollectionPageDOM();
@@ -15,7 +15,7 @@ const consonantPage = new ConsonantPageDOM();
 class WrapperCardCollectionComponent {
     constructor(config, element) {
         ReactDOM.render((<React.Fragment>
-            <ConsonantPage config={config} />
+            <ConsonantWrapper config={config} />
         </React.Fragment>), element);
     }
 }

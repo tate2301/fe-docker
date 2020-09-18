@@ -1,9 +1,9 @@
-@consonant-page-600-break-width: unit((@consonant-root-rem * 31.5), px);
-@consonant-page-900-break-width: unit((@consonant-root-rem * 47.25), px);
-@consonant-page-1200-break-width: unit((@consonant-root-rem * 75), px);
-@consonant-page-1440-break-width: unit((@consonant-root-rem * 74.9375), px);
+@consonant-wrapper-600-break-width: unit((@consonant-root-rem * 31.5), px);
+@consonant-wrapper-900-break-width: unit((@consonant-root-rem * 47.25), px);
+@consonant-wrapper-1200-break-width: unit((@consonant-root-rem * 75), px);
+@consonant-wrapper-1440-break-width: unit((@consonant-root-rem * 74.9375), px);
 
-.consonant-page {
+.consonant-wrapper {
     &:extend(
         .flex,
         .flex .justify .between,
@@ -16,7 +16,7 @@
     overflow: hidden;
     .margin-auto;
 
-    .consonant-page--inner {
+    .consonant-wrapper--inner {
         .full-width;
 
         & > div:last-of-type,
@@ -30,16 +30,16 @@
     }
 
     @media @consonant-for-tablet-portrait-up {
-        .consonant-page--inner {
-            max-width: @consonant-page-600-break-width;
+        .consonant-wrapper--inner {
+            max-width: @consonant-wrapper-600-break-width;
             margin-left: auto;
             margin-right: auto;
         }
     }
 
     @media @consonant-for-tablet-landscape-up {
-        .consonant-page--inner {
-            max-width: @consonant-page-900-break-width;
+        .consonant-wrapper--inner {
+            max-width: @consonant-wrapper-900-break-width;
 
             > div:last-of-type {
                 min-height: 80vh;
@@ -48,12 +48,12 @@
     }
 
     @media @consonant-for-desktop-up {
-        .consonant-page--inner {
+        .consonant-wrapper--inner {
             // Can't use extend here, limitation of LESS;
             display: flex;
             justify-content: center;
             align-items: stretch;
-            max-width: @consonant-page-1200-break-width;
+            max-width: @consonant-wrapper-1200-break-width;
 
             > span:last-of-type,
             > div:last-of-type {
@@ -64,8 +64,8 @@
 }
 
 @media @consonant-for-big-desktop-up {
-    header + section.consonant-page,
-    header + section.consonant-page .consonant-page--inner {
-        max-width: @consonant-page-1440-break-width;
+    header + section.consonant-wrapper,
+    header + section.consonant-wrapper .consonant-wrapper--inner {
+        max-width: @consonant-wrapper-1440-break-width;
     }
 }

@@ -91,7 +91,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/react/src/js/components/Page/ConsonantPage.jsx">
+        <entry file="file://$PROJECT_DIR$/react/src/js/components/Page/ConsonantWrapper.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="297">
               <caret line="181" column="34" selection-start-line="181" selection-start-column="26" selection-end-line="181" selection-end-column="34" />
@@ -203,7 +203,7 @@
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/copilot/fe/manifest.yml" />
-        <option value="$PROJECT_DIR$/react/src/js/components/Page/ConsonantPage.jsx" />
+        <option value="$PROJECT_DIR$/react/src/js/components/Page/ConsonantWrapper.jsx" />
         <option value="$PROJECT_DIR$/consonant.html" />
       </list>
     </option>
@@ -532,7 +532,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/react/src/js/components/Page/ConsonantPage.jsx">
+    <entry file="file://$PROJECT_DIR$/react/src/js/components/Page/ConsonantWrapper.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="181" column="34" selection-start-line="181" selection-start-column="26" selection-end-line="181" selection-end-column="34" />

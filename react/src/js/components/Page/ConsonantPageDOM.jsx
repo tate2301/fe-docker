@@ -1,5 +1,5 @@
 import { DOMModel, DOMComponent } from 'react-dom-components';
-import ConsonantPage from './ConsonantPage';
+import ConsonantWrapper from './ConsonantWrapper';
 
 class ConsonantPageModel extends DOMModel {
     constructor(element) {
@@ -43,6 +43,6 @@ export default class ConsonantPageDOM extends DOMComponent {
         super();
         this.nodeName = 'consonant-page-hook';
         this.model = ConsonantPageModel;
-        this.component = ConsonantPage;
+        this.component = ConsonantWrapper;
     }
 }

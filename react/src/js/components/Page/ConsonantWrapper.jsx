@@ -39,7 +39,7 @@ const SORTING_OPTION = {
 const TRUNCATE_TEXT_QTY = 200;
 let updateDimensionsTimer;
 
-export default class ConsonantPage extends React.Component {
+export default class ConsonantWrapper extends React.Component {
     constructor(props) {
         super(props);
         this.props = props;
@@ -693,8 +693,8 @@ export default class ConsonantPage extends React.Component {
             <Fragment>
                 {this.getConfig('header', 'enabled') && <ConsonantHeader />}
                 <section
-                    className="consonant-page">
-                    <div className="consonant-page--inner">
+                    className="consonant-wrapper">
+                    <div className="consonant-wrapper--inner">
                         <span>
                             {
                                 this.getConfig('filterPanel', 'enabled') &&
@@ -826,7 +826,7 @@ export default class ConsonantPage extends React.Component {
     }
 }
 
-ConsonantPage.propTypes = {
+ConsonantWrapper.propTypes = {
     config: PropTypes.shape({
         collection: PropTypes.shape({
             resultsPerPage: PropTypes.number,
@@ -872,6 +872,6 @@ ConsonantPage.propTypes = {
     }),
 };
 
-ConsonantPage.defaultProps = {
+ConsonantWrapper.defaultProps = {
     config: {},
 };
