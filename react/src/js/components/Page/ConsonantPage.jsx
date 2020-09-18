@@ -211,20 +211,7 @@ export default class ConsonantPage extends React.Component {
             sort: {
                 enabled: true,
                 defaultSort: 'featured',
-                options: [
-                    {
-                        label: 'Featured',
-                        sort: 'featured',
-                    },
-                    {
-                        label: 'Date',
-                        sort: 'date',
-                    },
-                    {
-                        label: 'Title',
-                        sort: 'title',
-                    },
-                ],
+                options: [],
             },
             pagination: {
                 enabled: true,
@@ -769,6 +756,7 @@ export default class ConsonantPage extends React.Component {
                                     }
                                     {
                                         this.getConfig('sort', 'enabled') &&
+                                        this.getConfig('sort', 'options').length > 0 &&
                                         this.renderSelect(true, 'filtersTopSelect')
                                     }
                                 </FiltersPanelTop>
@@ -791,6 +779,7 @@ export default class ConsonantPage extends React.Component {
                                     }
                                     {
                                         this.getConfig('sort', 'enabled') &&
+                                        this.getConfig('sort', 'options').length > 0 &&
                                         this.renderSelect(false, 'selectFiltersInfo')
                                     }
                                 </FiltersInfo>

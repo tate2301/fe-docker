@@ -90,6 +90,10 @@
         z-index: -1;
         border-radius: unit((@consonant-root-rem * 0.3125), px);
         overflow: hidden;
+
+        &:empty {
+            .hide-all;
+        }
     }
 
     .consonant-select--option {

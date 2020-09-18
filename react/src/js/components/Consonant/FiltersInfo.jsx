@@ -30,7 +30,11 @@ const FiltersInfo = (props) => {
     return (
         <aside className="consonant-filters-info">
             {windowWidth >= DESKTOP_MIN_WIDTH &&
-                <div className="consonant-filters-info--wrapper">
+                <div className={
+                    renderChildren('selectFiltersInfo') ?
+                        'consonant-filters-info--wrapper' :
+                        'consonant-filters-info--wrapper consonant-filters-info--wrapper_no-line'
+                }>
                     {title && <h2 className="consonant-filters-info--title">{title}</h2>}
                     {showTotalResults && <span className="consonant-filters-info--results">{cardsQty} results</span>}
                 </div>
