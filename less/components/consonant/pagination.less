@@ -4,6 +4,7 @@
 - .consonant-pagination_first;
 */
 
+@consonant-pagination-item-size: unit((@consonant-root-rem * 2), px);
 @consonant-pagination-btn-max-width: unit((@consonant-root-rem * 4.375), px);
 
 .consonant-pagination {
@@ -14,24 +15,36 @@
 
     .full-width;
 
-    display: none;
-    overflow: hidden;
+    margin-bottom: 50/@consonant-root-rem;
     user-select: none;
 
     .consonant-pagination--paginator {
+        min-width: @consonant-card-collection-less-600-break-width;
+        max-width: @consonant-card-collection-less-600-break-width;
+        margin-left: auto;
+        margin-right: auto;
+
         &:extend(
             .flex,
+            .flex .justify .between,
             .flex .align .center
         );
+
+        overflow-x: auto;
     }
 
     .consonant-pagination--btn {
-        max-width: @consonant-pagination-btn-max-width;
         padding-left: 0;
         padding-right: 0;
 
-        .font(@color: @consonant-color-brown-grey);
+        .font(
+            14/@consonant-root-rem,
+            19/@consonant-root-rem,
+            700,
+            @consonant-color-light-grey-3
+        );
 
+        white-space: nowrap;
         text-transform: capitalize;
         background-color: transparent;
 
@@ -47,21 +60,22 @@
         margin: 0;
         padding:
             0
-            unit((@consonant-root-rem * 1.25), px)
+            unit((@consonant-root-rem * 0.75), px)
             0
-            unit((@consonant-root-rem * 1.5), px);
+            unit((@consonant-root-rem * 1.25), px);
         list-style-type: none;
     }
 
     .consonant-pagination--item {
-        margin-right: unit((@consonant-root-rem * 0.5625), px);
+        margin-right: unit((@consonant-root-rem * 0.5), px);
 
         &:hover .consonant-pagination--item-btn {
             color: @consonant-color-dark-grey-2;
         }
 
         &:active .consonant-pagination--item-btn {
-            color: @consonant-color-lightest-grey-3;
+            color: @consonant-color-dark-grey-2;
+            background-color: @consonant-color-lightest-grey-3;
         }
 
         &:hover .consonant-pagination--item-btn:disabled,
@@ -73,50 +87,41 @@
         }
 
         &.consonant-pagination--item_active {
-            &:hover .consonant-pagination--item-btn,
-            &:active .consonant-pagination--item-btn,
             .consonant-pagination--item-btn {
                 background-color: @consonant-color-lightest-grey-3;
+                color: @consonant-color-light-grey-3;
+            }
+
+            &:hover .consonant-pagination--item-btn,
+            &:active .consonant-pagination--item-btn {
+                color: @consonant-color-dark-grey-2;
             }
 
             .consonant-pagination--item-btn:disabled {
+                color: @consonant-color-lightest-grey-4;
                 background-color: @consonant-color-lightest-grey;
             }
         }
 
-        &:nth-of-type(n+9) {
+        &:nth-of-type(n+5) {
             display: none;
-        }
-
-        &:nth-of-type(9) {
-            display: list-item;
-            pointer-events: none;
-
-            .consonant-pagination--item-btn {
-                display: flex;
-
-                .no-font;
-
-                &:after {
-                    content: '...';
-
-                    .font(@color: @consonant-color-brown-grey);
-                }
-            }
-        }
-
-        &:last-of-type {
-            display: list-item;
-            margin-right: 0;
         }
     }
 
     .consonant-pagination--item-btn {
         position: relative;
+        min-width: @consonant-pagination-item-size;
+        min-height: @consonant-pagination-item-size;
         max-width: @consonant-pagination-btn-max-width;
-        padding: 8/@consonant-root-rem unit((@consonant-root-rem * 0.75), px);
+        padding: 8/@consonant-root-rem unit((@consonant-root-rem * 0.625), px);
 
-        .font(@color: @consonant-color-light-grey-3);
+        .font(
+            14/@consonant-root-rem,
+            14/@consonant-root-rem,
+            400,
+            @consonant-color-light-grey-3,
+            center
+        );
 
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -148,12 +153,21 @@
     }
 
     .consonant-pagination--summary {
-        &:extend(
-            .flex,
-            .flex .align .center
+        display: none;
+        min-width: 30%;
+        max-width: 30%;
+
+        &:extend(.flex .align .center);
+
+        .font(
+            14/@consonant-root-rem,
+            21/@consonant-root-rem,
+            400,
+            @consonant-color-brown-grey,
+            right
         );
 
-        .font(@color: @consonant-color-brown-grey);
+        margin-left: auto;
 
         strong {
             padding-left: unit((@consonant-root-rem * 0.3125), px);
@@ -162,12 +176,64 @@
         }
     }
 
-    &.consonant-pagination_last .consonant-pagination--btn:last-of-type,
-    &.consonant-pagination_first .consonant-pagination--btn:first-of-type {
-        visibility: hidden;
+    &.consonant-pagination_first .consonant-pagination--btn:first-of-type,
+    &.consonant-pagination_last .consonant-pagination--btn:last-of-type {
+        color: @consonant-color-lightest-grey-4;
+        pointer-events: none;
+    }
+
+    @media @consonant-for-tablet-portrait-up {
+        .consonant-pagination--paginator {
+            min-width: @consonant-card-collection-600-break-width;
+            max-width: @consonant-card-collection-600-break-width;
+        }
+    }
+
+    @media @consonant-for-tablet-landscape-up {
+        .consonant-pagination--paginator {
+            min-width: unset;
+            max-width: 100%;
+            justify-content: center;
+        }
     }
 
     @media @consonant-for-desktop-up {
+        // Can't use extend here, limitation of LESS;
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-width: @consonant-card-collection-1200-break-width;
+        max-width: @consonant-card-collection-1200-break-width;
+        margin-bottom: unit((@consonant-root-rem * 6.25), px);
+
+        .consonant-pagination--paginator {
+            justify-content: flex-start;
+            margin: 0;
+        }
+
+        .consonant-pagination--btn {
+            max-width: 15%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .consonant-pagination--item {
+            &:nth-of-type(n+5) {
+                display: list-item;
+            }
+
+            &:nth-of-type(n+11) {
+                display: none;
+            }
+        }
+
+        .consonant-pagination--summary {
+            display: block;
+        }
+    }
+
+    @media @consonant-for-big-desktop-up {
+        min-width: @consonant-card-collection-1440-break-width;
+        max-width: @consonant-card-collection-1440-break-width;
     }
 }

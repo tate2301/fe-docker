@@ -5,6 +5,7 @@ import Collection from '../Consonant/Collection';
 import ConsonantHeader from '../Consonant/Header';
 import FiltersInfo from '../Consonant/FiltersInfo';
 import LoadMore from '../Consonant/LoadMore';
+import Pagination from '../Consonant/Pagination';
 import Loader from '../Consonant/Loader';
 import Search from '../Consonant/Search';
 import Select from '../Consonant/Select';
@@ -138,7 +139,7 @@ export default class ConsonantPage extends React.Component {
                     const dates = card.showCardFrom.split(' - ').map(date => new Date(date).getTime());
 
                     return dates.every(date => Number.isInteger(date)) &&
-                    (currentDate >= dates[0] && currentDate <= dates[1]) ? card : null;
+                        (currentDate >= dates[0] && currentDate <= dates[1]) ? card : null;
                 });
             };
 
@@ -444,7 +445,7 @@ export default class ConsonantPage extends React.Component {
             sorted.sort(a => (a.isFeatured ? -1 : 0))
                 .sort((a, b) => (
                     (a.isFeatured && b.isFeatured) &&
-                    (a.initialTitle < b.initialTitle) ? -1 : 0));
+                        (a.initialTitle < b.initialTitle) ? -1 : 0));
         }
 
         this.setState({ filteredCards: sorted });
@@ -710,39 +711,39 @@ export default class ConsonantPage extends React.Component {
                             {
                                 this.getConfig('filterPanel', 'enabled') &&
                                 this.getConfig('filterPanel', 'type') === FILTER_PANEL.SIDE &&
-                                    <FilterPanelSide
-                                        filters={this.state.filters}
-                                        windowWidth={this.state.windowWidth}
-                                        showTotalResults={this.getConfig('totalResults', 'display')}
-                                        onFilterClick={this.handleFilterItemClick}
-                                        clearFilterText={this.getConfig('filterPanel', 'clearFilterText')}
-                                        clearAllFiltersText={this.getConfig('filterPanel', 'clearAllFiltersText')}
-                                        onClearAllFilters={this.clearAllFilters}
-                                        onClearFilterItems={this.clearFilterItems}
-                                        onCheckboxClick={this.handleCheckBoxChange}
-                                        onMobileFiltersToggleClick={this.handleFiltersToggle}
-                                        showMobileFilters={this.state.showMobileFilters}
-                                        resQty={this.state.filteredCards.length}>
-                                        {
-                                            window.innerWidth >= DESKTOP_MIN_WIDTH &&
-                                            this.getConfig('search', 'enabled') &&
-                                            this.renderSearch('filtersSideSearch')
-                                        }
-                                        { this.getConfig('bookmarks', 'enabled') &&
-                                            <Bookmarks
-                                                key="filtersSideBookmarks"
-                                                selectedIco={this.getConfig('bookmarks', 'selectBookmarksIcon')}
-                                                unselectedIco={this.getConfig('bookmarks', 'unselectBookmarksIcon')}
-                                                selected={this.state.showFavourites}
-                                                onClick={this.handleShowFavsClick}
-                                                qty={this.state.bookmarkedCards.length} />
-                                        }
-                                    </FilterPanelSide>
+                                <FilterPanelSide
+                                    filters={this.state.filters}
+                                    windowWidth={this.state.windowWidth}
+                                    showTotalResults={this.getConfig('totalResults', 'display')}
+                                    onFilterClick={this.handleFilterItemClick}
+                                    clearFilterText={this.getConfig('filterPanel', 'clearFilterText')}
+                                    clearAllFiltersText={this.getConfig('filterPanel', 'clearAllFiltersText')}
+                                    onClearAllFilters={this.clearAllFilters}
+                                    onClearFilterItems={this.clearFilterItems}
+                                    onCheckboxClick={this.handleCheckBoxChange}
+                                    onMobileFiltersToggleClick={this.handleFiltersToggle}
+                                    showMobileFilters={this.state.showMobileFilters}
+                                    resQty={this.state.filteredCards.length}>
+                                    {
+                                        window.innerWidth >= DESKTOP_MIN_WIDTH &&
+                                        this.getConfig('search', 'enabled') &&
+                                        this.renderSearch('filtersSideSearch')
+                                    }
+                                    {this.getConfig('bookmarks', 'enabled') &&
+                                        <Bookmarks
+                                            key="filtersSideBookmarks"
+                                            selectedIco={this.getConfig('bookmarks', 'selectBookmarksIcon')}
+                                            unselectedIco={this.getConfig('bookmarks', 'unselectBookmarksIcon')}
+                                            selected={this.state.showFavourites}
+                                            onClick={this.handleShowFavsClick}
+                                            qty={this.state.bookmarkedCards.length} />
+                                    }
+                                </FilterPanelSide>
                             }
                         </span>
                         <span>
                             {this.getConfig('filterPanel', 'enabled') &&
-                            this.getConfig('filterPanel', 'type') === FILTER_PANEL.TOP &&
+                                this.getConfig('filterPanel', 'type') === FILTER_PANEL.TOP &&
                                 <FiltersPanelTop
                                     filters={this.state.filters}
                                     resQty={this.state.filteredCards.length}
@@ -760,9 +761,9 @@ export default class ConsonantPage extends React.Component {
                                     {
                                         this.getConfig('search', 'enabled') &&
                                         window.innerWidth >= TABLET_MIN_WIDTH &&
-                                            <SearchIco
-                                                key="filtersTopSearchIco"
-                                                onClick={this.handleSearchIcoClick} />
+                                        <SearchIco
+                                            key="filtersTopSearchIco"
+                                            onClick={this.handleSearchIcoClick} />
 
                                     }
                                     {
@@ -785,7 +786,7 @@ export default class ConsonantPage extends React.Component {
                                     {
                                         this.getConfig('search', 'enabled') &&
                                         window.innerWidth < DESKTOP_MIN_WIDTH &&
-                                            this.renderSearch('searchFiltersInfo')
+                                        this.renderSearch('searchFiltersInfo')
                                     }
                                     {
                                         this.getConfig('sort', 'enabled') &&
@@ -808,12 +809,18 @@ export default class ConsonantPage extends React.Component {
                                         cardsStyle={this.getConfig('collection', 'cardStyle')} />
                                     {
                                         this.getConfig('pagination', 'enabled') &&
+                                        this.getConfig('pagination', 'type') === 'load-more' &&
                                         <div ref={(page) => { this.page = page; }}>
                                             <LoadMore
                                                 onClick={this.setCardsToShowQty}
                                                 show={this.getCardsToShowQty()}
                                                 total={this.state.filteredCards.length} />
                                         </div>
+                                    }
+                                    {
+                                        this.getConfig('pagination', 'enabled') &&
+                                        this.getConfig('pagination', 'type') === 'pagination' &&
+                                        <Pagination />
                                     }
                                 </Fragment> :
                                 <Loader
