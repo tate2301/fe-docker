@@ -126,6 +126,7 @@ export default class ConsonantPage extends React.Component {
                 card.description = truncateString(card.description, TRUNCATE_TEXT_QTY);
                 card.initialText = card.description;
                 card.isBookmarked = false;
+                card.disableBookmarkIco = this.getConfig('bookmarks', 'bookmarkOnlyCollection');
                 return card;
             };
             const filterCardsPerDateRange = (cards) => {

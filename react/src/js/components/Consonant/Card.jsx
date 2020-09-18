@@ -31,6 +31,7 @@ const Card = (props) => {
         unsaveBookmarkText,
         cardStyle,
         videoURL,
+        disableBookmarkIco,
     } = props;
 
     const handleClick = (clickEvt) => {
@@ -44,6 +45,15 @@ const Card = (props) => {
 
         if (style === CARD_STYLE.FULL) res.push('consonant-card_full');
         if (style === CARD_STYLE.SQUARE) res.push('consonant-card_square');
+
+        return res.join(' ');
+    };
+
+    const defineBookMarkBtnClassName = () => {
+        const res = ['consonant-card--footer-btn'];
+
+        if (isBookmarked) res.push('consonant-card--footer-btn_active');
+        if (disableBookmarkIco) res.push('consonant-card--footer-btn_disabled');
 
         return res.join(' ');
     };
@@ -75,7 +85,7 @@ const Card = (props) => {
                         {bannerDescription}
                     </span>
                 }
-                { videoURL && <span className="consonant-card--video-ico" />}
+                {videoURL && <span className="consonant-card--video-ico" />}
             </div>
             <div className="consonant-card--inner">
                 {
@@ -99,11 +109,7 @@ const Card = (props) => {
                                         <button
                                             data-tooltip-wrapper
                                             type="button"
-                                            className={
-                                                isBookmarked ?
-                                                    'consonant-card--footer-btn consonant-card--footer-btn_active' :
-                                                    'consonant-card--footer-btn'
-                                            }
+                                            className={defineBookMarkBtnClassName()}
                                             onClick={handleClick}>
                                             {(cardSavedIco && cardUnsavedIco) ?
                                                 <img
@@ -165,6 +171,7 @@ Card.propTypes = {
     unsaveBookmarkText: PropTypes.string,
     cardStyle: PropTypes.string,
     videoURL: PropTypes.string,
+    disableBookmarkIco: PropTypes.bool,
 };
 
 Card.defaultProps = {
@@ -178,4 +185,5 @@ Card.defaultProps = {
     unsaveBookmarkText: 'Unsave card',
     cardStyle: '',
     videoURL: '',
+    disableBookmarkIco: false,
 };

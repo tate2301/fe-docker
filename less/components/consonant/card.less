@@ -1,5 +1,6 @@
 /* Available modificators:
 - .consonant-card_square;
+- .consonant-card--footer-btn_disabled;
 - .consonant-card_full;
 - .consonant-card_placeholder;
 */
@@ -157,6 +158,11 @@
 
         &.consonant-card--footer-btn_active .consonant-card--bookmark-ico {
             background-image: url(@consonant-card-bookmark-filled-data);
+        }
+
+        &.consonant-card--footer-btn_disabled {
+            pointer-events: none;
+            opacity: 0.5;
         }
     }
 
