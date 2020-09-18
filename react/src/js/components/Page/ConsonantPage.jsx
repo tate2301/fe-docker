@@ -144,7 +144,7 @@ export default class ConsonantPage extends React.Component {
                 });
             };
 
-            let { featuredCards } = this.props.config || [];
+            let featuredCards = this.props.config.featuredCards || [];
             const filters = this.getConfig('filterPanel', 'filters');
 
             if (!res || (res.cards && res.cards.length <= 0)) return;
