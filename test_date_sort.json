@@ -1,0 +1,99 @@
+{
+    "cards": [
+        {
+            "title": "7-2-2020",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/biking"
+                }
+            ],
+            "id": "6d6438c8-1",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "7-3-2020",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/hiking"
+                }
+            ],
+            "id": "6d6438c8-2",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-03T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "7-4-2020",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/running"
+                }
+            ],
+            "id": "6d6438c8-3",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-04T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "7-5-2020",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/skiing"
+                }
+            ],
+            "id": "6d6438c8-4",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-05T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "7-6-2020",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/surfing"
+                }
+            ],
+            "id": "6d6438c8-5",
+            "description": "Some Description",
+            "image": "https://via.placeholder.com/500",
+            "lastModified": "2020-07-06T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA Label",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        }
+    ]
+}

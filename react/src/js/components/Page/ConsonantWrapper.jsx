@@ -26,7 +26,7 @@ const FILTER_LOGIC = {
     XOR: 'xor',
 };
 const FILTER_PANEL = {
-    SIDE: 'side',
+    LEFT: 'left',
     TOP: 'top',
 };
 const SORTING_OPTION = {
@@ -202,7 +202,7 @@ export default class ConsonantWrapper extends React.Component {
             },
             filterPanel: {
                 enabled: true,
-                type: 'side',
+                type: 'left',
                 filters: [],
                 clearAllFiltersText: 'Clear all',
                 clearFilterText: 'Clear',
@@ -215,7 +215,7 @@ export default class ConsonantWrapper extends React.Component {
             },
             pagination: {
                 enabled: true,
-                type: 'load-more',
+                type: 'loadMore',
             },
             bookmarks: {
                 enabled: true,
@@ -698,7 +698,7 @@ export default class ConsonantWrapper extends React.Component {
                         <span>
                             {
                                 this.getConfig('filterPanel', 'enabled') &&
-                                this.getConfig('filterPanel', 'type') === FILTER_PANEL.SIDE &&
+                                this.getConfig('filterPanel', 'type') === FILTER_PANEL.LEFT &&
                                 <FilterPanelSide
                                     filters={this.state.filters}
                                     windowWidth={this.state.windowWidth}
@@ -799,7 +799,7 @@ export default class ConsonantWrapper extends React.Component {
                                         cardsStyle={this.getConfig('collection', 'cardStyle')} />
                                     {
                                         this.getConfig('pagination', 'enabled') &&
-                                        this.getConfig('pagination', 'type') === 'load-more' &&
+                                        this.getConfig('pagination', 'type') === 'loadMore' &&
                                         <div ref={(page) => { this.page = page; }}>
                                             <LoadMore
                                                 onClick={this.setCardsToShowQty}
@@ -809,7 +809,7 @@ export default class ConsonantWrapper extends React.Component {
                                     }
                                     {
                                         this.getConfig('pagination', 'enabled') &&
-                                        this.getConfig('pagination', 'type') === 'pagination' &&
+                                        this.getConfig('pagination', 'type') === 'paginator' &&
                                         <Pagination />
                                     }
                                 </Fragment> :
