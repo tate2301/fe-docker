@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import FilterItem from '../FilterItem';
 
 const DESKTOP_MIN_WIDTH = 1200;
-const FilterPanelSide = (props) => {
+const FilterPanelLeft = (props) => {
     const {
         filters,
         windowWidth,
@@ -45,7 +45,7 @@ const FilterPanelSide = (props) => {
     const mobileFiltersFooter = (windowWidth < DESKTOP_MIN_WIDTH &&
         <div className="consonant-filters--mobile-footer">
             {showTotalResults &&
-            <span className="consonant-filters--mobile-footer-total-res">{resQty} results</span>
+                <span className="consonant-filters--mobile-footer-total-res">{resQty} results</span>
             }
             {
                 checkFilterSelected() &&
@@ -86,22 +86,22 @@ const FilterPanelSide = (props) => {
             {renderChildren('filtersSideSearch')}
             {
                 filters.length > 0 &&
-                    <div className="consonant-filters--list">
-                        {filters.map(item =>
-                            (<FilterItem
-                                key={item.id}
-                                name={item.group}
-                                icon={item.icon}
-                                items={item.items}
-                                itemsSelected={countSelectedInFilter(item.items)}
-                                results={resQty}
-                                id={item.id}
-                                isOpened={item.opened}
-                                onCheck={onCheckboxClick}
-                                onClick={onFilterClick}
-                                onClearAll={onClearFilterItems}
-                                clearFilterText={clearFilterText} />))}
-                    </div>
+                <div className="consonant-filters--list">
+                    {filters.map(item =>
+                        (<FilterItem
+                            key={item.id}
+                            name={item.group}
+                            icon={item.icon}
+                            items={item.items}
+                            itemsSelected={countSelectedInFilter(item.items)}
+                            results={resQty}
+                            id={item.id}
+                            isOpened={item.opened}
+                            onCheck={onCheckboxClick}
+                            onClick={onFilterClick}
+                            onClearAll={onClearFilterItems}
+                            clearFilterText={clearFilterText} />))}
+                </div>
             }
             {renderChildren('filtersSideBookmarks')}
             {mobileFiltersFooter}
@@ -109,9 +109,9 @@ const FilterPanelSide = (props) => {
     );
 };
 
-export default FilterPanelSide;
+export default FilterPanelLeft;
 
-FilterPanelSide.propTypes = {
+FilterPanelLeft.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.bool, PropTypes.element])),
         PropTypes.element,
@@ -131,7 +131,7 @@ FilterPanelSide.propTypes = {
     resQty: PropTypes.number,
 };
 
-FilterPanelSide.defaultProps = {
+FilterPanelLeft.defaultProps = {
     filters: [],
     windowWidth: window.innerWidth,
     showMobileFilters: false,

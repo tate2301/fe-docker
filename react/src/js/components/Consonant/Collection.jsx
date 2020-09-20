@@ -20,7 +20,7 @@ const Collection = (props) => {
     let cardsToShow = showItemsPerPage * pages;
 
     if (cardsToShow > cards.length) cardsToShow = cards.length;
-    if (cards.length > cardsToShow) cards = cards.slice(0, cardsToShow);
+    if (cardsToShow && cards.length > cardsToShow) cards = cards.slice(0, cardsToShow);
 
     return (
         <div className="consonant-card-collection">

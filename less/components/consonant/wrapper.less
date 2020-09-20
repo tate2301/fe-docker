@@ -1,3 +1,4 @@
+@consonant-wrapper-min-height: 536px;
 @consonant-wrapper-600-break-width: unit((@consonant-root-rem * 31.5), px);
 @consonant-wrapper-900-break-width: unit((@consonant-root-rem * 47.25), px);
 @consonant-wrapper-1200-break-width: unit((@consonant-root-rem * 75), px);
@@ -22,7 +23,7 @@
         & > div:last-of-type,
         & > span:last-of-type {
             display: block;
-            min-height: 536px;
+            min-height: @consonant-wrapper-min-height;
             position: relative;
 
             &:extend(.flex .size-on-axis .grow-1);

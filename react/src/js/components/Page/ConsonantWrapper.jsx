@@ -9,13 +9,17 @@ import Pagination from '../Consonant/Pagination';
 import Loader from '../Consonant/Loader';
 import Search from '../Consonant/Search';
 import Select from '../Consonant/Select';
-import FilterPanelSide from '../Consonant/FilterPanel/FilterPanelSide';
+import FilterPanelLeft from '../Consonant/FilterPanel/FilterPanelLeft';
 import FiltersPanelTop from '../Consonant/FilterPanel/FilterPanelTop';
 import Bookmarks from '../Consonant/Bookmarks';
 import SearchIco from '../Consonant/SearchIco';
 
 const DESKTOP_MIN_WIDTH = 1200;
 const TABLET_MIN_WIDTH = 768;
+const PAGINATION_COUNT = {
+    DESKTOP: 10,
+    MOBILE: 4,
+};
 const LOADER_SIZE = {
     MEDIUM: 'medium',
     BIG: 'big',
@@ -65,17 +69,21 @@ export default class ConsonantWrapper extends React.Component {
         this.clearAllFilters = this.clearAllFilters.bind(this);
         this.clearFilters = this.clearFilters.bind(this);
         this.clearFilterItems = this.clearFilterItems.bind(this);
+        this.checkIfDisplayPaginator = this.checkIfDisplayPaginator.bind(this);
         this.loadData = this.loadData.bind(this);
         this.setCardsToShowQty = this.setCardsToShowQty.bind(this);
         this.getDefaultSortOption = this.getDefaultSortOption.bind(this);
         this.getCardsToShowQty = this.getCardsToShowQty.bind(this);
         this.getActiveFiltersIds = this.getActiveFiltersIds.bind(this);
         this.getBookMarksFromLS = this.getBookMarksFromLS.bind(this);
+        this.getTotalPages = this.getTotalPages.bind(this);
+        this.getCollectionCards = this.getCollectionCards.bind(this);
         this.handleSelectChange = this.handleSelectChange.bind(this);
         this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
         this.handleFilterItemClick = this.handleFilterItemClick.bind(this);
         this.handleCheckBoxChange = this.handleCheckBoxChange.bind(this);
         this.handleFiltersToggle = this.handleFiltersToggle.bind(this);
+        this.handlePaginatorClick = this.handlePaginatorClick.bind(this);
         this.filterCards = this.filterCards.bind(this);
         this.sortCards = this.sortCards.bind(this);
         this.searchCards = this.searchCards.bind(this);
@@ -308,6 +316,24 @@ export default class ConsonantWrapper extends React.Component {
         }
     }
 
+    getTotalPages() {
+        return Math.ceil(this.state.filteredCards.length / this.state.showItemsPerPage);
+    }
+
+    getCollectionCards() {
+        const { pages, showItemsPerPage } = this.state;
+        let res = this.state.filteredCards;
+
+        if (showItemsPerPage && this.getConfig('pagination', 'type') === 'paginator') {
+            const start = pages === 1 ? 0 : (pages * showItemsPerPage) - showItemsPerPage;
+            const end = start + showItemsPerPage;
+
+            res = res.slice(start, end);
+        }
+
+        return res;
+    }
+
     setCardsToShowQty() {
         const currentPos = window.pageYOffset;
         this.setState(prevState => ({
@@ -538,6 +564,16 @@ export default class ConsonantWrapper extends React.Component {
         });
     }
 
+    checkIfDisplayPaginator(type) {
+        const cardsLength = this.state.filteredCards.length;
+        const showItems = this.state.showItemsPerPage;
+
+        return this.getConfig('pagination', 'enabled') &&
+            this.getConfig('pagination', 'type') === type &&
+            this.getConfig('collection', 'resultsPerPage') > 0 &&
+            cardsLength > showItems;
+    }
+
     handleSelectChange(option) {
         if (option.label === this.state.selelectedFilterBy.label) {
             this.setState({ selectOpened: false });
@@ -611,6 +647,10 @@ export default class ConsonantWrapper extends React.Component {
 
     handleSelectOpen() {
         this.setState(prevState => ({ selectOpened: !prevState.selectOpened }));
+    }
+
+    handlePaginatorClick(page) {
+        this.setState({ pages: page });
     }
 
     updateCardsWithBookmarks() {
@@ -699,7 +739,7 @@ export default class ConsonantWrapper extends React.Component {
                             {
                                 this.getConfig('filterPanel', 'enabled') &&
                                 this.getConfig('filterPanel', 'type') === FILTER_PANEL.LEFT &&
-                                <FilterPanelSide
+                                <FilterPanelLeft
                                     filters={this.state.filters}
                                     windowWidth={this.state.windowWidth}
                                     showTotalResults={this.getConfig('totalResults', 'display')}
@@ -726,7 +766,7 @@ export default class ConsonantWrapper extends React.Component {
                                             onClick={this.handleShowFavsClick}
                                             qty={this.state.bookmarkedCards.length} />
                                     }
-                                </FilterPanelSide>
+                                </FilterPanelLeft>
                             }
                         </span>
                         <span>
@@ -789,7 +829,7 @@ export default class ConsonantWrapper extends React.Component {
                                     <Collection
                                         showItemsPerPage={this.state.showItemsPerPage}
                                         pages={this.state.pages}
-                                        cards={this.state.filteredCards}
+                                        cards={this.getCollectionCards()}
                                         allowBookmarking={this.getConfig('bookmarks', 'enabled')}
                                         onCardBookmark={this.handleCardBookmarking}
                                         cardUnsavedIco={this.getConfig('bookmarks', 'cardUnsavedIcon')}
@@ -798,8 +838,7 @@ export default class ConsonantWrapper extends React.Component {
                                         unsaveBookmarkText={this.getConfig('bookmarks', 'unsaveBookmarkText')}
                                         cardsStyle={this.getConfig('collection', 'cardStyle')} />
                                     {
-                                        this.getConfig('pagination', 'enabled') &&
-                                        this.getConfig('pagination', 'type') === 'loadMore' &&
+                                        this.checkIfDisplayPaginator('loadMore') &&
                                         <div ref={(page) => { this.page = page; }}>
                                             <LoadMore
                                                 onClick={this.setCardsToShowQty}
@@ -808,9 +847,16 @@ export default class ConsonantWrapper extends React.Component {
                                         </div>
                                     }
                                     {
-                                        this.getConfig('pagination', 'enabled') &&
-                                        this.getConfig('pagination', 'type') === 'paginator' &&
-                                        <Pagination />
+                                        this.checkIfDisplayPaginator('paginator') &&
+                                        <Pagination
+                                            pageCount={window.innerWidth <= DESKTOP_MIN_WIDTH ?
+                                                PAGINATION_COUNT.MOBILE : PAGINATION_COUNT.DESKTOP
+                                            }
+                                            currentPageNumber={this.state.pages}
+                                            totalPages={this.getTotalPages()}
+                                            showItemsPerPage={this.state.showItemsPerPage}
+                                            totalResults={this.state.filteredCards.length}
+                                            onClick={this.handlePaginatorClick} />
                                     }
                                 </Fragment> :
                                 <Loader
@@ -821,7 +867,7 @@ export default class ConsonantWrapper extends React.Component {
                         </span>
                     </div>
                 </section>
-            </Fragment>
+            </Fragment >
         );
     }
 }
