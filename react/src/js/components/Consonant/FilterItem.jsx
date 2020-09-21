@@ -124,7 +124,7 @@ export default FilterItem;
 FilterItem.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired,
+    icon: PropTypes.string,
     onCheck: PropTypes.func.isRequired,
     onClick: PropTypes.func.isRequired,
     onClearAll: PropTypes.func.isRequired,
@@ -137,6 +137,7 @@ FilterItem.propTypes = {
 };
 
 FilterItem.defaultProps = {
+    icon: '',
     isOpened: false,
     itemsSelected: 0,
     clearFilterText: 'Clear',
