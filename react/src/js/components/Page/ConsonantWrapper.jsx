@@ -805,7 +805,7 @@ export default class ConsonantWrapper extends React.Component {
                                     }
                                 </FiltersPanelTop>
                             }
-                            {this.getConfig('filterPanel', 'type') !== FILTER_PANEL.TOP &&
+                            {this.getConfig('filterPanel', 'type') === FILTER_PANEL.LEFT &&
                                 <FiltersInfo
                                     enabled={this.getConfig('filterPanel', 'enabled')}
                                     title={this.getConfig('collection', 'title')}
