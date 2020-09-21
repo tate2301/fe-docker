@@ -238,6 +238,10 @@ export default class ConsonantWrapper extends React.Component {
             search: {
                 enabled: true,
                 placeholderText: 'Search here...',
+                searchFields: [
+                    'title',
+                    'description',
+                ],
             },
             totalResults: {
                 display: true,
@@ -468,6 +472,8 @@ export default class ConsonantWrapper extends React.Component {
     searchCards() {
         const query = this.state.searchQuery.trim().toLowerCase();
         const results = [];
+        const searchFields = this.getConfig('search', 'searchFields');
+        const fieldsToHighlight = ['title', 'description'];
         const highlightText = (text, val) => text.replace(new RegExp(val, 'gi'), value => `<span class="consonant-search-result">${value}</span>`);
 
         // In case we reset search, just show all results;
@@ -478,17 +484,15 @@ export default class ConsonantWrapper extends React.Component {
                 let pushToRes = false;
                 const copy = { ...el };
 
-                // Filter cards per title;
-                if (copy.title.toLowerCase().trim().indexOf(query) >= 0) {
-                    copy.title = highlightText(copy.title, query);
-                    pushToRes = true;
-                }
+                searchFields.forEach((field) => {
+                    if (copy[field] && copy[field].toLowerCase().trim().indexOf(query) >= 0) {
+                        pushToRes = true;
 
-                // Filter cards per text;
-                if (copy.description.toLowerCase().trim().indexOf(query) >= 0) {
-                    copy.description = highlightText(copy.description, query);
-                    pushToRes = true;
-                }
+                        if (fieldsToHighlight.some(f => f === field)) {
+                            copy[field] = highlightText(copy[field], query);
+                        }
+                    }
+                });
 
                 if (pushToRes) results.push(copy);
             });
