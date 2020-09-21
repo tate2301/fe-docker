@@ -58,6 +58,19 @@ const Card = (props) => {
         return res.join(' ');
     };
 
+    const renderIcon = () => {
+        let src = '';
+
+        if (isBookmarked && cardSavedIco) src = cardSavedIco;
+        if (!isBookmarked && cardUnsavedIco) src = cardUnsavedIco;
+
+        return src ?
+            <span
+                className="consonant-card--bookmark-ico"
+                style={{ backgroundImage: `url(${src})` }} /> :
+            <span className="consonant-card--bookmark-ico" />;
+    };
+
     return (
         <div className={setClassName()} id={id}>
             <div
@@ -111,18 +124,7 @@ const Card = (props) => {
                                             type="button"
                                             className={defineBookMarkBtnClassName()}
                                             onClick={handleClick}>
-                                            {(cardSavedIco && cardUnsavedIco) ?
-                                                <img
-                                                    src={
-                                                        isBookmarked ?
-                                                            cardSavedIco :
-                                                            cardUnsavedIco
-                                                    }
-                                                    width="16"
-                                                    alt=""
-                                                    loading="lazy" /> :
-                                                <span className="consonant-card--bookmark-ico" />
-                                            }
+                                            {renderIcon()}
                                             <Tooltip text={
                                                 isBookmarked ? unsaveBookmarkText : saveBookmarkText
                                             } />

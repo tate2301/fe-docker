@@ -69,18 +69,13 @@
         .no-border-no-outline;
     }
 
-    .bookmarks--ico-wrapper .bookmarks--ico,
-    .bookmarks--ico-wrapper img {
+    .bookmarks--ico-wrapper .bookmarks--ico {
         display: block;
-        width: @bookmarks-ico-wrapper-max-size;
-        height: auto;
+        min-width: @bookmarks-ico-wrapper-max-size;
+        min-height: @bookmarks-ico-wrapper-max-size;
         max-height: @bookmarks-ico-wrapper-max-size;
         margin-right: unit((@consonant-root-rem * 0.375), px);
-    }
-
-    .bookmarks--ico {
-        min-height: @bookmarks-ico-wrapper-max-size;
-        background: transparent url(@consonant-filters-heart-data) no-repeat 0 0;
+        background: transparent url(@consonant-filters-heart-data) no-repeat 50% 50%;
         background-size: contain;
     }
 

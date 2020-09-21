@@ -9,6 +9,20 @@ const Bookmarks = (props) => {
         onClick,
         qty,
     } = props;
+
+    const renderIcon = () => {
+        let src = '';
+
+        if (selected && selectedIco) src = selectedIco;
+        if (!selected && unselectedIco) src = unselectedIco;
+
+        return src ?
+            <span
+                className="bookmarks--ico"
+                style={{ backgroundImage: `url(${src})` }} /> :
+            <span className="bookmarks--ico" />;
+    };
+
     return (
         <button
             type="button"
@@ -16,14 +30,7 @@ const Bookmarks = (props) => {
             className={selected ? 'bookmarks bookmarks_selected' : 'bookmarks'
             }>
             <span className="bookmarks--ico-wrapper">
-                {(selectedIco && unselectedIco) ?
-                    <img
-                        src={selected ? unselectedIco : selectedIco}
-                        width="16"
-                        alt=""
-                        loading="lazy" /> :
-                    <span className="bookmarks--ico" />
-                }
+                {renderIcon()}
                 <span className="bookmarks--title">My favorites</span>
             </span>
             <span className="bookmarks--item-badge">{qty}</span>
