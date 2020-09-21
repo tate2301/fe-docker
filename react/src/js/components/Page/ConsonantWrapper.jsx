@@ -757,7 +757,7 @@ export default class ConsonantWrapper extends React.Component {
                                     showMobileFilters={this.state.showMobileFilters}
                                     resQty={this.state.filteredCards.length}>
                                     {
-                                        window.innerWidth >= DESKTOP_MIN_WIDTH &&
+                                        this.state.windowWidth >= DESKTOP_MIN_WIDTH &&
                                         this.getConfig('search', 'enabled') &&
                                         this.renderSearch('filtersSideSearch')
                                     }
@@ -792,7 +792,7 @@ export default class ConsonantWrapper extends React.Component {
                                     }
                                     {
                                         this.getConfig('search', 'enabled') &&
-                                        window.innerWidth >= TABLET_MIN_WIDTH &&
+                                        this.state.windowWidth >= TABLET_MIN_WIDTH &&
                                         <SearchIco
                                             key="filtersTopSearchIco"
                                             onClick={this.handleSearchIcoClick} />
@@ -818,7 +818,7 @@ export default class ConsonantWrapper extends React.Component {
                                     onSelectedFilterClick={this.handleCheckBoxChange}>
                                     {
                                         this.getConfig('search', 'enabled') &&
-                                        window.innerWidth < DESKTOP_MIN_WIDTH &&
+                                        this.state.windowWidth < DESKTOP_MIN_WIDTH &&
                                         this.renderSearch('searchFiltersInfo')
                                     }
                                     {
@@ -853,7 +853,7 @@ export default class ConsonantWrapper extends React.Component {
                                     {
                                         this.checkIfDisplayPaginator('paginator') &&
                                         <Pagination
-                                            pageCount={window.innerWidth <= DESKTOP_MIN_WIDTH ?
+                                            pageCount={this.state.windowWidth <= DESKTOP_MIN_WIDTH ?
                                                 PAGINATION_COUNT.MOBILE : PAGINATION_COUNT.DESKTOP
                                             }
                                             currentPageNumber={this.state.pages}
