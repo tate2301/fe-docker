@@ -77,11 +77,9 @@
     .consonant-select--options {
         opacity: 0;
         position: absolute;
-
-        .full-width;
-
+        max-width: 70vw;
         top: calc(~ '100% + ' unit((@consonant-root-rem * 0.375), px));
-        left: 0;
+        right: 0;
         word-break: break-word;
         border: 1px solid @consonant-color-lightest-grey;
         background-color: @consonant-color-white;
@@ -99,6 +97,7 @@
     .consonant-select--option {
         display: block;
         width: 100%;
+        max-width: 100%;
         padding:
             9/@consonant-root-rem
             unit((@consonant-root-rem * 1.875), px)
@@ -107,9 +106,12 @@
 
         .font(@color: @consonant-color-brown-grey);
 
+        white-space: nowrap;
+        text-overflow: ellipsis;
         background-color: @consonant-color-white;
         transition: background-color @transition-time @transition-func;
         outline: 0;
+        overflow: hidden;
 
         &:hover {
             background-color: @consonant-color-lightest-grey-2;
