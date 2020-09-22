@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Consonant/Header Check snapshots should renders correctly 1`] = `
+<header
+  className="consonant-header"
+/>
+`;
