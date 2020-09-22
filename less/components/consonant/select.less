@@ -1,5 +1,6 @@
 /* Available modificators:
 - .consonant-select_auto-width;
+- .consonant-select--options_left;
 */
 
 @consonant-select-width: unit((@consonant-root-rem * 8.75), px);
@@ -92,6 +93,11 @@
         &:empty {
             .hide-all;
         }
+
+        &.consonant-select--options_left {
+            right: unset;
+            left: 0;
+        }
     }
 
     .consonant-select--option {
@@ -168,6 +174,10 @@
     @media @consonant-for-desktop-up {
         width: @consonant-select-1200-break-width;
         margin-bottom: 0;
+
+        &.consonant-select_auto-width {
+            max-width: 100%;
+        }
 
         &:after {
             right: 0;

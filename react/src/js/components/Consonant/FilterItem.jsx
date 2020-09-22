@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 const FilterItem = (props) => {
@@ -44,6 +44,45 @@ const FilterItem = (props) => {
         return res.join(' ');
     };
 
+    const itemContent = () => (
+        <Fragment>
+            <ul className="consonant-filters--item-list">
+                {items.map(item => (
+                    <li
+                        key={item.id}
+                        className="consonant-filters--item-list-item">
+                        <label>
+                            <input
+                                value={item.id}
+                                type="checkbox"
+                                onChange={handleCheck}
+                                checked={item.selected} />
+                            <span className="consonant-filters--item-list-item-checkmark" />
+                            <span className="consonant-filters--item-list-item-name">{item.label}</span>
+                        </label>
+                    </li>
+                ))}
+            </ul>
+            <div className="consonant-filters--mobile-footer">
+                <span className="consonant-filters--mobile-footer-total-res">{results} results</span>
+                {
+                    itemsSelected > 0 &&
+                    <button
+                        type="button"
+                        onClick={handleClear}
+                        className="consonant-filters--mobile-footer-clear">{clearFilterText}
+                    </button>
+                }
+                <button
+                    type="button"
+                    onClick={handleClick}
+                    className="consonant-filters--mobile-footer-btn">
+                    {itemsSelected > 0 ? 'Apply' : 'Done'}
+                </button>
+            </div>
+        </Fragment>
+    );
+
     return (
         <div className={defineClassNames()}>
             <div className="consonant-filters--item-inner">
@@ -80,40 +119,13 @@ const FilterItem = (props) => {
                     </a>
                 </h3>
                 {renderSelecedFilter()}
-                <ul className="consonant-filters--item-list">
-                    {items.map(item => (
-                        <li
-                            key={item.id}
-                            className="consonant-filters--item-list-item">
-                            <label>
-                                <input
-                                    value={item.id}
-                                    type="checkbox"
-                                    onChange={handleCheck}
-                                    checked={item.selected} />
-                                <span className="consonant-filters--item-list-item-checkmark" />
-                                <span className="consonant-filters--item-list-item-name">{item.label}</span>
-                            </label>
-                        </li>
-                    ))}
-                </ul>
-                <div className="consonant-filters--mobile-footer">
-                    <span className="consonant-filters--mobile-footer-total-res">{results} results</span>
-                    {
-                        itemsSelected > 0 &&
-                        <button
-                            type="button"
-                            onClick={handleClear}
-                            className="consonant-filters--mobile-footer-clear">{clearFilterText}
-                        </button>
-                    }
-                    <button
-                        type="button"
-                        onClick={handleClick}
-                        className="consonant-filters--mobile-footer-btn">
-                        {itemsSelected > 0 ? 'Apply' : 'Done'}
-                    </button>
-                </div>
+                {
+                    isTopFilter ?
+                        <div className="consonant-filters--item-selcted-absolute-wrapper">
+                            {itemContent()}
+                        </div> :
+                        itemContent()
+                }
             </div>
         </div>
     );

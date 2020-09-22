@@ -9,6 +9,7 @@ const Select = (props) => {
         onOpen,
         onSelect,
         autoWidth,
+        optionsAlignment,
     } = props;
 
     return (
@@ -26,7 +27,7 @@ const Select = (props) => {
                 onBlur={onOpen}
                 onClick={onOpen}>{val.label || 'Please select'}
             </button>
-            <div className="consonant-select--options">
+            <div className={`consonant-select--options consonant-select--options_${optionsAlignment}`}>
                 {values.map(item => (
                     <button
                         key={item.label}
@@ -56,9 +57,11 @@ Select.propTypes = {
     onSelect: PropTypes.func.isRequired,
     values: PropTypes.arrayOf(PropTypes.object).isRequired,
     autoWidth: PropTypes.bool,
+    optionsAlignment: PropTypes.string,
 };
 
 Select.defaultProps = {
     opened: false,
     autoWidth: false,
+    optionsAlignment: 'right',
 };

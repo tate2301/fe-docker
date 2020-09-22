@@ -1,5 +1,6 @@
 /* Available modificators:
 - .consonant-filters_top;
+- .consonant-filters--top-filters_truncated;
 - .consonant-filters_opened;
 - .consonant-filters--item_selected;
 */
@@ -556,7 +557,7 @@
         list-style-type: none;
     }
 
-    // Top filter;
+    // Top filters;
     &.consonant-filters_top {
         display: block;
 
@@ -601,7 +602,7 @@
             .consonant-filters--top-filters-title {
                 display: none;
                 margin-right: unit((@consonant-root-rem * 0.75), px);
-                min-width: 10%;
+                min-width: unit((@consonant-root-rem * 3.4375), px);
                 max-width: 20%;
                 white-space: nowrap;
                 text-overflow: ellipsis;
@@ -624,6 +625,10 @@
 
                 margin-right: unit((@consonant-root-rem), px);
                 overflow-y: auto;
+
+                &:last-child {
+                    margin-right: 0;
+                }
 
                 .consonant-filters--item {
                     margin-right: 8/@consonant-root-rem;
@@ -692,6 +697,29 @@
                         .hide-all;
                     }
                 }
+
+                .consonant-filters--more-filters {
+                    display: none;
+                    padding:
+                        5/@consonant-root-rem
+                        unit((@consonant-root-rem * 0.0625), px)
+                        6/@consonant-root-rem
+                        unit((@consonant-root-rem * 0.75), px);
+
+                    .font(
+                        14/@consonant-root-rem,
+                        19/@consonant-root-rem,
+                        700,
+                        @consonant-color-brown-grey,
+                        center
+                    );
+
+                    text-transform: capitalize;
+                    background-color: transparent;
+                    border: 1px solid @consonant-color-lightest-grey;
+                    border-radius: unit((@consonant-root-rem), px);
+                    outline: 0;
+                }
             }
         }
 
@@ -729,7 +757,13 @@
             );
 
             position: relative;
+            min-height: unit((@consonant-root-rem * 2), px);
             max-width: 40%;
+
+            &:empty {
+                margin-left: (unit((@consonant-root-rem), px) * -1);
+                overflow: visible;
+            }
 
             &:after {
                 content: '';
@@ -811,12 +845,49 @@
                 }
 
                 .consonant-filters--top-filters {
+                    justify-content: center;
                     align-items: flex-start;
                     flex-wrap: wrap;
-                    overflow-y: hidden;
+                    overflow: hidden;
+
+                    .consonant-filters--item {
+                        & > .consonant-filters--item-inner .consonant-filters--item-name a {
+                            white-space: normal;
+                        }
+                    }
+
+                    &.consonant-filters--top-filters_truncated {
+                        justify-content: flex-start;
+                        flex-wrap: nowrap;
+                        overflow-x: auto;
+
+                        .consonant-filters--item {
+                            max-width: unset;
+
+                            &:nth-child(n+3) {
+                                display: none;
+                            }
+                        }
+
+                        .consonant-filters--more-filters {
+                            display: block;
+                            min-width: unit((@consonant-root-rem * 6.875), px);
+                            margin-right: unit((@consonant-root-rem * 1.5), px);
+                        }
+
+                        .consonant-filters--item > .consonant-filters--item-inner .consonant-filters--item-name a {
+                            white-space: nowrap;
+                        }
+                    }
+
+                    .consonant-filters--more-filters {
+                        display: block;
+                        min-width: auto;
+                    }
                 }
 
                 .consonant-filters--item {
+                    max-width: calc(~ '100% - ' unit((@consonant-root-rem * 1.5), px));
                     margin-bottom: 8/@consonant-root-rem;
                 }
             }
@@ -841,7 +912,7 @@
                     width: @consonant-filters-top-search-width;
                     top: 0;
                     right: unit((@consonant-root-rem * 1.25), px);
-                    z-index: 1;
+                    z-index: 3;
                 }
             }
 
@@ -879,6 +950,12 @@
         & + div {
             height: calc(~ '100vh - ' @header-900-break-height);
         }
+
+        .consonant-filters--item.consonant-filters--item_opened .consonant-filters--item-inner {
+            max-width: 70vw;
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 
     @media @consonant-for-desktop-up {
@@ -912,6 +989,9 @@
                 .consonant-filters--item-inner {
                     min-height: unset;
                     max-height: unset;
+                    max-width: unset;
+                    margin-left: 0;
+                    margin-right: 0;
                     overflow: hidden;
                     box-shadow: none;
                     border: 0;
@@ -1026,11 +1106,182 @@
         & + div {
             height: calc(~ '100vh - ' @header-1200-break-height);
         }
+
+        &.consonant-filters_top {
+            min-width: @consonant-card-collection-1200-break-width;
+            max-width: @consonant-card-collection-1200-break-width;
+
+            // Hide search input label;
+            .consonant-filters--top-search-ico-wrapper label > span:first-child {
+                display: none;
+            }
+
+            .consonant-filters--top-select-wrapper {
+                width: 100%;
+                max-width: unit((@consonant-root-rem * 10), px);
+                margin-right: 0;
+
+                // Add paddings for sort select;
+                & > div:first-child {
+                    padding-left: unit((@consonant-root-rem * 0.75), px);
+                    padding-right: unit((@consonant-root-rem * 0.75), px);
+                    border: 1px solid @consonant-color-lightest-grey;
+                    border-radius: unit((@consonant-root-rem * 0.25), px);
+
+                    &:after {
+                        right: unit((@consonant-root-rem * 0.75), px);
+                    }
+
+                    & button {
+                        border: 0;
+                    }
+                }
+            }
+
+            .consonant-filters--top-filters-btn-wrapper:after {
+                display: none;
+            }
+
+            .consonant-filters--top-filters-wrapper {
+                .consonant-filters--top-filters {
+                    &.consonant-filters--top-filters_truncated {
+                        justify-content: flex-start;
+                        flex-wrap: wrap;
+                        overflow: visible;
+
+                        .consonant-filters--item {
+                            &:nth-of-type(n+3) {
+                                display: block;
+                            }
+
+                            .consonant-filters--item-inner {
+                                background-color: transparent;
+                            }
+                        }
+                    }
+
+                    .consonant-filters--item.consonant-filters--item_opened {
+                        position: relative;
+                        width: auto;
+                        margin-left: 0;
+                        z-index: 2;
+
+                        &:after {
+                            width: unit((@consonant-root-rem * 0.375), px);
+                            height: unit((@consonant-root-rem * 0.375), px);
+                            top: 0;
+                            bottom: 0;
+                            right: unit((@consonant-root-rem * 0.5), px);
+                            margin: auto;
+                            border-color: @consonant-color-blue;
+                            border-width: 1px;
+                            transform: rotate(-45deg) translate3d(2px, -1px, 0);
+                            transition: border-color @transition-time @transition-func;
+                        }
+
+                        .consonant-filters--item-inner {
+                            position: static;
+                        }
+
+                        .consonant-filters--item-name a {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            height: unit((@consonant-root-rem * 2), px);
+                            padding: 0.3125rem 17px 0.375rem 12px;
+
+                            .font(
+                                0.875rem,
+                                1.1875rem,
+                                400,
+                                @consonant-color-blue
+                            );
+
+                            white-space: nowrap;
+                            border: 1px solid @consonant-color-blue;
+                            border-radius: unit((@consonant-root-rem * 0.25), px);
+                            transition:
+                                border-color @transition-time @transition-func,
+                                color @transition-time @transition-func;
+                        }
+
+                        .consonant-filters--item-selcted-absolute-wrapper {
+                            position: absolute;
+                            display: block;
+                            left: 0;
+                            top: 40/@consonant-root-rem;
+                            width: unit((@consonant-root-rem * 20), px);
+                            max-height: unit((@consonant-root-rem * 22.5), px);
+                            overflow-y: auto;
+                            border: 1px solid @consonant-color-lightest-grey;
+                            border-radius: unit((@consonant-root-rem * 0.25), px);
+                            box-shadow: 0 3px 15px rgba(80, 80, 80, 0.101);
+                            background-color: @consonant-color-white;
+                            z-index: 2;
+                            overflow: hidden;
+
+                            &:after {
+                                content: '';
+                                position: absolute;
+                                display: block;
+
+                                .full-width;
+
+                                height: unit((@consonant-root-rem * 1.25), px);
+                                top: unit((@consonant-root-rem * 17.1875), px);
+                                left: 0;
+                                right: 0;
+                                background: transparent linear-gradient(180deg, fade(@consonant-color-white, 30%) 0%, @consonant-color-white 100%) no-repeat 0% 0%;
+                                z-index: 1;
+                                pointer-events: none;
+                            }
+                        }
+
+                        .consonant-filters--item-selcted-items {
+                            padding: 0;
+                            visibility: hidden;
+                            font-size: 0;
+                        }
+
+                        .consonant-filters--mobile-footer {
+                            display: flex;
+                        }
+
+                        .consonant-filters--item-list {
+                            max-height: unit((@consonant-root-rem * 18.4375), px);
+                            padding-top: 12/@consonant-root-rem;
+                            overflow-y: auto;
+                        }
+
+                        .consonant-filters--item-list-item label {
+                            padding-left: unit((@consonant-root-rem * 1.5), px);
+                            padding-right: unit((@consonant-root-rem * 1.5), px);
+                        }
+                    }
+                }
+            }
+
+            .consonant-filters--item {
+                .consonant-filters--item-badge {
+                    display: none;
+                }
+
+                .consonant-filters--item-selcted-items {
+                    display: block;
+                    padding: 0;
+                }
+            }
+        }
     }
 
     @media @consonant-for-big-desktop-up {
         & + div {
             height: calc(~ '100vh - ' @header-1440-break-height);
+        }
+
+        &.consonant-filters_top {
+            min-width: @consonant-card-collection-1440-break-width;
+            max-width: @consonant-card-collection-1440-break-width;
         }
     }
 }

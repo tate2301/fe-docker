@@ -63,6 +63,7 @@ export default class ConsonantWrapper extends React.Component {
             windowWidth: window.innerWidth,
             showMobileFilters: false,
             showFavourites: false,
+            showLimitedFiltersQty: this.getConfig('filterPanel', 'type') === 'top',
         };
 
         this.updateDimensions = this.updateDimensions.bind(this);
@@ -92,6 +93,8 @@ export default class ConsonantWrapper extends React.Component {
         this.updateCardsWithBookmarks = this.updateCardsWithBookmarks.bind(this);
         this.handleShowFavsClick = this.handleShowFavsClick.bind(this);
         this.handleSelectOpen = this.handleSelectOpen.bind(this);
+        this.handleInputsFocusOut = this.handleInputsFocusOut.bind(this);
+        this.handleShowAllTopFilters = this.handleShowAllTopFilters.bind(this);
         this.resetFavourites = this.resetFavourites.bind(this);
         this.setBookMarksToLS = this.setBookMarksToLS.bind(this);
         this.renderSearch = this.renderSearch.bind(this);
@@ -101,6 +104,7 @@ export default class ConsonantWrapper extends React.Component {
 
     componentDidMount() {
         window.addEventListener('resize', this.updateDimensions);
+        window.addEventListener('click', this.handleInputsFocusOut);
 
         // Load data on init;
         this.loadData().then((res) => {
@@ -193,6 +197,7 @@ export default class ConsonantWrapper extends React.Component {
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateDimensions);
+        window.removeEventListener('click', this.handleInputsFocusOut);
     }
 
     getConfig(object, key) {
@@ -606,6 +611,8 @@ export default class ConsonantWrapper extends React.Component {
             const res = prevState.filters.map((el) => {
                 if (el.id === filterId) {
                     el.opened = !el.opened;
+                } else if (this.getConfig('filterPanel', 'type') === 'top') {
+                    el.opened = false;
                 }
 
                 return el;
@@ -655,6 +662,18 @@ export default class ConsonantWrapper extends React.Component {
 
     handlePaginatorClick(page) {
         this.setState({ pages: page });
+    }
+
+    handleInputsFocusOut(clickEvt) {
+        const cn = clickEvt.target.className;
+        const classNamesToCheck = ['consonant-search--input-clear', 'consonant-search--input'];
+
+        if (
+            this.state.showTopFilterSearch &&
+            !classNamesToCheck.some(el => el === cn)
+        ) {
+            this.setState({ showTopFilterSearch: false });
+        }
     }
 
     updateCardsWithBookmarks() {
@@ -709,19 +728,24 @@ export default class ConsonantWrapper extends React.Component {
     }
 
     handleSearchIcoClick(evt) {
+        evt.preventDefault();
+        evt.stopPropagation();
         this.setState({ showTopFilterSearch: evt.type === 'click' });
     }
 
-    renderSearch(key, onBlur) {
+    handleShowAllTopFilters() {
+        this.setState(prevState => ({ showLimitedFiltersQty: !prevState.showLimitedFiltersQty }));
+    }
+
+    renderSearch(key) {
         return (<Search
             key={key}
             placeholderText={this.getConfig('search', 'placeholderText')}
             value={this.state.searchQuery}
-            onSearch={this.handleSearchInputChange}
-            onBlur={onBlur} />);
+            onSearch={this.handleSearchInputChange} />);
     }
 
-    renderSelect(autoWidth, key) {
+    renderSelect(autoWidth, key, optionsAlignment = 'right') {
         return (<Select
             opened={this.state.selectOpened}
             val={this.state.selelectedFilterBy}
@@ -729,7 +753,8 @@ export default class ConsonantWrapper extends React.Component {
             onOpen={this.handleSelectOpen}
             onSelect={this.handleSelectChange}
             key={key}
-            autoWidth={autoWidth} />);
+            autoWidth={autoWidth}
+            optionsAlignment={optionsAlignment} />);
     }
 
     render() {
@@ -786,9 +811,11 @@ export default class ConsonantWrapper extends React.Component {
                                     clearFilterText={this.getConfig('filterPanel', 'clearFilterText')}
                                     clearAllFiltersText={this.getConfig('filterPanel', 'clearAllFiltersText')}
                                     showTotalResults={this.getConfig('totalResults', 'display')}
-                                    showSearchbar={this.state.showTopFilterSearch}>
+                                    showSearchbar={this.state.showTopFilterSearch}
+                                    showLimitedFiltersQty={this.state.showLimitedFiltersQty}
+                                    onShowAllClick={this.handleShowAllTopFilters}>
                                     {this.getConfig('search', 'enabled') &&
-                                        this.renderSearch('filtersTopSearch', this.handleSearchIcoClick)
+                                        this.renderSearch('filtersTopSearch')
                                     }
                                     {
                                         this.getConfig('search', 'enabled') &&
@@ -801,7 +828,13 @@ export default class ConsonantWrapper extends React.Component {
                                     {
                                         this.getConfig('sort', 'enabled') &&
                                         this.getConfig('sort', 'options').length > 0 &&
-                                        this.renderSelect(true, 'filtersTopSelect')
+                                        this.renderSelect(
+                                            true,
+                                            'filtersTopSelect',
+                                            this.state.filters.length > 0
+                                                && window.innerWidth < TABLET_MIN_WIDTH ?
+                                                'left' : 'right',
+                                        )
                                     }
                                 </FiltersPanelTop>
                             }
