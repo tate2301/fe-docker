@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Consonant/Pagination Check snapshots should renders correctly when closed 1`] = `
+<div
+  className="consonant-pagination"
+>
+  <div
+    className="consonant-pagination--paginator"
+  >
+    <button
+      className="consonant-pagination--btn consonant-pagination--btn_prev"
+      onClick={[Function]}
+      type="buttton"
+    >
+      previous
+    </button>
+    <ul
+      className="consonant-pagination--items"
+    >
+      <li
+        className="consonant-pagination--item consonant-pagination--item_active"
+      >
+        <button
+          className="consonant-pagination--item-btn"
+          onClick={[Function]}
+          type="button"
+        >
+          1
+        </button>
+      </li>
+      <li
+        className="consonant-pagination--item"
+      >
+        <button
+          className="consonant-pagination--item-btn"
+          onClick={[Function]}
+          type="button"
+        >
+          2
+        </button>
+      </li>
+      <li
+        className="consonant-pagination--item"
+      >
+        <button
+          className="consonant-pagination--item-btn"
+          onClick={[Function]}
+          type="button"
+        >
+          3
+        </button>
+      </li>
+      <li
+        className="consonant-pagination--item"
+      >
+        <button
+          className="consonant-pagination--item-btn"
+          onClick={[Function]}
+          type="button"
+        >
+          4
+        </button>
+      </li>
+      <li
+        className="consonant-pagination--item"
+      >
+        <button
+          className="consonant-pagination--item-btn"
+          onClick={[Function]}
+          type="button"
+        >
+          5
+        </button>
+      </li>
+    </ul>
+    <button
+      className="consonant-pagination--btn consonant-pagination--btn_next"
+      onClick={[Function]}
+      type="buttton"
+    >
+      next
+    </button>
+  </div>
+  <div
+    className="consonant-pagination--summary"
+  >
+    Showing
+    <strong>
+      1-10
+       of
+    </strong>
+    100
+     Results
+  </div>
+</div>
+`;
