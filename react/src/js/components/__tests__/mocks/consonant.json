@@ -1,0 +1,483 @@
+{
+    "collection": {
+        "resultsPerPage": 10,
+        "endpoint": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.json",
+        "title": "A great collection",
+        "totalCardLimit": -1,
+        "cardStyle": "none"
+    },
+    "featuredCards": [],
+    "header": {
+        "enabled": false
+    },
+    "filterPanel": {
+        "enabled": true,
+        "type": "left",
+        "filters": [
+            {
+                "group": "Topic",
+                "id": "adobe-com-enterprise:topic",
+                "icon": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg",
+                "openedOnLoad": true,
+                "items": [
+                    {
+                        "label": "Business Continuity",
+                        "id": "we-retail:activity/hiking"
+                    },
+                    {
+                        "label": "Creativity and Design",
+                        "id": "adobe-com-enterprise:topic/creativity-design"
+                    },
+                    {
+                        "label": "Customer Intelligence",
+                        "id": "adobe-com-enterprise:topic/customer-intelligence"
+                    },
+                    {
+                        "label": "Data Management Platform",
+                        "id": "adobe-com-enterprise:topic/data-management-platform"
+                    },
+                    {
+                        "label": "Digital Foundation",
+                        "id": "adobe-com-enterprise:topic/digital-foundation"
+                    },
+                    {
+                        "label": "Digital Trends",
+                        "id": "adobe-com-enterprise:topic/digital-trends"
+                    },
+                    {
+                        "label": "Document Management",
+                        "id": "adobe-com-enterprise:topic/document-management"
+                    },
+                    {
+                        "label": "Marketing Automation",
+                        "id": "adobe-com-enterprise:topic/marketing-automation"
+                    },
+                    {
+                        "label": "Personalization",
+                        "id": "adobe-com-enterprise:topic/personalization"
+                    },
+                    {
+                        "label": "Stock",
+                        "id": "adobe-com-enterprise:topic/Stock"
+                    }
+                ]
+            },
+            {
+                "group": "Availability",
+                "id": "adobe-com-enterprise:availability",
+                "icon": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg",
+                "openedOnLoad": false,
+                "items": [
+                    {
+                        "label": "On-Demand",
+                        "id": "adobe-com-enterprise:availability/on-demand"
+                    },
+                    {
+                        "label": "Upcoming",
+                        "id": "adobe-com-enterprise:availability/upcoming"
+                    }
+                ]
+            }
+        ],
+        "clearAllFiltersText": "Clear",
+        "clearFilterText": "Clear filter",
+        "filterLogic": "and"
+    },
+    "sort": {
+        "enabled": true,
+        "defaultSort": "titleAsc",
+        "options": [
+            {
+                "label": "featured",
+                "sort": "featured"
+            },
+            {
+                "label": "Title: (A-Z)",
+                "sort": "titleAsc"
+            },
+            {
+                "label": "Title: (Z-A)",
+                "sort": "titleDesc"
+            },
+            {
+                "label": "Date: (Oldest to newest)",
+                "sort": "dateAsc"
+            },
+            {
+                "label": "Date: (Newest to oldest)",
+                "sort": "dateDesc"
+            }
+        ]
+    },
+    "pagination": {
+        "enabled": true,
+        "type": "paginator"
+    },
+    "bookmarks": {
+        "enabled": true,
+        "bookmarkOnlyCollection": false,
+        "cardSavedIcon": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Ukrposhta-ua-icon.svg",
+        "cardUnsavedIcon": "",
+        "selectBookmarksIcon": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Ukrposhta-ua-icon.svg",
+        "unselectBookmarksIcon": "path-to-unselectBookmarksIcon",
+        "saveBookmarkText": "Save breakout session",
+        "unsaveBookmarkText": "Unsave breakout session"
+    },
+    "search": {
+        "enabled": true,
+        "placeholderText": "Search here...",
+        "searchFields": [
+            "title",
+            "description",
+            "meta-author",
+            "meta-categories"
+        ]
+    },
+    "totalResults": {
+        "display": true
+    },
+    "cards": [
+        {
+            "title": "Some Title 1 ",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/biking"
+                }
+            ],
+            "id": "6d6438c8-1",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": "some-banner-icon"
+        },
+        {
+            "title": "Some Title 2",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/hiking"
+                }
+            ],
+            "id": "6d6438c8-2",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 3",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/running"
+                }
+            ],
+            "id": "6d6438c8-3",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 4",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/skiing"
+                }
+            ],
+            "id": "6d6438c8-4",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 5",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/surfing"
+                }
+            ],
+            "id": "6d6438c8-5",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 6",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/swimming"
+                }
+            ],
+            "id": "6d6438c8-6",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 7",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/others"
+                }
+            ],
+            "id": "6d6438c8-7",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 8",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/coat"
+                }
+            ],
+            "id": "6d6438c8-8",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 9",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/footwear"
+                }
+            ],
+            "id": "6d6438c8-9",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 10",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/glasses"
+                }
+            ],
+            "id": "6d6438c8-10",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 11",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/gloves"
+                }
+            ],
+            "id": "6d6438c8-11",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 12",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/hat"
+                }
+            ],
+            "id": "6d6438c8-12",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 13",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/helmet"
+                }
+            ],
+            "id": "6d6438c8-13",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 14",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/pancho"
+                }
+            ],
+            "id": "6d6438c8-14",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 15",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/pants"
+                }
+            ],
+            "id": "6d6438c8-15",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 16",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/scarf"
+                }
+            ],
+            "id": "6d6438c8-16",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 17",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/shirt"
+                }
+            ],
+            "id": "6d6438c8-17",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        },
+        {
+            "title": "Some Title 18",
+            "appliesTo": [
+                {
+                    "id": "we-retail:apparel/shorts"
+                }
+            ],
+            "id": "6d6438c8-18",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": ""
+        }
+    ]
+}
