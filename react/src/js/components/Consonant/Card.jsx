@@ -139,6 +139,7 @@ const Card = (props) => {
                                 <a
                                     href={ctaLink}
                                     target="_blank"
+                                    rel="noreferrer"
                                     className="consonant-card--btn">{ctaLabel}
                                 </a>
                             </div>

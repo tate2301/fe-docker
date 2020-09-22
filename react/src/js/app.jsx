@@ -1,35 +1,36 @@
-/* eslint-disable */
-import { DOMRegistry } from 'react-dom-components';
 import React from 'react';
-import ReactDOM from 'react-dom';
-import authorWatch from './watch';
-import SearchPageDOM from "./components/Page/SearchPageDOM";
-import CollectionPageDOM from "./components/Page/CollectionPageDOM";
-import ConsonantPageDOM from "./components/Page/ConsonantPageDOM";
-import ConsonantWrapper from "./components/Page/ConsonantWrapper";
+import ReactDOM, { render } from 'react-dom';
 
-const searchPage = new SearchPageDOM();
-const collectionPage = new CollectionPageDOM();
-const consonantPage = new ConsonantPageDOM();
+import { DOMRegistry } from 'react-dom-components';
+// import SearchPageDOM from "./components/Page/SearchPageDOM";
+// import CollectionPageDOM from "./components/Page/CollectionPageDOM";
+// import ConsonantPageDOM from './components/Page/ConsonantPageDOM';
+import ConsonantWrapper from './components/Page/ConsonantWrapper';
+import consonantPageRDC from './components/Page/ConsonantPageDOM';
+
+// // const searchPage = new SearchPageDOM();
+// const collectionPage = new CollectionPageDOM();
+// const consonantPage = new ConsonantPageDOM();
+
+const domRegistry = new DOMRegistry(React, render);
+domRegistry.register({
+    consonantPageRDC,
+});
+
 
 class WrapperCardCollectionComponent {
     constructor(config, element) {
-        ReactDOM.render((<React.Fragment>
-            <ConsonantWrapper config={config} />
-        </React.Fragment>), element);
+        ReactDOM.render((
+            <React.Fragment>
+                <ConsonantWrapper config={config} />
+            </React.Fragment>), element);
     }
 }
 
 window.WrapperCardCollectionComponent = WrapperCardCollectionComponent;
 
 const initReact = (element) => {
-    const registry = new DOMRegistry(element);
-    registry.register({
-        searchPage,
-        collectionPage,
-        consonantPage,
-    });
-    authorWatch(registry);
+    domRegistry.init(element);
 };
 
 // Initialize React
@@ -44,6 +45,4 @@ window.dexter.dxf.registerApp = (app) => {
 
 window.dexter.dxf.registerApp(initReact);
 
-
-
-
+export default initReact;

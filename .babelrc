@@ -7,6 +7,11 @@
     "plugins": [
         "transform-class-properties",
         "transform-object-rest-spread",
-        "babel-plugin-transform-es2015-spread"
+        "babel-plugin-transform-es2015-spread",
+        [
+            "transform-runtime", {
+                "regenerator": true
+          }
+        ]
     ]
 }

@@ -9,9 +9,9 @@ const LoadMore = (props) => {
                 <div className="consonant-load-more--inner">
                     <p className="consonant-load-more--text">
                         <span className="consonant-load-more--shown">{show} </span>
-                    of
+                        of
                         <span className="consonant-load-more--total"> {total} </span>
-                    displayed
+                        displayed
                     </p>
                     {show < total &&
                     <button
