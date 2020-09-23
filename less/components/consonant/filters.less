@@ -21,7 +21,6 @@
 @consonant-filters-item-badge-line-width: unit((@consonant-root-rem * 0.625), px);
 @consonant-filters-1200-break-width: unit((@consonant-root-rem * 12.75), px);
 @consonant-filters-top-filters-fade-width: unit((@consonant-root-rem * 3.5), px);
-@consonant-filters-top-select-wrapper-width: unit((@consonant-root-rem * 4.5625), px);
 @consonant-filters-top-qty-hor-space: unit((@consonant-root-rem * 1.25), px);
 @consonant-filters-top-search-width: unit((@consonant-root-rem * 16.75), px);
 
@@ -248,6 +247,7 @@
                 display: block;
                 margin-top: auto;
                 min-height: 50vh;
+                max-height: 50vh;
                 border-top: 1px solid @consonant-color-lightest-grey;
                 overflow-y: auto;
             }
@@ -399,6 +399,10 @@
             font-weight: 700;
             background-color: @consonant-color-white;
         }
+
+        &:empty {
+            display: none;
+        }
     }
 
     .consonant-filters--item-list-item {
@@ -411,6 +415,10 @@
 
         &:hover {
             background-color: @consonant-color-lightest-grey-2;
+        }
+
+        &:nth-of-type(n+10):last-of-type {
+            margin-bottom: 32/@consonant-root-rem;
         }
 
         label {
@@ -560,14 +568,10 @@
     // Top filters;
     &.consonant-filters_top {
         display: block;
-
-        .full-width;
-
-        margin: 0;
-        padding:
-            14/@consonant-root-rem
-            unit((@consonant-root-rem * 1.875), px)
-            20/@consonant-root-rem;
+        min-width: @consonant-card-collection-less-600-break-width;
+        max-width: @consonant-card-collection-less-600-break-width;
+        margin: 0 auto;
+        padding: 14/@consonant-root-rem 0 20/@consonant-root-rem;
 
         .consonant-filters--top-inner {
             &:extend(
@@ -586,7 +590,7 @@
 
         .consonant-filters--top-filters-wrapper {
             flex-grow: 1;
-            max-width: calc(~ '100% - ' @consonant-filters-top-select-wrapper-width ~ ' - ' unit((@consonant-root-rem * 0.5), px));
+            max-width: calc(~ '100% - ' @consonant-select-width * 0.85 ~ ' - ' unit((@consonant-root-rem * 0.5), px));
 
             &:extend(
                 .flex,
@@ -635,15 +639,15 @@
                     border: 0;
 
                     &:after {
-                        width: unit((@consonant-root-rem * 0.375), px);
-                        height: unit((@consonant-root-rem * 0.375), px);
+                        width: unit((@consonant-root-rem * 0.25), px);
+                        height: unit((@consonant-root-rem * 0.25), px);
                         top: 0;
                         bottom: 0;
                         right: unit((@consonant-root-rem * 0.5), px);
                         margin: auto;
                         border-color: @consonant-color-dark-grey-1;
                         border-width: 1px;
-                        transform: rotate(-45deg) translate3d(2px, -1px, 0);
+                        transform: rotate(-45deg) translate3d(1px, -2px, 0);
                     }
 
                     & > .consonant-filters--item-inner {
@@ -661,6 +665,7 @@
                             .consonant-filters--item-name a {
                                 border-color: @consonant-color-brown-grey;
                                 padding-right: 0;
+                                color: @consonant-color-dark-grey-4;
                             }
                         }
 
@@ -741,7 +746,7 @@
                 14/@consonant-root-rem,
                 19/@consonant-root-rem,
                 400,
-                @consonant-color-dark-grey-4,
+                @consonant-color-brown-grey,
                 left
             );
 
@@ -756,7 +761,8 @@
                 .flex .align .center
             );
 
-            position: relative;
+            position: sticky;
+            right: 0;
             min-height: unit((@consonant-root-rem * 2), px);
             max-width: 40%;
 
@@ -808,13 +814,13 @@
 
         .consonant-filters--top-select-wrapper {
             display: block;
-            max-width: @consonant-filters-top-select-wrapper-width;
+            min-width: @consonant-select-width * 0.85;
+            max-width: @consonant-select-width * 0.85;
             margin-right: unit((@consonant-root-rem * 0.5), px);
             order: -1;
             overflow: visible;
 
             &:only-child {
-                max-width: @consonant-select-width;
                 margin-left: auto;
                 margin-right: 0;
             }
@@ -826,17 +832,20 @@
         }
     }
 
+    @media @consonant-for-tablet-portrait-up {
+        &.consonant-filters_top {
+            min-width: @consonant-card-collection-600-break-width;
+            max-width: @consonant-card-collection-600-break-width;
+        }
+    }
+
     @media @consonant-for-tablet-landscape-up {
         &.consonant-filters_top {
             max-width: @consonant-card-collection-900-break-width;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 0;
-            padding-right: 0;
             padding-bottom: 32/@consonant-root-rem;
 
             .consonant-filters--top-filters-wrapper {
-                max-width: calc(~ '100% - ' @consonant-select-width ~ ' - ' unit((@consonant-root-rem), px));
+                max-width: 60%;
                 justify-content: flex-start;
                 margin-right: unit((@consonant-root-rem), px);
 
@@ -845,7 +854,6 @@
                 }
 
                 .consonant-filters--top-filters {
-                    justify-content: center;
                     align-items: flex-start;
                     flex-wrap: wrap;
                     overflow: hidden;
@@ -889,6 +897,10 @@
                 .consonant-filters--item {
                     max-width: calc(~ '100% - ' unit((@consonant-root-rem * 1.5), px));
                     margin-bottom: 8/@consonant-root-rem;
+                }
+
+                .consonant-filters--top-filters-btn-wrapper:after {
+                    display: none;
                 }
             }
 
@@ -1007,6 +1019,7 @@
 
                 .consonant-filters--item-list {
                     min-height: unset;
+                    max-height: unset;
                     border-color: transparent;
                 }
 
@@ -1046,6 +1059,12 @@
                 right: unit((@consonant-root-rem * 0.8125), px);
                 border-color: @consonant-color-grey;
                 transform: rotate(-45deg);
+            }
+
+            .consonant-filters--item-list-item {
+                &:nth-of-type(n+10):last-of-type {
+                    margin-bottom: 0;
+                }
             }
         }
 
@@ -1117,7 +1136,7 @@
             }
 
             .consonant-filters--top-select-wrapper {
-                width: 100%;
+                min-width: unit((@consonant-root-rem * 10), px);
                 max-width: unit((@consonant-root-rem * 10), px);
                 margin-right: 0;
 
@@ -1136,10 +1155,6 @@
                         border: 0;
                     }
                 }
-            }
-
-            .consonant-filters--top-filters-btn-wrapper:after {
-                display: none;
             }
 
             .consonant-filters--top-filters-wrapper {
@@ -1167,15 +1182,15 @@
                         z-index: 2;
 
                         &:after {
-                            width: unit((@consonant-root-rem * 0.375), px);
-                            height: unit((@consonant-root-rem * 0.375), px);
+                            width: unit((@consonant-root-rem * 0.25), px);
+                            height: unit((@consonant-root-rem * 0.25), px);
                             top: 0;
                             bottom: 0;
                             right: unit((@consonant-root-rem * 0.5), px);
                             margin: auto;
                             border-color: @consonant-color-blue;
                             border-width: 1px;
-                            transform: rotate(-45deg) translate3d(2px, -1px, 0);
+                            transform: rotate(-45deg) translate3d(1px, -2px, 0);
                             transition: border-color @transition-time @transition-func;
                         }
 
@@ -1269,6 +1284,10 @@
                 .consonant-filters--item-selcted-items {
                     display: block;
                     padding: 0;
+                }
+
+                .consonant-filters--item-list-item:nth-of-type(n+10):last-of-type {
+                    margin-bottom: 32/@consonant-root-rem;
                 }
             }
         }

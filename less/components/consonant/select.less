@@ -150,18 +150,27 @@
     }
 
     &.consonant-select_auto-width {
-        width: unset;
+        width: 100%;
         max-width: 100%;
         margin-bottom: 0;
 
+        &:after {
+            width: unit((@consonant-root-rem * 0.25), px);
+            height: unit((@consonant-root-rem * 0.25), px);
+            border-color: @consonant-color-brown-grey;
+        }
+
         .consonant-select--options {
             min-width: @consonant-select-width;
+        }
+
+        .consonant-select--btn {
+            max-width: unset;
         }
     }
 
     @media @consonant-for-tablet-landscape-up {
         &.consonant-select_auto-width {
-            max-width: @consonant-select-width;
             margin-right: 0;
 
             .consonant-select--options {
@@ -174,10 +183,6 @@
     @media @consonant-for-desktop-up {
         width: @consonant-select-1200-break-width;
         margin-bottom: 0;
-
-        &.consonant-select_auto-width {
-            max-width: 100%;
-        }
 
         &:after {
             right: 0;
