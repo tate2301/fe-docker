@@ -18,13 +18,15 @@ const Bookmarks = (props) => {
 
         return src ?
             <span
+                data-testid="bookmarks--ico"
                 className="bookmarks--ico"
                 style={{ backgroundImage: `url(${src})` }} /> :
-            <span className="bookmarks--ico" />;
+            <span data-testid="bookmarks--ico" className="bookmarks--ico" />;
     };
 
     return (
         <button
+            data-testid="bookmarks"
             type="button"
             onClick={onClick}
             className={selected ? 'bookmarks bookmarks_selected' : 'bookmarks'
@@ -33,7 +35,7 @@ const Bookmarks = (props) => {
                 {renderIcon()}
                 <span className="bookmarks--title">My favorites</span>
             </span>
-            <span className="bookmarks--item-badge">{qty}</span>
+            <span data-testid="bookmarks--item-badge" className="bookmarks--item-badge">{qty}</span>
         </button>
     );
 };

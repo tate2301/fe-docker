@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Loader from '../../Consonant/Loader';
+import Loader from '../Loader';
 
 const PROPS = [
     { hidden: true },

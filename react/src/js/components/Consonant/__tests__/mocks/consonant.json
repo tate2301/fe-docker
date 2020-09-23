@@ -117,7 +117,7 @@
         "enabled": true,
         "bookmarkOnlyCollection": false,
         "cardSavedIcon": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Ukrposhta-ua-icon.svg",
-        "cardUnsavedIcon": "",
+        "cardUnsavedIcon": "https://upload.some-url",
         "selectBookmarksIcon": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Ukrposhta-ua-icon.svg",
         "unselectBookmarksIcon": "path-to-unselectBookmarksIcon",
         "saveBookmarkText": "Save breakout session",
@@ -173,7 +173,7 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": ""
+            "bannerIcon": "some-banner-icon"
         },
         {
             "title": "Some Title 3",
@@ -192,7 +192,7 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": ""
+            "bannerIcon": "some-banner-icon"
         },
         {
             "title": "Some Title 4",
@@ -211,7 +211,7 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": ""
+            "bannerIcon": "some-banner-icon"
         },
         {
             "title": "Some Title 5",
@@ -230,7 +230,7 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": ""
+            "bannerIcon": "some-banner-icon"
         },
         {
             "title": "Some Title 6",
@@ -249,7 +249,7 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": ""
+            "bannerIcon": "some-banner-icon"
         },
         {
             "title": "Some Title 7",
@@ -268,7 +268,7 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": ""
+            "bannerIcon": "some-banner-icon"
         },
         {
             "title": "Some Title 8",
@@ -287,7 +287,7 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": ""
+            "bannerIcon": "some-banner-icon"
         },
         {
             "title": "Some Title 9",
@@ -306,7 +306,7 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": ""
+            "bannerIcon": "some-banner-icon"
         },
         {
             "title": "Some Title 10",
@@ -325,7 +325,7 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": ""
+            "bannerIcon": "some-banner-icon"
         },
         {
             "title": "Some Title 11",
@@ -344,7 +344,7 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": ""
+            "bannerIcon": "some-banner-icon"
         },
         {
             "title": "Some Title 12",
@@ -363,7 +363,7 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": ""
+            "bannerIcon": "some-banner-icon"
         },
         {
             "title": "Some Title 13",
@@ -382,7 +382,7 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": ""
+            "bannerIcon": "some-banner-icon"
         },
         {
             "title": "Some Title 14",
@@ -401,7 +401,7 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": ""
+            "bannerIcon": "some-banner-icon"
         },
         {
             "title": "Some Title 15",
@@ -420,7 +420,7 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": ""
+            "bannerIcon": "some-banner-icon"
         },
         {
             "title": "Some Title 16",
@@ -439,7 +439,7 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": ""
+            "bannerIcon": "some-banner-icon"
         },
         {
             "title": "Some Title 17",
@@ -458,7 +458,7 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": ""
+            "bannerIcon": "some-banner-icon"
         },
         {
             "title": "Some Title 18",
@@ -477,7 +477,7 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": ""
+            "bannerIcon": "some-banner-icon"
         }
     ]
 }

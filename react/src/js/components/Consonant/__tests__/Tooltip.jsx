@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Tooltip from '../../Consonant/Tooltip';
+import Tooltip from '../Tooltip';
 
 describe('Consonant/Tooltip', () => {
     describe('Check snapshots', () => {

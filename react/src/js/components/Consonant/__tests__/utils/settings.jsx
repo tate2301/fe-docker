@@ -1,7 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
-
+import { render } from '@testing-library/react';
 
 export default (Component, defaultProps) => (passedProps) => {
     const props = {
@@ -9,7 +8,7 @@ export default (Component, defaultProps) => (passedProps) => {
         ...passedProps,
     };
 
-    const wrapper = shallow(<Component {...props} />);
+    const wrapper = render(<Component {...props} />);
     const tree = renderer
         .create(<Component {...props} />)
         .toJSON();

@@ -7,6 +7,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
 >
   <div
     className="consonant-card--img"
+    data-testid="consonant-card--img"
     style={
       Object {
         "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
@@ -15,6 +16,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
   >
     <span
       className="consonant-card--banner"
+      data-testid="consonant-card--banner"
       style={
         Object {
           "backgroundColor": "#CB6F10",
@@ -25,6 +27,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
       <img
         alt=""
         className="consonant-card--banner-icon"
+        data-testid="consonant-card--banner-icon"
         loading="lazy"
         src="some-banner-icon"
         width="8"
@@ -67,12 +70,19 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
       >
         <button
           className="consonant-card--footer-btn"
+          data-testid="tooltip-wrapper"
           data-tooltip-wrapper={true}
           onClick={[Function]}
           type="button"
         >
           <span
             className="consonant-card--bookmark-ico"
+            data-testid="bookmarks--ico"
+            style={
+              Object {
+                "backgroundImage": "url(https://upload.some-url)",
+              }
+            }
           />
           <span
             className="consonant-tooltip"
@@ -106,6 +116,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
 >
   <div
     className="consonant-card--img"
+    data-testid="consonant-card--img"
     style={
       Object {
         "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
@@ -114,6 +125,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
   >
     <span
       className="consonant-card--banner"
+      data-testid="consonant-card--banner"
       style={
         Object {
           "backgroundColor": "#CB6F10",
@@ -124,6 +136,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
       <img
         alt=""
         className="consonant-card--banner-icon"
+        data-testid="consonant-card--banner-icon"
         loading="lazy"
         src="some-banner-icon"
         width="8"
@@ -161,6 +174,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
 >
   <div
     className="consonant-card--img"
+    data-testid="consonant-card--img"
     style={
       Object {
         "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
@@ -169,6 +183,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
   >
     <span
       className="consonant-card--banner"
+      data-testid="consonant-card--banner"
       style={
         Object {
           "backgroundColor": "#CB6F10",
@@ -179,6 +194,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
       <img
         alt=""
         className="consonant-card--banner-icon"
+        data-testid="consonant-card--banner-icon"
         loading="lazy"
         src="some-banner-icon"
         width="8"
@@ -221,12 +237,19 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
       >
         <button
           className="consonant-card--footer-btn"
+          data-testid="tooltip-wrapper"
           data-tooltip-wrapper={true}
           onClick={[Function]}
           type="button"
         >
           <span
             className="consonant-card--bookmark-ico"
+            data-testid="bookmarks--ico"
+            style={
+              Object {
+                "backgroundImage": "url(https://upload.some-url)",
+              }
+            }
           />
           <span
             className="consonant-tooltip"
@@ -260,6 +283,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
 >
   <div
     className="consonant-card--img"
+    data-testid="consonant-card--img"
     style={
       Object {
         "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
@@ -268,6 +292,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
   >
     <span
       className="consonant-card--banner"
+      data-testid="consonant-card--banner"
       style={
         Object {
           "backgroundColor": "#CB6F10",
@@ -278,6 +303,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
       <img
         alt=""
         className="consonant-card--banner-icon"
+        data-testid="consonant-card--banner-icon"
         loading="lazy"
         src="some-banner-icon"
         width="8"
@@ -315,6 +341,7 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
 >
   <div
     className="consonant-card--img"
+    data-testid="consonant-card--img"
     style={
       Object {
         "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
@@ -323,6 +350,7 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
   >
     <span
       className="consonant-card--banner"
+      data-testid="consonant-card--banner"
       style={
         Object {
           "backgroundColor": "#CB6F10",
@@ -333,6 +361,7 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
       <img
         alt=""
         className="consonant-card--banner-icon"
+        data-testid="consonant-card--banner-icon"
         loading="lazy"
         src="some-banner-icon"
         width="8"
@@ -375,12 +404,14 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
       >
         <button
           className="consonant-card--footer-btn consonant-card--footer-btn_active consonant-card--footer-btn_disabled"
+          data-testid="tooltip-wrapper"
           data-tooltip-wrapper={true}
           onClick={[Function]}
           type="button"
         >
           <span
             className="consonant-card--bookmark-ico"
+            data-testid="bookmarks--ico"
             style={
               Object {
                 "backgroundImage": "url(https://upload.wikimedia.org/wikipedia/commons/a/a0/Ukrposhta-ua-icon.svg)",

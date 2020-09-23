@@ -3,6 +3,7 @@
 exports[`Consonant/Bookmarks Check snapshots should renders correctly 1`] = `
 <button
   className="bookmarks"
+  data-testid="bookmarks"
   onClick={[MockFunction]}
   type="button"
 >
@@ -11,6 +12,7 @@ exports[`Consonant/Bookmarks Check snapshots should renders correctly 1`] = `
   >
     <span
       className="bookmarks--ico"
+      data-testid="bookmarks--ico"
       style={
         Object {
           "backgroundImage": "url(path-to-unselectBookmarksIcon)",
@@ -25,6 +27,7 @@ exports[`Consonant/Bookmarks Check snapshots should renders correctly 1`] = `
   </span>
   <span
     className="bookmarks--item-badge"
+    data-testid="bookmarks--item-badge"
   >
     0
   </span>
