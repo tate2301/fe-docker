@@ -6,6 +6,10 @@ const Search = (props) => {
         value, onSearch, placeholderText,
     } = props;
 
+    const handleBlur = (event) => {
+        if (onBlur) onBlur(event);
+    };
+
     const handleSearch = (evt) => {
         onSearch(evt.target.value);
     };
@@ -20,10 +24,12 @@ const Search = (props) => {
                 <span className="consonant-search--input-title">Search</span>
                 <span className="consonant-search--input-wrapper">
                     <input
+                        data-testid="search-input"
                         type="search"
                         placeholder={placeholderText}
                         value={value}
                         onChange={handleSearch}
+                        onBlur={handleBlur}
                         className="consonant-search--input"
                         required />
                     <button
@@ -49,4 +55,5 @@ Search.propTypes = {
 Search.defaultProps = {
     value: '',
     placeholderText: 'Search here...',
+    onBlur: null,
 };

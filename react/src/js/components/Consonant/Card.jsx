@@ -66,14 +66,16 @@ const Card = (props) => {
 
         return src ?
             <span
+                data-testid="bookmarks--ico"
                 className="consonant-card--bookmark-ico"
                 style={{ backgroundImage: `url(${src})` }} /> :
-            <span className="consonant-card--bookmark-ico" />;
+            <span data-testid="bookmarks--ico" className="consonant-card--bookmark-ico" />;
     };
 
     return (
         <div className={setClassName()} id={id}>
             <div
+                data-testid="consonant-card--img"
                 className="consonant-card--img"
                 style={{ backgroundImage: `url("${image}")` }}>
                 {
@@ -81,6 +83,7 @@ const Card = (props) => {
                     bannerFontColor &&
                     bannerBackgroundColor &&
                     <span
+                        data-testid="consonant-card--banner"
                         className="consonant-card--banner"
                         style={({
                             backgroundColor: bannerBackgroundColor,
@@ -93,6 +96,7 @@ const Card = (props) => {
                                 alt=""
                                 loading="lazy"
                                 width="8"
+                                data-testid="consonant-card--banner-icon"
                                 className="consonant-card--banner-icon" />
                         }
                         {bannerDescription}
@@ -120,6 +124,7 @@ const Card = (props) => {
                                     {
                                         allowBookmarking &&
                                         <button
+                                            data-testid="tooltip-wrapper"
                                             data-tooltip-wrapper
                                             type="button"
                                             className={defineBookMarkBtnClassName()}

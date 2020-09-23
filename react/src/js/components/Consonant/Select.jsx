@@ -19,6 +19,7 @@ const Select = (props) => {
                 'consonant-select'
         }>
             <button
+                data-testid="select-button"
                 type="button"
                 className={opened ?
                     'consonant-select--btn consonant-select--btn_active' :
@@ -30,6 +31,7 @@ const Select = (props) => {
             <div className={`consonant-select--options consonant-select--options_${optionsAlignment}`}>
                 {values.map(item => (
                     <button
+                        data-testid="select-option"
                         key={item.label}
                         type="button"
                         className={item.label === val.label ?

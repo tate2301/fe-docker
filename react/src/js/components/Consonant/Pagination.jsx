@@ -101,6 +101,7 @@ const Pagination = (props) => {
         <div className="consonant-pagination">
             <div className="consonant-pagination--paginator">
                 <button
+                    data-testid="btn_prev"
                     onClick={handleClick}
                     type="buttton"
                     className="consonant-pagination--btn consonant-pagination--btn_prev">previous
@@ -114,17 +115,24 @@ const Pagination = (props) => {
                                     'consonant-pagination--item consonant-pagination--item_active' :
                                     'consonant-pagination--item'
                             }>
-                            <button onClick={handleClick} type="button" className="consonant-pagination--item-btn">{item}</button>
+                            <button
+                                data-testid="btn_page"
+                                onClick={handleClick}
+                                type="button"
+                                className="consonant-pagination--item-btn">
+                                {item}
+                            </button>
                         </li>
                     ))}
                 </ul>
                 <button
+                    data-testid="btn_next"
                     onClick={handleClick}
                     type="buttton"
                     className="consonant-pagination--btn consonant-pagination--btn_next">next
                 </button>
             </div>
-            <div className="consonant-pagination--summary">
+            <div data-testid="pagination--summary" className="consonant-pagination--summary">
                 Showing
                 <strong>
                     {getStartNumber()}-{getEndNumber()} of
