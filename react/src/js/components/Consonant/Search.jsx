@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Search = (props) => {
     const {
-        value, onSearch, onBlur, placeholderText,
+        value, onSearch, placeholderText,
     } = props;
 
     const handleBlur = (event) => {
@@ -30,6 +30,7 @@ const Search = (props) => {
                         value={value}
                         onChange={handleSearch}
                         onBlur={handleBlur}
+                        className="consonant-search--input"
                         required />
                     <button
                         type="button"
@@ -47,7 +48,6 @@ export default Search;
 
 Search.propTypes = {
     onSearch: PropTypes.func.isRequired,
-    onBlur: PropTypes.func,
     value: PropTypes.string,
     placeholderText: PropTypes.string,
 };

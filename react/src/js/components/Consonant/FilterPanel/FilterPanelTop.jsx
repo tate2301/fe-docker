@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FilterItem from '../FilterItem';
 
-// const DESKTOP_MIN_WIDTH = 1200;
+const DESKTOP_MIN_WIDTH = 1200;
 const TABLET_MIN_WIDTH = 768;
 const FiltersPanelTop = (props) => {
     const {
@@ -17,6 +17,8 @@ const FiltersPanelTop = (props) => {
         clearFilterText,
         clearAllFiltersText,
         children,
+        showLimitedFiltersQty,
+        onShowAllClick,
     } = props;
 
     let updatedChildren = [];
@@ -26,6 +28,7 @@ const FiltersPanelTop = (props) => {
         return res.length > 0 ? res : null;
     };
     const countSelectedInFilter = el => el.reduce((acc, val) => (val.selected ? acc + 1 : acc), 0);
+    const checkFiltersSelected = () => filters.some(f => countSelectedInFilter(f.items) > 0);
 
     if (!Array.isArray(children)) updatedChildren.push(children);
     else updatedChildren = children;
@@ -45,7 +48,11 @@ const FiltersPanelTop = (props) => {
                         {window.innerWidth >= TABLET_MIN_WIDTH &&
                             <strong className="consonant-filters--top-filters-title">Filters:</strong>
                         }
-                        <div className="consonant-filters--top-filters">
+                        <div className={
+                            showLimitedFiltersQty ?
+                                'consonant-filters--top-filters consonant-filters--top-filters_truncated' :
+                                'consonant-filters--top-filters'
+                        }>
                             {filters.map(item =>
                                 (<FilterItem
                                     key={item.id}
@@ -62,13 +69,26 @@ const FiltersPanelTop = (props) => {
                                     clearFilterText={clearFilterText}
                                     isTopFilter />))
                             }
+                            {
+                                filters.length > 2 &&
+                                window.innerWidth < DESKTOP_MIN_WIDTH &&
+                                window.innerWidth >= TABLET_MIN_WIDTH &&
+                                <button
+                                    type="button"
+                                    className="consonant-filters--more-filters"
+                                    onClick={onShowAllClick}>
+                                    {showLimitedFiltersQty ? 'more filters +' : 'hide -'}
+                                </button>
+                            }
                         </div>
                         <div className="consonant-filters--top-filters-btn-wrapper">
+                            {checkFiltersSelected() &&
                             <button
                                 type="button"
                                 className="consonant-filters--top-filters-btn"
                                 onClick={onClearAllFilters}>{clearAllFiltersText}
                             </button>
+                            }
                         </div>
                     </div>
                 }
@@ -116,6 +136,8 @@ FiltersPanelTop.propTypes = {
     clearAllFiltersText: PropTypes.string.isRequired,
     showTotalResults: PropTypes.bool,
     showSearchbar: PropTypes.bool,
+    showLimitedFiltersQty: PropTypes.bool,
+    onShowAllClick: PropTypes.func.isRequired,
 };
 
 FiltersPanelTop.defaultProps = {
@@ -124,4 +146,5 @@ FiltersPanelTop.defaultProps = {
     showTotalResults: true,
     showSearchbar: false,
     children: [],
+    showLimitedFiltersQty: false,
 };

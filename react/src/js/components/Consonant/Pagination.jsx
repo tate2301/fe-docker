@@ -87,6 +87,16 @@ const Pagination = (props) => {
         onClick(page);
     };
 
+    const getStartNumber = () => {
+        if (currentPageNumber === 1) return 1;
+        return (currentPageNumber * showItemsPerPage) - (showItemsPerPage - 1);
+    };
+
+    const getEndNumber = () => {
+        const res = currentPageNumber * showItemsPerPage;
+        return res < totalResults ? res : totalResults;
+    };
+
     return (
         <div className="consonant-pagination">
             <div className="consonant-pagination--paginator">
@@ -125,7 +135,7 @@ const Pagination = (props) => {
             <div data-testid="pagination--summary" className="consonant-pagination--summary">
                 Showing
                 <strong>
-                    {`${currentPageNumber === 1 ? 1 : (currentPageNumber * showItemsPerPage) - (showItemsPerPage - 1)}-${currentPageNumber * showItemsPerPage}`} of
+                    {getStartNumber()}-{getEndNumber()} of
                 </strong>
                 {totalResults} Results
             </div>
