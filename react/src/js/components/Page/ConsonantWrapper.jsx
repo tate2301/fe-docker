@@ -93,7 +93,7 @@ export default class ConsonantWrapper extends React.Component {
         this.updateCardsWithBookmarks = this.updateCardsWithBookmarks.bind(this);
         this.handleShowFavsClick = this.handleShowFavsClick.bind(this);
         this.handleSelectOpen = this.handleSelectOpen.bind(this);
-        this.handleInputsFocusOut = this.handleInputsFocusOut.bind(this);
+        this.handleFocusOut = this.handleFocusOut.bind(this);
         this.handleShowAllTopFilters = this.handleShowAllTopFilters.bind(this);
         this.resetFavourites = this.resetFavourites.bind(this);
         this.setBookMarksToLS = this.setBookMarksToLS.bind(this);
@@ -104,7 +104,7 @@ export default class ConsonantWrapper extends React.Component {
 
     componentDidMount() {
         window.addEventListener('resize', this.updateDimensions);
-        window.addEventListener('click', this.handleInputsFocusOut);
+        window.addEventListener('click', this.handleFocusOut);
 
         // Load data on init;
         this.loadData().then((res) => {
@@ -197,7 +197,7 @@ export default class ConsonantWrapper extends React.Component {
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateDimensions);
-        window.removeEventListener('click', this.handleInputsFocusOut);
+        window.removeEventListener('click', this.handleFocusOut);
     }
 
     getConfig(object, key) {
@@ -664,15 +664,35 @@ export default class ConsonantWrapper extends React.Component {
         this.setState({ pages: page });
     }
 
-    handleInputsFocusOut(clickEvt) {
+    handleFocusOut(clickEvt) {
+        clickEvt.stopPropagation();
         const cn = clickEvt.target.className;
-        const classNamesToCheck = ['consonant-search--input-clear', 'consonant-search--input'];
+        const classNamesToCheck = [
+            'consonant-search--input-clear',
+            'consonant-search--input',
+            'consonant-filters--item-link',
+            'consonant-filters--item-list',
+            'consonant-filters--mobile-footer-total-res',
+            'consonant-filters--item-list-label',
+            'consonant-filters--mobile-footer',
+            'consonant-filters--mobile-footer-clear',
+        ];
+        const { showTopFilterSearch, filters } = this.state;
+        const res = {};
 
+        if (classNamesToCheck.some(el => el === cn)) return;
+        if (showTopFilterSearch) res.showTopFilterSearch = false;
         if (
-            this.state.showTopFilterSearch &&
-            !classNamesToCheck.some(el => el === cn)
+            this.getConfig('filterPanel', 'type') === 'top' &&
+            window.innerWidth >= DESKTOP_MIN_WIDTH
         ) {
-            this.setState({ showTopFilterSearch: false });
+            res.filters = filters.map((f) => {
+                f.opened = false;
+                return f;
+            });
+        }
+        if (Object.keys(res).length !== 0) {
+            this.setState(res);
         }
     }
 

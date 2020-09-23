@@ -17,6 +17,7 @@ const FilterItem = (props) => {
         isTopFilter,
     } = props;
     const handleCheck = (evt) => {
+        evt.stopPropagation();
         onCheck(id, evt.target.value, evt.target.checked);
     };
     const handleClick = (clickEvt) => {
@@ -51,7 +52,7 @@ const FilterItem = (props) => {
                     <li
                         key={item.id}
                         className="consonant-filters--item-list-item">
-                        <label>
+                        <label className="consonant-filters--item-list-label">
                             <input
                                 value={item.id}
                                 type="checkbox"
@@ -94,7 +95,10 @@ const FilterItem = (props) => {
                         alt=""
                         loading="lazy" />
                     }
-                    <a href="#" onClick={handleClick}>
+                    <a
+                        href="#"
+                        className="consonant-filters--item-link"
+                        onClick={handleClick}>
                         {name}
                         <div
                             className="consonant-filters--item-selcted-items"
