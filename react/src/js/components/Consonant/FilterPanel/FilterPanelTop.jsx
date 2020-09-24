@@ -34,24 +34,24 @@ const FiltersPanelTop = (props) => {
     else updatedChildren = children;
 
     return (
-        <div className="consonant-filters consonant-filters_top">
+        <div className="consonant-top-filters">
             {
                 updatedChildren.some(el => el.key === 'filtersTopSearch') &&
                 window.innerWidth < TABLET_MIN_WIDTH &&
-                    <div className="consonant-filters--top-search-wrapper">
+                    <div className="consonant-top-filters--search-wrapper">
                         {renderChildren('filtersTopSearch')}
                     </div>
             }
-            <div className="consonant-filters--top-inner">
+            <div className="consonant-top-filters--inner">
                 {filters.length > 0 &&
-                    <div className="consonant-filters--top-filters-wrapper">
+                    <div className="consonant-top-filters--filters-wrapper">
                         {window.innerWidth >= TABLET_MIN_WIDTH &&
-                            <strong className="consonant-filters--top-filters-title">Filters:</strong>
+                            <strong className="consonant-top-filters--title">Filters:</strong>
                         }
                         <div className={
                             showLimitedFiltersQty ?
-                                'consonant-filters--top-filters consonant-filters--top-filters_truncated' :
-                                'consonant-filters--top-filters'
+                                'consonant-top-filters--filters consonant-top-filters--filters_truncated' :
+                                'consonant-top-filters--filters'
                         }>
                             {filters.map(item =>
                                 (<FilterItem
@@ -75,17 +75,17 @@ const FiltersPanelTop = (props) => {
                                 window.innerWidth >= TABLET_MIN_WIDTH &&
                                 <button
                                     type="button"
-                                    className="consonant-filters--more-filters"
+                                    className="consonant-top-filters--more-btn"
                                     onClick={onShowAllClick}>
                                     {showLimitedFiltersQty ? 'more filters +' : 'hide -'}
                                 </button>
                             }
                         </div>
-                        <div className="consonant-filters--top-filters-btn-wrapper">
+                        <div className="consonant-top-filters--clear-btn-wrapper">
                             {checkFiltersSelected() &&
                             <button
                                 type="button"
-                                className="consonant-filters--top-filters-btn"
+                                className="consonant-top-filters--clear-btn"
                                 onClick={onClearAllFilters}>{clearAllFiltersText}
                             </button>
                             }
@@ -93,14 +93,14 @@ const FiltersPanelTop = (props) => {
                     </div>
                 }
                 {window.innerWidth >= TABLET_MIN_WIDTH && showTotalResults &&
-                    <span className="consonant-filters--top-results-qty">
+                    <span className="consonant-top-filters--res-qty">
                         <strong>{resQty} </strong>results
                     </span>
                 }
                 {
                     updatedChildren.some(el => el.key === 'filtersTopSearchIco') &&
                     window.innerWidth >= TABLET_MIN_WIDTH &&
-                        <div className="consonant-filters--top-search-ico-wrapper">
+                        <div className="consonant-top-filters--search-ico-wrapper">
                             {
                                 showSearchbar ?
                                     renderChildren('filtersTopSearch') :
@@ -109,7 +109,7 @@ const FiltersPanelTop = (props) => {
                         </div>
                 }
                 {updatedChildren.some(el => el.key === 'filtersTopSelect') &&
-                    <div className="consonant-filters--top-select-wrapper">
+                    <div className="consonant-top-filters--select-wrapper">
                         {renderChildren('filtersTopSelect')}
                     </div>
                 }

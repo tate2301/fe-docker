@@ -1,0 +1,227 @@
+/* Available modificators:
+- .consonant-filters_opened;
+- .consonant-filters--item_selected;
+*/
+
+@consonant-filters-mob-back-size: 32px;
+@consonant-filters-mob-back-data: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxNCAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjk4OTkgNC4wMDAwNkgzLjQxMzg4TDUuNjk5ODggMS43MTcwNkM1Ljc5MjkyIDEuNjI0MDIgNS44NjY3MiAxLjUxMzU2IDUuOTE3MDggMS4zOTJDNS45Njc0MyAxLjI3MDQzIDUuOTkzMzUgMS4xNDAxNCA1Ljk5MzM1IDEuMDA4NTZDNS45OTMzNSAwLjg3Njk4MSA1Ljk2NzQzIDAuNzQ2Njg5IDUuOTE3MDggMC42MjUxMjVDNS44NjY3MiAwLjUwMzU2IDUuNzkyOTIgMC4zOTMxMDQgNS42OTk4OCAwLjMwMDA2MkM1LjYwNjg0IDAuMjA3MDIxIDUuNDk2MzggMC4xMzMyMTYgNS4zNzQ4MiAwLjA4Mjg2MjNDNS4yNTMyNSAwLjAzMjUwODUgNS4xMjI5NiAwLjAwNjU5MTggNC45OTEzOCAwLjAwNjU5MThDNC43MjU2NCAwLjAwNjU5MTggNC40NzA3OCAwLjExMjE1NiA0LjI4Mjg4IDAuMzAwMDYyTDAuMjk5ODc4IDQuMjkzMDZDMC4yMDY5MDIgNC4zODU5NCAwLjEzMzE0MyA0LjQ5NjIyIDAuMDgyODE4NyA0LjYxNzYyQzAuMDMyNDk0NCA0LjczOTAyIDAuMDA2NTkxOCA0Ljg2OTE1IDAuMDA2NTkxOCA1LjAwMDU2QzAuMDA2NTkxOCA1LjEzMTk4IDAuMDMyNDk0NCA1LjI2MjEgMC4wODI4MTg3IDUuMzgzNUMwLjEzMzE0MyA1LjUwNDkgMC4yMDY5MDIgNS42MTUxOSAwLjI5OTg3OCA1LjcwODA2TDQuMjgyODggOS43MDAwNkM0LjM3NTkyIDkuNzkzMSA0LjQ4NjM4IDkuODY2OTEgNC42MDc5NCA5LjkxNzI2QzQuNzI5NTEgOS45Njc2MiA0Ljg1OTggOS45OTM1MyA0Ljk5MTM4IDkuOTkzNTNDNS4xMjI5NiA5Ljk5MzUzIDUuMjUzMjUgOS45Njc2MiA1LjM3NDgyIDkuOTE3MjZDNS40OTYzOCA5Ljg2NjkxIDUuNjA2ODQgOS43OTMxIDUuNjk5ODggOS43MDAwNkM1Ljc5MjkyIDkuNjA3MDIgNS44NjY3MiA5LjQ5NjU2IDUuOTE3MDggOS4zNzVDNS45Njc0MyA5LjI1MzQzIDUuOTkzMzUgOS4xMjMxNCA1Ljk5MzM1IDguOTkxNTZDNS45OTMzNSA4Ljg1OTk4IDUuOTY3NDMgOC43Mjk2OSA1LjkxNzA4IDguNjA4MTJDNS44NjY3MiA4LjQ4NjU2IDUuNzkyOTIgOC4zNzYxIDUuNjk5ODggOC4yODMwNkwzLjQxMzg4IDYuMDAwMDZIMTIuOTg5OUMxMy4yNTUxIDYuMDAwMDYgMTMuNTA5NCA1Ljg5NDcgMTMuNjk3IDUuNzA3MTdDMTMuODg0NSA1LjUxOTYzIDEzLjk4OTkgNS4yNjUyOCAxMy45ODk5IDUuMDAwMDZDMTMuOTg5OSA0LjczNDg1IDEzLjg4NDUgNC40ODA0OSAxMy42OTcgNC4yOTI5NkMxMy41MDk0IDQuMTA1NDIgMTMuMjU1MSA0LjAwMDA2IDEyLjk4OTkgNC4wMDAwNloiIGZpbGw9IiM1MDUwNTAiLz4KPC9zdmc+Cg==";
+@consonant-filters-mobile-footer-btn-min-width: unit((@consonant-root-rem * 4.4375), px);
+@consonant-filters-item-inner-after-height: unit((@consonant-root-rem * 2.0625), px);
+@consonant-filters-item-inner-after-pos-bottom: unit((@consonant-root-rem * 4.0625), px);
+@consonant-filters-checkmark-size: unit((@consonant-root-rem * 0.875), px);
+@consonant-filters-checkmark-width: unit((@consonant-root-rem * 0.5), px);
+@consonant-filters-checkmark-height: unit((@consonant-root-rem * 0.25), px);
+@consonant-filters-selected-filters-max-height: unit((@consonant-root-rem * 7.4375), px);
+@consonant-filters-selected-filter-del-ico-width: unit((@consonant-root-rem * 0.5), px);
+@consonant-filters-item-badge-min-width: unit((@consonant-root-rem * 1.5), px);
+@consonant-filters-item-badge-max-width: unit((@consonant-root-rem * 6.25), px);
+@consonant-filters-item-badge-height: unit((@consonant-root-rem * 1.5), px);
+@consonant-filters-item-badge-line-width: unit((@consonant-root-rem * 0.625), px);
+@consonant-filters-1200-break-width: unit((@consonant-root-rem * 12.75), px);
+
+.consonant-filters {
+    position: static;
+
+    &:extend(
+        .flex,
+        .flex .direction .column
+    );
+    .full-width;
+    .position-absolute-0;
+
+    background-color: @consonant-color-white;
+    overflow: visible;
+    user-select: none;
+
+    > * {
+        .hide-all;
+    }
+
+    + div {
+        width: 100%;
+        height: calc(~ '100vh - ' @header-mobile-height);
+        position: relative;
+
+        &:extend(.horizontal-align .center);
+    }
+
+    // Opened LEFT filters;
+    &.consonant-filters_opened {
+        position: fixed;
+        z-index: 1000001;
+
+        &:extend(.flex);
+
+        .consonant-filters--mobile-footer,
+        .consonant-filters--header {
+            &:extend(.flex);
+        }
+
+        .consonant-filters--list {
+            display: block;
+        }
+
+        .consonant-filters--item-name img {
+            .hide-all;
+
+            position: relative;
+            top: unit((@consonant-root-rem * 0.25), px);
+        }
+
+        & > button {
+            display: flex;
+        }
+    }
+
+    // We need anti-BEM approach here;
+    > .consonant-search {
+        .hide-all;
+    }
+
+    .consonant-filters--header {
+        .hide-all;
+        .full-width;
+
+        &:extend(
+            .flex,
+            .flex .justify .between,
+            .flex .align .center
+        );
+
+        padding: 14/@consonant-root-rem unit((@consonant-root-rem * 0.75), px);
+        border-bottom: 1px solid @consonant-color-lightest-grey;
+    }
+
+    .consonant-filters--desk-title {
+        .hide-all;
+        .no-margin;
+
+        max-width: 70%;
+
+        .font(
+            16/@consonant-root-rem,
+            19/@consonant-root-rem,
+            700,
+            @consonant-color-dark-grey-2
+        );
+    }
+
+    .consonant-filters--mob-title {
+        &:extend(
+            .flex,
+            .flex .align .center
+        );
+
+        span {
+            .font(
+                @size: 16/@consonant-root-rem,
+                @line-height: 19/@consonant-root-rem,
+                @color: @consonant-color-brown-grey
+            );
+        }
+    }
+
+    .consonant-filters--mob-back {
+        display: block;
+        width: @consonant-filters-mob-back-size;
+        height: @consonant-filters-mob-back-size;
+        margin-right: unit((@consonant-root-rem * 0.8125), px);
+
+        .no-font;
+
+        border: 1px solid #eaeaea;
+        border-radius: 50%;
+        background: #fff url(@consonant-filters-mob-back-data) no-repeat 50% 50%;
+        background-position: contain;
+        outline: 0;
+    }
+
+    .consonant-filters--clear-link {
+        .hide-all;
+
+        padding: 0;
+
+        .font(
+            14/@consonant-root-rem,
+            16/@consonant-root-rem,
+            700,
+            @consonant-color-grey
+        );
+
+        text-transform: capitalize;
+        background-color: transparent;
+        outline: 0;
+    }
+
+    .consonant-filters--list {
+        padding-left: unit((@consonant-root-rem ), px);
+        padding-right: unit((@consonant-root-rem ), px);
+        overflow-y: auto;
+    }
+
+    @media @consonant-for-tablet-landscape-up {
+        // Check if we need it;
+        & + div {
+            height: calc(~ '100vh - ' @header-900-break-height);
+        }
+    }
+
+    @media @consonant-for-desktop-up {
+        width: @consonant-filters-1200-break-width;
+        max-width: @consonant-filters-1200-break-width;
+        margin-right: unit((@consonant-root-rem * 2), px);
+        padding-top: 123/@consonant-root-rem;
+        background-color: transparent;
+        overflow: visible;
+
+        .consonant-filters--list {
+            display: block;
+            padding: 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .consonant-filters--mob-title {
+            display: none;
+        }
+
+        .consonant-filters--header {
+            display: flex;
+            margin-top: unit((@consonant-root-rem * 0.375), px) * -1;
+            padding: 0 0 24/@consonant-root-rem;
+            border-bottom: 1px solid @consonant-color-lightest-grey;
+            order: -3;
+        }
+
+        .consonant-filters--desk-title {
+            display: block;
+        }
+
+        & > .consonant-search {
+            display: block;
+            padding-top: 13/@consonant-root-rem;
+            padding-bottom: 32/@consonant-root-rem;
+            border-bottom: 1px solid @consonant-color-lightest-grey;
+        }
+
+        .consonant-filters--clear-link {
+            display: block;
+            transition: color @transition-time @transition-func;
+
+            &:hover,
+            &:active {
+                color: @consonant-color-blue;
+            }
+        }
+
+        & + div {
+            height: calc(~ '100vh - ' @header-1200-break-height);
+        }
+    }
+
+    @media @consonant-for-big-desktop-up {
+        & + div {
+            height: calc(~ '100vh - ' @header-1440-break-height);
+        }
+    }
+}
