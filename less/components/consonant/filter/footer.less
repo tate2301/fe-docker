@@ -1,0 +1,60 @@
+.consonant-filter-footer {
+    margin-top: auto;
+
+    &:extend( .flex .align .center);
+
+    padding: 16/@consonant-root-rem unit((@consonant-root-rem), px);
+    border-top: 1px solid @consonant-color-lightest-grey;
+}
+
+.consonant-filter-footer--res-qty {
+    display: block;
+    margin-right: auto;
+
+    .font(
+        @weight: 700,
+        @color: @consonant-color-brown-grey
+    );
+
+    text-transform: capitalize;
+}
+
+.consonant-filter-footer--clear-btn {
+    display: block;
+    margin-right: unit((@consonant-root-rem * 1.0625), px);
+    padding: 0;
+
+    .font(
+        @weight: 700,
+        @color: @consonant-color-blue
+    );
+
+    background-color: transparent;
+
+    .no-border-no-outline;
+}
+
+.consonant-filter-footer--clear-btn + .consonant-filter-footer--btn {
+    margin-left: 0;
+}
+
+.consonant-filter-footer--btn {
+    min-width: @consonant-filters-mobile-footer-btn-min-width;
+    margin-left: auto;
+    padding:
+        8/@consonant-root-rem
+        unit((@consonant-root-rem), px)
+        8/@consonant-root-rem;
+
+    .font(
+        @weight: 700,
+        @color: @consonant-color-white,
+        @align: center
+    );
+
+    text-transform: capitalize;
+    background-color: @consonant-color-blue;
+    border-radius: unit((@consonant-root-rem * 1.25), px);
+
+    .no-border-no-outline;
+}

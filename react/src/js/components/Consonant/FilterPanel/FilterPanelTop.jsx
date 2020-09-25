@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FilterItem from '../FilterItem';
+import TopFilterItem from '../FilterItem/TopFilterItem';
 
 const DESKTOP_MIN_WIDTH = 1200;
 const TABLET_MIN_WIDTH = 768;
@@ -54,7 +54,7 @@ const FiltersPanelTop = (props) => {
                                 'consonant-top-filters--filters'
                         }>
                             {filters.map(item =>
-                                (<FilterItem
+                                (<TopFilterItem
                                     key={item.id}
                                     name={item.group}
                                     icon={item.icon}

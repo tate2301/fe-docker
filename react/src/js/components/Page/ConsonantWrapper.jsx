@@ -676,6 +676,12 @@ export default class ConsonantWrapper extends React.Component {
             'consonant-filters--item-list-label',
             'consonant-filters--mobile-footer',
             'consonant-filters--mobile-footer-clear',
+            'consonant-top-filter--link',
+            'consonant-filter-items',
+            'consonant-filter-footer--res-qty',
+            'consonant-filter-items--item-label',
+            'consonant-filter-footer',
+            'consonant-filter-footer--clear-btn',
         ];
         const { showTopFilterSearch, filters } = this.state;
         const res = {};
