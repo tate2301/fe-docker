@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FilterItems from './FilterItems';
-import FilterFooter from './FilterFooter';
 
 const TopFilterItem = (props) => {
     const {
@@ -20,7 +18,49 @@ const TopFilterItem = (props) => {
         clickEvt.preventDefault();
         onClick(id);
     };
-
+    const handleClear = () => {
+        onClearAll(id);
+    };
+    const handleCheck = (evt) => {
+        evt.stopPropagation();
+        onCheck(id, evt.target.value, evt.target.checked);
+    };
+    const renderItems = () => (
+        <ul className="consonant-top-filter--items">
+            {items.map(item => (
+                <li
+                    key={item.id}
+                    className="consonant-top-filter--items-item">
+                    <label className="consonant-top-filter--items-item-label">
+                        <input
+                            value={item.id}
+                            type="checkbox"
+                            onChange={handleCheck}
+                            checked={item.selected} />
+                        <span className="consonant-top-filter--items-item-checkmark" />
+                        <span className="consonant-top-filter--items-item-name">{item.label}</span>
+                    </label>
+                </li>
+            ))}
+        </ul>
+    );
+    const renderFooter = () => (
+        <div className="consonant-top-filter--footer">
+            <span className="consonant-top-filter--footer-res-qty">{results} results</span>
+            {itemsSelected > 0 &&
+            <button
+                type="button"
+                onClick={handleClear}
+                className="consonant-top-filter--footer-clear-btn">{clearFilterText}
+            </button>}
+            <button
+                type="button"
+                onClick={handleClick}
+                className="consonant-top-filter--footer-btn">
+                {itemsSelected > 0 ? 'Apply' : 'Done'}
+            </button>
+        </div>
+    );
     const defineClassNames = () => {
         const res = ['consonant-top-filter'];
 
@@ -44,14 +84,8 @@ const TopFilterItem = (props) => {
                 </h3>
                 <div className="consonant-top-filter--selcted-items">
                     <div className="consonant-top-filter--absolute-wrapper">
-                        <FilterItems id={id} items={items} onCheck={onCheck} />
-                        <FilterFooter
-                            id={id}
-                            results={results}
-                            itemsSelected={itemsSelected}
-                            onClearAll={onClearAll}
-                            clearFilterText={clearFilterText}
-                            onClick={onClick} />
+                        {renderItems()}
+                        {renderFooter()}
                     </div>
                 </div>
             </div>

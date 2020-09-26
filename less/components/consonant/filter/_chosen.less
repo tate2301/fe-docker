@@ -1,0 +1,69 @@
+.consonant-filters--selected-filters {
+    position: relative;
+
+    .full-width;
+
+    &:extend(
+        .flex .wrap,
+        .flex .justify .start,
+        .flex .align .center
+    );
+
+    max-height: @consonant-filters-selected-filters-max-height;
+    overflow-y: auto;
+    padding-top: 23/@consonant-root-rem;
+    background-color: transparent;
+
+    &:empty {
+        .hide-all;
+    }
+
+    .consonant-filters--selected-filter {
+        position: relative;
+        max-width: 50vw;
+        margin-right: unit((@consonant-root-rem * 0.3125), px);
+        margin-bottom: unit((@consonant-root-rem * 0.5), px);
+        padding:
+            0
+            unit((@consonant-root-rem * 1.375), px)
+            0
+            unit((@consonant-root-rem * 0.75), px);
+
+        .font(
+            12/@consonant-root-rem,
+            22/@consonant-root-rem,
+            400,
+            @consonant-color-brown-grey
+        );
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        background-color: @consonant-color-greyish-white;
+        border: 1px solid @consonant-color-lightest-grey;
+        border-radius: unit((@consonant-root-rem * 0.9375), px);
+        outline: 0;
+        overflow: hidden;
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            right: unit((@consonant-root-rem * 0.625), px);
+            width: @consonant-filters-selected-filter-del-ico-width;
+            height: 1px;
+            background-color: @consonant-color-light-grey-2;
+            transform: rotate(45deg);
+        }
+
+        &:after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    @media @consonant-for-desktop-up {
+        display: flex;
+    }
+}

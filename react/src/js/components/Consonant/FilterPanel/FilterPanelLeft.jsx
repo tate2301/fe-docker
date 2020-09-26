@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FilterItem from '../FilterItem';
+import LeftFilterItem from '../FilterItem/LeftFilterItem';
 
 const DESKTOP_MIN_WIDTH = 1200;
 const FilterPanelLeft = (props) => {
@@ -88,7 +88,7 @@ const FilterPanelLeft = (props) => {
                 filters.length > 0 &&
                 <div className="consonant-filters--list">
                     {filters.map(item =>
-                        (<FilterItem
+                        (<LeftFilterItem
                             key={item.id}
                             name={item.group}
                             icon={item.icon}
