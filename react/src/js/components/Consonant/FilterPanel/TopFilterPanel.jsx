@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TopFilterItem from '../FilterItem/TopFilterItem';
 
-const DESKTOP_MIN_WIDTH = 1200;
 const TABLET_MIN_WIDTH = 768;
+const SHOW_MAX_TRUNCATED_FILTERS = 3;
 const FiltersPanelTop = (props) => {
     const {
         filters,
@@ -70,8 +70,7 @@ const FiltersPanelTop = (props) => {
                                     isTopFilter />))
                             }
                             {
-                                filters.length > 2 &&
-                                window.innerWidth < DESKTOP_MIN_WIDTH &&
+                                filters.length > SHOW_MAX_TRUNCATED_FILTERS &&
                                 window.innerWidth >= TABLET_MIN_WIDTH &&
                                 <button
                                     type="button"
@@ -101,11 +100,8 @@ const FiltersPanelTop = (props) => {
                     updatedChildren.some(el => el.key === 'filtersTopSearchIco') &&
                     window.innerWidth >= TABLET_MIN_WIDTH &&
                         <div className="consonant-top-filters--search-ico-wrapper">
-                            {
-                                showSearchbar ?
-                                    renderChildren('filtersTopSearch') :
-                                    renderChildren('filtersTopSearchIco')
-                            }
+                            {showSearchbar && renderChildren('filtersTopSearch')}
+                            {renderChildren('filtersTopSearchIco')}
                         </div>
                 }
                 {updatedChildren.some(el => el.key === 'filtersTopSelect') &&

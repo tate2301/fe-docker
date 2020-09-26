@@ -59,6 +59,10 @@
         }
     }
 
+    .consonant-top-filters--filters > div h3 a {
+        white-space: nowrap;
+    }
+
     .consonant-top-filters--filters.consonant-top-filters--filters_truncated {
         // Make each filter white-space nowrap;
         & > div h3 a {
@@ -68,6 +72,7 @@
 
     .consonant-top-filters--more-btn {
         display: none;
+        margin-bottom: unit((@consonant-root-rem * 0.5), px);
         padding:
             5/@consonant-root-rem
             unit((@consonant-root-rem * 0.0625), px)
@@ -218,10 +223,14 @@
                     margin-right: unit((@consonant-root-rem * 1.5), px);
                 }
 
-                & > div:nth-child(n+3) {
+                & > div:nth-child(n+4) {
                     display: none;
                 }
             }
+        }
+
+        .consonant-top-filters--filters > div h3 a {
+            white-space: normal;
         }
 
         .consonant-top-filters--clear-btn-wrapper:after {
@@ -255,6 +264,12 @@
             top: 0;
             right: unit((@consonant-root-rem * 1.25), px);
             z-index: 3;
+        }
+
+        .consonant-top-filters--search-ico-wrapper > div + button {
+            display: none;
+            margin: 0;
+            padding: 0;
         }
 
         .consonant-top-filters--res-qty {
@@ -319,14 +334,18 @@
             border: 0;
         }
 
+        .consonant-top-filters--filters {
+            overflow: visible;
+        }
+
         .consonant-top-filters--filters.consonant-top-filters--filters_truncated {
             justify-content: flex-start;
             flex-wrap: wrap;
             overflow: visible;
+        }
 
-            & > div:nth-of-type(n+3) {
-                display: block;
-            }
+        &.consonant-top-filter_opened {
+            margin-bottom: unit((@consonant-root-rem * 0.5), px);
         }
     }
 

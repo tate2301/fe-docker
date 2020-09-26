@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import LeftFilterItem from '../FilterItem/LeftFilterItem';
 
 const DESKTOP_MIN_WIDTH = 1200;
-const FilterPanelLeft = (props) => {
+const LeftFilterPanel = (props) => {
     const {
         filters,
         windowWidth,
@@ -23,41 +23,41 @@ const FilterPanelLeft = (props) => {
     const countSelectedInFilter = el => el.reduce((acc, val) => (val.selected ? acc + 1 : acc), 0);
     const checkFilterSelected = () => filters.some(f => countSelectedInFilter(f.items) > 0);
     const mobileFiltersTitle = (windowWidth < DESKTOP_MIN_WIDTH &&
-        <div className="consonant-filters--mob-title">
+        <div className="consonant-left-filters--mob-title">
             <button
                 type="button"
                 onClick={onMobileFiltersToggleClick}
-                className="consonant-filters--mob-back">Back
+                className="consonant-left-filters--mob-back">Back
             </button>
             <span>Filter by</span>
         </div>
     );
     const desktopFiltersTitle = (windowWidth >= DESKTOP_MIN_WIDTH &&
-        <h3 className="consonant-filters--desk-title">Refine the results</h3>
+        <h3 className="consonant-left-filters--desk-title">Refine the results</h3>
     );
     const desktopFiltersClearBtn = (windowWidth >= DESKTOP_MIN_WIDTH &&
         <button
             type="button"
-            className="consonant-filters--clear-link"
+            className="consonant-left-filters--clear-link"
             onClick={onClearAllFilters}>{clearAllFiltersText}
         </button>
     );
     const mobileFiltersFooter = (windowWidth < DESKTOP_MIN_WIDTH &&
-        <div className="consonant-filters--mobile-footer">
+        <div className="consonant-left-filters--mobile-footer">
             {showTotalResults &&
-                <span className="consonant-filters--mobile-footer-total-res">{resQty} results</span>
+                <span className="consonant-left-filters--mobile-footer-total-res-qty">{resQty} results</span>
             }
             {
                 checkFilterSelected() &&
                 <button
                     type="button"
-                    className="consonant-filters--mobile-footer-clear"
+                    className="consonant-left-filters--mobile-footer-clear-btn"
                     onClick={onClearAllFilters}>{clearAllFiltersText}
                 </button>
             }
             <button
                 type="button"
-                className="consonant-filters--mobile-footer-btn"
+                className="consonant-left-filters--mobile-footer-btn"
                 onClick={onMobileFiltersToggleClick}>
                 {checkFilterSelected() ? 'Apply' : 'Done'}
             </button>
@@ -75,9 +75,9 @@ const FilterPanelLeft = (props) => {
     else updatedChildren = children;
 
     return (
-        <div className={showMobileFilters ? 'consonant-filters consonant-filters_opened' : 'consonant-filters'}>
+        <div className={showMobileFilters ? 'consonant-left-filters consonant-left-filters_opened' : 'consonant-left-filters'}>
             {
-                <div className="consonant-filters--header">
+                <div className="consonant-left-filters--header">
                     {mobileFiltersTitle}
                     {desktopFiltersTitle}
                     {desktopFiltersClearBtn}
@@ -86,7 +86,7 @@ const FilterPanelLeft = (props) => {
             {renderChildren('filtersSideSearch')}
             {
                 filters.length > 0 &&
-                <div className="consonant-filters--list">
+                <div className="consonant-left-filters--list">
                     {filters.map(item =>
                         (<LeftFilterItem
                             key={item.id}
@@ -109,9 +109,9 @@ const FilterPanelLeft = (props) => {
     );
 };
 
-export default FilterPanelLeft;
+export default LeftFilterPanel;
 
-FilterPanelLeft.propTypes = {
+LeftFilterPanel.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.bool, PropTypes.element])),
         PropTypes.element,
@@ -131,7 +131,7 @@ FilterPanelLeft.propTypes = {
     resQty: PropTypes.number,
 };
 
-FilterPanelLeft.defaultProps = {
+LeftFilterPanel.defaultProps = {
     filters: [],
     windowWidth: window.innerWidth,
     showMobileFilters: false,

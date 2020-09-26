@@ -14,11 +14,11 @@ const TopFilterItem = (props) => {
         results,
         clearFilterText,
     } = props;
-    const handleClick = (clickEvt) => {
-        clickEvt.preventDefault();
+    const handleClick = () => {
         onClick(id);
     };
-    const handleClear = () => {
+    const handleClear = (clickEvt) => {
+        clickEvt.stopPropagation();
         onClearAll(id);
     };
     const handleCheck = (evt) => {
@@ -65,7 +65,7 @@ const TopFilterItem = (props) => {
         const res = ['consonant-top-filter'];
 
         if (isOpened) res.push('consonant-top-filter_opened');
-        if (items.filter(item => item.selected).length > 0) res.push('consonant-top-filter_selected');
+        if (items.filter(item => item.selected).length > 0 && !isOpened) res.push('consonant-top-filter_selected');
 
         return res.join(' ');
     };
