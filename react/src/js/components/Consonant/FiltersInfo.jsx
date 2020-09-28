@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SelectedFilter from './SelectedFilter';
+import ChosenFilter from './FilterItem/ChosenFilter';
 
 const DESKTOP_MIN_WIDTH = 1200;
 const FiltersInfo = (props) => {
@@ -66,11 +66,11 @@ const FiltersInfo = (props) => {
             {renderChildren('selectFiltersInfo')}
             {windowWidth >= DESKTOP_MIN_WIDTH && selectedFiltersQty > 0 &&
                 <div
-                    className="consonant-filters--selected-filters">
+                    className="consonant-filters-info--selected-filters">
                     {filters.map(el => (
                         el.items.map(filter => (
                             filter.selected &&
-                            <SelectedFilter
+                            <ChosenFilter
                                 key={filter.id}
                                 name={filter.label}
                                 id={filter.id}

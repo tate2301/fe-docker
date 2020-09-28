@@ -1,8 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from './Card';
+import AspectRatio3to2Card from './Card/AspectRatio3to2Card';
+import AspectRatio1to1Card from './Card/AspectRatio1to1Card';
+import FullCard from './Card/FullCard';
 
 const DEFAULT_SHOW_ITEMS_PER_PAGE = 8;
+const CARD_STYLE = {
+    WIDE: '3:2',
+    SQUARE: '1:1',
+    FULL: 'full-card',
+};
 
 const Collection = (props) => {
     const {
@@ -24,8 +31,20 @@ const Collection = (props) => {
 
     return (
         <div className="consonant-card-collection">
-            {cards.map(card => (
-                <Card
+            {cards.map((card) => {
+                const type = cardsStyle && cardsStyle.toLowerCase() !== 'none' ? cardsStyle : card.cardStyle;
+
+                if (type === CARD_STYLE.FULL) {
+                    return (<FullCard
+                        key={card.id}
+                        {...card} />);
+                } else if (type === CARD_STYLE.SQUARE) {
+                    return (<AspectRatio1to1Card
+                        key={card.id}
+                        {...card} />);
+                }
+
+                return (<AspectRatio3to2Card
                     key={card.id}
                     {...card}
                     onClick={onCardBookmark}
@@ -33,14 +52,10 @@ const Collection = (props) => {
                     cardUnsavedIco={cardUnsavedIco}
                     allowBookmarking={allowBookmarking}
                     saveBookmarkText={saveBookmarkText}
-                    unsaveBookmarkText={unsaveBookmarkText}
-                    cardStyle={
-                        cardsStyle && cardsStyle.toLowerCase() !== 'none' ? cardsStyle
-                            : card.cardStyle
-                    } />
-            ))}
-            <div className="consonant-card consonant-card_placeholder" />
-            <div className="consonant-card consonant-card_placeholder" />
+                    unsaveBookmarkText={unsaveBookmarkText} />);
+            })}
+            <div className="consonant-card-collection--placeholder" />
+            <div className="consonant-card-collection--placeholder" />
         </div>
     );
 };

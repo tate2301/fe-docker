@@ -1,0 +1,171 @@
+.consonant-aspect-ratio-1-1-card {
+    &:extend(
+        .flex,
+        .flex .direction .column
+    );
+
+    .full-width;
+
+    margin-bottom: 32/@consonant-root-rem;
+    padding-bottom: 7/@consonant-root-rem;
+    text-align: left;
+    border: 1px solid @consonant-color-lightest-grey;
+    border-radius: unit((@consonant-root-rem * 0.3125), px);
+    background-color: @consonant-color-white;
+
+    .consonant-aspect-ratio-1-1-card--inner {
+        &:extend(
+            .flex,
+            .flex .size-on-axis .grow-1,
+            .flex .direction .column
+        );
+
+        padding: unit((@consonant-root-rem * 1.0625), px);
+        text-decoration: none;
+    }
+
+    .consonant-aspect-ratio-1-1-card--img {
+        position: relative;
+        width: 100%;
+        min-height: calc(@consonant-card-collection-less-600-break-width ~ ' - 2px');
+        max-height: calc(@consonant-card-collection-less-600-break-width ~ ' - 2px');
+        background-color: @consonant-color-lightest-grey;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .consonant-aspect-ratio-1-1-card--video-ico {
+        position: absolute;
+        width: @consonant-card-video-ico-size;
+        height: @consonant-card-video-ico-size;
+        left: unit((@consonant-root-rem * 1.0625), px);
+        bottom: unit((@consonant-root-rem), px);
+
+        .no-font;
+
+        background: transparent url(@consonant-card-play-ico-data) no-repeat 0 0;
+        background-size: cover;
+        z-index: 2;
+        cursor: pointer;
+        transform-origin: 50% 50%;
+        transition: transform @transition-time @transition-func;
+
+        &:hover,
+        &:active {
+            transform: scale(1.1);
+        }
+    }
+
+    .consonant-aspect-ratio-1-1-card--label {
+        display: block;
+        margin-bottom: 4/@consonant-root-rem;
+
+        .font(@color: @consonant-color-brown-grey);
+
+        text-decoration: none;
+    }
+
+    .consonant-aspect-ratio-1-1-card--title {
+        margin: 0 0 16/@consonant-root-rem;
+
+        .font(
+            18/@consonant-root-rem,
+            22/@consonant-root-rem,
+            700,
+            @consonant-color-dark-grey-5
+        );
+
+        text-decoration: none;
+        word-break: break-word;
+    }
+
+    .consonant-aspect-ratio-1-1-card--banner {
+        position: absolute;
+
+        &:extend(
+            .flex,
+            .flex .justify .start,
+            .flex .align .center
+        );
+
+        max-width: 80%;
+        max-height: 70%;
+        top: 24/@consonant-root-rem;
+        right: 0;
+        padding:
+            7/@consonant-root-rem
+            unit((@consonant-root-rem * 0.8125), px)
+            9/@consonant-root-rem;
+
+        .font(
+            12/@consonant-root-rem,
+            17/@consonant-root-rem,
+            700,
+            @consonant-color-white
+        );
+
+        letter-spacing: 0.72px;
+        text-transform: uppercase;
+        border-top-left-radius: unit((@consonant-root-rem * 0.25), px);
+        border-bottom-left-radius: unit((@consonant-root-rem * 0.25), px);
+        z-index: 1;
+        background-color: @consonant-color-blue;
+        user-select: none;
+        overflow-y: auto;
+
+        img {
+            width: unit((@consonant-root-rem * 0.5), px);
+            margin-right: 2/@consonant-root-rem;
+        }
+    }
+
+    @media @consonant-for-tablet-portrait-up {
+        .consonant-aspect-ratio-1-1-card--img {
+            min-height: calc(@consonant-card-collection-600-break-width ~ ' - 2px');
+            max-height: calc(@consonant-card-collection-600-break-width ~ ' - 2px');
+        }
+    }
+
+    @media @consonant-for-tablet-landscape-up {
+        min-width: @consonant-card-900-break-width;
+        max-width: @consonant-card-900-break-width;
+        padding-bottom: 0;
+
+        .consonant-aspect-ratio-1-1-card--inner {
+            padding:
+                20/@consonant-root-rem
+                unit((@consonant-root-rem * 1.5), px)
+                24/@consonant-root-rem;
+        }
+
+        .consonant-aspect-ratio-1-1-card--img {
+            min-height: calc(@consonant-card-900-break-width ~ ' - 2px');
+            max-height: calc(@consonant-card-900-break-width ~ ' - 2px');
+        }
+
+        .consonant-aspect-ratio-1-1-card--video-ico {
+            left: unit((@consonant-root-rem * 1.5), px);
+        }
+    }
+
+    @media @consonant-for-desktop-up {
+        min-width: @consonant-card-1200-break-width;
+        max-width: @consonant-card-1200-break-width;
+
+        .consonant-aspect-ratio-1-1-card--img {
+            min-height: calc(@consonant-card-1200-break-width ~ ' - 2px');
+            max-height: calc(@consonant-card-1200-break-width ~ ' - 2px');
+        }
+    }
+
+    @media @consonant-for-big-desktop-up {
+        min-width: @consonant-card-1440-break-width;
+        max-width: @consonant-card-1440-break-width;
+
+        .consonant-aspect-ratio-1-1-card--img {
+            min-height: calc(@consonant-card-1440-break-width ~ ' - 2px');
+            max-height: calc(@consonant-card-1440-break-width ~ ' - 2px');
+        }
+    }
+}
