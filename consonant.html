@@ -17,6 +17,19 @@
 
 <body class="page basicpage spectrum spectrum--lightest">
 
+    <h1>
+        Hello World
+    </h1>
+    <h1>
+        Hello World
+    </h1>
+    <h1>
+        Hello World
+    </h1>
+    <h1>
+        Hello World
+    </h1>
+
     <div class="root responsivegrid">
         <div class="aem-Grid aem-Grid--12 aem-Grid--default--12">
             <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
@@ -53,7 +66,9 @@
                 endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.json",
                 title: "A great collection",
                 totalCardLimit: -1,
-                cardStyle: "none" // could also be "3:2" or "full-card"
+                cardStyle: "none", // could also be "3:2" or "full-card",
+                displayTotalResults: true,
+                totalResultsText: "{} results",
             },
             featuredCards: [],
             header: {
@@ -176,9 +191,18 @@
                         ]
                     }
                 ],
-                clearAllFiltersText: 'Clear',
-                clearFilterText: 'Clear filter',
+                clearAllFiltersText: 'Clear All',
                 filterLogic: 'and',
+                leftPanelHeader: 'Refine the results',
+                topPanelFiltersText: 'Filters:',
+                topPanelMoreFiltersText: 'More Filters +',
+                mobileLeftPanelHeader: "Filter by",
+                mobielLeftPanelButtonLabel: 'Filters',
+                mobileFooterDoneText: "Done",
+                mobileFooterText: "{} Results",
+                mobileFooterCtaText: "Done",
+                mobileFooterApplyText: "Apply",
+                mobileFooterClearText: "Clear",
             },
             sort: {
                 enabled: true,
@@ -197,18 +221,23 @@
                         sort: 'titleDesc'
                     },
                     {
-                        label: 'Date: (Oldest to newest)',
+                        label: 'Date: (Old to New)',
                         sort: 'dateAsc'
                     },
                     {
-                        label: 'Date: (Newest to oldest)',
+                        label: 'Date: (New to Old)',
                         sort: 'dateDesc'
                     },
                 ],
             },
             pagination: {
                 enabled: true,
-                type: 'paginator'
+                type: 'paginator',
+                paginatorQuantityText: "Showing {}-{} of {} Results",
+                paginatorPrevLabel: "Previous",
+                paginatorNextLabel: "Next",
+                loadMoreButtonText: "Load more",
+                loadMoreQuantityText: "{} of {} displayed"
             },
             bookmarks: {
                 enabled: true,
@@ -217,21 +246,20 @@
                 cardUnsavedIcon: '',
                 selectBookmarksIcon: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Ukrposhta-ua-icon.svg',
                 unselectBookmarksIcon: '',
-                saveBookmarkText: 'Save breakout session',
-                unsaveBookmarkText: 'Unsave breakout session'
+                saveCardText: 'Save card',
+                unsaveCardText: 'Unsave card',
+                bookmarksFilterTitle: 'My favorites',
             },
             search: {
                 enabled: true,
-                placeholderText: 'Search here...',
+                inputPlaceholderText: 'Search here...',
+                leftPanelTitle: 'Search',
                 searchFields: [
                     'title',
                     'description',
                     'meta-author',
                     'meta-categories'
                 ]
-            },
-            totalResults: {
-                display: true,
             }
         };
         var cardCollection = new WrapperCardCollectionComponent(config, document.getElementById("someDivId"));
