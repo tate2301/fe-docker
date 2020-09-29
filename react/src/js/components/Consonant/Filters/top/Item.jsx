@@ -74,12 +74,12 @@ const TopFilterItem = (props) => {
         <div className={defineClassNames()}>
             <div className="consonant-top-filter--inner">
                 <h3 className="consonant-top-filter--name">
-                    <a href="#" className="consonant-top-filter--link" onClick={handleClick}>
+                    <a href className="consonant-top-filter--link" onClick={handleClick}>
                         {name}
-                        <div className="consonant-top-filter--selcted-items-qty">
+                        <span className="consonant-top-filter--selcted-items-qty">
                             {items.filter(item => item.selected).length > 0 &&
                             items.filter(item => item.selected).length}
-                        </div>
+                        </span>
                     </a>
                 </h3>
                 <div className="consonant-top-filter--selcted-items">

@@ -83,9 +83,8 @@
         margin-bottom: unit((@consonant-root-rem * 0.5), px);
         padding:
             5/@consonant-root-rem
-            unit((@consonant-root-rem * 0.0625), px)
-            6/@consonant-root-rem
-            unit((@consonant-root-rem * 0.75), px);
+            unit((@consonant-root-rem * 0.75), px)
+            6/@consonant-root-rem;
 
         .font(
             14/@consonant-root-rem,
@@ -100,6 +99,7 @@
         border: 1px solid @consonant-color-lightest-grey;
         border-radius: unit((@consonant-root-rem), px);
         outline: 0;
+        user-select: none;
     }
 
     .consonant-top-filters--title {
@@ -110,6 +110,7 @@
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
+        user-select: none;
 
         .font(
             16/@consonant-root-rem,
@@ -227,7 +228,7 @@
 
                 .consonant-top-filters--more-btn {
                     display: block;
-                    min-width: unit((@consonant-root-rem * 6.875), px);
+                    min-width: unit((@consonant-root-rem * 7.5), px);
                     margin-right: unit((@consonant-root-rem * 1.5), px);
                 }
 

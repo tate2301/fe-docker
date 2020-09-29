@@ -72,11 +72,11 @@ const FiltersPanelTop = (props) => {
                             {
                                 filters.length > SHOW_MAX_TRUNCATED_FILTERS &&
                                 window.innerWidth >= TABLET_MIN_WIDTH &&
+                                showLimitedFiltersQty &&
                                 <button
                                     type="button"
                                     className="consonant-top-filters--more-btn"
-                                    onClick={onShowAllClick}>
-                                    {showLimitedFiltersQty ? 'more filters +' : 'hide -'}
+                                    onClick={onShowAllClick}>more filters +
                                 </button>
                             }
                         </div>

@@ -211,7 +211,7 @@ export default class ConsonantWrapper extends React.Component {
             },
             featuredCards: [],
             header: {
-                enabled: true,
+                enabled: false,
             },
             filterPanel: {
                 enabled: true,
