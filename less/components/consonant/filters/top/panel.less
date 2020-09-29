@@ -23,6 +23,10 @@
         max-width: 100%;
     }
 
+    .consonant-top-filters--inner > *:not(.consonant-top-filters--filters-wrapper):first-child {
+        margin-left: auto;
+    }
+
     .consonant-top-filters--search-wrapper {
         display: block;
         order: -2;
@@ -42,6 +46,10 @@
             max-width: 100%;
             justify-content: flex-start;
         }
+    }
+
+    .consonant-top-filters--filters-wrapper + * {
+        margin-left: auto;
     }
 
     .consonant-top-filters--filters {
@@ -245,7 +253,6 @@
         .consonant-top-filters--select-wrapper {
             max-width: @consonant-select-width;
             order: 0;
-            margin-left: auto;
         }
 
         .consonant-top-filters--search-ico-wrapper {
@@ -266,6 +273,10 @@
             z-index: 3;
         }
 
+        .consonant-top-filters--search-ico-wrapper:only-child > div {
+            right: 0;
+        }
+
         .consonant-top-filters--search-ico-wrapper > div + button {
             display: none;
             margin: 0;
@@ -278,6 +289,14 @@
             min-width: unit((@consonant-root-rem * 6.875), px);
             padding-left: @consonant-top-filters-qty-hor-space;
             padding-right: @consonant-top-filters-qty-hor-space;
+
+            .font(
+                14/@consonant-root-rem,
+                32/@consonant-root-rem,
+                400,
+                @consonant-color-brown-grey,
+                center
+            );
 
             &:after {
                 content: '';
@@ -292,14 +311,6 @@
                 background-color: @consonant-color-lightest-grey;
                 z-index: 1;
             }
-
-            .font(
-                14/@consonant-root-rem,
-                32/@consonant-root-rem,
-                400,
-                @consonant-color-brown-grey,
-                center
-            );
         }
     }
 
@@ -316,6 +327,7 @@
             min-width: unit((@consonant-root-rem * 10), px);
             max-width: unit((@consonant-root-rem * 10), px);
             margin-right: 0;
+            margin-left: 0;
         }
 
         // Add paddings for sort select;
