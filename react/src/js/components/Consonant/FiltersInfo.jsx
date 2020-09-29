@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ChosenFilter from './FilterItem/ChosenFilter';
+import ChosenFilter from './Filters/left/ChosenItem';
 
 const DESKTOP_MIN_WIDTH = 1200;
 const FiltersInfo = (props) => {

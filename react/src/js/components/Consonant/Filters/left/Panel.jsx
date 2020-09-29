@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LeftFilterItem from '../FilterItem/LeftFilterItem';
+import LeftFilterItem from './Item';
 
 const DESKTOP_MIN_WIDTH = 1200;
 const LeftFilterPanel = (props) => {

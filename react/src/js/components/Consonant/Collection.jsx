@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AspectRatio3to2Card from './Card/AspectRatio3to2Card';
-import AspectRatio1to1Card from './Card/AspectRatio1to1Card';
-import FullCard from './Card/FullCard';
+import AspectRatio3to2Card from './Cards/3-2';
+import AspectRatio1to1Card from './Cards/1-1';
+import FullCard from './Cards/Full';
 
 const DEFAULT_SHOW_ITEMS_PER_PAGE = 8;
 const CARD_STYLE = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ChosenFilter = (props) => {
+const ChosenFilterItem = (props) => {
     const {
         name, id, parentId, onClick,
     } = props;
@@ -19,9 +19,9 @@ const ChosenFilter = (props) => {
     );
 };
 
-export default ChosenFilter;
+export default ChosenFilterItem;
 
-ChosenFilter.propTypes = {
+ChosenFilterItem.propTypes = {
     id: PropTypes.string.isRequired,
     parentId: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,

@@ -9,8 +9,8 @@ import Pagination from '../Consonant/Pagination';
 import Loader from '../Consonant/Loader';
 import Search from '../Consonant/Search';
 import Select from '../Consonant/Select';
-import LeftFilterPanel from '../Consonant/FilterPanel/LeftFilterPanel';
-import FiltersPanelTop from '../Consonant/FilterPanel/TopFilterPanel';
+import LeftFilterPanel from '../Consonant/Filters/left/Panel';
+import FiltersPanelTop from '../Consonant/Filters/top/Panel';
 import Bookmarks from '../Consonant/Bookmarks';
 import SearchIco from '../Consonant/SearchIco';
 

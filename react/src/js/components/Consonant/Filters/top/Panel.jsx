@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TopFilterItem from '../FilterItem/TopFilterItem';
+import TopFilterItem from './Item';
 
 const TABLET_MIN_WIDTH = 768;
 const SHOW_MAX_TRUNCATED_FILTERS = 3;
