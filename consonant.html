@@ -30,6 +30,7 @@
                                     <div class="collection-Container  create-card-collection">
                                         <div class="container create-card-collection__outer-wrapper">
                                             <div id="someDivId"></div>
+                                            <div id="someDivIdTwo"></div>
                                             <!-- <consonant-page-hook></consonant-page-hook> -->
                                         </div>
                                     </div>
@@ -56,9 +57,6 @@
                 cardStyle: "none" // could also be "3:2" or "full-card"
             },
             featuredCards: [],
-            header: {
-                enabled: true,
-            },
             filterPanel: {
                 enabled: true,
                 type: 'top',
@@ -234,7 +232,7 @@
                 display: true,
             }
         };
-        var cardCollection = new WrapperCardCollectionComponent(config, document.getElementById("someDivId"));
+        const consonantCardCollection = new ConsonantCardCollection(config, document.getElementById("someDivId"));
     </script>
 </body>
 
