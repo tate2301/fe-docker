@@ -23,6 +23,10 @@
         max-width: 100%;
     }
 
+    .consonant-top-filters--filters:last-child > div:last-child {
+        margin-right: 0;
+    }
+
     .consonant-top-filters--inner > *:not(.consonant-top-filters--filters-wrapper):first-child {
         margin-left: auto;
     }
@@ -355,6 +359,10 @@
             justify-content: flex-start;
             flex-wrap: wrap;
             overflow: visible;
+
+            & > div:last-child {
+                margin-right: 0;
+            }
         }
 
         &.consonant-top-filter_opened {

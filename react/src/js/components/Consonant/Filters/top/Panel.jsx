@@ -4,6 +4,7 @@ import TopFilterItem from './Item';
 
 const TABLET_MIN_WIDTH = 768;
 const SHOW_MAX_TRUNCATED_FILTERS = 3;
+const MIN_FILTERS_SHOW_BG = 3;
 const FiltersPanelTop = (props) => {
     const {
         filters,
@@ -80,15 +81,18 @@ const FiltersPanelTop = (props) => {
                                 </button>
                             }
                         </div>
-                        <div className="consonant-top-filters--clear-btn-wrapper">
-                            {checkFiltersSelected() &&
-                            <button
-                                type="button"
-                                className="consonant-top-filters--clear-btn"
-                                onClick={onClearAllFilters}>{clearAllFiltersText}
-                            </button>
-                            }
-                        </div>
+                        {
+                            (checkFiltersSelected() || filters.length >= MIN_FILTERS_SHOW_BG) &&
+                            <div className="consonant-top-filters--clear-btn-wrapper">
+                                {checkFiltersSelected() &&
+                                <button
+                                    type="button"
+                                    className="consonant-top-filters--clear-btn"
+                                    onClick={onClearAllFilters}>{clearAllFiltersText}
+                                </button>
+                                }
+                            </div>
+                        }
                     </div>
                 }
                 {window.innerWidth >= TABLET_MIN_WIDTH && showTotalResults &&
