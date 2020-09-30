@@ -1,12 +1,14 @@
 {
   "extends": [
     "airbnb",
-    "plugin:jest/recommended"
+    "plugin:jest/recommended",
+    "plugin:jsx-a11y/strict"
   ],
   "parser": "babel-eslint",
   "plugins": [
     "babel",
-    "jest"
+    "jest",
+    "jsx-a11y"
   ],
   "env": {
     "browser": true,
@@ -44,8 +46,6 @@
     "react/jsx-filename-extension": "off",
     "indent": ["error", 4, {"SwitchCase": 1}],
     "class-methods-use-this": "off",
-    "no-param-reassign": ["error", { "props": false }],
-    "jsx-a11y/anchor-is-valid": "off",
-    "jsx-a11y/label-has-for": "off"
+    "no-param-reassign": ["error", { "props": false }]
   }
 }
