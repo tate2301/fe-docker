@@ -35,8 +35,8 @@ const FILTER_PANEL = {
 };
 const SORTING_OPTION = {
     FEATURED: 'initialTitle',
-    DATEASC: 'lastModified',
-    DATEDESC: 'lastModified',
+    DATEASC: 'cardDate',
+    DATEDESC: 'cardDate',
     TITLEASC: 'initialTitle',
     TITLEDESC: 'initialTitle',
 };
@@ -446,19 +446,21 @@ export default class ConsonantWrapper extends React.Component {
 
     sortCards(field) {
         const val = SORTING_OPTION[field.toUpperCase().trim()];
+        const { filteredCards } = this.state;
         let sorted;
 
         if (!val) return;
+        if (filteredCards.every(c => c[val] === filteredCards[0][val])) return;
 
         // Sorting for featured and date;
-        if (['dateascending', 'datedescending'].some(el => el === field.toLowerCase())) {
-            sorted = [...this.state.filteredCards].sort((a, b) => {
+        if (['dateasc', 'datedesc'].some(el => el === field.toLowerCase())) {
+            sorted = [...filteredCards].sort((a, b) => {
                 if (a[val] < b[val]) return -1;
                 if (a[val] > b[val]) return 1;
                 return 0;
             });
         } else {
-            sorted = [...this.state.filteredCards].sort((a, b) => a[val].localeCompare(b[val], 'en', { numeric: true }));
+            sorted = [...filteredCards].sort((a, b) => a[val].localeCompare(b[val], 'en', { numeric: true }));
         }
 
         if (field.toLowerCase().indexOf('desc') >= 0) sorted.reverse();
