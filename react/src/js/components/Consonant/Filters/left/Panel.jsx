@@ -9,6 +9,7 @@ const LeftFilterPanel = (props) => {
         windowWidth,
         showMobileFilters,
         showTotalResults,
+        showTotalResultsText,
         onFilterClick,
         clearFilterText,
         clearAllFiltersText,
@@ -45,7 +46,9 @@ const LeftFilterPanel = (props) => {
     const mobileFiltersFooter = (windowWidth < DESKTOP_MIN_WIDTH &&
         <div className="consonant-left-filters--mobile-footer">
             {showTotalResults &&
-                <span className="consonant-left-filters--mobile-footer-total-res-qty">{resQty} results</span>
+                <span className="consonant-left-filters--mobile-footer-total-res-qty">
+                    {showTotalResultsText.replace('{}', resQty)}
+                </span>
             }
             {
                 checkFilterSelected() &&
@@ -121,6 +124,7 @@ LeftFilterPanel.propTypes = {
     windowWidth: PropTypes.number,
     showMobileFilters: PropTypes.bool,
     showTotalResults: PropTypes.bool,
+    showTotalResultsText: PropTypes.string,
     onFilterClick: PropTypes.func.isRequired,
     clearFilterText: PropTypes.string.isRequired,
     clearAllFiltersText: PropTypes.string.isRequired,
@@ -136,6 +140,7 @@ LeftFilterPanel.defaultProps = {
     windowWidth: window.innerWidth,
     showMobileFilters: false,
     showTotalResults: true,
+    showTotalResultsText: '{} results',
     resQty: 0,
     children: [],
 };

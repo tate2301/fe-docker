@@ -208,6 +208,8 @@ export default class ConsonantWrapper extends React.Component {
                 title: '',
                 totalCardLimit: -1,
                 cardStyle: 'none',
+                displayTotalResults: true,
+                totalResultsText: '{} results',
             },
             featuredCards: [],
             header: {
@@ -247,9 +249,6 @@ export default class ConsonantWrapper extends React.Component {
                     'title',
                     'description',
                 ],
-            },
-            totalResults: {
-                display: true,
             },
         };
 
@@ -804,7 +803,8 @@ export default class ConsonantWrapper extends React.Component {
                                 <LeftFilterPanel
                                     filters={this.state.filters}
                                     windowWidth={this.state.windowWidth}
-                                    showTotalResults={this.getConfig('totalResults', 'display')}
+                                    showTotalResults={this.getConfig('collection', 'displayTotalResults')}
+                                    showTotalResultsText={this.getConfig('collection', 'totalResultsText')}
                                     onFilterClick={this.handleFilterItemClick}
                                     clearFilterText={this.getConfig('filterPanel', 'clearFilterText')}
                                     clearAllFiltersText={this.getConfig('filterPanel', 'clearAllFiltersText')}
@@ -843,7 +843,8 @@ export default class ConsonantWrapper extends React.Component {
                                     onClearAllFilters={this.clearAllFilters}
                                     clearFilterText={this.getConfig('filterPanel', 'clearFilterText')}
                                     clearAllFiltersText={this.getConfig('filterPanel', 'clearAllFiltersText')}
-                                    showTotalResults={this.getConfig('totalResults', 'display')}
+                                    showTotalResults={this.getConfig('collection', 'displayTotalResults')}
+                                    showTotalResultsText={this.getConfig('collection', 'totalResultsText')}
                                     showSearchbar={this.state.showTopFilterSearch}
                                     showLimitedFiltersQty={this.state.showLimitedFiltersQty}
                                     onShowAllClick={this.handleShowAllTopFilters}>
@@ -877,7 +878,8 @@ export default class ConsonantWrapper extends React.Component {
                                     title={this.getConfig('collection', 'title')}
                                     filters={this.state.filters}
                                     cardsQty={this.state.filteredCards.length}
-                                    showTotalResults={this.getConfig('totalResults', 'display')}
+                                    showTotalResults={this.getConfig('collection', 'displayTotalResults')}
+                                    showTotalResultsText={this.getConfig('collection', 'totalResultsText')}
                                     selectedFiltersQty={this.getSelectedFiltersItemsQty()}
                                     windowWidth={this.state.windowWidth}
                                     onMobileFiltersToggleClick={this.handleFiltersToggle}
@@ -950,6 +952,8 @@ ConsonantWrapper.propTypes = {
             title: PropTypes.string,
             totalCardLimit: PropTypes.number,
             cardStyle: PropTypes.string,
+            displayTotalResults: PropTypes.bool,
+            totalResultsText: PropTypes.string,
         }),
         featuredCards: PropTypes.arrayOf(PropTypes.object),
         header: PropTypes.shape({
@@ -981,9 +985,6 @@ ConsonantWrapper.propTypes = {
         search: PropTypes.shape({
             enabled: PropTypes.bool,
             placeholderText: PropTypes.string,
-        }),
-        totalResults: PropTypes.shape({
-            display: PropTypes.bool,
         }),
     }),
 };

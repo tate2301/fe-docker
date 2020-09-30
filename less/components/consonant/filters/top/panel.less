@@ -290,14 +290,16 @@
 
         .consonant-top-filters--res-qty {
             position: relative;
-            display: block;
+            display: flex;
+            align-items: center;
             min-width: unit((@consonant-root-rem * 6.875), px);
+            min-height: unit((@consonant-root-rem * 2), px);
             padding-left: @consonant-top-filters-qty-hor-space;
             padding-right: @consonant-top-filters-qty-hor-space;
 
             .font(
                 14/@consonant-root-rem,
-                32/@consonant-root-rem,
+                18/@consonant-root-rem,
                 400,
                 @consonant-color-brown-grey,
                 center
@@ -312,7 +314,7 @@
                 bottom: 0;
                 margin: auto;
                 width: 1px;
-                height: unit((@consonant-root-rem * 2), px);
+                height: 100%;
                 background-color: @consonant-color-lightest-grey;
                 z-index: 1;
             }

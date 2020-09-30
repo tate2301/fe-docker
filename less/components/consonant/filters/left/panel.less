@@ -145,6 +145,7 @@
     .consonant-left-filters--mobile-footer-total-res-qty {
         display: block;
         margin-right: auto;
+        max-width: 55%;
 
         .font(
             @weight: 700,
@@ -167,6 +168,10 @@
         background-color: transparent;
 
         .no-border-no-outline;
+
+        &:first-child {
+            margin-left: auto;
+        }
     }
 
     .consonant-left-filters--mobile-footer-clear-btn + .consonant-left-filters--mobile-footer-btn {

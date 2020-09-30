@@ -10,6 +10,7 @@ const FiltersPanelTop = (props) => {
         filters,
         resQty,
         showTotalResults,
+        showTotalResultsText,
         showSearchbar,
         onCheckboxClick,
         onFilterClick,
@@ -97,7 +98,7 @@ const FiltersPanelTop = (props) => {
                 }
                 {window.innerWidth >= TABLET_MIN_WIDTH && showTotalResults &&
                     <span className="consonant-top-filters--res-qty">
-                        <strong>{resQty} </strong>results
+                        <strong>{showTotalResultsText.replace('{}', resQty)}</strong>
                     </span>
                 }
                 {
@@ -135,6 +136,7 @@ FiltersPanelTop.propTypes = {
     clearFilterText: PropTypes.string.isRequired,
     clearAllFiltersText: PropTypes.string.isRequired,
     showTotalResults: PropTypes.bool,
+    showTotalResultsText: PropTypes.string,
     showSearchbar: PropTypes.bool,
     showLimitedFiltersQty: PropTypes.bool,
     onShowAllClick: PropTypes.func.isRequired,
@@ -144,6 +146,7 @@ FiltersPanelTop.defaultProps = {
     filters: [],
     resQty: 0,
     showTotalResults: true,
+    showTotalResultsText: '{} results',
     showSearchbar: false,
     children: [],
     showLimitedFiltersQty: false,
