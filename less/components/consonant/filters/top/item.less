@@ -1,6 +1,7 @@
 /* Available modificators:
 - consonant-top-filter_opened;
 - consonant-top-filter_selected;
+- consonant-top-filter--items_clipped;
 */
 
 .consonant-top-filter {
@@ -46,7 +47,7 @@
 
     // Hide footer and filters;
     .consonant-top-filter--selcted-items,
-    .consonant-top-filter--selcted-items ul + div {
+    .consonant-top-filter--selcted-items ul ~ .consonant-top-filter--footer {
         display: none;
     }
 
@@ -128,6 +129,36 @@
         list-style-type: none;
         border-top: 1px solid @consonant-color-lightest-grey;
         overflow-y: auto;
+        cursor: default;
+
+        &.consonant-top-filter--items_clipped {
+            padding-bottom: 32/@consonant-root-rem;
+        }
+    }
+
+    .consonant-top-filter--bg {
+        position: relative;
+        display: none;
+        overflow: visible;
+
+        &:after {
+            content: '';
+            position: absolute;
+
+            .full-width;
+
+            height: unit((@consonant-root-rem * 1.25), px);
+            left: 0;
+            right: 0;
+            bottom: 100%;
+            background: transparent linear-gradient(180deg, fade(@consonant-color-white, 30%) 0%, @consonant-color-white 100%) no-repeat 0% 0%;
+            z-index: 1;
+            pointer-events: none;
+        }
+    }
+
+    .consonant-top-filter--items.consonant-top-filter--items_clipped + aside {
+        display: block;
     }
 
     .consonant-top-filter--items-item {
@@ -140,10 +171,6 @@
 
         &:hover {
             background-color: @consonant-color-lightest-grey-2;
-        }
-
-        &:nth-of-type(n+10):last-of-type {
-            margin-bottom: 32/@consonant-root-rem;
         }
     }
 
@@ -355,7 +382,7 @@
         }
 
         // Render footer and items;
-        .consonant-top-filter--selcted-items ul + div {
+        .consonant-top-filter--selcted-items ul ~ .consonant-top-filter--footer {
             display: flex;
         }
 
@@ -409,10 +436,6 @@
         .consonant-top-filter--items-item-label {
             padding-left: unit((@consonant-root-rem * 1.5), px);
             padding-right: unit((@consonant-root-rem * 1.5), px);
-        }
-
-        .consonant-top-filter--items-item:nth-of-type(n+10):last-of-type {
-            margin-bottom: 32/@consonant-root-rem;
         }
 
         /* End related to filter items */
@@ -486,22 +509,6 @@
                 background-color: @consonant-color-white;
                 z-index: 2;
                 overflow: hidden;
-
-                &:after {
-                    content: '';
-                    position: absolute;
-                    display: block;
-
-                    .full-width;
-
-                    height: unit((@consonant-root-rem * 1.25), px);
-                    top: unit((@consonant-root-rem * 17.1875), px);
-                    left: 0;
-                    right: 0;
-                    background: transparent linear-gradient(180deg, fade(@consonant-color-white, 30%) 0%, @consonant-color-white 100%) no-repeat 0% 0%;
-                    z-index: 1;
-                    pointer-events: none;
-                }
             }
 
             .consonant-top-filter--selcted-items-qty {
@@ -510,7 +517,7 @@
                 font-size: 0;
             }
 
-            .consonant-top-filter--selcted-items ul + div {
+            .consonant-top-filter--selcted-items ul ~ .consonant-top-filter--footer {
                 display: flex;
             }
         }

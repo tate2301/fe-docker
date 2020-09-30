@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const clipWrapperItemsCount = 9;
 const TopFilterItem = (props) => {
     const {
         name,
@@ -26,7 +27,10 @@ const TopFilterItem = (props) => {
         onCheck(id, evt.target.value, evt.target.checked);
     };
     const renderItems = () => (
-        <ul className="consonant-top-filter--items">
+        <ul className={items.length >= clipWrapperItemsCount ?
+            'consonant-top-filter--items consonant-top-filter--items_clipped' :
+            'consonant-top-filter--items'
+        }>
             {items.map(item => (
                 <li
                     key={item.id}
@@ -86,6 +90,7 @@ const TopFilterItem = (props) => {
                 <div className="consonant-top-filter--selcted-items">
                     <div className="consonant-top-filter--absolute-wrapper">
                         {renderItems()}
+                        {items.length >= clipWrapperItemsCount && <aside className="consonant-top-filter--bg" />}
                         {renderFooter()}
                     </div>
                 </div>
