@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const searchId = 'consonant-search';
 const Search = (props) => {
     const {
         value, onSearch, placeholderText,
@@ -16,10 +17,11 @@ const Search = (props) => {
 
     return (
         <div className="consonant-search">
-            <label>
+            <label htmlFor={searchId}>
                 <span className="consonant-search--input-title">Search</span>
                 <span className="consonant-search--input-wrapper">
                     <input
+                        id={searchId}
                         data-testid="search-input"
                         type="search"
                         placeholder={placeholderText}

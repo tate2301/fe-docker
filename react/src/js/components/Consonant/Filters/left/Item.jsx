@@ -40,8 +40,9 @@ const LeftFilterItem = (props) => {
                 <li
                     key={item.id}
                     className="consonant-left-filter--items-item">
-                    <label className="consonant-left-filter--items-item-label">
+                    <label htmlFor={item.id} className="consonant-left-filter--items-item-label">
                         <input
+                            id={item.id}
                             value={item.id}
                             type="checkbox"
                             onChange={handleCheck}
@@ -83,7 +84,7 @@ const LeftFilterItem = (props) => {
                         loading="lazy" />
                     }
                     <a
-                        href="#"
+                        href
                         className="consonant-left-filter--link"
                         onClick={handleClick}>
                         {name}

@@ -31,8 +31,9 @@ const TopFilterItem = (props) => {
                 <li
                     key={item.id}
                     className="consonant-top-filter--items-item">
-                    <label className="consonant-top-filter--items-item-label">
+                    <label htmlFor={item.id} className="consonant-top-filter--items-item-label">
                         <input
+                            id={item.id}
                             value={item.id}
                             type="checkbox"
                             onChange={handleCheck}
