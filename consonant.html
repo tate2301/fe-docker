@@ -30,6 +30,7 @@
                                     <div class="collection-Container  create-card-collection">
                                         <div class="container create-card-collection__outer-wrapper">
                                             <div id="someDivId"></div>
+                                            <div id="someDivIdTwo"></div>
                                             <!-- <consonant-page-hook></consonant-page-hook> -->
                                         </div>
                                     </div>
@@ -50,18 +51,17 @@
         var config = {
             collection: {
                 resultsPerPage: 10,
-                endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.json",
+                endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/sample2.json",
                 title: "A great collection",
                 totalCardLimit: -1,
-                cardStyle: "none" // could also be "3:2" or "full-card"
+                cardStyle: "none", // could also be "3:2" or "full-card"
+                displayTotalResults: true,
+                totalResultsText: "So we have {} results",
             },
             featuredCards: [],
-            header: {
-                enabled: false,
-            },
             filterPanel: {
                 enabled: true,
-                type: 'top',
+                type: 'left',
                 filters: [
                     {
                         "group": "Topic",
@@ -179,6 +179,7 @@
                 clearAllFiltersText: 'Clear',
                 clearFilterText: 'Clear filter',
                 filterLogic: 'and',
+                leftPanelHeader: 'Here you can refine your results!',
             },
             sort: {
                 enabled: true,
@@ -208,7 +209,12 @@
             },
             pagination: {
                 enabled: true,
-                type: 'paginator'
+                type: 'loadMore',
+                paginatorQuantityText: "So we showing right now {}-{} of {} awesome results",
+                paginatorPrevLabel: "Go back",
+                paginatorNextLabel: "Go next",
+                loadMoreButtonText: "Let's load more!",
+                loadMoreQuantityText: "So currently we should be showing {} of {} total items for display",
             },
             bookmarks: {
                 enabled: true,
@@ -217,12 +223,14 @@
                 cardUnsavedIcon: '',
                 selectBookmarksIcon: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Ukrposhta-ua-icon.svg',
                 unselectBookmarksIcon: '',
-                saveBookmarkText: 'Save breakout session',
-                unsaveBookmarkText: 'Unsave breakout session'
+                saveCardText: 'Save card',
+                unsaveCardText: 'Unsave card',
+                bookmarksFilterTitle: 'My cool bookmarks',
             },
             search: {
                 enabled: true,
-                placeholderText: 'Search here...',
+                inputPlaceholderText: 'Search here...',
+                leftPanelTitle: 'Search now',
                 searchFields: [
                     'title',
                     'description',
@@ -230,11 +238,8 @@
                     'meta-categories'
                 ]
             },
-            totalResults: {
-                display: true,
-            }
         };
-        var cardCollection = new WrapperCardCollectionComponent(config, document.getElementById("someDivId"));
+        const consonantCardCollection = new ConsonantCardCollection(config, document.getElementById("someDivId"));
     </script>
 </body>
 

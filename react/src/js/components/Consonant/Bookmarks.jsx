@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 const Bookmarks = (props) => {
     const {
+        title,
         selectedIco,
         unselectedIco,
         selected,
@@ -33,7 +34,7 @@ const Bookmarks = (props) => {
             }>
             <span className="bookmarks--ico-wrapper">
                 {renderIcon()}
-                <span className="bookmarks--title">My favorites</span>
+                <span className="bookmarks--title">{title}</span>
             </span>
             <span data-testid="bookmarks--item-badge" className="bookmarks--item-badge">{qty}</span>
         </button>
@@ -43,6 +44,7 @@ const Bookmarks = (props) => {
 export default Bookmarks;
 
 Bookmarks.propTypes = {
+    title: PropTypes.string,
     selectedIco: PropTypes.string,
     unselectedIco: PropTypes.string,
     selected: PropTypes.bool,
@@ -51,6 +53,7 @@ Bookmarks.propTypes = {
 };
 
 Bookmarks.defaultProps = {
+    title: 'My favorites',
     selectedIco: '',
     unselectedIco: '',
     selected: false,

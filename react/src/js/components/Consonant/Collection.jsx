@@ -1,8 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from './Card';
+import AspectRatio3to2Card from './Cards/3-2';
+import AspectRatio1to1Card from './Cards/1-1';
+import FullCard from './Cards/Full';
 
 const DEFAULT_SHOW_ITEMS_PER_PAGE = 8;
+const CARD_STYLE = {
+    WIDE: '3:2',
+    SQUARE: '1:1',
+    FULL: 'full-card',
+};
 
 const Collection = (props) => {
     const {
@@ -12,8 +19,8 @@ const Collection = (props) => {
         onCardBookmark,
         cardSavedIco,
         cardUnsavedIco,
-        saveBookmarkText,
-        unsaveBookmarkText,
+        saveCardText,
+        unsaveCardText,
         cardsStyle,
     } = props;
     let cards = [...props.cards];
@@ -24,23 +31,31 @@ const Collection = (props) => {
 
     return (
         <div data-testid="consonant-collection" className="consonant-card-collection">
-            {cards.map(card => (
-                <Card
+            {cards.map((card) => {
+                const type = cardsStyle && cardsStyle.toLowerCase() !== 'none' ? cardsStyle : card.cardStyle;
+
+                if (type === CARD_STYLE.FULL) {
+                    return (<FullCard
+                        key={card.id}
+                        {...card} />);
+                } else if (type === CARD_STYLE.SQUARE) {
+                    return (<AspectRatio1to1Card
+                        key={card.id}
+                        {...card} />);
+                }
+
+                return (<AspectRatio3to2Card
                     key={card.id}
                     {...card}
                     onClick={onCardBookmark}
                     cardSavedIco={cardSavedIco}
                     cardUnsavedIco={cardUnsavedIco}
                     allowBookmarking={allowBookmarking}
-                    saveBookmarkText={saveBookmarkText}
-                    unsaveBookmarkText={unsaveBookmarkText}
-                    cardStyle={
-                        cardsStyle && cardsStyle.toLowerCase() !== 'none' ? cardsStyle
-                            : card.cardStyle
-                    } />
-            ))}
-            <div className="consonant-card consonant-card_placeholder" />
-            <div className="consonant-card consonant-card_placeholder" />
+                    saveCardText={saveCardText}
+                    unsaveCardText={unsaveCardText} />);
+            })}
+            <div className="consonant-card-collection--placeholder" />
+            <div className="consonant-card-collection--placeholder" />
         </div>
     );
 };
@@ -55,8 +70,8 @@ Collection.propTypes = {
     onCardBookmark: PropTypes.func.isRequired,
     cardSavedIco: PropTypes.string.isRequired,
     cardUnsavedIco: PropTypes.string.isRequired,
-    saveBookmarkText: PropTypes.string,
-    unsaveBookmarkText: PropTypes.string,
+    saveCardText: PropTypes.string,
+    unsaveCardText: PropTypes.string,
     cardsStyle: PropTypes.string,
 };
 
@@ -64,7 +79,7 @@ Collection.defaultProps = {
     showItemsPerPage: DEFAULT_SHOW_ITEMS_PER_PAGE,
     pages: 1,
     cards: [],
-    saveBookmarkText: 'Save card',
-    unsaveBookmarkText: 'Unsave card',
+    saveCardText: 'Save card',
+    unsaveCardText: 'Unsave card',
     cardsStyle: 'none',
 };

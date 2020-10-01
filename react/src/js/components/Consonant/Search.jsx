@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const searchId = 'consonant-search';
 const Search = (props) => {
     const {
-        value, onSearch, placeholderText, childrenKey,
+        value, onSearch, placeholderText, leftPanelTitle, childrenKey,
     } = props;
 
     const handleSearch = (evt) => {
@@ -16,10 +17,11 @@ const Search = (props) => {
 
     return (
         <div data-testid={childrenKey} className="consonant-search">
-            <label>
-                <span className="consonant-search--input-title">Search</span>
+            <label htmlFor={searchId}>
+                <span className="consonant-search--input-title">{leftPanelTitle}</span>
                 <span className="consonant-search--input-wrapper">
                     <input
+                        id={searchId}
                         data-testid="search-input"
                         type="search"
                         placeholder={placeholderText}
@@ -46,10 +48,12 @@ Search.propTypes = {
     onSearch: PropTypes.func.isRequired,
     value: PropTypes.string,
     placeholderText: PropTypes.string,
+    leftPanelTitle: PropTypes.string,
 };
 
 Search.defaultProps = {
     value: '',
     childrenKey: 'consonant-search',
     placeholderText: 'Search here...',
+    leftPanelTitle: 'Search',
 };

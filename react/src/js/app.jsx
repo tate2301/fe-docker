@@ -18,7 +18,7 @@ domRegistry.register({
 });
 
 
-class WrapperCardCollectionComponent {
+class ConsonantCardCollection {
     constructor(config, element) {
         ReactDOM.render((
             <React.Fragment>
@@ -27,7 +27,7 @@ class WrapperCardCollectionComponent {
     }
 }
 
-window.WrapperCardCollectionComponent = WrapperCardCollectionComponent;
+window.ConsonantCardCollection = ConsonantCardCollection;
 
 const initReact = (element) => {
     domRegistry.init(element);

@@ -103,6 +103,27 @@
         overflow: hidden;
     }
 
+    .consonant-filters-info--selected-filters {
+        position: relative;
+
+        .full-width;
+
+        &:extend(
+            .flex .wrap,
+            .flex .justify .start,
+            .flex .align .center
+        );
+
+        max-height: @consonant-filters-selected-filters-max-height;
+        overflow-y: auto;
+        padding-top: 23/@consonant-root-rem;
+        background-color: transparent;
+
+        &:empty {
+            .hide-all;
+        }
+    }
+
     @media @consonant-for-tablet-portrait-up {
         padding-left: 0;
         padding-right: 0;
@@ -181,6 +202,10 @@
         .consonant-filters-info--btn,
         .consonant-filters-info--search {
             .hide-all;
+        }
+
+        .consonant-filters-info--selected-filters {
+            display: flex;
         }
     }
 

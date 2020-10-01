@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FilterItem from '../FilterItem';
+import TopFilterItem from './Item';
 
-const DESKTOP_MIN_WIDTH = 1200;
 const TABLET_MIN_WIDTH = 768;
+const SHOW_MAX_TRUNCATED_FILTERS = 3;
+const MIN_FILTERS_SHOW_BG = 3;
 const FiltersPanelTop = (props) => {
     const {
         filters,
         resQty,
         showTotalResults,
+        showTotalResultsText,
         showSearchbar,
         onCheckboxClick,
         onFilterClick,
@@ -37,9 +39,9 @@ const FiltersPanelTop = (props) => {
             {
                 updatedChildren.some(el => el.props && el.props.childrenKey === 'filtersTopSearch') &&
                 window.innerWidth < TABLET_MIN_WIDTH &&
-                    <div data-testid="top-filters__search-wrapper" className="consonant-top-filters--search-wrapper">
-                        {renderChildren('filtersTopSearch')}
-                    </div>
+                <div data-testid="top-filters__search-wrapper" className="consonant-top-filters--search-wrapper">
+                    {renderChildren('filtersTopSearch')}
+                </div>
             }
             <div className="consonant-top-filters--inner">
                 {filters.length > 0 &&
@@ -55,7 +57,7 @@ const FiltersPanelTop = (props) => {
                                     'consonant-top-filters--filters'
                             }>
                             {filters.map(item =>
-                                (<FilterItem
+                                (<TopFilterItem
                                     key={item.id}
                                     name={item.group}
                                     icon={item.icon}
@@ -71,49 +73,48 @@ const FiltersPanelTop = (props) => {
                                     isTopFilter />))
                             }
                             {
-                                filters.length > 2 &&
-                                window.innerWidth < DESKTOP_MIN_WIDTH &&
+                                filters.length > SHOW_MAX_TRUNCATED_FILTERS &&
                                 window.innerWidth >= TABLET_MIN_WIDTH &&
+                                showLimitedFiltersQty &&
                                 <button
                                     type="button"
                                     data-testid="top-filter__more-button"
                                     className="consonant-top-filters--more-btn"
-                                    onClick={onShowAllClick}>
-                                    {showLimitedFiltersQty ? 'more filters +' : 'hide -'}
+                                    onClick={onShowAllClick}>more filters +
                                 </button>
                             }
                         </div>
-                        <div className="consonant-top-filters--clear-btn-wrapper">
-                            {checkFiltersSelected() &&
-                            <button
-                                type="button"
-                                data-testid="top-filter__clear-button"
-                                className="consonant-top-filters--clear-btn"
-                                onClick={onClearAllFilters}>{clearAllFiltersText}
-                            </button>
-                            }
-                        </div>
+                        {
+                            (checkFiltersSelected() || filters.length >= MIN_FILTERS_SHOW_BG) &&
+                            <div className={
+                                filters.length === 1 ?
+                                    'consonant-top-filters--clear-btn-wrapper consonant-top-filters--clear-btn-wrapper_no-bg' :
+                                    'consonant-top-filters--clear-btn-wrapper'
+                            }>
+                                {checkFiltersSelected() &&
+                                    <button
+                                        type="button"
+                                        data-testid="top-filter__clear-button"
+                                        className="consonant-top-filters--clear-btn"
+                                        onClick={onClearAllFilters}>{clearAllFiltersText}
+                                    </button>
+                                }
+                            </div>
+                        }
                     </div>
                 }
                 {window.innerWidth >= TABLET_MIN_WIDTH && showTotalResults &&
-                    <span
-                        data-testid="filter-top-result-count"
-                        className="consonant-top-filters--res-qty">
-                        <strong>{resQty} </strong>results
+                    <span data-testid="filter-top-result-count" className="consonant-top-filters--res-qty">
+                        <strong>{showTotalResultsText.replace('{}', resQty)}</strong>
                     </span>
                 }
                 {
                     updatedChildren.some(el => el.props && el.props.childrenKey === 'filtersTopSearchIco') &&
                     window.innerWidth >= TABLET_MIN_WIDTH &&
-                        <div
-                            data-testid="filter-top-ico-wrapper"
-                            className="consonant-top-filters--search-ico-wrapper">
-                            {
-                                showSearchbar ?
-                                    renderChildren('filtersTopSearch') :
-                                    renderChildren('filtersTopSearchIco')
-                            }
-                        </div>
+                    <div data-testid="filter-top-ico-wrapper" className="consonant-top-filters--search-ico-wrapper">
+                        {showSearchbar && renderChildren('filtersTopSearch')}
+                        {renderChildren('filtersTopSearchIco')}
+                    </div>
                 }
                 {updatedChildren.some(el => el.props && el.props.childrenKey === 'filtersTopSelect') &&
                     <div data-testid="top-filters__select-wrapper" className="consonant-top-filters--select-wrapper">
@@ -142,6 +143,7 @@ FiltersPanelTop.propTypes = {
     clearFilterText: PropTypes.string.isRequired,
     clearAllFiltersText: PropTypes.string.isRequired,
     showTotalResults: PropTypes.bool,
+    showTotalResultsText: PropTypes.string,
     showSearchbar: PropTypes.bool,
     showLimitedFiltersQty: PropTypes.bool,
     onShowAllClick: PropTypes.func.isRequired,
@@ -151,6 +153,7 @@ FiltersPanelTop.defaultProps = {
     filters: [],
     resQty: 0,
     showTotalResults: true,
+    showTotalResultsText: '{} results',
     showSearchbar: false,
     children: [],
     showLimitedFiltersQty: false,

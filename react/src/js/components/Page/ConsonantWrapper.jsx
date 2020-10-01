@@ -9,8 +9,8 @@ import Pagination from '../Consonant/Pagination';
 import Loader from '../Consonant/Loader';
 import Search from '../Consonant/Search';
 import Select from '../Consonant/Select';
-import FilterPanelLeft from '../Consonant/FilterPanel/FilterPanelLeft';
-import FiltersPanelTop from '../Consonant/FilterPanel/FilterPanelTop';
+import LeftFilterPanel from '../Consonant/Filters/left/Panel';
+import FiltersPanelTop from '../Consonant/Filters/top/Panel';
 import Bookmarks from '../Consonant/Bookmarks';
 import SearchIco from '../Consonant/SearchIco';
 
@@ -35,8 +35,8 @@ const FILTER_PANEL = {
 };
 const SORTING_OPTION = {
     FEATURED: 'initialTitle',
-    DATEASC: 'lastModified',
-    DATEDESC: 'lastModified',
+    DATEASC: 'cardDate',
+    DATEDESC: 'cardDate',
     TITLEASC: 'initialTitle',
     TITLEDESC: 'initialTitle',
 };
@@ -196,10 +196,12 @@ export default class ConsonantWrapper extends React.Component {
                 title: '',
                 totalCardLimit: -1,
                 cardStyle: 'none',
+                displayTotalResults: true,
+                totalResultsText: '{} results',
             },
             featuredCards: [],
             header: {
-                enabled: true,
+                enabled: false,
             },
             filterPanel: {
                 enabled: true,
@@ -208,6 +210,7 @@ export default class ConsonantWrapper extends React.Component {
                 clearAllFiltersText: 'Clear all',
                 clearFilterText: 'Clear',
                 filterLogic: 'and',
+                leftPanelHeader: 'Refine the results',
             },
             sort: {
                 enabled: true,
@@ -217,6 +220,11 @@ export default class ConsonantWrapper extends React.Component {
             pagination: {
                 enabled: true,
                 type: 'loadMore',
+                paginatorQuantityText: 'Showing {}-{} of {} Results',
+                paginatorPrevLabel: 'Previous',
+                paginatorNextLabel: 'Next',
+                loadMoreButtonText: 'Load more',
+                loadMoreQuantityText: '{} of {} displayed',
             },
             bookmarks: {
                 enabled: true,
@@ -225,19 +233,18 @@ export default class ConsonantWrapper extends React.Component {
                 cardUnsavedIcon: '',
                 selectBookmarksIcon: '',
                 unselectBookmarksIcon: '',
-                saveBookmarkText: 'Save card',
-                unsaveBookmarkText: 'Unsave card',
+                saveCardText: 'Save card',
+                unsaveCardText: 'Unsave card',
+                bookmarksFilterTitle: 'My favorites',
             },
             search: {
                 enabled: true,
-                placeholderText: 'Search here...',
+                inputPlaceholderText: 'Search here...',
+                leftPanelTitle: 'Search',
                 searchFields: [
                     'title',
                     'description',
                 ],
-            },
-            totalResults: {
-                display: true,
             },
         };
 
@@ -430,10 +437,12 @@ export default class ConsonantWrapper extends React.Component {
 
     sortCards(field) {
         const val = SORTING_OPTION[field.toUpperCase().trim()];
+        const { filteredCards } = this.state;
 
         if (!val) return;
+        if (filteredCards.every(c => c[val] === filteredCards[0][val])) return;
 
-        const sorted = [...this.state.filteredCards].sort((a, b) => a[val].localeCompare(b[val], 'en', { numeric: true }));
+        const sorted = [...filteredCards].sort((a, b) => a[val].localeCompare(b[val], 'en', { numeric: true }));
 
         if (field.toLowerCase().indexOf('desc') >= 0) sorted.reverse();
         // In case of featured, move featured items to the top;
@@ -641,34 +650,46 @@ export default class ConsonantWrapper extends React.Component {
 
     handleFocusOut(clickEvt) {
         clickEvt.stopPropagation();
-        const cn = clickEvt.target.className;
-        const classNamesToCheck = [
-            'consonant-search--input-clear',
-            'consonant-search--input',
-            'consonant-filters--item-link',
-            'consonant-filters--item-list',
-            'consonant-filters--mobile-footer-total-res',
-            'consonant-filters--item-list-label',
-            'consonant-filters--mobile-footer',
-            'consonant-filters--mobile-footer-clear',
-        ];
-        const { showTopFilterSearch, filters } = this.state;
-        const res = {};
 
-        if (classNamesToCheck.some(el => el === cn)) return;
-        if (showTopFilterSearch) res.showTopFilterSearch = false;
-        if (
-            this.getConfig('filterPanel', 'type') === 'top' &&
-            window.innerWidth >= DESKTOP_MIN_WIDTH
-        ) {
-            res.filters = filters.map((f) => {
-                f.opened = false;
-                return f;
-            });
-        }
-        if (Object.keys(res).length !== 0) {
-            this.setState(res);
-        }
+        if (this.getConfig('filterPanel', 'type') !== 'top') return;
+
+        const { filters } = this.state;
+        const CLASS_NAME = {
+            TOP_FILTER: 'consonant-top-filter',
+            TOP_FILTER_OPENED: 'consonant-top-filter consonant-top-filter_opened',
+            TOP_FILTER_SELECTED: 'consonant-top-filter consonant-top-filter_selected',
+            SEARCH: 'consonant-top-filters--search-ico-wrapper',
+        };
+        const t = clickEvt.target;
+        const res = {
+            showTopFilterSearch: false,
+            filters: filters.map((f) => {
+                const newObj = JSON.parse(JSON.stringify(f));
+
+                newObj.opened = false;
+                return newObj;
+            }),
+        };
+        const hasClassName = (q) => {
+            let result = t.className === q;
+
+            if (!result) {
+                for (let it = t; it && it !== document; it = it.parentNode) {
+                    if (it.className === q) result = true;
+                }
+            }
+
+            return result;
+        };
+
+        if (hasClassName(CLASS_NAME.SEARCH)) res.showTopFilterSearch = true;
+        else if (
+            hasClassName(CLASS_NAME.TOP_FILTER) ||
+            hasClassName(CLASS_NAME.TOP_FILTER_OPENED) ||
+            hasClassName(CLASS_NAME.TOP_FILTER_SELECTED)
+        ) { res.filters = filters; }
+
+        this.setState(res);
     }
 
     updateCardsWithBookmarks() {
@@ -724,7 +745,6 @@ export default class ConsonantWrapper extends React.Component {
 
     handleSearchIcoClick(evt) {
         evt.preventDefault();
-        evt.stopPropagation();
         this.setState({ showTopFilterSearch: evt.type === 'click' });
     }
 
@@ -735,8 +755,9 @@ export default class ConsonantWrapper extends React.Component {
     renderSearch(key) {
         return (<Search
             childrenKey={key}
-            placeholderText={this.getConfig('search', 'placeholderText')}
+            placeholderText={this.getConfig('search', 'inputPlaceholderText')}
             value={this.state.searchQuery}
+            leftPanelTitle={this.getConfig('search', 'leftPanelTitle')}
             onSearch={this.handleSearchInputChange} />);
     }
 
@@ -763,10 +784,11 @@ export default class ConsonantWrapper extends React.Component {
                             {
                                 this.getConfig('filterPanel', 'enabled') &&
                                 this.getConfig('filterPanel', 'type') === FILTER_PANEL.LEFT &&
-                                <FilterPanelLeft
+                                <LeftFilterPanel
                                     filters={this.state.filters}
                                     windowWidth={this.state.windowWidth}
-                                    showTotalResults={this.getConfig('totalResults', 'display')}
+                                    showTotalResults={this.getConfig('collection', 'displayTotalResults')}
+                                    showTotalResultsText={this.getConfig('collection', 'totalResultsText')}
                                     onFilterClick={this.handleFilterItemClick}
                                     clearFilterText={this.getConfig('filterPanel', 'clearFilterText')}
                                     clearAllFiltersText={this.getConfig('filterPanel', 'clearAllFiltersText')}
@@ -775,7 +797,8 @@ export default class ConsonantWrapper extends React.Component {
                                     onCheckboxClick={this.handleCheckBoxChange}
                                     onMobileFiltersToggleClick={this.handleFiltersToggle}
                                     showMobileFilters={this.state.showMobileFilters}
-                                    resQty={this.state.filteredCards.length}>
+                                    resQty={this.state.filteredCards.length}
+                                    panelHeader={this.getConfig('filterPanel', 'leftPanelHeader')}>
                                     {
                                         this.state.windowWidth >= DESKTOP_MIN_WIDTH &&
                                         this.getConfig('search', 'enabled') &&
@@ -784,13 +807,14 @@ export default class ConsonantWrapper extends React.Component {
                                     {this.getConfig('bookmarks', 'enabled') &&
                                         <Bookmarks
                                             childrenKey="filtersSideBookmarks"
+                                            title={this.getConfig('bookmarks', 'bookmarksFilterTitle')}
                                             selectedIco={this.getConfig('bookmarks', 'selectBookmarksIcon')}
                                             unselectedIco={this.getConfig('bookmarks', 'unselectBookmarksIcon')}
                                             selected={this.state.showFavourites}
                                             onClick={this.handleShowFavsClick}
                                             qty={this.state.bookmarkedCards.length} />
                                     }
-                                </FilterPanelLeft>
+                                </LeftFilterPanel>
                             }
                         </span>
                         <span>
@@ -805,7 +829,8 @@ export default class ConsonantWrapper extends React.Component {
                                     onClearAllFilters={this.clearAllFilters}
                                     clearFilterText={this.getConfig('filterPanel', 'clearFilterText')}
                                     clearAllFiltersText={this.getConfig('filterPanel', 'clearAllFiltersText')}
-                                    showTotalResults={this.getConfig('totalResults', 'display')}
+                                    showTotalResults={this.getConfig('collection', 'displayTotalResults')}
+                                    showTotalResultsText={this.getConfig('collection', 'totalResultsText')}
                                     showSearchbar={this.state.showTopFilterSearch}
                                     showLimitedFiltersQty={this.state.showLimitedFiltersQty}
                                     onShowAllClick={this.handleShowAllTopFilters}>
@@ -839,7 +864,8 @@ export default class ConsonantWrapper extends React.Component {
                                     title={this.getConfig('collection', 'title')}
                                     filters={this.state.filters}
                                     cardsQty={this.state.filteredCards.length}
-                                    showTotalResults={this.getConfig('totalResults', 'display')}
+                                    showTotalResults={this.getConfig('collection', 'displayTotalResults')}
+                                    showTotalResultsText={this.getConfig('collection', 'totalResultsText')}
                                     selectedFiltersQty={this.getSelectedFiltersItemsQty()}
                                     windowWidth={this.state.windowWidth}
                                     onMobileFiltersToggleClick={this.handleFiltersToggle}
@@ -866,15 +892,17 @@ export default class ConsonantWrapper extends React.Component {
                                         onCardBookmark={this.handleCardBookmarking}
                                         cardUnsavedIco={this.getConfig('bookmarks', 'cardUnsavedIcon')}
                                         cardSavedIco={this.getConfig('bookmarks', 'cardSavedIcon')}
-                                        saveBookmarkText={this.getConfig('bookmarks', 'saveBookmarkText')}
-                                        unsaveBookmarkText={this.getConfig('bookmarks', 'unsaveBookmarkText')}
+                                        saveCardText={this.getConfig('bookmarks', 'saveCardText')}
+                                        unsaveCardText={this.getConfig('bookmarks', 'unsaveCardText')}
                                         cardsStyle={this.getConfig('collection', 'cardStyle')} />
                                     {
                                         this.checkIfDisplayPaginator('loadMore') &&
                                             <LoadMore
                                                 onClick={this.setCardsToShowQty}
                                                 show={this.getCardsToShowQty()}
-                                                total={this.state.filteredCards.length} />
+                                                total={this.state.filteredCards.length}
+                                                loadMoreButtonText={this.getConfig('pagination', 'loadMoreButtonText')}
+                                                loadMoreQuantityText={this.getConfig('pagination', 'loadMoreQuantityText')} />
                                     }
                                     {
                                         this.checkIfDisplayPaginator('paginator') &&
@@ -886,7 +914,10 @@ export default class ConsonantWrapper extends React.Component {
                                             totalPages={this.getTotalPages()}
                                             showItemsPerPage={this.state.showItemsPerPage}
                                             totalResults={this.state.filteredCards.length}
-                                            onClick={this.handlePaginatorClick} />
+                                            onClick={this.handlePaginatorClick}
+                                            quantityText={this.getConfig('pagination', 'paginatorQuantityText')}
+                                            prevLabel={this.getConfig('pagination', 'paginatorPrevLabel')}
+                                            nextLabel={this.getConfig('pagination', 'paginatorNextLabel')} />
                                     }
                                 </Fragment> :
                                 <Loader
@@ -910,6 +941,8 @@ ConsonantWrapper.propTypes = {
             title: PropTypes.string,
             totalCardLimit: PropTypes.number,
             cardStyle: PropTypes.string,
+            displayTotalResults: PropTypes.bool,
+            totalResultsText: PropTypes.string,
         }),
         featuredCards: PropTypes.arrayOf(PropTypes.object),
         header: PropTypes.shape({
@@ -922,6 +955,7 @@ ConsonantWrapper.propTypes = {
             clearAllFiltersText: PropTypes.string,
             clearFilterText: PropTypes.string,
             filterLogic: PropTypes.string,
+            leftPanelHeader: PropTypes.string,
         }),
         sort: PropTypes.shape({
             enabled: PropTypes.bool,
@@ -930,20 +964,27 @@ ConsonantWrapper.propTypes = {
         pagination: PropTypes.shape({
             enabled: PropTypes.bool,
             type: PropTypes.string,
+            paginatorQuantityText: PropTypes.string,
+            paginatorPrevLabel: PropTypes.string,
+            paginatorNextLabel: PropTypes.string,
+            loadMoreButtonText: PropTypes.string,
+            loadMoreQuantityText: PropTypes.string,
         }),
         bookmarks: PropTypes.shape({
             enabled: PropTypes.bool,
             cardSavedIcon: PropTypes.string,
             cardUnsavedIcon: PropTypes.string,
+            saveCardText: PropTypes.string,
+            unsaveCardText: PropTypes.string,
             selectBookmarksIcon: PropTypes.string,
             unselectBookmarksIcon: PropTypes.string,
+            bookmarksFilterTitle: PropTypes.string,
         }),
         search: PropTypes.shape({
             enabled: PropTypes.bool,
-            placeholderText: PropTypes.string,
-        }),
-        totalResults: PropTypes.shape({
-            display: PropTypes.bool,
+            leftPanelTitle: PropTypes.string,
+            inputPlaceholderText: PropTypes.string,
+            searchFields: PropTypes.arrayOf(PropTypes.string),
         }),
     }),
 };

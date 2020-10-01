@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SelectedFilter = (props) => {
+const ChosenFilterItem = (props) => {
     const {
         name, id, parentId, onClick,
     } = props;
@@ -15,14 +15,14 @@ const SelectedFilter = (props) => {
             type="button"
             onClick={handleClick}
             data-testid="selected-filter"
-            className="consonant-filters--selected-filter">{name}
+            className="consonant-chosen-filter">{name}
         </button>
     );
 };
 
-export default SelectedFilter;
+export default ChosenFilterItem;
 
-SelectedFilter.propTypes = {
+ChosenFilterItem.propTypes = {
     id: PropTypes.string.isRequired,
     parentId: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,

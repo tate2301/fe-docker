@@ -1,0 +1,384 @@
+/* Available modificators:
+  - consonant-top-filters--filters_truncated;
+  - consonant-top-filters--clear-btn-wrapper_no-bg;
+*/
+
+@consonant-top-filters-filters-fade-width: unit((@consonant-root-rem * 3.5), px);
+@consonant-top-filters-qty-hor-space: unit((@consonant-root-rem * 1.25), px);
+@consonant-top-filters-search-width: unit((@consonant-root-rem * 16.75), px);
+
+.consonant-top-filters {
+    display: block;
+    min-width: @consonant-card-collection-less-600-break-width;
+    max-width: @consonant-card-collection-less-600-break-width;
+    margin: 0 auto;
+    padding: 14/@consonant-root-rem 0 20/@consonant-root-rem;
+
+    .consonant-top-filters--inner {
+        &:extend(
+            .flex,
+            .flex .justify .between,
+            .flex .align .start
+        );
+
+        max-width: 100%;
+    }
+
+    .consonant-top-filters--filters:last-child > div:last-child {
+        margin-right: 0;
+    }
+
+    .consonant-top-filters--inner > *:not(.consonant-top-filters--filters-wrapper):first-child {
+        margin-left: auto;
+    }
+
+    .consonant-top-filters--search-wrapper {
+        display: block;
+        order: -2;
+    }
+
+    .consonant-top-filters--filters-wrapper {
+        flex-grow: 1;
+        max-width: calc(~ '100% - ' @consonant-select-width * 0.85 ~ ' - ' unit((@consonant-root-rem * 0.5), px));
+
+        &:extend(
+            .flex,
+            .flex .justify .end,
+            .flex .align .start
+        );
+
+        &:only-child {
+            max-width: 100%;
+            justify-content: flex-start;
+        }
+    }
+
+    .consonant-top-filters--filters-wrapper + * {
+        margin-left: auto;
+    }
+
+    .consonant-top-filters--filters {
+        &:extend(
+            .flex,
+            .flex .justify .start,
+            .flex .align .stretch
+        );
+
+        margin-right: unit((@consonant-root-rem), px);
+        overflow-y: auto;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .consonant-top-filters--filters > div h3 a {
+        white-space: nowrap;
+    }
+
+    .consonant-top-filters--filters.consonant-top-filters--filters_truncated {
+        // Make each filter white-space nowrap;
+        & > div h3 a {
+            white-space: nowrap;
+        }
+    }
+
+    .consonant-top-filters--more-btn {
+        display: none;
+        margin-bottom: unit((@consonant-root-rem * 0.5), px);
+        padding:
+            5/@consonant-root-rem
+            unit((@consonant-root-rem * 0.75), px)
+            6/@consonant-root-rem;
+
+        .font(
+            14/@consonant-root-rem,
+            19/@consonant-root-rem,
+            700,
+            @consonant-color-brown-grey,
+            center
+        );
+
+        text-transform: capitalize;
+        background-color: transparent;
+        border: 1px solid @consonant-color-lightest-grey;
+        border-radius: unit((@consonant-root-rem), px);
+        outline: 0;
+        user-select: none;
+    }
+
+    .consonant-top-filters--title {
+        display: none;
+        margin-right: unit((@consonant-root-rem * 0.75), px);
+        min-width: unit((@consonant-root-rem * 3.4375), px);
+        max-width: 20%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        user-select: none;
+
+        .font(
+            16/@consonant-root-rem,
+            32/@consonant-root-rem,
+            600,
+            @consonant-color-dark-grey-2
+        );
+    }
+
+    .consonant-top-filters--clear-btn-wrapper {
+        &:extend(
+            .flex,
+            .flex .justify .center,
+            .flex .align .center
+        );
+
+        position: sticky;
+        right: 0;
+        min-height: unit((@consonant-root-rem * 2), px);
+        max-width: 40%;
+
+        &:empty {
+            margin-left: (unit((@consonant-root-rem), px) * -1);
+            overflow: visible;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            width: @consonant-top-filters-filters-fade-width;
+            height: 100%;
+            background:
+                transparent
+                linear-gradient(
+                    270deg,
+                    rgba(255, 255, 255, 1) 0%,
+                    rgba(255, 255, 255, 0) 100%
+                ) 0% 0% no-repeat padding-box;
+            top: 0;
+            bottom: 0;
+            right: 100%;
+            margin: auto;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        &.consonant-top-filters--clear-btn-wrapper_no-bg:after {
+            display: none;
+        }
+    }
+
+    .consonant-top-filters--clear-btn {
+        padding: 0;
+        max-width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        .font(
+            14/@consonant-root-rem,
+            32/@consonant-root-rem,
+            700,
+            @consonant-color-blue,
+            right
+        );
+
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+    }
+
+    .consonant-top-filters--select-wrapper {
+        display: block;
+        min-width: @consonant-select-width * 0.85;
+        max-width: @consonant-select-width * 0.85;
+        margin-right: unit((@consonant-root-rem * 0.5), px);
+        order: -1;
+        overflow: visible;
+
+        &:only-child {
+            margin-left: auto;
+            margin-right: 0;
+        }
+    }
+
+    .consonant-top-filters--search-ico-wrapper,
+    .consonant-top-filters--res-qty {
+        display: none;
+    }
+
+    @media @consonant-for-tablet-portrait-up {
+        min-width: @consonant-card-collection-600-break-width;
+        max-width: @consonant-card-collection-600-break-width;
+    }
+
+    @media @consonant-for-tablet-landscape-up {
+        max-width: @consonant-card-collection-900-break-width;
+        padding-bottom: 32/@consonant-root-rem;
+
+        .consonant-top-filters--filters-wrapper {
+            max-width: 60%;
+            justify-content: flex-start;
+            margin-right: unit((@consonant-root-rem), px);
+        }
+
+        .consonant-top-filters--title {
+            display: block;
+        }
+
+        .consonant-top-filters--filters {
+            align-items: flex-start;
+            flex-wrap: wrap;
+            overflow: hidden;
+
+            &.consonant-top-filters--filters_truncated {
+                justify-content: flex-start;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+
+                .consonant-top-filters--more-btn {
+                    display: block;
+                    min-width: unit((@consonant-root-rem * 7.5), px);
+                    margin-right: unit((@consonant-root-rem * 1.5), px);
+                }
+
+                & > div:nth-child(n+4) {
+                    display: none;
+                }
+            }
+        }
+
+        .consonant-top-filters--filters > div h3 a {
+            white-space: normal;
+        }
+
+        .consonant-top-filters--clear-btn-wrapper:after {
+            display: none;
+        }
+
+        .consonant-top-filters--more-btn {
+            display: block;
+            min-width: auto;
+        }
+
+        .consonant-top-filters--select-wrapper {
+            max-width: @consonant-select-width;
+            order: 0;
+        }
+
+        .consonant-top-filters--search-ico-wrapper {
+            position: relative;
+            // Can't use extend here, limitation of LESS;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: calc(@consonant-search-ico-size ~ ' + ' unit((@consonant-root-rem * 2.5), px));
+            min-height: unit((@consonant-root-rem * 2), px);
+        }
+
+        .consonant-top-filters--search-ico-wrapper > div {
+            position: absolute;
+            width: @consonant-top-filters-search-width;
+            top: 0;
+            right: unit((@consonant-root-rem * 1.25), px);
+            z-index: 3;
+        }
+
+        .consonant-top-filters--search-ico-wrapper:only-child > div {
+            right: 0;
+        }
+
+        .consonant-top-filters--search-ico-wrapper > div + button {
+            display: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .consonant-top-filters--res-qty {
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-width: unit((@consonant-root-rem * 6.875), px);
+            min-height: unit((@consonant-root-rem * 2), px);
+            padding-left: @consonant-top-filters-qty-hor-space;
+            padding-right: @consonant-top-filters-qty-hor-space;
+
+            .font(
+                14/@consonant-root-rem,
+                18/@consonant-root-rem,
+                400,
+                @consonant-color-brown-grey,
+                center
+            );
+
+            &:after {
+                content: '';
+                position: absolute;
+                display: block;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                width: 1px;
+                height: 100%;
+                background-color: @consonant-color-lightest-grey;
+                z-index: 1;
+            }
+        }
+    }
+
+    @media @consonant-for-desktop-up {
+        min-width: @consonant-card-collection-1200-break-width;
+        max-width: @consonant-card-collection-1200-break-width;
+
+        // Hide search input label;
+        .consonant-top-filters--search-ico-wrapper label > span:first-child {
+            display: none;
+        }
+
+        .consonant-top-filters--select-wrapper {
+            min-width: unit((@consonant-root-rem * 10), px);
+            max-width: unit((@consonant-root-rem * 10), px);
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        // Add paddings for sort select;
+        .consonant-top-filters--select-wrapper > div:first-child {
+            padding-left: unit((@consonant-root-rem * 0.75), px);
+            padding-right: unit((@consonant-root-rem * 0.75), px);
+            border: 1px solid @consonant-color-lightest-grey;
+            border-radius: unit((@consonant-root-rem * 0.25), px);
+
+            &:after {
+                right: unit((@consonant-root-rem * 0.75), px);
+            }
+        }
+
+        .consonant-top-filters--select-wrapper > div:first-child button {
+            border: 0;
+        }
+
+        .consonant-top-filters--filters {
+            overflow: visible;
+        }
+
+        .consonant-top-filters--filters.consonant-top-filters--filters_truncated {
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            overflow: visible;
+
+            & > div:last-child {
+                margin-right: 0;
+            }
+        }
+
+        &.consonant-top-filter_opened {
+            margin-bottom: unit((@consonant-root-rem * 0.5), px);
+        }
+    }
+
+    @media @consonant-for-big-desktop-up {
+        min-width: @consonant-card-collection-1440-break-width;
+        max-width: @consonant-card-collection-1440-break-width;
+    }
+}
