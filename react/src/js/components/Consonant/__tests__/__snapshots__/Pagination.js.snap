@@ -46,7 +46,9 @@ exports[`Consonant/Pagination Check snapshots should renders correctly paginatio
   >
     Showing
     <strong>
-      -9-0
+      -9
+      -
+      0
        of
     </strong>
     100
@@ -113,7 +115,9 @@ exports[`Consonant/Pagination Check snapshots should renders correctly paginatio
   >
     Showing
     <strong>
-      1-10
+      1
+      -
+      10
        of
     </strong>
     100
@@ -180,7 +184,9 @@ exports[`Consonant/Pagination Check snapshots should renders correctly paginatio
   >
     Showing
     <strong>
-      -9-0
+      -9
+      -
+      0
        of
     </strong>
     100
@@ -247,7 +253,9 @@ exports[`Consonant/Pagination Check snapshots should renders correctly paginatio
   >
     Showing
     <strong>
-      1-10
+      1
+      -
+      10
        of
     </strong>
     100
@@ -302,7 +310,9 @@ exports[`Consonant/Pagination Check snapshots should renders correctly paginatio
   >
     Showing
     <strong>
-      1-10
+      1
+      -
+      10
        of
     </strong>
     100
@@ -357,7 +367,9 @@ exports[`Consonant/Pagination Check snapshots should renders correctly paginatio
   >
     Showing
     <strong>
-      -9-0
+      -9
+      -
+      0
        of
     </strong>
     100

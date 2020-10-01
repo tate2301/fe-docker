@@ -3,6 +3,7 @@
 exports[`Consonant/SelectedFilter Check snapshots should renders correctly 1`] = `
 <button
   className="consonant-filters--selected-filter"
+  data-testid="selected-filter"
   onClick={[Function]}
   type="button"
 >

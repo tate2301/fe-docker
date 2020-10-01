@@ -3,6 +3,7 @@
 exports[`Consonant/Search Check snapshots should renders correctly with value 1`] = `
 <div
   className="consonant-search"
+  data-testid="consonant-search"
 >
   <label>
     <span
@@ -14,8 +15,8 @@ exports[`Consonant/Search Check snapshots should renders correctly with value 1`
       className="consonant-search--input-wrapper"
     >
       <input
+        className="consonant-search--input"
         data-testid="search-input"
-        onBlur={[Function]}
         onChange={[Function]}
         placeholder="search text"
         required={true}
@@ -38,6 +39,7 @@ exports[`Consonant/Search Check snapshots should renders correctly with value 1`
 exports[`Consonant/Search Check snapshots should renders correctly without value 1`] = `
 <div
   className="consonant-search"
+  data-testid="consonant-search"
 >
   <label>
     <span
@@ -49,8 +51,8 @@ exports[`Consonant/Search Check snapshots should renders correctly without value
       className="consonant-search--input-wrapper"
     >
       <input
+        className="consonant-search--input"
         data-testid="search-input"
-        onBlur={[Function]}
         onChange={[Function]}
         placeholder="search text"
         required={true}

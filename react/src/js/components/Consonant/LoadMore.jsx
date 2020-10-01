@@ -11,9 +11,10 @@ const LoadMore = (props) => {
 
     const render =
         (show > 0 && total > 0) ? (
-            <div className="consonant-load-more">
+            <div data-testid="consonant-load-more" className="consonant-load-more">
                 <div className="consonant-load-more--inner">
                     <p
+                        data-testid="consonant-load-more--text"
                         className="consonant-load-more--text"
                         dangerouslySetInnerHTML={{ __html: renderQtyHTML() }} />
                     {show < total &&

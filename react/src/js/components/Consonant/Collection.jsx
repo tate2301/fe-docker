@@ -30,7 +30,7 @@ const Collection = (props) => {
     if (cardsToShow && cards.length > cardsToShow) cards = cards.slice(0, cardsToShow);
 
     return (
-        <div className="consonant-card-collection">
+        <div data-testid="consonant-collection" className="consonant-card-collection">
             {cards.map((card) => {
                 const type = cardsStyle && cardsStyle.toLowerCase() !== 'none' ? cardsStyle : card.cardStyle;
 

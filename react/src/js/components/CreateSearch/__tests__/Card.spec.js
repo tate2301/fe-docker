@@ -1,7 +1,6 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import sinon from 'sinon';
 import 'isomorphic-fetch';
 import Card from '../Card';
 
@@ -18,7 +17,7 @@ describe('the CreateSearch card component', () => {
     describe('the card image', () => {
         it('shows the backgroundImage prop as a background-image css property', () => {
             const wrapper = shallow(<Card {...defaultProps} />);
-            const image = wrapper.find('.create-card-collection__create-card-img');
+            const image = wrapper.find('.create-search__create-card-img');
 
             expect(image).toHaveLength(1);
 

@@ -13,9 +13,10 @@ const setup = makeSetup(Pagination, DEFAULT_PROPS);
 describe('Consonant/Pagination', () => {
     test('should render different items range', () => {
         PAGE_LIST.forEach((page) => {
-            const { props: { showItemsPerPage }, wrapper } = setup({ currentPageNumber: page });
+            const { props: { showItemsPerPage, totalResults }, wrapper } =
+                setup({ currentPageNumber: page });
 
-            const itemRange = getItemsRange({ page, itemsPerPage: showItemsPerPage });
+            const itemRange = getItemsRange({ page, totalResults, itemsPerPage: showItemsPerPage });
 
             const paginationSummaryElement = screen.getByTestId('pagination--summary');
 

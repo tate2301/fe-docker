@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const searchId = 'consonant-search';
 const Search = (props) => {
     const {
-        value, onSearch, placeholderText, leftPanelTitle,
+        value, onSearch, placeholderText, leftPanelTitle, childrenKey,
     } = props;
 
     const handleSearch = (evt) => {
@@ -16,7 +16,7 @@ const Search = (props) => {
     };
 
     return (
-        <div className="consonant-search">
+        <div data-testid={childrenKey} className="consonant-search">
             <label htmlFor={searchId}>
                 <span className="consonant-search--input-title">{leftPanelTitle}</span>
                 <span className="consonant-search--input-wrapper">
@@ -44,6 +44,7 @@ const Search = (props) => {
 export default Search;
 
 Search.propTypes = {
+    childrenKey: PropTypes.string,
     onSearch: PropTypes.func.isRequired,
     value: PropTypes.string,
     placeholderText: PropTypes.string,
@@ -52,6 +53,7 @@ Search.propTypes = {
 
 Search.defaultProps = {
     value: '',
+    childrenKey: 'consonant-search',
     placeholderText: 'Search here...',
     leftPanelTitle: 'Search',
 };

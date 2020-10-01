@@ -22,9 +22,11 @@ const Loader = (props) => {
     }
 
     return (!hidden &&
-        <div className={
-            `consonant-loader ${size} ${absolute ? 'consonant-loader_absolute' : ''}`
-        }>
+        <div
+            data-testid="consonant-loader"
+            className={
+                `consonant-loader ${size} ${absolute ? 'consonant-loader_absolute' : ''}`
+            }>
             <div />
             <div />
             <div />
