@@ -40,9 +40,9 @@ const FiltersPanelTop = (props) => {
             {
                 updatedChildren.some(el => el.key === 'filtersTopSearch') &&
                 window.innerWidth < TABLET_MIN_WIDTH &&
-                    <div className="consonant-top-filters--search-wrapper">
-                        {renderChildren('filtersTopSearch')}
-                    </div>
+                <div className="consonant-top-filters--search-wrapper">
+                    {renderChildren('filtersTopSearch')}
+                </div>
             }
             <div className="consonant-top-filters--inner">
                 {filters.length > 0 &&
@@ -84,13 +84,17 @@ const FiltersPanelTop = (props) => {
                         </div>
                         {
                             (checkFiltersSelected() || filters.length >= MIN_FILTERS_SHOW_BG) &&
-                            <div className="consonant-top-filters--clear-btn-wrapper">
+                            <div className={
+                                filters.length === 1 ?
+                                    'consonant-top-filters--clear-btn-wrapper consonant-top-filters--clear-btn-wrapper_no-bg' :
+                                    'consonant-top-filters--clear-btn-wrapper'
+                            }>
                                 {checkFiltersSelected() &&
-                                <button
-                                    type="button"
-                                    className="consonant-top-filters--clear-btn"
-                                    onClick={onClearAllFilters}>{clearAllFiltersText}
-                                </button>
+                                    <button
+                                        type="button"
+                                        className="consonant-top-filters--clear-btn"
+                                        onClick={onClearAllFilters}>{clearAllFiltersText}
+                                    </button>
                                 }
                             </div>
                         }
@@ -104,10 +108,10 @@ const FiltersPanelTop = (props) => {
                 {
                     updatedChildren.some(el => el.key === 'filtersTopSearchIco') &&
                     window.innerWidth >= TABLET_MIN_WIDTH &&
-                        <div className="consonant-top-filters--search-ico-wrapper">
-                            {showSearchbar && renderChildren('filtersTopSearch')}
-                            {renderChildren('filtersTopSearchIco')}
-                        </div>
+                    <div className="consonant-top-filters--search-ico-wrapper">
+                        {showSearchbar && renderChildren('filtersTopSearch')}
+                        {renderChildren('filtersTopSearchIco')}
+                    </div>
                 }
                 {updatedChildren.some(el => el.key === 'filtersTopSelect') &&
                     <div className="consonant-top-filters--select-wrapper">

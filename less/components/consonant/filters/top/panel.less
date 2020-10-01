@@ -1,5 +1,6 @@
 /* Available modificators:
   - consonant-top-filters--filters_truncated;
+  - consonant-top-filters--clear-btn-wrapper_no-bg;
 */
 
 @consonant-top-filters-filters-fade-width: unit((@consonant-root-rem * 3.5), px);
@@ -159,6 +160,10 @@
             margin: auto;
             z-index: 2;
             pointer-events: none;
+        }
+
+        &.consonant-top-filters--clear-btn-wrapper_no-bg:after {
+            display: none;
         }
     }
 
