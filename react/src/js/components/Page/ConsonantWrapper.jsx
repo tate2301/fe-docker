@@ -13,6 +13,7 @@ import LeftFilterPanel from '../Consonant/Filters/left/Panel';
 import FiltersPanelTop from '../Consonant/Filters/top/Panel';
 import Bookmarks from '../Consonant/Bookmarks';
 import SearchIco from '../Consonant/SearchIco';
+import parseToPrimitive from '../../utils/parseToPrimitive';
 
 const DESKTOP_MIN_WIDTH = 1200;
 const TABLET_MIN_WIDTH = 768;
@@ -156,12 +157,12 @@ export default class ConsonantWrapper extends React.Component {
                 });
             };
 
-            let featuredCards = this.props.config.featuredCards || [];
-            const filters = this.getConfig('filterPanel', 'filters');
+            let featuredCards = parseToPrimitive(this.props.config.featuredCards) || [];
+            const filters = parseToPrimitive(this.getConfig('filterPanel', 'filters'));
 
             if (!res || (res.cards && res.cards.length <= 0)) return;
 
-            let cards = removeSameCardIds(this.state.cards, res.cards);
+            let cards = removeSameCardIds(this.state.cards, parseToPrimitive(res.cards));
 
             featuredCards = featuredCards.map((el) => {
                 el.isFeatured = true;
@@ -259,18 +260,13 @@ export default class ConsonantWrapper extends React.Component {
                 ],
             },
         };
+        const val = this.props.config[object] ? this.props.config[object][key] : null;
+        let res;
 
-        if (
-            !this.props.config[object] ||
-            (
-                !this.props.config[object][key] &&
-                (
-                    typeof this.props.config[object][key] !== 'boolean' &&
-                    typeof this.props.config[object][key] !== 'number'
-                )
-            )
-        ) { return defaultProps[object][key]; }
-        return this.props.config[object][key];
+        if (!val && typeof val !== 'boolean' && typeof val !== 'number') res = defaultProps[object][key];
+        else res = this.props.config[object][key];
+
+        return parseToPrimitive(res);
     }
 
     getDefaultSortOption() {
@@ -281,8 +277,8 @@ export default class ConsonantWrapper extends React.Component {
             sort: 'featured',
         };
 
-        if (sort && sort.options) {
-            const filtered = sort.options.filter(el => el.sort === query);
+        if (sort && parseToPrimitive(sort.options)) {
+            const filtered = parseToPrimitive(sort.options).filter(el => el.sort === query);
             if (filtered && filtered.length) [res] = filtered;
         }
 
@@ -486,7 +482,7 @@ export default class ConsonantWrapper extends React.Component {
     searchCards() {
         const query = this.state.searchQuery.trim().toLowerCase();
         const results = [];
-        const searchFields = this.getConfig('search', 'searchFields');
+        const searchFields = parseToPrimitive(this.getConfig('search', 'searchFields'));
         const fieldsToHighlight = ['title', 'description'];
         const highlightText = (text, val) => text.replace(new RegExp(val, 'gi'), value => `<span class="consonant-search-result">${value}</span>`);
 
@@ -790,7 +786,7 @@ export default class ConsonantWrapper extends React.Component {
         return (<Select
             opened={this.state.selectOpened}
             val={this.state.selelectedFilterBy}
-            values={this.getConfig('sort', 'options')}
+            values={parseToPrimitive(this.getConfig('sort', 'options'))}
             onOpen={this.handleSelectOpen}
             onSelect={this.handleSelectChange}
             key={key}
@@ -872,7 +868,7 @@ export default class ConsonantWrapper extends React.Component {
                                     }
                                     {
                                         this.getConfig('sort', 'enabled') &&
-                                        this.getConfig('sort', 'options').length > 0 &&
+                                        parseToPrimitive(this.getConfig('sort', 'options')).length > 0 &&
                                         this.renderSelect(
                                             true,
                                             'filtersTopSelect',
@@ -902,7 +898,7 @@ export default class ConsonantWrapper extends React.Component {
                                     }
                                     {
                                         this.getConfig('sort', 'enabled') &&
-                                        this.getConfig('sort', 'options').length > 0 &&
+                                        parseToPrimitive(this.getConfig('sort', 'options')).length > 0 &&
                                         this.renderSelect(false, 'selectFiltersInfo')
                                     }
                                 </FiltersInfo>
@@ -963,33 +959,33 @@ export default class ConsonantWrapper extends React.Component {
 ConsonantWrapper.propTypes = {
     config: PropTypes.shape({
         collection: PropTypes.shape({
-            resultsPerPage: PropTypes.number,
+            resultsPerPage: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
             endpoint: PropTypes.string,
             title: PropTypes.string,
-            totalCardLimit: PropTypes.number,
+            totalCardLimit: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
             cardStyle: PropTypes.string,
-            displayTotalResults: PropTypes.bool,
+            displayTotalResults: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
             totalResultsText: PropTypes.string,
         }),
-        featuredCards: PropTypes.arrayOf(PropTypes.object),
+        featuredCards: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.object)]),
         header: PropTypes.shape({
-            enabled: PropTypes.bool,
+            enabled: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
         }),
         filterPanel: PropTypes.shape({
-            enabled: PropTypes.bool,
+            enabled: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
             type: PropTypes.string,
-            filters: PropTypes.arrayOf(PropTypes.object),
+            filters: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.object)]),
             clearAllFiltersText: PropTypes.string,
             clearFilterText: PropTypes.string,
             filterLogic: PropTypes.string,
             leftPanelHeader: PropTypes.string,
         }),
         sort: PropTypes.shape({
-            enabled: PropTypes.bool,
-            options: PropTypes.arrayOf(PropTypes.object),
+            enabled: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+            options: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.object)]),
         }),
         pagination: PropTypes.shape({
-            enabled: PropTypes.bool,
+            enabled: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
             type: PropTypes.string,
             paginatorQuantityText: PropTypes.string,
             paginatorPrevLabel: PropTypes.string,
@@ -998,7 +994,7 @@ ConsonantWrapper.propTypes = {
             loadMoreQuantityText: PropTypes.string,
         }),
         bookmarks: PropTypes.shape({
-            enabled: PropTypes.bool,
+            enabled: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
             cardSavedIcon: PropTypes.string,
             cardUnsavedIcon: PropTypes.string,
             saveCardText: PropTypes.string,
@@ -1008,10 +1004,12 @@ ConsonantWrapper.propTypes = {
             bookmarksFilterTitle: PropTypes.string,
         }),
         search: PropTypes.shape({
-            enabled: PropTypes.bool,
+            enabled: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
             leftPanelTitle: PropTypes.string,
             inputPlaceholderText: PropTypes.string,
-            searchFields: PropTypes.arrayOf(PropTypes.string),
+            searchFields: PropTypes.oneOfType([
+                PropTypes.string, PropTypes.arrayOf(PropTypes.string),
+            ]),
         }),
     }),
 };
