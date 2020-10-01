@@ -44,19 +44,25 @@ const FilterPanelLeft = (props) => {
     );
     const mobileFiltersFooter = (windowWidth < DESKTOP_MIN_WIDTH &&
         <div className="consonant-filters--mobile-footer">
-            {showTotalResults &&
-                <span className="consonant-filters--mobile-footer-total-res">{resQty} results</span>
-            }
+            {showTotalResults && (
+                <span
+                    data-testid="mobile-footer-total-res"
+                    className="consonant-filters--mobile-footer-total-res">
+                    {resQty} results
+                </span>
+            )}
             {
                 checkFilterSelected() &&
                 <button
                     type="button"
+                    data-testid="mobile-footer-clear"
                     className="consonant-filters--mobile-footer-clear"
                     onClick={onClearAllFilters}>{clearAllFiltersText}
                 </button>
             }
             <button
                 type="button"
+                data-testid="mobile-footer-btn"
                 className="consonant-filters--mobile-footer-btn"
                 onClick={onMobileFiltersToggleClick}>
                 {checkFilterSelected() ? 'Apply' : 'Done'}
@@ -66,8 +72,7 @@ const FilterPanelLeft = (props) => {
 
     let updatedChildren = [];
     const renderChildren = (key) => {
-        const res = updatedChildren.filter(el => el.key === key);
-
+        const res = updatedChildren.filter(el => el.props && el.props.childrenKey === key);
         return res.length > 0 ? res : null;
     };
 
@@ -75,7 +80,9 @@ const FilterPanelLeft = (props) => {
     else updatedChildren = children;
 
     return (
-        <div className={showMobileFilters ? 'consonant-filters consonant-filters_opened' : 'consonant-filters'}>
+        <div
+            data-testid="consonant-filters__left"
+            className={showMobileFilters ? 'consonant-filters consonant-filters_opened' : 'consonant-filters'}>
             {
                 <div className="consonant-filters--header">
                     {mobileFiltersTitle}

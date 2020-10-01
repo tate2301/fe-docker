@@ -3,12 +3,14 @@
 exports[`Consonant/LoadMore Check snapshots should renders correctly with show < total 1`] = `
 <div
   className="consonant-load-more"
+  data-testid="consonant-load-more"
 >
   <div
     className="consonant-load-more--inner"
   >
     <p
       className="consonant-load-more--text"
+      data-testid="consonant-load-more--text"
     >
       <span
         className="consonant-load-more--shown"
@@ -40,12 +42,14 @@ exports[`Consonant/LoadMore Check snapshots should renders correctly with show <
 exports[`Consonant/LoadMore Check snapshots should renders correctly with show > total 1`] = `
 <div
   className="consonant-load-more"
+  data-testid="consonant-load-more"
 >
   <div
     className="consonant-load-more--inner"
   >
     <p
       className="consonant-load-more--text"
+      data-testid="consonant-load-more--text"
     >
       <span
         className="consonant-load-more--shown"

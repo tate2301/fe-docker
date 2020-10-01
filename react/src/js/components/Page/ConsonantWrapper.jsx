@@ -115,7 +115,6 @@ export default class ConsonantWrapper extends React.Component {
             const applyCardLimitToLoadedCards = (data) => {
                 const currentCardsQty = this.state.cards.length;
                 const limit = this.getConfig('collection', 'totalCardLimit');
-
                 // No limit, return all;
                 if (limit < 0) return data;
 
@@ -171,8 +170,8 @@ export default class ConsonantWrapper extends React.Component {
 
             // If this.config.bookmarks.bookmarkOnlyCollection;
             if (this.getConfig('bookmarks', 'bookmarkOnlyCollection')) {
-                this.getBookMarksFromLS(false);
                 cards = cards.filter(c => this.state.bookmarkedCards.some(el => el === c.id));
+                this.getBookMarksFromLS(false);
             }
 
             cards = filterCardsPerDateRange(cards);
@@ -273,7 +272,6 @@ export default class ConsonantWrapper extends React.Component {
             label: 'Featured',
             sort: 'featured',
         };
-
         if (sort && sort.options) {
             const filtered = sort.options.filter(el => el.sort === query);
             if (filtered && filtered.length) [res] = filtered;
@@ -354,7 +352,7 @@ export default class ConsonantWrapper extends React.Component {
         try {
             localStorage.setItem('bookmarks', JSON.stringify(this.state.bookmarkedCards, null, 2));
         } catch (e) {
-            alert('We could not save your bookmarks, please try to reload thші page.');
+            // alert('We could not save your bookmarks, please try to reload thші page.');
         }
     }
 
@@ -434,7 +432,6 @@ export default class ConsonantWrapper extends React.Component {
 
     updateDimensions = () => {
         const awaitTime = 100;
-
         window.clearTimeout(updateDimensionsTimer);
         updateDimensionsTimer = window.setTimeout(() => {
             this.setState({
@@ -462,7 +459,6 @@ export default class ConsonantWrapper extends React.Component {
         }
 
         if (field.toLowerCase().indexOf('desc') >= 0) sorted.reverse();
-
         // In case of featured, move featured items to the top;
         if (field === 'featured') {
             sorted.sort(a => (a.isFeatured ? -1 : 0))
@@ -479,7 +475,13 @@ export default class ConsonantWrapper extends React.Component {
         const results = [];
         const searchFields = this.getConfig('search', 'searchFields');
         const fieldsToHighlight = ['title', 'description'];
-        const highlightText = (text, val) => text.replace(new RegExp(val, 'gi'), value => `<span class="consonant-search-result">${value}</span>`);
+        const highlightText = (text, val) => text.replace(new RegExp(val, 'gi'), value => `
+            <span
+                data-testid="consonant-search-result"
+                class="consonant-search-result">
+                ${value}
+            </span>
+        `);
 
         // In case we reset search, just show all results;
         if (!query) {
@@ -542,7 +544,6 @@ export default class ConsonantWrapper extends React.Component {
 
     clearAllFilters(isFavs) {
         const showFavourites = typeof isFavs !== 'boolean' ? false : isFavs;
-
         this.clearFilters();
         this.setState({
             searchQuery: '',
@@ -624,7 +625,6 @@ export default class ConsonantWrapper extends React.Component {
 
     handleCheckBoxChange(filterId, itemId, isChecked) {
         const filterLogic = this.getConfig('filterPanel', 'filterLogic');
-
         if (this.state.showFavourites) this.resetFavourites();
 
         // If xor filterLogic set, we reset all filters;
@@ -759,7 +759,7 @@ export default class ConsonantWrapper extends React.Component {
 
     renderSearch(key) {
         return (<Search
-            key={key}
+            childrenKey={key}
             placeholderText={this.getConfig('search', 'placeholderText')}
             value={this.state.searchQuery}
             onSearch={this.handleSearchInputChange} />);
@@ -772,7 +772,7 @@ export default class ConsonantWrapper extends React.Component {
             values={this.getConfig('sort', 'options')}
             onOpen={this.handleSelectOpen}
             onSelect={this.handleSelectChange}
-            key={key}
+            childrenKey={key}
             autoWidth={autoWidth}
             optionsAlignment={optionsAlignment} />);
     }
@@ -808,7 +808,7 @@ export default class ConsonantWrapper extends React.Component {
                                     }
                                     {this.getConfig('bookmarks', 'enabled') &&
                                         <Bookmarks
-                                            key="filtersSideBookmarks"
+                                            childrenKey="filtersSideBookmarks"
                                             selectedIco={this.getConfig('bookmarks', 'selectBookmarksIcon')}
                                             unselectedIco={this.getConfig('bookmarks', 'unselectBookmarksIcon')}
                                             selected={this.state.showFavourites}
@@ -841,7 +841,7 @@ export default class ConsonantWrapper extends React.Component {
                                         this.getConfig('search', 'enabled') &&
                                         this.state.windowWidth >= TABLET_MIN_WIDTH &&
                                         <SearchIco
-                                            key="filtersTopSearchIco"
+                                            childrenKey="filtersTopSearchIco"
                                             onClick={this.handleSearchIcoClick} />
 
                                     }

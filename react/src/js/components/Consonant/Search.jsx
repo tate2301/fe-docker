@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Search = (props) => {
     const {
-        value, onSearch, placeholderText,
+        value, onSearch, placeholderText, childrenKey,
     } = props;
 
     const handleSearch = (evt) => {
@@ -15,7 +15,7 @@ const Search = (props) => {
     };
 
     return (
-        <div className="consonant-search">
+        <div data-testid={childrenKey} className="consonant-search">
             <label>
                 <span className="consonant-search--input-title">Search</span>
                 <span className="consonant-search--input-wrapper">
@@ -42,6 +42,7 @@ const Search = (props) => {
 export default Search;
 
 Search.propTypes = {
+    childrenKey: PropTypes.string,
     onSearch: PropTypes.func.isRequired,
     value: PropTypes.string,
     placeholderText: PropTypes.string,
@@ -49,5 +50,6 @@ Search.propTypes = {
 
 Search.defaultProps = {
     value: '',
+    childrenKey: 'consonant-search',
     placeholderText: 'Search here...',
 };

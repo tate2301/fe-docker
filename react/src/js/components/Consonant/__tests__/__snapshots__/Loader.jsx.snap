@@ -5,6 +5,7 @@ exports[`Consonant/Loader Check snapshots should renders correctly 1`] = `null`;
 exports[`Consonant/Loader Check snapshots should renders correctly 2`] = `
 <div
   className="consonant-loader  "
+  data-testid="consonant-loader"
 >
   <div />
   <div />
@@ -16,6 +17,7 @@ exports[`Consonant/Loader Check snapshots should renders correctly 2`] = `
 exports[`Consonant/Loader Check snapshots should renders correctly 3`] = `
 <div
   className="consonant-loader consonant-loader_medium "
+  data-testid="consonant-loader"
 >
   <div />
   <div />
@@ -27,6 +29,7 @@ exports[`Consonant/Loader Check snapshots should renders correctly 3`] = `
 exports[`Consonant/Loader Check snapshots should renders correctly 4`] = `
 <div
   className="consonant-loader consonant-loader_big "
+  data-testid="consonant-loader"
 >
   <div />
   <div />
@@ -38,6 +41,7 @@ exports[`Consonant/Loader Check snapshots should renders correctly 4`] = `
 exports[`Consonant/Loader Check snapshots should renders correctly 5`] = `
 <div
   className="consonant-loader consonant-loader_medium consonant-loader_absolute"
+  data-testid="consonant-loader"
 >
   <div />
   <div />
@@ -49,6 +53,7 @@ exports[`Consonant/Loader Check snapshots should renders correctly 5`] = `
 exports[`Consonant/Loader Check snapshots should renders correctly 6`] = `
 <div
   className="consonant-loader consonant-loader_big consonant-loader_absolute"
+  data-testid="consonant-loader"
 >
   <div />
   <div />

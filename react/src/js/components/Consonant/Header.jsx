@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Header = () => (
-    <header className="consonant-header" />
+    <header data-testid="consonant-header" className="consonant-header" />
 );
 
 export default Header;

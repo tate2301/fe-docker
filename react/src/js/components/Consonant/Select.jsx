@@ -28,7 +28,7 @@ const Select = (props) => {
                 onBlur={onOpen}
                 onClick={onOpen}>{val.label || 'Please select'}
             </button>
-            <div className={`consonant-select--options consonant-select--options_${optionsAlignment}`}>
+            <div data-testid="consonant-select--options" className={`consonant-select--options consonant-select--options_${optionsAlignment}`}>
                 {values.map(item => (
                     <button
                         data-testid="select-option"

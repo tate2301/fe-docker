@@ -24,16 +24,6 @@ describe('Consonant/Search', () => {
     });
 
     describe('Interaction with UI', () => {
-        test('should call onBlur', () => {
-            const { props: { onBlur } } = setup();
-
-            const inputElement = screen.getByTestId('search-input');
-
-            fireEvent.focus(inputElement);
-            fireEvent.blur(inputElement);
-
-            expect(onBlur).toBeCalled();
-        });
         test('shouldn not throw error about onBlur is not a function', () => {
             setup({ onBlur: null });
 
