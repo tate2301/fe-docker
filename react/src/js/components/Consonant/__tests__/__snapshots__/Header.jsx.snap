@@ -3,5 +3,6 @@
 exports[`Consonant/Header Check snapshots should renders correctly 1`] = `
 <header
   className="consonant-header"
+  data-testid="consonant-header"
 />
 `;

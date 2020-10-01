@@ -14,7 +14,8 @@ exports[`Consonant/Select Check snapshots should renders correctly 1`] = `
     Please select
   </button>
   <div
-    className="consonant-select--options"
+    className="consonant-select--options consonant-select--options_right"
+    data-testid="consonant-select--options"
   >
     <button
       className="consonant-select--option"
@@ -74,7 +75,8 @@ exports[`Consonant/Select Check snapshots should renders correctly opened select
     Please select
   </button>
   <div
-    className="consonant-select--options"
+    className="consonant-select--options consonant-select--options_right"
+    data-testid="consonant-select--options"
   >
     <button
       className="consonant-select--option"
@@ -134,7 +136,8 @@ exports[`Consonant/Select Check snapshots should renders correctly with autoWidt
     Please select
   </button>
   <div
-    className="consonant-select--options"
+    className="consonant-select--options consonant-select--options_right"
+    data-testid="consonant-select--options"
   >
     <button
       className="consonant-select--option"
@@ -194,7 +197,8 @@ exports[`Consonant/Select Check snapshots should renders correctly with selected
     label 1
   </button>
   <div
-    className="consonant-select--options"
+    className="consonant-select--options consonant-select--options_right"
+    data-testid="consonant-select--options"
   >
     <button
       className="consonant-select--option consonant-select--option_selected"

@@ -6,7 +6,52 @@
         "totalCardLimit": -1,
         "cardStyle": "none"
     },
-    "featuredCards": [],
+    "featuredCards": [
+        {
+            "title": "Some Featured Card",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/biking"
+                }
+            ],
+            "id": "6d6438c8-1",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": "",
+            "cardStyle": "3:2",
+            "label": "testLabel",
+            "videoURL": "https://youtu.be/3OC2aPCuzjo"
+        },
+        {
+            "title": "Featured Card",
+            "appliesTo": [
+                {
+                    "id": "we-retail:activity/running"
+                }
+            ],
+            "id": "6d6438c8-3",
+            "description": "Some Description",
+            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
+            "lastModified": "2020-07-02T09:41:35.933Z",
+            "bannerDescription": "Some Banner Description",
+            "ctaLabel": "Some CTA",
+            "ctaLink": "https://google.com",
+            "bannerBackgroundColor": "#CB6F10",
+            "bannerFontColor": "#FFFFFF",
+            "secondaryLabelText": "Some secondary text",
+            "bannerIcon": "some-banner-icon",
+            "cardStyle": "3:2",
+            "label": "testLabel",
+            "videoURL": "https://youtu.be/3OC2aPCuzjo"
+        }
+    ],
     "header": {
         "enabled": false
     },
@@ -26,7 +71,7 @@
                     },
                     {
                         "label": "Creativity and Design",
-                        "id": "adobe-com-enterprise:topic/creativity-design"
+                        "id": "we-retail:activity/biking"
                     },
                     {
                         "label": "Customer Intelligence",
@@ -100,8 +145,8 @@
                 "sort": "titleDesc"
             },
             {
-                "label": "Date: (Oldest to newest)",
-                "sort": "dateAsc"
+                "label": "Date",
+                "sort": "dateAscEnding"
             },
             {
                 "label": "Date: (Newest to oldest)",
@@ -138,14 +183,14 @@
     },
     "cards": [
         {
-            "title": "Some Title 1 ",
+            "title": "Some Title 1",
             "appliesTo": [
                 {
                     "id": "we-retail:activity/biking"
                 }
             ],
             "id": "6d6438c8-1",
-            "description": "Some Description",
+            "description": "Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars",
             "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
             "lastModified": "2020-07-02T09:41:35.933Z",
             "bannerDescription": "Some Banner Description",
@@ -154,29 +199,32 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon"
+            "bannerIcon": "some-banner-icon",
+            "cardStyle": "3:2"
         },
         {
-            "title": "Some Title 2",
+            "title": "Some Title 22",
             "appliesTo": [
                 {
                     "id": "we-retail:activity/hiking"
                 }
             ],
             "id": "6d6438c8-2",
-            "description": "Some Description",
+            "description": "Description with 200 chars Description with 200 chars Description with 200 chars Description with 200 chars Description with 200 chars Description with 200 chars Description with 200 chars DescDescription with 200 chars Description with 200 chars Description with 200 chars Description with 200 chars Description with 200 chars Description with 200 chars Description with 200 chars Desc",
             "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
+            "lastModified": "2020-08-02T09:41:35.933Z",
             "bannerDescription": "Some Banner Description",
             "ctaLabel": "Some CTA",
             "ctaLink": "https://google.com",
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon"
+            "bannerIcon": "some-banner-icon",
+            "cardStyle": "3:2",
+            "showCardFrom": "12/12/2012 - 12/12/2021"
         },
         {
-            "title": "Some Title 3",
+            "title": "Some Title 22",
             "appliesTo": [
                 {
                     "id": "we-retail:activity/running"
@@ -185,14 +233,16 @@
             "id": "6d6438c8-3",
             "description": "Some Description",
             "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
+            "lastModified": "2020-09-02T09:41:35.933Z",
             "bannerDescription": "Some Banner Description",
             "ctaLabel": "Some CTA",
             "ctaLink": "https://google.com",
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon"
+            "bannerIcon": "some-banner-icon",
+            "cardStyle": "3:2",
+            "showCardFrom": " - 12/12/2021"
         },
         {
             "title": "Some Title 4",
@@ -204,14 +254,15 @@
             "id": "6d6438c8-4",
             "description": "Some Description",
             "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
+            "lastModified": "2019-07-02T09:41:35.933Z",
             "bannerDescription": "Some Banner Description",
             "ctaLabel": "Some CTA",
             "ctaLink": "https://google.com",
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon"
+            "bannerIcon": "some-banner-icon",
+            "cardStyle": "3:2"
         },
         {
             "title": "Some Title 5",
@@ -223,14 +274,15 @@
             "id": "6d6438c8-5",
             "description": "Some Description",
             "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
+            "lastModified": "2020-01-02T09:41:35.933Z",
             "bannerDescription": "Some Banner Description",
             "ctaLabel": "Some CTA",
             "ctaLink": "https://google.com",
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon"
+            "bannerIcon": "some-banner-icon",
+            "cardStyle": "3:2"
         },
         {
             "title": "Some Title 6",
@@ -249,7 +301,8 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon"
+            "bannerIcon": "some-banner-icon",
+            "cardStyle": "3:2"
         },
         {
             "title": "Some Title 7",
@@ -268,7 +321,8 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon"
+            "bannerIcon": "some-banner-icon",
+            "cardStyle": "3:2"
         },
         {
             "title": "Some Title 8",
@@ -287,7 +341,8 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon"
+            "bannerIcon": "some-banner-icon",
+            "cardStyle": "3:2"
         },
         {
             "title": "Some Title 9",
@@ -300,13 +355,14 @@
             "description": "Some Description",
             "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
             "lastModified": "2020-07-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
+            "bannerDescription": "Some Banner Description uniq",
             "ctaLabel": "Some CTA",
             "ctaLink": "https://google.com",
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon"
+            "bannerIcon": "some-banner-icon",
+            "cardStyle": "3:2"
         },
         {
             "title": "Some Title 10",
@@ -325,7 +381,8 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon"
+            "bannerIcon": "some-banner-icon",
+            "cardStyle": "3:2"
         },
         {
             "title": "Some Title 11",
@@ -344,7 +401,8 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon"
+            "bannerIcon": "some-banner-icon",
+            "cardStyle": "3:2"
         },
         {
             "title": "Some Title 12",
@@ -363,7 +421,8 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon"
+            "bannerIcon": "some-banner-icon",
+            "cardStyle": "3:2"
         },
         {
             "title": "Some Title 13",
@@ -382,7 +441,8 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon"
+            "bannerIcon": "some-banner-icon",
+            "cardStyle": "3:2"
         },
         {
             "title": "Some Title 14",
@@ -401,7 +461,8 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon"
+            "bannerIcon": "some-banner-icon",
+            "cardStyle": "3:2"
         },
         {
             "title": "Some Title 15",
@@ -420,7 +481,8 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon"
+            "bannerIcon": "some-banner-icon",
+            "cardStyle": "3:2"
         },
         {
             "title": "Some Title 16",
@@ -439,7 +501,8 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon"
+            "bannerIcon": "some-banner-icon",
+            "cardStyle": "3:2"
         },
         {
             "title": "Some Title 17",
@@ -458,7 +521,8 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon"
+            "bannerIcon": "some-banner-icon",
+            "cardStyle": "3:2"
         },
         {
             "title": "Some Title 18",
@@ -477,7 +541,8 @@
             "bannerBackgroundColor": "#CB6F10",
             "bannerFontColor": "#FFFFFF",
             "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon"
+            "bannerIcon": "some-banner-icon",
+            "cardStyle": "3:2"
         }
     ]
 }

@@ -30,6 +30,7 @@ const FilterItem = (props) => {
     const renderSelecedFilter = () => itemsSelected > 0 && (
         <button
             type="button"
+            data-testid="item-badge"
             className="consonant-filters--item-badge"
             onClick={handleClear}>
             {itemsSelected}
@@ -51,9 +52,11 @@ const FilterItem = (props) => {
                 {items.map(item => (
                     <li
                         key={item.id}
+                        data-testid="list-item"
                         className="consonant-filters--item-list-item">
                         <label className="consonant-filters--item-list-label">
                             <input
+                                data-testid="list-item-checkbox"
                                 value={item.id}
                                 type="checkbox"
                                 onChange={handleCheck}
@@ -85,7 +88,7 @@ const FilterItem = (props) => {
     );
 
     return (
-        <div className={defineClassNames()}>
+        <div data-testid="filter-item" className={defineClassNames()}>
             <div className="consonant-filters--item-inner">
                 <h3 className="consonant-filters--item-name">
                     {icon &&
@@ -97,6 +100,7 @@ const FilterItem = (props) => {
                     }
                     <a
                         href="#"
+                        data-testid="filter-item__item-link"
                         className="consonant-filters--item-link"
                         onClick={handleClick}>
                         {name}

@@ -3,6 +3,5 @@ export const DEFAULT_PROPS = {
     value: '',
     placeholderText: 'search text',
 
-    onBlur: jest.fn(),
     onSearch: jest.fn(),
 };

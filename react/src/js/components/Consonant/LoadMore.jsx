@@ -5,9 +5,9 @@ const LoadMore = (props) => {
     const { onClick, show, total } = props;
     const render =
         (show > 0 && total > 0) ? (
-            <div className="consonant-load-more">
+            <div data-testid="consonant-load-more" className="consonant-load-more">
                 <div className="consonant-load-more--inner">
-                    <p className="consonant-load-more--text">
+                    <p data-testid="consonant-load-more--text" className="consonant-load-more--text">
                         <span className="consonant-load-more--shown">{show} </span>
                         of
                         <span className="consonant-load-more--total"> {total} </span>

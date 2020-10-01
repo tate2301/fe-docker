@@ -73,7 +73,10 @@ const Card = (props) => {
     };
 
     return (
-        <div className={setClassName()} id={id}>
+        <div
+            data-testid="consonant-card"
+            className={setClassName()}
+            id={id}>
             <div
                 data-testid="consonant-card--img"
                 className="consonant-card--img"
@@ -124,7 +127,7 @@ const Card = (props) => {
                                     {
                                         allowBookmarking &&
                                         <button
-                                            data-testid="tooltip-wrapper"
+                                            data-testid="consonant-card__bookmark-button"
                                             data-tooltip-wrapper
                                             type="button"
                                             className={defineBookMarkBtnClassName()}

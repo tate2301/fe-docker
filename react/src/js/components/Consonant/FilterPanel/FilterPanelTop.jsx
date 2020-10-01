@@ -23,8 +23,7 @@ const FiltersPanelTop = (props) => {
 
     let updatedChildren = [];
     const renderChildren = (key) => {
-        const res = updatedChildren.filter(el => el.key === key);
-
+        const res = updatedChildren.filter(el => el.props && el.props.childrenKey === key);
         return res.length > 0 ? res : null;
     };
     const countSelectedInFilter = el => el.reduce((acc, val) => (val.selected ? acc + 1 : acc), 0);
@@ -34,11 +33,11 @@ const FiltersPanelTop = (props) => {
     else updatedChildren = children;
 
     return (
-        <div className="consonant-top-filters">
+        <div data-testid="consonant-filters__top" className="consonant-top-filters">
             {
-                updatedChildren.some(el => el.key === 'filtersTopSearch') &&
+                updatedChildren.some(el => el.props && el.props.childrenKey === 'filtersTopSearch') &&
                 window.innerWidth < TABLET_MIN_WIDTH &&
-                    <div className="consonant-top-filters--search-wrapper">
+                    <div data-testid="top-filters__search-wrapper" className="consonant-top-filters--search-wrapper">
                         {renderChildren('filtersTopSearch')}
                     </div>
             }
@@ -48,11 +47,13 @@ const FiltersPanelTop = (props) => {
                         {window.innerWidth >= TABLET_MIN_WIDTH &&
                             <strong className="consonant-top-filters--title">Filters:</strong>
                         }
-                        <div className={
-                            showLimitedFiltersQty ?
-                                'consonant-top-filters--filters consonant-top-filters--filters_truncated' :
-                                'consonant-top-filters--filters'
-                        }>
+                        <div
+                            data-testid="consonant-filters__top__filters"
+                            className={
+                                showLimitedFiltersQty ?
+                                    'consonant-top-filters--filters consonant-top-filters--filters_truncated' :
+                                    'consonant-top-filters--filters'
+                            }>
                             {filters.map(item =>
                                 (<FilterItem
                                     key={item.id}
@@ -75,6 +76,7 @@ const FiltersPanelTop = (props) => {
                                 window.innerWidth >= TABLET_MIN_WIDTH &&
                                 <button
                                     type="button"
+                                    data-testid="top-filter__more-button"
                                     className="consonant-top-filters--more-btn"
                                     onClick={onShowAllClick}>
                                     {showLimitedFiltersQty ? 'more filters +' : 'hide -'}
@@ -85,6 +87,7 @@ const FiltersPanelTop = (props) => {
                             {checkFiltersSelected() &&
                             <button
                                 type="button"
+                                data-testid="top-filter__clear-button"
                                 className="consonant-top-filters--clear-btn"
                                 onClick={onClearAllFilters}>{clearAllFiltersText}
                             </button>
@@ -93,14 +96,18 @@ const FiltersPanelTop = (props) => {
                     </div>
                 }
                 {window.innerWidth >= TABLET_MIN_WIDTH && showTotalResults &&
-                    <span className="consonant-top-filters--res-qty">
+                    <span
+                        data-testid="filter-top-result-count"
+                        className="consonant-top-filters--res-qty">
                         <strong>{resQty} </strong>results
                     </span>
                 }
                 {
-                    updatedChildren.some(el => el.key === 'filtersTopSearchIco') &&
+                    updatedChildren.some(el => el.props && el.props.childrenKey === 'filtersTopSearchIco') &&
                     window.innerWidth >= TABLET_MIN_WIDTH &&
-                        <div className="consonant-top-filters--search-ico-wrapper">
+                        <div
+                            data-testid="filter-top-ico-wrapper"
+                            className="consonant-top-filters--search-ico-wrapper">
                             {
                                 showSearchbar ?
                                     renderChildren('filtersTopSearch') :
@@ -108,8 +115,8 @@ const FiltersPanelTop = (props) => {
                             }
                         </div>
                 }
-                {updatedChildren.some(el => el.key === 'filtersTopSelect') &&
-                    <div className="consonant-top-filters--select-wrapper">
+                {updatedChildren.some(el => el.props && el.props.childrenKey === 'filtersTopSelect') &&
+                    <div data-testid="top-filters__select-wrapper" className="consonant-top-filters--select-wrapper">
                         {renderChildren('filtersTopSelect')}
                     </div>
                 }

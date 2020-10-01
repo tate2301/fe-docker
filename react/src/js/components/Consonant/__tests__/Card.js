@@ -126,9 +126,9 @@ describe('Consonant/Card', () => {
         test('should call onClick', () => {
             const { props: { onClick } } = setup({ allowBookmarking: true, cardStyle: '3:2' });
 
-            const tooltipWrapperElement = screen.getByTestId('tooltip-wrapper');
+            const bookmarkButtonElement = screen.getByTestId('consonant-card__bookmark-button');
 
-            fireEvent.click(tooltipWrapperElement);
+            fireEvent.click(bookmarkButtonElement);
 
             expect(onClick).toBeCalled();
         });

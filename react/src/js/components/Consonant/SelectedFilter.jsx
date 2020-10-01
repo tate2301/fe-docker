@@ -14,6 +14,7 @@ const SelectedFilter = (props) => {
         <button
             type="button"
             onClick={handleClick}
+            data-testid="selected-filter"
             className="consonant-filters--selected-filter">{name}
         </button>
     );
