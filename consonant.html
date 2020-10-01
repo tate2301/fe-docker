@@ -50,165 +50,31 @@
     <script type="text/javascript">
         var config = {
             collection: {
-                resultsPerPage: 10,
-                endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/sample2.json",
+                resultsPerPage: '10',
+                endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.json",
                 title: "A great collection",
-                totalCardLimit: -1,
+                totalCardLimit: '-1',
                 cardStyle: "none", // could also be "3:2" or "full-card"
-                displayTotalResults: true,
+                displayTotalResults: 'true',
                 totalResultsText: "So we have {} results",
             },
-            featuredCards: [],
+            featuredCards: '[{"title":"FEATURED","appliesTo":[{"id":"we-retail:activity/biking"}],"id":"6d6438c8-1","description":"Some Description","image":"https://via.placeholder.com/500","cardDate":"2020-06-02T09:41:35.933Z","bannerDescription":"Some Banner Description","ctaLabel":"Some CTA Label","ctaLink":"https://google.com","bannerBackgroundColor":"#CB6F10","bannerFontColor":"#FFFFFF","secondaryLabelText":"Some secondary text","bannerIcon":"","cardStyle":"3:2","label":"some label 1"}]',
             filterPanel: {
-                enabled: true,
-                type: 'left',
-                filters: [
-                    {
-                        "group": "Topic",
-                        "id": "adobe-com-enterprise:topic",
-                        "icon": 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg',
-                        "openedOnLoad": true,
-                        "items": [
-                            {
-                                "label": "Business Continuity",
-                                "id": "we-retail:activity/hiking"
-                            },
-                            {
-                                "label": "Creativity and Design",
-                                "id": "adobe-com-enterprise:topic/creativity-design"
-                            },
-                            {
-                                "label": "Customer Intelligence",
-                                "id": "adobe-com-enterprise:topic/customer-intelligence"
-                            },
-                            {
-                                "label": "Data Management Platform",
-                                "id": "adobe-com-enterprise:topic/data-management-platform"
-                            },
-                            {
-                                "label": "Digital Foundation",
-                                "id": "adobe-com-enterprise:topic/digital-foundation"
-                            },
-                            {
-                                "label": "Digital Trends",
-                                "id": "adobe-com-enterprise:topic/digital-trends"
-                            },
-                            {
-                                "label": "Document Management",
-                                "id": "adobe-com-enterprise:topic/document-management"
-                            },
-                            {
-                                "label": "Marketing Automation",
-                                "id": "adobe-com-enterprise:topic/marketing-automation"
-                            },
-                            {
-                                "label": "Personalization",
-                                "id": "adobe-com-enterprise:topic/personalization"
-                            },
-                            {
-                                "label": "Stock",
-                                "id": "adobe-com-enterprise:topic/Stock"
-                            }
-                        ]
-                    },
-                    {
-                        "group": "Availability",
-                        "id": "adobe-com-enterprise:availability",
-                        "icon": 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg',
-                        "openedOnLoad": false,
-                        "items": [
-                            {
-                                "label": "On-Demand",
-                                "id": "adobe-com-enterprise:availability/on-demand"
-                            },
-                            {
-                                "label": "Upcoming",
-                                "id": "adobe-com-enterprise:availability/upcoming"
-                            }
-                        ]
-                    },
-                    {
-                        "group": "Filter 3",
-                        "id": "adobe-com-enterprise:filter3",
-                        "icon": 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg',
-                        "openedOnLoad": false,
-                        "items": [
-                            {
-                                "label": "On-Demand",
-                                "id": "adobe-com-enterprise:availability/test"
-                            },
-                            {
-                                "label": "Upcoming",
-                                "id": "adobe-com-enterprise:availability/test2"
-                            }
-                        ]
-                    },
-                    {
-                        "group": "Filter 4",
-                        "id": "adobe-com-enterprise:filter4",
-                        "icon": 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg',
-                        "openedOnLoad": false,
-                        "items": [
-                            {
-                                "label": "On-Demand",
-                                "id": "adobe-com-enterprise:availability/test2"
-                            },
-                            {
-                                "label": "Upcoming",
-                                "id": "adobe-com-enterprise:availability/test23"
-                            }
-                        ]
-                    },
-                    {
-                        "group": "Filter 5",
-                        "id": "adobe-com-enterprise:filter5",
-                        "icon": 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg',
-                        "openedOnLoad": false,
-                        "items": [
-                            {
-                                "label": "On-Demand",
-                                "id": "adobe-com-enterprise:availability/testdsd"
-                            },
-                            {
-                                "label": "Upcoming",
-                                "id": "adobe-com-enterprise:availability/testbnn2"
-                            }
-                        ]
-                    }
-                ],
+                enabled: 'true',
+                type: 'top',
+                filters: '[{"group":"Topic","id":"adobe-com-enterprise:topic","icon":"https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg","openedOnLoad":true,"items":[{"label":"Business Continuity","id":"we-retail:activity/hiking"},{"label":"Creativity and Design","id":"adobe-com-enterprise:topic/creativity-design"},{"label":"Customer Intelligence","id":"adobe-com-enterprise:topic/customer-intelligence"},{"label":"Data Management Platform","id":"adobe-com-enterprise:topic/data-management-platform"},{"label":"Digital Foundation","id":"adobe-com-enterprise:topic/digital-foundation"},{"label":"Digital Trends","id":"adobe-com-enterprise:topic/digital-trends"},{"label":"Document Management","id":"adobe-com-enterprise:topic/document-management"},{"label":"Marketing Automation","id":"adobe-com-enterprise:topic/marketing-automation"},{"label":"Personalization","id":"adobe-com-enterprise:topic/personalization"},{"label":"Stock","id":"adobe-com-enterprise:topic/Stock"}]},{"group":"Availability","id":"adobe-com-enterprise:availability","icon":"https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg","openedOnLoad":false,"items":[{"label":"On-Demand","id":"adobe-com-enterprise:availability/on-demand"},{"label":"Upcoming","id":"adobe-com-enterprise:availability/upcoming"}]}]',
                 clearAllFiltersText: 'Clear',
                 clearFilterText: 'Clear filter',
                 filterLogic: 'and',
                 leftPanelHeader: 'Here you can refine your results!',
             },
             sort: {
-                enabled: true,
+                enabled: 'true',
                 defaultSort: 'titleAsc',
-                options: [
-                    {
-                        label: 'featured',
-                        sort: 'featured'
-                    },
-                    {
-                        label: 'Title: (A-Z)',
-                        sort: 'titleAsc'
-                    },
-                    {
-                        label: 'Title: (Z-A)',
-                        sort: 'titleDesc'
-                    },
-                    {
-                        label: 'Date: (Oldest to newest)',
-                        sort: 'dateAsc'
-                    },
-                    {
-                        label: 'Date: (Newest to oldest)',
-                        sort: 'dateDesc'
-                    },
-                ],
+                options: '[{"label":"featured","sort":"featured"},{"label":"Title: (A-Z)","sort":"titleAsc"},{"label":"Title: (Z-A)","sort":"titleDesc"},{"label":"Date: (Oldest to newest)","sort":"dateAsc"},{"label":"Date: (Newest to oldest)","sort":"dateDesc"}]',
             },
             pagination: {
-                enabled: true,
+                enabled: 'true',
                 type: 'loadMore',
                 paginatorQuantityText: "So we showing right now {}-{} of {} awesome results",
                 paginatorPrevLabel: "Go back",
@@ -217,8 +83,8 @@
                 loadMoreQuantityText: "So currently we should be showing {} of {} total items for display",
             },
             bookmarks: {
-                enabled: true,
-                bookmarkOnlyCollection: false,
+                enabled: 'true',
+                bookmarkOnlyCollection: 'false',
                 cardSavedIcon: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Ukrposhta-ua-icon.svg',
                 cardUnsavedIcon: '',
                 selectBookmarksIcon: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Ukrposhta-ua-icon.svg',
@@ -228,15 +94,10 @@
                 bookmarksFilterTitle: 'My cool bookmarks',
             },
             search: {
-                enabled: true,
+                enabled: 'true',
                 inputPlaceholderText: 'Search here...',
                 leftPanelTitle: 'Search now',
-                searchFields: [
-                    'title',
-                    'description',
-                    'meta-author',
-                    'meta-categories'
-                ]
+                searchFields: '["title","description","meta-author","meta-categories"]',
             },
         };
         const consonantCardCollection = new ConsonantCardCollection(config, document.getElementById("someDivId"));
