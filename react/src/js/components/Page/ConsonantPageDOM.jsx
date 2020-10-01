@@ -1,5 +1,5 @@
 import { DOMModel, createRDC } from 'react-dom-components';
-import ConsonantWrapper from './ConsonantWrapper';
+import Container from '../Consonant/Container/Container';
 
 class ConsonantPageModel extends DOMModel {
     constructor(element) {
@@ -38,5 +38,5 @@ class ConsonantPageModel extends DOMModel {
     }
 }
 
-const consonantPageRDC = createRDC('consonant-page-hook', ConsonantPageModel, ConsonantWrapper);
+const consonantPageRDC = createRDC('consonant-page-hook', ConsonantPageModel, Container);
 export default consonantPageRDC;

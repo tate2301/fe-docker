@@ -1,6 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Tooltip from '../Tooltip';
+
+
+export const Tooltip = (props) => {
+    const { text } = props;
+
+    return (
+        <span className="consonant-tooltip">{text}</span>
+    );
+};
+
+
+Tooltip.propTypes = {
+    text: PropTypes.string.isRequired,
+};
+
 
 const AspectRatio3to2Card = (props) => {
     const {
@@ -56,7 +70,10 @@ const AspectRatio3to2Card = (props) => {
     };
 
     return (
-        <div className="consonant-aspect-ratio-3-2-card" id={id}>
+        <div
+            className="consonant-aspect-ratio-3-2-card"
+            data-testid="consonant-card"
+            id={id}>
             <div
                 data-testid="consonant-card--img"
                 className="consonant-aspect-ratio-3-2-card--img"
@@ -109,7 +126,7 @@ const AspectRatio3to2Card = (props) => {
                         {
                             allowBookmarking &&
                             <button
-                                data-testid="tooltip-wrapper"
+                                data-testid="consonant-card__bookmark-button"
                                 data-tooltip-wrapper
                                 type="button"
                                 className={defineBookMarkBtnClassName()}

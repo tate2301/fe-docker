@@ -5,7 +5,7 @@ import { DOMRegistry } from 'react-dom-components';
 // import SearchPageDOM from "./components/Page/SearchPageDOM";
 // import CollectionPageDOM from "./components/Page/CollectionPageDOM";
 // import ConsonantPageDOM from './components/Page/ConsonantPageDOM';
-import ConsonantWrapper from './components/Page/ConsonantWrapper';
+import Container from './components/Consonant/Container/Container';
 import consonantPageRDC from './components/Page/ConsonantPageDOM';
 
 // // const searchPage = new SearchPageDOM();
@@ -22,7 +22,7 @@ class ConsonantCardCollection {
     constructor(config, element) {
         ReactDOM.render((
             <React.Fragment>
-                <ConsonantWrapper config={config} />
+                <Container config={config} />
             </React.Fragment>), element);
     }
 }

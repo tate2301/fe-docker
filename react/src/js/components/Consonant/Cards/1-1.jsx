@@ -16,7 +16,10 @@ const AspectRatio1to1Card = (props) => {
     } = props;
 
     return (
-        <div className="consonant-aspect-ratio-1-1-card" id={id}>
+        <div
+            className="consonant-aspect-ratio-1-1-card"
+            data-testid="consonant-card"
+            id={id}>
             <div
                 data-testid="consonant-card--img"
                 className="consonant-aspect-ratio-1-1-card--img"

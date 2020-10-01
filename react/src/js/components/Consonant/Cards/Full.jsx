@@ -16,7 +16,10 @@ const FullCard = (props) => {
     } = props;
 
     return (
-        <div className="consonant-full-card" id={id}>
+        <div
+            className="consonant-full-card"
+            data-testid="consonant-card"
+            id={id}>
             <div
                 data-testid="consonant-card--img"
                 className="consonant-full-card--img"

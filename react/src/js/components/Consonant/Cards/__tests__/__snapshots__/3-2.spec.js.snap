@@ -1,0 +1,584 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Consonant/Card Check snapshots should renders correctly with different card style 1`] = `
+<div
+  className="consonant-aspect-ratio-3-2-card"
+  data-testid="consonant-card"
+  id="6d6438c8-1"
+>
+  <div
+    className="consonant-aspect-ratio-3-2-card--img"
+    data-testid="consonant-card--img"
+    style={
+      Object {
+        "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
+      }
+    }
+  >
+    <span
+      className="consonant-aspect-ratio-3-2-card--banner"
+      data-testid="consonant-card--banner"
+      style={
+        Object {
+          "backgroundColor": "#CB6F10",
+          "color": "#FFFFFF",
+        }
+      }
+    >
+      <img
+        alt=""
+        className="consonant-aspect-ratio-3-2-card--banner-icon"
+        data-testid="consonant-card--banner-icon"
+        loading="lazy"
+        src="some-banner-icon"
+        width="8"
+      />
+      Some Banner Description
+    </span>
+    <a
+      className="consonant-aspect-ratio-3-2-card--video-ico"
+      href="some-video-url"
+      rel="noreferrer"
+      target="_blank"
+    >
+      Open video link
+    </a>
+  </div>
+  <div
+    className="consonant-aspect-ratio-3-2-card--inner"
+  >
+    <span
+      className="consonant-aspect-ratio-3-2-card--label"
+    >
+      Some label
+    </span>
+    <h2
+      className="consonant-aspect-ratio-3-2-card--title"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Some Title 1",
+        }
+      }
+    />
+    <p
+      className="consonant-aspect-ratio-3-2-card--text"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars",
+        }
+      }
+    />
+    <div
+      className="consonant-aspect-ratio-3-2-card--footer-wrapper"
+    >
+      <div
+        className="consonant-aspect-ratio-3-2-card--footer-info"
+      >
+        <button
+          className="consonant-aspect-ratio-3-2-card--footer-btn"
+          data-testid="consonant-card__bookmark-button"
+          data-tooltip-wrapper={true}
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="consonant-aspect-ratio-3-2-card--bookmark-ico"
+            data-testid="bookmarks--ico"
+            style={
+              Object {
+                "backgroundImage": "url(https://upload.some-url)",
+              }
+            }
+          />
+          <span
+            className="consonant-tooltip"
+          >
+            Save card
+          </span>
+        </button>
+        <span
+          className="consonant-aspect-ratio-3-2-card--secondary-text"
+        >
+          Some secondary text
+        </span>
+      </div>
+      <a
+        className="consonant-aspect-ratio-3-2-card--btn"
+        href="https://google.com"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Some CTA
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Consonant/Card Check snapshots should renders correctly with different card style 2`] = `
+<div
+  className="consonant-aspect-ratio-3-2-card"
+  data-testid="consonant-card"
+  id="6d6438c8-1"
+>
+  <div
+    className="consonant-aspect-ratio-3-2-card--img"
+    data-testid="consonant-card--img"
+    style={
+      Object {
+        "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
+      }
+    }
+  >
+    <span
+      className="consonant-aspect-ratio-3-2-card--banner"
+      data-testid="consonant-card--banner"
+      style={
+        Object {
+          "backgroundColor": "#CB6F10",
+          "color": "#FFFFFF",
+        }
+      }
+    >
+      <img
+        alt=""
+        className="consonant-aspect-ratio-3-2-card--banner-icon"
+        data-testid="consonant-card--banner-icon"
+        loading="lazy"
+        src="some-banner-icon"
+        width="8"
+      />
+      Some Banner Description
+    </span>
+    <a
+      className="consonant-aspect-ratio-3-2-card--video-ico"
+      href="some-video-url"
+      rel="noreferrer"
+      target="_blank"
+    >
+      Open video link
+    </a>
+  </div>
+  <div
+    className="consonant-aspect-ratio-3-2-card--inner"
+  >
+    <span
+      className="consonant-aspect-ratio-3-2-card--label"
+    >
+      Some label
+    </span>
+    <h2
+      className="consonant-aspect-ratio-3-2-card--title"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Some Title 1",
+        }
+      }
+    />
+    <p
+      className="consonant-aspect-ratio-3-2-card--text"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars",
+        }
+      }
+    />
+    <div
+      className="consonant-aspect-ratio-3-2-card--footer-wrapper"
+    >
+      <div
+        className="consonant-aspect-ratio-3-2-card--footer-info"
+      >
+        <button
+          className="consonant-aspect-ratio-3-2-card--footer-btn"
+          data-testid="consonant-card__bookmark-button"
+          data-tooltip-wrapper={true}
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="consonant-aspect-ratio-3-2-card--bookmark-ico"
+            data-testid="bookmarks--ico"
+            style={
+              Object {
+                "backgroundImage": "url(https://upload.some-url)",
+              }
+            }
+          />
+          <span
+            className="consonant-tooltip"
+          >
+            Save card
+          </span>
+        </button>
+        <span
+          className="consonant-aspect-ratio-3-2-card--secondary-text"
+        >
+          Some secondary text
+        </span>
+      </div>
+      <a
+        className="consonant-aspect-ratio-3-2-card--btn"
+        href="https://google.com"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Some CTA
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Consonant/Card Check snapshots should renders correctly with different card style 3`] = `
+<div
+  className="consonant-aspect-ratio-3-2-card"
+  data-testid="consonant-card"
+  id="6d6438c8-1"
+>
+  <div
+    className="consonant-aspect-ratio-3-2-card--img"
+    data-testid="consonant-card--img"
+    style={
+      Object {
+        "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
+      }
+    }
+  >
+    <span
+      className="consonant-aspect-ratio-3-2-card--banner"
+      data-testid="consonant-card--banner"
+      style={
+        Object {
+          "backgroundColor": "#CB6F10",
+          "color": "#FFFFFF",
+        }
+      }
+    >
+      <img
+        alt=""
+        className="consonant-aspect-ratio-3-2-card--banner-icon"
+        data-testid="consonant-card--banner-icon"
+        loading="lazy"
+        src="some-banner-icon"
+        width="8"
+      />
+      Some Banner Description
+    </span>
+    <a
+      className="consonant-aspect-ratio-3-2-card--video-ico"
+      href="some-video-url"
+      rel="noreferrer"
+      target="_blank"
+    >
+      Open video link
+    </a>
+  </div>
+  <div
+    className="consonant-aspect-ratio-3-2-card--inner"
+  >
+    <span
+      className="consonant-aspect-ratio-3-2-card--label"
+    >
+      Some label
+    </span>
+    <h2
+      className="consonant-aspect-ratio-3-2-card--title"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Some Title 1",
+        }
+      }
+    />
+    <p
+      className="consonant-aspect-ratio-3-2-card--text"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars",
+        }
+      }
+    />
+    <div
+      className="consonant-aspect-ratio-3-2-card--footer-wrapper"
+    >
+      <div
+        className="consonant-aspect-ratio-3-2-card--footer-info"
+      >
+        <button
+          className="consonant-aspect-ratio-3-2-card--footer-btn"
+          data-testid="consonant-card__bookmark-button"
+          data-tooltip-wrapper={true}
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="consonant-aspect-ratio-3-2-card--bookmark-ico"
+            data-testid="bookmarks--ico"
+            style={
+              Object {
+                "backgroundImage": "url(https://upload.some-url)",
+              }
+            }
+          />
+          <span
+            className="consonant-tooltip"
+          >
+            Save card
+          </span>
+        </button>
+        <span
+          className="consonant-aspect-ratio-3-2-card--secondary-text"
+        >
+          Some secondary text
+        </span>
+      </div>
+      <a
+        className="consonant-aspect-ratio-3-2-card--btn"
+        href="https://google.com"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Some CTA
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Consonant/Card Check snapshots should renders correctly with different card style 4`] = `
+<div
+  className="consonant-aspect-ratio-3-2-card"
+  data-testid="consonant-card"
+  id="6d6438c8-1"
+>
+  <div
+    className="consonant-aspect-ratio-3-2-card--img"
+    data-testid="consonant-card--img"
+    style={
+      Object {
+        "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
+      }
+    }
+  >
+    <span
+      className="consonant-aspect-ratio-3-2-card--banner"
+      data-testid="consonant-card--banner"
+      style={
+        Object {
+          "backgroundColor": "#CB6F10",
+          "color": "#FFFFFF",
+        }
+      }
+    >
+      <img
+        alt=""
+        className="consonant-aspect-ratio-3-2-card--banner-icon"
+        data-testid="consonant-card--banner-icon"
+        loading="lazy"
+        src="some-banner-icon"
+        width="8"
+      />
+      Some Banner Description
+    </span>
+    <a
+      className="consonant-aspect-ratio-3-2-card--video-ico"
+      href="some-video-url"
+      rel="noreferrer"
+      target="_blank"
+    >
+      Open video link
+    </a>
+  </div>
+  <div
+    className="consonant-aspect-ratio-3-2-card--inner"
+  >
+    <span
+      className="consonant-aspect-ratio-3-2-card--label"
+    >
+      Some label
+    </span>
+    <h2
+      className="consonant-aspect-ratio-3-2-card--title"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Some Title 1",
+        }
+      }
+    />
+    <p
+      className="consonant-aspect-ratio-3-2-card--text"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars",
+        }
+      }
+    />
+    <div
+      className="consonant-aspect-ratio-3-2-card--footer-wrapper"
+    >
+      <div
+        className="consonant-aspect-ratio-3-2-card--footer-info"
+      >
+        <button
+          className="consonant-aspect-ratio-3-2-card--footer-btn"
+          data-testid="consonant-card__bookmark-button"
+          data-tooltip-wrapper={true}
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="consonant-aspect-ratio-3-2-card--bookmark-ico"
+            data-testid="bookmarks--ico"
+            style={
+              Object {
+                "backgroundImage": "url(https://upload.some-url)",
+              }
+            }
+          />
+          <span
+            className="consonant-tooltip"
+          >
+            Save card
+          </span>
+        </button>
+        <span
+          className="consonant-aspect-ratio-3-2-card--secondary-text"
+        >
+          Some secondary text
+        </span>
+      </div>
+      <a
+        className="consonant-aspect-ratio-3-2-card--btn"
+        href="https://google.com"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Some CTA
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
+<div
+  className="consonant-aspect-ratio-3-2-card"
+  data-testid="consonant-card"
+  id="6d6438c8-1"
+>
+  <div
+    className="consonant-aspect-ratio-3-2-card--img"
+    data-testid="consonant-card--img"
+    style={
+      Object {
+        "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
+      }
+    }
+  >
+    <span
+      className="consonant-aspect-ratio-3-2-card--banner"
+      data-testid="consonant-card--banner"
+      style={
+        Object {
+          "backgroundColor": "#CB6F10",
+          "color": "#FFFFFF",
+        }
+      }
+    >
+      <img
+        alt=""
+        className="consonant-aspect-ratio-3-2-card--banner-icon"
+        data-testid="consonant-card--banner-icon"
+        loading="lazy"
+        src="some-banner-icon"
+        width="8"
+      />
+      Some Banner Description
+    </span>
+    <a
+      className="consonant-aspect-ratio-3-2-card--video-ico"
+      href="some-video-url"
+      rel="noreferrer"
+      target="_blank"
+    >
+      Open video link
+    </a>
+  </div>
+  <div
+    className="consonant-aspect-ratio-3-2-card--inner"
+  >
+    <span
+      className="consonant-aspect-ratio-3-2-card--label"
+    >
+      Some label
+    </span>
+    <h2
+      className="consonant-aspect-ratio-3-2-card--title"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Some Title 1",
+        }
+      }
+    />
+    <p
+      className="consonant-aspect-ratio-3-2-card--text"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars",
+        }
+      }
+    />
+    <div
+      className="consonant-aspect-ratio-3-2-card--footer-wrapper"
+    >
+      <div
+        className="consonant-aspect-ratio-3-2-card--footer-info"
+      >
+        <button
+          className="consonant-aspect-ratio-3-2-card--footer-btn consonant-aspect-ratio-3-2-card--footer-btn_active consonant-aspect-ratio-3-2-card--footer-btn_disabled"
+          data-testid="consonant-card__bookmark-button"
+          data-tooltip-wrapper={true}
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="consonant-aspect-ratio-3-2-card--bookmark-ico"
+            data-testid="bookmarks--ico"
+            style={
+              Object {
+                "backgroundImage": "url(https://upload.wikimedia.org/wikipedia/commons/a/a0/Ukrposhta-ua-icon.svg)",
+              }
+            }
+          />
+          <span
+            className="consonant-tooltip"
+          >
+            Unsave card
+          </span>
+        </button>
+        <span
+          className="consonant-aspect-ratio-3-2-card--secondary-text"
+        >
+          Some secondary text
+        </span>
+      </div>
+      <a
+        className="consonant-aspect-ratio-3-2-card--btn"
+        href="https://google.com"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Some CTA
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Consonant/Card Consonant/Tooltip Check snapshots should renders correctly 1`] = `
+<span
+  className="consonant-tooltip"
+>
+  Tooltip text
+</span>
+`;
