@@ -18,6 +18,7 @@ const LeftFilterPanel = (props) => {
         onCheckboxClick,
         onMobileFiltersToggleClick,
         resQty,
+        panelHeader,
         children,
     } = props;
 
@@ -34,7 +35,7 @@ const LeftFilterPanel = (props) => {
         </div>
     );
     const desktopFiltersTitle = (windowWidth >= DESKTOP_MIN_WIDTH &&
-        <h3 className="consonant-left-filters--desk-title">Refine the results</h3>
+        <h3 className="consonant-left-filters--desk-title">{panelHeader}</h3>
     );
     const desktopFiltersClearBtn = (windowWidth >= DESKTOP_MIN_WIDTH &&
         <button
@@ -133,6 +134,7 @@ LeftFilterPanel.propTypes = {
     onCheckboxClick: PropTypes.func.isRequired,
     onMobileFiltersToggleClick: PropTypes.func.isRequired,
     resQty: PropTypes.number,
+    panelHeader: PropTypes.string,
 };
 
 LeftFilterPanel.defaultProps = {
@@ -143,4 +145,5 @@ LeftFilterPanel.defaultProps = {
     showTotalResultsText: '{} results',
     resQty: 0,
     children: [],
+    panelHeader: 'Refine the results',
 };

@@ -222,6 +222,7 @@ export default class ConsonantWrapper extends React.Component {
                 clearAllFiltersText: 'Clear all',
                 clearFilterText: 'Clear',
                 filterLogic: 'and',
+                leftPanelHeader: 'Refine the results',
             },
             sort: {
                 enabled: true,
@@ -231,6 +232,11 @@ export default class ConsonantWrapper extends React.Component {
             pagination: {
                 enabled: true,
                 type: 'loadMore',
+                paginatorQuantityText: 'Showing {}-{} of {} Results',
+                paginatorPrevLabel: 'Previous',
+                paginatorNextLabel: 'Next',
+                loadMoreButtonText: 'Load more',
+                loadMoreQuantityText: '{} of {} displayed',
             },
             bookmarks: {
                 enabled: true,
@@ -239,12 +245,14 @@ export default class ConsonantWrapper extends React.Component {
                 cardUnsavedIcon: '',
                 selectBookmarksIcon: '',
                 unselectBookmarksIcon: '',
-                saveBookmarkText: 'Save card',
-                unsaveBookmarkText: 'Unsave card',
+                saveCardText: 'Save card',
+                unsaveCardText: 'Unsave card',
+                bookmarksFilterTitle: 'My favorites',
             },
             search: {
                 enabled: true,
-                placeholderText: 'Search here...',
+                inputPlaceholderText: 'Search here...',
+                leftPanelTitle: 'Search',
                 searchFields: [
                     'title',
                     'description',
@@ -772,8 +780,9 @@ export default class ConsonantWrapper extends React.Component {
     renderSearch(key) {
         return (<Search
             key={key}
-            placeholderText={this.getConfig('search', 'placeholderText')}
+            placeholderText={this.getConfig('search', 'inputPlaceholderText')}
             value={this.state.searchQuery}
+            leftPanelTitle={this.getConfig('search', 'leftPanelTitle')}
             onSearch={this.handleSearchInputChange} />);
     }
 
@@ -813,7 +822,8 @@ export default class ConsonantWrapper extends React.Component {
                                     onCheckboxClick={this.handleCheckBoxChange}
                                     onMobileFiltersToggleClick={this.handleFiltersToggle}
                                     showMobileFilters={this.state.showMobileFilters}
-                                    resQty={this.state.filteredCards.length}>
+                                    resQty={this.state.filteredCards.length}
+                                    panelHeader={this.getConfig('filterPanel', 'leftPanelHeader')}>
                                     {
                                         this.state.windowWidth >= DESKTOP_MIN_WIDTH &&
                                         this.getConfig('search', 'enabled') &&
@@ -822,6 +832,7 @@ export default class ConsonantWrapper extends React.Component {
                                     {this.getConfig('bookmarks', 'enabled') &&
                                         <Bookmarks
                                             key="filtersSideBookmarks"
+                                            title={this.getConfig('bookmarks', 'bookmarksFilterTitle')}
                                             selectedIco={this.getConfig('bookmarks', 'selectBookmarksIcon')}
                                             unselectedIco={this.getConfig('bookmarks', 'unselectBookmarksIcon')}
                                             selected={this.state.showFavourites}
@@ -906,8 +917,8 @@ export default class ConsonantWrapper extends React.Component {
                                         onCardBookmark={this.handleCardBookmarking}
                                         cardUnsavedIco={this.getConfig('bookmarks', 'cardUnsavedIcon')}
                                         cardSavedIco={this.getConfig('bookmarks', 'cardSavedIcon')}
-                                        saveBookmarkText={this.getConfig('bookmarks', 'saveBookmarkText')}
-                                        unsaveBookmarkText={this.getConfig('bookmarks', 'unsaveBookmarkText')}
+                                        saveCardText={this.getConfig('bookmarks', 'saveCardText')}
+                                        unsaveCardText={this.getConfig('bookmarks', 'unsaveCardText')}
                                         cardsStyle={this.getConfig('collection', 'cardStyle')} />
                                     {
                                         this.checkIfDisplayPaginator('loadMore') &&
@@ -915,7 +926,9 @@ export default class ConsonantWrapper extends React.Component {
                                             <LoadMore
                                                 onClick={this.setCardsToShowQty}
                                                 show={this.getCardsToShowQty()}
-                                                total={this.state.filteredCards.length} />
+                                                total={this.state.filteredCards.length}
+                                                loadMoreButtonText={this.getConfig('pagination', 'loadMoreButtonText')}
+                                                loadMoreQuantityText={this.getConfig('pagination', 'loadMoreQuantityText')} />
                                         </div>
                                     }
                                     {
@@ -928,7 +941,10 @@ export default class ConsonantWrapper extends React.Component {
                                             totalPages={this.getTotalPages()}
                                             showItemsPerPage={this.state.showItemsPerPage}
                                             totalResults={this.state.filteredCards.length}
-                                            onClick={this.handlePaginatorClick} />
+                                            onClick={this.handlePaginatorClick}
+                                            quantityText={this.getConfig('pagination', 'paginatorQuantityText')}
+                                            prevLabel={this.getConfig('pagination', 'paginatorPrevLabel')}
+                                            nextLabel={this.getConfig('pagination', 'paginatorNextLabel')} />
                                     }
                                 </Fragment> :
                                 <Loader
@@ -966,6 +982,7 @@ ConsonantWrapper.propTypes = {
             clearAllFiltersText: PropTypes.string,
             clearFilterText: PropTypes.string,
             filterLogic: PropTypes.string,
+            leftPanelHeader: PropTypes.string,
         }),
         sort: PropTypes.shape({
             enabled: PropTypes.bool,
@@ -974,17 +991,27 @@ ConsonantWrapper.propTypes = {
         pagination: PropTypes.shape({
             enabled: PropTypes.bool,
             type: PropTypes.string,
+            paginatorQuantityText: PropTypes.string,
+            paginatorPrevLabel: PropTypes.string,
+            paginatorNextLabel: PropTypes.string,
+            loadMoreButtonText: PropTypes.string,
+            loadMoreQuantityText: PropTypes.string,
         }),
         bookmarks: PropTypes.shape({
             enabled: PropTypes.bool,
             cardSavedIcon: PropTypes.string,
             cardUnsavedIcon: PropTypes.string,
+            saveCardText: PropTypes.string,
+            unsaveCardText: PropTypes.string,
             selectBookmarksIcon: PropTypes.string,
             unselectBookmarksIcon: PropTypes.string,
+            bookmarksFilterTitle: PropTypes.string,
         }),
         search: PropTypes.shape({
             enabled: PropTypes.bool,
-            placeholderText: PropTypes.string,
+            leftPanelTitle: PropTypes.string,
+            inputPlaceholderText: PropTypes.string,
+            searchFields: PropTypes.arrayOf(PropTypes.string),
         }),
     }),
 };

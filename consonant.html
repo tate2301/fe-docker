@@ -61,7 +61,7 @@
             featuredCards: [],
             filterPanel: {
                 enabled: true,
-                type: 'top',
+                type: 'left',
                 filters: [
                     {
                         "group": "Topic",
@@ -179,6 +179,7 @@
                 clearAllFiltersText: 'Clear',
                 clearFilterText: 'Clear filter',
                 filterLogic: 'and',
+                leftPanelHeader: 'Here you can refine your results!',
             },
             sort: {
                 enabled: true,
@@ -208,7 +209,12 @@
             },
             pagination: {
                 enabled: true,
-                type: 'paginator'
+                type: 'loadMore',
+                paginatorQuantityText: "So we showing right now {}-{} of {} awesome results",
+                paginatorPrevLabel: "Go back",
+                paginatorNextLabel: "Go next",
+                loadMoreButtonText: "Let's load more!",
+                loadMoreQuantityText: "So currently we should be showing {} of {} total items for display",
             },
             bookmarks: {
                 enabled: true,
@@ -217,12 +223,14 @@
                 cardUnsavedIcon: '',
                 selectBookmarksIcon: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Ukrposhta-ua-icon.svg',
                 unselectBookmarksIcon: '',
-                saveBookmarkText: 'Save breakout session',
-                unsaveBookmarkText: 'Unsave breakout session'
+                saveCardText: 'Save card',
+                unsaveCardText: 'Unsave card',
+                bookmarksFilterTitle: 'My cool bookmarks',
             },
             search: {
                 enabled: true,
-                placeholderText: 'Search here...',
+                inputPlaceholderText: 'Search here...',
+                leftPanelTitle: 'Search now',
                 searchFields: [
                     'title',
                     'description',

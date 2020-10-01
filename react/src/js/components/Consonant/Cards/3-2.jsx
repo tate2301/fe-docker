@@ -21,8 +21,8 @@ const AspectRatio3to2Card = (props) => {
         cardSavedIco,
         cardUnsavedIco,
         onClick,
-        saveBookmarkText,
-        unsaveBookmarkText,
+        saveCardText,
+        unsaveCardText,
         videoURL,
         disableBookmarkIco,
     } = props;
@@ -116,7 +116,7 @@ const AspectRatio3to2Card = (props) => {
                                 onClick={handleClick}>
                                 {renderIcon()}
                                 <Tooltip text={
-                                    isBookmarked ? unsaveBookmarkText : saveBookmarkText
+                                    isBookmarked ? unsaveCardText : saveCardText
                                 } />
                             </button>
 
@@ -158,8 +158,8 @@ AspectRatio3to2Card.propTypes = {
     cardSavedIco: PropTypes.string.isRequired,
     cardUnsavedIco: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
-    saveBookmarkText: PropTypes.string,
-    unsaveBookmarkText: PropTypes.string,
+    saveCardText: PropTypes.string,
+    unsaveCardText: PropTypes.string,
     videoURL: PropTypes.string,
     disableBookmarkIco: PropTypes.bool,
 };
@@ -171,8 +171,8 @@ AspectRatio3to2Card.defaultProps = {
     bannerBackgroundColor: '',
     secondaryLabelText: '',
     label: '',
-    saveBookmarkText: 'Save card',
-    unsaveBookmarkText: 'Unsave card',
+    saveCardText: 'Save card',
+    unsaveCardText: 'Unsave card',
     videoURL: '',
     disableBookmarkIco: false,
 };
