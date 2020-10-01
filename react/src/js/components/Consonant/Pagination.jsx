@@ -9,6 +9,9 @@ const Pagination = (props) => {
         onClick,
         showItemsPerPage,
         totalResults,
+        quantityText,
+        prevLabel,
+        nextLabel,
     } = props;
 
     /**
@@ -97,6 +100,11 @@ const Pagination = (props) => {
         return res < totalResults ? res : totalResults;
     };
 
+    const renderQtyHTML = () => quantityText
+        .replace('{}', `<strong>${getStartNumber()}</strong>`)
+        .replace('{}', `<strong>${getEndNumber()}</strong>`)
+        .replace('{}', `<strong>${totalResults}</strong>`);
+
     return (
         <div className="consonant-pagination">
             <div className="consonant-pagination--paginator">
@@ -104,7 +112,7 @@ const Pagination = (props) => {
                     data-testid="btn_prev"
                     onClick={handleClick}
                     type="buttton"
-                    className="consonant-pagination--btn consonant-pagination--btn_prev">previous
+                    className="consonant-pagination--btn consonant-pagination--btn_prev">{prevLabel}
                 </button>
                 <ul className="consonant-pagination--items">
                     {generatePageList().map(item => (
@@ -129,16 +137,13 @@ const Pagination = (props) => {
                     data-testid="btn_next"
                     onClick={handleClick}
                     type="buttton"
-                    className="consonant-pagination--btn consonant-pagination--btn_next">next
+                    className="consonant-pagination--btn consonant-pagination--btn_next">{nextLabel}
                 </button>
             </div>
-            <div data-testid="pagination--summary" className="consonant-pagination--summary">
-                Showing
-                <strong>
-                    {getStartNumber()}-{getEndNumber()} of
-                </strong>
-                {totalResults} Results
-            </div>
+            <div
+                data-testid="pagination--summary"
+                className="consonant-pagination--summary"
+                dangerouslySetInnerHTML={{ __html: renderQtyHTML() }} />
         </div>
     );
 };
@@ -152,4 +157,13 @@ Pagination.propTypes = {
     onClick: PropTypes.func.isRequired,
     showItemsPerPage: PropTypes.number.isRequired,
     totalResults: PropTypes.number.isRequired,
+    quantityText: PropTypes.string,
+    prevLabel: PropTypes.string,
+    nextLabel: PropTypes.string,
+};
+
+Pagination.defaultProps = {
+    quantityText: 'Showing {}-{} of {} Results',
+    prevLabel: 'Previous',
+    nextLabel: 'Next',
 };

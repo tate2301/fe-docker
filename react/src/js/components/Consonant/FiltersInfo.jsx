@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SelectedFilter from './SelectedFilter';
+import ChosenFilter from './Filters/left/ChosenItem';
 
 const DESKTOP_MIN_WIDTH = 1200;
 const FiltersInfo = (props) => {
@@ -10,6 +10,7 @@ const FiltersInfo = (props) => {
         filters,
         cardsQty,
         showTotalResults,
+        showTotalResultsText,
         selectedFiltersQty,
         windowWidth,
         onSelectedFilterClick,
@@ -35,20 +36,8 @@ const FiltersInfo = (props) => {
                         'consonant-filters-info--wrapper' :
                         'consonant-filters-info--wrapper consonant-filters-info--wrapper_no-line'
                 }>
-                    {title && (
-                        <h2
-                            data-testid="title"
-                            className="consonant-filters-info--title">
-                            {title}
-                        </h2>
-                    )}
-                    {showTotalResults && (
-                        <span
-                            data-testid="results"
-                            className="consonant-filters-info--results">
-                            {cardsQty} results
-                        </span>
-                    )}
+                    {title && <h2 data-testid="title" className="consonant-filters-info--title">{title}</h2>}
+                    {showTotalResults && <span data-testid="results" className="consonant-filters-info--results">{showTotalResultsText.replace('{}', cardsQty)}</span>}
                 </div>
             }
             <div className="consonant-filters-info--search">
@@ -84,11 +73,11 @@ const FiltersInfo = (props) => {
             {windowWidth >= DESKTOP_MIN_WIDTH && selectedFiltersQty > 0 &&
                 <div
                     data-testid="selected-filters"
-                    className="consonant-filters--selected-filters">
+                    className="consonant-filters-info--selected-filters">
                     {filters.map(el => (
                         el.items.map(filter => (
                             filter.selected &&
-                            <SelectedFilter
+                            <ChosenFilter
                                 key={filter.id}
                                 name={filter.label}
                                 id={filter.id}
@@ -109,7 +98,8 @@ FiltersInfo.propTypes = {
     title: PropTypes.string,
     filters: PropTypes.arrayOf(PropTypes.object),
     cardsQty: PropTypes.number,
-    showTotalResults: PropTypes.bool.isRequired,
+    showTotalResults: PropTypes.bool,
+    showTotalResultsText: PropTypes.string,
     selectedFiltersQty: PropTypes.number,
     windowWidth: PropTypes.number,
     onMobileFiltersToggleClick: PropTypes.func.isRequired,
@@ -128,4 +118,6 @@ FiltersInfo.defaultProps = {
     selectedFiltersQty: 0,
     windowWidth: window.innerWidth,
     children: [],
+    showTotalResults: true,
+    showTotalResultsText: '{} results',
 };
