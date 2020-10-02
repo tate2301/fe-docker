@@ -88,8 +88,8 @@ const Item = (props) => {
                         alt=""
                         loading="lazy" />
                     }
-                    <a
-                        href
+                    <button
+                        type="button"
                         data-testid="filter-item__item-link"
                         className="consonant-left-filter--link"
                         onClick={handleClick}>
@@ -107,7 +107,7 @@ const Item = (props) => {
                             })
                             }
                         </div>
-                    </a>
+                    </button>
                 </h3>
                 {renderSelecedFilter()}
                 {renderItems()}

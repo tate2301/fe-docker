@@ -60,7 +60,7 @@
         margin-right: unit((@consonant-root-rem * 0.375), px);
     }
 
-    .consonant-left-filter--name a {
+    .consonant-left-filter--link {
         display: block;
 
         .full-width;
@@ -78,6 +78,8 @@
 
         text-transform: capitalize;
         text-decoration: none;
+        background-color: @consonant-color-white;
+        outline: 0;
         cursor: pointer;
     }
 
@@ -458,7 +460,7 @@
             .hide-all;
         }
 
-        .consonant-left-filter--name a {
+        .consonant-left-filter--link {
             padding-top: 16/@consonant-root-rem;
             padding-bottom: 16/@consonant-root-rem;
             font-size: 14px;
@@ -518,7 +520,7 @@
                 top: unit((@consonant-root-rem * 0.25), px);
             }
 
-            .consonant-left-filter--name a {
+            .consonant-left-filter--link {
                 padding:
                     16/@consonant-root-rem
                     unit((@consonant-root-rem * 2.25), px)

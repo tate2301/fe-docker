@@ -42,8 +42,6 @@ const AspectRatio3to2Card = (props) => {
         disableBookmarkIco,
     } = props;
 
-    console.log('!', badgeText);
-
     const handleClick = (clickEvt) => {
         clickEvt.stopPropagation();
         onClick(id);
