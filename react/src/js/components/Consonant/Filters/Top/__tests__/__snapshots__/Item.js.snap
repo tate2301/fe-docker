@@ -3,6 +3,7 @@
 exports[`Consonant/FilterItem Check snapshots should renders correctly when closed 1`] = `
 <div
   className="consonant-top-filter"
+  data-testid="filter-item"
 >
   <div
     className="consonant-top-filter--inner"
@@ -10,17 +11,17 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
     <h3
       className="consonant-top-filter--name"
     >
-      <a
+      <button
         className="consonant-top-filter--link"
         data-testid="filter-item-link"
-        href={true}
         onClick={[Function]}
+        type="button"
       >
         Topic
         <span
           className="consonant-top-filter--selcted-items-qty"
         />
-      </a>
+      </button>
     </h3>
     <div
       className="consonant-top-filter--selcted-items"
@@ -34,7 +35,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
         >
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"
@@ -60,7 +61,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
           </li>
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"
@@ -86,7 +87,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
           </li>
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"
@@ -112,7 +113,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
           </li>
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"
@@ -138,7 +139,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
           </li>
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"
@@ -164,7 +165,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
           </li>
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"
@@ -190,7 +191,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
           </li>
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"
@@ -216,7 +217,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
           </li>
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"
@@ -242,7 +243,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
           </li>
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"
@@ -268,7 +269,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
           </li>
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"
@@ -322,6 +323,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
 exports[`Consonant/FilterItem Check snapshots should renders correctly when opened 1`] = `
 <div
   className="consonant-top-filter consonant-top-filter_opened"
+  data-testid="filter-item"
 >
   <div
     className="consonant-top-filter--inner"
@@ -329,17 +331,17 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
     <h3
       className="consonant-top-filter--name"
     >
-      <a
+      <button
         className="consonant-top-filter--link"
         data-testid="filter-item-link"
-        href={true}
         onClick={[Function]}
+        type="button"
       >
         Topic
         <span
           className="consonant-top-filter--selcted-items-qty"
         />
-      </a>
+      </button>
     </h3>
     <div
       className="consonant-top-filter--selcted-items"
@@ -353,7 +355,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
         >
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"
@@ -379,7 +381,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
           </li>
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"
@@ -405,7 +407,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
           </li>
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"
@@ -431,7 +433,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
           </li>
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"
@@ -457,7 +459,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
           </li>
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"
@@ -483,7 +485,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
           </li>
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"
@@ -509,7 +511,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
           </li>
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"
@@ -535,7 +537,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
           </li>
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"
@@ -561,7 +563,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
           </li>
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"
@@ -587,7 +589,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
           </li>
           <li
             className="consonant-top-filter--items-item"
-            data-testid="filter-item"
+            data-testid="filter-group-item"
           >
             <label
               className="consonant-top-filter--items-item-label"

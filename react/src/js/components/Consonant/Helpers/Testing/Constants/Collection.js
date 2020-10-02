@@ -9,15 +9,15 @@ const {
     enabled: allowBookmarking,
     cardUnsavedIcon,
     cardSavedIcon,
-    saveBookmarkText,
-    unsaveBookmarkText,
+    saveCardText,
+    unsaveCardText,
 } = bookmarks;
 
 export const DEFAULT_PROPS = {
     cards,
     allowBookmarking,
-    saveBookmarkText,
-    unsaveBookmarkText,
+    saveCardText,
+    unsaveCardText,
 
     page: 10,
     showItemsPerPage: 1,

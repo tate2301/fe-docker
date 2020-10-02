@@ -35,6 +35,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
       />
       Some Banner Description
     </span>
+    
     <a
       className="consonant-aspect-ratio-3-2-card--video-ico"
       href="some-video-url"
@@ -93,7 +94,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
           <span
             className="consonant-tooltip"
           >
-            Save card
+            Save breakout session
           </span>
         </button>
         <span
@@ -150,6 +151,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
       />
       Some Banner Description
     </span>
+    
     <a
       className="consonant-aspect-ratio-3-2-card--video-ico"
       href="some-video-url"
@@ -208,7 +210,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
           <span
             className="consonant-tooltip"
           >
-            Save card
+            Save breakout session
           </span>
         </button>
         <span
@@ -265,6 +267,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
       />
       Some Banner Description
     </span>
+    
     <a
       className="consonant-aspect-ratio-3-2-card--video-ico"
       href="some-video-url"
@@ -323,7 +326,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
           <span
             className="consonant-tooltip"
           >
-            Save card
+            Save breakout session
           </span>
         </button>
         <span
@@ -380,6 +383,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
       />
       Some Banner Description
     </span>
+    
     <a
       className="consonant-aspect-ratio-3-2-card--video-ico"
       href="some-video-url"
@@ -438,7 +442,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
           <span
             className="consonant-tooltip"
           >
-            Save card
+            Save breakout session
           </span>
         </button>
         <span
@@ -495,6 +499,7 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
       />
       Some Banner Description
     </span>
+    
     <a
       className="consonant-aspect-ratio-3-2-card--video-ico"
       href="some-video-url"
@@ -553,7 +558,7 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
           <span
             className="consonant-tooltip"
           >
-            Unsave card
+            Unsave breakout session
           </span>
         </button>
         <span

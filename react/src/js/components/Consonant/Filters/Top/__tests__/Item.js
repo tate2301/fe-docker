@@ -23,7 +23,7 @@ describe('Consonant/FilterItem', () => {
     test('should render all list items', () => {
         const { props: { items } } = setup();
 
-        const filterItemElement = screen.queryAllByTestId('filter-item');
+        const filterItemElement = screen.queryAllByTestId('filter-group-item');
 
         expect(filterItemElement).toHaveLength(items.length);
     });

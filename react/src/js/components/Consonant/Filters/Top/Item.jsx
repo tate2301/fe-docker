@@ -36,7 +36,7 @@ const TopFilterItem = (props) => {
             {items.map(item => (
                 <li
                     key={item.id}
-                    data-testid="filter-item"
+                    data-testid="filter-group-item"
                     className="consonant-top-filter--items-item">
                     <label htmlFor={item.id} className="consonant-top-filter--items-item-label">
                         <input
@@ -81,7 +81,7 @@ const TopFilterItem = (props) => {
     };
 
     return (
-        <div className={defineClassNames()}>
+        <div data-testid="filter-item" className={defineClassNames()}>
             <div className="consonant-top-filter--inner">
                 <h3 className="consonant-top-filter--name">
                     <button

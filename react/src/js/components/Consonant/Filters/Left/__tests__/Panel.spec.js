@@ -110,7 +110,7 @@ describe('Consonant/FilterPanelLeft', () => {
         test('should call onFilterClick', () => {
             const { props: { onFilterClick } } = setup();
 
-            const [filterItemElement] = screen.queryAllByTestId('filter-item__item-link');
+            const [filterItemElement] = screen.queryAllByTestId('filter-item-link');
 
             expect(filterItemElement).toBeDefined();
 

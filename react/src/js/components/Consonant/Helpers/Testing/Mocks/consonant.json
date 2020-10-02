@@ -165,8 +165,8 @@
         "cardUnsavedIcon": "https://upload.some-url",
         "selectBookmarksIcon": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Ukrposhta-ua-icon.svg",
         "unselectBookmarksIcon": "path-to-unselectBookmarksIcon",
-        "saveBookmarkText": "Save breakout session",
-        "unsaveBookmarkText": "Unsave breakout session"
+        "saveCardText": "Save breakout session",
+        "unsaveCardText": "Unsave breakout session"
     },
     "search": {
         "enabled": true,

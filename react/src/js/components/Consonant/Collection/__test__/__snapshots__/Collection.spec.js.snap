@@ -40,6 +40,7 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
         Some Banner Description
       </span>
       
+      
     </div>
     <div
       className="consonant-aspect-ratio-3-2-card--inner"
@@ -86,7 +87,7 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
             <span
               className="consonant-tooltip"
             >
-              Save card
+              Save breakout session
             </span>
           </button>
           <span
@@ -155,6 +156,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         Some Banner Description
       </span>
       
+      
     </div>
     <div
       className="consonant-aspect-ratio-3-2-card--inner"
@@ -201,7 +203,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
             <span
               className="consonant-tooltip"
             >
-              Save card
+              Save breakout session
             </span>
           </button>
           <span
@@ -270,6 +272,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         Some Banner Description
       </span>
       
+      
     </div>
     <div
       className="consonant-aspect-ratio-3-2-card--inner"
@@ -316,7 +319,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
             <span
               className="consonant-tooltip"
             >
-              Save card
+              Save breakout session
             </span>
           </button>
           <span
@@ -385,6 +388,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         Some Banner Description
       </span>
       
+      
     </div>
     <div
       className="consonant-aspect-ratio-3-2-card--inner"
@@ -431,7 +435,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
             <span
               className="consonant-tooltip"
             >
-              Save card
+              Save breakout session
             </span>
           </button>
           <span
@@ -500,6 +504,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         Some Banner Description
       </span>
       
+      
     </div>
     <div
       className="consonant-aspect-ratio-3-2-card--inner"
@@ -546,7 +551,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
             <span
               className="consonant-tooltip"
             >
-              Save card
+              Save breakout session
             </span>
           </button>
           <span

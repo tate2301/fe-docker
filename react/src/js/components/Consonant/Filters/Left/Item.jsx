@@ -42,7 +42,7 @@ const Item = (props) => {
             {items.map(item => (
                 <li
                     key={item.id}
-                    data-testid="filter-item"
+                    data-testid="filter-group-item"
                     className="consonant-left-filter--items-item">
                     <label htmlFor={item.id} className="consonant-left-filter--items-item-label">
                         <input
@@ -78,7 +78,7 @@ const Item = (props) => {
     );
 
     return (
-        <div className={isOpened ? 'consonant-left-filter consonant-left-filter_opened' : 'consonant-left-filter'}>
+        <div data-testid="filter-item" className={isOpened ? 'consonant-left-filter consonant-left-filter_opened' : 'consonant-left-filter'}>
             <div className="consonant-left-filter--inner">
                 <h3 className="consonant-left-filter--name">
                     {icon &&
@@ -90,7 +90,7 @@ const Item = (props) => {
                     }
                     <button
                         type="button"
-                        data-testid="filter-item__item-link"
+                        data-testid="filter-item-link"
                         className="consonant-left-filter--link"
                         onClick={handleClick}>
                         {name}

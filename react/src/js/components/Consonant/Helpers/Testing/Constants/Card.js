@@ -19,8 +19,8 @@ const {
     enabled: allowBookmarking,
     cardUnsavedIcon,
     cardSavedIcon,
-    saveBookmarkText,
-    unsaveBookmarkText,
+    saveCardText,
+    unsaveCardText,
 } = bookmarks;
 
 export const DEFAULT_PROPS = {
@@ -34,10 +34,10 @@ export const DEFAULT_PROPS = {
     description,
     bannerFontColor,
     allowBookmarking,
-    saveBookmarkText,
+    saveCardText,
     bannerDescription,
     secondaryLabelText,
-    unsaveBookmarkText,
+    unsaveCardText,
     bannerBackgroundColor,
 
     key: id,
