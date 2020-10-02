@@ -122,18 +122,17 @@
 
         &:extend(
             .flex,
-            .flex .justify .start,
-            .flex .align .center
+            .flex .justify .start
         );
 
-        max-width: 80%;
+        max-width: 58%;
         max-height: 70%;
-        top: 24/@consonant-root-rem;
+        top: unit((@consonant-root-rem * 1.5), px);
         right: 0;
         padding:
-            7/@consonant-root-rem
+            8/@consonant-root-rem
             unit((@consonant-root-rem * 0.8125), px)
-            9/@consonant-root-rem;
+            7/@consonant-root-rem;
 
         .font(
             12/@consonant-root-rem,
@@ -155,6 +154,33 @@
             width: unit((@consonant-root-rem * 0.5), px);
             margin-right: 2/@consonant-root-rem;
         }
+    }
+
+    .consonant-full-card--badge {
+        position: absolute;
+        display: block;
+        max-width: 34%;
+        max-height: 50%;
+        top: unit((@consonant-root-rem * 1.5), px);
+        left: unit((@consonant-root-rem * 1.5), px);
+        padding:
+            4/@consonant-root-rem
+            unit((@consonant-root-rem * 0.6875), px)
+            4/@consonant-root-rem
+            unit((@consonant-root-rem * 1.0625), px);
+
+        .font(
+            12/@consonant-root-rem,
+            16/@consonant-root-rem,
+            400,
+            @consonant-color-dark-grey-1
+        );
+
+        border: 1px solid @consonant-color-light-grey-2;
+        border-radius: unit((@consonant-root-rem * 0.25), px);
+        background-color: @consonant-color-white;
+        overflow-y: auto;
+        z-index: 1;
     }
 
     @media @consonant-for-tablet-portrait-up {

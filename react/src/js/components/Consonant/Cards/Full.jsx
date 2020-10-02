@@ -12,6 +12,7 @@ const FullCard = (props) => {
         bannerFontColor,
         bannerBackgroundColor,
         bannerIcon,
+        badgeText,
         videoURL,
     } = props;
 
@@ -45,6 +46,7 @@ const FullCard = (props) => {
                         {bannerDescription}
                     </span>
                 }
+                {badgeText && <span className="consonant-full-card--badge">{badgeText}</span>}
                 {videoURL &&
                 <a
                     href={videoURL}
@@ -77,6 +79,7 @@ FullCard.propTypes = {
     bannerFontColor: PropTypes.string,
     bannerBackgroundColor: PropTypes.string,
     bannerIcon: PropTypes.string,
+    badgeText: PropTypes.string,
     ctaLink: PropTypes.string,
     videoURL: PropTypes.string,
 };
@@ -86,6 +89,7 @@ FullCard.defaultProps = {
     bannerDescription: '',
     bannerFontColor: '',
     bannerBackgroundColor: '',
+    badgeText: '',
     label: '',
     ctaLink: '',
     videoURL: '',

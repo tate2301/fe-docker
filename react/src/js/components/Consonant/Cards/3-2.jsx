@@ -29,6 +29,7 @@ const AspectRatio3to2Card = (props) => {
         bannerFontColor,
         bannerBackgroundColor,
         bannerIcon,
+        badgeText,
         secondaryLabelText,
         allowBookmarking,
         isBookmarked,
@@ -40,6 +41,8 @@ const AspectRatio3to2Card = (props) => {
         videoURL,
         disableBookmarkIco,
     } = props;
+
+    console.log('!', badgeText);
 
     const handleClick = (clickEvt) => {
         clickEvt.stopPropagation();
@@ -102,6 +105,7 @@ const AspectRatio3to2Card = (props) => {
                         {bannerDescription}
                     </span>
                 }
+                {badgeText && <span className="consonant-aspect-ratio-3-2-card--badge">{badgeText}</span>}
                 {videoURL &&
                     <a
                         href={videoURL}
@@ -169,6 +173,7 @@ AspectRatio3to2Card.propTypes = {
     bannerFontColor: PropTypes.string,
     bannerBackgroundColor: PropTypes.string,
     bannerIcon: PropTypes.string,
+    badgeText: PropTypes.string,
     secondaryLabelText: PropTypes.string,
     allowBookmarking: PropTypes.bool.isRequired,
     isBookmarked: PropTypes.bool.isRequired,
@@ -186,6 +191,7 @@ AspectRatio3to2Card.defaultProps = {
     bannerDescription: '',
     bannerFontColor: '',
     bannerBackgroundColor: '',
+    badgeText: '',
     secondaryLabelText: '',
     label: '',
     saveCardText: 'Save card',
