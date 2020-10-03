@@ -7,6 +7,9 @@
     .full-width;
 
     position: relative;
+    flex: 1 1 0;
+    min-width: @consonant-card-min-width;
+    max-width: @consonant-card-max-width;
     margin-bottom: 32/@consonant-root-rem;
     padding-top: calc(@consonant-card-collection-less-600-break-width ~ ' - 2px');
     padding-bottom: 0;
@@ -192,8 +195,6 @@
     }
 
     @media @consonant-for-tablet-landscape-up {
-        min-width: @consonant-card-900-break-width;
-        max-width: @consonant-card-900-break-width;
         padding-top: calc(@consonant-card-900-break-width ~ ' - 2px');
         padding-bottom: 0;
 
@@ -211,8 +212,6 @@
     }
 
     @media @consonant-for-desktop-up {
-        min-width: @consonant-card-1200-break-width;
-        max-width: @consonant-card-1200-break-width;
         padding-top: calc(@consonant-card-1200-break-width ~ ' - 2px');
 
         .consonant-full-card--video-ico {
@@ -221,8 +220,6 @@
     }
 
     @media @consonant-for-big-desktop-up {
-        min-width: @consonant-card-1440-break-width;
-        max-width: @consonant-card-1440-break-width;
         padding-top: calc(@consonant-card-1440-break-width ~ ' - 2px');
 
         .consonant-full-card--video-ico {

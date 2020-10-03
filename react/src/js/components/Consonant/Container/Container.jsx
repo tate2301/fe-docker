@@ -800,10 +800,10 @@ export default class Container extends React.Component {
                 <section
                     className="consonant-wrapper">
                     <div className="consonant-wrapper--inner">
-                        <span>
-                            {
-                                this.getConfig('filterPanel', 'enabled') &&
-                                this.getConfig('filterPanel', 'type') === FILTER_PANEL.LEFT &&
+                        {
+                            this.getConfig('filterPanel', 'enabled') &&
+                            this.getConfig('filterPanel', 'type') === FILTER_PANEL.LEFT &&
+                            <span>
                                 <LeftFilterPanel
                                     filters={this.state.filters}
                                     windowWidth={this.state.windowWidth}
@@ -835,8 +835,8 @@ export default class Container extends React.Component {
                                             qty={this.state.bookmarkedCards.length} />
                                     }
                                 </LeftFilterPanel>
-                            }
-                        </span>
+                            </span>
+                        }
                         <span>
                             {this.getConfig('filterPanel', 'enabled') &&
                                 this.getConfig('filterPanel', 'type') === FILTER_PANEL.TOP &&

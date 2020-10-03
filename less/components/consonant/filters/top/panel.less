@@ -9,8 +9,8 @@
 
 .consonant-top-filters {
     display: block;
-    min-width: @consonant-card-collection-less-600-break-width;
-    max-width: @consonant-card-collection-less-600-break-width;
+    min-width: 83.333vw;
+    max-width: 83.333vw;
     margin: 0 auto;
     padding: 14/@consonant-root-rem 0 20/@consonant-root-rem;
 
@@ -206,13 +206,7 @@
         display: none;
     }
 
-    @media @consonant-for-tablet-portrait-up {
-        min-width: @consonant-card-collection-600-break-width;
-        max-width: @consonant-card-collection-600-break-width;
-    }
-
     @media @consonant-for-tablet-landscape-up {
-        max-width: @consonant-card-collection-900-break-width;
         padding-bottom: 32/@consonant-root-rem;
 
         .consonant-top-filters--filters-wrapper {
@@ -327,9 +321,6 @@
     }
 
     @media @consonant-for-desktop-up {
-        min-width: @consonant-card-collection-1200-break-width;
-        max-width: @consonant-card-collection-1200-break-width;
-
         // Hide search input label;
         .consonant-top-filters--search-ico-wrapper label > span:first-child {
             display: none;
@@ -378,7 +369,7 @@
     }
 
     @media @consonant-for-big-desktop-up {
-        min-width: @consonant-card-collection-1440-break-width;
-        max-width: @consonant-card-collection-1440-break-width;
+        min-width: @consonant-size-responsive-desktop;
+        max-width: @consonant-size-responsive-desktop;
     }
 }

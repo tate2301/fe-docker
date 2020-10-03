@@ -1,5 +1,10 @@
 .consonant-load-more {
     display: block;
+    min-width: 83.333vw;
+    max-width: 83.333vw;
+
+    .margin-auto;
+
     padding-bottom: 115/@consonant-root-rem;
     text-align: center;
     user-select: none;
@@ -55,6 +60,21 @@
     }
 
     @media @consonant-for-big-desktop-up {
+        min-width: @consonant-size-responsive-desktop;
+        max-width: @consonant-size-responsive-desktop;
         padding-bottom: 140/@consonant-root-rem;
+    }
+}
+
+// Left filter changes;
+* + * > div > .consonant-load-more {
+    @media @consonant-for-desktop-up {
+        min-width: calc(83.333vw - (@consonant-filters-1200-break-width + unit((@consonant-root-rem * 2), px)));
+        max-width: calc(83.333vw - (@consonant-filters-1200-break-width + unit((@consonant-root-rem * 2), px)));
+    }
+
+    @media @consonant-for-big-desktop-up {
+        min-width: calc(@consonant-size-responsive-desktop - (@consonant-filters-1200-break-width + unit((@consonant-root-rem * 2), px)));
+        max-width: calc(@consonant-size-responsive-desktop - (@consonant-filters-1200-break-width + unit((@consonant-root-rem * 2), px)));
     }
 }

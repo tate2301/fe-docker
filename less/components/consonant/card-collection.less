@@ -5,54 +5,99 @@
 @consonant-card-collection-1440-break-width: unit((@consonant-root-rem * 60.1875), px);
 
 .consonant-card-collection {
-    min-width: @consonant-card-collection-less-600-break-width;
-    max-width: @consonant-card-collection-less-600-break-width;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    min-width: 83.333vw;
+    max-width: 83.333vw;
+
+    .margin-auto;
+
     background-color: transparent;
 
+    // Set margins logic;
+    & > div {
+        margin-left: 16px;
+        margin-right: 16px;
+
+        @media @consonant-mq-min-2-cards {
+            margin-left: 0;
+            margin-right: @consonant-card-margin-right;
+
+            &:nth-of-type(even) {
+                margin-right: 0;
+            }
+        }
+
+        @media @consonant-mq-min-3-cards {
+            &:nth-of-type(even) {
+                margin-right: @consonant-card-margin-right;
+            }
+
+            &:nth-of-type(3n) {
+                margin-right: 0;
+            }
+        }
+    }
+
     .consonant-card-collection--placeholder {
-        min-width: 33%;
-        margin: 0;
+        flex: 1 1 0;
+        min-width: @consonant-card-min-width;
+        max-width: @consonant-card-max-width;
         padding: 0;
         border: 0;
 
         .hide-overflow;
     }
 
-    @media @consonant-for-tablet-portrait-up {
-        min-width: @consonant-card-collection-600-break-width;
-        max-width: @consonant-card-collection-600-break-width;
-    }
-
     @media @consonant-for-tablet-landscape-up {
-        // Can't use extend here, limitation of LESS;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        min-width: @consonant-card-collection-900-break-width;
-        max-width: @consonant-card-collection-900-break-width;
         margin-top: unit((@consonant-root-rem * 0.25), px) * -1;
     }
 
     @media @consonant-for-desktop-up {
-        min-width: @consonant-card-collection-1200-break-width;
-        max-width: @consonant-card-collection-1200-break-width;
         overflow: visible;
     }
 
     @media @consonant-for-big-desktop-up {
-        // Can't use extend here, limitation of LESS;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        min-width: @consonant-card-collection-1440-break-width;
-        max-width: @consonant-card-collection-1440-break-width;
         margin-bottom: 8/@consonant-root-rem;
+        min-width: @consonant-size-responsive-desktop;
+        max-width: @consonant-size-responsive-desktop;
     }
 }
 
-*:not(header) + * .consonant-card-collection {
-    height: auto;
+// Left filter changes;
+* + * > .consonant-card-collection {
+    @media @consonant-for-desktop-up {
+        min-width: calc(83.333vw - (@consonant-filters-1200-break-width + unit((@consonant-root-rem * 2), px)));
+        max-width: calc(83.333vw - (@consonant-filters-1200-break-width + unit((@consonant-root-rem * 2), px)));
+
+        & > div {
+            margin-left: 0;
+            margin-right: @consonant-card-margin-right;
+
+            &:nth-of-type(even) {
+                margin-right: 0;
+            }
+
+            &:nth-of-type(3n) {
+                margin-right: @consonant-card-margin-right;
+            }
+        }
+    }
+
+    @media @consonant-for-big-desktop-up {
+        min-width: calc(@consonant-size-responsive-desktop - (@consonant-filters-1200-break-width + unit((@consonant-root-rem * 2), px)));
+        max-width: calc(@consonant-size-responsive-desktop - (@consonant-filters-1200-break-width + unit((@consonant-root-rem * 2), px)));
+
+        & > div {
+            &:nth-of-type(even) {
+                margin-right: @consonant-card-margin-right;
+            }
+
+            &:nth-of-type(3n) {
+                margin-right: 0;
+            }
+        }
+    }
 }

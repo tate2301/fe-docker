@@ -41,6 +41,8 @@ const server = setupServer(...handlers);
 const multipleFilters = [...filters, ...filters]
     .map((item, index) => ({ ...item, id: `${item}_${index}` }));
 
+window.scrollTo = () => {};
+
 describe('Consonant/FilterItem', () => {
     beforeEach(() => server.listen());
     afterEach(() => server.resetHandlers());

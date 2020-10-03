@@ -1,27 +1,16 @@
 @consonant-wrapper-min-height: 536px;
-@consonant-wrapper-600-break-width: unit((@consonant-root-rem * 31.5), px);
-@consonant-wrapper-900-break-width: unit((@consonant-root-rem * 47.25), px);
-@consonant-wrapper-1200-break-width: unit((@consonant-root-rem * 75), px);
-@consonant-wrapper-1440-break-width: unit((@consonant-root-rem * 74.9375), px);
 
 .consonant-wrapper {
-    &:extend(
-        .flex,
-        .flex .justify .between,
-        .flex .align .stretch
-    );
-
     position: relative;
     width: 100%;
-    max-width: @consonant-size-responsive-desktop;
     overflow: hidden;
-    .margin-auto;
 
     .consonant-wrapper--inner {
-        .full-width;
+        max-width: @consonant-size-responsive-desktop;
 
-        & > div:last-of-type,
-        & > span:last-of-type {
+        .margin-auto;
+
+        & > *:last-of-type {
             display: block;
             min-height: @consonant-wrapper-min-height;
             position: relative;
@@ -30,19 +19,9 @@
         }
     }
 
-    @media @consonant-for-tablet-portrait-up {
-        .consonant-wrapper--inner {
-            max-width: @consonant-wrapper-600-break-width;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    }
-
     @media @consonant-for-tablet-landscape-up {
         .consonant-wrapper--inner {
-            max-width: @consonant-wrapper-900-break-width;
-
-            > div:last-of-type {
+            > *:last-of-type {
                 min-height: 80vh;
             }
         }
@@ -54,19 +33,10 @@
             display: flex;
             justify-content: center;
             align-items: stretch;
-            max-width: @consonant-wrapper-1200-break-width;
 
-            > span:last-of-type,
-            > div:last-of-type {
+            > *:last-of-type {
                 flex-grow: 0;
             }
         }
-    }
-}
-
-@media @consonant-for-big-desktop-up {
-    header + section.consonant-wrapper,
-    header + section.consonant-wrapper .consonant-wrapper--inner {
-        max-width: @consonant-wrapper-1440-break-width;
     }
 }

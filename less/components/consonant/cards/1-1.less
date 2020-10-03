@@ -1,3 +1,13 @@
+// To be remvoed after we set fixed height;
+@consonant-card-collection-less-600-break-width: unit((@consonant-root-rem * 19.6875), px);
+@consonant-card-collection-600-break-width: unit((@consonant-root-rem * 23.625), px);
+@consonant-card-collection-900-break-width: unit((@consonant-root-rem * 47.25), px);
+@consonant-card-collection-1200-break-width: unit((@consonant-root-rem * 48.5), px);
+@consonant-card-collection-1440-break-width: unit((@consonant-root-rem * 60.1875), px);
+@consonant-card-900-break-width: unit((@consonant-root-rem * 22.625), px);
+@consonant-card-1200-break-width: unit((@consonant-root-rem * 23.125), px);
+@consonant-card-1440-break-width: unit((@consonant-root-rem * 18.75), px);
+
 .consonant-aspect-ratio-1-1-card {
     &:extend(
         .flex,
@@ -6,6 +16,9 @@
 
     .full-width;
 
+    flex: 1 1 0;
+    min-width: @consonant-card-min-width;
+    max-width: @consonant-card-max-width;
     margin-bottom: 32/@consonant-root-rem;
     padding-bottom: 7/@consonant-root-rem;
     text-align: left;
@@ -154,8 +167,6 @@
     }
 
     @media @consonant-for-tablet-landscape-up {
-        min-width: @consonant-card-900-break-width;
-        max-width: @consonant-card-900-break-width;
         padding-bottom: 0;
 
         .consonant-aspect-ratio-1-1-card--inner {
@@ -176,9 +187,6 @@
     }
 
     @media @consonant-for-desktop-up {
-        min-width: @consonant-card-1200-break-width;
-        max-width: @consonant-card-1200-break-width;
-
         .consonant-aspect-ratio-1-1-card--img {
             min-height: calc(@consonant-card-1200-break-width ~ ' - 2px');
             max-height: calc(@consonant-card-1200-break-width ~ ' - 2px');
@@ -186,9 +194,6 @@
     }
 
     @media @consonant-for-big-desktop-up {
-        min-width: @consonant-card-1440-break-width;
-        max-width: @consonant-card-1440-break-width;
-
         .consonant-aspect-ratio-1-1-card--img {
             min-height: calc(@consonant-card-1440-break-width ~ ' - 2px');
             max-height: calc(@consonant-card-1440-break-width ~ ' - 2px');

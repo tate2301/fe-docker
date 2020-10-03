@@ -12,6 +12,11 @@
 @consonant-filters-info-title-1440-break-width: unit((@consonant-root-rem * 45), px);
 
 .consonant-filters-info {
+    min-width: 83.333vw;
+    max-width: 83.333vw;
+
+    .margin-auto;
+
     box-sizing: border-box;
 
     &:extend(
@@ -21,12 +26,7 @@
         .flex .wrap
     );
 
-    .full-width;
-
-    padding:
-        14/@consonant-root-rem
-        unit((@consonant-root-rem * 1.875), px)
-        20/@consonant-root-rem;
+    padding: 14/@consonant-root-rem 0 20/@consonant-root-rem;
     top: 0;
     left: 0;
     background-color: transparent;
@@ -124,14 +124,9 @@
         }
     }
 
-    @media @consonant-for-tablet-portrait-up {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
     @media @consonant-for-desktop-up {
-        min-width: @consonant-filters-info-1200-break-width;
-        max-width: @consonant-filters-info-1200-break-width;
+        min-width: calc(83.333vw - (@consonant-filters-1200-break-width + unit((@consonant-root-rem * 2), px)));
+        max-width: calc(83.333vw - (@consonant-filters-1200-break-width + unit((@consonant-root-rem * 2), px)));
         min-height: @consonant-filters-info-1200-break-height;
         margin-left: auto;
         margin-right: auto;
@@ -210,8 +205,8 @@
     }
 
     @media @consonant-for-big-desktop-up {
-        min-width: @consonant-filters-info-1440-break-width;
-        max-width: @consonant-filters-info-1440-break-width;
+        min-width: calc(@consonant-size-responsive-desktop - (@consonant-filters-1200-break-width + unit((@consonant-root-rem * 2), px)));
+        max-width: calc(@consonant-size-responsive-desktop - (@consonant-filters-1200-break-width + unit((@consonant-root-rem * 2), px)));
 
         .consonant-filters-info--title {
             max-width: @consonant-filters-info-title-1440-break-width;
