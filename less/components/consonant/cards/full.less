@@ -96,6 +96,8 @@
         &:active {
             transform: scale(1.1);
         }
+
+        .focused;
     }
 
     .consonant-full-card--label {
@@ -212,6 +214,21 @@
 
         .consonant-full-card--video-ico {
             left: unit((@consonant-root-rem * 1.5), px);
+        }
+    }
+
+    @media @consonant-for-desktop-up {
+        .consonant-full-card--inner {
+            padding:
+                18/@consonant-root-rem
+                unit((@consonant-root-rem), px)
+                22/@consonant-root-rem;
+            border: 2px solid transparent;
+            outline: 0;
+
+            &:focus {
+                border-color: @consonant-focus-color;
+            }
         }
     }
 }

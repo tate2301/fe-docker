@@ -26,7 +26,8 @@ const Select = (props) => {
                     'consonant-select--btn'
                 }
                 onBlur={onOpen}
-                onClick={onOpen}>{val.label || 'Please select'}
+                onClick={onOpen}
+                tabIndex="0">{val.label || 'Please select'}
             </button>
             <div data-testid="consonant-select--options" className={`consonant-select--options consonant-select--options_${optionsAlignment}`}>
                 {values.map(item => (
@@ -38,7 +39,8 @@ const Select = (props) => {
                             'consonant-select--option consonant-select--option_selected' :
                             'consonant-select--option'
                         }
-                        onClick={() => { onSelect(item); }}>
+                        onClick={() => { onSelect(item); }}
+                        tabIndex="0">
                         {item.label}
                     </button>
                 ))}

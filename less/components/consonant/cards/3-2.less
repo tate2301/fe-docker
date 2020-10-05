@@ -78,6 +78,8 @@
         &:active {
             transform: scale(1.1);
         }
+
+        .focused;
     }
 
     .consonant-aspect-ratio-3-2-card--label {
@@ -157,6 +159,7 @@
 
         .no-font;
         .no-border-no-outline;
+        .focused;
 
         background-color: transparent;
 
@@ -219,6 +222,8 @@
         transition:
             background-color @transition-time @transition-func,
             color @transition-time @transition-func;
+
+        .focused;
 
         &:hover {
             background-color: @consonant-color-light-grey-3;

@@ -8,7 +8,8 @@ const SearchIco = (props) => {
         <button
             type="button"
             className="search-ico"
-            onClick={onClick}>
+            onClick={onClick}
+            tabIndex="0">
             Click to search
             <span />
         </button>

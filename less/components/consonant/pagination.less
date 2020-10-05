@@ -49,6 +49,7 @@
         background-color: transparent;
 
         .no-border-no-outline;
+        .focused;
     }
 
     .consonant-pagination--items {
@@ -144,7 +145,7 @@
         }
 
         &:focus:after {
-            border-color: @consonant-color-blue-2;
+            border-color: @consonant-focus-color;
         }
     }
 
@@ -214,6 +215,10 @@
 
         .consonant-pagination--summary {
             display: block;
+        }
+
+        .consonant-pagination--btn.consonant-pagination--btn_prev {
+            transform: translate3d(2px, 0, 0);
         }
     }
 

@@ -70,6 +70,8 @@
         &:active {
             transform: scale(1.1);
         }
+
+        .focused;
     }
 
     .consonant-aspect-ratio-1-1-card--label {
@@ -173,6 +175,21 @@
     @media @consonant-for-tablet-landscape-up {
         .consonant-aspect-ratio-1-1-card--video-ico {
             left: unit((@consonant-root-rem * 1.5), px);
+        }
+    }
+
+    @media @consonant-for-desktop-up {
+        .consonant-aspect-ratio-1-1-card--inner {
+            padding:
+                18/@consonant-root-rem
+                unit((@consonant-root-rem), px)
+                6/@consonant-root-rem;
+            border: 2px solid transparent;
+            outline: 0;
+
+            &:focus {
+                border-color: @consonant-focus-color;
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ exports[`Consonant/SearchIco Check snapshots should renders correctly 1`] = `
 <button
   className="search-ico"
   onClick={[MockFunction]}
+  tabIndex="0"
   type="button"
 >
   Click to search

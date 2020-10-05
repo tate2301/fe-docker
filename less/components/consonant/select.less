@@ -65,7 +65,10 @@
         outline: 0;
         text-overflow: ellipsis;
 
+        .focused;
+
         &.consonant-select--btn_active + .consonant-select--options {
+            visibility: visible;
             opacity: 1;
             z-index: 2;
         }
@@ -76,6 +79,7 @@
     }
 
     .consonant-select--options {
+        visibility: hidden;
         opacity: 0;
         position: absolute;
         max-width: 70vw;
@@ -190,6 +194,16 @@
 
         .consonant-select--options {
             min-width: @consonant-select-options-1200-break-width;
+        }
+
+        .consonant-select--option {
+            padding-top: 7/@consonant-root-rem;
+            padding-bottom: 7/@consonant-root-rem;
+            border: 2px solid transparent;
+
+            &:focus {
+                border-color: @consonant-focus-color;
+            }
         }
 
         .consonant-select--btn {

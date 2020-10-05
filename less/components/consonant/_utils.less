@@ -55,3 +55,15 @@
     border: 0;
     outline: 0;
 }
+
+.focused {
+    &:focus {
+        outline: 0;
+    }
+
+    @media @consonant-for-desktop-up {
+        &:focus {
+            outline: 2px solid @consonant-focus-color;
+        }
+    }
+}

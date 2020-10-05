@@ -109,7 +109,8 @@ const AspectRatio3to2Card = (props) => {
                         href={videoURL}
                         target="_blank"
                         rel="noreferrer"
-                        className="consonant-aspect-ratio-3-2-card--video-ico">Open video link
+                        className="consonant-aspect-ratio-3-2-card--video-ico"
+                        tabIndex="0">Open video link
                     </a>}
             </div>
             <div className="consonant-aspect-ratio-3-2-card--inner">
@@ -132,7 +133,8 @@ const AspectRatio3to2Card = (props) => {
                                 data-tooltip-wrapper
                                 type="button"
                                 className={defineBookMarkBtnClassName()}
-                                onClick={handleClick}>
+                                onClick={handleClick}
+                                tabIndex="0">
                                 {renderIcon()}
                                 <Tooltip text={
                                     isBookmarked ? unsaveCardText : saveCardText
@@ -149,7 +151,8 @@ const AspectRatio3to2Card = (props) => {
                         href={ctaLink}
                         target="_blank"
                         rel="noreferrer"
-                        className="consonant-aspect-ratio-3-2-card--btn">{ctaLabel}
+                        className="consonant-aspect-ratio-3-2-card--btn"
+                        tabIndex="0">{ctaLabel}
                     </a>
                 </div>
             </div>

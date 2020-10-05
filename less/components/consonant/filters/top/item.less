@@ -89,6 +89,8 @@
         background-color: @consonant-color-white;
         outline: 0;
         cursor: pointer;
+
+        .focused;
     }
 
     .consonant-top-filter--selcted-items-qty {
@@ -190,10 +192,20 @@
             unit((@consonant-root-rem * 1.25), px)
             6/@consonant-root-rem;
         cursor: pointer;
+
+        .focused;
     }
 
     input[type = checkbox] {
-        .hide-all;
+        width: 0;
+        height: 0;
+        max-width: 0;
+        max-height: 0;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+
+        .no-border-no-outline;
     }
 
     input[type = checkbox]:checked + .consonant-top-filter--items-item-checkmark {
@@ -313,6 +325,7 @@
         border-radius: unit((@consonant-root-rem * 1.25), px);
 
         .no-border-no-outline;
+        .focused;
     }
 
     /* End related to mobile footer */
@@ -496,6 +509,10 @@
                 transition:
                     border-color @transition-time @transition-func,
                     color @transition-time @transition-func;
+            }
+
+            input[type = checkbox]:focus + .consonant-top-filter--items-item-checkmark {
+                outline: 2px solid @consonant-color-light-blue;
             }
 
             .consonant-top-filter--absolute-wrapper {

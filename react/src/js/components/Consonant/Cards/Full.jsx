@@ -52,7 +52,8 @@ const FullCard = (props) => {
                     href={videoURL}
                     target="_blank"
                     rel="noreferrer"
-                    className="consonant-full-card--video-ico">Open video link
+                    className="consonant-full-card--video-ico"
+                    tabIndex="0">Open video link
                 </a>}
             </div>
             <a
@@ -60,7 +61,8 @@ const FullCard = (props) => {
                 target="_blank"
                 rel="noreferrer"
                 title="Click to open in a new tab"
-                className="consonant-full-card--inner">
+                className="consonant-full-card--inner"
+                tabIndex="0">
                 {label && <span className="consonant-full-card--label">{label}</span>}
                 <h2 className="consonant-full-card--title" dangerouslySetInnerHTML={{ __html: title }} />
             </a>

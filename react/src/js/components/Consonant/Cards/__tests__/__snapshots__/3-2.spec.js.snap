@@ -40,6 +40,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
       className="consonant-aspect-ratio-3-2-card--video-ico"
       href="some-video-url"
       rel="noreferrer"
+      tabIndex="0"
       target="_blank"
     >
       Open video link
@@ -80,6 +81,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
           data-testid="consonant-card__bookmark-button"
           data-tooltip-wrapper={true}
           onClick={[Function]}
+          tabIndex="0"
           type="button"
         >
           <span
@@ -107,6 +109,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
         className="consonant-aspect-ratio-3-2-card--btn"
         href="https://google.com"
         rel="noreferrer"
+        tabIndex="0"
         target="_blank"
       >
         Some CTA
@@ -156,6 +159,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
       className="consonant-aspect-ratio-3-2-card--video-ico"
       href="some-video-url"
       rel="noreferrer"
+      tabIndex="0"
       target="_blank"
     >
       Open video link
@@ -196,6 +200,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
           data-testid="consonant-card__bookmark-button"
           data-tooltip-wrapper={true}
           onClick={[Function]}
+          tabIndex="0"
           type="button"
         >
           <span
@@ -223,6 +228,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
         className="consonant-aspect-ratio-3-2-card--btn"
         href="https://google.com"
         rel="noreferrer"
+        tabIndex="0"
         target="_blank"
       >
         Some CTA
@@ -272,6 +278,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
       className="consonant-aspect-ratio-3-2-card--video-ico"
       href="some-video-url"
       rel="noreferrer"
+      tabIndex="0"
       target="_blank"
     >
       Open video link
@@ -312,6 +319,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
           data-testid="consonant-card__bookmark-button"
           data-tooltip-wrapper={true}
           onClick={[Function]}
+          tabIndex="0"
           type="button"
         >
           <span
@@ -339,6 +347,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
         className="consonant-aspect-ratio-3-2-card--btn"
         href="https://google.com"
         rel="noreferrer"
+        tabIndex="0"
         target="_blank"
       >
         Some CTA
@@ -388,6 +397,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
       className="consonant-aspect-ratio-3-2-card--video-ico"
       href="some-video-url"
       rel="noreferrer"
+      tabIndex="0"
       target="_blank"
     >
       Open video link
@@ -428,6 +438,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
           data-testid="consonant-card__bookmark-button"
           data-tooltip-wrapper={true}
           onClick={[Function]}
+          tabIndex="0"
           type="button"
         >
           <span
@@ -455,6 +466,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
         className="consonant-aspect-ratio-3-2-card--btn"
         href="https://google.com"
         rel="noreferrer"
+        tabIndex="0"
         target="_blank"
       >
         Some CTA
@@ -504,6 +516,7 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
       className="consonant-aspect-ratio-3-2-card--video-ico"
       href="some-video-url"
       rel="noreferrer"
+      tabIndex="0"
       target="_blank"
     >
       Open video link
@@ -544,6 +557,7 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
           data-testid="consonant-card__bookmark-button"
           data-tooltip-wrapper={true}
           onClick={[Function]}
+          tabIndex="0"
           type="button"
         >
           <span
@@ -571,6 +585,7 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
         className="consonant-aspect-ratio-3-2-card--btn"
         href="https://google.com"
         rel="noreferrer"
+        tabIndex="0"
         target="_blank"
       >
         Some CTA

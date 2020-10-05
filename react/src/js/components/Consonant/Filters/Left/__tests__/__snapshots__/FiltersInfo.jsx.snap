@@ -154,6 +154,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with sel
       data-testid="select-button"
       onBlur={[MockFunction]}
       onClick={[MockFunction]}
+      tabIndex="0"
       type="button"
     >
       Please select
@@ -166,6 +167,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with sel
         className="consonant-select--option"
         data-testid="select-option"
         onClick={[Function]}
+        tabIndex="0"
         type="button"
       >
         label 1
@@ -174,6 +176,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with sel
         className="consonant-select--option"
         data-testid="select-option"
         onClick={[Function]}
+        tabIndex="0"
         type="button"
       >
         label 2
@@ -182,6 +185,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with sel
         className="consonant-select--option"
         data-testid="select-option"
         onClick={[Function]}
+        tabIndex="0"
         type="button"
       >
         label 3
@@ -190,6 +194,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with sel
         className="consonant-select--option"
         data-testid="select-option"
         onClick={[Function]}
+        tabIndex="0"
         type="button"
       >
         label 4
@@ -198,6 +203,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with sel
         className="consonant-select--option"
         data-testid="select-option"
         onClick={[Function]}
+        tabIndex="0"
         type="button"
       >
         label 5
@@ -276,6 +282,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with two
       data-testid="select-button"
       onBlur={[MockFunction]}
       onClick={[MockFunction]}
+      tabIndex="0"
       type="button"
     >
       Please select
@@ -288,6 +295,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with two
         className="consonant-select--option"
         data-testid="select-option"
         onClick={[Function]}
+        tabIndex="0"
         type="button"
       >
         label 1
@@ -296,6 +304,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with two
         className="consonant-select--option"
         data-testid="select-option"
         onClick={[Function]}
+        tabIndex="0"
         type="button"
       >
         label 2
@@ -304,6 +313,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with two
         className="consonant-select--option"
         data-testid="select-option"
         onClick={[Function]}
+        tabIndex="0"
         type="button"
       >
         label 3
@@ -312,6 +322,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with two
         className="consonant-select--option"
         data-testid="select-option"
         onClick={[Function]}
+        tabIndex="0"
         type="button"
       >
         label 4
@@ -320,6 +331,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with two
         className="consonant-select--option"
         data-testid="select-option"
         onClick={[Function]}
+        tabIndex="0"
         type="button"
       >
         label 5

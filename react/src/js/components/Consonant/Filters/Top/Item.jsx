@@ -45,7 +45,8 @@ const TopFilterItem = (props) => {
                             value={item.id}
                             type="checkbox"
                             onChange={handleCheck}
-                            checked={item.selected} />
+                            checked={item.selected}
+                            tabIndex="0" />
                         <span className="consonant-top-filter--items-item-checkmark" />
                         <span className="consonant-top-filter--items-item-name">{item.label}</span>
                     </label>
@@ -66,7 +67,8 @@ const TopFilterItem = (props) => {
             <button
                 type="button"
                 onClick={handleClick}
-                className="consonant-top-filter--footer-btn">
+                className="consonant-top-filter--footer-btn"
+                tabIndex="0">
                 {itemsSelected > 0 ? 'Apply' : 'Done'}
             </button>
         </div>
@@ -88,7 +90,8 @@ const TopFilterItem = (props) => {
                         type="button"
                         className="consonant-top-filter--link"
                         data-testid="filter-item-link"
-                        onClick={handleClick}>
+                        onClick={handleClick}
+                        tabIndex="0">
                         {name}
                         <span className="consonant-top-filter--selcted-items-qty">
                             {items.filter(item => item.selected).length > 0 &&

@@ -73,6 +73,7 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
             data-testid="consonant-card__bookmark-button"
             data-tooltip-wrapper={true}
             onClick={[Function]}
+            tabIndex="0"
             type="button"
           >
             <span
@@ -100,6 +101,7 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
           className="consonant-aspect-ratio-3-2-card--btn"
           href="https://google.com"
           rel="noreferrer"
+          tabIndex="0"
           target="_blank"
         >
           Some CTA
@@ -189,6 +191,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
             data-testid="consonant-card__bookmark-button"
             data-tooltip-wrapper={true}
             onClick={[Function]}
+            tabIndex="0"
             type="button"
           >
             <span
@@ -216,6 +219,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
           className="consonant-aspect-ratio-3-2-card--btn"
           href="https://google.com"
           rel="noreferrer"
+          tabIndex="0"
           target="_blank"
         >
           Some CTA
@@ -305,6 +309,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
             data-testid="consonant-card__bookmark-button"
             data-tooltip-wrapper={true}
             onClick={[Function]}
+            tabIndex="0"
             type="button"
           >
             <span
@@ -332,6 +337,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
           className="consonant-aspect-ratio-3-2-card--btn"
           href="https://google.com"
           rel="noreferrer"
+          tabIndex="0"
           target="_blank"
         >
           Some CTA
@@ -421,6 +427,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
             data-testid="consonant-card__bookmark-button"
             data-tooltip-wrapper={true}
             onClick={[Function]}
+            tabIndex="0"
             type="button"
           >
             <span
@@ -448,6 +455,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
           className="consonant-aspect-ratio-3-2-card--btn"
           href="https://google.com"
           rel="noreferrer"
+          tabIndex="0"
           target="_blank"
         >
           Some CTA
@@ -537,6 +545,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
             data-testid="consonant-card__bookmark-button"
             data-tooltip-wrapper={true}
             onClick={[Function]}
+            tabIndex="0"
             type="button"
           >
             <span
@@ -564,6 +573,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
           className="consonant-aspect-ratio-3-2-card--btn"
           href="https://google.com"
           rel="noreferrer"
+          tabIndex="0"
           target="_blank"
         >
           Some CTA
