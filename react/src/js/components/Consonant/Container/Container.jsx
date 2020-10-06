@@ -151,8 +151,6 @@ const Container = (props) => {
         return parseToPrimitive(res);
     }, []);
 
-    console.log('HEYHEYHEY');
-
     const defaultSortOption = getDefaultSortOption(config, getConfig('sort', 'defaultSort'));
 
 
@@ -170,13 +168,12 @@ const Container = (props) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [showTopFilterSearch, setShowTopFilterSearch] = useState(false);
     const [selectOpened, setSelectOpened] = useState(false);
-    const [selelectedFilterBy, setSelelectedFilterBy] = defaultSortOption;
-    const [showItemsPerPage, setShowItemsPerPage] = useState(getConfig('collection', 'resultsPerPage'));
-    setShowItemsPerPage(getConfig('collection', 'resultsPerPage'));
+    const [selelectedFilterBy, setSelelectedFilterBy] = useState(defaultSortOption);
+    const showItemsPerPage = getConfig('collection', 'resultsPerPage');
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [showMobileFilters, setShowMobileFilters] = useState(false);
     const [showFavourites, setShowFavourites] = useState(false);
-    const [showLimitedFiltersQty, setSHowLimitedFiltersQty] = useState(this.getConfig('filterPanel', 'type') === 'top');
+    const [showLimitedFiltersQty, setSHowLimitedFiltersQty] = useState(getConfig('filterPanel', 'type') === 'top');
 
     const selectedFiltersItemsQty = getSelectedFiltersItemsQty(filters);
 
@@ -206,7 +203,7 @@ const Container = (props) => {
     const getCollectionCards = useCallback(() => {
         let res = filteredCards;
 
-        if (showItemsPerPage && this.getConfig('pagination', 'type') === 'paginator') {
+        if (showItemsPerPage && getConfig('pagination', 'type') === 'paginator') {
             const start = pages === 1 ? 0 : (pages * showItemsPerPage) - showItemsPerPage;
             const end = start + showItemsPerPage;
 
@@ -263,7 +260,7 @@ const Container = (props) => {
     const searchCards = useCallback(() => {
         const query = searchQuery.trim().toLowerCase();
         const results = [];
-        const searchFields = parseToPrimitive(this.getConfig('search', 'searchFields'));
+        const searchFields = parseToPrimitive(getConfig('search', 'searchFields'));
         const fieldsToHighlight = ['title', 'description'];
         const highlightText = (text, val) => text.replace(new RegExp(val, 'gi'), value => `
               <span
@@ -306,7 +303,7 @@ const Container = (props) => {
     const filterCards = useCallback(() => {
         const myFilterIds = getActiveFiltersIds();
         const query = searchQuery;
-        let filterLogic = this.getConfig('filterPanel', 'filterLogic');
+        let filterLogic = getConfig('filterPanel', 'filterLogic');
         filterLogic = filterLogic.toLowerCase().trim();
 
         const checkCardsApplyToFilters = (_cards, selectedFilters) => _cards.reduce((acc, card) => {
@@ -576,10 +573,9 @@ const Container = (props) => {
         const data = JSON.parse(localStorage.getItem('bookmarks'));
 
         if (Array.isArray(data)) {
-            this.setState(
-                { bookmarkedCards: data },
-                () => { if (doUpdate) updateCardsWithBookmarks(); },
-            );
+            setBookmarkedCards(data);
+            // TODO: Potential bug, set state callback
+            if (doUpdate) updateCardsWithBookmarks();
         }
     }, []);
 
@@ -595,7 +591,7 @@ const Container = (props) => {
                     return `${str.slice(0, num)}...`;
                 };
                 const applyCardLimitToLoadedCards = (data) => {
-                    const limit = this.getConfig('collection', 'totalCardLimit');
+                    const limit = getConfig('collection', 'totalCardLimit');
                     // No limit, return all;
                     if (limit < 0) return data;
 
@@ -611,7 +607,7 @@ const Container = (props) => {
                     card.description = truncateString(card.description, TRUNCATE_TEXT_QTY);
                     card.initialText = card.description;
                     card.isBookmarked = false;
-                    card.disableBookmarkIco = this.getConfig('bookmarks', 'bookmarkOnlyCollection');
+                    card.disableBookmarkIco = getConfig('bookmarks', 'bookmarkOnlyCollection');
                     return card;
                 };
                 const filterCardsPerDateRange = (_cards) => {
@@ -629,7 +625,7 @@ const Container = (props) => {
                     });
                 };
 
-                let featuredCards = parseToPrimitive(this.props.config.featuredCards) || [];
+                let featuredCards = parseToPrimitive(config.featuredCards) || [];
                 const filtersConfig = parseToPrimitive(getConfig('filterPanel', 'filters'));
 
                 if (!res || (res.cards && res.cards.length <= 0)) return;
@@ -666,10 +662,11 @@ const Container = (props) => {
                 filterCards();
                 getBookMarksFromLS();
             });
-    });
+    }, []);
 
     // Set focusOut handlers
     useEffect(() => {
+        console.log('set focusout');
         const handleFocusOut = (clickEvt) => {
             clickEvt.stopPropagation();
 
@@ -726,6 +723,7 @@ const Container = (props) => {
 
     // Update dimensions on resize
     useEffect(() => {
+        console.log('udpate dimensions');
         let updateDimensionsTimer;
         const updateDimensions = () => {
             window.clearTimeout(updateDimensionsTimer);
