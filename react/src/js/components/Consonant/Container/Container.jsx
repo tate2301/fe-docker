@@ -1,18 +1,24 @@
-import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import React, {
+    Fragment,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 import 'whatwg-fetch';
+import parseToPrimitive from '../../../utils/parseToPrimitive';
+import Bookmarks from '../Bookmarks/Bookmarks';
 import Collection from '../Collection/Collection';
 import FilterInfo from '../Filters/Left/FilterInfo';
-import LoadMore from '../Pagination/LoadMore';
-import Paginator from '../Pagination/Paginator';
-import Loader from '../Loader/Loader';
-import Search from '../Search/Search';
-import Select from '../Select/Select';
 import LeftFilterPanel from '../Filters/Left/Panel';
 import FiltersPanelTop from '../Filters/Top/Panel';
-import Bookmarks from '../Bookmarks/Bookmarks';
+import Loader from '../Loader/Loader';
+import LoadMore from '../Pagination/LoadMore';
+import Paginator from '../Pagination/Paginator';
+import Search from '../Search/Search';
 import SearchIco from '../Search/SearchIco';
-import parseToPrimitive from '../../../utils/parseToPrimitive';
+import Select from '../Select/Select';
 
 const DESKTOP_MIN_WIDTH = 1200;
 const TABLET_MIN_WIDTH = 768;
@@ -41,164 +47,43 @@ const SORTING_OPTION = {
     TITLEDESC: 'initialTitle',
 };
 const TRUNCATE_TEXT_QTY = 200;
-let updateDimensionsTimer;
 
-export default class Container extends React.Component {
-    constructor(props) {
-        super(props);
-        this.props = props;
 
-        this.state = {
-            cards: [],
-            filteredCards: [],
-            bookmarkedCards: [],
-            pages: 1,
-            filters: [],
-            lastFilterWasChecked: false,
-            searchQuery: '',
-            showTopFilterSearch: false,
-            selectOpened: false,
-            selelectedFilterBy: this.getDefaultSortOption(),
-            showItemsPerPage: this.getConfig('collection', 'resultsPerPage'),
-            windowWidth: window.innerWidth,
-            showMobileFilters: false,
-            showFavourites: false,
-            showLimitedFiltersQty: this.getConfig('filterPanel', 'type') === 'top',
-        };
+const awaitTime = 100;
 
-        this.updateDimensions = this.updateDimensions.bind(this);
-        this.clearAllFilters = this.clearAllFilters.bind(this);
-        this.clearFilters = this.clearFilters.bind(this);
-        this.clearFilterItems = this.clearFilterItems.bind(this);
-        this.checkIfDisplayPaginator = this.checkIfDisplayPaginator.bind(this);
-        this.loadData = this.loadData.bind(this);
-        this.setCardsToShowQty = this.setCardsToShowQty.bind(this);
-        this.getDefaultSortOption = this.getDefaultSortOption.bind(this);
-        this.getCardsToShowQty = this.getCardsToShowQty.bind(this);
-        this.getActiveFiltersIds = this.getActiveFiltersIds.bind(this);
-        this.getBookMarksFromLS = this.getBookMarksFromLS.bind(this);
-        this.getTotalPages = this.getTotalPages.bind(this);
-        this.getCollectionCards = this.getCollectionCards.bind(this);
-        this.handleSelectChange = this.handleSelectChange.bind(this);
-        this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
-        this.handleFilterItemClick = this.handleFilterItemClick.bind(this);
-        this.handleCheckBoxChange = this.handleCheckBoxChange.bind(this);
-        this.handleFiltersToggle = this.handleFiltersToggle.bind(this);
-        this.handlePaginatorClick = this.handlePaginatorClick.bind(this);
-        this.filterCards = this.filterCards.bind(this);
-        this.sortCards = this.sortCards.bind(this);
-        this.searchCards = this.searchCards.bind(this);
-        this.showFavourites = this.showFavourites.bind(this);
-        this.handleCardBookmarking = this.handleCardBookmarking.bind(this);
-        this.updateCardsWithBookmarks = this.updateCardsWithBookmarks.bind(this);
-        this.handleShowFavsClick = this.handleShowFavsClick.bind(this);
-        this.handleFocusOut = this.handleFocusOut.bind(this);
-        this.handleShowAllTopFilters = this.handleShowAllTopFilters.bind(this);
-        this.resetFavourites = this.resetFavourites.bind(this);
-        this.setBookMarksToLS = this.setBookMarksToLS.bind(this);
-        this.renderSearch = this.renderSearch.bind(this);
-        this.renderSelect = this.renderSelect.bind(this);
-        this.handleSearchIcoClick = this.handleSearchIcoClick.bind(this);
+function getDefaultSortOption(config, query) {
+    const { sort } = config;
+    let res = {
+        label: 'Featured',
+        sort: 'featured',
+    };
+
+
+    if (sort && parseToPrimitive(sort.options)) {
+        const filtered = parseToPrimitive(sort.options).filter(el => el.sort === query);
+        if (filtered && filtered.length) [res] = filtered;
     }
 
-    componentDidMount() {
-        window.addEventListener('resize', this.updateDimensions);
-        window.addEventListener('click', this.handleFocusOut);
+    return res;
+}
 
-        // Load data on init;
-        this.loadData().then((res) => {
-            const truncateString = (str, num) => {
-                if (str.length <= num) return str;
-                return `${str.slice(0, num)}...`;
-            };
-            const applyCardLimitToLoadedCards = (data) => {
-                const currentCardsQty = this.state.cards.length;
-                const limit = this.getConfig('collection', 'totalCardLimit');
-                // No limit, return all;
-                if (limit < 0) return data;
+function getSelectedFiltersItemsQty(filters) {
+    const res = filters.reduce((acc, val) => {
+        const count = val.items.reduce((accum, value) => {
+            if (value.selected) return accum + 1;
+            return accum;
+        }, 0);
 
-                /* Limit is exceeded (for example, featured cards were added),
-                    we need decrease it to max allowed; */
-                if (currentCardsQty >= limit) {
-                    this.setState(prevState => ({ cards: [...prevState.cards.slice(0, limit)] }));
-                    return [];
-                }
+        return acc + count;
+    }, 0);
 
-                // Slice received data to required q-ty;
-                return data.slice(0, limit - currentCardsQty);
-            };
-            const removeSameCardIds = (featured, cards) => [
-                ...featured,
-                ...cards.filter(card => !featured.some(el => card.id === el.id)),
-            ];
-            const processCard = (card) => {
-                card.initialTitle = card.title;
-                card.description = truncateString(card.description, TRUNCATE_TEXT_QTY);
-                card.initialText = card.description;
-                card.isBookmarked = false;
-                card.disableBookmarkIco = this.getConfig('bookmarks', 'bookmarkOnlyCollection');
-                return card;
-            };
-            const filterCardsPerDateRange = (cards) => {
-                if (!Array.isArray(cards)) return [];
+    return res;
+}
 
-                const currentDate = new Date().getTime();
 
-                return cards.filter((card) => {
-                    if (!card.showCardFrom) return card;
-
-                    const dates = card.showCardFrom.split(' - ').map(date => new Date(date).getTime());
-
-                    return dates.every(date => Number.isInteger(date)) &&
-                        (currentDate >= dates[0] && currentDate <= dates[1]) ? card : null;
-                });
-            };
-
-            let featuredCards = parseToPrimitive(this.props.config.featuredCards) || [];
-            const filters = parseToPrimitive(this.getConfig('filterPanel', 'filters'));
-
-            if (!res || (res.cards && res.cards.length <= 0)) return;
-
-            let cards = removeSameCardIds(this.state.cards, parseToPrimitive(res.cards));
-
-            featuredCards = featuredCards.map((el) => {
-                el.isFeatured = true;
-                return el;
-            });
-            cards = removeSameCardIds(featuredCards, cards);
-
-            // If this.config.bookmarks.bookmarkOnlyCollection;
-            if (this.getConfig('bookmarks', 'bookmarkOnlyCollection')) {
-                cards = cards.filter(c => this.state.bookmarkedCards.some(el => el === c.id));
-                this.getBookMarksFromLS(false);
-            }
-
-            cards = filterCardsPerDateRange(cards);
-            cards = applyCardLimitToLoadedCards(cards).map(card => processCard(card));
-            this.setState({
-                cards,
-                filters: filters.map((el) => {
-                    el.opened = window.innerWidth >= DESKTOP_MIN_WIDTH ? el.openedOnLoad : false;
-                    el.items = el.items.map((item) => {
-                        item.selected = false;
-                        return item;
-                    });
-                    return el;
-                }),
-                lastFilterWasChecked: false,
-            }, () => {
-                this.filterCards();
-                this.getBookMarksFromLS();
-            });
-        });
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.updateDimensions);
-        window.removeEventListener('click', this.handleFocusOut);
-    }
-
-    getConfig(object, key) {
+const Container = (props) => {
+    const { config } = props;
+    const getConfig = useCallback((object, key) => {
         const defaultProps = {
             collection: {
                 resultsPerPage: 9,
@@ -257,81 +142,69 @@ export default class Container extends React.Component {
                 ],
             },
         };
-        const val = this.props.config[object] ? this.props.config[object][key] : null;
+        const val = config[object] ? config[object][key] : null;
         let res;
 
         if (!val && typeof val !== 'boolean' && typeof val !== 'number') res = defaultProps[object][key];
-        else res = this.props.config[object][key];
+        else res = config[object][key];
 
         return parseToPrimitive(res);
-    }
+    }, []);
 
-    getDefaultSortOption() {
-        const query = this.getConfig('sort', 'defaultSort');
-        const { sort } = this.props.config;
-        let res = {
-            label: 'Featured',
-            sort: 'featured',
-        };
+    console.log('HEYHEYHEY');
 
-        if (sort && parseToPrimitive(sort.options)) {
-            const filtered = parseToPrimitive(sort.options).filter(el => el.sort === query);
-            if (filtered && filtered.length) [res] = filtered;
-        }
+    const defaultSortOption = getDefaultSortOption(config, getConfig('sort', 'defaultSort'));
+
+
+    const [cards, setCards] = useState([]);
+    const [filteredCards, setFilteredCards] = useState([]);
+    const [bookmarkedCards, setBookmarkedCards] = useState([]);
+    const [pages, setPages] = useState(1);
+    const [filters, _setFilters] = useState([]);
+    const filtersStateRef = useRef(filters);
+    const setFilters = (data) => {
+        filtersStateRef.current = data;
+        _setFilters(data);
+    };
+    const [lastFilterWasChecked, setLastFilterWasChecked] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [showTopFilterSearch, setShowTopFilterSearch] = useState(false);
+    const [selectOpened, setSelectOpened] = useState(false);
+    const [selelectedFilterBy, setSelelectedFilterBy] = defaultSortOption;
+    const [showItemsPerPage, setShowItemsPerPage] = useState(getConfig('collection', 'resultsPerPage'));
+    setShowItemsPerPage(getConfig('collection', 'resultsPerPage'));
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [showMobileFilters, setShowMobileFilters] = useState(false);
+    const [showFavourites, setShowFavourites] = useState(false);
+    const [showLimitedFiltersQty, setSHowLimitedFiltersQty] = useState(this.getConfig('filterPanel', 'type') === 'top');
+
+    const selectedFiltersItemsQty = getSelectedFiltersItemsQty(filters);
+
+    // callbacks
+
+
+    const getCardsToShowQty = useCallback(() => {
+        let res = showItemsPerPage * pages;
+
+        if (res > filteredCards.length) res = filteredCards.length;
 
         return res;
-    }
+    }, [showItemsPerPage, filteredCards, pages]);
 
-    getSelectedFiltersItemsQty() {
-        const res = this.state.filters.reduce((acc, val) => {
-            const count = val.items.reduce((accum, value) => {
-                if (value.selected) return accum + 1;
-                return accum;
-            }, 0);
+    const getActiveFiltersIds = useCallback(() => filters.reduce((acc, val) => {
+        val.items.forEach((el) => {
+            if (el.selected) acc.push(el.id);
+        });
+        return acc;
+    }, []), [filters]);
 
-            return acc + count;
-        }, 0);
+    const getTotalPages = useCallback(
+        () => Math.ceil(filteredCards.length / showItemsPerPage),
+        [filteredCards, showItemsPerPage],
+    );
 
-        return res;
-    }
-
-    getCardsToShowQty() {
-        let res = this.state.showItemsPerPage * this.state.pages;
-
-        if (res > this.state.filteredCards.length) res = this.state.filteredCards.length;
-
-        return res;
-    }
-
-    getActiveFiltersIds() {
-        const filters = this.state.filters.reduce((acc, val) => {
-            val.items.forEach((el) => {
-                if (el.selected) acc.push(el.id);
-            });
-            return acc;
-        }, []);
-
-        return filters;
-    }
-
-    getBookMarksFromLS(doUpdate = true) {
-        const data = JSON.parse(localStorage.getItem('bookmarks'));
-
-        if (Array.isArray(data)) {
-            this.setState(
-                { bookmarkedCards: data },
-                () => { if (doUpdate) this.updateCardsWithBookmarks(); },
-            );
-        }
-    }
-
-    getTotalPages() {
-        return Math.ceil(this.state.filteredCards.length / this.state.showItemsPerPage);
-    }
-
-    getCollectionCards() {
-        const { pages, showItemsPerPage } = this.state;
-        let res = this.state.filteredCards;
+    const getCollectionCards = useCallback(() => {
+        let res = filteredCards;
 
         if (showItemsPerPage && this.getConfig('pagination', 'type') === 'paginator') {
             const start = pages === 1 ? 0 : (pages * showItemsPerPage) - showItemsPerPage;
@@ -341,112 +214,24 @@ export default class Container extends React.Component {
         }
 
         return res;
-    }
+    }, [filteredCards, pages, showItemsPerPage]);
 
-    setCardsToShowQty() {
-        console.log('!!!', this);
+    const setCardsToShowQty = () => {
         const currentPos = window.pageYOffset;
-        this.setState(prevState => ({
-            pages: prevState.pages + 1,
-        }), () => { window.scrollTo(0, currentPos); });
-    }
+        setPages(prevState => prevState + 1);
+        window.scrollTo(0, currentPos);
+    };
 
-    setBookMarksToLS() {
+    const setBookMarksToLS = useCallback(() => {
         try {
-            localStorage.setItem('bookmarks', JSON.stringify(this.state.bookmarkedCards, null, 2));
+            localStorage.setItem('bookmarks', JSON.stringify(bookmarkedCards, null, 2));
         } catch (e) {
             // alert('We could not save your bookmarks, please try to reload thші page.');
         }
-    }
+    }, [bookmarkedCards]);
 
-    async loadData() {
-        const response = await window.fetch(this.getConfig('collection', 'endpoint'));
-        const json = await response.json();
-        return json;
-    }
-
-    filterCards() {
-        const filters = this.getActiveFiltersIds();
-        const query = this.state.searchQuery;
-        let filterLogic = this.getConfig('filterPanel', 'filterLogic');
-        filterLogic = filterLogic.toLowerCase().trim();
-
-        const checkCardsApplyToFilters = (cards, selectedFilters) => {
-            const res = cards.reduce((acc, card) => {
-                let filterPassed = false;
-
-                if (
-                    card.appliesTo &&
-                    (filterLogic === FILTER_LOGIC.XOR || filterLogic === FILTER_LOGIC.AND) &&
-                    selectedFilters.every(el => card.appliesTo.some(tag => tag.id === el))
-                ) { filterPassed = true; } else if (
-                    card.appliesTo &&
-                    (filterLogic === FILTER_LOGIC.OR) &&
-                    selectedFilters.some(el => card.appliesTo.some(tag => tag.id === el))
-                ) { filterPassed = true; }
-
-                if (filterPassed) acc.push(card);
-                return acc;
-            }, []);
-            return res;
-        };
-        const applySorting = () => {
-            if (this.state.selelectedFilterBy && this.state.selelectedFilterBy.sort) {
-                this.sortCards(this.state.selelectedFilterBy.sort);
-            }
-        };
-
-        /* In case of filters were reset or q-ty decreased, or filterLogic is XOR or OR
-        we need to update search; */
-        if (
-            (query && !filters.length) ||
-            (query && !this.state.lastFilterWasChecked) ||
-            (filterLogic === FILTER_LOGIC.XOR) ||
-            (filterLogic === FILTER_LOGIC.OR)
-        ) { this.searchCards(); }
-
-        /* If no filters selected and no search, or filterLogic is XOR or OR and no search,
-        we show all cards; */
-        if (
-            (!filters.length && !query) ||
-            (filterLogic === FILTER_LOGIC.OR && !query) ||
-            (filterLogic === FILTER_LOGIC.XOR && !query)
-        ) {
-            this.setState(prevState => ({ filteredCards: [...prevState.cards] }), applySorting);
-        }
-
-        // If a new filter was added, we filter within previous results;
-        if (
-            (filters.length && this.state.lastFilterWasChecked) ||
-            (filters.length && query)
-        ) {
-            this.setState(prevState => ({
-                filteredCards: checkCardsApplyToFilters([...prevState.filteredCards], filters),
-            }), applySorting);
-        }
-
-        // If a filter was removed, we search from the beginning;
-        if (filters.length && !this.state.lastFilterWasChecked && !query) {
-            this.setState(prevState => ({
-                filteredCards: checkCardsApplyToFilters([...prevState.cards], filters),
-            }), applySorting);
-        }
-    }
-
-    updateDimensions = () => {
-        const awaitTime = 100;
-        window.clearTimeout(updateDimensionsTimer);
-        updateDimensionsTimer = window.setTimeout(() => {
-            this.setState({
-                windowWidth: window.innerWidth,
-                showMobileFilters: false,
-            });
-        }, awaitTime);
-    };
-
-    sortCards(field) {
+    const sortCards = useCallback((field) => {
         const val = SORTING_OPTION[field.toUpperCase().trim()];
-        const { filteredCards } = this.state;
         let sorted;
 
         if (!val) return;
@@ -469,30 +254,30 @@ export default class Container extends React.Component {
             sorted.sort(a => (a.isFeatured ? -1 : 0))
                 .sort((a, b) => (
                     (a.isFeatured && b.isFeatured) &&
-                        (a.initialTitle < b.initialTitle) ? -1 : 0));
+            (a.initialTitle < b.initialTitle) ? -1 : 0));
         }
 
-        this.setState({ filteredCards: sorted });
-    }
+        setFilteredCards(sorted);
+    }, [filteredCards]);
 
-    searchCards() {
-        const query = this.state.searchQuery.trim().toLowerCase();
+    const searchCards = useCallback(() => {
+        const query = searchQuery.trim().toLowerCase();
         const results = [];
         const searchFields = parseToPrimitive(this.getConfig('search', 'searchFields'));
         const fieldsToHighlight = ['title', 'description'];
         const highlightText = (text, val) => text.replace(new RegExp(val, 'gi'), value => `
-            <span
-                data-testid="consonant-search-result"
-                class="consonant-search-result">
-                ${value}
-            </span>
-        `);
+              <span
+                  data-testid="consonant-search-result"
+                  class="consonant-search-result">
+                  ${value}
+              </span>
+          `);
 
         // In case we reset search, just show all results;
         if (!query) {
-            this.setState(prevState => ({ filteredCards: [...prevState.cards] }));
+            setFilteredCards(cards.slice());
         } else {
-            this.state.cards.forEach((el) => {
+            cards.forEach((el) => {
                 let pushToRes = false;
                 const copy = { ...el };
 
@@ -509,20 +294,88 @@ export default class Container extends React.Component {
                 if (pushToRes) results.push(copy);
             });
 
-            this.setState({
-                filteredCards: results,
-                showFavourites: false,
-            }, () => {
-                if (this.state.selelectedFilterBy && this.state.selelectedFilterBy.sort) {
-                    this.sortCards(this.state.selelectedFilterBy.sort);
+            setFilteredCards(results);
+            setShowFavourites(false, () => {
+                if (selelectedFilterBy && selelectedFilterBy.sort) {
+                    sortCards(selelectedFilterBy.sort);
                 }
             });
         }
-    }
+    }, [searchQuery, cards]);
 
-    clearFilterItems(id) {
-        this.setState(prevState => ({
-            filters: prevState.filters.map((el) => {
+    const filterCards = useCallback(() => {
+        const myFilterIds = getActiveFiltersIds();
+        const query = searchQuery;
+        let filterLogic = this.getConfig('filterPanel', 'filterLogic');
+        filterLogic = filterLogic.toLowerCase().trim();
+
+        const checkCardsApplyToFilters = (_cards, selectedFilters) => _cards.reduce((acc, card) => {
+            let filterPassed = false;
+
+            if (
+                card.appliesTo &&
+                  (filterLogic === FILTER_LOGIC.XOR || filterLogic === FILTER_LOGIC.AND) &&
+                  selectedFilters.every(el => card.appliesTo.some(tag => tag.id === el))
+            ) {
+                filterPassed = true;
+            } else if (
+                card.appliesTo &&
+                  (filterLogic === FILTER_LOGIC.OR) &&
+                  selectedFilters.some(el => card.appliesTo.some(tag => tag.id === el))
+            ) {
+                filterPassed = true;
+            }
+
+            if (filterPassed) acc.push(card);
+            return acc;
+        }, []);
+        const applySorting = () => {
+            if (selelectedFilterBy && selelectedFilterBy.sort) {
+                sortCards(selelectedFilterBy.sort);
+            }
+        };
+
+        /* In case of filters were reset or q-ty decreased, or filterLogic is XOR or OR
+    we need to update search; */
+        if (
+            (query && !myFilterIds.length) ||
+          (query && !lastFilterWasChecked) ||
+          (filterLogic === FILTER_LOGIC.XOR) ||
+          (filterLogic === FILTER_LOGIC.OR)
+        ) { searchCards(); }
+
+        /* If no filters selected and no search, or filterLogic is XOR or OR and no search,
+    we show all cards; */
+        if (
+            (!myFilterIds.length && !query) ||
+          (filterLogic === FILTER_LOGIC.OR && !query) ||
+          (filterLogic === FILTER_LOGIC.XOR && !query)
+        ) {
+            setFilteredCards(cards.slice());
+            applySorting();
+        }
+
+        // If a new filter was added, we filter within previous results;
+        if (
+            (myFilterIds.length && lastFilterWasChecked) ||
+          (myFilterIds.length && query)
+        ) {
+            setFilteredCards(checkCardsApplyToFilters(filteredCards.slice(), myFilterIds));
+            applySorting();
+        }
+
+        // If a filter was removed, we search from the beginning;
+        if (myFilterIds.length && !lastFilterWasChecked && !query) {
+            setFilteredCards(checkCardsApplyToFilters(cards.slice(), myFilterIds));
+
+            applySorting();
+        }
+    }, [searchQuery, lastFilterWasChecked, selelectedFilterBy]);
+
+
+    const clearFilterItems = useCallback((id) => {
+        setFilters(prevFilters =>
+            prevFilters.map((el) => {
                 if (el.id === id) {
                     el.items.map((item) => {
                         item.selected = false;
@@ -530,194 +383,123 @@ export default class Container extends React.Component {
                     });
                 }
                 return el;
-            }),
-            lastFilterWasChecked: false,
-        }), () => { this.filterCards(); });
-    }
+            }));
+        filterCards();
 
-    clearFilters() {
-        this.setState(prevState => ({
-            filters: prevState.filters.map((el) => {
-                el.items.map((filter) => {
-                    filter.selected = false;
-                    return filter;
-                });
-                return el;
-            }),
+        setLastFilterWasChecked(false);
+    }, []);
+
+    const clearFilters = useCallback(() => {
+        setFilters(prevFilters => prevFilters.map((el) => {
+            el.items.map((filter) => {
+                filter.selected = false;
+                return filter;
+            });
+            return el;
         }));
-    }
+    }, []);
 
-    clearAllFilters(isFavs) {
-        const showFavourites = typeof isFavs !== 'boolean' ? false : isFavs;
-        this.clearFilters();
-        this.setState({
-            searchQuery: '',
-            lastFilterWasChecked: false,
-            showFavourites,
-        }, () => {
-            if (!showFavourites) {
-                this.searchCards();
-                this.filterCards();
-            }
+    const clearAllFilters = useCallback((isFavs) => {
+        const myShowFavourites = typeof isFavs !== 'boolean' ? false : isFavs;
+        clearFilters();
+        setSearchQuery('');
+        setLastFilterWasChecked(false);
+        setShowFavourites(myShowFavourites);
+
+        if (!myShowFavourites) {
+            searchCards();
+            filterCards();
+        }
+    }, []);
+
+    const doShowFavourites = useCallback(() => {
+        setFilteredCards(cards.filter(card => card.isBookmarked), () => {
+            sortCards(selelectedFilterBy.sort);
         });
-    }
+    }, [selelectedFilterBy, cards]);
 
-    showFavourites() {
-        this.setState(prevState => ({
-            filteredCards: prevState.cards.filter(card => card.isBookmarked),
-        }), () => {
-            this.sortCards(this.state.selelectedFilterBy.sort);
-        });
-    }
+    const resetFavourites = useCallback(() => {
+        setFilteredCards(cards);
+        setShowFavourites(false, selelectedFilterBy.sort);
+    }, [cards, selelectedFilterBy]);
 
-    resetFavourites() {
-        this.setState(prevState => ({
-            filteredCards: prevState.cards,
-            showFavourites: false,
-        }), () => {
-            this.sortCards(this.state.selelectedFilterBy.sort);
-        });
-    }
+    const checkIfDisplayPaginator = useCallback((type) => {
+        const cardsLength = filteredCards.length;
+        const showItems = showItemsPerPage;
 
-    checkIfDisplayPaginator(type) {
-        const cardsLength = this.state.filteredCards.length;
-        const showItems = this.state.showItemsPerPage;
+        return getConfig('pagination', 'enabled') &&
+          getConfig('pagination', 'type') === type &&
+          getConfig('collection', 'resultsPerPage') > 0 &&
+          cardsLength > showItems;
+    }, [filteredCards, showItemsPerPage]);
 
-        return this.getConfig('pagination', 'enabled') &&
-            this.getConfig('pagination', 'type') === type &&
-            this.getConfig('collection', 'resultsPerPage') > 0 &&
-            cardsLength > showItems;
-    }
-
-    handleSelectChange(option) {
-        if (option.label === this.state.selelectedFilterBy.label) {
-            this.setState({ selectOpened: false });
+    const handleSelectChange = useCallback((option) => {
+        if (option.label === selelectedFilterBy.label) {
+            setSelectOpened(false);
             return;
         }
 
-        this.setState({
-            selelectedFilterBy: option,
-            selectOpened: false,
-        }, () => {
-            this.sortCards(this.state.selelectedFilterBy.sort);
-        });
-    }
+        setSelelectedFilterBy(option);
+        setSelectOpened(false);
+        sortCards(selelectedFilterBy.sort);
+    }, []);
 
-    handleSearchInputChange(val) {
-        this.clearFilters();
-        this.setState({
-            searchQuery: val,
-        }, () => {
-            this.searchCards();
-        });
-    }
+    const handleSearchInputChange = useCallback((val) => {
+        clearFilters();
+        setSearchQuery(val);
+        // TODO: potential bug because originally searchCards is called as a
+        //  callback to set search query
+        searchCards();
+    }, []);
 
-    handleFilterItemClick(filterId) {
-        this.setState((prevState) => {
-            const res = prevState.filters.map((el) => {
-                if (el.id === filterId) {
-                    el.opened = !el.opened;
-                } else if (this.getConfig('filterPanel', 'type') === 'top') {
-                    el.opened = false;
-                }
-
-                return el;
-            });
-
-            return { filters: res };
-        });
-    }
-
-    handleCheckBoxChange(filterId, itemId, isChecked) {
-        const filterLogic = this.getConfig('filterPanel', 'filterLogic');
-        if (this.state.showFavourites) this.resetFavourites();
-
-        // If xor filterLogic set, we reset all filters;
-        if (filterLogic.toLowerCase().trim() === FILTER_LOGIC.XOR && isChecked) this.clearFilters();
-
-        this.setState((prevState) => {
-            const list = prevState.filters.map((filter) => {
-                if (filter.id === filterId) {
-                    filter.items = filter.items.map((item) => {
-                        if (item.id === itemId) item.selected = !item.selected;
-
-                        return item;
-                    });
-                }
-
-                return filter;
-            });
-
-            return {
-                filters: list,
-                lastFilterWasChecked: isChecked,
-            };
-        }, this.filterCards);
-    }
-
-    handleFiltersToggle() {
-        this.setState(prevState => ({
-            showMobileFilters: !prevState.showMobileFilters,
-        }));
-    }
-
-    handlePaginatorClick(page) {
-        this.setState({ pages: page });
-    }
-
-    handleFocusOut(clickEvt) {
-        clickEvt.stopPropagation();
-
-        const { filters, selectOpened } = this.state;
-        const CLASS_NAME = {
-            TOP_FILTER: 'consonant-top-filter',
-            TOP_FILTER_OPENED: 'consonant-top-filter consonant-top-filter_opened',
-            TOP_FILTER_SELECTED: 'consonant-top-filter consonant-top-filter_selected',
-            SEARCH: 'consonant-top-filters--search-ico-wrapper',
-            SELECT: 'consonant-select--btn',
-        };
-        const t = clickEvt.target;
-        const res = {
-            showTopFilterSearch: false,
-            selectOpened: false,
-            filters: filters.map((f) => {
-                const newObj = JSON.parse(JSON.stringify(f));
-
-                newObj.opened = false;
-                return newObj;
-            }),
-        };
-        const hasClassName = (q) => {
-            let result = t.className === q;
-
-            if (!result) {
-                for (let it = t; it && it !== document; it = it.parentNode) {
-                    if (it.className === q) result = true;
-                }
+    const handleFilterItemClick = (filterId) => {
+        setFilters(prevFilters => prevFilters.map((el) => {
+            if (el.id === filterId) {
+                el.opened = !el.opened;
+            } else if (getConfig('filterPanel', 'type') === 'top') {
+                el.opened = false;
             }
 
-            return result;
-        };
+            return el;
+        }));
+    };
 
-        if (this.getConfig('filterPanel', 'type') !== 'top' && !hasClassName(CLASS_NAME.SELECT)) return;
+    const handleCheckBoxChange = useCallback((filterId, itemId, isChecked) => {
+        const filterLogic = getConfig('filterPanel', 'filterLogic');
+        if (showFavourites) resetFavourites();
 
-        if (hasClassName(CLASS_NAME.SEARCH)) res.showTopFilterSearch = true;
-        else if (hasClassName(CLASS_NAME.SELECT)) {
-            res.selectOpened = !selectOpened;
-        } else if (
-            hasClassName(CLASS_NAME.TOP_FILTER) ||
-            hasClassName(CLASS_NAME.TOP_FILTER_OPENED) ||
-            hasClassName(CLASS_NAME.TOP_FILTER_SELECTED)
-        ) { res.filters = filters; }
+        // If xor filterLogic set, we reset all filters;
+        if (filterLogic.toLowerCase().trim() === FILTER_LOGIC.XOR && isChecked) clearFilters();
 
-        this.setState(res);
-    }
+        setFilters(prevFilters => prevFilters.map((filter) => {
+            if (filter.id === filterId) {
+                filter.items = filter.items.map((item) => {
+                    if (item.id === itemId) item.selected = !item.selected;
 
-    updateCardsWithBookmarks() {
+                    return item;
+                });
+            }
+
+            return filter;
+        }));
+
+        setLastFilterWasChecked(isChecked);
+        // TODO: potential bug because this is originaly called as a callback
+        //  to the setState call above
+        filterCards();
+    }, [showFavourites]);
+
+    const handleFiltersToggle = () => setShowMobileFilters(prev => !prev);
+
+    const handleSelectOpen = () => setSelectOpened(prev => !prev);
+
+    const handlePaginatorClick = setPages;
+
+    const updateCardsWithBookmarks = useCallback(() => {
         const updatedBookmarks = [];
 
         const doCheck = arr => arr.map((el) => {
-            if (this.state.bookmarkedCards.some(item => el.id === item)) {
+            if (bookmarkedCards.some(item => el.id === item)) {
                 el.isBookmarked = true;
                 if (!updatedBookmarks.some(item => item === el.id)) updatedBookmarks.push(el.id);
             } else {
@@ -726,234 +508,398 @@ export default class Container extends React.Component {
             return el;
         });
 
-        // Update state;
-        this.setState(prevState => ({
-            cards: doCheck(prevState.cards),
-            filteredCards: doCheck(prevState.filteredCards),
-            bookmarkedCards: updatedBookmarks,
-        }), () => {
-            this.setBookMarksToLS();
-            if (this.state.showFavourites) this.showFavourites();
-        });
-    }
+        setCards(doCheck(cards));
+        setFilteredCards(doCheck(filteredCards));
+        setBookmarkedCards(updatedBookmarks);
 
-    handleCardBookmarking(id) {
+        // TODO: possible bug: originally specificed as setstate callback
+        setBookMarksToLS();
+        if (showFavourites) doShowFavourites();
+    }, [cards, filteredCards, bookmarkedCards]);
+
+    const handleCardBookmarking = useCallback((id) => {
         // Update bookmarked IDs;
-        const searchIdx = this.state.bookmarkedCards.indexOf(id);
+        const searchIdx = bookmarkedCards.indexOf(id);
 
         if (searchIdx >= 0) {
-            this.setState(prevState => ({
-                bookmarkedCards: prevState.bookmarkedCards.filter(el => el !== id),
-            }), this.updateCardsWithBookmarks);
+            setBookmarkedCards(bookmarkedCards.filter(el => el !== id));
         } else {
-            this.setState(prevState => ({
-                bookmarkedCards: [...prevState.bookmarkedCards, id],
-            }), this.updateCardsWithBookmarks);
+            setBookmarkedCards([...bookmarkedCards, id]);
         }
-    }
 
-    handleShowFavsClick(clickEvt) {
+        updateCardsWithBookmarks();
+    }, [bookmarkedCards]);
+
+    const handleShowFavsClick = useCallback((clickEvt) => {
         clickEvt.stopPropagation();
-        this.setState(prevState => ({ showFavourites: !prevState.showFavourites }), () => {
-            if (this.state.showFavourites) {
-                this.clearAllFilters(true);
-                this.showFavourites();
-            } else {
-                this.resetFavourites();
-            }
-        });
-    }
+        setShowFavourites(prev => !prev);
+        // TODO: Refactor into useEffect hook
+        if (!showFavourites) { // inverse is value after set state call
+            clearAllFilters(true);
+            doShowFavourites();
+        } else {
+            resetFavourites();
+        }
+    }, [showFavourites]);
 
-    handleSearchIcoClick(evt) {
+    const handleSearchIcoClick = useCallback((evt) => {
         evt.preventDefault();
-        this.setState({ showTopFilterSearch: evt.type === 'click' });
-    }
+        setShowTopFilterSearch(evt.type === 'click');
+    }, []);
 
-    handleShowAllTopFilters() {
-        this.setState(prevState => ({ showLimitedFiltersQty: !prevState.showLimitedFiltersQty }));
-    }
+    const handleShowAllTopFilters = useCallback(() => {
+        setSHowLimitedFiltersQty(prev => !prev);
+    }, []);
 
-    renderSearch(key, autofocus = false) {
-        return (<Search
+    const renderSearch = useCallback(key => (
+        <Search
             childrenKey={key}
-            placeholderText={this.getConfig('search', 'inputPlaceholderText')}
-            value={this.state.searchQuery}
-            leftPanelTitle={this.getConfig('search', 'leftPanelTitle')}
-            autofocus={autofocus}
-            onSearch={this.handleSearchInputChange} />);
-    }
+            placeholderText={getConfig('search', 'inputPlaceholderText')}
+            value={searchQuery}
+            leftPanelTitle={getConfig('search', 'leftPanelTitle')}
+            onSearch={handleSearchInputChange} />
+    ), [searchQuery]);
 
-    renderSelect(autoWidth, key, optionsAlignment = 'right') {
-        return (<Select
-            opened={this.state.selectOpened}
-            val={this.state.selelectedFilterBy}
-            values={parseToPrimitive(this.getConfig('sort', 'options'))}
-            onSelect={this.handleSelectChange}
+    const renderSelect = useCallback((autoWidth, key, optionsAlignment = 'right') => (
+        <Select
+            opened={selectOpened}
+            val={selelectedFilterBy}
+            values={parseToPrimitive(getConfig('sort', 'options'))}
+            onOpen={handleSelectOpen}
+            onSelect={handleSelectChange}
             childrenKey={key}
             autoWidth={autoWidth}
-            optionsAlignment={optionsAlignment} />);
-    }
+            optionsAlignment={optionsAlignment} />
+    ), [selectOpened, selelectedFilterBy]);
 
-    render() {
-        return (
-            <Fragment>
-                <section
-                    className="consonant-wrapper">
-                    <div className="consonant-wrapper--inner">
-                        {
-                            this.getConfig('filterPanel', 'enabled') &&
-                            this.getConfig('filterPanel', 'type') === FILTER_PANEL.LEFT &&
-                            <span>
-                                <LeftFilterPanel
-                                    filters={this.state.filters}
-                                    windowWidth={this.state.windowWidth}
-                                    showTotalResults={this.getConfig('collection', 'displayTotalResults')}
-                                    showTotalResultsText={this.getConfig('collection', 'totalResultsText')}
-                                    onFilterClick={this.handleFilterItemClick}
-                                    clearFilterText={this.getConfig('filterPanel', 'clearFilterText')}
-                                    clearAllFiltersText={this.getConfig('filterPanel', 'clearAllFiltersText')}
-                                    onClearAllFilters={this.clearAllFilters}
-                                    onClearFilterItems={this.clearFilterItems}
-                                    onCheckboxClick={this.handleCheckBoxChange}
-                                    onMobileFiltersToggleClick={this.handleFiltersToggle}
-                                    showMobileFilters={this.state.showMobileFilters}
-                                    resQty={this.state.filteredCards.length}
-                                    panelHeader={this.getConfig('filterPanel', 'leftPanelHeader')}>
-                                    {
-                                        this.state.windowWidth >= DESKTOP_MIN_WIDTH &&
-                                        this.getConfig('search', 'enabled') &&
-                                        this.renderSearch('filtersSideSearch')
-                                    }
-                                    {this.getConfig('bookmarks', 'enabled') &&
-                                        <Bookmarks
-                                            childrenKey="filtersSideBookmarks"
-                                            title={this.getConfig('bookmarks', 'bookmarksFilterTitle')}
-                                            selectedIco={this.getConfig('bookmarks', 'selectBookmarksIcon')}
-                                            unselectedIco={this.getConfig('bookmarks', 'unselectBookmarksIcon')}
-                                            selected={this.state.showFavourites}
-                                            onClick={this.handleShowFavsClick}
-                                            qty={this.state.bookmarkedCards.length} />
-                                    }
-                                </LeftFilterPanel>
-                            </span>
+    const getBookMarksFromLS = useCallback((doUpdate = true) => {
+        const data = JSON.parse(localStorage.getItem('bookmarks'));
+
+        if (Array.isArray(data)) {
+            this.setState(
+                { bookmarkedCards: data },
+                () => { if (doUpdate) updateCardsWithBookmarks(); },
+            );
+        }
+    }, []);
+
+
+    // Effects
+
+    useEffect(() => {
+        window.fetch(getConfig('collection', 'endpoint'))
+            .then(resp => resp.json())
+            .then((res) => {
+                const truncateString = (str, num) => {
+                    if (str.length <= num) return str;
+                    return `${str.slice(0, num)}...`;
+                };
+                const applyCardLimitToLoadedCards = (data) => {
+                    const limit = this.getConfig('collection', 'totalCardLimit');
+                    // No limit, return all;
+                    if (limit < 0) return data;
+
+                    // Slice received data to required q-ty;
+                    return data.slice(0, limit);
+                };
+                const removeSameCardIds = (featured, _cards) => [
+                    ...featured,
+                    ..._cards.filter(card => !featured.some(el => card.id === el.id)),
+                ];
+                const processCard = (card) => {
+                    card.initialTitle = card.title;
+                    card.description = truncateString(card.description, TRUNCATE_TEXT_QTY);
+                    card.initialText = card.description;
+                    card.isBookmarked = false;
+                    card.disableBookmarkIco = this.getConfig('bookmarks', 'bookmarkOnlyCollection');
+                    return card;
+                };
+                const filterCardsPerDateRange = (_cards) => {
+                    if (!Array.isArray(_cards)) return [];
+
+                    const currentDate = new Date().getTime();
+
+                    return _cards.filter((card) => {
+                        if (!card.showCardFrom) return card;
+
+                        const dates = card.showCardFrom.split(' - ').map(date => new Date(date).getTime());
+
+                        return dates.every(date => Number.isInteger(date)) &&
+              (currentDate >= dates[0] && currentDate <= dates[1]) ? card : null;
+                    });
+                };
+
+                let featuredCards = parseToPrimitive(this.props.config.featuredCards) || [];
+                const filtersConfig = parseToPrimitive(getConfig('filterPanel', 'filters'));
+
+                if (!res || (res.cards && res.cards.length <= 0)) return;
+
+                let allCards = removeSameCardIds([], parseToPrimitive(res.cards));
+
+                featuredCards = featuredCards.map((el) => {
+                    el.isFeatured = true;
+                    return el;
+                });
+                allCards = removeSameCardIds(featuredCards, allCards);
+
+                // If this.config.bookmarks.bookmarkOnlyCollection;
+                if (getConfig('bookmarks', 'bookmarkOnlyCollection')) {
+                    allCards = allCards.filter(c =>
+                        this.state.bookmarkedCards.some(el => el === c.id));
+                    getBookMarksFromLS(false);
+                }
+
+                allCards = filterCardsPerDateRange(allCards);
+                allCards = applyCardLimitToLoadedCards(allCards).map(card => processCard(card));
+                setCards(allCards);
+                setFilters(filtersConfig.map((el) => {
+                    el.opened = window.innerWidth >= DESKTOP_MIN_WIDTH ? el.openedOnLoad : false;
+                    el.items = el.items.map((item) => {
+                        item.selected = false;
+                        return item;
+                    });
+                    return el;
+                }));
+                setLastFilterWasChecked(false);
+
+                // TODO: possible bug, originally setstate callback
+                filterCards();
+                getBookMarksFromLS();
+            });
+    });
+
+    // Set focusOut handlers
+    useEffect(() => {
+        const handleFocusOut = (clickEvt) => {
+            clickEvt.stopPropagation();
+
+            if (getConfig('filterPanel', 'type') !== 'top') return;
+
+            const CLASS_NAME = {
+                TOP_FILTER: 'consonant-top-filter',
+                TOP_FILTER_OPENED: 'consonant-top-filter consonant-top-filter_opened',
+                TOP_FILTER_SELECTED: 'consonant-top-filter consonant-top-filter_selected',
+                SEARCH: 'consonant-top-filters--search-ico-wrapper',
+            };
+            const t = clickEvt.target;
+
+            const hasClassName = (q) => {
+                let result = t.className === q;
+
+                if (!result) {
+                    for (let it = t; it && it !== document; it = it.parentNode) {
+                        if (it.className === q) result = true;
+                    }
+                }
+
+                return result;
+            };
+
+            // TODO: Clarify intent
+            if (hasClassName(CLASS_NAME.SEARCH)) {
+                setShowTopFilterSearch(true);
+            } else {
+                setShowTopFilterSearch(false);
+            }
+
+            if (
+                (hasClassName(CLASS_NAME.TOP_FILTER) ||
+          hasClassName(CLASS_NAME.TOP_FILTER_OPENED) ||
+          hasClassName(CLASS_NAME.TOP_FILTER_SELECTED)) &&
+                !hasClassName(CLASS_NAME.SEARCH)
+            ) {
+                setFilters(filtersStateRef.current);
+            } else {
+                setFilters(filtersStateRef.current.map((f) => {
+                    const newObj = JSON.parse(JSON.stringify(f));
+
+                    newObj.opened = false;
+                    return newObj;
+                }));
+            }
+        };
+
+        window.addEventListener('click', handleFocusOut);
+        return () => window.removeEventListener('click', handleFocusOut);
+    }, [filters]);
+
+
+    // Update dimensions on resize
+    useEffect(() => {
+        let updateDimensionsTimer;
+        const updateDimensions = () => {
+            window.clearTimeout(updateDimensionsTimer);
+            updateDimensionsTimer = window.setTimeout(() => {
+                setWindowWidth(window.innerWidth);
+                setShowMobileFilters(false);
+            }, awaitTime);
+        };
+        window.addEventListener('resize', updateDimensions);
+        return () => {
+            window.removeEventListener('resize', updateDimensions);
+        };
+    }, []);
+
+
+    return (
+        <Fragment>
+            <section
+                className="consonant-wrapper">
+                <div className="consonant-wrapper--inner">
+                    {
+                        getConfig('filterPanel', 'enabled') &&
+              getConfig('filterPanel', 'type') === FILTER_PANEL.LEFT &&
+              <span>
+                  <LeftFilterPanel
+                      filters={filters}
+                      windowWidth={windowWidth}
+                      showTotalResults={getConfig('collection', 'displayTotalResults')}
+                      showTotalResultsText={getConfig('collection', 'totalResultsText')}
+                      onFilterClick={handleFilterItemClick}
+                      clearFilterText={getConfig('filterPanel', 'clearFilterText')}
+                      clearAllFiltersText={getConfig('filterPanel', 'clearAllFiltersText')}
+                      onClearAllFilters={clearAllFilters}
+                      onClearFilterItems={clearFilterItems}
+                      onCheckboxClick={handleCheckBoxChange}
+                      onMobileFiltersToggleClick={handleFiltersToggle}
+                      showMobileFilters={showMobileFilters}
+                      resQty={filteredCards.length}
+                      panelHeader={getConfig('filterPanel', 'leftPanelHeader')}>
+                      {
+                          windowWidth >= DESKTOP_MIN_WIDTH &&
+                                        getConfig('search', 'enabled') &&
+                                        renderSearch('filtersSideSearch')
+                      }
+                      {getConfig('bookmarks', 'enabled') &&
+                      <Bookmarks
+                          childrenKey="filtersSideBookmarks"
+                          title={getConfig('bookmarks', 'bookmarksFilterTitle')}
+                          selectedIco={getConfig('bookmarks', 'selectBookmarksIcon')}
+                          unselectedIco={getConfig('bookmarks', 'unselectBookmarksIcon')}
+                          selected={showFavourites}
+                          onClick={handleShowFavsClick}
+                          qty={bookmarkedCards.length} />
+                      }
+                  </LeftFilterPanel>
+              </span>
+                    }
+                    <span>
+                        {getConfig('filterPanel', 'enabled') &&
+                              getConfig('filterPanel', 'type') === FILTER_PANEL.TOP &&
+                              <FiltersPanelTop
+                                  filters={filters}
+                                  resQty={filteredCards.length}
+                                  onCheckboxClick={handleCheckBoxChange}
+                                  onFilterClick={handleFilterItemClick}
+                                  onClearFilterItems={clearFilterItems}
+                                  onClearAllFilters={clearAllFilters}
+                                  clearFilterText={getConfig('filterPanel', 'clearFilterText')}
+                                  clearAllFiltersText={getConfig('filterPanel', 'clearAllFiltersText')}
+                                  showTotalResults={getConfig('collection', 'displayTotalResults')}
+                                  showTotalResultsText={getConfig('collection', 'totalResultsText')}
+                                  showSearchbar={showTopFilterSearch}
+                                  showLimitedFiltersQty={showLimitedFiltersQty}
+                                  onShowAllClick={handleShowAllTopFilters}>
+                                  {getConfig('search', 'enabled') &&
+                                renderSearch('filtersTopSearch')
+                                  }
+                                  {
+                                      getConfig('search', 'enabled') &&
+                                  windowWidth >= TABLET_MIN_WIDTH &&
+                                  <SearchIco
+                                      childrenKey="filtersTopSearchIco"
+                                      onClick={handleSearchIcoClick} />
+
+                                  }
+                                  {
+                                      getConfig('sort', 'enabled') &&
+                                  parseToPrimitive(getConfig('sort', 'options')).length > 0 &&
+                                  renderSelect(
+                                      true,
+                                      'filtersTopSelect',
+                                      filters.length > 0
+                                    && window.innerWidth < TABLET_MIN_WIDTH ?
+                                          'left' : 'right',
+                                  )
+                                  }
+                              </FiltersPanelTop>
                         }
-                        <span>
-                            {this.getConfig('filterPanel', 'enabled') &&
-                                this.getConfig('filterPanel', 'type') === FILTER_PANEL.TOP &&
-                                <FiltersPanelTop
-                                    filters={this.state.filters}
-                                    resQty={this.state.filteredCards.length}
-                                    onCheckboxClick={this.handleCheckBoxChange}
-                                    onFilterClick={this.handleFilterItemClick}
-                                    onClearFilterItems={this.clearFilterItems}
-                                    onClearAllFilters={this.clearAllFilters}
-                                    clearFilterText={this.getConfig('filterPanel', 'clearFilterText')}
-                                    clearAllFiltersText={this.getConfig('filterPanel', 'clearAllFiltersText')}
-                                    showTotalResults={this.getConfig('collection', 'displayTotalResults')}
-                                    showTotalResultsText={this.getConfig('collection', 'totalResultsText')}
-                                    showSearchbar={this.state.showTopFilterSearch}
-                                    showLimitedFiltersQty={this.state.showLimitedFiltersQty}
-                                    onShowAllClick={this.handleShowAllTopFilters}>
-                                    {this.getConfig('search', 'enabled') &&
-                                        this.renderSearch('filtersTopSearch', window.innerWidth >= DESKTOP_MIN_WIDTH)
-                                    }
-                                    {
-                                        this.getConfig('search', 'enabled') &&
-                                        this.state.windowWidth >= TABLET_MIN_WIDTH &&
-                                        <SearchIco
-                                            childrenKey="filtersTopSearchIco"
-                                            onClick={this.handleSearchIcoClick} />
-
-                                    }
-                                    {
-                                        this.getConfig('sort', 'enabled') &&
-                                        parseToPrimitive(this.getConfig('sort', 'options')).length > 0 &&
-                                        this.renderSelect(
-                                            true,
-                                            'filtersTopSelect',
-                                            this.state.filters.length > 0
-                                                && window.innerWidth < TABLET_MIN_WIDTH ?
-                                                'left' : 'right',
-                                        )
-                                    }
-                                </FiltersPanelTop>
+                        {getConfig('filterPanel', 'type') === FILTER_PANEL.LEFT &&
+                        <FilterInfo
+                            enabled={getConfig('filterPanel', 'enabled')}
+                            title={getConfig('collection', 'title')}
+                            filters={filters}
+                            cardsQty={filteredCards.length}
+                            showTotalResults={getConfig('collection', 'displayTotalResults')}
+                            showTotalResultsText={getConfig('collection', 'totalResultsText')}
+                            selectedFiltersQty={selectedFiltersItemsQty}
+                            windowWidth={windowWidth}
+                            onMobileFiltersToggleClick={handleFiltersToggle}
+                            onSelectedFilterClick={handleCheckBoxChange}>
+                            {
+                                getConfig('search', 'enabled') &&
+                  windowWidth < DESKTOP_MIN_WIDTH &&
+                  renderSearch('searchFiltersInfo')
                             }
-                            {this.getConfig('filterPanel', 'type') === FILTER_PANEL.LEFT &&
-                                <FilterInfo
-                                    enabled={this.getConfig('filterPanel', 'enabled')}
-                                    title={this.getConfig('collection', 'title')}
-                                    filters={this.state.filters}
-                                    cardsQty={this.state.filteredCards.length}
-                                    showTotalResults={this.getConfig('collection', 'displayTotalResults')}
-                                    showTotalResultsText={this.getConfig('collection', 'totalResultsText')}
-                                    selectedFiltersQty={this.getSelectedFiltersItemsQty()}
-                                    windowWidth={this.state.windowWidth}
-                                    onMobileFiltersToggleClick={this.handleFiltersToggle}
-                                    onSelectedFilterClick={this.handleCheckBoxChange}>
-                                    {
-                                        this.getConfig('search', 'enabled') &&
-                                        this.state.windowWidth < DESKTOP_MIN_WIDTH &&
-                                        this.renderSearch('searchFiltersInfo')
-                                    }
-                                    {
-                                        this.getConfig('sort', 'enabled') &&
-                                        parseToPrimitive(this.getConfig('sort', 'options')).length > 0 &&
-                                        this.renderSelect(false, 'selectFiltersInfo')
-                                    }
-                                </FilterInfo>
+                            {
+                                getConfig('sort', 'enabled') &&
+                  parseToPrimitive(getConfig('sort', 'options')).length > 0 &&
+                  renderSelect(false, 'selectFiltersInfo')
                             }
-                            {this.state.cards.length > 0 ?
-                                <Fragment>
-                                    <Collection
-                                        showItemsPerPage={this.state.showItemsPerPage}
-                                        pages={this.state.pages}
-                                        cards={this.getCollectionCards()}
-                                        allowBookmarking={this.getConfig('bookmarks', 'enabled')}
-                                        onCardBookmark={this.handleCardBookmarking}
-                                        cardUnsavedIco={this.getConfig('bookmarks', 'cardUnsavedIcon')}
-                                        cardSavedIco={this.getConfig('bookmarks', 'cardSavedIcon')}
-                                        saveCardText={this.getConfig('bookmarks', 'saveCardText')}
-                                        unsaveCardText={this.getConfig('bookmarks', 'unsaveCardText')}
-                                        cardsStyle={this.getConfig('collection', 'cardStyle')} />
-                                    {
-                                        this.checkIfDisplayPaginator('loadMore') &&
-                                        <div ref={(page) => { this.page = page; }}>
-                                            <LoadMore
-                                                onClick={this.setCardsToShowQty}
-                                                show={this.getCardsToShowQty()}
-                                                total={this.state.filteredCards.length}
-                                                loadMoreButtonText={this.getConfig('pagination', 'loadMoreButtonText')}
-                                                loadMoreQuantityText={this.getConfig('pagination', 'loadMoreQuantityText')} />
-                                        </div>
-                                    }
-                                    {
-                                        this.checkIfDisplayPaginator('paginator') &&
-                                        <Paginator
-                                            pageCount={this.state.windowWidth <= DESKTOP_MIN_WIDTH ?
-                                                PAGINATION_COUNT.MOBILE : PAGINATION_COUNT.DESKTOP
-                                            }
-                                            currentPageNumber={this.state.pages}
-                                            totalPages={this.getTotalPages()}
-                                            showItemsPerPage={this.state.showItemsPerPage}
-                                            totalResults={this.state.filteredCards.length}
-                                            onClick={this.handlePaginatorClick}
-                                            quantityText={this.getConfig('pagination', 'paginatorQuantityText')}
-                                            prevLabel={this.getConfig('pagination', 'paginatorPrevLabel')}
-                                            nextLabel={this.getConfig('pagination', 'paginatorNextLabel')} />
-                                    }
-                                </Fragment> :
-                                <Loader
-                                    size={LOADER_SIZE.BIG}
-                                    hidden={!this.getConfig('collection', 'totalCardLimit')}
-                                    absolute />
-                            }
-                        </span>
-                    </div>
-                </section>
-            </Fragment >
-        );
-    }
-}
+                        </FilterInfo>
+                        }
+                        {cards.length > 0 ?
+                            <Fragment>
+                                <Collection
+                                    showItemsPerPage={showItemsPerPage}
+                                    pages={pages}
+                                    cards={getCollectionCards()}
+                                    allowBookmarking={getConfig('bookmarks', 'enabled')}
+                                    onCardBookmark={handleCardBookmarking}
+                                    cardUnsavedIco={getConfig('bookmarks', 'cardUnsavedIcon')}
+                                    cardSavedIco={getConfig('bookmarks', 'cardSavedIcon')}
+                                    saveCardText={getConfig('bookmarks', 'saveCardText')}
+                                    unsaveCardText={getConfig('bookmarks', 'unsaveCardText')}
+                                    cardsStyle={getConfig('collection', 'cardStyle')} />
+                                {
+                                    checkIfDisplayPaginator('loadMore') &&
+                                    //  Migrate to useRef
+                                    <div ref={(page) => { this.page = page; }}>
+                                        <LoadMore
+                                            onClick={setCardsToShowQty}
+                                            show={getCardsToShowQty()}
+                                            total={filteredCards.length}
+                                            loadMoreButtonText={getConfig('pagination', 'loadMoreButtonText')}
+                                            loadMoreQuantityText={getConfig('pagination', 'loadMoreQuantityText')} />
+                                    </div>
+                                }
+                                {
+                                    checkIfDisplayPaginator('paginator') &&
+                                    <Paginator
+                                        pageCount={windowWidth <= DESKTOP_MIN_WIDTH ?
+                                            PAGINATION_COUNT.MOBILE : PAGINATION_COUNT.DESKTOP
+                                        }
+                                        currentPageNumber={pages}
+                                        totalPages={getTotalPages()}
+                                        showItemsPerPage={showItemsPerPage}
+                                        totalResults={filteredCards.length}
+                                        onClick={handlePaginatorClick}
+                                        quantityText={getConfig('pagination', 'paginatorQuantityText')}
+                                        prevLabel={getConfig('pagination', 'paginatorPrevLabel')}
+                                        nextLabel={getConfig('pagination', 'paginatorNextLabel')} />
+                                }
+                            </Fragment> :
+                            <Loader
+                                size={LOADER_SIZE.BIG}
+                                hidden={!getConfig('collection', 'totalCardLimit')}
+                                absolute />
+                        }
+                    </span>
+                </div>
+            </section>
+        </Fragment >
+    );
+};
 
 Container.propTypes = {
     config: PropTypes.shape({
@@ -1016,3 +962,5 @@ Container.propTypes = {
 Container.defaultProps = {
     config: {},
 };
+
+export default Container;
