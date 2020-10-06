@@ -3,6 +3,7 @@ import React, {
     Fragment,
     useCallback,
     useEffect,
+    useMemo,
     useRef,
     useState,
 } from 'react';
@@ -154,14 +155,22 @@ const Container = (props) => {
     const defaultSortOption = getDefaultSortOption(config, getConfig('sort', 'defaultSort'));
 
 
-    const [cards, setCards] = useState([]);
+    const [rawCards, setCards] = useState([]);
+
+
     const [filteredCards, setFilteredCards] = useState([]);
-    const [bookmarkedCards, setBookmarkedCards] = useState([]);
+    const [bookmarkedCardIds, setBookmarkedCardIds] = useState([]);
     const [pages, setPages] = useState(1);
     const [filters, _setFilters] = useState([]);
     const filtersStateRef = useRef(filters);
     const setFilters = (data) => {
-        filtersStateRef.current = data;
+        // TODO: use proper isFunction method
+        if (typeof data === 'function') {
+            filtersStateRef.current = data(filters);
+        } else {
+            filtersStateRef.current = data;
+        }
+
         _setFilters(data);
     };
     const [lastFilterWasChecked, setLastFilterWasChecked] = useState(false);
@@ -176,6 +185,11 @@ const Container = (props) => {
     const [showLimitedFiltersQty, setSHowLimitedFiltersQty] = useState(getConfig('filterPanel', 'type') === 'top');
 
     const selectedFiltersItemsQty = getSelectedFiltersItemsQty(filters);
+
+    const cards = useMemo(() => rawCards.map(card => ({
+        ...card,
+        isBookmarked: bookmarkedCardIds.some(i => i === card.id),
+    })), [rawCards, bookmarkedCardIds]);
 
     // callbacks
 
@@ -221,11 +235,11 @@ const Container = (props) => {
 
     const setBookMarksToLS = useCallback(() => {
         try {
-            localStorage.setItem('bookmarks', JSON.stringify(bookmarkedCards, null, 2));
+            localStorage.setItem('bookmarks', JSON.stringify(bookmarkedCardIds, null, 2));
         } catch (e) {
             // alert('We could not save your bookmarks, please try to reload thші page.');
         }
-    }, [bookmarkedCards]);
+    }, [bookmarkedCardIds]);
 
     const sortCards = useCallback((field) => {
         const val = SORTING_OPTION[field.toUpperCase().trim()];
@@ -301,6 +315,7 @@ const Container = (props) => {
     }, [searchQuery, cards]);
 
     const filterCards = useCallback(() => {
+        console.log('Running', cards);
         const myFilterIds = getActiveFiltersIds();
         const query = searchQuery;
         let filterLogic = getConfig('filterPanel', 'filterLogic');
@@ -367,7 +382,7 @@ const Container = (props) => {
 
             applySorting();
         }
-    }, [searchQuery, lastFilterWasChecked, selelectedFilterBy]);
+    }, [searchQuery, lastFilterWasChecked, selelectedFilterBy, cards]);
 
 
     const clearFilterItems = useCallback((id) => {
@@ -381,6 +396,7 @@ const Container = (props) => {
                 }
                 return el;
             }));
+        console.log('filter cards in clear filter items');
         filterCards();
 
         setLastFilterWasChecked(false);
@@ -405,6 +421,7 @@ const Container = (props) => {
 
         if (!myShowFavourites) {
             searchCards();
+            console.log('filter cards in clear all filters');
             filterCards();
         }
     }, []);
@@ -450,15 +467,23 @@ const Container = (props) => {
     }, []);
 
     const handleFilterItemClick = (filterId) => {
-        setFilters(prevFilters => prevFilters.map((el) => {
-            if (el.id === filterId) {
-                el.opened = !el.opened;
-            } else if (getConfig('filterPanel', 'type') === 'top') {
-                el.opened = false;
-            }
-
-            return el;
-        }));
+        setFilters((prevFilters) => {
+            let opened;
+            return prevFilters.map((el) => {
+                if (el.id === filterId) {
+                    opened = !el.opened;
+                } else if (getConfig('filterPanel', 'type') === 'top') {
+                    opened = false;
+                } else {
+                // eslint-disable-next-line prefer-destructuring
+                    opened = el.opened;
+                }
+                return {
+                    ...el,
+                    opened,
+                };
+            });
+        });
     };
 
     const handleCheckBoxChange = useCallback((filterId, itemId, isChecked) => {
@@ -483,6 +508,7 @@ const Container = (props) => {
         setLastFilterWasChecked(isChecked);
         // TODO: potential bug because this is originaly called as a callback
         //  to the setState call above
+        console.log('filter card in handleCHeckBoxCHange');
         filterCards();
     }, [showFavourites]);
 
@@ -493,39 +519,37 @@ const Container = (props) => {
     const handlePaginatorClick = setPages;
 
     const updateCardsWithBookmarks = useCallback(() => {
-        const updatedBookmarks = [];
+        // const updatedBookmarks = [];
 
-        const doCheck = arr => arr.map((el) => {
-            if (bookmarkedCards.some(item => el.id === item)) {
-                el.isBookmarked = true;
-                if (!updatedBookmarks.some(item => item === el.id)) updatedBookmarks.push(el.id);
-            } else {
-                el.isBookmarked = false;
-            }
-            return el;
-        });
-
-        setCards(doCheck(cards));
-        setFilteredCards(doCheck(filteredCards));
-        setBookmarkedCards(updatedBookmarks);
+        // const doCheck = arr => arr.map((el) => {
+        //     if (bookmarkedCardIds.some(item => el.id === item)) {
+        //         el.isBookmarked = true;
+        //         if (!updatedBookmarks.some(item => item === el.id)) updatedBookmarks.push(el.id);
+        //     } else {
+        //         el.isBookmarked = false;
+        //     }
+        //     return el;
+        // });
+        // TODO: make derived state for filtered cards too
+        // setFilteredCards(doCheck(filteredCards));
 
         // TODO: possible bug: originally specificed as setstate callback
         setBookMarksToLS();
         if (showFavourites) doShowFavourites();
-    }, [cards, filteredCards, bookmarkedCards]);
+    }, [cards, filteredCards, bookmarkedCardIds]);
 
     const handleCardBookmarking = useCallback((id) => {
         // Update bookmarked IDs;
-        const searchIdx = bookmarkedCards.indexOf(id);
+        const searchIdx = bookmarkedCardIds.indexOf(id);
 
         if (searchIdx >= 0) {
-            setBookmarkedCards(bookmarkedCards.filter(el => el !== id));
+            setBookmarkedCardIds(bookmarkedCardIds.filter(el => el !== id));
         } else {
-            setBookmarkedCards([...bookmarkedCards, id]);
+            setBookmarkedCardIds([...bookmarkedCardIds, id]);
         }
-
+        console.log('from handle card bookmarking');
         updateCardsWithBookmarks();
-    }, [bookmarkedCards]);
+    }, [bookmarkedCardIds]);
 
     const handleShowFavsClick = useCallback((clickEvt) => {
         clickEvt.stopPropagation();
@@ -569,13 +593,11 @@ const Container = (props) => {
             optionsAlignment={optionsAlignment} />
     ), [selectOpened, selelectedFilterBy]);
 
-    const getBookMarksFromLS = useCallback((doUpdate = true) => {
+    const getBookMarksFromLS = useCallback(() => {
         const data = JSON.parse(localStorage.getItem('bookmarks'));
 
         if (Array.isArray(data)) {
-            setBookmarkedCards(data);
-            // TODO: Potential bug, set state callback
-            if (doUpdate) updateCardsWithBookmarks();
+            setBookmarkedCardIds(data);
         }
     }, []);
 
@@ -641,12 +663,13 @@ const Container = (props) => {
                 // If this.config.bookmarks.bookmarkOnlyCollection;
                 if (getConfig('bookmarks', 'bookmarkOnlyCollection')) {
                     allCards = allCards.filter(c =>
-                        this.state.bookmarkedCards.some(el => el === c.id));
+                        bookmarkedCardIds.some(el => el === c.id));
                     getBookMarksFromLS(false);
                 }
 
                 allCards = filterCardsPerDateRange(allCards);
                 allCards = applyCardLimitToLoadedCards(allCards).map(card => processCard(card));
+                console.log('Setting cards to', allCards);
                 setCards(allCards);
                 setFilters(filtersConfig.map((el) => {
                     el.opened = window.innerWidth >= DESKTOP_MIN_WIDTH ? el.openedOnLoad : false;
@@ -659,7 +682,8 @@ const Container = (props) => {
                 setLastFilterWasChecked(false);
 
                 // TODO: possible bug, originally setstate callback
-                filterCards();
+                // console.log('filter cadrs in loaddata');
+                // filterCards();
                 getBookMarksFromLS();
             });
     }, []);
@@ -718,7 +742,7 @@ const Container = (props) => {
 
         window.addEventListener('click', handleFocusOut);
         return () => window.removeEventListener('click', handleFocusOut);
-    }, [filters]);
+    }, []);
 
 
     // Update dimensions on resize
@@ -737,6 +761,15 @@ const Container = (props) => {
             window.removeEventListener('resize', updateDimensions);
         };
     }, []);
+
+    useEffect(() => {
+        console.log('Filtering cards');
+        filterCards();
+    }, [cards]);
+
+    useEffect(() => {
+        updateCardsWithBookmarks();
+    }, [cards, bookmarkedCardIds]);
 
 
     return (
@@ -776,7 +809,7 @@ const Container = (props) => {
                           unselectedIco={getConfig('bookmarks', 'unselectBookmarksIcon')}
                           selected={showFavourites}
                           onClick={handleShowFavsClick}
-                          qty={bookmarkedCards.length} />
+                          qty={bookmarkedCardIds.length} />
                       }
                   </LeftFilterPanel>
               </span>
