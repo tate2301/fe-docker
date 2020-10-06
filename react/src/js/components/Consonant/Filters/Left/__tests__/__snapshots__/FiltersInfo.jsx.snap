@@ -152,7 +152,6 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with sel
     <button
       className="consonant-select--btn"
       data-testid="select-button"
-      onBlur={[MockFunction]}
       onClick={[MockFunction]}
       tabIndex="0"
       type="button"
@@ -280,7 +279,6 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with two
     <button
       className="consonant-select--btn"
       data-testid="select-button"
-      onBlur={[MockFunction]}
       onClick={[MockFunction]}
       tabIndex="0"
       type="button"

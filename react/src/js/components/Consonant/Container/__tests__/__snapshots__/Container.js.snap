@@ -127,7 +127,6 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
           <button
             className="consonant-select--btn"
             data-testid="select-button"
-            onBlur={[Function]}
             onClick={[Function]}
             tabIndex="0"
             type="button"
@@ -327,7 +326,6 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
           <button
             className="consonant-select--btn"
             data-testid="select-button"
-            onBlur={[Function]}
             onClick={[Function]}
             tabIndex="0"
             type="button"

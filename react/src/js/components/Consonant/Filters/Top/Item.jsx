@@ -62,7 +62,8 @@ const TopFilterItem = (props) => {
                 data-testid="clear-btn"
                 type="button"
                 onClick={handleClear}
-                className="consonant-top-filter--footer-clear-btn">{clearFilterText}
+                className="consonant-top-filter--footer-clear-btn"
+                tabIndex="0">{clearFilterText}
             </button>}
             <button
                 type="button"

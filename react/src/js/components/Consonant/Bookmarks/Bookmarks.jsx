@@ -31,7 +31,8 @@ const Bookmarks = (props) => {
             type="button"
             onClick={onClick}
             className={selected ? 'bookmarks bookmarks_selected' : 'bookmarks'
-            }>
+            }
+            tabIndex="0">
             <span className="bookmarks--ico-wrapper">
                 {renderIcon()}
                 <span className="bookmarks--title">{title}</span>

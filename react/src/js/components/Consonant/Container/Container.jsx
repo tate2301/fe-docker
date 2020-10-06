@@ -92,7 +92,6 @@ export default class Container extends React.Component {
         this.handleCardBookmarking = this.handleCardBookmarking.bind(this);
         this.updateCardsWithBookmarks = this.updateCardsWithBookmarks.bind(this);
         this.handleShowFavsClick = this.handleShowFavsClick.bind(this);
-        this.handleSelectOpen = this.handleSelectOpen.bind(this);
         this.handleFocusOut = this.handleFocusOut.bind(this);
         this.handleShowAllTopFilters = this.handleShowAllTopFilters.bind(this);
         this.resetFavourites = this.resetFavourites.bind(this);
@@ -345,6 +344,7 @@ export default class Container extends React.Component {
     }
 
     setCardsToShowQty() {
+        console.log('!!!', this);
         const currentPos = window.pageYOffset;
         this.setState(prevState => ({
             pages: prevState.pages + 1,
@@ -661,10 +661,6 @@ export default class Container extends React.Component {
         }));
     }
 
-    handleSelectOpen() {
-        this.setState(prevState => ({ selectOpened: !prevState.selectOpened }));
-    }
-
     handlePaginatorClick(page) {
         this.setState({ pages: page });
     }
@@ -672,18 +668,18 @@ export default class Container extends React.Component {
     handleFocusOut(clickEvt) {
         clickEvt.stopPropagation();
 
-        if (this.getConfig('filterPanel', 'type') !== 'top') return;
-
-        const { filters } = this.state;
+        const { filters, selectOpened } = this.state;
         const CLASS_NAME = {
             TOP_FILTER: 'consonant-top-filter',
             TOP_FILTER_OPENED: 'consonant-top-filter consonant-top-filter_opened',
             TOP_FILTER_SELECTED: 'consonant-top-filter consonant-top-filter_selected',
             SEARCH: 'consonant-top-filters--search-ico-wrapper',
+            SELECT: 'consonant-select--btn',
         };
         const t = clickEvt.target;
         const res = {
             showTopFilterSearch: false,
+            selectOpened: false,
             filters: filters.map((f) => {
                 const newObj = JSON.parse(JSON.stringify(f));
 
@@ -703,8 +699,12 @@ export default class Container extends React.Component {
             return result;
         };
 
+        if (this.getConfig('filterPanel', 'type') !== 'top' && !hasClassName(CLASS_NAME.SELECT)) return;
+
         if (hasClassName(CLASS_NAME.SEARCH)) res.showTopFilterSearch = true;
-        else if (
+        else if (hasClassName(CLASS_NAME.SELECT)) {
+            res.selectOpened = !selectOpened;
+        } else if (
             hasClassName(CLASS_NAME.TOP_FILTER) ||
             hasClassName(CLASS_NAME.TOP_FILTER_OPENED) ||
             hasClassName(CLASS_NAME.TOP_FILTER_SELECTED)
@@ -773,12 +773,13 @@ export default class Container extends React.Component {
         this.setState(prevState => ({ showLimitedFiltersQty: !prevState.showLimitedFiltersQty }));
     }
 
-    renderSearch(key) {
+    renderSearch(key, autofocus = false) {
         return (<Search
             childrenKey={key}
             placeholderText={this.getConfig('search', 'inputPlaceholderText')}
             value={this.state.searchQuery}
             leftPanelTitle={this.getConfig('search', 'leftPanelTitle')}
+            autofocus={autofocus}
             onSearch={this.handleSearchInputChange} />);
     }
 
@@ -787,7 +788,6 @@ export default class Container extends React.Component {
             opened={this.state.selectOpened}
             val={this.state.selelectedFilterBy}
             values={parseToPrimitive(this.getConfig('sort', 'options'))}
-            onOpen={this.handleSelectOpen}
             onSelect={this.handleSelectChange}
             childrenKey={key}
             autoWidth={autoWidth}
@@ -855,7 +855,7 @@ export default class Container extends React.Component {
                                     showLimitedFiltersQty={this.state.showLimitedFiltersQty}
                                     onShowAllClick={this.handleShowAllTopFilters}>
                                     {this.getConfig('search', 'enabled') &&
-                                        this.renderSearch('filtersTopSearch')
+                                        this.renderSearch('filtersTopSearch', window.innerWidth >= DESKTOP_MIN_WIDTH)
                                     }
                                     {
                                         this.getConfig('search', 'enabled') &&

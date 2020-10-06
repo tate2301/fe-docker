@@ -86,17 +86,19 @@ const FiltersPanelTop = (props) => {
                         </div>
                         {
                             (checkFiltersSelected() || filters.length >= MIN_FILTERS_SHOW_BG) &&
-                            <div className={
-                                filters.length === 1 ?
-                                    'consonant-top-filters--clear-btn-wrapper consonant-top-filters--clear-btn-wrapper_no-bg' :
-                                    'consonant-top-filters--clear-btn-wrapper'
-                            }>
+                            <div
+                                className={
+                                    filters.length === 1 ?
+                                        'consonant-top-filters--clear-btn-wrapper consonant-top-filters--clear-btn-wrapper_no-bg' :
+                                        'conson0ant-top-filters--clear-btn-wrapper'
+                                }>
                                 {checkFiltersSelected() &&
                                     <button
                                         type="button"
                                         data-testid="top-filter__clear-button"
                                         className="consonant-top-filters--clear-btn"
-                                        onClick={onClearAllFilters}>{clearAllFiltersText}
+                                        onClick={onClearAllFilters}
+                                        tabIndex="0">{clearAllFiltersText}
                                     </button>
                                 }
                             </div>

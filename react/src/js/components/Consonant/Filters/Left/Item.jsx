@@ -31,7 +31,8 @@ const Item = (props) => {
             data-testid="item-badge"
             type="button"
             className="consonant-left-filter--item-badge"
-            onClick={handleClear}>
+            onClick={handleClear}
+            tabIndex="0">
             {itemsSelected}
         </button>
     );
@@ -51,7 +52,8 @@ const Item = (props) => {
                             value={item.id}
                             type="checkbox"
                             onChange={handleCheck}
-                            checked={item.selected} />
+                            checked={item.selected}
+                            tabIndex="0" />
                         <span className="consonant-left-filter--items-item-checkmark" />
                         <span className="consonant-left-filter--items-item-name">{item.label}</span>
                     </label>
@@ -92,7 +94,8 @@ const Item = (props) => {
                         type="button"
                         data-testid="filter-item-link"
                         className="consonant-left-filter--link"
-                        onClick={handleClick}>
+                        onClick={handleClick}
+                        tabIndex="0">
                         {name}
                         <div
                             className="consonant-left-filter--selected-items-qty"

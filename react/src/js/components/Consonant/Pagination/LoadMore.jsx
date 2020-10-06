@@ -21,7 +21,8 @@ const LoadMore = (props) => {
                     <button
                         type="button"
                         className="consonant-load-more--btn"
-                        onClick={onClick}>{loadMoreButtonText}
+                        onClick={onClick}
+                        tabIndex="0">{loadMoreButtonText}
                     </button>
                     }
                 </div>

@@ -6,7 +6,6 @@ const Select = (props) => {
         opened,
         val,
         values,
-        onOpen,
         onSelect,
         autoWidth,
         optionsAlignment,
@@ -25,8 +24,6 @@ const Select = (props) => {
                     'consonant-select--btn consonant-select--btn_active' :
                     'consonant-select--btn'
                 }
-                onBlur={onOpen}
-                onClick={onOpen}
                 tabIndex="0">{val.label || 'Please select'}
             </button>
             <div data-testid="consonant-select--options" className={`consonant-select--options consonant-select--options_${optionsAlignment}`}>
@@ -57,7 +54,6 @@ Select.propTypes = {
         label: PropTypes.string,
         sort: PropTypes.string,
     }).isRequired,
-    onOpen: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired,
     values: PropTypes.arrayOf(PropTypes.object).isRequired,
     autoWidth: PropTypes.bool,

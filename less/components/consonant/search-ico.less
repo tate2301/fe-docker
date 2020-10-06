@@ -25,13 +25,21 @@
         background-color: fade(@consonant-color-lightest-grey, 30%);
     }
 
-    .focused;
-
     span {
         display: block;
         width: @consonant-search-ico-size;
         height: @consonant-search-ico-size;
         background: transparent url(@consonant-search-ico-data) no-repeat 0 0;
         background-size: contain;
+    }
+
+    @media @consonant-for-desktop-up {
+        padding-left: unit((@consonant-root-rem * 1.125), px);
+        padding-right: unit((@consonant-root-rem * 1.125), px);
+        border: 2px solid transparent;
+
+        &:focus {
+            border-color: @consonant-focus-color;
+        }
     }
 }

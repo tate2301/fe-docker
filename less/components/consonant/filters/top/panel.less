@@ -183,8 +183,8 @@
         );
 
         background-color: transparent;
-        border: 0;
-        outline: 0;
+
+        .focused;
     }
 
     .consonant-top-filters--select-wrapper {
@@ -335,18 +335,16 @@
 
         // Add paddings for sort select;
         .consonant-top-filters--select-wrapper > div:first-child {
-            padding-left: unit((@consonant-root-rem * 0.75), px);
-            padding-right: unit((@consonant-root-rem * 0.75), px);
-            border: 1px solid @consonant-color-lightest-grey;
-            border-radius: unit((@consonant-root-rem * 0.25), px);
-
             &:after {
                 right: unit((@consonant-root-rem * 0.75), px);
             }
         }
 
         .consonant-top-filters--select-wrapper > div:first-child > button {
-            border: 0;
+            padding-left: unit((@consonant-root-rem * 0.75), px);
+            padding-right: unit((@consonant-root-rem * 0.75), px);
+            border: 1px solid @consonant-color-lightest-grey;
+            border-radius: unit((@consonant-root-rem * 0.25), px);
         }
 
         .consonant-top-filters--filters {

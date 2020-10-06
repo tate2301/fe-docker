@@ -169,6 +169,8 @@
         &:hover:after {
             opacity: 1;
         }
+
+        .focused;
     }
 
     /* Start related to filter items */
@@ -218,7 +220,15 @@
     }
 
     input[type = checkbox] {
-        .hide-all;
+        width: 0;
+        height: 0;
+        max-width: 0;
+        max-height: 0;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+
+        .no-border-no-outline;
     }
 
     input[type = checkbox]:checked + .consonant-left-filter--items-item-checkmark {
@@ -445,6 +455,10 @@
             padding: 6/@consonant-root-rem unit((@consonant-root-rem * 0.5), px);
         }
 
+        input[type = checkbox]:focus + .consonant-left-filter--items-item-checkmark {
+            outline: 2px solid @consonant-focus-color;
+        }
+
         .consonant-left-filter--items-item:nth-of-type(n+10):last-of-type {
             margin-bottom: 0;
         }
@@ -461,15 +475,20 @@
         }
 
         .consonant-left-filter--link {
-            padding-top: 16/@consonant-root-rem;
-            padding-bottom: 16/@consonant-root-rem;
+            padding-top: 14/@consonant-root-rem;
+            padding-bottom: 14/@consonant-root-rem;
             font-size: 14px;
             line-height: 16px;
             word-break: break-word;
             transition: color @transition-time @transition-func;
+            border: 2px solid transparent;
 
             &:hover {
                 color: @consonant-color-dark-grey-3;
+            }
+
+            &:focus {
+                border-color: @consonant-focus-color;
             }
         }
 
@@ -521,12 +540,12 @@
             }
 
             .consonant-left-filter--link {
-                padding:
-                    16/@consonant-root-rem
-                    unit((@consonant-root-rem * 2.25), px)
-                    8/@consonant-root-rem
-                    0;
+                padding-right: unit((@consonant-root-rem * 2.25), px);
                 color: @consonant-color-dark-grey-3;
+            }
+
+            .consonant-left-filter--items {
+                padding-top: 4/@consonant-root-rem;
             }
 
             .consonant-left-filter--footer {

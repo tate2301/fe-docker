@@ -10,7 +10,6 @@
 @consonant-filters-checkmark-size: unit((@consonant-root-rem * 0.875), px);
 @consonant-filters-checkmark-width: unit((@consonant-root-rem * 0.5), px);
 @consonant-filters-checkmark-height: unit((@consonant-root-rem * 0.25), px);
-@consonant-filters-selected-filters-max-height: unit((@consonant-root-rem * 7.4375), px);
 @consonant-filters-selected-filter-del-ico-width: unit((@consonant-root-rem * 0.5), px);
 @consonant-filters-item-badge-min-width: unit((@consonant-root-rem * 1.5), px);
 @consonant-filters-item-badge-max-width: unit((@consonant-root-rem * 6.25), px);
@@ -122,9 +121,12 @@
         text-transform: capitalize;
         background-color: transparent;
         outline: 0;
+
+        .focused;
     }
 
     .consonant-left-filters--list {
+        margin-bottom: auto;
         padding-left: unit((@consonant-root-rem ), px);
         padding-right: unit((@consonant-root-rem ), px);
         overflow-y: auto;
@@ -134,12 +136,12 @@
 
     .consonant-left-filters--mobile-footer {
         display: none;
-        margin-top: auto;
 
         &:extend( .flex .align .center);
 
         padding: 16/@consonant-root-rem unit((@consonant-root-rem), px);
         border-top: 1px solid @consonant-color-lightest-grey;
+        order: 2;
     }
 
     .consonant-left-filters--mobile-footer-total-res-qty {
@@ -244,6 +246,7 @@
 
         .consonant-left-filters--list {
             display: block;
+            margin-bottom: 0;
             padding: 0;
             overflow: hidden;
             z-index: 1;

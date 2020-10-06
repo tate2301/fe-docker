@@ -51,7 +51,7 @@
         var config = {
             collection: {
                 resultsPerPage: '10',
-                endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/sample-dev.json",
+                endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/sample-cards.json",
                 title: "Your Favorite Cards",
                 totalCardLimit: '-1',
                 cardStyleOverride: "none", // could also be "3:2" or "full-card"
@@ -61,7 +61,7 @@
             featuredCards: '[{"title":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pharetra consequat justo, eu suscipit nisi dignissim eu. Aenean id hendrerit ante. Nunc ornare lectus vitae vulputate hendrerit. Nullam at sodales urna, quis maximus massa. Phasellus orci nibh, ultricies a leo ac, interdum dapibus nisi. Vestibulum nec fermentum sapien. Maecenas non lacus et massa ullamcorper fermentum. Quisque felis massa, feugiat a magna non, hendrerit malesuada ante. Suspendisse tellus eros, sagittis a cursus semper, efficitur maximus nisi. Pellentesque ut dui sapien. Fusce laoreet magna ut elit molestie fermentum. Aliquam tempor massa quis lobortis lobortis. Cras id magna quis odio pulvinar rutrum ac vel diam. Cras ac posuere dolor.","appliesTo":[{"id":"we-retail:activity/biking"}],"id":"6d6438c8-1","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pharetra consequat justo, eu suscipit nisi dignissim eu. Aenean id hendrerit ante. Nunc ornare lectus vitae vulputate hendrerit. Nullam at sodales urna, quis maximus massa. Phasellus orci nibh, ultricies a leo ac, interdum dapibus nisi. Vestibulum nec fermentum sapien. Maecenas non lacus et massa ullamcorper fermentum. Quisque felis massa, feugiat a magna non, hendrerit malesuada ante. Suspendisse tellus eros, sagittis a cursus semper, efficitur maximus nisi. Pellentesque ut dui sapien. Fusce laoreet magna ut elit molestie fermentum. Aliquam tempor massa quis lobortis lobortis. Cras id magna quis odio pulvinar rutrum ac vel diam. Cras ac posuere dolor.","image":"https://via.placeholder.com/500","cardDate":"2020-06-02T09:41:35.933Z","bannerDescription":"Some Banner Description","ctaLabel":"Some CTA Label","ctaLink":"https://google.com","bannerBackgroundColor":"#CB6F10","bannerFontColor":"#FFFFFF","secondaryLabelText":"Some secondary text","bannerIcon":"","cardStyle":"3:2","label":"some label 1"}]',
             filterPanel: {
                 enabled: 'true',
-                type: 'left',
+                type: 'left',                   
                 filters: '[{"openedOnLoad":false,"id":"we-retail:activity","items":[{"label":"Biking","id":"we-retail:activity/biking"},{"label":"Hiking","id":"we-retail:activity/hiking"},{"label":"Other","id":"we-retail:activity/others"},{"label":"Running","id":"we-retail:activity/running"},{"label":"Skiing","id":"we-retail:activity/skiing"},{"label":"Surfing","id":"we-retail:activity/surfing"},{"label":"Swimming","id":"we-retail:activity/swimming"}],"group":"Activity"},{"openedOnLoad":false,"id":"we-retail:apparel","items":[{"label":"Coat","id":"we-retail:apparel/coat"},{"label":"Footwear","id":"we-retail:apparel/footwear"},{"label":"Glasses","id":"we-retail:apparel/glasses"},{"label":"Gloves","id":"we-retail:apparel/gloves"},{"label":"Hat","id":"we-retail:apparel/hat"},{"label":"Helmet","id":"we-retail:apparel/helmet"},{"label":"Pancho","id":"we-retail:apparel/pancho"},{"label":"Pants","id":"we-retail:apparel/pants"},{"label":"Scarf","id":"we-retail:apparel/scarf"},{"label":"Shirt","id":"we-retail:apparel/shirt"},{"label":"Shorts","id":"we-retail:apparel/shorts"}],"group":"Apparel"}]',
                 clearAllFiltersText: 'Clear All',
                 clearFilterText: 'Clear filter',
@@ -75,7 +75,7 @@
             },
             pagination: {
                 enabled: 'true',
-                type: 'paginator',
+                type: 'loadMore',
                 paginatorQuantityText: "{}-{} of {} results",
                 paginatorPrevLabel: "Previous",
                 paginatorNextLabel: "Next",

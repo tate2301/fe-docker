@@ -41,7 +41,8 @@ const LeftFilterPanel = (props) => {
         <button
             type="button"
             className="consonant-left-filters--clear-link"
-            onClick={onClearAllFilters}>{clearAllFiltersText}
+            onClick={onClearAllFilters}
+            tabIndex="0">{clearAllFiltersText}
         </button>
     );
     const mobileFiltersFooter = (windowWidth < DESKTOP_MIN_WIDTH &&
@@ -93,6 +94,7 @@ const LeftFilterPanel = (props) => {
                 </div>
             }
             {renderChildren('filtersSideSearch')}
+            {renderChildren('filtersSideBookmarks')}
             {
                 filters.length > 0 &&
                 <div className="consonant-left-filters--list">
@@ -112,7 +114,6 @@ const LeftFilterPanel = (props) => {
                             clearFilterText={clearFilterText} />))}
                 </div>
             }
-            {renderChildren('filtersSideBookmarks')}
             {mobileFiltersFooter}
         </div>
     );

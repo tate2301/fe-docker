@@ -10,9 +10,9 @@
 
 .bookmarks {
     position: relative;
-    margin-top: auto;
     padding: 19/@consonant-root-rem unit((@consonant-root-rem), px);
     background-color: transparent;
+    order: 1;
 
     .no-border-no-outline;
 
@@ -100,11 +100,28 @@
     }
 
     @media @consonant-for-desktop-up {
+        position: relative;
         display: flex;
         margin-top: -1px;
-        padding: 16/@consonant-root-rem 0;
-        border-bottom: 1px solid @consonant-color-lightest-grey;
+        padding: 14/@consonant-root-rem 0;
+        border: 2px solid transparent;
         order: -1;
+
+        &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            height: 1px;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            background-color: @consonant-color-lightest-grey;
+            z-index: 1;
+        }
+
+        &:focus {
+            border-color: @consonant-focus-color;
+        }
 
         .bookmarks--item-badge {
             right: unit((@consonant-root-rem * 1.875), px);

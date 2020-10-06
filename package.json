@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Sandbox code to test things for live site",
   "scripts": {
-    "build": "webpack && npm run test:u",
+    "build": "webpack",
     "test": "jest --coverage",
     "test:u": "jest -u",
     "test:dev": "jest --verbose --passWithNoTests --silent --watchAll=false",

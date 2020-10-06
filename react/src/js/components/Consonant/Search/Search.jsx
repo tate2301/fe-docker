@@ -4,17 +4,24 @@ import PropTypes from 'prop-types';
 const searchId = 'consonant-search';
 const Search = (props) => {
     const {
-        value, onSearch, placeholderText, leftPanelTitle, childrenKey,
+        value,
+        onSearch,
+        placeholderText,
+        leftPanelTitle,
+        childrenKey,
+        autofocus,
     } = props;
-
+    let textInput = null;
     const handleSearch = (evt) => {
         onSearch(evt.target.value);
     };
-
+    const setAutofocus = () => {
+        textInput.focus();
+    };
     const clearSearch = () => {
         onSearch('');
+        setAutofocus();
     };
-
     return (
         <div data-testid={childrenKey} className="consonant-search">
             <label htmlFor={searchId}>
@@ -27,13 +34,18 @@ const Search = (props) => {
                         placeholder={placeholderText}
                         value={value}
                         onChange={handleSearch}
+                        ref={(input) => {
+                            if (autofocus && input) input.focus();
+                            textInput = input;
+                        }}
                         className="consonant-search--input"
                         required />
                     <button
                         type="button"
                         title="Click to clear search query"
                         className="consonant-search--input-clear"
-                        onClick={clearSearch}>clear
+                        onClick={clearSearch}
+                        tabIndex="0">clear
                     </button>
                 </span>
             </label>
@@ -49,6 +61,7 @@ Search.propTypes = {
     value: PropTypes.string,
     placeholderText: PropTypes.string,
     leftPanelTitle: PropTypes.string,
+    autofocus: PropTypes.bool,
 };
 
 Search.defaultProps = {
@@ -56,4 +69,5 @@ Search.defaultProps = {
     childrenKey: 'consonant-search',
     placeholderText: 'Search here...',
     leftPanelTitle: 'Search',
+    autofocus: true,
 };
