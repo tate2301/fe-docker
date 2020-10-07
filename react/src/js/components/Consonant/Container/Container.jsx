@@ -2,7 +2,6 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import 'whatwg-fetch';
-import { useWindowDimensions } from '../../../utils/hooks';
 import {
     CLASS_NAME,
     DESKTOP_MIN_WIDTH,
@@ -16,13 +15,16 @@ import {
 } from '../../../constants';
 import { filterCardsByDateRange } from '../../../utils/cards';
 import {
+    chainFromIterable,
+    intersection,
+    isSuperset,
     readBookmarksFromLocalStorage,
     removeDuplicatesByKey,
     saveBookmarksToLocalStorage,
     truncateList,
     truncateString,
-    chainFromIterable,
 } from '../../../utils/general';
+import { useWindowDimensions } from '../../../utils/hooks';
 
 
 import parseToPrimitive from '../../../utils/parseToPrimitive';
@@ -57,18 +59,10 @@ function getDefaultSortOption(config, query) {
     return res;
 }
 
-function getSelectedFiltersItemsQty(filters) {
-    const res = filters.reduce((acc, val) => {
-        const count = val.items.reduce((accum, value) => {
-            if (value.selected) return accum + 1;
-            return accum;
-        }, 0);
-
-        return acc + count;
-    }, 0);
-
-    return res;
-}
+const getSelectedFiltersItemsQty = (filters) => {
+    const filterItems = chainFromIterable(filters.map(f => f.items));
+    return _.sum(filterItems.map(item => item.selected));
+};
 
 const Container = (props) => {
     const { config } = props;
@@ -439,30 +433,28 @@ const Container = (props) => {
         .map(item => item.id), [filters]);
 
     const filteredCards = useMemo(() => {
-        let filterLogic = getConfig('filterPanel', 'filterLogic');
-        filterLogic = filterLogic.toLowerCase().trim();
-        const results = cards.reduce((acc, card) => {
-            let filterPassed = false;
+        const filterLogic = getConfig('filterPanel', 'filterLogic')
+            .toLowerCase()
+            .trim();
 
-            if (
-                card.appliesTo &&
-                (filterLogic === FILTER_LOGIC.XOR || filterLogic === FILTER_LOGIC.AND) &&
-                activeFilterIds.every(el => card.appliesTo.some(tag => tag.id === el))
-            ) {
-                filterPassed = true;
-            } else if (
-                card.appliesTo &&
-                (filterLogic === FILTER_LOGIC.OR) &&
-                activeFilterIds.some(el => card.appliesTo.some(tag => tag.id === el))
-            ) {
-                filterPassed = true;
+        return cards.filter((card) => {
+            if (!card.appliesTo) {
+                return false;
             }
 
-            if (filterPassed) acc.push(card);
+            const usingXorAndFilter = filterLogic === FILTER_LOGIC.XOR
+                || filterLogic === FILTER_LOGIC.AND;
+            const usingOrFilter = filterLogic === FILTER_LOGIC.OR;
 
-            return acc;
-        }, []);
-        return results;
+            const tagIds = new Set(card.appliesTo.map(tag => tag.id));
+            const activeFilterIdsSet = new Set(activeFilterIds);
+            if (usingXorAndFilter) {
+                return isSuperset(tagIds, activeFilterIdsSet);
+            } else if (usingOrFilter) {
+                return intersection(tagIds, activeFilterIdsSet).length;
+            }
+            throw new Error(`Unrecognized filter logic: ${filterLogic}`);
+        });
     }, [cards, activeFilterIds]);
 
     const searchedCards = useMemo(() => {

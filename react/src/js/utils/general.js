@@ -40,3 +40,24 @@ export const removeDuplicatesByKey = (list, key) => {
 export const chain = (...args) => args.reduce((a, b) => a.concat(b), []);
 
 export const chainFromIterable = args => chain(...args);
+
+export const isSuperset = (superset, subset) => {
+    // eslint-disable-next-line no-restricted-syntax
+    for ( const elem of subset ) {
+        if ( !superset.has(elem) ) {
+            return false;
+        }
+    }
+    return true;
+};
+
+export const intersection = (setA, setB) => {
+    const _intersection = new Set();
+    // eslint-disable-next-line no-restricted-syntax
+    for ( const elem of setB ) {
+        if ( setA.has(elem) ) {
+            _intersection.add(elem);
+        }
+    }
+    return _intersection;
+};
