@@ -8,7 +8,7 @@ import React, {
     useState,
 } from 'react';
 import 'whatwg-fetch';
-import { truncateList, truncateString, readBookmarksFromLocalStorage, saveBookmarksToLocalStorage } from '../../../utils/general';
+import { removeDuplicatesByKey, truncateList, truncateString, readBookmarksFromLocalStorage, saveBookmarksToLocalStorage } from '../../../utils/general';
 
 
 import parseToPrimitive from '../../../utils/parseToPrimitive';
@@ -83,6 +83,15 @@ function getSelectedFiltersItemsQty(filters) {
 
     return res;
 }
+
+const populateCardMetadata = card => ({
+    ...card,
+    initialTitle: card.title,
+    description: truncateString(card.description, TRUNCATE_TEXT_QTY),
+    initialText: card.description,
+    isBookmarked: false,
+    disableBookmarkIco: getConfig('bookmarks', 'bookmarkOnlyCollection'),
+});
 
 
 const Container = (props) => {
@@ -335,18 +344,6 @@ const Container = (props) => {
             .then((res) => {
                 const limit = getConfig('collection', 'totalCardLimit');
 
-                const removeSameCardIds = (featured, _cards) => [
-                    ...featured,
-                    ..._cards.filter(card => !featured.some(el => card.id === el.id)),
-                ];
-                const processCard = (card) => {
-                    card.initialTitle = card.title;
-                    card.description = truncateString(card.description, TRUNCATE_TEXT_QTY);
-                    card.initialText = card.description;
-                    card.isBookmarked = false;
-                    card.disableBookmarkIco = getConfig('bookmarks', 'bookmarkOnlyCollection');
-                    return card;
-                };
                 const filterCardsPerDateRange = (_cards) => {
                     if (!Array.isArray(_cards)) return [];
 
@@ -367,13 +364,13 @@ const Container = (props) => {
 
                 if (!res || (res.cards && res.cards.length <= 0)) return;
 
-                let allCards = removeSameCardIds([], parseToPrimitive(res.cards));
+                let allCards = removeDuplicatesByKey(parseToPrimitive(res.cards, 'id'));
 
                 featuredCards = featuredCards.map((el) => {
                     el.isFeatured = true;
                     return el;
                 });
-                allCards = removeSameCardIds(featuredCards, allCards);
+                allCards = removeDuplicatesByKey(featuredCards.concat(allCards), 'id');
 
                 // If this.config.bookmarks.bookmarkOnlyCollection;
                 if (getConfig('bookmarks', 'bookmarkOnlyCollection')) {
@@ -382,7 +379,7 @@ const Container = (props) => {
                 }
 
                 allCards = filterCardsPerDateRange(allCards);
-                allCards = truncateList(allCards, limit).map(card => processCard(card));
+                allCards = truncateList(allCards, limit).map(populateCardMetadata);
                 setCards(allCards);
                 setFilters(filtersConfig.map((el) => {
                     el.opened = window.innerWidth >= DESKTOP_MIN_WIDTH ? el.openedOnLoad : false;

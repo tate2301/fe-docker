@@ -23,3 +23,15 @@ export const truncateList = (list, limit) => {
     // Slice received data to required q-ty;
     return list.slice(0, limit);
 };
+
+export const removeDuplicatesByKey = (list, key) => {
+    const newList = [];
+    const ids = new Set();
+    list.forEach((item) => {
+        if (!ids.has(item[key])) {
+            newList.push(item);
+            ids.add(item[key]);
+        }
+    });
+    return newList;
+};
