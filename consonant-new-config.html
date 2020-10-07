@@ -76,13 +76,13 @@
                             filtersBtnLabel: 'Filters',
                             panel: {
                                 headerText: 'Filter by',
-                                totalResultsText: '{} Results',
+                                totalResultsText: '{total} Results',
                                 applyBtnText: 'Apply',
                                 clearFilterText: 'Clear',
                                 doneBtnText: 'Done',
                             },
                             group: {
-                                totalResultsText: '{} Results',
+                                totalResultsText: '{total} Results',
                                 applyBtnText: 'Apply',
                                 clearFilterText: 'Clear',
                                 doneBtnText: 'Done',
@@ -97,7 +97,7 @@
                             group: {
                                 totalResultsText: '{total} Results',
                                 applyBtnText: 'Apply',
-                                clearFilterText: 'Clear',
+                                clearAllFiltersText: 'Clear All',
                                 doneBtnText: 'Done',
                             }
                         }
@@ -125,21 +125,31 @@
                 }
             },
             bookmarks: {
-                bookmarkOnlyCollection: 'false',
-                showBookmarksFilter: 'true',
+                leftPanel: {
+                    bookmarkOnlyCollection: 'false',
+                    showBookmarksFilter: 'true',
+                    selectBookmarksIcon: '',
+                    unselectBookmarksIcon: '',
+                }
                 i18n: {
-                    saveCardHoverText: 'Save Card',
-                    unsaveCardHoverText:  'Unsave Card',
-                    filterTitle: 'My favorites',
+                    leftPanel: {
+                        filterTitle: 'My favorites',
+                    }
                 }
             },
             search: {
                 enabled: 'true',
-                searchFields: '["contentArea.title","contentArea.detail","search.meta.author","overlays.label.text"]',
+                searchFields: '["contentArea.title","contentArea.detail","search.meta.author","overlays.label.text", "foo.bar"]',
                 i18n: {
-                    inputTitle: 'Search',
-                    inputPlaceholderText: 'Search Here',
+                    leftPanel: {
+                        inputTitle: 'Search',
+                        inputPlaceholderText: 'Search Here',
+                    },
+                    topPanel: {
+                        inputPlaceholderText: 'Search Here',
+                    }
                 }
+
             },
             locale: 'de'
         };
