@@ -12,7 +12,7 @@ const extractStyles = new ExtractTextPlugin({
 const listStyles = new StyleLintPlugin({
     files: '**/*.less',
     syntax: 'less',
-    fix: true,
+    fix: false,
 });
 
 const plugins = [
@@ -53,7 +53,7 @@ module.exports = {
                 enforce: 'pre',
                 loader: 'eslint-loader',
                 options: {
-                    failOnError: true,
+                    failOnError: false,
                     fix: true,
                 },
             },
