@@ -1,6 +1,8 @@
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import 'whatwg-fetch';
+import { useWindowDimensions } from '../../../utils/hooks';
 import {
     CLASS_NAME,
     DESKTOP_MIN_WIDTH,
@@ -14,7 +16,6 @@ import {
 } from '../../../constants';
 import { filterCardsByDateRange } from '../../../utils/cards';
 import {
-    getattribute,
     readBookmarksFromLocalStorage,
     removeDuplicatesByKey,
     saveBookmarksToLocalStorage,
@@ -162,7 +163,7 @@ const Container = (props) => {
     const [sortOpened, setSortOpened] = useState(false);
     const [sort, setSort] = useState(defaultSortOption);
     const showItemsPerPage = getConfig('collection', 'resultsPerPage');
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const { width: windowWidth } = useWindowDimensions();
     const [showMobileFilters, setShowMobileFilters] = useState(false);
     const [showBookmarks, setShowBookmarks] = useState(false);
     const [showLimitedFiltersQty, setShowLimitedFiltersQty] = useState(getConfig('filterPanel', 'type') === 'top');
@@ -325,7 +326,7 @@ const Container = (props) => {
         window.fetch(getConfig('collection', 'endpoint'))
             .then(resp => resp.json())
             .then((payload) => {
-                if (!getattribute(payload, 'cards.length')) return;
+                if (!_.get(payload, 'cards.length')) return;
 
                 const limit = getConfig('collection', 'totalCardLimit');
                 const filtersConfig = parseToPrimitive(getConfig('filterPanel', 'filters'));
@@ -378,10 +379,8 @@ const Container = (props) => {
                 return false;
             };
 
-            if (getConfig('filterPanel', 'type') !== 'top' && !hasClassName(CLASS_NAME.SELECT)) return;
-
             // TODO: Clarify intent
-            if (hasClassName(t, CLASS_NAME.SEARCH)) {
+            if (hasClassName(CLASS_NAME.SEARCH)) {
                 setShowTopFilterSearch(true);
             } else {
                 setShowTopFilterSearch(false);
@@ -416,18 +415,9 @@ const Container = (props) => {
 
     // Update dimensions on resize
     useEffect(() => {
-        let updateDimensionsTimer;
-        const updateDimensions = () => {
-            window.clearTimeout(updateDimensionsTimer);
-            updateDimensionsTimer = window.setTimeout(() => {
-                setWindowWidth(window.innerWidth);
-                setShowMobileFilters(false);
-            }, awaitTime);
-        };
+        const updateDimensions = _.debounce(() => setShowMobileFilters(false), awaitTime);
         window.addEventListener('resize', updateDimensions);
-        return () => {
-            window.removeEventListener('resize', updateDimensions);
-        };
+        return () => window.removeEventListener('resize', updateDimensions);
     }, []);
 
     useEffect(() => {

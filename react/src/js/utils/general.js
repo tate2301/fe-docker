@@ -35,14 +35,3 @@ export const removeDuplicatesByKey = (list, key) => {
     });
     return newList;
 };
-
-export const getattribute = (obj, attribute, defaultValue) => {
-    if (attribute.indexOf('.') < 0) return obj[attribute];
-    let value = obj;
-    // eslint-disable-next-line no-restricted-syntax
-    for (const attr of attribute.split('.')) {
-        value = value[attr];
-        if (value === undefined) break;
-    }
-    return value === undefined ? defaultValue : value;
-};
