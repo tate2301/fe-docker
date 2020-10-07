@@ -371,12 +371,10 @@ const Container = (props) => {
             const t = clickEvt.target;
 
             const hasClassName = (className) => {
-                if (t.className !== className) {
-                    for (let it = t; it && it !== document; it = it.parentNode) {
-                        if (it.className === className) return true;
-                    }
+                if (t.className === className) return true;
+                for (let it = t; it && it !== document; it = it.parentNode) {
+                    if (it.className.indexOf(className) >= 0) return true;
                 }
-
                 return false;
             };
 
