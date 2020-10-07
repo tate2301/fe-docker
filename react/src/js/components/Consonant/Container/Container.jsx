@@ -1,14 +1,23 @@
 import PropTypes from 'prop-types';
-import React, {
-    Fragment,
-    useCallback,
-    useEffect,
-    useMemo,
-    useRef,
-    useState,
-} from 'react';
+import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState, } from 'react';
 import 'whatwg-fetch';
-import { removeDuplicatesByKey, truncateList, truncateString, readBookmarksFromLocalStorage, saveBookmarksToLocalStorage } from '../../../utils/general';
+import {
+    DESKTOP_MIN_WIDTH,
+    FILTER_LOGIC,
+    FILTER_PANEL,
+    LOADER_SIZE,
+    PAGINATION_COUNT,
+    SORTING_OPTION,
+    TABLET_MIN_WIDTH,
+    TRUNCATE_TEXT_QTY,
+} from '../../../constants';
+import {
+    readBookmarksFromLocalStorage,
+    removeDuplicatesByKey,
+    saveBookmarksToLocalStorage,
+    truncateList,
+    truncateString
+} from '../../../utils/general';
 
 
 import parseToPrimitive from '../../../utils/parseToPrimitive';
@@ -23,34 +32,6 @@ import Paginator from '../Pagination/Paginator';
 import Search from '../Search/Search';
 import SearchIco from '../Search/SearchIco';
 import Select from '../Select/Select';
-
-const DESKTOP_MIN_WIDTH = 1200;
-const TABLET_MIN_WIDTH = 768;
-const PAGINATION_COUNT = {
-    DESKTOP: 10,
-    MOBILE: 4,
-};
-const LOADER_SIZE = {
-    MEDIUM: 'medium',
-    BIG: 'big',
-};
-const FILTER_LOGIC = {
-    AND: 'and',
-    OR: 'or',
-    XOR: 'xor',
-};
-const FILTER_PANEL = {
-    LEFT: 'left',
-    TOP: 'top',
-};
-const SORTING_OPTION = {
-    FEATURED: 'initialTitle',
-    DATEASC: 'cardDate',
-    DATEDESC: 'cardDate',
-    TITLEASC: 'initialTitle',
-    TITLEDESC: 'initialTitle',
-};
-const TRUNCATE_TEXT_QTY = 200;
 
 
 const awaitTime = 100;
