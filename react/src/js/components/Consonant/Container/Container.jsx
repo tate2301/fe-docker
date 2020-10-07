@@ -214,19 +214,6 @@ const Container = (props) => {
         [filteredCards, showItemsPerPage],
     );
 
-    const getCollectionCards = useCallback(() => {
-        let res = filteredCards;
-
-        if (showItemsPerPage && getConfig('pagination', 'type') === 'paginator') {
-            const start = pages === 1 ? 0 : (pages * showItemsPerPage) - showItemsPerPage;
-            const end = start + showItemsPerPage;
-
-            res = res.slice(start, end);
-        }
-
-        return res;
-    }, [filteredCards, pages, showItemsPerPage]);
-
     const setCardsToShowQty = () => {
         const currentPos = window.pageYOffset;
         setPages(prevState => prevState + 1);
@@ -241,53 +228,25 @@ const Container = (props) => {
         }
     }, [bookmarkedCardIds]);
 
-    const sortCards = useCallback((field) => {
-        const val = SORTING_OPTION[field.toUpperCase().trim()];
-        let sorted;
-
-        if (!val) return;
-        if (filteredCards.every(c => c[val] === filteredCards[0][val])) return;
-
-        // Sorting for featured and date;
-        if (['dateasc', 'datedesc'].some(el => el === field.toLowerCase())) {
-            sorted = [...filteredCards].sort((a, b) => {
-                if (a[val] < b[val]) return -1;
-                if (a[val] > b[val]) return 1;
-                return 0;
-            });
-        } else {
-            sorted = [...filteredCards].sort((a, b) => a[val].localeCompare(b[val], 'en', { numeric: true }));
-        }
-
-        if (field.toLowerCase().indexOf('desc') >= 0) sorted.reverse();
-        // In case of featured, move featured items to the top;
-        if (field === 'featured') {
-            sorted.sort(a => (a.isFeatured ? -1 : 0))
-                .sort((a, b) => (
-                    (a.isFeatured && b.isFeatured) &&
-            (a.initialTitle < b.initialTitle) ? -1 : 0));
-        }
-
-        setFilteredCards(sorted);
-    }, [filteredCards]);
-
     const searchCards = useCallback(() => {
+        console.log('searchCards');
         const query = searchQuery.trim().toLowerCase();
         const results = [];
         const searchFields = parseToPrimitive(getConfig('search', 'searchFields'));
         const fieldsToHighlight = ['title', 'description'];
         const highlightText = (text, val) => text.replace(new RegExp(val, 'gi'), value => `
-              <span
-                  data-testid="consonant-search-result"
-                  class="consonant-search-result">
-                  ${value}
-              </span>
-          `);
+            <span
+                data-testid="consonant-search-result"
+                class="consonant-search-result">
+                ${value}
+            </span>
+        `);
 
         // In case we reset search, just show all results;
         if (!query) {
             setFilteredCards(cards.slice());
         } else {
+            console.log('also here');
             cards.forEach((el) => {
                 let pushToRes = false;
                 const copy = { ...el };
@@ -297,6 +256,7 @@ const Container = (props) => {
                         pushToRes = true;
 
                         if (fieldsToHighlight.some(f => f === field)) {
+                            console.log(copy[field], query);
                             copy[field] = highlightText(copy[field], query);
                         }
                     }
@@ -305,17 +265,15 @@ const Container = (props) => {
                 if (pushToRes) results.push(copy);
             });
 
+            console.log(results);
+
             setFilteredCards(results);
-            setShowFavourites(false, () => {
-                if (selelectedFilterBy && selelectedFilterBy.sort) {
-                    sortCards(selelectedFilterBy.sort);
-                }
-            });
+            setShowFavourites(false);
         }
     }, [searchQuery, cards]);
 
     const filterCards = useCallback(() => {
-        console.log('Running', cards);
+        console.log('filterCards', cards);
         const myFilterIds = getActiveFiltersIds();
         const query = searchQuery;
         let filterLogic = getConfig('filterPanel', 'filterLogic');
@@ -341,11 +299,6 @@ const Container = (props) => {
             if (filterPassed) acc.push(card);
             return acc;
         }, []);
-        const applySorting = () => {
-            if (selelectedFilterBy && selelectedFilterBy.sort) {
-                sortCards(selelectedFilterBy.sort);
-            }
-        };
 
         /* In case of filters were reset or q-ty decreased, or filterLogic is XOR or OR
     we need to update search; */
@@ -364,7 +317,6 @@ const Container = (props) => {
           (filterLogic === FILTER_LOGIC.XOR && !query)
         ) {
             setFilteredCards(cards.slice());
-            applySorting();
         }
 
         // If a new filter was added, we filter within previous results;
@@ -373,14 +325,11 @@ const Container = (props) => {
           (myFilterIds.length && query)
         ) {
             setFilteredCards(checkCardsApplyToFilters(filteredCards.slice(), myFilterIds));
-            applySorting();
         }
 
         // If a filter was removed, we search from the beginning;
         if (myFilterIds.length && !lastFilterWasChecked && !query) {
             setFilteredCards(checkCardsApplyToFilters(cards.slice(), myFilterIds));
-
-            applySorting();
         }
     }, [searchQuery, lastFilterWasChecked, selelectedFilterBy, cards]);
 
@@ -412,30 +361,19 @@ const Container = (props) => {
         }));
     }, []);
 
-    const clearAllFilters = useCallback((isFavs) => {
-        const myShowFavourites = typeof isFavs !== 'boolean' ? false : isFavs;
+    const clearAllFilters = useCallback(() => {
+        // const myShowFavourites = typeof isFavs !== 'boolean' ? false : isFavs;
         clearFilters();
         setSearchQuery('');
         setLastFilterWasChecked(false);
-        setShowFavourites(myShowFavourites);
+        setShowFavourites(false);
 
-        if (!myShowFavourites) {
-            searchCards();
-            console.log('filter cards in clear all filters');
-            filterCards();
-        }
+        // if (!myShowFavourites) {
+        // searchCards();
+        // console.log('filter cards in clear all filters');
+        // filterCards();
+        // }
     }, []);
-
-    const doShowFavourites = useCallback(() => {
-        setFilteredCards(cards.filter(card => card.isBookmarked), () => {
-            sortCards(selelectedFilterBy.sort);
-        });
-    }, [selelectedFilterBy, cards]);
-
-    const resetFavourites = useCallback(() => {
-        setFilteredCards(cards);
-        setShowFavourites(false, selelectedFilterBy.sort);
-    }, [cards, selelectedFilterBy]);
 
     const checkIfDisplayPaginator = useCallback((type) => {
         const cardsLength = filteredCards.length;
@@ -455,15 +393,12 @@ const Container = (props) => {
 
         setSelelectedFilterBy(option);
         setSelectOpened(false);
-        sortCards(selelectedFilterBy.sort);
     }, []);
 
     const handleSearchInputChange = useCallback((val) => {
         clearFilters();
         setSearchQuery(val);
-        // TODO: potential bug because originally searchCards is called as a
-        //  callback to set search query
-        searchCards();
+        // searchCards();
     }, []);
 
     const handleFilterItemClick = (filterId) => {
@@ -488,7 +423,7 @@ const Container = (props) => {
 
     const handleCheckBoxChange = useCallback((filterId, itemId, isChecked) => {
         const filterLogic = getConfig('filterPanel', 'filterLogic');
-        if (showFavourites) resetFavourites();
+        setShowFavourites(false);
 
         // If xor filterLogic set, we reset all filters;
         if (filterLogic.toLowerCase().trim() === FILTER_LOGIC.XOR && isChecked) clearFilters();
@@ -518,26 +453,6 @@ const Container = (props) => {
 
     const handlePaginatorClick = setPages;
 
-    const updateCardsWithBookmarks = useCallback(() => {
-        // const updatedBookmarks = [];
-
-        // const doCheck = arr => arr.map((el) => {
-        //     if (bookmarkedCardIds.some(item => el.id === item)) {
-        //         el.isBookmarked = true;
-        //         if (!updatedBookmarks.some(item => item === el.id)) updatedBookmarks.push(el.id);
-        //     } else {
-        //         el.isBookmarked = false;
-        //     }
-        //     return el;
-        // });
-        // TODO: make derived state for filtered cards too
-        // setFilteredCards(doCheck(filteredCards));
-
-        // TODO: possible bug: originally specificed as setstate callback
-        setBookMarksToLS();
-        if (showFavourites) doShowFavourites();
-    }, [cards, filteredCards, bookmarkedCardIds]);
-
     const handleCardBookmarking = useCallback((id) => {
         // Update bookmarked IDs;
         const searchIdx = bookmarkedCardIds.indexOf(id);
@@ -547,20 +462,11 @@ const Container = (props) => {
         } else {
             setBookmarkedCardIds([...bookmarkedCardIds, id]);
         }
-        console.log('from handle card bookmarking');
-        updateCardsWithBookmarks();
     }, [bookmarkedCardIds]);
 
     const handleShowFavsClick = useCallback((clickEvt) => {
         clickEvt.stopPropagation();
         setShowFavourites(prev => !prev);
-        // TODO: Refactor into useEffect hook
-        if (!showFavourites) { // inverse is value after set state call
-            clearAllFilters(true);
-            doShowFavourites();
-        } else {
-            resetFavourites();
-        }
     }, [showFavourites]);
 
     const handleSearchIcoClick = useCallback((evt) => {
@@ -768,8 +674,75 @@ const Container = (props) => {
     }, [cards]);
 
     useEffect(() => {
-        updateCardsWithBookmarks();
+        setBookMarksToLS();
     }, [cards, bookmarkedCardIds]);
+
+    useEffect(() => {
+        searchCards();
+    }, [searchQuery, cards]);
+
+    useEffect(() => {
+        if (showFavourites) {
+            clearFilters();
+            setSearchQuery('');
+        }
+    }, [showFavourites]);
+
+    const sortedCards = useMemo(() => {
+        console.log('sort cards', filteredCards);
+        if (!selelectedFilterBy || !selelectedFilterBy.sort) {
+            return filteredCards;
+        }
+        const field = selelectedFilterBy.sort;
+        const val = SORTING_OPTION[field.toUpperCase().trim()];
+        let sorted;
+
+        if (!val) return filteredCards;
+        if (filteredCards.every(c => c[val] === filteredCards[0][val])) return filteredCards;
+
+        // Sorting for featured and date;
+        if (['dateasc', 'datedesc'].some(el => el === field.toLowerCase())) {
+            sorted = [...filteredCards].sort((a, b) => {
+                if (a[val] < b[val]) return -1;
+                if (a[val] > b[val]) return 1;
+                return 0;
+            });
+        } else {
+            sorted = [...filteredCards].sort((a, b) => a[val].localeCompare(b[val], 'en', { numeric: true }));
+        }
+
+        if (field.toLowerCase().indexOf('desc') >= 0) sorted.reverse();
+        // In case of featured, move featured items to the top;
+        if (field === 'featured') {
+            sorted.sort(a => (a.isFeatured ? -1 : 0))
+                .sort((a, b) => (
+                    (a.isFeatured && b.isFeatured) &&
+          (a.initialTitle < b.initialTitle) ? -1 : 0));
+        }
+
+        return sorted;
+    }, [filteredCards, selelectedFilterBy.sort]);
+
+    const bookmarkedCards = useMemo(
+        () => sortedCards.filter(card => card.isBookmarked),
+        [sortedCards],
+    );
+
+    const collectionCards = useMemo(() => {
+        // INFO: bookmarked cards will be ordered because bookmarked cards is
+        //  derived from sorted Cards
+        console.log('collection cadrs', showFavourites, bookmarkedCards, cards);
+        let res = showFavourites ? bookmarkedCards : sortedCards;
+
+        if (showItemsPerPage && getConfig('pagination', 'type') === 'paginator') {
+            const start = pages === 1 ? 0 : (pages * showItemsPerPage) - showItemsPerPage;
+            const end = start + showItemsPerPage;
+
+            res = res.slice(start, end);
+        }
+
+        return res;
+    }, [filteredCards, pages, showItemsPerPage, showFavourites]);
 
 
     return (
@@ -884,7 +857,7 @@ const Container = (props) => {
                                 <Collection
                                     showItemsPerPage={showItemsPerPage}
                                     pages={pages}
-                                    cards={getCollectionCards()}
+                                    cards={collectionCards}
                                     allowBookmarking={getConfig('bookmarks', 'enabled')}
                                     onCardBookmark={handleCardBookmarking}
                                     cardUnsavedIco={getConfig('bookmarks', 'cardUnsavedIcon')}
