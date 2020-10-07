@@ -84,16 +84,6 @@ function getSelectedFiltersItemsQty(filters) {
     return res;
 }
 
-const populateCardMetadata = card => ({
-    ...card,
-    initialTitle: card.title,
-    description: truncateString(card.description, TRUNCATE_TEXT_QTY),
-    initialText: card.description,
-    isBookmarked: false,
-    disableBookmarkIco: getConfig('bookmarks', 'bookmarkOnlyCollection'),
-});
-
-
 const Container = (props) => {
     const { config } = props;
     const getConfig = useCallback((object, key) => {
@@ -201,6 +191,15 @@ const Container = (props) => {
     })), [rawCards, bookmarkedCardIds]);
 
     // callbacks
+
+    const populateCardMetadata = useCallback(card => ({
+        ...card,
+        initialTitle: card.title,
+        description: truncateString(card.description, TRUNCATE_TEXT_QTY),
+        initialText: card.description,
+        isBookmarked: false,
+        disableBookmarkIco: getConfig('bookmarks', 'bookmarkOnlyCollection'),
+    }), []);
 
     const onLoadMoreClick = () => {
         setPages(prevState => prevState + 1);
