@@ -4,6 +4,7 @@ import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState } fr
 import 'whatwg-fetch';
 import {
     CLASS_NAME,
+    DEFAULT_CONFIG,
     DESKTOP_MIN_WIDTH,
     FILTER_LOGIC,
     FILTER_PANEL,
@@ -14,6 +15,7 @@ import {
     TRUNCATE_TEXT_QTY,
 } from '../../../constants';
 import { filterCardsByDateRange } from '../../../utils/cards';
+import { getDefaultSortOption, getNumSelectedFilterItems } from '../../../utils/consonant';
 import {
     chainFromIterable,
     intersection,
@@ -41,97 +43,12 @@ import SearchIco from '../Search/SearchIco';
 import Select from '../Select/Select';
 
 
-const awaitTime = 100;
-
-function getDefaultSortOption(config, query) {
-    const { sort } = config;
-    let res = {
-        label: 'Featured',
-        sort: 'featured',
-    };
-
-
-    if (sort && parseToPrimitive(sort.options)) {
-        const filtered = parseToPrimitive(sort.options).filter(el => el.sort === query);
-        if (filtered && filtered.length) [res] = filtered;
-    }
-
-    return res;
-}
-
-const getSelectedFiltersItemsQty = (filters) => {
-    const filterItems = chainFromIterable(filters.map(f => f.items));
-    return _.sum(filterItems.map(item => item.selected));
-};
-
 const Container = (props) => {
     const { config } = props;
+
     const getConfig = useCallback((object, key) => {
-        const defaultProps = {
-            collection: {
-                resultsPerPage: 9,
-                endpoint: 'http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v4/webinars',
-                title: '',
-                totalCardLimit: -1,
-                cardStyle: 'none',
-                displayTotalResults: true,
-                totalResultsText: '{} results',
-            },
-            featuredCards: [],
-            header: {
-                enabled: false,
-            },
-            filterPanel: {
-                enabled: true,
-                type: 'left',
-                filters: [],
-                clearAllFiltersText: 'Clear all',
-                clearFilterText: 'Clear',
-                filterLogic: 'and',
-                leftPanelHeader: 'Refine the results',
-            },
-            sort: {
-                enabled: true,
-                defaultSort: 'featured',
-                options: [],
-            },
-            pagination: {
-                enabled: true,
-                type: 'loadMore',
-                paginatorQuantityText: 'Showing {}-{} of {} Results',
-                paginatorPrevLabel: 'Previous',
-                paginatorNextLabel: 'Next',
-                loadMoreButtonText: 'Load more',
-                loadMoreQuantityText: '{} of {} displayed',
-            },
-            bookmarks: {
-                enabled: true,
-                bookmarkOnlyCollection: false,
-                cardSavedIcon: '',
-                cardUnsavedIcon: '',
-                selectBookmarksIcon: '',
-                unselectBookmarksIcon: '',
-                saveCardText: 'Save card',
-                unsaveCardText: 'Unsave card',
-                bookmarksFilterTitle: 'My favorites',
-            },
-            search: {
-                enabled: true,
-                inputPlaceholderText: 'Search here...',
-                leftPanelTitle: 'Search',
-                searchFields: [
-                    'title',
-                    'description',
-                ],
-            },
-        };
-        const val = config[object] ? config[object][key] : null;
-        let res;
-
-        if (!val && typeof val !== 'boolean' && typeof val !== 'number') res = defaultProps[object][key];
-        else res = config[object][key];
-
-        return parseToPrimitive(res);
+        const value = _.get(config, `${object}.${key}`, DEFAULT_CONFIG[ object ][ key ]);
+        return parseToPrimitive(value);
     }, []);
 
     const defaultSortOption = getDefaultSortOption(config, getConfig('sort', 'defaultSort'));
@@ -162,7 +79,7 @@ const Container = (props) => {
     const [showBookmarks, setShowBookmarks] = useState(false);
     const [showLimitedFiltersQty, setShowLimitedFiltersQty] = useState(getConfig('filterPanel', 'type') === 'top');
 
-    const selectedFiltersItemsQty = getSelectedFiltersItemsQty(filters);
+    const selectedFiltersItemsQty = getNumSelectedFilterItems(filters);
 
     const cards = useMemo(() => rawCards.map(card => ({
         ...card,
@@ -415,7 +332,7 @@ const Container = (props) => {
 
     // Update dimensions on resize
     useEffect(() => {
-        const updateDimensions = _.debounce(() => setShowMobileFilters(false), awaitTime);
+        const updateDimensions = _.debounce(() => setShowMobileFilters(false), 100);
         window.addEventListener('resize', updateDimensions);
         return () => window.removeEventListener('resize', updateDimensions);
     }, []);
