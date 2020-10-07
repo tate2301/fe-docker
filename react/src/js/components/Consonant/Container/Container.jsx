@@ -290,12 +290,12 @@ const Container = (props) => {
 
     const handleCardBookmarking = useCallback((id) => {
         // Update bookmarked IDs
-        const carIsBookmarked = bookmarkedCardIds.find(card => card === id) >= 0;
+        const cardIsBookmarked = bookmarkedCardIds.find(card => card === id);
 
-        if (carIsBookmarked) {
-            setBookmarkedCardIds(bookmarkedCardIds.filter(el => el !== id));
+        if (cardIsBookmarked) {
+            setBookmarkedCardIds(prev => prev.filter(el => el !== id));
         } else {
-            setBookmarkedCardIds([...bookmarkedCardIds, id]);
+            setBookmarkedCardIds(prev => [...prev, id]);
         }
     }, [bookmarkedCardIds]);
 
