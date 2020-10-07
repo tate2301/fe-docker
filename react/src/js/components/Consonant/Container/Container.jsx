@@ -592,13 +592,16 @@ const Container = (props) => {
 
     // Other callbacks
 
-    const checkIfDisplayPaginator = useCallback((type) => {
-        const cardsLength = filteredCards.length;
+    const shouldDisplayPaginator = useCallback((type) => {
+        const paginationIsEnabled = getConfig('pagination', 'enabled');
+        const paginationIsCorrectType = getConfig('pagination', 'type') === type;
+        const resultsPerPageNotZero = getConfig('collection', 'resultsPerPage') > 0;
+        const cardLengthExceedsDisplayLimit = filteredCards.length > showItemsPerPage;
 
-        return getConfig('pagination', 'enabled') &&
-            getConfig('pagination', 'type') === type &&
-            getConfig('collection', 'resultsPerPage') > 0 &&
-            cardsLength > showItemsPerPage;
+        return paginationIsEnabled &&
+            paginationIsCorrectType &&
+            resultsPerPageNotZero &&
+            cardLengthExceedsDisplayLimit;
     }, [filteredCards, showItemsPerPage]);
 
 
@@ -723,7 +726,7 @@ const Container = (props) => {
                                     unsaveCardText={getConfig('bookmarks', 'unsaveCardText')}
                                     cardsStyle={getConfig('collection', 'cardStyle')} />
                                 {
-                                    checkIfDisplayPaginator('loadMore') &&
+                                    shouldDisplayPaginator('loadMore') &&
                                     //  Migrate to useRef
                                     <div ref={page}>
                                         <LoadMore
@@ -735,7 +738,7 @@ const Container = (props) => {
                                     </div>
                                 }
                                 {
-                                    checkIfDisplayPaginator('paginator') &&
+                                    shouldDisplayPaginator('paginator') &&
                                     <Paginator
                                         pageCount={windowWidth <= DESKTOP_MIN_WIDTH ?
                                             PAGINATION_COUNT.MOBILE : PAGINATION_COUNT.DESKTOP
