@@ -8,7 +8,9 @@ import React, {
     useState,
 } from 'react';
 import 'whatwg-fetch';
-import { saveBookmarksToLocalStorage } from '../../../utils/general';
+import { truncateList, truncateString, readBookmarksFromLocalStorage, saveBookmarksToLocalStorage } from '../../../utils/general';
+
+
 import parseToPrimitive from '../../../utils/parseToPrimitive';
 import Bookmarks from '../Bookmarks/Bookmarks';
 import Collection from '../Collection/Collection';
@@ -155,9 +157,7 @@ const Container = (props) => {
 
     const defaultSortOption = getDefaultSortOption(config, getConfig('sort', 'defaultSort'));
 
-
     const [rawCards, setCards] = useState([]);
-
 
     const [bookmarkedCardIds, setBookmarkedCardIds] = useState([]);
     const [pages, setPages] = useState(1);
@@ -166,7 +166,6 @@ const Container = (props) => {
     const setFilters = (data) => {
         // TODO: use proper isFunction method
         if (typeof data === 'function') {
-            console.log(data(filters));
             filtersStateRef.current = data(filters);
         } else {
             filtersStateRef.current = data;
@@ -177,13 +176,13 @@ const Container = (props) => {
     const page = useRef();
     const [searchQuery, setSearchQuery] = useState('');
     const [showTopFilterSearch, setShowTopFilterSearch] = useState(false);
-    const [selectOpened, setSelectOpened] = useState(false);
+    const [sortOpened, setSortOpened] = useState(false);
     const [sort, setSort] = useState(defaultSortOption);
     const showItemsPerPage = getConfig('collection', 'resultsPerPage');
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [showMobileFilters, setShowMobileFilters] = useState(false);
-    const [showFavourites, setShowFavourites] = useState(false);
-    const [showLimitedFiltersQty, setSHowLimitedFiltersQty] = useState(getConfig('filterPanel', 'type') === 'top');
+    const [showBookmarks, setShowBookmarks] = useState(false);
+    const [showLimitedFiltersQty, setShowLimitedFiltersQty] = useState(getConfig('filterPanel', 'type') === 'top');
 
     const selectedFiltersItemsQty = getSelectedFiltersItemsQty(filters);
 
@@ -222,105 +221,88 @@ const Container = (props) => {
         }));
     }, []);
 
-    const clearAllFilters = useCallback(() => {
-        // const myShowFavourites = typeof isFavs !== 'boolean' ? false : isFavs;
+    const resetFiltersSearchAndBookmarks = useCallback(() => {
         clearFilters();
         setSearchQuery('');
-        setShowFavourites(false);
-
-        // if (!myShowFavourites) {
-        // searchCards();
-        // console.log('filter cards in clear all filters');
-        // filterCards();
-        // }
+        setShowBookmarks(false);
     }, []);
 
-    const handleSelectChange = useCallback((option) => {
-        if (option.label === sort.label) {
-            setSelectOpened(false);
-            return;
-        }
+    const handleSortChange = useCallback((option) => {
         setSort(option);
-        setSelectOpened(false);
+        setSortOpened(false);
     }, [sort]);
 
     const handleSearchInputChange = useCallback((val) => {
         clearFilters();
         setSearchQuery(val);
-        // searchCards();
     }, []);
 
     const handleFilterItemClick = (filterId) => {
+        const isUsingTopFilter = getConfig('filterPanel', 'type') === 'top';
         setFilters((prevFilters) => {
             let opened;
             return prevFilters.map((el) => {
                 if (el.id === filterId) {
                     opened = !el.opened;
-                } else if (getConfig('filterPanel', 'type') === 'top') {
+                } else if (isUsingTopFilter) {
+                    // Top filter can only have 1 simultaneous filter that's opened
                     opened = false;
                 } else {
-                // eslint-disable-next-line prefer-destructuring
+                    // eslint-disable-next-line prefer-destructuring
                     opened = el.opened;
                 }
-                return {
-                    ...el,
-                    opened,
-                };
+                return { ...el, opened };
             });
         });
     };
 
     const handleCheckBoxChange = useCallback((filterId, itemId, isChecked) => {
-        console.log('Checkbox Change');
         const filterLogic = getConfig('filterPanel', 'filterLogic');
-        setShowFavourites(false);
+        setShowBookmarks(false);
 
         // If xor filterLogic set, we reset all filters;
         if (filterLogic.toLowerCase().trim() === FILTER_LOGIC.XOR && isChecked) clearFilters();
 
-        console.log('XOR not set');
-
         setFilters(prevFilters => prevFilters.map((filter) => {
-            console.log('Filter:', filter, filterId, itemId);
             if (filter.id === filterId) {
-                filter.items = filter.items.map((item) => {
-                    if (item.id === itemId) item.selected = !item.selected;
-
-                    return item;
-                });
+                return {
+                    ...filter,
+                    items: filter.items.map(item => ({
+                        ...item,
+                        selected: item.id === itemId ? !item.selected : item.selected,
+                    })),
+                };
             }
 
             return filter;
         }));
-    }, [showFavourites]);
+    }, [showBookmarks]);
 
     const handleFiltersToggle = () => setShowMobileFilters(prev => !prev);
 
-    const handlePaginatorClick = setPages;
-
     const handleCardBookmarking = useCallback((id) => {
         // Update bookmarked IDs;
-        const searchIdx = bookmarkedCardIds.indexOf(id);
+        const carIsBookmarked = bookmarkedCardIds.find(id) >= 0;
 
-        if (searchIdx >= 0) {
+        if (carIsBookmarked) {
             setBookmarkedCardIds(bookmarkedCardIds.filter(el => el !== id));
         } else {
             setBookmarkedCardIds([...bookmarkedCardIds, id]);
         }
     }, [bookmarkedCardIds]);
 
-    const handleShowFavsClick = useCallback((clickEvt) => {
+    const handleShowFavoritesClick = useCallback((clickEvt) => {
         clickEvt.stopPropagation();
-        setShowFavourites(prev => !prev);
-    }, [showFavourites]);
+        setShowBookmarks(prev => !prev);
+    }, [showBookmarks]);
 
-    const handleSearchIcoClick = useCallback((evt) => {
+    const handleSearchIconClick = useCallback((evt) => {
         evt.preventDefault();
         setShowTopFilterSearch(evt.type === 'click');
     }, []);
 
     const handleShowAllTopFilters = useCallback(() => {
-        setSHowLimitedFiltersQty(prev => !prev);
+        setShowLimitedFiltersQty(prev => !prev);
     }, []);
 
     const renderSearch = useCallback((key, autofocus = false) => (
@@ -336,22 +318,14 @@ const Container = (props) => {
     const renderSelect = useCallback((autoWidth, key, optionsAlignment = 'right') => (
         <Select
             // onOpen={() => setSelectOpened(p => !p)}
-            opened={selectOpened}
+            opened={sortOpened}
             val={sort}
             values={parseToPrimitive(getConfig('sort', 'options'))}
-            onSelect={handleSelectChange}
+            onSelect={handleSortChange}
             childrenKey={key}
             autoWidth={autoWidth}
             optionsAlignment={optionsAlignment} />
-    ), [selectOpened, sort]);
-
-    const getBookMarksFromLS = useCallback(() => {
-        const data = JSON.parse(localStorage.getItem('bookmarks'));
-
-        if (Array.isArray(data)) {
-            setBookmarkedCardIds(data);
-        }
-    }, []);
+    ), [sortOpened, sort]);
 
     // Effects
 
@@ -359,18 +333,8 @@ const Container = (props) => {
         window.fetch(getConfig('collection', 'endpoint'))
             .then(resp => resp.json())
             .then((res) => {
-                const truncateString = (str, num) => {
-                    if (str.length <= num) return str;
-                    return `${str.slice(0, num)}...`;
-                };
-                const applyCardLimitToLoadedCards = (data) => {
-                    const limit = getConfig('collection', 'totalCardLimit');
-                    // No limit, return all;
-                    if (limit < 0) return data;
+                const limit = getConfig('collection', 'totalCardLimit');
 
-                    // Slice received data to required q-ty;
-                    return data.slice(0, limit);
-                };
                 const removeSameCardIds = (featured, _cards) => [
                     ...featured,
                     ..._cards.filter(card => !featured.some(el => card.id === el.id)),
@@ -415,11 +379,10 @@ const Container = (props) => {
                 if (getConfig('bookmarks', 'bookmarkOnlyCollection')) {
                     allCards = allCards.filter(c =>
                         bookmarkedCardIds.some(el => el === c.id));
-                    getBookMarksFromLS(false);
                 }
 
                 allCards = filterCardsPerDateRange(allCards);
-                allCards = applyCardLimitToLoadedCards(allCards).map(card => processCard(card));
+                allCards = truncateList(allCards, limit).map(card => processCard(card));
                 setCards(allCards);
                 setFilters(filtersConfig.map((el) => {
                     el.opened = window.innerWidth >= DESKTOP_MIN_WIDTH ? el.openedOnLoad : false;
@@ -429,8 +392,11 @@ const Container = (props) => {
                     });
                     return el;
                 }));
-                getBookMarksFromLS();
             });
+    }, []);
+
+    useEffect(() => {
+        setBookmarkedCardIds(readBookmarksFromLocalStorage());
     }, []);
 
     // Set focusOut handlers
@@ -488,7 +454,7 @@ const Container = (props) => {
                 }));
             }
 
-            setSelectOpened(targetSelectOpened);
+            setSortOpened(targetSelectOpened);
         };
 
 
@@ -518,11 +484,11 @@ const Container = (props) => {
     }, [cards, bookmarkedCardIds]);
 
     useEffect(() => {
-        if (showFavourites) {
+        if (showBookmarks) {
             clearFilters();
             setSearchQuery('');
         }
-    }, [showFavourites]);
+    }, [showBookmarks]);
 
     // Derived state
 
@@ -637,7 +603,7 @@ const Container = (props) => {
     const collectionCards = useMemo(() => {
         // INFO: bookmarked cards will be ordered because bookmarked cards is
         //  derived from sorted Cards
-        let res = showFavourites ? bookmarkedCards : sortedCards;
+        let res = showBookmarks ? bookmarkedCards : sortedCards;
 
         if (showItemsPerPage && getConfig('pagination', 'type') === 'paginator') {
             const start = pages === 1 ? 0 : (pages * showItemsPerPage) - showItemsPerPage;
@@ -647,7 +613,7 @@ const Container = (props) => {
         }
 
         return res;
-    }, [sortedCards, filteredCards, pages, showItemsPerPage, showFavourites]);
+    }, [sortedCards, filteredCards, pages, showItemsPerPage, showBookmarks]);
 
     const totalPages = useMemo(
         () => Math.ceil(filteredCards.length / showItemsPerPage),
@@ -691,7 +657,7 @@ const Container = (props) => {
                       onFilterClick={handleFilterItemClick}
                       clearFilterText={getConfig('filterPanel', 'clearFilterText')}
                       clearAllFiltersText={getConfig('filterPanel', 'clearAllFiltersText')}
-                      onClearAllFilters={clearAllFilters}
+                      onClearAllFilters={resetFiltersSearchAndBookmarks}
                       onClearFilterItems={clearFilterItems}
                       onCheckboxClick={handleCheckBoxChange}
                       onMobileFiltersToggleClick={handleFiltersToggle}
@@ -709,8 +675,8 @@ const Container = (props) => {
                           title={getConfig('bookmarks', 'bookmarksFilterTitle')}
                           selectedIco={getConfig('bookmarks', 'selectBookmarksIcon')}
                           unselectedIco={getConfig('bookmarks', 'unselectBookmarksIcon')}
-                          selected={showFavourites}
-                          onClick={handleShowFavsClick}
+                          selected={showBookmarks}
+                          onClick={handleShowFavoritesClick}
                           qty={bookmarkedCardIds.length} />
                       }
                   </LeftFilterPanel>
@@ -725,7 +691,7 @@ const Container = (props) => {
                                   onCheckboxClick={handleCheckBoxChange}
                                   onFilterClick={handleFilterItemClick}
                                   onClearFilterItems={clearFilterItems}
-                                  onClearAllFilters={clearAllFilters}
+                                  onClearAllFilters={resetFiltersSearchAndBookmarks}
                                   clearFilterText={getConfig('filterPanel', 'clearFilterText')}
                                   clearAllFiltersText={getConfig('filterPanel', 'clearAllFiltersText')}
                                   showTotalResults={getConfig('collection', 'displayTotalResults')}
@@ -741,7 +707,7 @@ const Container = (props) => {
                                   windowWidth >= TABLET_MIN_WIDTH &&
                                   <SearchIco
                                       childrenKey="filtersTopSearchIco"
-                                      onClick={handleSearchIcoClick} />
+                                      onClick={handleSearchIconClick} />
 
                                   }
                                   {
@@ -816,7 +782,7 @@ const Container = (props) => {
                                         totalPages={totalPages}
                                         showItemsPerPage={showItemsPerPage}
                                         totalResults={filteredCards.length}
-                                        onClick={handlePaginatorClick}
+                                        onClick={setPages}
                                         quantityText={getConfig('pagination', 'paginatorQuantityText')}
                                         prevLabel={getConfig('pagination', 'paginatorPrevLabel')}
                                         nextLabel={getConfig('pagination', 'paginatorNextLabel')} />
