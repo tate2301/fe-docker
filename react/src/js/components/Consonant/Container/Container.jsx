@@ -363,13 +363,12 @@ const Container = (props) => {
 
                 if (!payload || (payload.cards && payload.cards.length <= 0)) return;
 
-                let allCards = removeDuplicatesByKey(parseToPrimitive(payload.cards), 'id');
 
                 featuredCards = featuredCards.map((el) => {
                     el.isFeatured = true;
                     return el;
                 });
-                allCards = removeDuplicatesByKey(featuredCards.concat(allCards), 'id');
+                let allCards = removeDuplicatesByKey(featuredCards.concat(parseToPrimitive(payload.cards)), 'id');
 
                 // If this.config.bookmarks.bookmarkOnlyCollection;
                 if (getConfig('bookmarks', 'bookmarkOnlyCollection')) {
@@ -744,7 +743,7 @@ const Container = (props) => {
                             }
                         </FilterInfo>
                         }
-                        {cards.length > 0 ?
+                        {collectionCards.length > 0 ?
                             <Fragment>
                                 <Collection
                                     showItemsPerPage={showItemsPerPage}
