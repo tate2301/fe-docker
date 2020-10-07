@@ -1830,7 +1830,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
         </div>
       </div>
       <div
-        className="consonant-top-filters--clear-btn-wrapper"
+        className="conson0ant-top-filters--clear-btn-wrapper"
       />
     </div>
   </div>

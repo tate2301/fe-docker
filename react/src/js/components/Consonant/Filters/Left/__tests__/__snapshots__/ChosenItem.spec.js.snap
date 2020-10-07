@@ -5,6 +5,7 @@ exports[`Consonant/ChosenItem Check snapshots should renders correctly 1`] = `
   className="consonant-chosen-filter"
   data-testid="selected-filter"
   onClick={[Function]}
+  tabIndex="0"
   type="button"
 >
   filter name

@@ -21,6 +21,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
         className="consonant-left-filter--link"
         data-testid="filter-item-link"
         onClick={[Function]}
+        tabIndex="0"
         type="button"
       >
         Topic
@@ -58,6 +59,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             data-testid="list-item-checkbox"
             id="we-retail:activity/hiking"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="we-retail:activity/hiking"
           />
@@ -84,6 +86,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             data-testid="list-item-checkbox"
             id="we-retail:activity/biking"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="we-retail:activity/biking"
           />
@@ -110,6 +113,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             data-testid="list-item-checkbox"
             id="adobe-com-enterprise:topic/customer-intelligence"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="adobe-com-enterprise:topic/customer-intelligence"
           />
@@ -136,6 +140,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             data-testid="list-item-checkbox"
             id="adobe-com-enterprise:topic/data-management-platform"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="adobe-com-enterprise:topic/data-management-platform"
           />
@@ -162,6 +167,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             data-testid="list-item-checkbox"
             id="adobe-com-enterprise:topic/digital-foundation"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="adobe-com-enterprise:topic/digital-foundation"
           />
@@ -188,6 +194,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             data-testid="list-item-checkbox"
             id="adobe-com-enterprise:topic/digital-trends"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="adobe-com-enterprise:topic/digital-trends"
           />
@@ -214,6 +221,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             data-testid="list-item-checkbox"
             id="adobe-com-enterprise:topic/document-management"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="adobe-com-enterprise:topic/document-management"
           />
@@ -240,6 +248,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             data-testid="list-item-checkbox"
             id="adobe-com-enterprise:topic/marketing-automation"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="adobe-com-enterprise:topic/marketing-automation"
           />
@@ -266,6 +275,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             data-testid="list-item-checkbox"
             id="adobe-com-enterprise:topic/personalization"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="adobe-com-enterprise:topic/personalization"
           />
@@ -292,6 +302,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             data-testid="list-item-checkbox"
             id="adobe-com-enterprise:topic/Stock"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="adobe-com-enterprise:topic/Stock"
           />
@@ -348,6 +359,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
         className="consonant-left-filter--link"
         data-testid="filter-item-link"
         onClick={[Function]}
+        tabIndex="0"
         type="button"
       >
         Topic
@@ -385,6 +397,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             data-testid="list-item-checkbox"
             id="we-retail:activity/hiking"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="we-retail:activity/hiking"
           />
@@ -411,6 +424,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             data-testid="list-item-checkbox"
             id="we-retail:activity/biking"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="we-retail:activity/biking"
           />
@@ -437,6 +451,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             data-testid="list-item-checkbox"
             id="adobe-com-enterprise:topic/customer-intelligence"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="adobe-com-enterprise:topic/customer-intelligence"
           />
@@ -463,6 +478,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             data-testid="list-item-checkbox"
             id="adobe-com-enterprise:topic/data-management-platform"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="adobe-com-enterprise:topic/data-management-platform"
           />
@@ -489,6 +505,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             data-testid="list-item-checkbox"
             id="adobe-com-enterprise:topic/digital-foundation"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="adobe-com-enterprise:topic/digital-foundation"
           />
@@ -515,6 +532,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             data-testid="list-item-checkbox"
             id="adobe-com-enterprise:topic/digital-trends"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="adobe-com-enterprise:topic/digital-trends"
           />
@@ -541,6 +559,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             data-testid="list-item-checkbox"
             id="adobe-com-enterprise:topic/document-management"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="adobe-com-enterprise:topic/document-management"
           />
@@ -567,6 +586,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             data-testid="list-item-checkbox"
             id="adobe-com-enterprise:topic/marketing-automation"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="adobe-com-enterprise:topic/marketing-automation"
           />
@@ -593,6 +613,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             data-testid="list-item-checkbox"
             id="adobe-com-enterprise:topic/personalization"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="adobe-com-enterprise:topic/personalization"
           />
@@ -619,6 +640,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             data-testid="list-item-checkbox"
             id="adobe-com-enterprise:topic/Stock"
             onChange={[Function]}
+            tabIndex="0"
             type="checkbox"
             value="adobe-com-enterprise:topic/Stock"
           />

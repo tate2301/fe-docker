@@ -110,6 +110,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with sea
           <button
             className="consonant-search--input-clear"
             onClick={[Function]}
+            tabIndex="0"
             title="Click to clear search query"
             type="button"
           >
@@ -152,7 +153,6 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with sel
     <button
       className="consonant-select--btn"
       data-testid="select-button"
-      onClick={[MockFunction]}
       tabIndex="0"
       type="button"
     >
@@ -264,6 +264,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with two
           <button
             className="consonant-search--input-clear"
             onClick={[Function]}
+            tabIndex="0"
             title="Click to clear search query"
             type="button"
           >
@@ -279,7 +280,6 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with two
     <button
       className="consonant-select--btn"
       data-testid="select-button"
-      onClick={[MockFunction]}
       tabIndex="0"
       type="button"
     >

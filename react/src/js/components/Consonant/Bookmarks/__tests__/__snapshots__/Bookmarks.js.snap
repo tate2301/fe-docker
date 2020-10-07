@@ -5,6 +5,7 @@ exports[`Consonant/Bookmarks Check snapshots should renders correctly 1`] = `
   className="bookmarks"
   data-testid="bookmarks"
   onClick={[MockFunction]}
+  tabIndex="0"
   type="button"
 >
   <span
