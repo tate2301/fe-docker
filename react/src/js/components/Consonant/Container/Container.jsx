@@ -448,6 +448,7 @@ const Container = (props) => {
 
             const tagIds = new Set(card.appliesTo.map(tag => tag.id));
             const activeFilterIdsSet = new Set(activeFilterIds);
+
             if (usingXorAndFilter) {
                 return isSuperset(tagIds, activeFilterIdsSet);
             } else if (usingOrFilter) {
