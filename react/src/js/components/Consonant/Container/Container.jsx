@@ -47,7 +47,7 @@ const Container = (props) => {
     const { config } = props;
 
     const getConfig = useCallback((object, key) => {
-        const value = _.get(config, `${object}.${key}`, DEFAULT_CONFIG[ object ][ key ]);
+        const value = _.get(config, `${object}.${key}`, DEFAULT_CONFIG[object][key]);
         return parseToPrimitive(value);
     }, []);
 
