@@ -5,7 +5,7 @@ export const filterCardsByDateRange = (_cards) => {
 
     return _cards.filter((card) => {
         if (!card.showCardFrom) return true;
-        const dates = parseCardDate(_cards);
+        const dates = parseCardDate(card.showCardFrom);
         if (!dates.every(Number.isInteger)) return false;
         return currentDate >= dates[0] && currentDate <= dates[1];
     });

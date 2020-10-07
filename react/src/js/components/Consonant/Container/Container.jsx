@@ -1,6 +1,13 @@
 import PropTypes from 'prop-types';
 import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import 'whatwg-fetch';
+import { getattribute,
+    readBookmarksFromLocalStorage,
+    removeDuplicatesByKey,
+    saveBookmarksToLocalStorage,
+    truncateList,
+    truncateString,
+} from '../../../utils/general';
 import { filterCardsByDateRange } from '../../../utils/cards';
 import {
     DESKTOP_MIN_WIDTH,
@@ -12,13 +19,6 @@ import {
     TABLET_MIN_WIDTH,
     TRUNCATE_TEXT_QTY,
 } from '../../../constants';
-import {
-    readBookmarksFromLocalStorage,
-    removeDuplicatesByKey,
-    saveBookmarksToLocalStorage,
-    truncateList,
-    truncateString,
-} from '../../../utils/general';
 
 
 import parseToPrimitive from '../../../utils/parseToPrimitive';
@@ -323,7 +323,7 @@ const Container = (props) => {
         window.fetch(getConfig('collection', 'endpoint'))
             .then(resp => resp.json())
             .then((payload) => {
-                if (!payload?.cards?.length) return;
+                if (!getattribute(payload, 'cards.length')) return;
 
                 const limit = getConfig('collection', 'totalCardLimit');
                 const filtersConfig = parseToPrimitive(getConfig('filterPanel', 'filters'));
@@ -565,16 +565,15 @@ const Container = (props) => {
     const collectionCards = useMemo(() => {
         // INFO: bookmarked cards will be ordered because bookmarked cards is
         //  derived from sorted Cards
-        let res = showBookmarks ? bookmarkedCards : sortedCards;
+        const shownCards = showBookmarks ? bookmarkedCards : sortedCards;
 
-        if (showItemsPerPage && getConfig('pagination', 'type') === 'paginator') {
-            const start = pages === 1 ? 0 : (pages * showItemsPerPage) - showItemsPerPage;
-            const end = start + showItemsPerPage;
-
-            res = res.slice(start, end);
+        const isUsingPaginator = getConfig('pagination', 'type') === 'paginator';
+        if (showItemsPerPage && isUsingPaginator) {
+            const start = (pages - 1) * showItemsPerPage;
+            return shownCards.slice(start, start + showItemsPerPage);
         }
 
-        return res;
+        return shownCards;
     }, [sortedCards, filteredCards, pages, showItemsPerPage, showBookmarks]);
 
     const totalPages = useMemo(
@@ -582,13 +581,10 @@ const Container = (props) => {
         [filteredCards, showItemsPerPage],
     );
 
-    const cardsToShowQty = useMemo(() => {
-        let res = showItemsPerPage * pages;
-
-        if (res > filteredCards.length) res = filteredCards.length;
-
-        return res;
-    }, [showItemsPerPage, filteredCards, pages]);
+    const numCardsToShow = useMemo(
+        () => Math.min(showItemsPerPage * pages, filteredCards.length),
+        [showItemsPerPage, filteredCards, pages],
+    );
 
     // Other callbacks
 
@@ -731,7 +727,7 @@ const Container = (props) => {
                                     <div ref={page}>
                                         <LoadMore
                                             onClick={onLoadMoreClick}
-                                            show={cardsToShowQty}
+                                            show={numCardsToShow}
                                             total={filteredCards.length}
                                             loadMoreButtonText={getConfig('pagination', 'loadMoreButtonText')}
                                             loadMoreQuantityText={getConfig('pagination', 'loadMoreQuantityText')} />
