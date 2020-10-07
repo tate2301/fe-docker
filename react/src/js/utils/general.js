@@ -8,7 +8,7 @@ export const saveBookmarksToLocalStorage = (bookmarksValue) => {
 
 export const readBookmarksFromLocalStorage = () => {
     const data = JSON.parse(localStorage.getItem('bookmarks'));
-    return Array.isArray(data) ? data : null;
+    return Array.isArray(data) ? data : [];
 };
 
 export const truncateString = (str, num) => {
