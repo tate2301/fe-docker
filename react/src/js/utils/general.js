@@ -16,7 +16,7 @@ export const truncateString = (str, num) => {
     return `${str.slice(0, num)}...`;
 };
 
-export const truncateList = (list, limit) => {
+export const truncateList = (limit, list) => {
     // No limit, return all;
     if (limit < 0) return list;
 

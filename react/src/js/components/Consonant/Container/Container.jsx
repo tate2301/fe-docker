@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
-import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState, } from 'react';
+import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import 'whatwg-fetch';
+import { filterCardsByDateRange } from 'react/src/js/utils/cards';
+import { parseCardDate } from '../../../utils/cards';
 import {
     DESKTOP_MIN_WIDTH,
     FILTER_LOGIC,
@@ -16,7 +18,7 @@ import {
     removeDuplicatesByKey,
     saveBookmarksToLocalStorage,
     truncateList,
-    truncateString
+    truncateString,
 } from '../../../utils/general';
 
 
@@ -182,10 +184,10 @@ const Container = (props) => {
         disableBookmarkIco: getConfig('bookmarks', 'bookmarkOnlyCollection'),
     }), []);
 
-    const onLoadMoreClick = () => {
+    const onLoadMoreClick = useCallback(() => {
         setPages(prevState => prevState + 1);
         window.scrollTo(0, window.pageYOffset);
-    };
+    }, []);
 
     const clearFilterItems = useCallback((id) => {
         setFilters(prevFilters =>
@@ -322,53 +324,37 @@ const Container = (props) => {
         window.fetch(getConfig('collection', 'endpoint'))
             .then(resp => resp.json())
             .then((payload) => {
+                if (!payload?.cards?.length) return;
+
                 const limit = getConfig('collection', 'totalCardLimit');
-
-                const filterCardsPerDateRange = (_cards) => {
-                    if (!Array.isArray(_cards)) return [];
-
-                    const currentDate = new Date().getTime();
-
-                    return _cards.filter((card) => {
-                        if (!card.showCardFrom) return card;
-
-                        const dates = card.showCardFrom.split(' - ').map(date => new Date(date).getTime());
-
-                        return dates.every(date => Number.isInteger(date)) &&
-              (currentDate >= dates[0] && currentDate <= dates[1]) ? card : null;
-                    });
-                };
+                const filtersConfig = parseToPrimitive(getConfig('filterPanel', 'filters'));
+                const onlyShowBookmarks = getConfig('bookmarks', 'bookmarkOnlyCollection');
 
                 let featuredCards = parseToPrimitive(config.featuredCards) || [];
-                const filtersConfig = parseToPrimitive(getConfig('filterPanel', 'filters'));
+                featuredCards = featuredCards.map(el => ({
+                    ...el,
+                    isFeatured: true,
+                }));
 
-                if (!payload || (payload.cards && payload.cards.length <= 0)) return;
-
-
-                featuredCards = featuredCards.map((el) => {
-                    el.isFeatured = true;
-                    return el;
-                });
                 let allCards = removeDuplicatesByKey(featuredCards.concat(parseToPrimitive(payload.cards)), 'id');
 
                 // If this.config.bookmarks.bookmarkOnlyCollection;
-                if (getConfig('bookmarks', 'bookmarkOnlyCollection')) {
-                    allCards = allCards.filter(c =>
-                        bookmarkedCardIds.some(el => el === c.id));
+                if (onlyShowBookmarks) {
+                    allCards = allCards.filter(card =>
+                        bookmarkedCardIds.some(cardId => cardId === card.id));
                 }
 
-
-                allCards = filterCardsPerDateRange(allCards);
-                allCards = truncateList(allCards, limit).map(populateCardMetadata);
+                allCards = filterCardsByDateRange(allCards);
+                allCards = truncateList(limit, allCards).map(populateCardMetadata);
                 setCards(allCards);
-                setFilters(filtersConfig.map((el) => {
-                    el.opened = window.innerWidth >= DESKTOP_MIN_WIDTH ? el.openedOnLoad : false;
-                    el.items = el.items.map((item) => {
-                        item.selected = false;
-                        return item;
-                    });
-                    return el;
-                }));
+                setFilters(filtersConfig.map(el => ({
+                    ...el,
+                    opened: window.innerWidth >= DESKTOP_MIN_WIDTH ? el.openedOnLoad : false,
+                    items: el.items.map(item => ({
+                        ...item,
+                        selected: false,
+                    })),
+                })));
             });
     }, []);
 
