@@ -340,7 +340,7 @@ const Container = (props) => {
     useEffect(() => {
         window.fetch(getConfig('collection', 'endpoint'))
             .then(resp => resp.json())
-            .then((res) => {
+            .then((payload) => {
                 const limit = getConfig('collection', 'totalCardLimit');
 
                 const filterCardsPerDateRange = (_cards) => {
@@ -361,9 +361,9 @@ const Container = (props) => {
                 let featuredCards = parseToPrimitive(config.featuredCards) || [];
                 const filtersConfig = parseToPrimitive(getConfig('filterPanel', 'filters'));
 
-                if (!res || (res.cards && res.cards.length <= 0)) return;
+                if (!payload || (payload.cards && payload.cards.length <= 0)) return;
 
-                let allCards = removeDuplicatesByKey(parseToPrimitive(res.cards, 'id'));
+                let allCards = removeDuplicatesByKey(parseToPrimitive(payload.cards), 'id');
 
                 featuredCards = featuredCards.map((el) => {
                     el.isFeatured = true;
@@ -376,6 +376,7 @@ const Container = (props) => {
                     allCards = allCards.filter(c =>
                         bookmarkedCardIds.some(el => el === c.id));
                 }
+
 
                 allCards = filterCardsPerDateRange(allCards);
                 allCards = truncateList(allCards, limit).map(populateCardMetadata);
