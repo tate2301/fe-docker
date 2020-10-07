@@ -7,6 +7,7 @@ const Select = (props) => {
         val,
         values,
         onSelect,
+        // onOpen,
         autoWidth,
         optionsAlignment,
     } = props;
@@ -20,6 +21,7 @@ const Select = (props) => {
             <button
                 data-testid="select-button"
                 type="button"
+                // onClick={onOpen}
                 className={opened ?
                     'consonant-select--btn consonant-select--btn_active' :
                     'consonant-select--btn'
@@ -58,6 +60,7 @@ Select.propTypes = {
     values: PropTypes.arrayOf(PropTypes.object).isRequired,
     autoWidth: PropTypes.bool,
     optionsAlignment: PropTypes.string,
+    // onOpen: PropTypes.func.isRequired,
 };
 
 Select.defaultProps = {
