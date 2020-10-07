@@ -1,15 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import 'whatwg-fetch';
-import { getattribute,
-    readBookmarksFromLocalStorage,
-    removeDuplicatesByKey,
-    saveBookmarksToLocalStorage,
-    truncateList,
-    truncateString,
-} from '../../../utils/general';
-import { filterCardsByDateRange } from '../../../utils/cards';
 import {
+    CLASS_NAME,
     DESKTOP_MIN_WIDTH,
     FILTER_LOGIC,
     FILTER_PANEL,
@@ -19,6 +12,15 @@ import {
     TABLET_MIN_WIDTH,
     TRUNCATE_TEXT_QTY,
 } from '../../../constants';
+import { filterCardsByDateRange } from '../../../utils/cards';
+import {
+    getattribute,
+    readBookmarksFromLocalStorage,
+    removeDuplicatesByKey,
+    saveBookmarksToLocalStorage,
+    truncateList,
+    truncateString,
+} from '../../../utils/general';
 
 
 import parseToPrimitive from '../../../utils/parseToPrimitive';
@@ -366,31 +368,22 @@ const Container = (props) => {
         const handleFocusOut = (clickEvt) => {
             clickEvt.stopPropagation();
 
-            const CLASS_NAME = {
-                TOP_FILTER: 'consonant-top-filter',
-                TOP_FILTER_OPENED: 'consonant-top-filter consonant-top-filter_opened',
-                TOP_FILTER_SELECTED: 'consonant-top-filter consonant-top-filter_selected',
-                SEARCH: 'consonant-top-filters--search-ico-wrapper',
-                SELECT: 'consonant-select--btn',
-            };
             const t = clickEvt.target;
 
-            const hasClassName = (q) => {
-                let result = t.className === q;
-
-                if (!result) {
+            const hasClassName = (className) => {
+                if (t.className !== className) {
                     for (let it = t; it && it !== document; it = it.parentNode) {
-                        if (it.className === q) result = true;
+                        if (it.className === className) return true;
                     }
                 }
 
-                return result;
+                return false;
             };
 
             if (getConfig('filterPanel', 'type') !== 'top' && !hasClassName(CLASS_NAME.SELECT)) return;
 
             // TODO: Clarify intent
-            if (hasClassName(CLASS_NAME.SEARCH)) {
+            if (hasClassName(t, CLASS_NAME.SEARCH)) {
                 setShowTopFilterSearch(true);
             } else {
                 setShowTopFilterSearch(false);
@@ -408,12 +401,10 @@ const Container = (props) => {
             } else if (hasClassName(CLASS_NAME.SELECT)) {
                 targetSelectOpened = true;
             } else {
-                setFilters(filtersStateRef.current.map((f) => {
-                    const newObj = JSON.parse(JSON.stringify(f));
-
-                    newObj.opened = false;
-                    return newObj;
-                }));
+                setFilters(filtersStateRef.current.map(f => ({
+                    ...f,
+                    opened: false,
+                })));
             }
 
             setSortOpened(targetSelectOpened);

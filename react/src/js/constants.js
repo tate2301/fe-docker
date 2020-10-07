@@ -25,3 +25,10 @@ export const SORTING_OPTION = {
     TITLEASC: 'initialTitle',
     TITLEDESC: 'initialTitle',
 };
+export const CLASS_NAME = {
+    TOP_FILTER: 'consonant-top-filter',
+    TOP_FILTER_OPENED: 'consonant-top-filter consonant-top-filter_opened',
+    TOP_FILTER_SELECTED: 'consonant-top-filter consonant-top-filter_selected',
+    SEARCH: 'consonant-top-filters--search-ico-wrapper',
+    SELECT: 'consonant-select--btn',
+};
