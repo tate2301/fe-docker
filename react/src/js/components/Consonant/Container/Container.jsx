@@ -289,8 +289,8 @@ const Container = (props) => {
     const handleFiltersToggle = () => setShowMobileFilters(prev => !prev);
 
     const handleCardBookmarking = useCallback((id) => {
-        // Update bookmarked IDs;
-        const carIsBookmarked = bookmarkedCardIds.find(id) >= 0;
+        // Update bookmarked IDs
+        const carIsBookmarked = bookmarkedCardIds.find(card => card === id) >= 0;
 
         if (carIsBookmarked) {
             setBookmarkedCardIds(bookmarkedCardIds.filter(el => el !== id));
