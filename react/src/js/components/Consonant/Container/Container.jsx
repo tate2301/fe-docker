@@ -149,7 +149,6 @@ const Container = (props) => {
         } else {
             filtersStateRef.current = data;
         }
-
         _setFilters(data);
     };
     const page = useRef();
@@ -366,6 +365,10 @@ const Container = (props) => {
 
             const t = clickEvt.target;
 
+            // setSortOpened(false);
+            const isUsingTopFilter = getConfig('filterPanel', 'type') === 'top';
+
+
             const hasClassName = (className) => {
                 if (t.className === className) return true;
                 for (let it = t; it && it !== document; it = it.parentNode) {
@@ -383,10 +386,12 @@ const Container = (props) => {
 
             let targetSelectOpened = false;
 
+            if (!isUsingTopFilter && !hasClassName(CLASS_NAME.SELECT)) return;
+
             if (
                 (hasClassName(CLASS_NAME.TOP_FILTER) ||
-          hasClassName(CLASS_NAME.TOP_FILTER_OPENED) ||
-          hasClassName(CLASS_NAME.TOP_FILTER_SELECTED)) &&
+                    hasClassName(CLASS_NAME.TOP_FILTER_OPENED) ||
+                    hasClassName(CLASS_NAME.TOP_FILTER_SELECTED)) &&
                 !hasClassName(CLASS_NAME.SEARCH)
             ) {
                 setFilters(filtersStateRef.current);
@@ -452,7 +457,7 @@ const Container = (props) => {
             if (usingXorAndFilter) {
                 return isSuperset(tagIds, activeFilterIdsSet);
             } else if (usingOrFilter) {
-                return intersection(tagIds, activeFilterIdsSet).length;
+                return intersection(tagIds, activeFilterIdsSet).size;
             }
             throw new Error(`Unrecognized filter logic: ${filterLogic}`);
         });
