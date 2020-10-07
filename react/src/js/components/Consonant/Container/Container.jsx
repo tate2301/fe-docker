@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import 'whatwg-fetch';
-import { filterCardsByDateRange } from 'react/src/js/utils/cards';
-import { parseCardDate } from '../../../utils/cards';
+import { filterCardsByDateRange } from '../../../utils/cards';
 import {
     DESKTOP_MIN_WIDTH,
     FILTER_LOGIC,
