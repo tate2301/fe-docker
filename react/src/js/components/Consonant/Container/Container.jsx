@@ -8,6 +8,7 @@ import React, {
     useState,
 } from 'react';
 import 'whatwg-fetch';
+import { saveBookmarksToLocalStorage } from '../../../utils/general';
 import parseToPrimitive from '../../../utils/parseToPrimitive';
 import Bookmarks from '../Bookmarks/Bookmarks';
 import Collection from '../Collection/Collection';
@@ -193,27 +194,10 @@ const Container = (props) => {
 
     // callbacks
 
-    const activeFilterIds = useMemo(() => filters.reduce((acc, val) => {
-        val.items.forEach((el) => {
-            if (el.selected) acc.push(el.id);
-        });
-        return acc;
-    }, []), [filters]);
-
-    const setCardsToShowQty = () => {
-        const currentPos = window.pageYOffset;
+    const onLoadMoreClick = () => {
         setPages(prevState => prevState + 1);
-        window.scrollTo(0, currentPos);
+        window.scrollTo(0, window.pageYOffset);
     };
-
-    const setBookMarksToLS = useCallback(() => {
-        try {
-            localStorage.setItem('bookmarks', JSON.stringify(bookmarkedCardIds, null, 2));
-        } catch (e) {
-            // alert('We could not save your bookmarks, please try to reload thші page.');
-        }
-    }, [bookmarkedCardIds]);
-
 
     const clearFilterItems = useCallback((id) => {
         setFilters(prevFilters =>
@@ -530,7 +514,7 @@ const Container = (props) => {
     }, []);
 
     useEffect(() => {
-        setBookMarksToLS();
+        saveBookmarksToLocalStorage(bookmarkedCardIds);
     }, [cards, bookmarkedCardIds]);
 
     useEffect(() => {
@@ -541,6 +525,13 @@ const Container = (props) => {
     }, [showFavourites]);
 
     // Derived state
+
+    const activeFilterIds = useMemo(() => filters.reduce((acc, val) => {
+        val.items.forEach((el) => {
+            if (el.selected) acc.push(el.id);
+        });
+        return acc;
+    }, []), [filters]);
 
     const filteredCards = useMemo(() => {
         let filterLogic = getConfig('filterPanel', 'filterLogic');
@@ -808,7 +799,7 @@ const Container = (props) => {
                                     //  Migrate to useRef
                                     <div ref={page}>
                                         <LoadMore
-                                            onClick={setCardsToShowQty}
+                                            onClick={onLoadMoreClick}
                                             show={cardsToShowQty}
                                             total={filteredCards.length}
                                             loadMoreButtonText={getConfig('pagination', 'loadMoreButtonText')}
