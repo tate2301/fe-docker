@@ -449,8 +449,6 @@ const Container = (props) => {
 
     const handleFiltersToggle = () => setShowMobileFilters(prev => !prev);
 
-    const handleSelectOpen = () => setSelectOpened(prev => !prev);
-
     const handlePaginatorClick = setPages;
 
     const handleCardBookmarking = useCallback((id) => {
@@ -478,11 +476,12 @@ const Container = (props) => {
         setSHowLimitedFiltersQty(prev => !prev);
     }, []);
 
-    const renderSearch = useCallback(key => (
+    const renderSearch = useCallback((key, autofocus = false) => (
         <Search
             childrenKey={key}
             placeholderText={getConfig('search', 'inputPlaceholderText')}
             value={searchQuery}
+            autofocus={autofocus}
             leftPanelTitle={getConfig('search', 'leftPanelTitle')}
             onSearch={handleSearchInputChange} />
     ), [searchQuery]);
@@ -492,7 +491,6 @@ const Container = (props) => {
             opened={selectOpened}
             val={selelectedFilterBy}
             values={parseToPrimitive(getConfig('sort', 'options'))}
-            onOpen={handleSelectOpen}
             onSelect={handleSelectChange}
             childrenKey={key}
             autoWidth={autoWidth}
@@ -607,6 +605,7 @@ const Container = (props) => {
                 TOP_FILTER_OPENED: 'consonant-top-filter consonant-top-filter_opened',
                 TOP_FILTER_SELECTED: 'consonant-top-filter consonant-top-filter_selected',
                 SEARCH: 'consonant-top-filters--search-ico-wrapper',
+                SELECT: 'consonant-select--btn',
             };
             const t = clickEvt.target;
 
@@ -622,12 +621,16 @@ const Container = (props) => {
                 return result;
             };
 
+            if (this.getConfig('filterPanel', 'type') !== 'top' && !hasClassName(CLASS_NAME.SELECT)) return;
+
             // TODO: Clarify intent
             if (hasClassName(CLASS_NAME.SEARCH)) {
                 setShowTopFilterSearch(true);
             } else {
                 setShowTopFilterSearch(false);
             }
+
+            let targetSelectOpened = false;
 
             if (
                 (hasClassName(CLASS_NAME.TOP_FILTER) ||
@@ -636,6 +639,8 @@ const Container = (props) => {
                 !hasClassName(CLASS_NAME.SEARCH)
             ) {
                 setFilters(filtersStateRef.current);
+            } else if (hasClassName(CLASS_NAME.SELECT)) {
+                targetSelectOpened = true;
             } else {
                 setFilters(filtersStateRef.current.map((f) => {
                     const newObj = JSON.parse(JSON.stringify(f));
@@ -644,7 +649,11 @@ const Container = (props) => {
                     return newObj;
                 }));
             }
+
+            setSelectOpened(targetSelectOpened);
         };
+
+
 
         window.addEventListener('click', handleFocusOut);
         return () => window.removeEventListener('click', handleFocusOut);
@@ -805,7 +814,7 @@ const Container = (props) => {
                                   showLimitedFiltersQty={showLimitedFiltersQty}
                                   onShowAllClick={handleShowAllTopFilters}>
                                   {getConfig('search', 'enabled') &&
-                                renderSearch('filtersTopSearch')
+                                renderSearch('filtersTopSearch', window.innerWidth >= DESKTOP_MIN_WIDTH)
                                   }
                                   {
                                       getConfig('search', 'enabled') &&
