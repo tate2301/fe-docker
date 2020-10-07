@@ -21,6 +21,7 @@ import {
     saveBookmarksToLocalStorage,
     truncateList,
     truncateString,
+    chainFromIterable,
 } from '../../../utils/general';
 
 
@@ -433,12 +434,9 @@ const Container = (props) => {
 
     // Derived state
 
-    const activeFilterIds = useMemo(() => filters.reduce((acc, val) => {
-        val.items.forEach((el) => {
-            if (el.selected) acc.push(el.id);
-        });
-        return acc;
-    }, []), [filters]);
+    const activeFilterIds = useMemo(() => chainFromIterable(filters.map(f => f.items))
+        .filter(item => item.selected)
+        .map(item => item.id), [filters]);
 
     const filteredCards = useMemo(() => {
         let filterLogic = getConfig('filterPanel', 'filterLogic');

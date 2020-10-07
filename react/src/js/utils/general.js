@@ -35,3 +35,8 @@ export const removeDuplicatesByKey = (list, key) => {
     });
     return newList;
 };
+
+
+export const chain = (...args) => args.reduce((a, b) => a.concat(b), []);
+
+export const chainFromIterable = args => chain(...args);
