@@ -52,11 +52,11 @@
             collection: {
                 resultsPerPage: '10',
                 endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/sample-cards.json",
-                totalCardLimit: '-1',
-                cardStyleOverride: "none", // could also be "3:2" or "full-card"
-                displayTotalResults: 'true',
+                totalCardsToShow: '150',
+                cardStyle: "none", // could also be "3:2" or "full-card"
+                showTotalResults: 'true',
                 i18n: {
-                    prettyDateIntervalFormat: '{date} | {timeRange} {timeZone}',
+                    prettyDateIntervalFormat: '{LLL} {dd} | {timeRange} {timeZone}',
                     totalResultsText: '{total} results',
                     title: 'Your Favorite Picks',
                 }
@@ -97,7 +97,7 @@
                             group: {
                                 totalResultsText: '{total} Results',
                                 applyBtnText: 'Apply',
-                                clearAllFiltersText: 'Clear All',
+                                clearFilterText: 'Clear',
                                 doneBtnText: 'Done',
                             }
                         }
@@ -125,14 +125,14 @@
                 }
             },
             bookmarks: {
-                leftPanel: {
+                leftFilterPanel: {
                     bookmarkOnlyCollection: 'false',
                     showBookmarksFilter: 'true',
                     selectBookmarksIcon: '',
                     unselectBookmarksIcon: '',
                 }
                 i18n: {
-                    leftPanel: {
+                    leftFilterPanel: {
                         filterTitle: 'My favorites',
                     }
                 }
@@ -141,17 +141,17 @@
                 enabled: 'true',
                 searchFields: '["contentArea.title","contentArea.detail","search.meta.author","overlays.label.text", "foo.bar"]',
                 i18n: {
-                    leftPanel: {
-                        inputTitle: 'Search',
-                        inputPlaceholderText: 'Search Here',
+                    leftFilterPanel: {
+                        searchTitle: 'Search',
+                        searchPlaceholderText: 'Search Here',
                     },
-                    topPanel: {
-                        inputPlaceholderText: 'Search Here',
+                    topFilterPanel: {
+                        searchPlaceholderText: 'Search Here',
                     }
                 }
 
             },
-            locale: 'de'
+            language: 'de'
         };
         const consonantCardCollection = new ConsonantCardCollection(config, document.getElementById("someDivId"));
     </script>
