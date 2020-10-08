@@ -1,0 +1,100 @@
+{
+	"cards": [
+		{
+			"id": "1",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {
+					"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg"
+				},
+				"label": {
+					"text": "Some Label"
+				},
+				"videoButton": {} 
+			},
+			"tags": [],
+			"contentArea": {
+				"detailText": "",
+				"title": "There are a total of two cards. Only this one card should be visible.",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+				{
+					"divider": true,
+					"left": [],
+					"center": [],
+					"right": [{
+						"type": "button",
+						"style": "call-to-action",
+						"text": "Read More",
+						"href": "https://www.google.com"
+					}]
+				}
+			],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			}
+		},
+		{
+			"id": "2",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2020-10-06T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {
+					"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg"
+				},
+				"label": {
+					"text": "Some Label"
+				},
+				"videoButton": {} 
+			},
+			"tags": [],
+			"contentArea": {
+				"detailText": "",
+				"title": "There are a total of two cards. This card should not be visible.",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+				{
+					"divider": true,
+					"left": [],
+					"center": [],
+					"right": [{
+						"type": "button",
+						"style": "call-to-action",
+						"text": "Read More",
+						"href": "https://www.google.com"
+					}]
+				}
+			],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			}
+		}
+	]
+}

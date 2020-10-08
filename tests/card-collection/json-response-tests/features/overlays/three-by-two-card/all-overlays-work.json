@@ -1,0 +1,47 @@
+{
+	"cards": [
+		{
+			"id": "1",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {
+					"backgroundColor": "#CB6F10",
+					"fontColor": "#FFFFFF",
+					"description": "Upcoming",
+					"icon": ""                    
+                },
+				"logo": {
+					"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg"
+				},
+				"label": {
+					"text": "Some Label"
+				},
+				"videoButton": {
+					"url": "https://www.youtube.com/watch?v=hcr7cszxINk&ab_channel=knytrix"
+				} 
+			},
+			"tags": [],
+			"contentArea": {
+				"detailText": "",
+				"title": "",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+				{
+					"divider": false,
+					"left": [],
+					"center": [],
+					"right": []
+				}
+			]
+		}
+	]
+}

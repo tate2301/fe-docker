@@ -1,0 +1,188 @@
+{
+	"cards": [
+		{
+			"id": "1",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/marquee_graph.png"
+			},
+			"overlays": {
+				"banner": {
+					"backgroundColor": "#CB6F10",
+					"fontColor": "#FFFFFF",
+					"description": "Upcoming",
+					"icon": ""                    
+                },
+				"logo": {},
+				"label": {},
+				"videoButton": {} 
+			},
+			"tags": [			],
+			"contentArea": {
+				"detailText": "Digital Trends",
+				"title": "Digital Bites Webinar Series Experience and Content Fragments in AEM",
+				"description": "This webinar will be Experience and Content Fragments within Adobe Experience Manager. Please join Hakan… Fritz and Elisa Cairoli while they take you through how loren …",
+				"dateDetailText": {}
+			},
+			"footer": [
+				{
+					"divider": true,
+					"left": [
+                        {
+                            "type": "bookmark",
+                            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                            "cardSaveText": "Save Card",
+                            "cardUnsaveText": "Unsave Card"
+                        },
+                        {
+                        "type": "date-interval",
+                        "startTime": "2020-05-27T20:00:00Z",
+                        "endTime": "2020-05-30T21:45:00Z"
+                        }
+                    ],
+					"center": [],
+					"right": [{
+						"type": "button",
+						"style": "call-to-action",
+						"text": "Learn More",
+						"href": "https://www.google.com"
+					}]
+				}
+			],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			}
+		},
+		{
+			"id": "2",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/marquee_graph.png"
+			},
+			"overlays": {
+				"banner": {
+					"backgroundColor": "#FFFFFF",
+					"fontColor": "#D7373F",
+					"description": "Live",
+					"icon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"                    
+                },
+				"logo": {},
+				"label": {},
+				"videoButton": {} 
+			},
+			"tags": [			],
+			"contentArea": {
+				"detailText": "Digital Trends",
+				"title": "Digital Bites Webinar Series Experience and Content Fragments in AEM",
+				"description": "This webinar will be Experience and Content Fragments within Adobe Experience Manager. Please join Hakan… Fritz and Elisa Cairoli while they take you through how loren …",
+				"dateDetailText": {}
+			},
+			"footer": [
+				{
+					"divider": true,
+					"left": [
+                        {
+                            "type": "bookmark",
+                            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                            "cardSaveText": "Save Card",
+                            "cardUnsaveText": "Unsave Card"
+                        },
+						{
+							"type": "text",
+							"text": "LIVE"
+						}
+                    ],
+					"center": [],
+					"right": [{
+						"type": "button",
+						"style": "call-to-action",
+						"text": "Learn More",
+						"href": "https://www.google.com"
+					}]
+				}
+			],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			}
+		},
+		{
+			"id": "3",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/marquee_graph.png"
+			},
+			"overlays": {
+				"banner": {
+					"backgroundColor": "#1473E6",
+					"fontColor": "#FFFFFF",
+					"description": "On-Demand",
+					"icon": ""                    
+                },
+				"logo": {},
+				"label": {},
+				"videoButton": {} 
+			},
+			"tags": [			],
+			"contentArea": {
+				"detailText": "Digital Trends",
+				"title": "Digital Bites Webinar Series Experience and Content Fragments in AEM",
+				"description": "This webinar will be Experience and Content Fragments within Adobe Experience Manager. Please join Hakan… Fritz and Elisa Cairoli while they take you through how loren …",
+				"dateDetailText": {}
+			},
+			"footer": [
+				{
+					"divider": true,
+					"left": [
+                        {
+                            "type": "bookmark",
+                            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                            "cardSaveText": "Save Card",
+                            "cardUnsaveText": "Unsave Card"
+                        },
+						{
+							"type": "text",
+							"text": "LIVE"
+						}
+                    ],
+					"center": [],
+					"right": [{
+						"type": "button",
+						"style": "call-to-action",
+						"text": "Learn More",
+						"href": "https://www.google.com"
+					}]
+				}
+			],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			}
+		}
+	]
+}

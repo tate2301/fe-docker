@@ -1,0 +1,40 @@
+{
+	"cards": [
+		{
+			"id": "1",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/marquee_graph.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {} 
+			},
+			"tags": [],
+			"contentArea": {
+				"detailText": "",
+				"title": "",
+				"description": "",
+				"dateDetailText": {
+                    "type": "date-interval",
+                    "startTime": "2020-10-20T20:00:00Z",
+                    "endTime": "2020-10-27T21:45:00Z"
+                }
+			},
+			"footer": [
+				{
+					"divider": true,
+					"left": [],
+					"center": [],
+					"right": []
+				}
+			]
+		}
+	]
+}
