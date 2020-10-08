@@ -103,26 +103,23 @@ const Container = (props) => {
     }, []);
 
     const clearFilterItems = useCallback((id) => {
-        setFilters(prevFilters =>
-            prevFilters.map((el) => {
-                if (el.id === id) {
-                    el.items.map((item) => {
-                        item.selected = false;
-                        return item;
-                    });
-                }
-                return el;
-            }));
+        setFilters(prevFilters => prevFilters.map((el) => {
+            if (el.id !== id) return el;
+            return {
+                ...el,
+                items: el.items.map(item => ({
+                    ...item,
+                    selected: false,
+                })),
+            };
+        }));
     }, []);
 
     const clearFilters = useCallback(() => {
-        setFilters(prevFilters => prevFilters.map((el) => {
-            el.items.map((filter) => {
-                filter.selected = false;
-                return filter;
-            });
-            return el;
-        }));
+        setFilters(prevFilters => prevFilters.map(el => ({
+            ...el,
+            items: el.items.map(filter => ({ ...filter, selected: false })),
+        })));
     }, []);
 
     const resetFiltersSearchAndBookmarks = useCallback(() => {
