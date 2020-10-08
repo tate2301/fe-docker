@@ -14,9 +14,14 @@ function getTimeInterval(startTimeUTC, endTimeUTC, someLocale) {
     return i.toFormat('T', { locale: someLocale });
 }
 
-function getDate(startTimeUTC, someLocale) {
+function getDay(startTimeUTC, someLocale) {
     const start = DateTime.fromISO(startTimeUTC, { locale: someLocale });
-    return start.toFormat('LLL dd', { locale: someLocale });
+    return start.toFormat('dd', { locale: someLocale });
+}
+
+function getMonth(startTimeUTC, someLocale) {
+    const start = DateTime.fromISO(startTimeUTC, { locale: someLocale });
+    return start.toFormat('LLL', { locale: someLocale });
 }
 
 /**
@@ -25,10 +30,11 @@ function getDate(startTimeUTC, someLocale) {
  */
 function prettyFormatDate(startDateUTC, endDateUTC, locale, i18nFormat) {
     return i18nFormat
-        .replace('{date}', getDate(startDateUTC, locale))
+        .replace('{LLL}', getMonth(startDateUTC, locale))
+        .replace('{dd}', getDay(startDateUTC, locale))
         .replace('{timeRange}', getTimeInterval(startDateUTC, endDateUTC, locale))
         .replace('{timeZone}', getLocalTimeZone(endDateUTC));
 }
 
-const prettyFormat = prettyFormatDate('2020-10-20T20:00:00Z', '2020-10-20T21:45:00Z', 'de', '{date} | {timeRange} {timeZone}');
+const prettyFormat = prettyFormatDate('2020-10-20T20:00:00Z', '2020-10-20T21:45:00Z', 'de', '{LLL} {dd} | {timeRange} {timeZone}');
 console.log(prettyFormat);
