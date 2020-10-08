@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import parseToPrimitive from 'react/src/js/utils/parseToPrimitive';
+import parseToPrimitive from './parseToPrimitive';
 import { chainFromIterable } from './general';
 
 export const getNumSelectedFilterItems = (filters) => {

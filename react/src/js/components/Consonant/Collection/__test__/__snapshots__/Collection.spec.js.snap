@@ -63,49 +63,21 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
         }
       />
       <div
-        className="consonant-aspect-ratio-3-2-card--footer-wrapper"
+        className="consonant-card-footer"
       >
         <div
-          className="consonant-aspect-ratio-3-2-card--footer-info"
+          className="consonant-card-footer--row"
         >
-          <button
-            className="consonant-aspect-ratio-3-2-card--footer-btn"
-            data-testid="consonant-card__bookmark-button"
-            data-tooltip-wrapper={true}
-            onClick={[Function]}
-            tabIndex="0"
-            type="button"
-          >
-            <span
-              className="consonant-aspect-ratio-3-2-card--bookmark-ico"
-              data-testid="bookmarks--ico"
-              style={
-                Object {
-                  "backgroundImage": "url(https://upload.some-url)",
-                }
-              }
-            />
-            <span
-              className="consonant-tooltip"
-            >
-              Save breakout session
-            </span>
-          </button>
-          <span
-            className="consonant-aspect-ratio-3-2-card--secondary-text"
-          >
-            Some secondary text
-          </span>
+          <div
+            className="consonant-card-footer--cell"
+          />
+          <div
+            className="consonant-card-footer--cell"
+          />
+          <div
+            className="consonant-card-footer--cell"
+          />
         </div>
-        <a
-          className="consonant-aspect-ratio-3-2-card--btn"
-          href="https://google.com"
-          rel="noreferrer"
-          tabIndex="0"
-          target="_blank"
-        >
-          Some CTA
-        </a>
       </div>
     </div>
   </div>
@@ -181,49 +153,21 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         }
       />
       <div
-        className="consonant-aspect-ratio-3-2-card--footer-wrapper"
+        className="consonant-card-footer"
       >
         <div
-          className="consonant-aspect-ratio-3-2-card--footer-info"
+          className="consonant-card-footer--row"
         >
-          <button
-            className="consonant-aspect-ratio-3-2-card--footer-btn"
-            data-testid="consonant-card__bookmark-button"
-            data-tooltip-wrapper={true}
-            onClick={[Function]}
-            tabIndex="0"
-            type="button"
-          >
-            <span
-              className="consonant-aspect-ratio-3-2-card--bookmark-ico"
-              data-testid="bookmarks--ico"
-              style={
-                Object {
-                  "backgroundImage": "url(https://upload.some-url)",
-                }
-              }
-            />
-            <span
-              className="consonant-tooltip"
-            >
-              Save breakout session
-            </span>
-          </button>
-          <span
-            className="consonant-aspect-ratio-3-2-card--secondary-text"
-          >
-            Some secondary text
-          </span>
+          <div
+            className="consonant-card-footer--cell"
+          />
+          <div
+            className="consonant-card-footer--cell"
+          />
+          <div
+            className="consonant-card-footer--cell"
+          />
         </div>
-        <a
-          className="consonant-aspect-ratio-3-2-card--btn"
-          href="https://google.com"
-          rel="noreferrer"
-          tabIndex="0"
-          target="_blank"
-        >
-          Some CTA
-        </a>
       </div>
     </div>
   </div>
@@ -299,49 +243,21 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         }
       />
       <div
-        className="consonant-aspect-ratio-3-2-card--footer-wrapper"
+        className="consonant-card-footer"
       >
         <div
-          className="consonant-aspect-ratio-3-2-card--footer-info"
+          className="consonant-card-footer--row"
         >
-          <button
-            className="consonant-aspect-ratio-3-2-card--footer-btn"
-            data-testid="consonant-card__bookmark-button"
-            data-tooltip-wrapper={true}
-            onClick={[Function]}
-            tabIndex="0"
-            type="button"
-          >
-            <span
-              className="consonant-aspect-ratio-3-2-card--bookmark-ico"
-              data-testid="bookmarks--ico"
-              style={
-                Object {
-                  "backgroundImage": "url(https://upload.some-url)",
-                }
-              }
-            />
-            <span
-              className="consonant-tooltip"
-            >
-              Save breakout session
-            </span>
-          </button>
-          <span
-            className="consonant-aspect-ratio-3-2-card--secondary-text"
-          >
-            Some secondary text
-          </span>
+          <div
+            className="consonant-card-footer--cell"
+          />
+          <div
+            className="consonant-card-footer--cell"
+          />
+          <div
+            className="consonant-card-footer--cell"
+          />
         </div>
-        <a
-          className="consonant-aspect-ratio-3-2-card--btn"
-          href="https://google.com"
-          rel="noreferrer"
-          tabIndex="0"
-          target="_blank"
-        >
-          Some CTA
-        </a>
       </div>
     </div>
   </div>
@@ -417,49 +333,21 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         }
       />
       <div
-        className="consonant-aspect-ratio-3-2-card--footer-wrapper"
+        className="consonant-card-footer"
       >
         <div
-          className="consonant-aspect-ratio-3-2-card--footer-info"
+          className="consonant-card-footer--row"
         >
-          <button
-            className="consonant-aspect-ratio-3-2-card--footer-btn"
-            data-testid="consonant-card__bookmark-button"
-            data-tooltip-wrapper={true}
-            onClick={[Function]}
-            tabIndex="0"
-            type="button"
-          >
-            <span
-              className="consonant-aspect-ratio-3-2-card--bookmark-ico"
-              data-testid="bookmarks--ico"
-              style={
-                Object {
-                  "backgroundImage": "url(https://upload.some-url)",
-                }
-              }
-            />
-            <span
-              className="consonant-tooltip"
-            >
-              Save breakout session
-            </span>
-          </button>
-          <span
-            className="consonant-aspect-ratio-3-2-card--secondary-text"
-          >
-            Some secondary text
-          </span>
+          <div
+            className="consonant-card-footer--cell"
+          />
+          <div
+            className="consonant-card-footer--cell"
+          />
+          <div
+            className="consonant-card-footer--cell"
+          />
         </div>
-        <a
-          className="consonant-aspect-ratio-3-2-card--btn"
-          href="https://google.com"
-          rel="noreferrer"
-          tabIndex="0"
-          target="_blank"
-        >
-          Some CTA
-        </a>
       </div>
     </div>
   </div>
@@ -535,49 +423,21 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         }
       />
       <div
-        className="consonant-aspect-ratio-3-2-card--footer-wrapper"
+        className="consonant-card-footer"
       >
         <div
-          className="consonant-aspect-ratio-3-2-card--footer-info"
+          className="consonant-card-footer--row"
         >
-          <button
-            className="consonant-aspect-ratio-3-2-card--footer-btn"
-            data-testid="consonant-card__bookmark-button"
-            data-tooltip-wrapper={true}
-            onClick={[Function]}
-            tabIndex="0"
-            type="button"
-          >
-            <span
-              className="consonant-aspect-ratio-3-2-card--bookmark-ico"
-              data-testid="bookmarks--ico"
-              style={
-                Object {
-                  "backgroundImage": "url(https://upload.some-url)",
-                }
-              }
-            />
-            <span
-              className="consonant-tooltip"
-            >
-              Save breakout session
-            </span>
-          </button>
-          <span
-            className="consonant-aspect-ratio-3-2-card--secondary-text"
-          >
-            Some secondary text
-          </span>
+          <div
+            className="consonant-card-footer--cell"
+          />
+          <div
+            className="consonant-card-footer--cell"
+          />
+          <div
+            className="consonant-card-footer--cell"
+          />
         </div>
-        <a
-          className="consonant-aspect-ratio-3-2-card--btn"
-          href="https://google.com"
-          rel="noreferrer"
-          tabIndex="0"
-          target="_blank"
-        >
-          Some CTA
-        </a>
       </div>
     </div>
   </div>
