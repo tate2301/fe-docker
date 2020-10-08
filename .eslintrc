@@ -8,7 +8,8 @@
   "plugins": [
     "babel",
     "jest",
-    "jsx-a11y"
+    "jsx-a11y",
+    "react-hooks"
   ],
   "env": {
     "browser": true,
@@ -44,6 +45,8 @@
     "react/jsx-indent-props": ["error", 4],
     "react/jsx-closing-bracket-location": [1, {"selfClosing": "after-props", "nonEmpty": "after-props"}],
     "react/jsx-filename-extension": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
     "indent": ["error", 4, {"SwitchCase": 1}],
     "class-methods-use-this": "off",
     "no-param-reassign": ["error", { "props": false }]
