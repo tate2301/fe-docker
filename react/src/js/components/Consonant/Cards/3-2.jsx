@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import CardFooter from './CardFooter/CardFooter';
 
 export const Tooltip = (props) => {
     const { text } = props;
@@ -10,11 +10,9 @@ export const Tooltip = (props) => {
     );
 };
 
-
 Tooltip.propTypes = {
     text: PropTypes.string.isRequired,
 };
-
 
 const AspectRatio3to2Card = (props) => {
     const {
@@ -22,53 +20,15 @@ const AspectRatio3to2Card = (props) => {
         title,
         label,
         description,
-        ctaLink,
-        ctaLabel,
         image,
         bannerDescription,
         bannerFontColor,
         bannerBackgroundColor,
         bannerIcon,
         badgeText,
-        secondaryLabelText,
-        allowBookmarking,
-        isBookmarked,
-        cardSavedIco,
-        cardUnsavedIco,
-        onClick,
-        saveCardText,
-        unsaveCardText,
         videoURL,
-        disableBookmarkIco,
+        footer,
     } = props;
-
-    const handleClick = (clickEvt) => {
-        clickEvt.stopPropagation();
-        onClick(id);
-    };
-
-    const defineBookMarkBtnClassName = () => {
-        const res = ['consonant-aspect-ratio-3-2-card--footer-btn'];
-
-        if (isBookmarked) res.push('consonant-aspect-ratio-3-2-card--footer-btn_active');
-        if (disableBookmarkIco) res.push('consonant-aspect-ratio-3-2-card--footer-btn_disabled');
-
-        return res.join(' ');
-    };
-
-    const renderIcon = () => {
-        let src = '';
-
-        if (isBookmarked && cardSavedIco) src = cardSavedIco;
-        if (!isBookmarked && cardUnsavedIco) src = cardUnsavedIco;
-
-        return src ?
-            <span
-                data-testid="bookmarks--ico"
-                className="consonant-aspect-ratio-3-2-card--bookmark-ico"
-                style={{ backgroundImage: `url(${src})` }} /> :
-            <span data-testid="bookmarks--ico" className="consonant-aspect-ratio-3-2-card--bookmark-ico" />;
-    };
 
     return (
         <div
@@ -124,37 +84,10 @@ const AspectRatio3to2Card = (props) => {
                 <p
                     className="consonant-aspect-ratio-3-2-card--text"
                     dangerouslySetInnerHTML={{ __html: description }} />
-                <div className="consonant-aspect-ratio-3-2-card--footer-wrapper">
-                    <div className="consonant-aspect-ratio-3-2-card--footer-info">
-                        {
-                            allowBookmarking &&
-                            <button
-                                data-testid="consonant-card__bookmark-button"
-                                data-tooltip-wrapper
-                                type="button"
-                                className={defineBookMarkBtnClassName()}
-                                onClick={handleClick}
-                                tabIndex="0">
-                                {renderIcon()}
-                                <Tooltip text={
-                                    isBookmarked ? unsaveCardText : saveCardText
-                                } />
-                            </button>
-
-                        }
-                        {
-                            secondaryLabelText &&
-                            <span className="consonant-aspect-ratio-3-2-card--secondary-text">{secondaryLabelText}</span>
-                        }
-                    </div>
-                    <a
-                        href={ctaLink}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="consonant-aspect-ratio-3-2-card--btn"
-                        tabIndex="0">{ctaLabel}
-                    </a>
-                </div>
+                <CardFooter
+                    left={footer.left}
+                    center={footer.center}
+                    right={footer.right} />
             </div>
         </div>
     );
@@ -164,8 +97,6 @@ export default AspectRatio3to2Card;
 
 AspectRatio3to2Card.propTypes = {
     id: PropTypes.string.isRequired,
-    ctaLink: PropTypes.string.isRequired,
-    ctaLabel: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     label: PropTypes.string,
     description: PropTypes.string.isRequired,
@@ -175,16 +106,18 @@ AspectRatio3to2Card.propTypes = {
     bannerBackgroundColor: PropTypes.string,
     bannerIcon: PropTypes.string,
     badgeText: PropTypes.string,
-    secondaryLabelText: PropTypes.string,
-    allowBookmarking: PropTypes.bool.isRequired,
-    isBookmarked: PropTypes.bool.isRequired,
-    cardSavedIco: PropTypes.string.isRequired,
-    cardUnsavedIco: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
-    saveCardText: PropTypes.string,
-    unsaveCardText: PropTypes.string,
     videoURL: PropTypes.string,
-    disableBookmarkIco: PropTypes.bool,
+    footer: PropTypes.shape({
+        left: PropTypes.shape({
+            type: PropTypes.string,
+        }),
+        center: PropTypes.shape({
+            type: PropTypes.string,
+        }),
+        right: PropTypes.shape({
+            type: PropTypes.string,
+        }),
+    }),
 };
 
 AspectRatio3to2Card.defaultProps = {
@@ -193,10 +126,7 @@ AspectRatio3to2Card.defaultProps = {
     bannerFontColor: '',
     bannerBackgroundColor: '',
     badgeText: '',
-    secondaryLabelText: '',
     label: '',
-    saveCardText: 'Save card',
-    unsaveCardText: 'Unsave card',
     videoURL: '',
-    disableBookmarkIco: false,
+    footer: {},
 };

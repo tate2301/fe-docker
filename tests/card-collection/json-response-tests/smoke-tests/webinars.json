@@ -1,0 +1,4359 @@
+{
+    "cards": [
+        {
+           "id":"6d6438c8-5aa2-36be-bfd0-18a9f6e4cd9c",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-trends"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#CB6F10",
+                 "fontColor":"#FFFFFF",
+                 "description":"Upcoming",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Digital Bites Webinar Series",
+              "description":"This month and next will be devoted exclusively to you — making you a true expert in creating agile, creative, and consistent experiences. The kinds of experiences your customers demand (and will love). Over the next few months, we’re going to focus on modernizing the nuts and bolts of your operation.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/104643%20Adobe_Digital-Bites-web-graphics_marquee%201600x600.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-07-02T09:41:35.933Z"
+        },
+        {
+           "id":"ac578dee-f01b-3ea0-a282-2116619e4251",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/Stock"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#FFFFFF",
+                 "fontColor":"#D7373F",
+                 "description":"Live",
+                 "icon":"https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Driving Video Content Velocity – Announcing Adobe Stock Audio",
+              "description":"During this one-hour webinar Richard West (Strategic Development, EMEA) will be joined by Byron Wijayawardena (Strategic Development Manager, UK&I, Adobe) and will show you how to enhance and optimise your video workflow. We will take a deep dive into the new features of Adobe Premiere Pro, our premium video editing application and show you how you can bring your content to life by incorporating audio directly from Adobe Stock Audio.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Adobe_Stock_Audio_Banner_1600x%20600.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-07-30T08:45:42.881Z"
+        },
+        {
+           "id":"5187e934-ed9e-39de-bf6d-ea796098de3f",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#CB6F10",
+                 "fontColor":"#FFFFFF",
+                 "description":"Upcoming",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Unleash your content production by more efficient delivery and improved team collaboration.",
+              "description":"Time to market for content is crucial for delivering high-quality customer experiences. Today this is an evident challenge many companies are facing as time wasted for hunting down the right content needed or sorting out versioning are slowing down the content usability.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/landing_page_no_description.png"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-08-10T12:54:50.040Z"
+        },
+        {
+           "id":"ad83970f-c987-3c86-846f-4edaec827fb1",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#CB6F10",
+                 "fontColor":"#FFFFFF",
+                 "description":"Upcoming",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Future Vision",
+              "description":"Digital engagement practices are becoming firmly entrenched and are transforming the way that stakeholders in healthcare interact. From Digital Therapeutics (DTx) to wearables and predictive algorithms to virtual meetings, technology is fast becoming THE key driver of change. The challenge is identifying which technology will provide the greatest benefit for pharma, clinicians and patients. ",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/104820%20Adobe%20pharma%20webinar%20web%20graphics_2400x800.png"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-07-16T12:24:48.834Z"
+        },
+        {
+           "id":"79c4132f-d4f4-3291-8d31-6bea27759a79",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Business Agility Webinar Series | On-demand",
+              "description":"Adobe’s Business Agility Webinar series reveals practical strategies to help businesses pivot to new demands.\r\n\r\nWe’re hosting a Business Agility Webinar series to help brands who have been impacted by the current situation.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/1440x400acomfullbanner_2.png"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-08-06T09:13:35.392Z"
+        },
+        {
+           "id":"a122e5f1-55df-3021-ad4d-154909059ee6",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/business-continuity"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#FFFFFF",
+                 "fontColor":"#D7373F",
+                 "description":"Live",
+                 "icon":"https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Save your business time and budget with smart editorial workflows.",
+              "description":"Streamlining processes to get work done more efficiently can make all the difference when it comes to meeting tight go-to-market deadlines.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201c.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-07-24T11:01:47.558Z"
+        },
+        {
+           "id":"4b689970-e9fa-37ce-8faa-acf01c653bdc",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/business-continuity"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Shift from physical to digital transactions.",
+              "description":"Learn how your business can switch quickly from physical to digital transactions.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201d.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-07-24T11:01:41.854Z"
+        },
+        {
+           "id":"194d8a83-d22d-3d78-b0f9-1a890112dcc0",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/business-continuity"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Create captivating business videos ",
+              "description":"Creating professional looking business videos is a breeze if you have the right tools and assets for the job. And with the help of Adobe Stock videos and an easy to learn video app like Premiere Rush you’ll be publishing your next online video campaign before you can say “action!”. \r\n",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201c.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-07-24T10:36:59.320Z"
+        },
+        {
+           "id":"48c1906c-9ba5-32c2-afe3-4554af25ac99",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/business-continuity"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Annotate and collaborate: Streamlining online description reviews",
+              "description":"When you combine Acrobat’s online PDF review service with Adobe InDesign, the result is a powerful productivity cocktail which allows you to take full control of a project and go to print faster.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201c.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-07-24T10:36:55.358Z"
+        },
+        {
+           "id":"e8dad9e3-2cd3-3b46-9985-46a3c3a2ff31",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/business-continuity"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Creating high impact presentations ",
+              "description":"You don’t have to be a graphic designer to make your presentations stand out with compelling imagery and graphics. And with 200 million assets available at your fingertips it’s also a lot easier than you think.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201c.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-07-24T10:36:50.122Z"
+        },
+        {
+           "id":"b10726b9-e35b-33d6-a140-6f8e38add752",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/business-continuity"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Digital enrolment without delays",
+              "description":"Enrolling new employees via paper contracts and the local postal service can sometimes take days or weeks to complete and process. While running the risk of missing vital information on official documents and missing your deadline. While enrolling new employees digitally will allow your business to onboard faster, avoid missing information and streamline the entire process for all parties involved.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201c.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-07-24T10:36:25.686Z"
+        },
+        {
+           "id":"3f17494c-7dd7-3a09-a664-09efacfa5984",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/business-continuity"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Streamline approval processes to increase efficiency.",
+              "description":"As a creative agency it can be difficult when relying on customer emails as a means for signing off on large campaigns and projects. Paper trails can be long and there’s no formal signature in sight. So let’s look at a better way to formalize quotations, briefings, approvals and even payments for your organization.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201b.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-07-24T10:36:21.639Z"
+        },
+        {
+           "id":"9f4a974f-6247-3246-aba1-1f202f58c590",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/business-continuity"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#FFFFFF",
+                 "fontColor":"#D7373F",
+                 "description":"Live",
+                 "icon":"https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Switch seamlessly from paper to digital.",
+              "description":"Old habits are hard to kill, especially if they live on paper. Which is why it’s difficult to track, organize and filter paper contracts, sales orders and other valuable documents. Especially when working remotely or when living on the road. ",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201b.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-07-24T10:36:16.193Z"
+        },
+        {
+           "id":"d5ce10b3-feee-3cb0-a36f-b92f3686b36f",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/business-continuity"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Prepare and send impactful business proposals.",
+              "description":"Learn how to overcome everyday hurdles when optimizing bundling and sharing multiple documents with stakeholders.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201b.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-07-24T10:36:11.569Z"
+        },
+        {
+           "id":"89ac773a-e3ef-34a2-adb3-e40e5a519fb5",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/business-continuity"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#FFFFFF",
+                 "fontColor":"#D7373F",
+                 "description":"Live",
+                 "icon":"https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Pivot your business through design collaboration.",
+              "description":"Use design collaboration to adapt your business creatively.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Thumbnail__Create-and-Collaborate_small.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-07-24T10:35:58.220Z"
+        },
+        {
+           "id":"e27eb826-9a92-3f76-b51d-aeccc7cb1f74",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              },
+              {
+                 "id":"products:SG_SUBSTANCE"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#CB6F10",
+                 "fontColor":"#FFFFFF",
+                 "description":"Upcoming",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Create for 3D - Adobe Substance webinar for WPP",
+              "description":"Our vision is to provide apps that power a more efficient 3D workflow, helping you push your creative boundaries into new dimensions faster than ever before. Quickly craft high-quality marketing product visualizations, virtual photography, environmental designs, and more by starting with a 3D foundation that lets you create without limits.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Adobe_Substance_Marquee_1600x600px.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-07-15T12:44:50.725Z"
+        },
+        {
+           "id":"e507b0de-c236-3558-a740-2118971d4383",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#CB6F10",
+                 "fontColor":"#FFFFFF",
+                 "description":"Upcoming",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Adobe Stock & Dimensions Webinar: Photos without a Photo Shoot",
+              "description":" In this webinar we will be showcasing Adobe Stock’s integration with Adobe Dimension – the 3D staging tool which allows you to create engaging 3D content faster with high-quality models, materials and lighting.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/104804_Adobe_Stock_Photos_Banner_1600x%20600.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-07-08T15:12:30.543Z"
+        },
+        {
+           "id":"da2a3019-029c-38a1-87c7-ac7c0057f498",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#CB6F10",
+                 "fontColor":"#FFFFFF",
+                 "description":"Upcoming",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Adobe Premier Support – Realise the full potential of your Adobe Products",
+              "description":"Join our webinar to get an overview of the Adobe Premier Support service and how it could benefit your business and your challenges. You will also have the opportunity to ask questions, and request a further focussed discussion.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/adobe-premiere-support/WebExperience_CustomEventPage.png"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-07-06T10:43:09.042Z"
+        },
+        {
+           "id":"1b9dc4fd-9b4f-3c62-926b-f2264cba5862",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#FFFFFF",
+                 "fontColor":"#D7373F",
+                 "description":"Live",
+                 "icon":"https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Business Agility Webinar series",
+              "description":"Adobe’s Business Agility Webinar series reveals practical strategies to help businesses pivot to new demands.\r\n\r\nWe’re hosting a Business Agility Webinar series to help brands who have been impacted by the current situation.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/1440x400acomfullbanner_2.png"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-07-03T09:19:09.588Z"
+        },
+        {
+           "id":"a0cac475-878b-3757-9fa0-92e8a56e6e08",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/business-continuity"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#FFFFFF",
+                 "fontColor":"#D7373F",
+                 "description":"Live",
+                 "icon":"https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Keep your business moving forward.",
+              "description":"As your business adapts to a rapidly changing landscape, it’s important to keep your projects on track. Join us for two webinars to help you do this using Adobe solutions.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201a.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-07-02T09:39:24.801Z"
+        },
+        {
+           "id":"9ce8f401-55cc-3da2-bfeb-680e04329753",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/business-continuity"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#FFFFFF",
+                 "fontColor":"#D7373F",
+                 "description":"Live",
+                 "icon":"https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Keep your business moving forward.",
+              "description":"As your business adapts to a rapidly changing landscape, it’s important to keep your projects on track. Join us for two webinars to help you do this using Adobe solutions.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201c.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-06-26T13:45:39.595Z"
+        },
+        {
+           "id":"48a6676a-c351-3ece-8728-86839930d466",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/customer-intelligence"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"The Power of a Unified Digital Base",
+              "description":"A unified digital foundation helps you meet every customer need and design and deliver experiences that will set your brand apart. In this webinar you’ll learn how bringing data and content together in a single platform can help you scale marketing investments and meet your customer-centric digital strategy.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/lead/abx/digital%20foundatio%20banner.jpg.img.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-06-25T10:03:11.277Z"
+        },
+        {
+           "id":"002bd3d1-e8a8-312f-a1c9-baf28c48ac72",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/customer-intelligence"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"The features you need to succeed",
+              "description":"Adobe Experience Manager brings content management and digital asset management together in one place. In this webinar you’ll learn how Experience Manager can help you deliver personalised experiences, use AI to automate processes, produce changes in real time, and make the most of marketing trends.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/lead/abx/digital%20foundatio%20banner.jpg.img.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-06-25T10:03:08.216Z"
+        },
+        {
+           "id":"101bdffa-032e-30b9-a224-90764fca3a98",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/customer-intelligence"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Take your digital content to new heights",
+              "description":"Customers are demanding condescriptionually relevant and easy-to-consume experiences — wherever and however they choose. In this webinar you’ll hear insights on trends and challenges in content management, and why a cloud-based content management system may be the answer for your team.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/lead/abx/digital%20foundatio%20banner.jpg.img.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-06-25T10:03:02.686Z"
+        },
+        {
+           "id":"706453db-f4a2-36b0-9508-a3daded34762",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/creativity-design"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Time to Think | Innovative thinking and practical tools to reignite your creativity",
+              "description":"The world is going through the biggest health and economic crisis in peace time, and the impact is everywhere. As the pandemic continues to scale, businesses continue to seek best practices in how to deliver trusted customer engagements - during the immediate climate, and in the near future.\r\n\r\nYet, this is no easy feat. From governmental regulations to the demise of the third-party cookie, Covid-19 follows a long line of complexities and challenges.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Time-to-think-1600x800.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-06-18T14:32:40.028Z"
+        },
+        {
+           "id":"13c66745-faeb-3a70-ba62-c5cb697db866",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#FFFFFF",
+                 "fontColor":"#D7373F",
+                 "description":"Live",
+                 "icon":"https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Adobe Premier Support – Realise the full potential of your Adobe Products",
+              "description":"Join our webinar on April 22 to get an overview of the Adobe Premier Support service and how it could benefit your business and your challenges. You will also have the opportunity to ask questions, and request a further focussed discussion.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/adobe-premiere-support/WebExperience_CustomEventPage.png"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-06-17T09:52:38.150Z"
+        },
+        {
+           "id":"3cb93840-6f53-3265-958a-813d2f84d0d2",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/creativity-design"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#FFFFFF",
+                 "fontColor":"#D7373F",
+                 "description":"Live",
+                 "icon":"https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Virtual Panel | Creating user-centric experiences for Financial Services customers",
+              "description":"We’re excited to invite you and your team to a power hour on all things UX inside the world of Financial Services. \r\nJoin this one-hour virtual panel, moderated by Sunil Pithwa (Senior UX Designer at Aviva), where we will be discussing how Financial Services institutions are designing emotional experiences for their customers today – and in the future. At the end of the panel, there will be the opportunity to ask questions directly.\r\nWe are delighted to be joined by Lisa Reeves (HSBC Kinetic) and Ty Roberts (Barclays).",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Webinar-Adobe_Design_Banking_web_graphic-Marquee-1600x600px.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-06-15T14:48:34.002Z"
+        },
+        {
+           "id":"8bddd5dd-5942-3d86-889d-0c75a9bc6eaa",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              },
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#FFFFFF",
+                 "fontColor":"#D7373F",
+                 "description":"Live",
+                 "icon":"https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"AEP Tech Academy Series",
+              "description":"Last month, we introduced our webinar audience to Adobe Experience Platform (AEP) – the first purpose-built customer experience management platform designed to help you deliver more meaningful interactions. \r\n\r\nWe’re now bringing AEP to life with real industry Use Cases, giving a clearer idea of the impact AEP could have on your business. We’ll run three sessions in June, each one focusing on a different industry.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/ADOBE_NEW_PROJECT_PH01_01B_03---1600x600px.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-06-15T11:02:11.686Z"
+        },
+        {
+           "id":"f1f2ee45-5d36-38e9-91bd-b148d82dc092",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              },
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#CB6F10",
+                 "fontColor":"#FFFFFF",
+                 "description":"Upcoming",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Keep business moving forward.",
+              "description":"Learn how to keep your projects on track through a series of 3 webinars.\r\nBusinesses are looking for new ways to adapt to a rapidly changing landscape. Join us for a series of business webinars with helpful tips and tricks. Register your place today through entering your details and selecting the webinars you want to attend through the form on this page.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201b.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-06-05T11:26:50.753Z"
+        },
+        {
+           "id":"fa318729-7d05-3ff1-8241-6550704e2a27",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:topic/Stock"
+              },
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#CB6F10",
+                 "fontColor":"#FFFFFF",
+                 "description":"Upcoming",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Adobe Stock and Video Integration – New Content & Tips and Tricks ",
+              "description":"Integrating carefully curated, high-quality videos into your content can really help bring it to life. Join this Webinar on the 18th June, where we’ll be focussing on Video content!",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Adobe_Stock_Marquee%201600x600px.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-06-03T12:44:13.867Z"
+        },
+        {
+           "id":"e58013df-2ce5-3c2b-9302-5db9eaec9945",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/creativity-design"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#FFFFFF",
+                 "fontColor":"#D7373F",
+                 "description":"Live",
+                 "icon":"https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"B2B Digital Insights",
+              "description":"Customers expect personalized, connected experiences across all the channels they’re using to interact with your brand — and they want the right content in exactly the right moment. ",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/EMEA_03-more-blur.png"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-06-03T09:14:18.502Z"
+        },
+        {
+           "id":"e019b077-0331-3e7f-9067-fe03f5781b64",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-trends"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#FFFFFF",
+                 "fontColor":"#D7373F",
+                 "description":"Live",
+                 "icon":"https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Digital Trends Webinar Series | On-demand",
+              "description":"A decade on from our first Digital Trends report, we explore how leading businesses are taking advantage of digital transformation to set them apart from the mainstream.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/EMEA_03-more-blur.png"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-06-02T12:32:40.428Z"
+        },
+        {
+           "id":"737399a9-8ffe-38f4-8da0-27b2c11d8b65",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#CB6F10",
+                 "fontColor":"#FFFFFF",
+                 "description":"Upcoming",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Digital or Bust | Navigating Change in Manufacturing",
+              "description":"Traditionally, many manufacturers have been heavily reliant on conventional offline marketing: such as trade shows, catalogs, printed spec sheets and in-person sales calls. The drive for change was not as critical. The adage: “if it isn’t broken don’t fix it” was the rule. At best some tried to support the old normal by making small digital tweaks.\r\n\r\nThat has all changed. Today, we even need to be capable of running on Digital Only.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/AdobeStock_309376471_DX-edit.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-05-28T12:45:57.971Z"
+        },
+        {
+           "id":"87ef319a-772b-3f6c-9cad-b61edf24c65c",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#CB6F10",
+                 "fontColor":"#FFFFFF",
+                 "description":"Upcoming",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Keep your business moving forward.",
+              "description":"Learn how your business can switch quickly from physical to digital transactions. \r\nIn the current landscape, expanding your business beyond a physical environment is vital for business continuity and growth. Join our webinar at 3pm BST on 21 May to learn how to use Adobe Sign to quickly set up fillable forms on your website so customers can easily order your goods and services online.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201d.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-05-13T11:48:57.276Z"
+        },
+        {
+           "id":"e46ad2ea-abf7-382c-860c-5b8643bae06f",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/data-management-platform"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#CB6F10",
+                 "fontColor":"#FFFFFF",
+                 "description":"Upcoming",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"How to drive more sales and enhance your customer's experience through AI-driven recommendations",
+              "description":"In this presentation we will explain why building data science-driven recommender systems is the best option for many organisations and how critical it is to have the right platform to deploy them.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/aep-and-automation/Adobe_Real_time_data_banner_1300x600_image_only.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-04-30T13:32:50.615Z"
+        },
+        {
+           "id":"47c4b8a2-4228-3afa-a6a1-e851e66d4736",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#CB6F10",
+                 "fontColor":"#FFFFFF",
+                 "description":"Upcoming",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"IKEA Webinar - Design, Prototype and Share in Adobe XD; the all-in-one User Experience Design Platform",
+              "description":"All great creative starts with exceptional design. Integrating UX design with development and delivery is critical to create compelling, quality experiences. Join Anita-Mai (Strategic Development, Adobe XD) to go from Design to Prototype, Share and use Plugins in Adobe XD.  ",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/104687%20Adobe-XD-webinar-banners_Marquee%201600x600px.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-04-30T09:33:45.372Z"
+        },
+        {
+           "id":"d56ae546-810a-3e67-8e53-01d2b58c1b7b",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/Stock"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Video Content Velocity | Adobe Stock Webinar Series",
+              "description":"In this episode, you’ll learn the foundation of the powerful After Effects application for adding animated graphics and motion to your video-based workflow, as well as tips and tricks on Premiere Pro. Whether it’s producing scrolling titles or more complex infographics, join Eran Stern, Adobe Expert, and Richard West, Manager EMEA, Adobe Stock, to learn how to create and save these as templates and how Adobe Stock integrates with these tools. ",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/BACHIR_13_P-51.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-04-24T10:36:20.629Z"
+        },
+        {
+           "id":"eb4ea425-17ec-3979-9afe-20eedd282a1d",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/Stock"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Adobe Stock Webinar Series | Upgrade your Marketing Content with Flamingo Images with Adobe Stock",
+              "description":"In this webinar we’ll be highlighting some of the high impact content available to you within Adobe Stock’s core image collection of royalty free images to boost your marketing campaigns!  ",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Adobe%20image%20resize_Landing%20page_2400x800.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-04-24T10:36:20.439Z"
+        },
+        {
+           "id":"d8687af3-09ac-3f37-879c-7ceb80b32fd1",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              },
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/Stock"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#CB6F10",
+                 "fontColor":"#FFFFFF",
+                 "description":"Upcoming",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Adobe Stock Webinar Series | Become a PowerPoint PowerUser with Adobe Stock.",
+              "description":"Targeted at delivering basic design guidance for non-Creative Users, in this webinar we will be focusing on how to improve your presentations and pitches. On April 29th at 12:00 PM (GMT) join Martin Periniak, award winning designer and Adobe trainer, and learn how to organise your workflow, incorporate impactful images from Adobe Stock and put forward multiple design tips and tricks.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Adobe%20image%20resize_Landing%20page_2400x800.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-04-24T10:34:19.454Z"
+        },
+        {
+           "id":"95933c7f-e3db-3e81-aed2-d6b60c8aec24",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/marketing-automation"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#CB6F10",
+                 "fontColor":"#FFFFFF",
+                 "description":"Upcoming",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Marketing Automation and the Adobe Experience Platform",
+              "description":" In this webinar David Sealey (Director of Strategy & Growth at CACI) and Mark Smallman (Marketing Automation Specialist at Adobe) discuss the implications of Adobe’s Experience Platform for investment in Marketing Automation.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/aep-and-automation/Adobe_CACI_Banner_1600x%20600.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-04-21T09:22:27.412Z"
+        },
+        {
+           "id":"d915d6e4-feee-3b84-a7bf-97cf80e40f72",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Adobe Experience Platform: Powering the Future of Real-time Customer Experiences",
+              "description":"The future of customer experience is real time and focused. Delivering the right message at the right moment with laser-focused precision is more important than ever. Adobe Experience Platform and its Real-time Customer Profile power these customer experiences and provide a single system for analytical and transactional digital-experience use cases. ",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/104643%20-%20Adobe%20Digital%20bites%201300x600_V1_option_2.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-04-07T09:05:21.945Z"
+        },
+        {
+           "id":"85a76b82-5e5b-3a4e-a9ab-fb56cafe5663",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#FFFFFF",
+                 "fontColor":"#D7373F",
+                 "description":"Live",
+                 "icon":"https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Design, Prototype and Share in Adobe XD; the all-in-one User Experience Design Platform ",
+              "description":"All great creative starts with exceptional design. Integrating UX design with development and delivery is critical to create compelling, quality experiences. Join Anita-Mai (Strategic Development, Adobe XD) to go from Design to Prototype, Share and use Plugins in Adobe XD. ",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/104687%20Adobe-XD-webinar-banners_Marquee%201600x600px.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-04-06T14:20:28.480Z"
+        },
+        {
+           "id":"7a818160-14ce-36f3-8f67-e3318c71cb2e",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-trends"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Digital Bites Webinar Series Experience and Content Fragments in AEM",
+              "description":"This webinar will be Experience and Content Fragments within Adobe Experience Manager. Please join Hakan Fritz and Elisa Cairoli while they take you through how Adobe Experience Manager's Content Fragments and Experience Fragments may seem similar on the surface, but each play key roles in different use cases.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/104643%20Adobe_Digital-Bites-web-graphics_marquee%201600x600.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-04-06T11:29:31.986Z"
+        },
+        {
+           "id":"2ad7afc6-0aa8-3a8e-87a9-0d9a79c9d8f8",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:product/stock"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#FFFFFF",
+                 "fontColor":"#D7373F",
+                 "description":"Live",
+                 "icon":"https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Aerial photography and Videography | Adobe Stock Webinar Series",
+              "description":"In the first episode, we’ll be talking live to Paul Prescott, photographer, founder and CEO of the Amazing Aerial Agency, looking at some highlights of their portfolio on Adobe Stock and learning some of what goes on behind the scenes of the agency’s shoots.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/BACHIR_13_P-51.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-03-25T11:11:09.622Z"
+        },
+        {
+           "id":"9d3f6e34-b984-32f3-a6ae-091a48e15007",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Cloud Service helps you stay ahead of rising customer expectations.",
+              "description":"Customers expect personalized, connected experiences across all the channels they’re using to interact with your brand — and they want the right content in exactly the right moment. ",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/de/de/enterprise/events/webinars/headers/104606-Adobe-Customer-Experience-graphicsMarquee%201600x600px.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-03-17T11:22:29.988Z"
+        },
+        {
+           "id":"fa7e0121-efa4-36db-93ad-17262523f4d0",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/marketing-automation"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"How To Make Every Experience Epic - Webinar",
+              "description":"Join our on-demand webinar based on the results of a new European survey of B2B buyers and marketers, 'How to make every experience epic' hosted by Marketo's Senior Marketing Director, Peter Bell. He will share insights on how human nature and customer nurture are key to attracting and retaining today’s customers.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/how-to-make-every-experience-epic/104384-adobe-marketo_banner-desktop_1600x600.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-01-16T12:17:26.252Z"
+        },
+        {
+           "id":"48d949bd-7342-38a1-be31-2ef932fda12c",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/document-management"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"How to drive digital agility & efficiency in the Pharma & Life Sciences industry",
+              "description":"The 2018 Digital Trends report released by Adobe & Econsultancy found that only 5% of healthcare and pharma organizations reported being digital-first.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/drive-digital-agility-efficiency-in-the-pharma-and-life-sciences-industry/webinar-thumbnail-600x336-b.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-01-16T12:16:27.714Z"
+        },
+        {
+           "id":"8c41ea24-aba0-3fb5-8d78-cef3c77be3ad",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/document-management"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"EU e-Signature Laws – eIDAS and What You Need to Know",
+              "description":"When it comes to conducting business with paperless documents, organisations have embraced electronic and digital signatures. ",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/eu-eidas-what-you-need-to-know/webinar-thumbnail-600x336-c.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-01-16T12:15:37.071Z"
+        },
+        {
+           "id":"54728312-c883-334b-aea3-d227e899860f",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/document-management"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Corporate Sustainability: Good for People, Planet, and Profit",
+              "description":"Join Vince Digneo, Sustainability Strategist for Adobe, and hear how your company’s commitment to sustainability is not just good, it is good for business. From successful employee programs, to sustainable work spaces, learn how you and your company can be a leader in sustainability — a critical factor in attracting and retaining talent. ",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/corporate-sustainability-good-for-people-planet-profit/webinar-thumbnail-600x336-a.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-01-16T12:14:47.259Z"
+        },
+        {
+           "id":"cd360c3f-873e-3713-82bf-e19adb4c28bd",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/document-management"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#FFFFFF",
+                 "fontColor":"#D7373F",
+                 "description":"Live",
+                 "icon":"https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Acrobat Webinar ",
+              "description":"Hear about the Acrobat updates, savings and the TEI report.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Header%202.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-01-16T12:14:06.232Z"
+        },
+        {
+           "id":"1d824d15-ee13-35e3-8bdf-a0064f8e9acc",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Shape the Experience - Discovering Customer Experience",
+              "description":"These days, marketers must balance the ability to efficiently author, manage, personalise, and measure experiences with the desire to create extremely customised experiences, as this is pivotal to modern day business operations. ",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/shape-the-experience-webinars/104133-Adobe-Shape_The_Experience_2400x800_v1_ANIM.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-01-16T09:41:10.541Z"
+        },
+        {
+           "id":"762db6d7-4c07-3591-b171-bde3ddb703a7",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Shape the Experience - Discovering Artificial Intelligence",
+              "description":"Consumers always expect to have personalised relevant experience, in all places, and on all platforms. New advances in AI are automating many of the mundane, repetitive tasks involved in producing content, and doing it extremely fast.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/shape-the-experience-webinars/104133-Adobe-Shape_The_Experience_2400x800_v1_ANIM.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-01-16T09:40:07.641Z"
+        },
+        {
+           "id":"df402d91-9016-3004-b0ef-5d2fba5d53de",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#FFFFFF",
+                 "fontColor":"#D7373F",
+                 "description":"Live",
+                 "icon":"https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Shape the Experience - Discovering Experience Transformation",
+              "description":"Across industries, leaders are priotising digital transformation to advance their business. Technology is often at the heart of this strategic imperative, but at the end of the day, its purpose is to enable teams across an organisation to come together to deliver seamless customer experiences. ",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/shape-the-experience-webinars/104133-Adobe-Shape_The_Experience_2400x800_v1_ANIM.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-01-16T09:39:19.606Z"
+        },
+        {
+           "id":"b46deff7-1505-39d9-841d-3b7d50706eaa",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Shape the Experience - Discovering Digital Trends",
+              "description":"Understanding todays Digital Trends is key to maximising customer experience. Marketers have the responsibility of shaping the experience for their customers and catering to their needs. Join Adobe and discover the latest Digital Trends for 2019 and how you can leverage these to drive your business forward.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/shape-the-experience-webinars/104133-Adobe-Shape_The_Experience_2400x800_v1_ANIM.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2020-01-16T09:38:35.038Z"
+        },
+        {
+           "id":"19aa33ae-bbc9-37f9-8ec1-f33a37dfc0c8",
+           "showCard":{
+              "from":"2020-10-01T20:00:00Z",
+              "until":"2025-10-31T21:45:00Z"
+           },
+           "tags":[
+              {
+                 "id":"adobe-com-enterprise:content-type/webinar"
+              },
+              {
+                 "id":"adobe-com-enterprise:topic/personalization"
+              },
+              {
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              }
+           ],
+           "overlays":{
+              "banner":{
+                 "backgroundColor":"#1473E6",
+                 "fontColor":"#FFFFFF",
+                 "description":"On-Demand",
+                 "icon":""
+              },
+              "logo":{
+                 
+              },
+              "label":{
+                 
+              },
+              "videoButton":{
+                 
+              }
+           },
+           "contentArea":{
+              "detailText":"",
+              "title":"Creative CX",
+              "description":"Join our webinar to learn why experimentation led businesses put testing at the heart of their strategy. From incremental tweaks to major changes, experimentation enables your business to implement change quickly and see results immediately.",
+              "dateDetailText":{
+                 
+              }
+           },
+           "styles":{
+              "typeOverride":"",
+              "backgroundImage":"https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/creative-cx-experimentation/creative-cx-adobe-webinar-banner_marquee_1600x600.jpg"
+           },
+           "footer":[
+              {
+                 "divider":true,
+                 "left":[
+                    {
+                       "type":"bookmark",
+                       "saveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                       "unsaveCardIcon":"https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                       "cardSaveText":"Save Card",
+                       "cardUnsaveText":"Unsave Card"
+                    },
+                    {
+                       "type":"date-interval",
+                       "startTime":"2020-10-20T20:00:00Z",
+                       "endTime":"2020-10-27T21:45:00Z"
+                    }
+                 ],
+                 "center":[
+                    
+                 ],
+                 "right":[
+                    {
+                       "type":"button",
+                       "style":"call-to-action",
+                       "text":"Read More",
+                       "href":"https://www.google.com"
+                    }
+                 ]
+              }
+           ],
+           "cardDate":"2019-12-19T10:01:15.399Z"
+        }
+     ],
+     "filters":[
+        {
+           "group":"Topic",
+           "id":"adobe-com-enterprise:topic",
+           "items":[
+              {
+                 "label":"Business Continuity",
+                 "id":"adobe-com-enterprise:topic/business-continuity"
+              },
+              {
+                 "label":"Creativity and Design",
+                 "id":"adobe-com-enterprise:topic/creativity-design"
+              },
+              {
+                 "label":"Customer Intelligence",
+                 "id":"adobe-com-enterprise:topic/customer-intelligence"
+              },
+              {
+                 "label":"Data Management Platform",
+                 "id":"adobe-com-enterprise:topic/data-management-platform"
+              },
+              {
+                 "label":"Digital Foundation",
+                 "id":"adobe-com-enterprise:topic/digital-foundation"
+              },
+              {
+                 "label":"Digital Trends",
+                 "id":"adobe-com-enterprise:topic/digital-trends"
+              },
+              {
+                 "label":"Document Management",
+                 "id":"adobe-com-enterprise:topic/document-management"
+              },
+              {
+                 "label":"Marketing Automation",
+                 "id":"adobe-com-enterprise:topic/marketing-automation"
+              },
+              {
+                 "label":"Personalization",
+                 "id":"adobe-com-enterprise:topic/personalization"
+              },
+              {
+                 "label":"Stock",
+                 "id":"adobe-com-enterprise:topic/Stock"
+              }
+           ]
+        },
+        {
+           "group":"Availability",
+           "id":"adobe-com-enterprise:availability",
+           "items":[
+              {
+                 "label":"On-Demand",
+                 "id":"adobe-com-enterprise:availability/on-demand"
+              },
+              {
+                 "label":"Upcoming",
+                 "id":"adobe-com-enterprise:availability/upcoming"
+              }
+           ]
+        }
+     ]
+}

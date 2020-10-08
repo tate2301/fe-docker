@@ -1,0 +1,695 @@
+{
+    "cards": [
+        {
+			"id": "3",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {} 
+			},
+			"tags": [],
+			"contentArea": {
+				"detailText": "",
+				"title": "Infobit 3",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+				{
+					"divider": false,
+					"left": [],
+					"center": [
+                        {
+                            "divider": false,
+                            "left": [],
+                            "center": [
+                                {
+                                    "type": "icon-with-text",
+                                    "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/bookmark.svg",
+                                    "text": "10 Tuts"
+                                },
+                                {
+                                    "type": "icon-with-text",
+                                    "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg",
+                                    "value": "117 min"
+                                }
+                            ],
+                            "right": []
+                        }
+                    ],
+					"right": []
+				}
+			],
+			"search": {}
+        },
+        {
+			"id": "4",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {} 
+			},
+			"tags": [],
+			"contentArea": {
+				"detailText": "",
+				"title": "Infobit 4",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+                {
+                    "divider": false,
+                    "left": [
+                        {
+                            "type": "icon",
+                            "value": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/bookmark.svg"
+                        },
+                        {
+                            "type": "text",
+                            "value": "10 tuts"
+                        }
+                    ],
+                    "center": [
+                        {
+                            "type": "icon",
+                            "value": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg"
+                        },
+                        {
+                            "type": "text",
+                            "value": "117 min"
+                        }
+                    ],
+                    "right": [
+                        {
+                            "type": "icon-with-text",
+                            "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+                            "value": "68k"
+                        }
+                    ]
+                }
+            ],
+			"search": {}
+        },
+        {
+			"id": "5",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {} 
+			},
+			"tags": [],
+			"contentArea": {
+				"detailText": "",
+				"title": "Infobit 5",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+                {
+                    "divider": true,
+                    "left": [
+                        {
+                            "type": "icon",
+                            "value": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/heart.svg"
+                        },
+                        {
+                            "type": "text",
+                            "value": "4"
+                        }
+                    ],
+                    "center": [
+                        {
+                            "type": "icon",
+                            "value": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/upload.svg"
+                        },
+                        {
+                            "type": "text",
+                            "value": "8"
+                        }
+                    ],
+                    "right": [
+                        {
+                            "type": "icon",
+                            "value": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+			"id": "6",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {} 
+			},
+			"tags": [],
+			"contentArea": {
+				"detailText": "",
+				"title": "Infobit 6",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+                {
+                    "divider": true,
+                    "left": [],
+                    "center": [],
+                    "right": [
+                        {
+                            "type": "button",
+                            "style": "call-to-action",
+                            "value": "Button"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+			"id": "10",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {} 
+			},
+			"tags": [],
+			"contentArea": {
+				"detailText": "",
+				"title": "Infobit 10",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+                {
+                    "divider": true,
+                    "left": [
+                        {
+                            "type": "icon",
+                            "value": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/desktop.svg"
+                        },
+                        {
+                            "type": "icon",
+                            "value": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/smartphone.svg"
+                        }
+                    ],
+                    "center": [],
+                    "right": [
+                        {
+                            "type": "button",
+                            "style": "call-to-action",
+                            "value": "Button"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+			"id": "12",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {} 
+			},
+			"tags": [],
+			"contentArea": {
+				"detailText": "",
+				"title": "Infobit 12",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+                {
+                    "divider": true,
+                    "left": [
+                        {
+                            "type": "icon",
+                            "value": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/pr_mnemonic.svg"
+                        },
+                        {
+                            "type": "icon",
+                            "value": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/lr_mnemonic.svg"
+                        }
+                    ],
+                    "center": [],
+                    "right": [
+                        {
+                            "type": "button",
+                            "style": "call-to-action",
+                            "value": "Button"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+			"id": "8",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {} 
+			},
+			"tags": [],
+			"contentArea": {
+				"detailText": "",
+				"title": "Infobit 8",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+                {
+                    "divider": true,
+                    "left": [
+                        {
+                            "type": "icon",
+                            "value": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg"
+                        },
+                        {
+                            "type": "text",
+                            "value": "68k"
+                        }
+                    ],
+                    "center": [],
+                    "right": [
+                        {
+                            "type": "button",
+                            "style": "call-to-action",
+                            "value": "Button"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+			"id": "7",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {} 
+			},
+			"tags": [],
+			"contentArea": {
+				"detailText": "",
+				"title": "Infobit 7",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+                {
+                    "divider": true,
+                    "left": [],
+                    "center": [
+                        {
+                            "type": "link",
+                            "href": "https://www.google.com",
+                            "text": "Text link"
+                        }
+                    ],
+                    "right": [
+                        {
+                            "type": "button",
+                            "style": "call-to-action",
+                            "value": "Button"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+			"id": "9",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {} 
+			},
+			"tags": [],
+			"contentArea": {
+				"detailText": "",
+				"title": "Infobit 9",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+                {
+                    "divider": true,
+                    "left": [
+                        {
+                            "type": "icon",
+                            "value": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg"
+                        },
+                        {
+                            "type": "text",
+                            "value": "68k"
+                        }
+            
+                    ],
+                    "center": [
+                        {
+                            "type": "link",
+                            "href": "https://www.google.com",
+                            "text": "Text link"
+                        }
+                    ],
+                    "right": [
+                        {
+                            "type": "button",
+                            "style": "call-to-action", 
+                            "value": "Button"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+			"id": "11",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {} 
+			},
+			"tags": [],
+			"contentArea": {
+				"detailText": "",
+				"title": "Infobit 11",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+                {
+                    "divider": true,
+                    "left": [
+                        {
+                            "type": "price",
+                            "price": "$29.99",
+                            "term": "month"
+                        }
+                    ],
+                    "center": [],
+                    "right": [
+                        {
+                            "type": "button",
+                            "style": "call-to-action",
+                            "value": "Button"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+			"id": "14",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {} 
+			},
+			"tags": [],
+			"contentArea": {
+				"detailText": "",
+				"title": "Infobit 14",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+                {
+                    "divider": true,
+                    "left": [
+                        {
+                            "type": "rating",
+                            "totalStars": 5,
+                            "starsFilled": 2.5,
+                            "label": "1.4"
+                        }
+                    ],
+                    "center": [],
+                    "right": [
+                        {
+                            "type": "button",
+                            "style": "call-to-action",
+                            "value": "Button"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+			"id": "17",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {} 
+			},
+			"tags": [],
+			"contentArea": {
+				"detailText": "",
+				"title": "Infobit 17",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+                {
+                    "divider": false, 
+                    "left": [{
+                        "infobit": "progress-bar",
+                        "label": "Tutorial Progress",
+                        "completionText": "65% Completed",
+                        "percentage": "65%"
+                    }],
+                    "center": [],
+                    "right": []
+                },
+                {
+                    "divider": true,
+                    "left": [],
+                    "center": [
+                        {
+                            "type": "link", 
+                            "href": "https://www.google.com",
+                            "text": "Text link"
+                        }
+                    ],
+                    "right": [
+                        {
+                            "type": "button",
+                            "style": "call-to-action",
+                            "value": "Button"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+			"id": "15",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {} 
+			},
+			"tags": [],
+			"contentArea": {
+				"detailText": "",
+				"title": "Infobit 15",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+                {
+                    "divider": true, 
+                    "left": {
+                        "infobit": "progress-bar",
+                        "label": "Progress",
+                        "completionText": "6/10",
+                        "percentage": "60%"
+                    },
+                    "center": [],
+                    "right": []
+                }
+            ]
+        },
+        {
+			"id": "16",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {} 
+			},
+			"tags": [],
+			"contentArea": {
+				"detailText": "",
+				"title": "Infobit 16",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+                {
+                    "divider": false, 
+                    "left": {
+                        "infobit": "progress-bar",
+                        "label": "Progress",
+                        "completionText": "6/10",
+                        "percentage": "60%"
+                    },
+                    "center": [],
+                    "right": []
+                },
+                {
+                    "divider": true,
+                    "left": [
+                        {
+                            "type": "icon",
+                            "value": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/bookmark.svg"
+                        },
+                        {
+                            "type": "text",
+                            "value": "10 tuts"
+                        }
+                    ],
+                    "center": [
+                        {
+                            "type": "icon",
+                            "value": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg"
+                        },
+                        {
+                            "type": "text",
+                            "value": "117 min"
+                        }
+                    ],
+                    "right": [
+                        {
+                            "type": "icon",
+                            "value": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg"
+                        },
+                        {
+                            "type": "text",
+                            "value": "68k"
+                        }	
+                    ]
+                }
+            ]
+        }
+    ]
+}
