@@ -1,8 +1,8 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-const Rating = () => (
-    <span>Rating bit</span>
-);
+function Rating() {
+    return (<span>Rating bit</span>);
+}
 
 export default Rating;

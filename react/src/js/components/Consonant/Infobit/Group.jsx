@@ -24,7 +24,7 @@ const INFOBIT_TYPE = {
     BOOKMARK: 'bookmark',
 };
 
-const Group = (props) => {
+function Group(props) {
     const { renderList } = props;
     const renderItems = (data) => {
         let arr = data;
@@ -40,7 +40,7 @@ const Group = (props) => {
                         res.push(<Price />);
                         break;
                     case INFOBIT_TYPE.BUTTON:
-                        res.push(<Button />);
+                        res.push(<Button {...el} />);
                         break;
                     case INFOBIT_TYPE.ICON_TEXT:
                         res.push(<IconWithText />);
@@ -78,9 +78,7 @@ const Group = (props) => {
     };
 
     return (<Fragment>{renderItems(renderList)}</Fragment>);
-};
-
-export default Group;
+}
 
 Group.propTypes = {
     renderList: PropTypes.arrayOf(PropTypes.shape({
@@ -91,3 +89,5 @@ Group.propTypes = {
 Group.defaultProps = {
     renderList: [],
 };
+
+export default Group;

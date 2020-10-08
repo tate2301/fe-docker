@@ -108,15 +108,9 @@ AspectRatio3to2Card.propTypes = {
     badgeText: PropTypes.string,
     videoURL: PropTypes.string,
     footer: PropTypes.shape({
-        left: PropTypes.shape({
-            type: PropTypes.string,
-        }),
-        center: PropTypes.shape({
-            type: PropTypes.string,
-        }),
-        right: PropTypes.shape({
-            type: PropTypes.string,
-        }),
+        left: PropTypes.arrayOf(PropTypes.shape({ type: PropTypes.string })),
+        center: PropTypes.arrayOf(PropTypes.shape({ type: PropTypes.string })),
+        right: PropTypes.arrayOf(PropTypes.shape({ type: PropTypes.string })),
     }),
 };
 
