@@ -46,7 +46,7 @@ function Group(props) {
                         res.push(<IconWithText {...el} />);
                         break;
                     case INFOBIT_TYPE.LINK_ICON:
-                        res.push(<LinkWithIcon />);
+                        res.push(<LinkWithIcon {...el} />);
                         break;
                     case INFOBIT_TYPE.TEXT:
                         res.push(<Text />);
