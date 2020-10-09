@@ -1,3 +1,40 @@
+@consonant-card-footer-height: 32px;
+
 .consonant-card-footer {
-    border: 2px solid salmon;
+    margin-top: auto;
+    padding-top: 24px;
+}
+
+.consonant-card-footer--row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: stretch;
+    min-height: @consonant-card-footer-height;
+    max-height: @consonant-card-footer-height;
+}
+
+.consonant-card-footer--cell {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 0;
+    max-width: 100%;
+    flex-grow: 1;
+
+    &:empty {
+        display: none;
+    }
+
+    &:not(:first-child):not(:last-child) {
+        justify-content: center;
+    }
+
+    &:last-child {
+        justify-content: flex-end;
+    }
+
+    &:only-child {
+        justify-content: space-between;
+    }
 }

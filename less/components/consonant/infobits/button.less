@@ -2,16 +2,16 @@
 - .consonant-btn-infobit_cta;
 */
 
+@consonant-btn-infobit-min-width: 76px;
 @consonant-btn-infobit-max-height: 32px;
-@consonant-btn-infobit-margin-left: 32px;
+// @consonant-btn-infobit-margin-left: 32px;
 
 .consonant-btn-infobit {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
+    min-width: @consonant-btn-infobit-min-width;
     max-width: 100%;
     max-height: @consonant-btn-infobit-max-height;
-    margin-left: @consonant-btn-infobit-margin-left;
+    margin-left: 16px;
     padding-left: 16px;
     padding-right: 16px;
     border: 2px solid @consonant-color-brown-grey;
@@ -22,7 +22,7 @@
         background-color @transition-time @transition-func,
         color @transition-time @transition-func;
 
-    .font(0.9375rem, 2rem, 700, @consonant-color-brown-grey, center);
+    .font(0.9375rem, @consonant-btn-infobit-max-height - 4px, 700, @consonant-color-brown-grey, center);
 
     text-decoration: none;
     text-overflow: ellipsis;
@@ -39,6 +39,15 @@
     }
 }
 
-*:first-child .consonant-btn-infobit:first-child {
+*:first-child > .consonant-btn-infobit:first-child {
     margin-left: 0;
+    margin-right: 32px;
+}
+
+*:first-child > .consonant-btn-infobit:first-child + * {
+    margin-left: 0;
+}
+
+*:last-child > .consonant-btn-infobit:last-child {
+    margin-left: 32px;
 }

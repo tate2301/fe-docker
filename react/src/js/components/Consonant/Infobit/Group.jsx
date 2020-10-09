@@ -37,13 +37,13 @@ function Group(props) {
             arr.forEach((el) => {
                 switch (el.type) {
                     case INFOBIT_TYPE.PRICE:
-                        res.push(<Price />);
+                        res.push(<Price {...el} />);
                         break;
                     case INFOBIT_TYPE.BUTTON:
                         res.push(<Button {...el} />);
                         break;
                     case INFOBIT_TYPE.ICON_TEXT:
-                        res.push(<IconWithText />);
+                        res.push(<IconWithText {...el} />);
                         break;
                     case INFOBIT_TYPE.LINK_ICON:
                         res.push(<LinkWithIcon />);

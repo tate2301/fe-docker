@@ -1,0 +1,47 @@
+@consonant-price-infobit-term-max-width: 50px;
+
+.consonant-price-infobit {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    max-width: 100%;
+    margin-left: 16px;
+}
+
+*:first-child > .consonant-price-infobit:first-child {
+    margin-left: 0;
+}
+
+.consonant-price-infobit--price {
+    max-width: 60%;
+
+    .font(
+        1.125rem,
+        1.6875rem,
+        400,
+        @consonant-color-dark-grey-2
+    );
+
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.consonant-price-infobit--term {
+    position: relative;
+    max-width: @consonant-price-infobit-term-max-width;
+
+    .font(
+        0.875rem,
+        1.6875rem,
+        400,
+        @consonant-color-light-grey-5
+    );
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    &:before {
+        content: '/';
+    }
+}
