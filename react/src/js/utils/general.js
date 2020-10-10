@@ -43,8 +43,8 @@ export const chainFromIterable = args => chain(...args);
 
 export const isSuperset = (superset, subset) => {
     // eslint-disable-next-line no-restricted-syntax
-    for ( const elem of subset ) {
-        if ( !superset.has(elem) ) {
+    for (const elem of subset) {
+        if (!superset.has(elem)) {
             return false;
         }
     }
@@ -54,10 +54,18 @@ export const isSuperset = (superset, subset) => {
 export const intersection = (setA, setB) => {
     const _intersection = new Set();
     // eslint-disable-next-line no-restricted-syntax
-    for ( const elem of setB ) {
-        if ( setA.has(elem) ) {
+    for (const elem of setB) {
+        if (setA.has(elem)) {
             _intersection.add(elem);
         }
     }
     return _intersection;
 };
+
+export const sortByKey = (iterable, keyFunc) => [...iterable].sort((a, b) => {
+    if (keyFunc(a) < keyFunc(b)) return -1;
+    if (keyFunc(a) > keyFunc(b)) return 1;
+    return 0;
+});
+
+export const cleanText = text => text.toLowerCase().trim();
