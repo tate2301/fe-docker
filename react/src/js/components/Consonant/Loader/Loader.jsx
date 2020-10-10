@@ -1,32 +1,25 @@
 import React from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import { LOADER_SIZE } from '../../../constants';
 
-const LOADER_SIZE = {
-    MEDIUM: 'medium',
-    BIG: 'big',
-};
+const Loader = ({ size, hidden, absolute }) => {
+    let sizeClass;
 
-const Loader = (props) => {
-    let { size } = props;
-    const { absolute, hidden } = props;
-
-    switch (size) {
-        case LOADER_SIZE.MEDIUM:
-            size = 'consonant-loader_medium';
-            break;
-        case LOADER_SIZE.BIG:
-            size = 'consonant-loader_big';
-            break;
-        default:
-            break;
+    if (size === LOADER_SIZE.MEDIUM) {
+        sizeClass = 'consonant-loader_medium';
+    } else if (size === LOADER_SIZE.BIG) {
+        sizeClass = 'consonant-loader_big';
+    } else {
+        sizeClass = size;
     }
 
-    return (!hidden &&
+    const className = classNames('consonant-loader', sizeClass, { 'consonant-loader_absolute': absolute });
+
+    return !hidden && (
         <div
             data-testid="consonant-loader"
-            className={
-                `consonant-loader ${size} ${absolute ? 'consonant-loader_absolute' : ''}`
-            }>
+            className={className}>
             <div />
             <div />
             <div />
