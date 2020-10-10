@@ -54,7 +54,7 @@
         position: absolute;
         width: @consonant-card-video-ico-size;
         height: @consonant-card-video-ico-size;
-        left: unit((@consonant-root-rem * 1.0625), px);
+        right: unit((@consonant-root-rem * 1.5), px);
         bottom: unit((@consonant-root-rem), px);
 
         .no-font;
@@ -170,12 +170,6 @@
         background-color: @consonant-color-white;
         overflow-y: auto;
         z-index: 1;
-    }
-
-    @media @consonant-for-tablet-landscape-up {
-        .consonant-aspect-ratio-1-1-card--video-ico {
-            left: unit((@consonant-root-rem * 1.5), px);
-        }
     }
 
     @media @consonant-for-desktop-up {

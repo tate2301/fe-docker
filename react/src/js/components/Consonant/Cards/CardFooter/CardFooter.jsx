@@ -8,15 +8,18 @@ const CardFooter = (props) => {
     return (
         <div className="consonant-card-footer">
             <div className="consonant-card-footer--row">
+                {left.length > 0 &&
                 <div className="consonant-card-footer--cell">
                     <Group renderList={left} />
-                </div>
+                </div>}
+                {center.length > 0 &&
                 <div className="consonant-card-footer--cell">
                     <Group renderList={center} />
-                </div>
+                </div>}
+                {right.length > 0 &&
                 <div className="consonant-card-footer--cell">
                     <Group renderList={right} />
-                </div>
+                </div>}
             </div>
         </div>
     );

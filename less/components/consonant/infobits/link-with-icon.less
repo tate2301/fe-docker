@@ -1,0 +1,37 @@
+@consonant-link-widh-ico-infobit-img-max-size: 18px;
+@consonant-link-widh-ico-text-max-width: 100px;
+
+.consonant-link-widh-ico-infobit {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 0;
+    max-width: 100%;
+    margin-left: 16px;
+    text-decoration: none;
+}
+
+*:first-child > .consonant-link-widh-ico-infobit:first-child {
+    margin-left: 0;
+}
+
+.consonant-link-widh-ico-infobit span {
+    max-width: 100%;
+
+    .font(0.9375rem, 1.25rem, 700, @consonant-color-blue);
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.consonant-link-widh-ico-infobit img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: @consonant-link-widh-ico-infobit-img-max-size;
+    max-height: @consonant-link-widh-ico-infobit-img-max-size;
+    margin-right: 8px;
+    object-fit: contain;
+    user-select: none;
+}
