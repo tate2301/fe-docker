@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useMemo } from 'react';
+import { chainFromIterable } from '../../../../utils/general';
 import { useConfig, useExpandable } from '../../../../utils/hooks';
 import SearchIco from '../../Search/SearchIco';
 import TopFilterItem from './Item';
@@ -7,21 +8,19 @@ import TopFilterItem from './Item';
 const TABLET_MIN_WIDTH = 768;
 const SHOW_MAX_TRUNCATED_FILTERS = 3;
 const MIN_FILTERS_SHOW_BG = 3;
-const FiltersPanelTop = (props) => {
-    const {
-        filters,
-        resQty,
-        onCheckboxClick,
-        onFilterClick,
-        onClearAllFilters,
-        onClearFilterItems,
-        showLimitedFiltersQty,
-        onShowAllClick,
-        windowWidth,
-        searchComponent,
-        sortComponent,
-    } = props;
-
+const FiltersPanelTop = ({
+    filters,
+    resQty,
+    onCheckboxClick,
+    onFilterClick,
+    onClearAllFilters,
+    onClearFilterItems,
+    showLimitedFiltersQty,
+    onShowAllClick,
+    windowWidth,
+    searchComponent,
+    sortComponent,
+}) => {
     const getConfig = useConfig();
 
     const searchEnabled = getConfig('search', 'enabled');
@@ -35,10 +34,15 @@ const FiltersPanelTop = (props) => {
     const searchId = 'top-search';
     const [openExpandable, handleExpandableToggle] = useExpandable(searchId);
 
+
     const showSearchbar = openExpandable === searchId;
 
-    const countSelectedInFilter = el => el.reduce((acc, val) => (val.selected ? acc + 1 : acc), 0);
-    const checkFiltersSelected = () => filters.some(f => countSelectedInFilter(f.items) > 0);
+    const someFiltersAreSelected = useMemo(
+        () =>
+            chainFromIterable(filters.map(f => f.items))
+                .some(item => item.selected),
+        [filters],
+    );
 
     return (
         <div data-testid="consonant-filters__top" className="consonant-top-filters">
@@ -61,15 +65,15 @@ const FiltersPanelTop = (props) => {
                                     'consonant-top-filters--filters consonant-top-filters--filters_truncated' :
                                     'consonant-top-filters--filters'
                             }>
-                            {filters.map(item =>
+                            {filters.map(filter =>
                                 (<TopFilterItem
-                                    key={item.id}
-                                    name={item.group}
-                                    items={item.items}
-                                    itemsSelected={countSelectedInFilter(item.items)}
+                                    key={filter.id}
+                                    name={filter.group}
+                                    items={filter.items}
+                                    itemsSelected={filter.items.some(i => i.selected)}
                                     results={resQty}
-                                    id={item.id}
-                                    isOpened={item.opened}
+                                    id={filter.id}
+                                    isOpened={filter.opened}
                                     onCheck={onCheckboxClick}
                                     onClick={onFilterClick}
                                     onClearAll={onClearFilterItems}
@@ -89,14 +93,14 @@ const FiltersPanelTop = (props) => {
                             }
                         </div>
                         {
-                            (checkFiltersSelected() || filters.length >= MIN_FILTERS_SHOW_BG) &&
+                            (someFiltersAreSelected || filters.length >= MIN_FILTERS_SHOW_BG) &&
                             <div
                                 className={
                                     filters.length === 1 ?
                                         'consonant-top-filters--clear-btn-wrapper consonant-top-filters--clear-btn-wrapper_no-bg' :
                                         'conson0ant-top-filters--clear-btn-wrapper'
                                 }>
-                                {checkFiltersSelected() &&
+                                {someFiltersAreSelected &&
                                     <button
                                         type="button"
                                         data-testid="top-filter__clear-button"
