@@ -1,16 +1,20 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useConfig } from '../../../utils/hooks';
 
 const searchId = 'consonant-search';
 const Search = (props) => {
     const {
         value,
         onSearch,
-        placeholderText,
-        leftPanelTitle,
         name,
         autofocus,
     } = props;
+
+    const getConfig = useConfig();
+
+    const placeholderText = getConfig('search', 'inputPlaceholderText');
+    const leftPanelTitle = getConfig('search', 'leftPanelTitle');
 
     let textInput = null;
     const handleSearch = (evt) => {
@@ -61,15 +65,11 @@ Search.propTypes = {
     name: PropTypes.string,
     onSearch: PropTypes.func.isRequired,
     value: PropTypes.string,
-    placeholderText: PropTypes.string,
-    leftPanelTitle: PropTypes.string,
     autofocus: PropTypes.bool,
 };
 
 Search.defaultProps = {
     value: '',
     name: 'consonant-search',
-    placeholderText: 'Search here...',
-    leftPanelTitle: 'Search',
     autofocus: true,
 };

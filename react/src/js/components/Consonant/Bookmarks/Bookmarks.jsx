@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useConfig } from '../../../utils/hooks';
 
 const Bookmarks = (props) => {
     const {
-        title,
-        selectedIco,
-        unselectedIco,
         selected,
         onClick,
         qty,
     } = props;
+
+    const getConfig = useConfig();
+    const title = getConfig('bookmarks', 'bookmarksFilterTitle');
+    const selectedIco = getConfig('bookmarks', 'selectBookmarksIcon');
+    const unselectedIco = getConfig('bookmarks', 'unselectBookmarksIcon');
 
     const renderIcon = () => {
         let src = '';
@@ -45,18 +48,12 @@ const Bookmarks = (props) => {
 export default Bookmarks;
 
 Bookmarks.propTypes = {
-    title: PropTypes.string,
-    selectedIco: PropTypes.string,
-    unselectedIco: PropTypes.string,
     selected: PropTypes.bool,
     onClick: PropTypes.func.isRequired,
     qty: PropTypes.number,
 };
 
 Bookmarks.defaultProps = {
-    title: 'My favorites',
-    selectedIco: '',
-    unselectedIco: '',
     selected: false,
     qty: 0,
 };

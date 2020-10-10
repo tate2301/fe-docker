@@ -1,7 +1,7 @@
-import { useCallback, useContext, useEffect, useState } from 'react';
-
 import _ from 'lodash';
-import { ExpandableContext } from '../contexts';
+import { useCallback, useContext, useEffect, useState } from 'react';
+import { makeConfigGetter } from './consonant';
+import { ConfigContext, ExpandableContext } from '../contexts';
 
 export const useWindowDimensions = () => {
     const getWindowDimensions = () => ({
@@ -33,4 +33,9 @@ export const useExpandable = (dropdownId) => {
     }, [setOpenDropdown, openDropdown]);
 
     return [openDropdown, handleToggle];
+};
+
+export const useConfig = () => {
+    const config = useContext(ConfigContext);
+    return useCallback(makeConfigGetter(config), [config]);
 };

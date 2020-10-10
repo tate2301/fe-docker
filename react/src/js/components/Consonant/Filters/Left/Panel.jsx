@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useConfig } from '../../../../utils/hooks';
 import Item from './Item';
 
 const DESKTOP_MIN_WIDTH = 1200;
@@ -8,23 +9,27 @@ const LeftFilterPanel = (props) => {
         filters,
         windowWidth,
         showMobileFilters,
-        showTotalResults,
-        showTotalResultsText,
         onFilterClick,
-        clearFilterText,
-        clearAllFiltersText,
         onClearAllFilters,
         onClearFilterItems,
         onCheckboxClick,
         onMobileFiltersToggleClick,
         resQty,
         panelHeader,
-        searchEnabled,
         searchComponent,
         bookmarkComponent,
-        bookmarksEnabled,
     } = props;
 
+    const getConfig = useConfig();
+
+    const showTotalResults = getConfig('collection', 'displayTotalResults');
+    const showTotalResultsText = getConfig('collection', 'totalResultsText');
+    const clearFilterText = getConfig('filterPanel', 'clearFilterText');
+    const clearAllFiltersText = getConfig('filterPanel', 'clearAllFiltersText');
+    const bookmarksEnabled = getConfig('bookmarks', 'enabled');
+    const searchEnabled = getConfig('search', 'enabled');
+
+    // TODO: Improve readability
     const countSelectedInFilter = el => el.reduce((acc, val) => (val.selected ? acc + 1 : acc), 0);
     const checkFilterSelected = () => filters.some(f => countSelectedInFilter(f.items) > 0);
     const mobileFiltersTitle = (windowWidth < DESKTOP_MIN_WIDTH &&
@@ -117,20 +122,14 @@ LeftFilterPanel.propTypes = {
     filters: PropTypes.arrayOf(PropTypes.object),
     windowWidth: PropTypes.number,
     showMobileFilters: PropTypes.bool,
-    showTotalResults: PropTypes.bool,
-    showTotalResultsText: PropTypes.string,
     onFilterClick: PropTypes.func.isRequired,
-    clearFilterText: PropTypes.string.isRequired,
-    clearAllFiltersText: PropTypes.string.isRequired,
     onClearAllFilters: PropTypes.func.isRequired,
     onClearFilterItems: PropTypes.func.isRequired,
     onCheckboxClick: PropTypes.func.isRequired,
     onMobileFiltersToggleClick: PropTypes.func.isRequired,
     resQty: PropTypes.number,
     panelHeader: PropTypes.string,
-    searchEnabled: PropTypes.bool.isRequired,
     searchComponent: PropTypes.node.isRequired,
-    bookmarksEnabled: PropTypes.bool.isRequired,
     bookmarkComponent: PropTypes.node.isRequired,
 };
 
@@ -138,8 +137,6 @@ LeftFilterPanel.defaultProps = {
     filters: [],
     windowWidth: window.innerWidth,
     showMobileFilters: false,
-    showTotalResults: true,
-    showTotalResultsText: '{} results',
     resQty: 0,
     panelHeader: 'Refine the results',
 };

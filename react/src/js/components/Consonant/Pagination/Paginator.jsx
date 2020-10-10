@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useConfig } from '../../../utils/hooks';
 
 const Paginator = (props) => {
     const {
@@ -9,10 +10,13 @@ const Paginator = (props) => {
         onClick,
         showItemsPerPage,
         totalResults,
-        quantityText,
-        prevLabel,
-        nextLabel,
     } = props;
+
+    const getConfig = useConfig();
+
+    const quantityText = getConfig('pagination', 'paginatorQuantityText');
+    const prevLabel = getConfig('pagination', 'paginatorPrevLabel');
+    const nextLabel = getConfig('pagination', 'paginatorNextLabel');
 
     /**
      * @function generateRange
@@ -160,13 +164,7 @@ Paginator.propTypes = {
     onClick: PropTypes.func.isRequired,
     showItemsPerPage: PropTypes.number.isRequired,
     totalResults: PropTypes.number.isRequired,
-    quantityText: PropTypes.string,
-    prevLabel: PropTypes.string,
-    nextLabel: PropTypes.string,
 };
 
 Paginator.defaultProps = {
-    quantityText: 'Showing {}-{} of {} Results',
-    prevLabel: 'Previous',
-    nextLabel: 'Next',
 };

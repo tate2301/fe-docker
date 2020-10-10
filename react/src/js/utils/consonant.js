@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { DEFAULT_CONFIG } from '../constants';
 import parseToPrimitive from './parseToPrimitive';
 import { chainFromIterable } from './general';
 
@@ -14,3 +15,8 @@ export function getDefaultSortOption(config, query) {
         sort: 'featured',
     };
 }
+
+export const makeConfigGetter = config => (object, key) => {
+    const value = _.get(config, `${object}.${key}`, DEFAULT_CONFIG[object][key]);
+    return parseToPrimitive(value);
+};

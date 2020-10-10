@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useConfig } from '../../../utils/hooks';
 import AspectRatio3to2Card from '../Cards/3-2';
 import AspectRatio1to1Card from '../Cards/1-1';
 import FullCard from '../Cards/Full';
@@ -15,14 +16,17 @@ const Collection = (props) => {
     const {
         showItemsPerPage,
         pages,
-        allowBookmarking,
         onCardBookmark,
-        cardSavedIco,
-        cardUnsavedIco,
-        saveCardText,
-        unsaveCardText,
-        cardsStyle,
     } = props;
+
+    const getConfig = useConfig();
+    const allowBookmarking = getConfig('bookmarks', 'enabled');
+    const cardUnsavedIco = getConfig('bookmarks', 'cardUnsavedIcon');
+    const cardSavedIco = getConfig('bookmarks', 'cardSavedIcon');
+    const saveCardText = getConfig('bookmarks', 'saveCardText');
+    const unsaveCardText = getConfig('bookmarks', 'unsaveCardText');
+    const cardsStyle = getConfig('collection', 'cardStyle');
+
     let cards = [...props.cards];
     let cardsToShow = showItemsPerPage * pages;
 
@@ -66,20 +70,11 @@ Collection.propTypes = {
     showItemsPerPage: PropTypes.number,
     pages: PropTypes.number,
     cards: PropTypes.arrayOf(PropTypes.object),
-    allowBookmarking: PropTypes.bool.isRequired,
     onCardBookmark: PropTypes.func.isRequired,
-    cardSavedIco: PropTypes.string.isRequired,
-    cardUnsavedIco: PropTypes.string.isRequired,
-    saveCardText: PropTypes.string,
-    unsaveCardText: PropTypes.string,
-    cardsStyle: PropTypes.string,
 };
 
 Collection.defaultProps = {
     showItemsPerPage: DEFAULT_SHOW_ITEMS_PER_PAGE,
     pages: 1,
     cards: [],
-    saveCardText: 'Save card',
-    unsaveCardText: 'Unsave card',
-    cardsStyle: 'none',
 };

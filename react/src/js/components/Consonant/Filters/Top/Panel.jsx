@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { useExpandable } from '../../../../utils/hooks';
+import parseToPrimitive from '../../../../utils/parseToPrimitive';
+import { useConfig, useExpandable } from '../../../../utils/hooks';
 import SearchIco from '../../Search/SearchIco';
 import TopFilterItem from './Item';
 
@@ -11,23 +12,26 @@ const FiltersPanelTop = (props) => {
     const {
         filters,
         resQty,
-        showTotalResults,
-        showTotalResultsText,
         onCheckboxClick,
         onFilterClick,
         onClearAllFilters,
         onClearFilterItems,
-        clearFilterText,
-        clearAllFiltersText,
         showLimitedFiltersQty,
         onShowAllClick,
-        searchEnabled,
         windowWidth,
         searchComponent,
         sortComponent,
-        sortEnabled,
-        sortOptions,
     } = props;
+
+    const getConfig = useConfig();
+
+    const searchEnabled = getConfig('search', 'enabled');
+    const clearFilterText = getConfig('filterPanel', 'clearFilterText');
+    const clearAllFiltersText = getConfig('filterPanel', 'clearAllFiltersText');
+    const showTotalResults = getConfig('collection', 'displayTotalResults');
+    const showTotalResultsText = getConfig('collection', 'totalResultsText');
+    const sortEnabled = getConfig('sort', 'enabled');
+    const sortOptions = parseToPrimitive(getConfig('sort', 'options'));
 
     const searchId = 'top-search';
     const [openExpandable, handleExpandableToggle] = useExpandable(searchId);
@@ -142,24 +146,15 @@ FiltersPanelTop.propTypes = {
     onFilterClick: PropTypes.func.isRequired,
     onClearAllFilters: PropTypes.func.isRequired,
     onClearFilterItems: PropTypes.func.isRequired,
-    clearFilterText: PropTypes.string.isRequired,
-    clearAllFiltersText: PropTypes.string.isRequired,
-    showTotalResults: PropTypes.bool,
-    showTotalResultsText: PropTypes.string,
     showLimitedFiltersQty: PropTypes.bool,
     onShowAllClick: PropTypes.func.isRequired,
-    searchEnabled: PropTypes.bool.isRequired,
     windowWidth: PropTypes.number.isRequired,
     searchComponent: PropTypes.node.isRequired,
-    sortOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
-    sortEnabled: PropTypes.bool.isRequired,
     sortComponent: PropTypes.node.isRequired,
 };
 
 FiltersPanelTop.defaultProps = {
     filters: [],
     resQty: 0,
-    showTotalResults: true,
-    showTotalResultsText: '{} results',
     showLimitedFiltersQty: false,
 };

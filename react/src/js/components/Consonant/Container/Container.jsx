@@ -2,8 +2,8 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import 'whatwg-fetch';
+import { makeConfigGetter, getDefaultSortOption, getNumSelectedFilterItems } from '../../../utils/consonant';
 import {
-    DEFAULT_CONFIG,
     DESKTOP_MIN_WIDTH,
     FILTER_LOGIC,
     FILTER_PANEL,
@@ -13,9 +13,9 @@ import {
     TABLET_MIN_WIDTH,
     TRUNCATE_TEXT_QTY,
 } from '../../../constants';
-import { ExpandableContext } from '../../../contexts';
+import { ExpandableContext, ConfigContext } from '../../../contexts';
 import { filterCardsByDateRange } from '../../../utils/cards';
-import { getDefaultSortOption, getNumSelectedFilterItems } from '../../../utils/consonant';
+
 import {
     chainFromIterable,
     intersection,
@@ -46,11 +46,10 @@ const Container = (props) => {
     const { config } = props;
 
     const [openDropdown, setOpenDropdown] = useState(null);
+    const getConfig = useCallback(makeConfigGetter(config), [config]);
 
-    const getConfig = useCallback((object, key) => {
-        const value = _.get(config, `${object}.${key}`, DEFAULT_CONFIG[object][key]);
-        return parseToPrimitive(value);
-    }, [config]);
+    const filterPanelEnabled = getConfig('filterPanel', 'enabled');
+    const filterPanelType = getConfig('filterPanel', 'type');
 
     const defaultSortOption = getDefaultSortOption(config, getConfig('sort', 'defaultSort'));
 
@@ -67,7 +66,7 @@ const Container = (props) => {
     const { width: windowWidth } = useWindowDimensions();
     const [showMobileFilters, setShowMobileFilters] = useState(false);
     const [showBookmarks, setShowBookmarks] = useState(false);
-    const [showLimitedFiltersQty, setShowLimitedFiltersQty] = useState(getConfig('filterPanel', 'type') === 'top');
+    const [showLimitedFiltersQty, setShowLimitedFiltersQty] = useState(filterPanelType === 'top');
 
     const selectedFiltersItemsQty = getNumSelectedFilterItems(filters);
 
@@ -129,7 +128,7 @@ const Container = (props) => {
     }, [setSearchQuery, clearFilters]);
 
     const handleFilterItemClick = (filterId) => {
-        const isUsingTopFilter = getConfig('filterPanel', 'type') === 'top';
+        const isUsingTopFilter = filterPanelType === 'top';
         setFilters((prevFilters) => {
             let opened;
             return prevFilters.map((el) => {
@@ -406,84 +405,64 @@ const Container = (props) => {
     }, [filteredCards, showItemsPerPage, getConfig]);
 
 
+    const sortOptions = parseToPrimitive(getConfig('sort', 'options'));
     return (
-        <ExpandableContext.Provider value={{ value: openDropdown, setValue: setOpenDropdown }} >
+        <ConfigContext.Provider value={config}>
+            <ExpandableContext.Provider value={{ value: openDropdown, setValue: setOpenDropdown }} >
 
-            {/* eslint-disable-next-line max-len */}
-            {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions,jsx-a11y/click-events-have-key-events */}
-            <section
-                role="group"
-                onClick={handleWindowClick}
-                className="consonant-wrapper">
-                <div className="consonant-wrapper--inner">
-                    {
-                        getConfig('filterPanel', 'enabled') &&
-              getConfig('filterPanel', 'type') === FILTER_PANEL.LEFT &&
-              <span>
-                  <LeftFilterPanel
-                      filters={filters}
-                      windowWidth={windowWidth}
-                      showTotalResults={getConfig('collection', 'displayTotalResults')}
-                      showTotalResultsText={getConfig('collection', 'totalResultsText')}
-                      onFilterClick={handleFilterItemClick}
-                      clearFilterText={getConfig('filterPanel', 'clearFilterText')}
-                      clearAllFiltersText={getConfig('filterPanel', 'clearAllFiltersText')}
-                      onClearAllFilters={resetFiltersSearchAndBookmarks}
-                      onClearFilterItems={clearFilterItems}
-                      onCheckboxClick={handleCheckBoxChange}
-                      onMobileFiltersToggleClick={handleFiltersToggle}
-                      showMobileFilters={showMobileFilters}
-                      resQty={filteredCards.length}
-                      bookmarksEnabled={getConfig('bookmarks', 'enabled')}
-                      searchEnabled={getConfig('search', 'enabled')}
-                      bookmarkComponent={(
-                          <Bookmarks
-                              name="filtersSideBookmarks"
-                              title={getConfig('bookmarks', 'bookmarksFilterTitle')}
-                              selectedIco={getConfig('bookmarks', 'selectBookmarksIcon')}
-                              unselectedIco={getConfig('bookmarks', 'unselectBookmarksIcon')}
-                              selected={showBookmarks}
-                              onClick={handleShowFavoritesClick}
-                              qty={bookmarkedCardIds.length} />
-                      )}
-                      searchComponent={(
-                          <Search
-                              name="filtersSideSearch"
-                              placeholderText={getConfig('search', 'inputPlaceholderText')}
-                              value={searchQuery}
-                              autofocus={false}
-                              leftPanelTitle={getConfig('search', 'leftPanelTitle')}
-                              onSearch={handleSearchInputChange} />
-                      )}
-                      panelHeader={getConfig('filterPanel', 'leftPanelHeader')} />
-              </span>
-                    }
-                    <span>
-                        {getConfig('filterPanel', 'enabled') &&
-                              getConfig('filterPanel', 'type') === FILTER_PANEL.TOP &&
+                {/* eslint-disable-next-line max-len */}
+                {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions,jsx-a11y/click-events-have-key-events */}
+                <section
+                    role="group"
+                    onClick={handleWindowClick}
+                    className="consonant-wrapper">
+                    <div className="consonant-wrapper--inner">
+                        {filterPanelEnabled && filterPanelType === FILTER_PANEL.LEFT && (
+                            <span>
+                                <LeftFilterPanel
+                                    filters={filters}
+                                    windowWidth={windowWidth}
+                                    onFilterClick={handleFilterItemClick}
+                                    onClearAllFilters={resetFiltersSearchAndBookmarks}
+                                    onClearFilterItems={clearFilterItems}
+                                    onCheckboxClick={handleCheckBoxChange}
+                                    onMobileFiltersToggleClick={handleFiltersToggle}
+                                    showMobileFilters={showMobileFilters}
+                                    resQty={filteredCards.length}
+                                    bookmarkComponent={(
+                                        <Bookmarks
+                                            name="filtersSideBookmarks"
+                                            selected={showBookmarks}
+                                            onClick={handleShowFavoritesClick}
+                                            qty={bookmarkedCardIds.length} />
+                                    )}
+                                    searchComponent={(
+                                        <Search
+                                            name="filtersSideSearch"
+                                            value={searchQuery}
+                                            autofocus={false}
+                                            onSearch={handleSearchInputChange} />
+                                    )}
+                                    panelHeader={getConfig('filterPanel', 'leftPanelHeader')} />
+                            </span>
+                        )}
+                        <span>
+                            {filterPanelEnabled &&
+                              filterPanelType === FILTER_PANEL.TOP &&
                               <FiltersPanelTop
                                   filters={filters}
                                   windowWidth={windowWidth}
-                                  searchEnabled={getConfig('search', 'enabled')}
                                   resQty={filteredCards.length}
                                   onCheckboxClick={handleCheckBoxChange}
                                   onFilterClick={handleFilterItemClick}
                                   onClearFilterItems={clearFilterItems}
                                   onClearAllFilters={resetFiltersSearchAndBookmarks}
-                                  clearFilterText={getConfig('filterPanel', 'clearFilterText')}
-                                  clearAllFiltersText={getConfig('filterPanel', 'clearAllFiltersText')}
-                                  showTotalResults={getConfig('collection', 'displayTotalResults')}
-                                  showTotalResultsText={getConfig('collection', 'totalResultsText')}
                                   showLimitedFiltersQty={showLimitedFiltersQty}
-                                  sortEnabled={getConfig('sort', 'enabled')}
-                                  sortOptions={parseToPrimitive(getConfig('sort', 'options'))}
                                   searchComponent={(
                                       <Search
                                           name="filtersTopSearch"
-                                          placeholderText={getConfig('search', 'inputPlaceholderText')}
                                           value={searchQuery}
-                                          autofocus={window.innerWidth >= DESKTOP_MIN_WIDTH}
-                                          leftPanelTitle={getConfig('search', 'leftPanelTitle')}
+                                          autofocus={windowWidth >= DESKTOP_MIN_WIDTH}
                                           onSearch={handleSearchInputChange} />
                                   )}
                                   sortComponent={(
@@ -495,72 +474,56 @@ const Container = (props) => {
                                           onSelect={handleSortChange}
                                           name="filtersTopSelect"
                                           autoWidth
-                                          optionsAlignment={filters.length > 0 && window.innerWidth < TABLET_MIN_WIDTH ? 'left' : 'right'} />
+                                          optionsAlignment={filters.length > 0 && windowWidth < TABLET_MIN_WIDTH ? 'left' : 'right'} />
                                   )}
                                   onShowAllClick={handleShowAllTopFilters} />
-                        }
-                        {getConfig('filterPanel', 'type') === FILTER_PANEL.LEFT &&
+                            }
+                            {filterPanelType === FILTER_PANEL.LEFT &&
                             <FilterInfo
-                                enabled={getConfig('filterPanel', 'enabled')}
-                                title={getConfig('collection', 'title')}
+                                enabled={filterPanelEnabled}
                                 filters={filters}
                                 cardsQty={filteredCards.length}
-                                showTotalResults={getConfig('collection', 'displayTotalResults')}
-                                showTotalResultsText={getConfig('collection', 'totalResultsText')}
                                 selectedFiltersQty={selectedFiltersItemsQty}
                                 windowWidth={windowWidth}
                                 onMobileFiltersToggleClick={handleFiltersToggle}
                                 searchComponent={(
                                     <Search
                                         name="searchFiltersInfo"
-                                        placeholderText={getConfig('search', 'inputPlaceholderText')}
                                         value={searchQuery}
                                         autofocus={false}
-                                        leftPanelTitle={getConfig('search', 'leftPanelTitle')}
                                         onSearch={handleSearchInputChange} />
                                 )}
-                                searchEnabled={getConfig('search', 'enabled')}
                                 sortComponent={(
                                     <Select
                                         opened={sortOpened}
                                         id="sort"
                                         val={sort}
-                                        values={parseToPrimitive(getConfig('sort', 'options'))}
+                                        values={sortOptions}
                                         onSelect={handleSortChange}
                                         autoWidth={false}
                                         optionsAlignment="right" />
                                 )}
-                                sortEnabled={getConfig('sort', 'enabled')}
-                                sortOptions={parseToPrimitive(getConfig('sort', 'options'))}
+                                sortOptions={sortOptions}
                                 onSelectedFilterClick={handleCheckBoxChange} />
-                        }
-                        {collectionCards.length > 0 ?
-                            <Fragment>
-                                <Collection
-                                    showItemsPerPage={showItemsPerPage}
-                                    pages={pages}
-                                    cards={collectionCards}
-                                    allowBookmarking={getConfig('bookmarks', 'enabled')}
-                                    onCardBookmark={handleCardBookmarking}
-                                    cardUnsavedIco={getConfig('bookmarks', 'cardUnsavedIcon')}
-                                    cardSavedIco={getConfig('bookmarks', 'cardSavedIcon')}
-                                    saveCardText={getConfig('bookmarks', 'saveCardText')}
-                                    unsaveCardText={getConfig('bookmarks', 'unsaveCardText')}
-                                    cardsStyle={getConfig('collection', 'cardStyle')} />
-                                {
-                                    shouldDisplayPaginator('loadMore') &&
-                                        //  Migrate to useRef
+                            }
+                            {collectionCards.length > 0 ?
+                                <Fragment>
+                                    <Collection
+                                        showItemsPerPage={showItemsPerPage}
+                                        pages={pages}
+                                        cards={collectionCards}
+                                        onCardBookmark={handleCardBookmarking} />
+                                    {/* TODO: Migrate to useRef */}
+                                    {shouldDisplayPaginator('loadMore') && (
                                         <div ref={page}>
                                             <LoadMore
                                                 onClick={onLoadMoreClick}
                                                 show={numCardsToShow}
-                                                total={filteredCards.length}
-                                                loadMoreButtonText={getConfig('pagination', 'loadMoreButtonText')}
-                                                loadMoreQuantityText={getConfig('pagination', 'loadMoreQuantityText')} />
+                                                total={filteredCards.length} />
                                         </div>
-                                }
-                                {
-                                    shouldDisplayPaginator('paginator') &&
+                                    )}
+                                    {
+                                        shouldDisplayPaginator('paginator') &&
                                         <Paginator
                                             pageCount={windowWidth <= DESKTOP_MIN_WIDTH ?
                                                 PAGINATION_COUNT.MOBILE : PAGINATION_COUNT.DESKTOP
@@ -569,21 +532,19 @@ const Container = (props) => {
                                             totalPages={totalPages}
                                             showItemsPerPage={showItemsPerPage}
                                             totalResults={filteredCards.length}
-                                            onClick={setPages}
-                                            quantityText={getConfig('pagination', 'paginatorQuantityText')}
-                                            prevLabel={getConfig('pagination', 'paginatorPrevLabel')}
-                                            nextLabel={getConfig('pagination', 'paginatorNextLabel')} />
-                                }
-                            </Fragment> :
-                            <Loader
-                                size={LOADER_SIZE.BIG}
-                                hidden={!getConfig('collection', 'totalCardLimit')}
-                                absolute />
-                        }
-                    </span>
-                </div>
-            </section>
-        </ExpandableContext.Provider>
+                                            onClick={setPages} />
+                                    }
+                                </Fragment> :
+                                <Loader
+                                    size={LOADER_SIZE.BIG}
+                                    hidden={!getConfig('collection', 'totalCardLimit')}
+                                    absolute />
+                            }
+                        </span>
+                    </div>
+                </section>
+            </ExpandableContext.Provider>
+        </ConfigContext.Provider>
     );
 };
 

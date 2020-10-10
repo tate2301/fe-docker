@@ -1,26 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useConfig } from '../../../../utils/hooks';
 import ChosenFilter from './ChosenItem';
 
 const DESKTOP_MIN_WIDTH = 1200;
 const FilterInfo = (props) => {
     const {
         enabled,
-        title,
         filters,
         cardsQty,
-        showTotalResults,
-        showTotalResultsText,
         selectedFiltersQty,
         windowWidth,
         onSelectedFilterClick,
         onMobileFiltersToggleClick,
         searchComponent,
-        searchEnabled,
         sortComponent,
-        sortEnabled,
         sortOptions,
     } = props;
+
+    const getConfig = useConfig();
+    const title = getConfig('collection', 'title');
+    const showTotalResults = getConfig('collection', 'displayTotalResults');
+    const showTotalResultsText = getConfig('collection', 'totalResultsText');
+    const searchEnabled = getConfig('search', 'enabled');
+    const sortEnabled = getConfig('sort', 'enabled');
 
     return (
         <aside data-testid="consonant-filters__info" className="consonant-filters-info">
@@ -89,28 +92,20 @@ export default FilterInfo;
 
 FilterInfo.propTypes = {
     enabled: PropTypes.bool.isRequired,
-    title: PropTypes.string,
     filters: PropTypes.arrayOf(PropTypes.object),
     cardsQty: PropTypes.number,
-    showTotalResults: PropTypes.bool,
-    showTotalResultsText: PropTypes.string,
     selectedFiltersQty: PropTypes.number,
     windowWidth: PropTypes.number,
     onMobileFiltersToggleClick: PropTypes.func.isRequired,
     onSelectedFilterClick: PropTypes.func.isRequired,
     searchComponent: PropTypes.node.isRequired,
-    searchEnabled: PropTypes.bool.isRequired,
     sortComponent: PropTypes.node.isRequired,
-    sortEnabled: PropTypes.bool.isRequired,
     sortOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 FilterInfo.defaultProps = {
-    title: '',
     filters: [],
     cardsQty: 0,
     selectedFiltersQty: 0,
     windowWidth: window.innerWidth,
-    showTotalResults: true,
-    showTotalResultsText: '{} results',
 };
