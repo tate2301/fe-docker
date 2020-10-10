@@ -4,36 +4,32 @@ import React, { useCallback } from 'react';
 import { useExpandable } from '../../../../utils/hooks';
 
 const clipWrapperItemsCount = 9;
-const TopFilterItem = (props) => {
-    const {
-        name,
-        id,
-        items,
-        itemsSelected,
-        onCheck,
-        onClearAll,
-        results,
-        clearFilterText,
-    } = props;
-
+const TopFilterItem = ({
+    name,
+    id,
+    items,
+    itemsSelected,
+    onCheck,
+    onClearAll,
+    results,
+    clearFilterText,
+}) => {
     const [openDropdown, handleToggle] = useExpandable(id);
     const isOpened = openDropdown === id;
 
-    const stopPropagation = useCallback((e) => {
-        e.stopPropagation();
-    }, []);
+    const stopPropagation = useCallback(e => e.stopPropagation(), []);
 
-    const handleClear = (e) => {
+    const handleClear = useCallback((e) => {
         e.stopPropagation();
         onClearAll(id);
-    };
+    }, [onClearAll, id]);
 
-    const handleCheck = (e) => {
+    const handleCheck = useCallback((e) => {
         e.stopPropagation();
         onCheck(id, e.target.value, e.target.checked);
-    };
+    }, [onCheck, id]);
 
-    const renderItems = () => (
+    const itemsComponent = (
         <ul
             data-testid="filter-group"
             className={items.length >= clipWrapperItemsCount ?
@@ -63,7 +59,7 @@ const TopFilterItem = (props) => {
             ))}
         </ul>
     );
-    const renderFooter = () => (
+    const footerComponent = (
         <div className="consonant-top-filter--footer">
             <span className="consonant-top-filter--footer-res-qty">{results} results</span>
             {itemsSelected > 0 &&
@@ -101,16 +97,15 @@ const TopFilterItem = (props) => {
                         tabIndex="0">
                         {name}
                         <span className="consonant-top-filter--selcted-items-qty">
-                            {items.filter(item => item.selected).length > 0 &&
-                            items.filter(item => item.selected).length}
+                            {items.filter(item => item.selected).length || null}
                         </span>
                     </button>
                 </h3>
                 <div className="consonant-top-filter--selcted-items">
                     <div className="consonant-top-filter--absolute-wrapper">
-                        {renderItems()}
+                        {itemsComponent}
                         {items.length >= clipWrapperItemsCount && <aside className="consonant-top-filter--bg" />}
-                        {renderFooter()}
+                        {footerComponent}
                     </div>
                 </div>
             </div>

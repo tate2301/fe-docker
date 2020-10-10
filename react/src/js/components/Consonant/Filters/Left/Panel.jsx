@@ -1,7 +1,6 @@
-import React, { useMemo } from 'react';
-import _ from 'lodash';
 import PropTypes from 'prop-types';
-import { chainFromIterable } from 'react/src/js/utils/general';
+import React, { useMemo } from 'react';
+import { chainFromIterable } from '../../../../utils/general';
 import { useConfig } from '../../../../utils/hooks';
 import Item from './Item';
 
