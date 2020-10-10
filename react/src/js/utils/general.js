@@ -52,14 +52,14 @@ export const isSuperset = (superset, subset) => {
 };
 
 export const intersection = (setA, setB) => {
-    const _intersection = new Set();
+    const intersectionSet = new Set();
     // eslint-disable-next-line no-restricted-syntax
     for (const elem of setB) {
         if (setA.has(elem)) {
-            _intersection.add(elem);
+            intersectionSet.add(elem);
         }
     }
-    return _intersection;
+    return intersectionSet;
 };
 
 export const sortByKey = (iterable, keyFunc) => [...iterable].sort((a, b) => {
