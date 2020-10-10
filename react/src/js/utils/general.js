@@ -84,8 +84,6 @@ export const mapObject = (object, func) => {
 
 export const isObject = val => !!val && (val.constructor === Object);
 
-window.mapObject = mapObject;
-
 export const parseToPrimitive = (value) => {
     if (isObject(value)) {
         return mapObject(value, parseToPrimitive);
