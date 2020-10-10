@@ -1,32 +1,38 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { useConfig } from '../../../utils/hooks';
 
 const searchId = 'consonant-search';
-const Search = (props) => {
-    const {
-        value,
-        onSearch,
-        name,
-        autofocus,
-    } = props;
-
+const Search = ({
+    value,
+    onSearch,
+    name,
+    autofocus,
+}) => {
     const getConfig = useConfig();
 
     const placeholderText = getConfig('search', 'inputPlaceholderText');
     const leftPanelTitle = getConfig('search', 'leftPanelTitle');
 
-    let textInput = null;
-    const handleSearch = (evt) => {
-        onSearch(evt.target.value);
-    };
-    const setAutofocus = () => {
+    const textInput = useRef(null);
+
+    const handleSearch = useCallback((e) => {
+        onSearch(e.target.value);
+    }, []);
+
+    const focusTextInput = useCallback(() => {
         textInput.focus();
-    };
-    const clearSearch = () => {
+    }, []);
+
+    const clearSearch = useCallback(() => {
         onSearch('');
-        setAutofocus();
-    };
+        focusTextInput();
+    }, []);
+
+    useEffect(() => {
+        if (autofocus && textInput) textInput.focus();
+    }, [autofocus, textInput]);
+
     return (
         <div data-testid={name} className="consonant-search">
             <label htmlFor={searchId}>
@@ -40,10 +46,7 @@ const Search = (props) => {
                         onClick={e => e.stopPropagation()}
                         value={value}
                         onChange={handleSearch}
-                        ref={(input) => {
-                            if (autofocus && input) input.focus();
-                            textInput = input;
-                        }}
+                        ref={textInput}
                         className="consonant-search--input"
                         required />
                     <button
