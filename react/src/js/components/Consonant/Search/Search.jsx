@@ -1,5 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const searchId = 'consonant-search';
 const Search = (props) => {
@@ -8,9 +8,10 @@ const Search = (props) => {
         onSearch,
         placeholderText,
         leftPanelTitle,
-        childrenKey,
+        name,
         autofocus,
     } = props;
+
     let textInput = null;
     const handleSearch = (evt) => {
         onSearch(evt.target.value);
@@ -23,7 +24,7 @@ const Search = (props) => {
         setAutofocus();
     };
     return (
-        <div data-testid={childrenKey} className="consonant-search">
+        <div data-testid={name} className="consonant-search">
             <label htmlFor={searchId}>
                 <span className="consonant-search--input-title">{leftPanelTitle}</span>
                 <span className="consonant-search--input-wrapper">
@@ -32,6 +33,7 @@ const Search = (props) => {
                         data-testid="search-input"
                         type="search"
                         placeholder={placeholderText}
+                        onClick={e => e.stopPropagation()}
                         value={value}
                         onChange={handleSearch}
                         ref={(input) => {
@@ -56,7 +58,7 @@ const Search = (props) => {
 export default Search;
 
 Search.propTypes = {
-    childrenKey: PropTypes.string,
+    name: PropTypes.string,
     onSearch: PropTypes.func.isRequired,
     value: PropTypes.string,
     placeholderText: PropTypes.string,
@@ -66,7 +68,7 @@ Search.propTypes = {
 
 Search.defaultProps = {
     value: '',
-    childrenKey: 'consonant-search',
+    name: 'consonant-search',
     placeholderText: 'Search here...',
     leftPanelTitle: 'Search',
     autofocus: true,

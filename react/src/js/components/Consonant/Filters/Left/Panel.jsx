@@ -19,7 +19,10 @@ const LeftFilterPanel = (props) => {
         onMobileFiltersToggleClick,
         resQty,
         panelHeader,
-        children,
+        searchEnabled,
+        searchComponent,
+        bookmarkComponent,
+        bookmarksEnabled,
     } = props;
 
     const countSelectedInFilter = el => el.reduce((acc, val) => (val.selected ? acc + 1 : acc), 0);
@@ -73,33 +76,21 @@ const LeftFilterPanel = (props) => {
         </div>
     );
 
-    let updatedChildren = [];
-    const renderChildren = (key) => {
-        const res = updatedChildren.filter(el => el.props && el.props.childrenKey === key);
-        return res.length > 0 ? res : null;
-    };
-
-    if (!Array.isArray(children)) updatedChildren.push(children);
-    else updatedChildren = children;
-
     return (
         <div
             data-testid="consonant-filters__left"
             className={showMobileFilters ? 'consonant-left-filters consonant-left-filters_opened' : 'consonant-left-filters'}>
-            {
-                <div className="consonant-left-filters--header">
-                    {mobileFiltersTitle}
-                    {desktopFiltersTitle}
-                    {desktopFiltersClearBtn}
-                </div>
-            }
-            {renderChildren('filtersSideSearch')}
-            {renderChildren('filtersSideBookmarks')}
-            {
-                filters.length > 0 &&
+            <div className="consonant-left-filters--header">
+                {mobileFiltersTitle}
+                {desktopFiltersTitle}
+                {desktopFiltersClearBtn}
+            </div>
+            {windowWidth >= DESKTOP_MIN_WIDTH && searchEnabled && searchComponent}
+            {bookmarksEnabled && bookmarkComponent}
+            {filters.length > 0 && (
                 <div className="consonant-left-filters--list">
-                    {filters.map(item =>
-                        (<Item
+                    {filters.map(item => (
+                        <Item
                             key={item.id}
                             name={item.group}
                             icon={item.icon}
@@ -111,9 +102,10 @@ const LeftFilterPanel = (props) => {
                             onCheck={onCheckboxClick}
                             onClick={onFilterClick}
                             onClearAll={onClearFilterItems}
-                            clearFilterText={clearFilterText} />))}
+                            clearFilterText={clearFilterText} />
+                    ))}
                 </div>
-            }
+            )}
             {mobileFiltersFooter}
         </div>
     );
@@ -122,11 +114,6 @@ const LeftFilterPanel = (props) => {
 export default LeftFilterPanel;
 
 LeftFilterPanel.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.bool, PropTypes.element])),
-        PropTypes.element,
-        PropTypes.bool,
-    ]),
     filters: PropTypes.arrayOf(PropTypes.object),
     windowWidth: PropTypes.number,
     showMobileFilters: PropTypes.bool,
@@ -141,6 +128,10 @@ LeftFilterPanel.propTypes = {
     onMobileFiltersToggleClick: PropTypes.func.isRequired,
     resQty: PropTypes.number,
     panelHeader: PropTypes.string,
+    searchEnabled: PropTypes.bool.isRequired,
+    searchComponent: PropTypes.node.isRequired,
+    bookmarksEnabled: PropTypes.bool.isRequired,
+    bookmarkComponent: PropTypes.node.isRequired,
 };
 
 LeftFilterPanel.defaultProps = {
@@ -150,6 +141,5 @@ LeftFilterPanel.defaultProps = {
     showTotalResults: true,
     showTotalResultsText: '{} results',
     resQty: 0,
-    children: [],
     panelHeader: 'Refine the results',
 };

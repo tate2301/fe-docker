@@ -15,24 +15,19 @@ const FilterInfo = (props) => {
         windowWidth,
         onSelectedFilterClick,
         onMobileFiltersToggleClick,
-        children,
+        searchComponent,
+        searchEnabled,
+        sortComponent,
+        sortEnabled,
+        sortOptions,
     } = props;
 
-    let updatedChildren = [];
-    const renderChildren = (key) => {
-        const res = updatedChildren.filter(el => el.props && el.props.childrenKey === key);
-
-        return res.length > 0 ? res : null;
-    };
-
-    if (!Array.isArray(children)) updatedChildren.push(children);
-    else updatedChildren = children;
 
     return (
         <aside data-testid="consonant-filters__info" className="consonant-filters-info">
             {windowWidth >= DESKTOP_MIN_WIDTH &&
                 <div className={
-                    renderChildren('selectFiltersInfo') ?
+                    (sortEnabled && sortOptions.length) ?
                         'consonant-filters-info--wrapper' :
                         'consonant-filters-info--wrapper consonant-filters-info--wrapper_no-line'
                 }>
@@ -41,7 +36,7 @@ const FilterInfo = (props) => {
                 </div>
             }
             <div className="consonant-filters-info--search">
-                {renderChildren('searchFiltersInfo')}
+                {searchEnabled && windowWidth <= DESKTOP_MIN_WIDTH && searchComponent}
             </div>
             {windowWidth < DESKTOP_MIN_WIDTH && filters.length > 0 && enabled &&
                 <div
@@ -69,7 +64,7 @@ const FilterInfo = (props) => {
                     </button>
                 </div>
             }
-            {renderChildren('selectFiltersInfo')}
+            {sortEnabled && sortOptions.length && sortComponent}
             {windowWidth >= DESKTOP_MIN_WIDTH && selectedFiltersQty > 0 &&
                 <div
                     data-testid="selected-filters"
@@ -104,11 +99,11 @@ FilterInfo.propTypes = {
     windowWidth: PropTypes.number,
     onMobileFiltersToggleClick: PropTypes.func.isRequired,
     onSelectedFilterClick: PropTypes.func.isRequired,
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.bool, PropTypes.element])),
-        PropTypes.element,
-        PropTypes.bool,
-    ]),
+    searchComponent: PropTypes.node.isRequired,
+    searchEnabled: PropTypes.bool.isRequired,
+    sortComponent: PropTypes.node.isRequired,
+    sortEnabled: PropTypes.bool.isRequired,
+    sortOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 FilterInfo.defaultProps = {

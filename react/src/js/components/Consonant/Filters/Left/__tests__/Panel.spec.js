@@ -57,7 +57,7 @@ describe('Consonant/FilterPanelLeft', () => {
             const tree = createTree((
                 <Panel {...DEFAULT_PROPS} >
                     <Search
-                        childrenKey="filtersSideSearch"
+                        name="filtersSideSearch"
                         {...SEARCH_DEFAULT_PROPS} />
                     <Bookmarks
                         childrenKey="filtersSideBookmarks"
@@ -71,7 +71,7 @@ describe('Consonant/FilterPanelLeft', () => {
             const tree = createTree((
                 <Panel {...DEFAULT_PROPS} >
                     <Search
-                        childrenKey="filtersSideSearch"
+                        name="filtersSideSearch"
                         {...SEARCH_DEFAULT_PROPS} />
                 </Panel>
             ));

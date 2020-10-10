@@ -74,7 +74,7 @@ describe('Consonant/FiltersInfo', () => {
             const tree = createTree((
                 <Info {...DEFAULT_PROPS} >
                     <Search
-                        childrenKey="searchFiltersInfo"
+                        name="searchFiltersInfo"
                         {...SEARCH_DEFAULT_PROPS} />
                     <Select
                         childrenKey="selectFiltersInfo"
@@ -88,7 +88,7 @@ describe('Consonant/FiltersInfo', () => {
             const tree = createTree((
                 <Info {...DEFAULT_PROPS} >
                     <Search
-                        childrenKey="searchFiltersInfo"
+                        name="searchFiltersInfo"
                         {...SEARCH_DEFAULT_PROPS} />
                 </Info>
             ));

@@ -1,32 +1,32 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
+import { useExpandable } from '../../../utils/hooks';
 
-const Select = (props) => {
-    const {
-        opened,
-        val,
-        values,
-        onSelect,
-        // onOpen,
-        autoWidth,
-        optionsAlignment,
-    } = props;
+const Select = ({
+    val,
+    values,
+    onSelect,
+    autoWidth,
+    optionsAlignment,
+    id,
+}) => {
+    const [openDropdown, handleToggle] = useExpandable(id);
+    const opened = openDropdown === id;
+
+    const handleOptionClick = useCallback((e, item) => {
+        onSelect(item);
+        handleToggle(e);
+    }, [handleToggle, onSelect]);
 
     return (
-        <div className={
-            autoWidth ?
-                'consonant-select consonant-select_auto-width' :
-                'consonant-select'
-        }>
+        <div className={autoWidth ? 'consonant-select consonant-select_auto-width' : 'consonant-select'}>
             <button
                 data-testid="select-button"
                 type="button"
-                // onClick={onOpen}
-                className={opened ?
-                    'consonant-select--btn consonant-select--btn_active' :
-                    'consonant-select--btn'
-                }
-                tabIndex="0">{val.label || 'Please select'}
+                onClick={handleToggle}
+                className={opened ? 'consonant-select--btn consonant-select--btn_active' : 'consonant-select--btn'}
+                tabIndex="0">
+                {val.label || 'Please select'}
             </button>
             <div data-testid="consonant-select--options" className={`consonant-select--options consonant-select--options_${optionsAlignment}`}>
                 {values.map(item => (
@@ -38,7 +38,7 @@ const Select = (props) => {
                             'consonant-select--option consonant-select--option_selected' :
                             'consonant-select--option'
                         }
-                        onClick={() => { onSelect(item); }}
+                        onClick={e => handleOptionClick(e, item)}
                         tabIndex="0">
                         {item.label}
                     </button>
@@ -51,7 +51,6 @@ const Select = (props) => {
 export default Select;
 
 Select.propTypes = {
-    opened: PropTypes.bool,
     val: PropTypes.shape({
         label: PropTypes.string,
         sort: PropTypes.string,
@@ -60,11 +59,10 @@ Select.propTypes = {
     values: PropTypes.arrayOf(PropTypes.object).isRequired,
     autoWidth: PropTypes.bool,
     optionsAlignment: PropTypes.string,
-    // onOpen: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired,
 };
 
 Select.defaultProps = {
-    opened: false,
     autoWidth: false,
     optionsAlignment: 'right',
 };

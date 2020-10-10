@@ -48,11 +48,13 @@ describe('Consonant/FilterItem', () => {
         global.innerWidth = NON_TABLET_MIN_WIDTH;
 
         render((
-            <FilterPanelTop {...DEFAULT_PROPS} >
-                <Search
-                    childrenKey="filtersTopSearch"
-                    {...SEARCH_DEFAULT_PROPS} />
-            </FilterPanelTop>
+            <FilterPanelTop
+                {...DEFAULT_PROPS}
+                searchComponent={(
+                    <Search
+                        name="filtersTopSearch"
+                        {...SEARCH_DEFAULT_PROPS} />
+                )} />
         ));
 
         const footerTotalResElement = screen.queryByTestId('top-filters__search-wrapper');
@@ -63,7 +65,7 @@ describe('Consonant/FilterItem', () => {
         render((
             <FilterPanelTop {...DEFAULT_PROPS} >
                 <Search
-                    childrenKey="filtersTopSearch"
+                    name="filtersTopSearch"
                     {...SEARCH_DEFAULT_PROPS} />
             </FilterPanelTop>
         ));

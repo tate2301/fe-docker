@@ -1,5 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { useExpandable } from '../../../../utils/hooks';
+import SearchIco from '../../Search/SearchIco';
 import TopFilterItem from './Item';
 
 const TABLET_MIN_WIDTH = 768;
@@ -11,43 +13,42 @@ const FiltersPanelTop = (props) => {
         resQty,
         showTotalResults,
         showTotalResultsText,
-        showSearchbar,
         onCheckboxClick,
         onFilterClick,
         onClearAllFilters,
         onClearFilterItems,
         clearFilterText,
         clearAllFiltersText,
-        children,
         showLimitedFiltersQty,
         onShowAllClick,
+        searchEnabled,
+        windowWidth,
+        searchComponent,
+        sortComponent,
+        sortEnabled,
+        sortOptions,
     } = props;
 
-    let updatedChildren = [];
-    const renderChildren = (key) => {
-        const res = updatedChildren.filter(el => el.props && el.props.childrenKey === key);
-        return res.length > 0 ? res : null;
-    };
+    const searchId = 'top-search';
+    const [openExpandable, handleExpandableToggle] = useExpandable(searchId);
+
+    const showSearchbar = openExpandable === searchId;
+
     const countSelectedInFilter = el => el.reduce((acc, val) => (val.selected ? acc + 1 : acc), 0);
     const checkFiltersSelected = () => filters.some(f => countSelectedInFilter(f.items) > 0);
 
-    if (!Array.isArray(children)) updatedChildren.push(children);
-    else updatedChildren = children;
-
     return (
         <div data-testid="consonant-filters__top" className="consonant-top-filters">
-            {
-                updatedChildren.some(el => el.props && el.props.childrenKey === 'filtersTopSearch') &&
-                window.innerWidth < TABLET_MIN_WIDTH &&
+            {searchComponent && windowWidth < TABLET_MIN_WIDTH && (
                 <div data-testid="top-filters__search-wrapper" className="consonant-top-filters--search-wrapper">
-                    {renderChildren('filtersTopSearch')}
+                    {searchComponent}
                 </div>
-            }
+            )}
             <div
                 className="consonant-top-filters--inner">
-                {filters.length > 0 &&
+                {filters.length &&
                     <div className="consonant-top-filters--filters-wrapper">
-                        {window.innerWidth >= TABLET_MIN_WIDTH &&
+                        {windowWidth >= TABLET_MIN_WIDTH &&
                             <strong className="consonant-top-filters--title">Filters:</strong>
                         }
                         <div
@@ -74,7 +75,7 @@ const FiltersPanelTop = (props) => {
                             }
                             {
                                 filters.length > SHOW_MAX_TRUNCATED_FILTERS &&
-                                window.innerWidth >= TABLET_MIN_WIDTH &&
+                                windowWidth >= TABLET_MIN_WIDTH &&
                                 showLimitedFiltersQty &&
                                 <button
                                     type="button"
@@ -105,24 +106,26 @@ const FiltersPanelTop = (props) => {
                         }
                     </div>
                 }
-                {window.innerWidth >= TABLET_MIN_WIDTH && showTotalResults &&
+                {windowWidth >= TABLET_MIN_WIDTH && showTotalResults &&
                     <span
                         data-testid="filter-top-result-count"
                         className="consonant-top-filters--res-qty">
                         <strong>{showTotalResultsText.replace('{}', resQty)}</strong>
                     </span>
                 }
-                {
-                    updatedChildren.some(el => el.props && el.props.childrenKey === 'filtersTopSearchIco') &&
-                    window.innerWidth >= TABLET_MIN_WIDTH &&
+                {searchEnabled && windowWidth >= TABLET_MIN_WIDTH && (
                     <div data-testid="filter-top-ico-wrapper" className="consonant-top-filters--search-ico-wrapper">
-                        {showSearchbar && renderChildren('filtersTopSearch')}
-                        {renderChildren('filtersTopSearchIco')}
+                        {showSearchbar && searchComponent}
+                        {windowWidth >= TABLET_MIN_WIDTH && (
+                            <SearchIco
+                                childrenKey="filtersTopSearchIco"
+                                onClick={handleExpandableToggle} />
+                        )}
                     </div>
-                }
-                {updatedChildren.some(el => el.props && el.props.childrenKey === 'filtersTopSelect') &&
+                )}
+                {sortEnabled && sortOptions.length &&
                     <div data-testid="top-filters__select-wrapper" className="consonant-top-filters--select-wrapper">
-                        {renderChildren('filtersTopSelect')}
+                        {sortComponent}
                     </div>
                 }
             </div>
@@ -133,11 +136,6 @@ const FiltersPanelTop = (props) => {
 export default FiltersPanelTop;
 
 FiltersPanelTop.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.bool, PropTypes.element])),
-        PropTypes.element,
-        PropTypes.bool,
-    ]),
     filters: PropTypes.arrayOf(PropTypes.object),
     resQty: PropTypes.number,
     onCheckboxClick: PropTypes.func.isRequired,
@@ -148,9 +146,14 @@ FiltersPanelTop.propTypes = {
     clearAllFiltersText: PropTypes.string.isRequired,
     showTotalResults: PropTypes.bool,
     showTotalResultsText: PropTypes.string,
-    showSearchbar: PropTypes.bool,
     showLimitedFiltersQty: PropTypes.bool,
     onShowAllClick: PropTypes.func.isRequired,
+    searchEnabled: PropTypes.bool.isRequired,
+    windowWidth: PropTypes.number.isRequired,
+    searchComponent: PropTypes.node.isRequired,
+    sortOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
+    sortEnabled: PropTypes.bool.isRequired,
+    sortComponent: PropTypes.node.isRequired,
 };
 
 FiltersPanelTop.defaultProps = {
@@ -158,7 +161,5 @@ FiltersPanelTop.defaultProps = {
     resQty: 0,
     showTotalResults: true,
     showTotalResultsText: '{} results',
-    showSearchbar: false,
-    children: [],
     showLimitedFiltersQty: false,
 };

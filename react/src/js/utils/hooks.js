@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 
 import _ from 'lodash';
+import { ExpandableContext } from '../contexts';
 
 export const useWindowDimensions = () => {
     const getWindowDimensions = () => ({
@@ -18,4 +19,18 @@ export const useWindowDimensions = () => {
     }, []);
 
     return windowDimensions;
+};
+
+export const useExpandable = (dropdownId) => {
+    const { value: openDropdown, setValue: setOpenDropdown } = useContext(ExpandableContext);
+    const handleToggle = useCallback((e) => {
+        e.stopPropagation();
+        if (openDropdown === dropdownId) {
+            setOpenDropdown(null);
+        } else {
+            setOpenDropdown(dropdownId);
+        }
+    }, [setOpenDropdown, openDropdown]);
+
+    return [openDropdown, handleToggle];
 };
