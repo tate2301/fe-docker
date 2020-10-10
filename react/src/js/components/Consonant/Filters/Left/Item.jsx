@@ -1,32 +1,32 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 
-const Item = (props) => {
-    const {
-        name,
-        icon,
-        id,
-        items,
-        itemsSelected,
-        isOpened,
-        onCheck,
-        onClick,
-        onClearAll,
-        results,
-        clearFilterText,
-    } = props;
-    const handleClick = (clickEvt) => {
-        clickEvt.preventDefault();
+const Item = ({
+    name,
+    icon,
+    id,
+    items,
+    itemsSelected,
+    isOpened,
+    onCheck,
+    onClick,
+    onClearAll,
+    results,
+    clearFilterText,
+}) => {
+    const handleClick = useCallback((e) => {
+        e.preventDefault();
         onClick(id);
-    };
-    const handleClear = () => {
-        onClearAll(id);
-    };
-    const handleCheck = (evt) => {
+    }, []);
+
+    const handleClear = useCallback(() => onClearAll(id), []);
+
+    const handleCheck = useCallback((evt) => {
         evt.stopPropagation();
         onCheck(id, evt.target.value, evt.target.checked);
-    };
-    const renderSelecedFilter = () => itemsSelected > 0 && (
+    }, []);
+
+    const selectedFilterComponent = itemsSelected && (
         <button
             data-testid="item-badge"
             type="button"
@@ -36,7 +36,8 @@ const Item = (props) => {
             {itemsSelected}
         </button>
     );
-    const renderItems = () => (
+
+    const filterItemsComponent = (
         <ul
             data-testid="filter-group"
             className="consonant-left-filter--items">
@@ -61,7 +62,7 @@ const Item = (props) => {
             ))}
         </ul>
     );
-    const renderFooter = () => (
+    const footerComponent = (
         <div className="consonant-left-filter--footer">
             <span className="consonant-left-filter--footer-res-qty">{results} results</span>
             {itemsSelected > 0 &&
@@ -100,21 +101,15 @@ const Item = (props) => {
                         <div
                             className="consonant-left-filter--selected-items-qty"
                             data-qty={itemsSelected > 0 ? `+${itemsSelected}` : ''}>
-                            {items.map((item, idx) => {
-                                let res = '';
-
-                                if (item.selected) {
-                                    res = idx === items.length - 1 ? item.label : `${item.label}, `;
-                                }
-                                return res;
-                            })
+                            {items.filter(i => i.selected).map((item, idx) =>
+                                (idx === items.length - 1 ? item.label : `${item.label}, `))
                             }
                         </div>
                     </button>
                 </h3>
-                {renderSelecedFilter()}
-                {renderItems()}
-                {renderFooter()}
+                {selectedFilterComponent}
+                {filterItemsComponent}
+                {footerComponent}
             </div>
         </div>
     );
