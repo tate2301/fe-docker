@@ -8,8 +8,9 @@ import TextLink from './Type/Link';
 import LinkWithIcon from './Type/LinkWithIcon';
 import Price from './Type/Price';
 import Progress from './Type/Progress';
-import Rating from './Type/Rating';
+import Rating from './Type/Rating/Rating';
 import Text from './Type/Text';
+import parseToPrimitive from '../../../utils/parseToPrimitive';
 
 const INFOBIT_TYPE = {
     PRICE: 'price',
@@ -61,7 +62,10 @@ function Group(props) {
                         res.push(<Progress />);
                         break;
                     case INFOBIT_TYPE.RATING:
-                        res.push(<Rating />);
+                        res.push(<Rating
+                            label={el.label}
+                            totalStars={parseToPrimitive(el.totalStars)}
+                            starsFilled={parseToPrimitive(el.starsFilled)} />);
                         break;
                     case INFOBIT_TYPE.BOOKMARK:
                         res.push(<Bookmark />);
