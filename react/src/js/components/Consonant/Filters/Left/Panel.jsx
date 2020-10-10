@@ -1,25 +1,25 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import _ from 'lodash';
 import PropTypes from 'prop-types';
+import { chainFromIterable } from 'react/src/js/utils/general';
 import { useConfig } from '../../../../utils/hooks';
 import Item from './Item';
 
 const DESKTOP_MIN_WIDTH = 1200;
-const LeftFilterPanel = (props) => {
-    const {
-        filters,
-        windowWidth,
-        showMobileFilters,
-        onFilterClick,
-        onClearAllFilters,
-        onClearFilterItems,
-        onCheckboxClick,
-        onMobileFiltersToggleClick,
-        resQty,
-        panelHeader,
-        searchComponent,
-        bookmarkComponent,
-    } = props;
-
+const LeftFilterPanel = ({
+    filters,
+    windowWidth,
+    showMobileFilters,
+    onFilterClick,
+    onClearAllFilters,
+    onClearFilterItems,
+    onCheckboxClick,
+    onMobileFiltersToggleClick,
+    resQty,
+    panelHeader,
+    searchComponent,
+    bookmarkComponent,
+}) => {
     const getConfig = useConfig();
 
     const showTotalResults = getConfig('collection', 'displayTotalResults');
@@ -29,23 +29,28 @@ const LeftFilterPanel = (props) => {
     const bookmarksEnabled = getConfig('bookmarks', 'enabled');
     const searchEnabled = getConfig('search', 'enabled');
 
-    // TODO: Improve readability
-    const countSelectedInFilter = el => el.reduce((acc, val) => (val.selected ? acc + 1 : acc), 0);
-    const checkFilterSelected = () => filters.some(f => countSelectedInFilter(f.items) > 0);
-    const mobileFiltersTitle = (windowWidth < DESKTOP_MIN_WIDTH &&
+    const someFiltersAreSelected = useMemo(
+        () =>
+            chainFromIterable(filters.map(f => f.items))
+                .some(item => item.selected),
+        [filters],
+    );
+
+    const mobileFiltersTitle = windowWidth < DESKTOP_MIN_WIDTH && (
         <div className="consonant-left-filters--mob-title">
             <button
                 type="button"
                 onClick={onMobileFiltersToggleClick}
-                className="consonant-left-filters--mob-back">Back
+                className="consonant-left-filters--mob-back">
+                Back
             </button>
             <span>Filter by</span>
         </div>
     );
-    const desktopFiltersTitle = (windowWidth >= DESKTOP_MIN_WIDTH &&
+    const desktopFiltersTitle = windowWidth >= DESKTOP_MIN_WIDTH && (
         <h3 className="consonant-left-filters--desk-title">{panelHeader}</h3>
     );
-    const desktopFiltersClearBtn = (windowWidth >= DESKTOP_MIN_WIDTH &&
+    const desktopFiltersClearBtn = windowWidth >= DESKTOP_MIN_WIDTH && (
         <button
             type="button"
             className="consonant-left-filters--clear-link"
@@ -53,30 +58,31 @@ const LeftFilterPanel = (props) => {
             tabIndex="0">{clearAllFiltersText}
         </button>
     );
-    const mobileFiltersFooter = (windowWidth < DESKTOP_MIN_WIDTH &&
+
+    const mobileFiltersFooter = windowWidth < DESKTOP_MIN_WIDTH && (
         <div className="consonant-left-filters--mobile-footer">
-            {showTotalResults &&
+            {showTotalResults && (
                 <span
                     data-testid="mobile-footer-total-res"
                     className="consonant-left-filters--mobile-footer-total-res-qty">
                     {showTotalResultsText.replace('{}', resQty)}
                 </span>
-            }
-            {
-                checkFilterSelected() &&
+            )}
+            {someFiltersAreSelected && (
                 <button
                     type="button"
                     data-testid="mobile-footer-clear"
                     className="consonant-left-filters--mobile-footer-clear-btn"
-                    onClick={onClearAllFilters}>{clearAllFiltersText}
+                    onClick={onClearAllFilters}>
+                    {clearAllFiltersText}
                 </button>
-            }
+            )}
             <button
                 type="button"
                 data-testid="mobile-footer-btn"
                 className="consonant-left-filters--mobile-footer-btn"
                 onClick={onMobileFiltersToggleClick}>
-                {checkFilterSelected() ? 'Apply' : 'Done'}
+                {someFiltersAreSelected ? 'Apply' : 'Done'}
             </button>
         </div>
     );
@@ -94,16 +100,16 @@ const LeftFilterPanel = (props) => {
             {bookmarksEnabled && bookmarkComponent}
             {filters.length > 0 && (
                 <div className="consonant-left-filters--list">
-                    {filters.map(item => (
+                    {filters.map(filter => (
                         <Item
-                            key={item.id}
-                            name={item.group}
-                            icon={item.icon}
-                            items={item.items}
-                            itemsSelected={countSelectedInFilter(item.items)}
+                            key={filter.id}
+                            name={filter.group}
+                            icon={filter.icon}
+                            items={filter.items}
+                            itemsSelected={filter.items.some(i => i.selected)}
                             results={resQty}
-                            id={item.id}
-                            isOpened={item.opened}
+                            id={filter.id}
+                            isOpened={filter.opened}
                             onCheck={onCheckboxClick}
                             onClick={onFilterClick}
                             onClearAll={onClearFilterItems}

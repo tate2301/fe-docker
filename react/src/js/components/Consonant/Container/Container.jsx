@@ -53,6 +53,8 @@ const Container = (props) => {
 
     const getConfig = useCallback(makeConfigGetter(config), [config]);
 
+    // Config
+
     const filterPanelEnabled = getConfig('filterPanel', 'enabled');
     const filterPanelType = getConfig('filterPanel', 'type');
     const paginationType = getConfig('pagination', 'type');
@@ -357,7 +359,6 @@ const Container = (props) => {
         [sortedCards],
     );
 
-
     const collectionCards = useMemo(() => {
         // INFO: bookmarked cards will be ordered because bookmarked cards is
         //  derived from sorted Cards
@@ -383,8 +384,6 @@ const Container = (props) => {
     );
 
     const selectedFiltersItemsQty = getNumSelectedFilterItems(filters);
-
-    // Other callbacks
 
     const shouldDisplayPaginator = useMemo(() => {
         const resultsPerPageNotZero = resultsPerPage > 0;
