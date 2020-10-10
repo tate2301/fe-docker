@@ -13,7 +13,7 @@ function Rating({ totalStars, starsFilled, label }) {
             defaultFilledStars;
     }
 
-    if (starsFilled < 0 || starsFilled > total) filled = defaultFilledStars;
+    if (filled < 0 || filled > total) filled = defaultFilledStars;
 
     const starsFilledMultiplier = Math.round(maxPercantage / total);
 

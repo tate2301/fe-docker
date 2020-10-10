@@ -10,7 +10,7 @@ import Price from './Type/Price';
 import Progress from './Type/Progress';
 import Rating from './Type/Rating/Rating';
 import Text from './Type/Text';
-import parseToPrimitive from '../../../utils/parseToPrimitive';
+import { parseToPrimitive } from '../../../utils/general';
 
 const INFOBIT_TYPE = {
     PRICE: 'price',
