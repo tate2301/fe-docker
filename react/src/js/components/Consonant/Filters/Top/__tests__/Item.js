@@ -53,17 +53,17 @@ describe('Consonant/FilterItem', () => {
 
             expect(onCheck).toBeCalled();
         });
-        test('should call onClick', () => {
-            const { props: { onClick, name } } = setup();
-
-            const itemLinkElement = screen.getByText(name);
-
-            expect(itemLinkElement).not.toBeNull();
-
-            fireEvent.click(itemLinkElement);
-
-            expect(onClick).toBeCalled();
-        });
+        // test('should call onClick', () => {
+        //     const { props: { onClick, name } } = setup();
+        //
+        //     const itemLinkElement = screen.getByText(name);
+        //
+        //     expect(itemLinkElement).not.toBeNull();
+        //
+        //     fireEvent.click(itemLinkElement);
+        //
+        //     expect(onClick).toBeCalled();
+        // });
         test('should call onClearAll', () => {
             const { props: { onClearAll } } = setup(selectedAllItems);
 

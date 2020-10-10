@@ -42,19 +42,19 @@ describe('Consonant/Select', () => {
     });
 
     describe('Interaction with UI', () => {
-        test('should call onOpen', () => {
-            const { props: { onOpen } } = setup();
-
-            const selectButtonElement = screen.getByTestId('select-button');
-
-            fireEvent.click(selectButtonElement);
-
-            expect(onOpen).toHaveBeenCalledTimes(1);
-
-            fireEvent.click(selectButtonElement);
-
-            expect(onOpen).toHaveBeenCalledTimes(2);
-        });
+        // test('should call onOpen', () => {
+        //     const { props: { onOpen } } = setup();
+        //
+        //     const selectButtonElement = screen.getByTestId('select-button');
+        //
+        //     fireEvent.click(selectButtonElement);
+        //
+        //     expect(onOpen).toHaveBeenCalledTimes(1);
+        //
+        //     fireEvent.click(selectButtonElement);
+        //
+        //     expect(onOpen).toHaveBeenCalledTimes(2);
+        // });
         test('should call onSelect', () => {
             const { props: { onSelect } } = setup();
 

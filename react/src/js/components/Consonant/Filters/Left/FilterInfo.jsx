@@ -22,7 +22,6 @@ const FilterInfo = (props) => {
         sortOptions,
     } = props;
 
-
     return (
         <aside data-testid="consonant-filters__info" className="consonant-filters-info">
             {windowWidth >= DESKTOP_MIN_WIDTH &&
@@ -112,7 +111,6 @@ FilterInfo.defaultProps = {
     cardsQty: 0,
     selectedFiltersQty: 0,
     windowWidth: window.innerWidth,
-    children: [],
     showTotalResults: true,
     showTotalResultsText: '{} results',
 };

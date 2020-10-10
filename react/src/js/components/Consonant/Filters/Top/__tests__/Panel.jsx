@@ -76,11 +76,15 @@ describe('Consonant/FilterItem', () => {
     });
     test('should renders correctly with select', () => {
         render((
-            <FilterPanelTop {...DEFAULT_PROPS} >
-                <Select
-                    childrenKey="filtersTopSelect"
-                    {...SELECT_DEFAULT_PROPS} />
-            </FilterPanelTop>
+            <FilterPanelTop
+                {...DEFAULT_PROPS}
+                sortEnabled
+                sortOptions={[{ label: 'Featured', sort: 'featured' }]}
+                sortComponent={(
+                    <Select
+                        childrenKey="filtersTopSelect"
+                        {...SELECT_DEFAULT_PROPS} />
+                )} />
         ));
 
         const footerTotalResElement = screen.queryByTestId('top-filters__select-wrapper');
