@@ -382,7 +382,7 @@ const Container = (props) => {
 
     // Other callbacks
 
-    const shouldDisplayPaginator = useCallback(() => {
+    const shouldDisplayPaginator = useMemo(() => {
         const resultsPerPageNotZero = resultsPerPage > 0;
         const cardLengthExceedsDisplayLimit = filteredCards.length > resultsPerPage;
 
@@ -500,7 +500,7 @@ const Container = (props) => {
                                         cards={collectionCards}
                                         onCardBookmark={handleCardBookmarking} />
                                     {/* TODO: Migrate to useRef */}
-                                    {shouldDisplayPaginator() && paginationType === 'loadMore' && (
+                                    {shouldDisplayPaginator && paginationType === 'loadMore' && (
                                         <div ref={page}>
                                             <LoadMore
                                                 onClick={onLoadMoreClick}
@@ -508,7 +508,7 @@ const Container = (props) => {
                                                 total={filteredCards.length} />
                                         </div>
                                     )}
-                                    {shouldDisplayPaginator() && paginationType === 'paginator' &&
+                                    {shouldDisplayPaginator && paginationType === 'paginator' &&
                                         <Paginator
                                             pageCount={windowWidth <= DESKTOP_MIN_WIDTH ?
                                                 PAGINATION_COUNT.MOBILE : PAGINATION_COUNT.DESKTOP
