@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import { DEFAULT_CONFIG } from '../constants';
-import parseToPrimitive from './parseToPrimitive';
 import { chainFromIterable } from './general';
 
 export const getNumSelectedFilterItems = (filters) => {
@@ -9,14 +8,11 @@ export const getNumSelectedFilterItems = (filters) => {
 };
 
 export function getDefaultSortOption(config, query) {
-    const sortOptions = parseToPrimitive(_.get(config, 'sort.options', '[]'));
+    const sortOptions = _.get(config, 'sort.options', '[]');
     return sortOptions.find(el => el.sort === query) || {
         label: 'Featured',
         sort: 'featured',
     };
 }
 
-export const makeConfigGetter = config => (object, key) => {
-    const value = _.get(config, `${object}.${key}`, DEFAULT_CONFIG[object][key]);
-    return parseToPrimitive(value);
-};
+export const makeConfigGetter = config => (object, key) => _.get(config, `${object}.${key}`, DEFAULT_CONFIG[object][key]);

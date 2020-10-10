@@ -3,18 +3,6 @@ import PropTypes from 'prop-types';
 import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import 'whatwg-fetch';
 import {
-    cleanText, sortByKey,
-    chainFromIterable,
-    intersection,
-    isSuperset,
-    readBookmarksFromLocalStorage,
-    removeDuplicatesByKey,
-    saveBookmarksToLocalStorage,
-    truncateList,
-    truncateString,
-} from '../../../utils/general';
-import { makeConfigGetter, getDefaultSortOption, getNumSelectedFilterItems } from '../../../utils/consonant';
-import {
     DESKTOP_MIN_WIDTH,
     FILTER_LOGIC,
     FILTER_PANEL,
@@ -24,14 +12,30 @@ import {
     TABLET_MIN_WIDTH,
     TRUNCATE_TEXT_QTY,
 } from '../../../constants';
-import { ExpandableContext, ConfigContext } from '../../../contexts';
+import { ConfigContext, ExpandableContext } from '../../../contexts';
 import { filterCardsByDateRange } from '../../../utils/cards';
+import {
+    getDefaultSortOption,
+    getNumSelectedFilterItems,
+    makeConfigGetter,
+} from '../../../utils/consonant';
+import {
+    chainFromIterable,
+    cleanText,
+    intersection,
+    isSuperset,
+    readBookmarksFromLocalStorage,
+    removeDuplicatesByKey,
+    saveBookmarksToLocalStorage,
+    sortByKey,
+    truncateList,
+    truncateString,
+} from '../../../utils/general';
 
 
 import { useWindowDimensions } from '../../../utils/hooks';
 
 
-import parseToPrimitive from '../../../utils/parseToPrimitive';
 import Bookmarks from '../Bookmarks/Bookmarks';
 import Collection from '../Collection/Collection';
 import FilterInfo from '../Filters/Left/FilterInfo';
@@ -55,12 +59,12 @@ const Container = (props) => {
     const paginationIsEnabled = getConfig('pagination', 'enabled');
     const resultsPerPage = getConfig('collection', 'resultsPerPage');
     const onlyShowBookmarks = getConfig('bookmarks', 'bookmarkOnlyCollection');
-    const filtersConfig = parseToPrimitive(getConfig('filterPanel', 'filters'));
+    const filtersConfig = getConfig('filterPanel', 'filters');
     const filterLogic = getConfig('filterPanel', 'filterLogic').toLowerCase().trim();
     const collectionEndpoint = getConfig('collection', 'endpoint');
     const totalCardLimit = getConfig('collection', 'totalCardLimit');
-    const searchFields = parseToPrimitive(getConfig('search', 'searchFields'));
-    const sortOptions = parseToPrimitive(getConfig('sort', 'options'));
+    const searchFields = getConfig('search', 'searchFields');
+    const sortOptions = getConfig('sort', 'options');
     const defaultSortOption = getDefaultSortOption(config, getConfig('sort', 'defaultSort'));
 
     const [openDropdown, setOpenDropdown] = useState(null);
@@ -204,13 +208,13 @@ const Container = (props) => {
             .then((payload) => {
                 if (!_.get(payload, 'cards.length')) return;
 
-                let featuredCards = parseToPrimitive(config.featuredCards) || [];
+                let featuredCards = config.featuredCards || [];
                 featuredCards = featuredCards.map(el => ({
                     ...el,
                     isFeatured: true,
                 }));
 
-                let allCards = removeDuplicatesByKey(featuredCards.concat(parseToPrimitive(payload.cards)), 'id');
+                let allCards = removeDuplicatesByKey(featuredCards.concat(payload.cards), 'id');
 
                 // If this.config.bookmarks.bookmarkOnlyCollection;
                 if (onlyShowBookmarks) {
@@ -456,7 +460,7 @@ const Container = (props) => {
                                           opened={sortOpened}
                                           id="sort"
                                           val={sort}
-                                          values={parseToPrimitive(getConfig('sort', 'options'))}
+                                          values={getConfig('sort', 'options')}
                                           onSelect={handleSortChange}
                                           name="filtersTopSelect"
                                           autoWidth

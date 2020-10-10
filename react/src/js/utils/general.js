@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 export const saveBookmarksToLocalStorage = (bookmarksValue) => {
     try {
         localStorage.setItem('bookmarks', JSON.stringify(bookmarksValue, null, 2));
@@ -69,3 +71,33 @@ export const sortByKey = (iterable, keyFunc) => [...iterable].sort((a, b) => {
 });
 
 export const cleanText = text => text.toLowerCase().trim();
+
+export const mapObject = (object, func) => {
+    const newObj = {};
+
+    _.forOwn(object, (value, key) => {
+        newObj[key] = func(value);
+    });
+
+    return newObj;
+};
+
+export const isObject = val => !!val && (val.constructor === Object);
+
+window.mapObject = mapObject;
+
+export const parseToPrimitive = (value) => {
+    if (isObject(value)) {
+        return mapObject(value, parseToPrimitive);
+    } else if (Array.isArray(value)) {
+        return value.map(parseToPrimitive);
+    } else if (typeof value !== 'string') {
+        return value;
+    }
+
+    try {
+        return JSON.parse(value);
+    } catch (e) {
+        return value;
+    }
+};

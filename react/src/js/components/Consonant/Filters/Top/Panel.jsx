@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import parseToPrimitive from '../../../../utils/parseToPrimitive';
 import { useConfig, useExpandable } from '../../../../utils/hooks';
 import SearchIco from '../../Search/SearchIco';
 import TopFilterItem from './Item';
@@ -31,7 +30,7 @@ const FiltersPanelTop = (props) => {
     const showTotalResults = getConfig('collection', 'displayTotalResults');
     const showTotalResultsText = getConfig('collection', 'totalResultsText');
     const sortEnabled = getConfig('sort', 'enabled');
-    const sortOptions = parseToPrimitive(getConfig('sort', 'options'));
+    const sortOptions = getConfig('sort', 'options');
 
     const searchId = 'top-search';
     const [openExpandable, handleExpandableToggle] = useExpandable(searchId);
