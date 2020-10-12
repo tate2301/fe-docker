@@ -22,7 +22,7 @@ const Collection = (props) => {
 
     const getConfig = useConfig();
     const allowBookmarking = getConfig('bookmarks', 'enabled');
-    const cardsStyle = getConfig('collection', 'cardStyle');
+    const cardsStyle = getConfig('collection', 'cardStyleOverride');
 
     let cards = [...props.cards];
     let cardsToShow = showItemsPerPage * pages;
