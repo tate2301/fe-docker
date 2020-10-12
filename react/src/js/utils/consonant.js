@@ -1,7 +1,6 @@
 import _ from 'lodash';
-import React from 'react';
 import { DEFAULT_CONFIG } from '../constants';
-import { chainFromIterable } from './general';
+import { chainFromIterable, isNullish } from './general';
 
 export const getNumSelectedFilterItems = (filters) => {
     const filterItems = chainFromIterable(filters.map(f => f.items));
@@ -16,4 +15,9 @@ export function getDefaultSortOption(config, query) {
     };
 }
 
-export const makeConfigGetter = config => (object, key) => _.get(config, `${object}.${key}`, DEFAULT_CONFIG[object][key]);
+export const makeConfigGetter = config => (object, key) => {
+    const defaultValue = DEFAULT_CONFIG[object][key];
+    const value = _.get(config, `${object}.${key}`);
+    if (isNullish(value)) return defaultValue;
+    return value;
+};
