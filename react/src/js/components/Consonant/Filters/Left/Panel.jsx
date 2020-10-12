@@ -52,6 +52,7 @@ const LeftFilterPanel = ({
     const desktopFiltersClearBtn = windowWidth >= DESKTOP_MIN_WIDTH && (
         <button
             type="button"
+            data-testid="left-filter-panel-clear-all-btn"
             className="consonant-left-filters--clear-link"
             onClick={onClearAllFilters}
             tabIndex="0">{clearAllFiltersText}

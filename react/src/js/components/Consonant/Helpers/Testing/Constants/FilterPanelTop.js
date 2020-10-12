@@ -1,9 +1,9 @@
+import React from 'react';
 import { filterPanel } from '../Mocks/consonant.json';
-
 const { clearFilterText, clearAllFiltersText, filters } = filterPanel;
 
 export const TABLET_MIN_WIDTH = 768;
-export const NON_TABLET_MIN_WIDTH = 384;
+export const MOBILE_MIN_WIDTH = 384;
 
 export const DEFAULT_PROPS = {
     filters,
@@ -11,7 +11,7 @@ export const DEFAULT_PROPS = {
     clearAllFiltersText,
 
     resQty: 0, // total result
-    showTotalResults: false,
+    displayTotalResults: false,
     showMobileFilters: false,
 
     onFilterClick: jest.fn(),
@@ -20,6 +20,11 @@ export const DEFAULT_PROPS = {
     onClearFilterItems: jest.fn(),
     onMobileFiltersToggleClick: jest.fn(),
     onShowAllClick: jest.fn(),
+
+    windowWidth: TABLET_MIN_WIDTH,
+
+    searchComponent: <React.Fragment />,
+    sortComponent: <React.Fragment />,
 };
 
 export const selectedAllFilters = filters.map(({ items, ...filter }) => ({

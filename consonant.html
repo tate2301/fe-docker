@@ -50,19 +50,92 @@
     <script type="text/javascript">
         var config = {
             collection: {
-                resultsPerPage: '10',
+                resultsPerPage: null,
                 endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/sample-cards.json",
                 title: "Your Favorite Cards",
                 totalCardLimit: '-1',
                 cardStyleOverride: "none", // could also be "3:2" or "full-card"
-                displayTotalResults: 'true',
+                displayTotalResults: true,
                 totalResultsText: "{} results",
             },
-            featuredCards: '[{"title":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pharetra consequat justo, eu suscipit nisi dignissim eu. Aenean id hendrerit ante. Nunc ornare lectus vitae vulputate hendrerit. Nullam at sodales urna, quis maximus massa. Phasellus orci nibh, ultricies a leo ac, interdum dapibus nisi. Vestibulum nec fermentum sapien. Maecenas non lacus et massa ullamcorper fermentum. Quisque felis massa, feugiat a magna non, hendrerit malesuada ante. Suspendisse tellus eros, sagittis a cursus semper, efficitur maximus nisi. Pellentesque ut dui sapien. Fusce laoreet magna ut elit molestie fermentum. Aliquam tempor massa quis lobortis lobortis. Cras id magna quis odio pulvinar rutrum ac vel diam. Cras ac posuere dolor.","appliesTo":[{"id":"we-retail:activity/biking"}],"id":"6d6438c8-1","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pharetra consequat justo, eu suscipit nisi dignissim eu. Aenean id hendrerit ante. Nunc ornare lectus vitae vulputate hendrerit. Nullam at sodales urna, quis maximus massa. Phasellus orci nibh, ultricies a leo ac, interdum dapibus nisi. Vestibulum nec fermentum sapien. Maecenas non lacus et massa ullamcorper fermentum. Quisque felis massa, feugiat a magna non, hendrerit malesuada ante. Suspendisse tellus eros, sagittis a cursus semper, efficitur maximus nisi. Pellentesque ut dui sapien. Fusce laoreet magna ut elit molestie fermentum. Aliquam tempor massa quis lobortis lobortis. Cras id magna quis odio pulvinar rutrum ac vel diam. Cras ac posuere dolor.","image":"https://via.placeholder.com/500","cardDate":"2020-06-02T09:41:35.933Z","bannerDescription":"Some Banner Description","ctaLabel":"Some CTA Label","ctaLink":"https://google.com","bannerBackgroundColor":"#CB6F10","bannerFontColor":"#FFFFFF","secondaryLabelText":"Some secondary text","bannerIcon":"","cardStyle":"3:2","label":"some label 1"}]',
+            featuredCards: [
+                {
+                    "title": "Zorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pharetra consequat justo, eu suscipit nisi dignissim eu. Aenean id hendrerit ante. Nunc ornare lectus vitae vulputate hendrerit. Nullam at sodales urna, quis maximus massa. Phasellus orci nibh, ultricies a leo ac, interdum dapibus nisi. Vestibulum nec fermentum sapien. Maecenas non lacus et massa ullamcorper fermentum. Quisque felis massa, feugiat a magna non, hendrerit malesuada ante. Suspendisse tellus eros, sagittis a cursus semper, efficitur maximus nisi. Pellentesque ut dui sapien. Fusce laoreet magna ut elit molestie fermentum. Aliquam tempor massa quis lobortis lobortis. Cras id magna quis odio pulvinar rutrum ac vel diam. Cras ac posuere dolor.",
+                    "appliesTo": [
+                        {
+                            "id": "we-retail:activity/biking"
+                        }
+                    ],
+                    "id": "6d6438c8-999",
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pharetra consequat justo, eu suscipit nisi dignissim eu. Aenean id hendrerit ante. Nunc ornare lectus vitae vulputate hendrerit. Nullam at sodales urna, quis maximus massa. Phasellus orci nibh, ultricies a leo ac, interdum dapibus nisi. Vestibulum nec fermentum sapien. Maecenas non lacus et massa ullamcorper fermentum. Quisque felis massa, feugiat a magna non, hendrerit malesuada ante. Suspendisse tellus eros, sagittis a cursus semper, efficitur maximus nisi. Pellentesque ut dui sapien. Fusce laoreet magna ut elit molestie fermentum. Aliquam tempor massa quis lobortis lobortis. Cras id magna quis odio pulvinar rutrum ac vel diam. Cras ac posuere dolor.",
+                    "image": "https://via.placeholder.com/500",
+                    "cardDate": "2020-06-02T09:41:35.933Z",
+                    "bannerDescription": "Some Banner Description",
+                    "ctaLabel": "Some CTA Label",
+                    "ctaLink": "https://google.com",
+                    "bannerBackgroundColor": "pink",
+                    "bannerFontColor": "#FFFFFF",
+                    "secondaryLabelText": "Some secondary text",
+                    "bannerIcon": "",
+                    "cardStyle": "3:2",
+                    "label": "some label 1"
+                }
+            ],
             filterPanel: {
                 enabled: 'true',
-                type: 'left',                   
-                filters: '[{"openedOnLoad":false,"id":"we-retail:activity","items":[{"label":"Biking","id":"we-retail:activity/biking"},{"label":"Hiking","id":"we-retail:activity/hiking"},{"label":"Other","id":"we-retail:activity/others"},{"label":"Running","id":"we-retail:activity/running"},{"label":"Skiing","id":"we-retail:activity/skiing"},{"label":"Surfing","id":"we-retail:activity/surfing"},{"label":"Swimming","id":"we-retail:activity/swimming"}],"group":"Activity"},{"openedOnLoad":false,"id":"we-retail:apparel","items":[{"label":"Coat","id":"we-retail:apparel/coat"},{"label":"Footwear","id":"we-retail:apparel/footwear"},{"label":"Glasses","id":"we-retail:apparel/glasses"},{"label":"Gloves","id":"we-retail:apparel/gloves"},{"label":"Hat","id":"we-retail:apparel/hat"},{"label":"Helmet","id":"we-retail:apparel/helmet"},{"label":"Pancho","id":"we-retail:apparel/pancho"},{"label":"Pants","id":"we-retail:apparel/pants"},{"label":"Scarf","id":"we-retail:apparel/scarf"},{"label":"Shirt","id":"we-retail:apparel/shirt"},{"label":"Shorts","id":"we-retail:apparel/shorts"}],"group":"Apparel"}]',
+                type: 'top',
+                filters: [
+                    {
+                        "group": "Activity",
+                        "id": "we-retail:activity",
+                        "icon": 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg',
+                        "items": [
+                            {
+                                "label": "Biking",
+                                "id": "we-retail:activity/biking"
+                            },
+                            {
+                                "label": "Hiking",
+                                "id": "we-retail:activity/hiking"
+                            },
+                            {
+                                "label": "Running",
+                                "id": "we-retail:activity/running"
+                            },
+                            {
+                                "label": "Skiing",
+                                "id": "we-retail:activity/skiing"
+                            },
+                            {
+                                "label": "Surfing",
+                                "id": "we-retail:activity/surfing"
+                            },
+                            {
+                                "label": "Swimming",
+                                "id": "we-retail:activity/swimming"
+                            },
+                            {
+                                "label": "Others",
+                                "id": "we-retail:activity/Others"
+                            }
+                        ]
+                    },
+                    {
+                        "group": "apparel",
+                        "id": "we-retail:apparel",
+                        "icon": 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg',
+                        "items": [
+                            {
+                                "label": "Coat",
+                                "id": "we-retail:apparel/coat"
+                            },
+                            {
+                                "label": "Footweara",
+                                "id": "we-retail:apparel/footwear"
+                            }
+                        ]
+                    }
+                ],
                 clearAllFiltersText: 'Clear All',
                 clearFilterText: 'Clear filter',
                 filterLogic: 'and',
@@ -70,7 +143,7 @@
             },
             sort: {
                 enabled: 'true',
-                defaultSort: 'titleAsc',
+                defaultSort: 'featured',
                 options: '[{"label":"featured","sort":"featured"},{"label":"Title: (A-Z)","sort":"titleAsc"},{"label":"Title: (Z-A)","sort":"titleDesc"},{"label":"Date: (Oldest to newest)","sort":"dateAsc"},{"label":"Date: (Newest to oldest)","sort":"dateDesc"}]',
             },
             pagination: {
@@ -83,7 +156,7 @@
                 loadMoreQuantityText: "{} of {} total items",
             },
             bookmarks: {
-                enabled: 'true',
+                enabled: 'false',
                 bookmarkOnlyCollection: 'false',
                 cardSavedIcon: '',
                 cardUnsavedIcon: '',
@@ -97,7 +170,7 @@
                 enabled: 'true',
                 inputPlaceholderText: 'Search here...',
                 leftPanelTitle: 'Search now',
-                searchFields: '["title","description","meta-author","meta-categories"]',
+                searchFields: '["title","description", "label", "badgeText","meta-categories"]',
             },
         };
         const consonantCardCollection = new ConsonantCardCollection(config, document.getElementById("someDivId"));

@@ -92,7 +92,7 @@ const TopFilterItem = ({
                     <button
                         type="button"
                         className="consonant-top-filter--link"
-                        data-testid="filter-item-link"
+                        data-testid="filter-group-btn"
                         onClick={handleToggle}
                         tabIndex="0">
                         {name}

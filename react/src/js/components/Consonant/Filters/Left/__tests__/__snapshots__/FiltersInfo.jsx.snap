@@ -8,12 +8,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly when des
   <div
     className="consonant-filters-info--wrapper consonant-filters-info--wrapper_no-line"
   >
-    <h2
-      className="consonant-filters-info--title"
-      data-testid="title"
-    >
-      A great collection
-    </h2>
+    
     <span
       className="consonant-filters-info--results"
       data-testid="results"
@@ -24,6 +19,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly when des
   <div
     className="consonant-filters-info--search"
   />
+  0
 </aside>
 `;
 
@@ -55,6 +51,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly when mob
       </span>
     </button>
   </div>
+  0
 </aside>
 `;
 
@@ -66,77 +63,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with sea
   <div
     className="consonant-filters-info--wrapper consonant-filters-info--wrapper_no-line"
   >
-    <h2
-      className="consonant-filters-info--title"
-      data-testid="title"
-    >
-      A great collection
-    </h2>
-    <span
-      className="consonant-filters-info--results"
-      data-testid="results"
-    >
-      0 results
-    </span>
-  </div>
-  <div
-    className="consonant-filters-info--search"
-  >
-    <div
-      className="consonant-search"
-      data-testid="searchFiltersInfo"
-    >
-      <label
-        htmlFor="consonant-search"
-      >
-        <span
-          className="consonant-search--input-title"
-        >
-          Search
-        </span>
-        <span
-          className="consonant-search--input-wrapper"
-        >
-          <input
-            className="consonant-search--input"
-            data-testid="search-input"
-            id="consonant-search"
-            onChange={[Function]}
-            placeholder="search text"
-            required={true}
-            type="search"
-            value=""
-          />
-          <button
-            className="consonant-search--input-clear"
-            onClick={[Function]}
-            tabIndex="0"
-            title="Click to clear search query"
-            type="button"
-          >
-            clear
-          </button>
-        </span>
-      </label>
-    </div>
-  </div>
-</aside>
-`;
-
-exports[`Consonant/FiltersInfo Check snapshots should renders correctly with select 1`] = `
-<aside
-  className="consonant-filters-info"
-  data-testid="consonant-filters__info"
->
-  <div
-    className="consonant-filters-info--wrapper"
-  >
-    <h2
-      className="consonant-filters-info--title"
-      data-testid="title"
-    >
-      A great collection
-    </h2>
+    
     <span
       className="consonant-filters-info--results"
       data-testid="results"
@@ -147,85 +74,19 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with sel
   <div
     className="consonant-filters-info--search"
   />
-  <div
-    className="consonant-select"
-  >
-    <button
-      className="consonant-select--btn"
-      data-testid="select-button"
-      tabIndex="0"
-      type="button"
-    >
-      Please select
-    </button>
-    <div
-      className="consonant-select--options consonant-select--options_right"
-      data-testid="consonant-select--options"
-    >
-      <button
-        className="consonant-select--option"
-        data-testid="select-option"
-        onClick={[Function]}
-        tabIndex="0"
-        type="button"
-      >
-        label 1
-      </button>
-      <button
-        className="consonant-select--option"
-        data-testid="select-option"
-        onClick={[Function]}
-        tabIndex="0"
-        type="button"
-      >
-        label 2
-      </button>
-      <button
-        className="consonant-select--option"
-        data-testid="select-option"
-        onClick={[Function]}
-        tabIndex="0"
-        type="button"
-      >
-        label 3
-      </button>
-      <button
-        className="consonant-select--option"
-        data-testid="select-option"
-        onClick={[Function]}
-        tabIndex="0"
-        type="button"
-      >
-        label 4
-      </button>
-      <button
-        className="consonant-select--option"
-        data-testid="select-option"
-        onClick={[Function]}
-        tabIndex="0"
-        type="button"
-      >
-        label 5
-      </button>
-    </div>
-  </div>
+  0
 </aside>
 `;
 
-exports[`Consonant/FiltersInfo Check snapshots should renders correctly with two children 1`] = `
+exports[`Consonant/FiltersInfo Check snapshots should renders correctly with select 1`] = `
 <aside
   className="consonant-filters-info"
   data-testid="consonant-filters__info"
 >
   <div
-    className="consonant-filters-info--wrapper"
+    className="consonant-filters-info--wrapper consonant-filters-info--wrapper_no-line"
   >
-    <h2
-      className="consonant-filters-info--title"
-      data-testid="title"
-    >
-      A great collection
-    </h2>
+    
     <span
       className="consonant-filters-info--results"
       data-testid="results"
@@ -235,106 +96,30 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with two
   </div>
   <div
     className="consonant-filters-info--search"
+  />
+  0
+</aside>
+`;
+
+exports[`Consonant/FiltersInfo Check snapshots should renders correctly with two children 1`] = `
+<aside
+  className="consonant-filters-info"
+  data-testid="consonant-filters__info"
+>
+  <div
+    className="consonant-filters-info--wrapper consonant-filters-info--wrapper_no-line"
   >
-    <div
-      className="consonant-search"
-      data-testid="searchFiltersInfo"
+    
+    <span
+      className="consonant-filters-info--results"
+      data-testid="results"
     >
-      <label
-        htmlFor="consonant-search"
-      >
-        <span
-          className="consonant-search--input-title"
-        >
-          Search
-        </span>
-        <span
-          className="consonant-search--input-wrapper"
-        >
-          <input
-            className="consonant-search--input"
-            data-testid="search-input"
-            id="consonant-search"
-            onChange={[Function]}
-            placeholder="search text"
-            required={true}
-            type="search"
-            value=""
-          />
-          <button
-            className="consonant-search--input-clear"
-            onClick={[Function]}
-            tabIndex="0"
-            title="Click to clear search query"
-            type="button"
-          >
-            clear
-          </button>
-        </span>
-      </label>
-    </div>
+      0 results
+    </span>
   </div>
   <div
-    className="consonant-select"
-  >
-    <button
-      className="consonant-select--btn"
-      data-testid="select-button"
-      tabIndex="0"
-      type="button"
-    >
-      Please select
-    </button>
-    <div
-      className="consonant-select--options consonant-select--options_right"
-      data-testid="consonant-select--options"
-    >
-      <button
-        className="consonant-select--option"
-        data-testid="select-option"
-        onClick={[Function]}
-        tabIndex="0"
-        type="button"
-      >
-        label 1
-      </button>
-      <button
-        className="consonant-select--option"
-        data-testid="select-option"
-        onClick={[Function]}
-        tabIndex="0"
-        type="button"
-      >
-        label 2
-      </button>
-      <button
-        className="consonant-select--option"
-        data-testid="select-option"
-        onClick={[Function]}
-        tabIndex="0"
-        type="button"
-      >
-        label 3
-      </button>
-      <button
-        className="consonant-select--option"
-        data-testid="select-option"
-        onClick={[Function]}
-        tabIndex="0"
-        type="button"
-      >
-        label 4
-      </button>
-      <button
-        className="consonant-select--option"
-        data-testid="select-option"
-        onClick={[Function]}
-        tabIndex="0"
-        type="button"
-      >
-        label 5
-      </button>
-    </div>
-  </div>
+    className="consonant-filters-info--search"
+  />
+  0
 </aside>
 `;

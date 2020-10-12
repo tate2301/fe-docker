@@ -14,11 +14,6 @@ exports[`Consonant/Bookmarks Check snapshots should renders correctly 1`] = `
     <span
       className="bookmarks--ico"
       data-testid="bookmarks--ico"
-      style={
-        Object {
-          "backgroundImage": "url(path-to-unselectBookmarksIcon)",
-        }
-      }
     />
     <span
       className="bookmarks--title"

@@ -75,17 +75,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
     >
       <div
         className="consonant-card-footer--row"
-      >
-        <div
-          className="consonant-card-footer--cell"
-        />
-        <div
-          className="consonant-card-footer--cell"
-        />
-        <div
-          className="consonant-card-footer--cell"
-        />
-      </div>
+      />
     </div>
   </div>
 </div>
@@ -166,17 +156,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
     >
       <div
         className="consonant-card-footer--row"
-      >
-        <div
-          className="consonant-card-footer--cell"
-        />
-        <div
-          className="consonant-card-footer--cell"
-        />
-        <div
-          className="consonant-card-footer--cell"
-        />
-      </div>
+      />
     </div>
   </div>
 </div>
@@ -257,17 +237,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
     >
       <div
         className="consonant-card-footer--row"
-      >
-        <div
-          className="consonant-card-footer--cell"
-        />
-        <div
-          className="consonant-card-footer--cell"
-        />
-        <div
-          className="consonant-card-footer--cell"
-        />
-      </div>
+      />
     </div>
   </div>
 </div>
@@ -348,17 +318,7 @@ exports[`Consonant/Card Check snapshots should renders correctly with different 
     >
       <div
         className="consonant-card-footer--row"
-      >
-        <div
-          className="consonant-card-footer--cell"
-        />
-        <div
-          className="consonant-card-footer--cell"
-        />
-        <div
-          className="consonant-card-footer--cell"
-        />
-      </div>
+      />
     </div>
   </div>
 </div>
@@ -439,17 +399,7 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
     >
       <div
         className="consonant-card-footer--row"
-      >
-        <div
-          className="consonant-card-footer--cell"
-        />
-        <div
-          className="consonant-card-footer--cell"
-        />
-        <div
-          className="consonant-card-footer--cell"
-        />
-      </div>
+      />
     </div>
   </div>
 </div>

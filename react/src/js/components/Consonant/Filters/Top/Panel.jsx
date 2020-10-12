@@ -131,7 +131,7 @@ const FiltersPanelTop = ({
                     </div>
                 )}
                 {sortEnabled && sortOptions.length &&
-                    <div data-testid="top-filters__select-wrapper" className="consonant-top-filters--select-wrapper">
+                    <div data-testid="top-filters__sort-popup" className="consonant-top-filters--select-wrapper">
                         {sortComponent}
                     </div>
                 }

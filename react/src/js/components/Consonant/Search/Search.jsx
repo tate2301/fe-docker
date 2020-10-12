@@ -14,6 +14,7 @@ const Search = ({
     const placeholderText = getConfig('search', 'inputPlaceholderText');
     const leftPanelTitle = getConfig('search', 'leftPanelTitle');
 
+
     const textInput = useRef(null);
 
     const handleSearch = useCallback((e) => {
@@ -21,7 +22,7 @@ const Search = ({
     }, []);
 
     const focusTextInput = useCallback(() => {
-        textInput.focus();
+        textInput.current.focus();
     }, []);
 
     const clearSearch = useCallback(() => {
@@ -30,7 +31,7 @@ const Search = ({
     }, []);
 
     useEffect(() => {
-        if (autofocus && textInput) textInput.focus();
+        if (autofocus && textInput.current) textInput.current.focus();
     }, [autofocus, textInput]);
 
     return (

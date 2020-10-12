@@ -7,6 +7,7 @@ exports[`Consonant/Select Check snapshots should renders correctly 1`] = `
   <button
     className="consonant-select--btn"
     data-testid="select-button"
+    onClick={[Function]}
     tabIndex="0"
     type="button"
   >
@@ -70,8 +71,9 @@ exports[`Consonant/Select Check snapshots should renders correctly opened select
   className="consonant-select"
 >
   <button
-    className="consonant-select--btn consonant-select--btn_active"
+    className="consonant-select--btn"
     data-testid="select-button"
+    onClick={[Function]}
     tabIndex="0"
     type="button"
   >
@@ -137,6 +139,7 @@ exports[`Consonant/Select Check snapshots should renders correctly with autoWidt
   <button
     className="consonant-select--btn"
     data-testid="select-button"
+    onClick={[Function]}
     tabIndex="0"
     type="button"
   >
@@ -202,6 +205,7 @@ exports[`Consonant/Select Check snapshots should renders correctly with selected
   <button
     className="consonant-select--btn"
     data-testid="select-button"
+    onClick={[Function]}
     tabIndex="0"
     type="button"
   >

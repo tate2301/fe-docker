@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Consonant/FilterItem Check snapshots should renders correctly with desktop width 1`] = `
+exports[`Top Filter Panel Check snapshots Shoulld renders correctly on desktop 1`] = `
 <div
   className="consonant-top-filters"
   data-testid="consonant-filters__top"
@@ -32,7 +32,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
             >
               <button
                 className="consonant-top-filter--link"
-                data-testid="filter-item-link"
+                data-testid="filter-group-btn"
                 onClick={[Function]}
                 tabIndex="0"
                 type="button"
@@ -60,6 +60,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="we-retail:activity/hiking"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -87,6 +88,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="we-retail:activity/biking"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -114,6 +116,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/customer-intelligence"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -141,6 +144,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/data-management-platform"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -168,6 +172,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/digital-foundation"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -195,6 +200,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/digital-trends"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -222,6 +228,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/document-management"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -249,6 +256,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/marketing-automation"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -276,6 +284,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/personalization"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -303,6 +312,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/Stock"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -361,7 +371,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
             >
               <button
                 className="consonant-top-filter--link"
-                data-testid="filter-item-link"
+                data-testid="filter-group-btn"
                 onClick={[Function]}
                 tabIndex="0"
                 type="button"
@@ -389,6 +399,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:availability/on-demand"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -416,6 +427,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:availability/upcoming"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -461,11 +473,534 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
         </div>
       </div>
     </div>
+    <span
+      className="consonant-top-filters--res-qty"
+      data-testid="filter-top-result-count"
+    >
+      <strong>
+        0 results
+      </strong>
+    </span>
+    <div
+      className="consonant-top-filters--search-ico-wrapper"
+      data-testid="filter-top-ico-wrapper"
+    >
+      <button
+        className="search-ico"
+        onClick={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        Click to search
+        <span />
+      </button>
+    </div>
+    0
   </div>
 </div>
 `;
 
-exports[`Consonant/FilterItem Check snapshots should renders correctly with limited filters 1`] = `
+exports[`Top Filter Panel Check snapshots The Top Filter Should Show A Search Icon 1`] = `
+<div
+  className="consonant-top-filters"
+  data-testid="consonant-filters__top"
+>
+  <div
+    className="consonant-top-filters--inner"
+  >
+    <div
+      className="consonant-top-filters--filters-wrapper"
+    >
+      <strong
+        className="consonant-top-filters--title"
+      >
+        Filters:
+      </strong>
+      <div
+        className="consonant-top-filters--filters"
+        data-testid="consonant-filters__top__filters"
+      >
+        <div
+          className="consonant-top-filter"
+          data-testid="filter-item"
+        >
+          <div
+            className="consonant-top-filter--inner"
+          >
+            <h3
+              className="consonant-top-filter--name"
+            >
+              <button
+                className="consonant-top-filter--link"
+                data-testid="filter-group-btn"
+                onClick={[Function]}
+                tabIndex="0"
+                type="button"
+              >
+                Topic
+                <span
+                  className="consonant-top-filter--selcted-items-qty"
+                />
+              </button>
+            </h3>
+            <div
+              className="consonant-top-filter--selcted-items"
+            >
+              <div
+                className="consonant-top-filter--absolute-wrapper"
+              >
+                <ul
+                  className="consonant-top-filter--items consonant-top-filter--items_clipped"
+                  data-testid="filter-group"
+                >
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="we-retail:activity/hiking"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="we-retail:activity/hiking"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="we-retail:activity/hiking"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Business Continuity
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="we-retail:activity/biking"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="we-retail:activity/biking"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="we-retail:activity/biking"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Creativity and Design
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:topic/customer-intelligence"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:topic/customer-intelligence"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:topic/customer-intelligence"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Customer Intelligence
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:topic/data-management-platform"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:topic/data-management-platform"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:topic/data-management-platform"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Data Management Platform
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:topic/digital-foundation"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:topic/digital-foundation"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:topic/digital-foundation"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Digital Foundation
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:topic/digital-trends"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:topic/digital-trends"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:topic/digital-trends"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Digital Trends
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:topic/document-management"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:topic/document-management"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:topic/document-management"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Document Management
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:topic/marketing-automation"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:topic/marketing-automation"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:topic/marketing-automation"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Marketing Automation
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:topic/personalization"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:topic/personalization"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:topic/personalization"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Personalization
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:topic/Stock"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:topic/Stock"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:topic/Stock"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Stock
+                      </span>
+                    </label>
+                  </li>
+                </ul>
+                <aside
+                  className="consonant-top-filter--bg"
+                />
+                <div
+                  className="consonant-top-filter--footer"
+                >
+                  <span
+                    className="consonant-top-filter--footer-res-qty"
+                  >
+                    0
+                     results
+                  </span>
+                  <button
+                    className="consonant-top-filter--footer-btn"
+                    onClick={[Function]}
+                    tabIndex="0"
+                    type="button"
+                  >
+                    Done
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="consonant-top-filter"
+          data-testid="filter-item"
+        >
+          <div
+            className="consonant-top-filter--inner"
+          >
+            <h3
+              className="consonant-top-filter--name"
+            >
+              <button
+                className="consonant-top-filter--link"
+                data-testid="filter-group-btn"
+                onClick={[Function]}
+                tabIndex="0"
+                type="button"
+              >
+                Availability
+                <span
+                  className="consonant-top-filter--selcted-items-qty"
+                />
+              </button>
+            </h3>
+            <div
+              className="consonant-top-filter--selcted-items"
+            >
+              <div
+                className="consonant-top-filter--absolute-wrapper"
+              >
+                <ul
+                  className="consonant-top-filter--items"
+                  data-testid="filter-group"
+                >
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:availability/on-demand"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:availability/on-demand"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:availability/on-demand"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        On-Demand
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:availability/upcoming"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:availability/upcoming"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:availability/upcoming"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Upcoming
+                      </span>
+                    </label>
+                  </li>
+                </ul>
+                <div
+                  className="consonant-top-filter--footer"
+                >
+                  <span
+                    className="consonant-top-filter--footer-res-qty"
+                  >
+                    0
+                     results
+                  </span>
+                  <button
+                    className="consonant-top-filter--footer-btn"
+                    onClick={[Function]}
+                    tabIndex="0"
+                    type="button"
+                  >
+                    Done
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span
+      className="consonant-top-filters--res-qty"
+      data-testid="filter-top-result-count"
+    >
+      <strong>
+        0 results
+      </strong>
+    </span>
+    <div
+      className="consonant-top-filters--search-ico-wrapper"
+      data-testid="filter-top-ico-wrapper"
+    >
+      <button
+        className="search-ico"
+        onClick={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        Click to search
+        <span />
+      </button>
+    </div>
+    0
+  </div>
+</div>
+`;
+
+exports[`Top Filter Panel Check snapshots should renders correctly with limited filters 1`] = `
 <div
   className="consonant-top-filters"
   data-testid="consonant-filters__top"
@@ -497,7 +1032,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with limi
             >
               <button
                 className="consonant-top-filter--link"
-                data-testid="filter-item-link"
+                data-testid="filter-group-btn"
                 onClick={[Function]}
                 tabIndex="0"
                 type="button"
@@ -525,6 +1060,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with limi
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="we-retail:activity/hiking"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -552,6 +1088,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with limi
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="we-retail:activity/biking"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -579,6 +1116,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with limi
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/customer-intelligence"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -606,6 +1144,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with limi
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/data-management-platform"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -633,6 +1172,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with limi
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/digital-foundation"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -660,6 +1200,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with limi
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/digital-trends"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -687,6 +1228,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with limi
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/document-management"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -714,6 +1256,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with limi
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/marketing-automation"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -741,6 +1284,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with limi
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/personalization"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -768,6 +1312,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with limi
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/Stock"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -826,7 +1371,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with limi
             >
               <button
                 className="consonant-top-filter--link"
-                data-testid="filter-item-link"
+                data-testid="filter-group-btn"
                 onClick={[Function]}
                 tabIndex="0"
                 type="button"
@@ -854,6 +1399,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with limi
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:availability/on-demand"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -881,6 +1427,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with limi
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:availability/upcoming"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -926,11 +1473,34 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with limi
         </div>
       </div>
     </div>
+    <span
+      className="consonant-top-filters--res-qty"
+      data-testid="filter-top-result-count"
+    >
+      <strong>
+        0 results
+      </strong>
+    </span>
+    <div
+      className="consonant-top-filters--search-ico-wrapper"
+      data-testid="filter-top-ico-wrapper"
+    >
+      <button
+        className="search-ico"
+        onClick={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        Click to search
+        <span />
+      </button>
+    </div>
+    0
   </div>
 </div>
 `;
 
-exports[`Consonant/FilterItem Check snapshots should renders correctly with more button 1`] = `
+exports[`Top Filter Panel Check snapshots should renders correctly with more button 1`] = `
 <div
   className="consonant-top-filters"
   data-testid="consonant-filters__top"
@@ -962,7 +1532,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
             >
               <button
                 className="consonant-top-filter--link"
-                data-testid="filter-item-link"
+                data-testid="filter-group-btn"
                 onClick={[Function]}
                 tabIndex="0"
                 type="button"
@@ -990,6 +1560,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="we-retail:activity/hiking"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1017,6 +1588,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="we-retail:activity/biking"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1044,6 +1616,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/customer-intelligence"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1071,6 +1644,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/data-management-platform"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1098,6 +1672,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/digital-foundation"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1125,6 +1700,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/digital-trends"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1152,6 +1728,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/document-management"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1179,6 +1756,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/marketing-automation"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1206,6 +1784,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/personalization"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1233,6 +1812,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/Stock"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1291,7 +1871,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
             >
               <button
                 className="consonant-top-filter--link"
-                data-testid="filter-item-link"
+                data-testid="filter-group-btn"
                 onClick={[Function]}
                 tabIndex="0"
                 type="button"
@@ -1319,6 +1899,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:availability/on-demand"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1346,6 +1927,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:availability/upcoming"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1401,7 +1983,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
             >
               <button
                 className="consonant-top-filter--link"
-                data-testid="filter-item-link"
+                data-testid="filter-group-btn"
                 onClick={[Function]}
                 tabIndex="0"
                 type="button"
@@ -1429,6 +2011,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="we-retail:activity/hiking"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1456,6 +2039,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="we-retail:activity/biking"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1483,6 +2067,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/customer-intelligence"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1510,6 +2095,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/data-management-platform"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1537,6 +2123,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/digital-foundation"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1564,6 +2151,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/digital-trends"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1591,6 +2179,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/document-management"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1618,6 +2207,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/marketing-automation"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1645,6 +2235,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/personalization"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1672,6 +2263,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/Stock"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1730,7 +2322,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
             >
               <button
                 className="consonant-top-filter--link"
-                data-testid="filter-item-link"
+                data-testid="filter-group-btn"
                 onClick={[Function]}
                 tabIndex="0"
                 type="button"
@@ -1758,6 +2350,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:availability/on-demand"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1785,6 +2378,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:availability/upcoming"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -1833,938 +2427,21 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with more
         className="conson0ant-top-filters--clear-btn-wrapper"
       />
     </div>
-  </div>
-</div>
-`;
-
-exports[`Consonant/FilterItem Check snapshots should renders correctly with non-table width 1`] = `
-<div
-  className="consonant-top-filters"
-  data-testid="consonant-filters__top"
->
-  <div
-    className="consonant-top-filters--inner"
-  >
-    <div
-      className="consonant-top-filters--filters-wrapper"
+    <span
+      className="consonant-top-filters--res-qty"
+      data-testid="filter-top-result-count"
     >
-      <div
-        className="consonant-top-filters--filters"
-        data-testid="consonant-filters__top__filters"
-      >
-        <div
-          className="consonant-top-filter"
-          data-testid="filter-item"
-        >
-          <div
-            className="consonant-top-filter--inner"
-          >
-            <h3
-              className="consonant-top-filter--name"
-            >
-              <button
-                className="consonant-top-filter--link"
-                data-testid="filter-item-link"
-                onClick={[Function]}
-                tabIndex="0"
-                type="button"
-              >
-                Topic
-                <span
-                  className="consonant-top-filter--selcted-items-qty"
-                />
-              </button>
-            </h3>
-            <div
-              className="consonant-top-filter--selcted-items"
-            >
-              <div
-                className="consonant-top-filter--absolute-wrapper"
-              >
-                <ul
-                  className="consonant-top-filter--items consonant-top-filter--items_clipped"
-                  data-testid="filter-group"
-                >
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="we-retail:activity/hiking"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="we-retail:activity/hiking"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="we-retail:activity/hiking"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Business Continuity
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="we-retail:activity/biking"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="we-retail:activity/biking"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="we-retail:activity/biking"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Creativity and Design
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:topic/customer-intelligence"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:topic/customer-intelligence"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:topic/customer-intelligence"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Customer Intelligence
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:topic/data-management-platform"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:topic/data-management-platform"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:topic/data-management-platform"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Data Management Platform
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:topic/digital-foundation"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:topic/digital-foundation"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:topic/digital-foundation"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Digital Foundation
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:topic/digital-trends"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:topic/digital-trends"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:topic/digital-trends"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Digital Trends
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:topic/document-management"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:topic/document-management"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:topic/document-management"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Document Management
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:topic/marketing-automation"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:topic/marketing-automation"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:topic/marketing-automation"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Marketing Automation
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:topic/personalization"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:topic/personalization"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:topic/personalization"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Personalization
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:topic/Stock"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:topic/Stock"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:topic/Stock"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Stock
-                      </span>
-                    </label>
-                  </li>
-                </ul>
-                <aside
-                  className="consonant-top-filter--bg"
-                />
-                <div
-                  className="consonant-top-filter--footer"
-                >
-                  <span
-                    className="consonant-top-filter--footer-res-qty"
-                  >
-                    0
-                     results
-                  </span>
-                  <button
-                    className="consonant-top-filter--footer-btn"
-                    onClick={[Function]}
-                    tabIndex="0"
-                    type="button"
-                  >
-                    Done
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="consonant-top-filter"
-          data-testid="filter-item"
-        >
-          <div
-            className="consonant-top-filter--inner"
-          >
-            <h3
-              className="consonant-top-filter--name"
-            >
-              <button
-                className="consonant-top-filter--link"
-                data-testid="filter-item-link"
-                onClick={[Function]}
-                tabIndex="0"
-                type="button"
-              >
-                Availability
-                <span
-                  className="consonant-top-filter--selcted-items-qty"
-                />
-              </button>
-            </h3>
-            <div
-              className="consonant-top-filter--selcted-items"
-            >
-              <div
-                className="consonant-top-filter--absolute-wrapper"
-              >
-                <ul
-                  className="consonant-top-filter--items"
-                  data-testid="filter-group"
-                >
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:availability/on-demand"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:availability/on-demand"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:availability/on-demand"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        On-Demand
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:availability/upcoming"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:availability/upcoming"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:availability/upcoming"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Upcoming
-                      </span>
-                    </label>
-                  </li>
-                </ul>
-                <div
-                  className="consonant-top-filter--footer"
-                >
-                  <span
-                    className="consonant-top-filter--footer-res-qty"
-                  >
-                    0
-                     results
-                  </span>
-                  <button
-                    className="consonant-top-filter--footer-btn"
-                    onClick={[Function]}
-                    tabIndex="0"
-                    type="button"
-                  >
-                    Done
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Consonant/FilterItem Check snapshots should renders correctly with search icon 1`] = `
-<div
-  className="consonant-top-filters"
-  data-testid="consonant-filters__top"
->
-  <div
-    className="consonant-top-filters--inner"
-  >
-    <div
-      className="consonant-top-filters--filters-wrapper"
-    >
-      <strong
-        className="consonant-top-filters--title"
-      >
-        Filters:
+      <strong>
+        0 results
       </strong>
-      <div
-        className="consonant-top-filters--filters"
-        data-testid="consonant-filters__top__filters"
-      >
-        <div
-          className="consonant-top-filter"
-          data-testid="filter-item"
-        >
-          <div
-            className="consonant-top-filter--inner"
-          >
-            <h3
-              className="consonant-top-filter--name"
-            >
-              <button
-                className="consonant-top-filter--link"
-                data-testid="filter-item-link"
-                onClick={[Function]}
-                tabIndex="0"
-                type="button"
-              >
-                Topic
-                <span
-                  className="consonant-top-filter--selcted-items-qty"
-                />
-              </button>
-            </h3>
-            <div
-              className="consonant-top-filter--selcted-items"
-            >
-              <div
-                className="consonant-top-filter--absolute-wrapper"
-              >
-                <ul
-                  className="consonant-top-filter--items consonant-top-filter--items_clipped"
-                  data-testid="filter-group"
-                >
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="we-retail:activity/hiking"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="we-retail:activity/hiking"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="we-retail:activity/hiking"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Business Continuity
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="we-retail:activity/biking"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="we-retail:activity/biking"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="we-retail:activity/biking"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Creativity and Design
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:topic/customer-intelligence"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:topic/customer-intelligence"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:topic/customer-intelligence"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Customer Intelligence
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:topic/data-management-platform"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:topic/data-management-platform"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:topic/data-management-platform"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Data Management Platform
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:topic/digital-foundation"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:topic/digital-foundation"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:topic/digital-foundation"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Digital Foundation
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:topic/digital-trends"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:topic/digital-trends"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:topic/digital-trends"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Digital Trends
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:topic/document-management"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:topic/document-management"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:topic/document-management"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Document Management
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:topic/marketing-automation"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:topic/marketing-automation"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:topic/marketing-automation"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Marketing Automation
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:topic/personalization"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:topic/personalization"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:topic/personalization"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Personalization
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:topic/Stock"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:topic/Stock"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:topic/Stock"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Stock
-                      </span>
-                    </label>
-                  </li>
-                </ul>
-                <aside
-                  className="consonant-top-filter--bg"
-                />
-                <div
-                  className="consonant-top-filter--footer"
-                >
-                  <span
-                    className="consonant-top-filter--footer-res-qty"
-                  >
-                    0
-                     results
-                  </span>
-                  <button
-                    className="consonant-top-filter--footer-btn"
-                    onClick={[Function]}
-                    tabIndex="0"
-                    type="button"
-                  >
-                    Done
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="consonant-top-filter"
-          data-testid="filter-item"
-        >
-          <div
-            className="consonant-top-filter--inner"
-          >
-            <h3
-              className="consonant-top-filter--name"
-            >
-              <button
-                className="consonant-top-filter--link"
-                data-testid="filter-item-link"
-                onClick={[Function]}
-                tabIndex="0"
-                type="button"
-              >
-                Availability
-                <span
-                  className="consonant-top-filter--selcted-items-qty"
-                />
-              </button>
-            </h3>
-            <div
-              className="consonant-top-filter--selcted-items"
-            >
-              <div
-                className="consonant-top-filter--absolute-wrapper"
-              >
-                <ul
-                  className="consonant-top-filter--items"
-                  data-testid="filter-group"
-                >
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:availability/on-demand"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:availability/on-demand"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:availability/on-demand"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        On-Demand
-                      </span>
-                    </label>
-                  </li>
-                  <li
-                    className="consonant-top-filter--items-item"
-                    data-testid="filter-group-item"
-                  >
-                    <label
-                      className="consonant-top-filter--items-item-label"
-                      htmlFor="adobe-com-enterprise:availability/upcoming"
-                    >
-                      <input
-                        checked={undefined}
-                        data-testid="list-item-checkbox"
-                        id="adobe-com-enterprise:availability/upcoming"
-                        onChange={[Function]}
-                        tabIndex="0"
-                        type="checkbox"
-                        value="adobe-com-enterprise:availability/upcoming"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-checkmark"
-                      />
-                      <span
-                        className="consonant-top-filter--items-item-name"
-                      >
-                        Upcoming
-                      </span>
-                    </label>
-                  </li>
-                </ul>
-                <div
-                  className="consonant-top-filter--footer"
-                >
-                  <span
-                    className="consonant-top-filter--footer-res-qty"
-                  >
-                    0
-                     results
-                  </span>
-                  <button
-                    className="consonant-top-filter--footer-btn"
-                    onClick={[Function]}
-                    tabIndex="0"
-                    type="button"
-                  >
-                    Done
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </span>
     <div
       className="consonant-top-filters--search-ico-wrapper"
       data-testid="filter-top-ico-wrapper"
     >
       <button
         className="search-ico"
-        onClick={undefined}
+        onClick={[Function]}
         tabIndex="0"
         type="button"
       >
@@ -2772,11 +2449,12 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with sear
         <span />
       </button>
     </div>
+    0
   </div>
 </div>
 `;
 
-exports[`Consonant/FilterItem Check snapshots should renders correctly without children 1`] = `
+exports[`Top Filter Panel Check snapshots should renders correctly with non-table width 1`] = `
 <div
   className="consonant-top-filters"
   data-testid="consonant-filters__top"
@@ -2808,7 +2486,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without c
             >
               <button
                 className="consonant-top-filter--link"
-                data-testid="filter-item-link"
+                data-testid="filter-group-btn"
                 onClick={[Function]}
                 tabIndex="0"
                 type="button"
@@ -2836,6 +2514,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without c
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="we-retail:activity/hiking"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -2863,6 +2542,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without c
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="we-retail:activity/biking"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -2890,6 +2570,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without c
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/customer-intelligence"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -2917,6 +2598,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without c
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/data-management-platform"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -2944,6 +2626,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without c
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/digital-foundation"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -2971,6 +2654,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without c
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/digital-trends"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -2998,6 +2682,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without c
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/document-management"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -3025,6 +2710,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without c
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/marketing-automation"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -3052,6 +2738,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without c
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/personalization"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -3079,6 +2766,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without c
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:topic/Stock"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -3137,7 +2825,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without c
             >
               <button
                 className="consonant-top-filter--link"
-                data-testid="filter-item-link"
+                data-testid="filter-group-btn"
                 onClick={[Function]}
                 tabIndex="0"
                 type="button"
@@ -3165,6 +2853,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without c
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:availability/on-demand"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -3192,6 +2881,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without c
                     <label
                       className="consonant-top-filter--items-item-label"
                       htmlFor="adobe-com-enterprise:availability/upcoming"
+                      onClick={[Function]}
                     >
                       <input
                         checked={undefined}
@@ -3237,6 +2927,529 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without c
         </div>
       </div>
     </div>
+    <span
+      className="consonant-top-filters--res-qty"
+      data-testid="filter-top-result-count"
+    >
+      <strong>
+        0 results
+      </strong>
+    </span>
+    <div
+      className="consonant-top-filters--search-ico-wrapper"
+      data-testid="filter-top-ico-wrapper"
+    >
+      <button
+        className="search-ico"
+        onClick={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        Click to search
+        <span />
+      </button>
+    </div>
+    0
+  </div>
+</div>
+`;
+
+exports[`Top Filter Panel Check snapshots should renders correctly without children 1`] = `
+<div
+  className="consonant-top-filters"
+  data-testid="consonant-filters__top"
+>
+  <div
+    className="consonant-top-filters--inner"
+  >
+    <div
+      className="consonant-top-filters--filters-wrapper"
+    >
+      <strong
+        className="consonant-top-filters--title"
+      >
+        Filters:
+      </strong>
+      <div
+        className="consonant-top-filters--filters"
+        data-testid="consonant-filters__top__filters"
+      >
+        <div
+          className="consonant-top-filter"
+          data-testid="filter-item"
+        >
+          <div
+            className="consonant-top-filter--inner"
+          >
+            <h3
+              className="consonant-top-filter--name"
+            >
+              <button
+                className="consonant-top-filter--link"
+                data-testid="filter-group-btn"
+                onClick={[Function]}
+                tabIndex="0"
+                type="button"
+              >
+                Topic
+                <span
+                  className="consonant-top-filter--selcted-items-qty"
+                />
+              </button>
+            </h3>
+            <div
+              className="consonant-top-filter--selcted-items"
+            >
+              <div
+                className="consonant-top-filter--absolute-wrapper"
+              >
+                <ul
+                  className="consonant-top-filter--items consonant-top-filter--items_clipped"
+                  data-testid="filter-group"
+                >
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="we-retail:activity/hiking"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="we-retail:activity/hiking"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="we-retail:activity/hiking"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Business Continuity
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="we-retail:activity/biking"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="we-retail:activity/biking"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="we-retail:activity/biking"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Creativity and Design
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:topic/customer-intelligence"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:topic/customer-intelligence"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:topic/customer-intelligence"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Customer Intelligence
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:topic/data-management-platform"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:topic/data-management-platform"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:topic/data-management-platform"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Data Management Platform
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:topic/digital-foundation"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:topic/digital-foundation"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:topic/digital-foundation"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Digital Foundation
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:topic/digital-trends"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:topic/digital-trends"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:topic/digital-trends"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Digital Trends
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:topic/document-management"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:topic/document-management"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:topic/document-management"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Document Management
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:topic/marketing-automation"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:topic/marketing-automation"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:topic/marketing-automation"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Marketing Automation
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:topic/personalization"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:topic/personalization"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:topic/personalization"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Personalization
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:topic/Stock"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:topic/Stock"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:topic/Stock"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Stock
+                      </span>
+                    </label>
+                  </li>
+                </ul>
+                <aside
+                  className="consonant-top-filter--bg"
+                />
+                <div
+                  className="consonant-top-filter--footer"
+                >
+                  <span
+                    className="consonant-top-filter--footer-res-qty"
+                  >
+                    0
+                     results
+                  </span>
+                  <button
+                    className="consonant-top-filter--footer-btn"
+                    onClick={[Function]}
+                    tabIndex="0"
+                    type="button"
+                  >
+                    Done
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="consonant-top-filter"
+          data-testid="filter-item"
+        >
+          <div
+            className="consonant-top-filter--inner"
+          >
+            <h3
+              className="consonant-top-filter--name"
+            >
+              <button
+                className="consonant-top-filter--link"
+                data-testid="filter-group-btn"
+                onClick={[Function]}
+                tabIndex="0"
+                type="button"
+              >
+                Availability
+                <span
+                  className="consonant-top-filter--selcted-items-qty"
+                />
+              </button>
+            </h3>
+            <div
+              className="consonant-top-filter--selcted-items"
+            >
+              <div
+                className="consonant-top-filter--absolute-wrapper"
+              >
+                <ul
+                  className="consonant-top-filter--items"
+                  data-testid="filter-group"
+                >
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:availability/on-demand"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:availability/on-demand"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:availability/on-demand"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        On-Demand
+                      </span>
+                    </label>
+                  </li>
+                  <li
+                    className="consonant-top-filter--items-item"
+                    data-testid="filter-group-item"
+                  >
+                    <label
+                      className="consonant-top-filter--items-item-label"
+                      htmlFor="adobe-com-enterprise:availability/upcoming"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={undefined}
+                        data-testid="list-item-checkbox"
+                        id="adobe-com-enterprise:availability/upcoming"
+                        onChange={[Function]}
+                        tabIndex="0"
+                        type="checkbox"
+                        value="adobe-com-enterprise:availability/upcoming"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-checkmark"
+                      />
+                      <span
+                        className="consonant-top-filter--items-item-name"
+                      >
+                        Upcoming
+                      </span>
+                    </label>
+                  </li>
+                </ul>
+                <div
+                  className="consonant-top-filter--footer"
+                >
+                  <span
+                    className="consonant-top-filter--footer-res-qty"
+                  >
+                    0
+                     results
+                  </span>
+                  <button
+                    className="consonant-top-filter--footer-btn"
+                    onClick={[Function]}
+                    tabIndex="0"
+                    type="button"
+                  >
+                    Done
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span
+      className="consonant-top-filters--res-qty"
+      data-testid="filter-top-result-count"
+    >
+      <strong>
+        0 results
+      </strong>
+    </span>
+    <div
+      className="consonant-top-filters--search-ico-wrapper"
+      data-testid="filter-top-ico-wrapper"
+    >
+      <button
+        className="search-ico"
+        onClick={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        Click to search
+        <span />
+      </button>
+    </div>
+    0
   </div>
 </div>
 `;

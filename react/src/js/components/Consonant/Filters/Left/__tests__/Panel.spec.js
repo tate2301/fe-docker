@@ -119,9 +119,9 @@ describe('Consonant/FilterPanelLeft', () => {
             expect(onFilterClick).toBeCalled();
         });
         test('should call onClearAllFilters', () => {
-            const { props: { clearAllFiltersText, onClearAllFilters } } = setup();
+            const { props: { onClearAllFilters } } = setup();
 
-            const clearButtonElement = screen.queryByText(clearAllFiltersText);
+            const clearButtonElement = screen.queryByTestId('left-filter-panel-clear-all-btn');
 
             expect(clearButtonElement).not.toBeNull();
 

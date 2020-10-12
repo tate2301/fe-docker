@@ -21,7 +21,8 @@ exports[`Consonant/Search Check snapshots should renders correctly with value 1`
         data-testid="search-input"
         id="consonant-search"
         onChange={[Function]}
-        placeholder="search text"
+        onClick={[Function]}
+        placeholder="Search here..."
         required={true}
         type="search"
         value=""
@@ -61,7 +62,8 @@ exports[`Consonant/Search Check snapshots should renders correctly without value
         data-testid="search-input"
         id="consonant-search"
         onChange={[Function]}
-        placeholder="search text"
+        onClick={[Function]}
+        placeholder="Search here..."
         required={true}
         type="search"
         value="search value"
