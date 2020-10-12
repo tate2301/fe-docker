@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 import { chainFromIterable } from '../../../../utils/general';
@@ -70,7 +71,7 @@ const FiltersPanelTop = ({
                                     key={filter.id}
                                     name={filter.group}
                                     items={filter.items}
-                                    numItemsSelected={filter.items.some(i => i.selected)}
+                                    numItemsSelected={_.sum(filter.items.map(i => i.selected))}
                                     results={resQty}
                                     id={filter.id}
                                     isOpened={filter.opened}
