@@ -58,12 +58,12 @@ function Group(props) {
                         );
 
                     case INFOBIT_TYPE.BOOKMARK:
-                        res.push(<Bookmark {...el}  key={i} />);
-                        break;
+                        return <Bookmark {...el} key={i} />;
+
                     case INFOBIT_TYPE.DATE:
-                        res.push(<DateInterval {...el} key={i} />);
-                        break;
-                    default: break;
+                        return <DateInterval {...el} key={i} />;
+
+                    default: return null;
                 }
             })}
         </Fragment>
