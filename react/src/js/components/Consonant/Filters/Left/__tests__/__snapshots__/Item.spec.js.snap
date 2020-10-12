@@ -31,7 +31,6 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
         />
       </button>
     </h3>
-    0
     <ul
       className="consonant-left-filter--items"
       data-testid="filter-group"
@@ -359,7 +358,6 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
         />
       </button>
     </h3>
-    0
     <ul
       className="consonant-left-filter--items"
       data-testid="filter-group"

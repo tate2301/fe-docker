@@ -192,15 +192,6 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
           </div>
         </div>
       </aside>
-      <div
-        className="consonant-loader consonant-loader_big consonant-loader_absolute"
-        data-testid="consonant-loader"
-      >
-        <div />
-        <div />
-        <div />
-        <div />
-      </div>
     </span>
   </div>
 </section>
