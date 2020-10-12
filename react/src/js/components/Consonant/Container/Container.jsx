@@ -3,6 +3,7 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import 'whatwg-fetch';
+import { getHighlightedTextComponent } from '../../../utils/rendering';
 import {
     DESKTOP_MIN_WIDTH,
     FILTER_LOGIC,
@@ -17,7 +18,6 @@ import { ConfigContext, ExpandableContext } from '../../../contexts';
 import { filterCardsByDateRange } from '../../../utils/cards';
 import {
     getDefaultSortOption,
-    getHighlightedTextComponent,
     getNumSelectedFilterItems,
     makeConfigGetter,
 } from '../../../utils/consonant';
