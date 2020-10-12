@@ -6,7 +6,7 @@ const Item = ({
     icon,
     id,
     items,
-    itemsSelected,
+    numItemsSelected,
     isOpened,
     onCheck,
     onClick,
@@ -26,14 +26,15 @@ const Item = ({
         onCheck(id, evt.target.value, evt.target.checked);
     }, []);
 
-    const selectedFilterComponent = itemsSelected && (
+
+    const selectedFilterComponent = numItemsSelected > 0 && (
         <button
             data-testid="item-badge"
             type="button"
             className="consonant-left-filter--item-badge"
             onClick={handleClear}
             tabIndex="0">
-            {itemsSelected}
+            {numItemsSelected > 0 ? numItemsSelected : null}
         </button>
     );
 
@@ -65,7 +66,7 @@ const Item = ({
     const footerComponent = (
         <div className="consonant-left-filter--footer">
             <span className="consonant-left-filter--footer-res-qty">{results} results</span>
-            {itemsSelected > 0 &&
+            {numItemsSelected > 0 &&
             <button
                 type="button"
                 onClick={handleClear}
@@ -75,7 +76,7 @@ const Item = ({
                 type="button"
                 onClick={handleClick}
                 className="consonant-left-filter--footer-btn">
-                {itemsSelected > 0 ? 'Apply' : 'Done'}
+                {numItemsSelected > 0 ? 'Apply' : 'Done'}
             </button>
         </div>
     );
@@ -100,7 +101,7 @@ const Item = ({
                         {name}
                         <div
                             className="consonant-left-filter--selected-items-qty"
-                            data-qty={itemsSelected > 0 ? `+${itemsSelected}` : ''}>
+                            data-qty={numItemsSelected > 0 ? `+${numItemsSelected}` : ''}>
                             {items.filter(i => i.selected).map((item, idx) =>
                                 (idx === items.length - 1 ? item.label : `${item.label}, `))
                             }
@@ -125,7 +126,7 @@ Item.propTypes = {
     onClick: PropTypes.func.isRequired,
     onClearAll: PropTypes.func.isRequired,
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
-    itemsSelected: PropTypes.number,
+    numItemsSelected: PropTypes.number,
     isOpened: PropTypes.bool,
     results: PropTypes.number.isRequired,
     clearFilterText: PropTypes.string,
@@ -134,6 +135,6 @@ Item.propTypes = {
 Item.defaultProps = {
     icon: '',
     isOpened: false,
-    itemsSelected: 0,
+    numItemsSelected: 0,
     clearFilterText: 'Clear',
 };
