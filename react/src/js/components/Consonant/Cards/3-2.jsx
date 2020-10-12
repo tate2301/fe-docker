@@ -31,7 +31,6 @@ const AspectRatio3to2Card = ({
     isBookmarked,
     onClick,
 }) => {
-    console.log('title', title);
     const extendFooterData = (data) => {
         if (!data) return null;
 
