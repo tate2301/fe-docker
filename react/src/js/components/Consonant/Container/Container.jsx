@@ -1,4 +1,8 @@
-import _ from 'lodash';
+import produce from 'immer';
+import get from 'lodash/get';
+import set from 'lodash/set';
+import debounce from 'lodash/debounce';
+import includes from 'lodash/includes';
 import PropTypes from 'prop-types';
 import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import 'whatwg-fetch';
@@ -34,6 +38,7 @@ import {
 
 
 import { useWindowDimensions } from '../../../utils/hooks';
+import { getHighlightedTextComponent } from '../../../utils/rendering';
 
 
 import Bookmarks from '../Bookmarks/Bookmarks';
@@ -71,7 +76,7 @@ const Container = (props) => {
 
     const [openDropdown, setOpenDropdown] = useState(null);
     const [bookmarkedCardIds, setBookmarkedCardIds] = useState([]);
-    const [pages, setPages] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
     const [filters, setFilters] = useState([]);
     const page = useRef();
     const [searchQuery, setSearchQuery] = useState('');
@@ -82,6 +87,7 @@ const Container = (props) => {
     const [showBookmarks, setShowBookmarks] = useState(false);
     const [showLimitedFiltersQty, setShowLimitedFiltersQty] = useState(filterPanelType === 'top');
     const [rawCards, setCards] = useState([]);
+    const [isLoading, setLoading] = useState(false);
 
     const cards = useMemo(() => rawCards.map(card => ({
         ...card,
@@ -100,7 +106,7 @@ const Container = (props) => {
     }), []);
 
     const onLoadMoreClick = useCallback(() => {
-        setPages(prevState => prevState + 1);
+        setCurrentPage(prevState => prevState + 1);
         window.scrollTo(0, window.pageYOffset);
     }, []);
 
@@ -180,6 +186,7 @@ const Container = (props) => {
 
     const handleCardBookmarking = useCallback((id) => {
         // Update bookmarked IDs
+        console.log('about to find');
         const cardIsBookmarked = bookmarkedCardIds.find(card => card === id);
 
         if (cardIsBookmarked) {
@@ -205,10 +212,11 @@ const Container = (props) => {
     // Effects
 
     useEffect(() => {
+        setLoading(true);
         window.fetch(collectionEndpoint)
             .then(resp => resp.json())
             .then((payload) => {
-                if (!_.get(payload, 'cards.length')) return;
+                if (!get(payload, 'cards.length')) return;
 
                 let featuredCards = config.featuredCards || [];
                 featuredCards = featuredCards.map(el => ({
@@ -220,7 +228,7 @@ const Container = (props) => {
 
                 // If this.config.bookmarks.bookmarkOnlyCollection;
                 if (onlyShowBookmarks) {
-                    allCards = allCards.filter(card => _.includes(bookmarkedCardIds, card.id));
+                    allCards = allCards.filter(card => includes(bookmarkedCardIds, card.id));
                 }
 
                 allCards = filterCardsByDateRange(allCards);
@@ -234,6 +242,7 @@ const Container = (props) => {
                         selected: false,
                     })),
                 })));
+                setLoading(false);
             });
     }, [bookmarkedCardIds, config.featuredCards, populateCardMetadata]);
 
@@ -243,7 +252,7 @@ const Container = (props) => {
 
     // Update dimensions on resize
     useEffect(() => {
-        const updateDimensions = _.debounce(() => setShowMobileFilters(false), 100);
+        const updateDimensions = debounce(() => setShowMobileFilters(false), 100);
         window.addEventListener('resize', updateDimensions);
         return () => window.removeEventListener('resize', updateDimensions);
     }, []);
@@ -278,6 +287,8 @@ const Container = (props) => {
             || filterLogic === FILTER_LOGIC.AND;
         const usingOrFilter = filterLogic === FILTER_LOGIC.OR;
 
+        if (activeFilterIdsSet.size === 0) return cards;
+
         return cards.filter((card) => {
             if (!card.appliesTo) {
                 return false;
@@ -294,26 +305,20 @@ const Container = (props) => {
         });
     }, [cards, activeFilterIds]);
 
-    const highlightSearchResultText = (text, val) => text.replace(new RegExp(val, 'gi'), value => `
-            <span data-testid="consonant-search-result" class="consonant-search-result">
-                ${value}
-            </span>
-        `);
-
     const searchedCards = useMemo(() => {
         const query = searchQuery.trim().toLowerCase();
         if (!query) return filteredCards;
-        const fieldsToHighlight = ['title', 'description'];
-
         return filteredCards
             .filter(card => searchFields.some((searchField) => {
-                const searchFieldValue = cleanText(_.get(card, searchField, ''));
-                return _.includes(searchFieldValue, query);
+                const searchFieldValue = cleanText(get(card, searchField, ''));
+                return includes(searchFieldValue, query);
             }))
-            .map(card => fieldsToHighlight.reduce((modifiedCard, field) => ({
-                ...modifiedCard,
-                [field]: highlightSearchResultText(modifiedCard[field], query),
-            }), card));
+            .map(card => searchFields.reduce((modifiedCard, field) =>
+                produce(modifiedCard, (draft) => {
+                    const currentValue = get(draft, field, null);
+                    if (currentValue === null) return;
+                    set(draft, field, getHighlightedTextComponent(currentValue, query));
+                }), card));
     }, [searchQuery, filteredCards]);
 
     const sortedCards = useMemo(() => {
@@ -328,7 +333,7 @@ const Container = (props) => {
 
         // Sorting for featured and date;
 
-        const sortingByDate = _.includes(['dateasc', 'datedesc'], sortName.toLowerCase());
+        const sortingByDate = includes(['dateasc', 'datedesc'], sortName.toLowerCase());
         if (sortingByDate) {
             sorted = sortByKey(searchedCards, c => c[cardField]);
         } else {
@@ -336,7 +341,7 @@ const Container = (props) => {
                 .sort((a, b) => a[cardField].localeCompare(b[cardField], 'en', { numeric: true }));
         }
 
-        if (_.includes(sortName.toLowerCase(), 'desc')) sorted.reverse();
+        if (includes(sortName.toLowerCase(), 'desc')) sorted.reverse();
         // In case of featured, move featured items to the top;
         if (sortName.toLowerCase() === 'featured') {
             sorted.sort((a, b) => {
@@ -359,28 +364,25 @@ const Container = (props) => {
         [sortedCards],
     );
 
-    const collectionCards = useMemo(() => {
+    const collectionCards = useMemo(
+        () =>
         // INFO: bookmarked cards will be ordered because bookmarked cards is
         //  derived from sorted Cards
-        const shownCards = showBookmarks ? bookmarkedCards : sortedCards;
-
-        const isUsingPaginator = paginationType === 'paginator';
-        if (resultsPerPage && isUsingPaginator) {
-            const start = (pages - 1) * resultsPerPage;
-            return shownCards.slice(start, start + resultsPerPage);
-        }
-
-        return shownCards;
-    }, [sortedCards, pages, resultsPerPage, showBookmarks, bookmarkedCards]);
+            (showBookmarks ? bookmarkedCards : sortedCards)
+        , [sortedCards, showBookmarks, bookmarkedCards],
+    );
 
     const totalPages = useMemo(
-        () => Math.ceil(filteredCards.length / resultsPerPage),
+        () => {
+            if (resultsPerPage === 0) return 0;
+            return Math.ceil(filteredCards.length / resultsPerPage);
+        },
         [filteredCards, resultsPerPage],
     );
 
     const numCardsToShow = useMemo(
-        () => Math.min(resultsPerPage * pages, filteredCards.length),
-        [resultsPerPage, filteredCards, pages],
+        () => Math.min(resultsPerPage * currentPage, filteredCards.length),
+        [resultsPerPage, filteredCards, currentPage],
     );
 
     const selectedFiltersItemsQty = getNumSelectedFilterItems(filters);
@@ -499,7 +501,7 @@ const Container = (props) => {
                                 <Fragment>
                                     <Collection
                                         showItemsPerPage={resultsPerPage}
-                                        pages={pages}
+                                        pages={currentPage}
                                         cards={collectionCards}
                                         onCardBookmark={handleCardBookmarking} />
                                     {/* TODO: Migrate to useRef */}
@@ -512,21 +514,24 @@ const Container = (props) => {
                                         </div>
                                     )}
                                     {shouldDisplayPaginator && paginationType === 'paginator' &&
-                                        <Paginator
-                                            pageCount={windowWidth <= DESKTOP_MIN_WIDTH ?
-                                                PAGINATION_COUNT.MOBILE : PAGINATION_COUNT.DESKTOP
-                                            }
-                                            currentPageNumber={pages}
-                                            totalPages={totalPages}
-                                            showItemsPerPage={resultsPerPage}
-                                            totalResults={filteredCards.length}
-                                            onClick={setPages} />
+                                    <Paginator
+                                        pageCount={windowWidth <= DESKTOP_MIN_WIDTH ?
+                                            PAGINATION_COUNT.MOBILE : PAGINATION_COUNT.DESKTOP
+                                        }
+                                        currentPageNumber={currentPage}
+                                        totalPages={totalPages}
+                                        showItemsPerPage={resultsPerPage}
+                                        totalResults={filteredCards.length}
+                                        onClick={setCurrentPage} />
                                     }
-                                </Fragment> :
-                                <Loader
-                                    size={LOADER_SIZE.BIG}
-                                    hidden={!getConfig('collection', 'totalCardLimit')}
-                                    absolute />
+                                </Fragment> : (
+                                    isLoading && (
+                                        <Loader
+                                            size={LOADER_SIZE.BIG}
+                                            hidden={!getConfig('collection', 'totalCardLimit')}
+                                            absolute />
+                                    )
+                                )
                             }
                         </span>
                     </div>

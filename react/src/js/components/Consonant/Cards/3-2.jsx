@@ -106,11 +106,13 @@ const AspectRatio3to2Card = ({
                     <span className="consonant-aspect-ratio-3-2-card--label">{label}</span>
                 }
                 <h2
-                    className="consonant-aspect-ratio-3-2-card--title"
-                    dangerouslySetInnerHTML={{ __html: title }} />
+                    className="consonant-aspect-ratio-3-2-card--title">
+                    {title}
+                </h2>
                 <p
-                    className="consonant-aspect-ratio-3-2-card--text"
-                    dangerouslySetInnerHTML={{ __html: description }} />
+                    className="consonant-aspect-ratio-3-2-card--text">
+                    {description}
+                </p>
                 <CardFooter
                     left={extendFooterData(footer.left)}
                     center={extendFooterData(footer.center)}

@@ -99,3 +99,5 @@ export const parseToPrimitive = (value) => {
         return value;
     }
 };
+
+export const isNullish = val => val === undefined || val === null || Number.isNaN(val);

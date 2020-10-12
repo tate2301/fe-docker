@@ -8,7 +8,7 @@ const TopFilterItem = ({
     name,
     id,
     items,
-    itemsSelected,
+    numItemsSelected,
     onCheck,
     onClearAll,
     results,
@@ -62,7 +62,7 @@ const TopFilterItem = ({
     const footerComponent = (
         <div className="consonant-top-filter--footer">
             <span className="consonant-top-filter--footer-res-qty">{results} results</span>
-            {itemsSelected > 0 &&
+            {numItemsSelected > 0 &&
             <button
                 data-testid="clear-btn"
                 type="button"
@@ -75,7 +75,7 @@ const TopFilterItem = ({
                 onClick={handleToggle}
                 className="consonant-top-filter--footer-btn"
                 tabIndex="0">
-                {itemsSelected > 0 ? 'Apply' : 'Done'}
+                {numItemsSelected > 0 ? 'Apply' : 'Done'}
             </button>
         </div>
     );
@@ -121,12 +121,12 @@ TopFilterItem.propTypes = {
     onCheck: PropTypes.func.isRequired,
     onClearAll: PropTypes.func.isRequired,
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
-    itemsSelected: PropTypes.number,
+    numItemsSelected: PropTypes.number,
     results: PropTypes.number.isRequired,
     clearFilterText: PropTypes.string,
 };
 
 TopFilterItem.defaultProps = {
-    itemsSelected: 0,
+    numItemsSelected: 0,
     clearFilterText: 'Clear',
 };

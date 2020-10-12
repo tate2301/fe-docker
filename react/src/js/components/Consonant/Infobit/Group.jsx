@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Bookmark from './Type/Bookmark/Bookmark';
@@ -16,64 +17,57 @@ import { INFOBIT_TYPE } from '../../../constants';
 
 function Group(props) {
     const { renderList } = props;
-    const renderItems = (data) => {
-        let arr = data;
-        const res = [];
+    const renderListIsNotArray = renderList && !Array.isArray(renderList) && typeof renderList === 'object';
+    const data = renderListIsNotArray ? [renderList] : renderList;
 
-        if (!data) throw new Error();
-        if (data && !Array.isArray(data) && typeof data === 'object') arr = [data];
-
-        try {
-            arr.forEach((el) => {
+    return (
+        <Fragment>
+            {data.map((el, i) => {
                 switch (el.type) {
                     case INFOBIT_TYPE.PRICE:
-                        res.push(<Price {...el} />);
-                        break;
+                        return <Price {...el} key={i} />;
+
                     case INFOBIT_TYPE.BUTTON:
-                        res.push(<Button {...el} />);
-                        break;
+                        return <Button {...el} key={i} />;
+
                     case INFOBIT_TYPE.ICON_TEXT:
-                        res.push(<IconWithText {...el} />);
-                        break;
+                        return <IconWithText {...el} key={i} />;
+
                     case INFOBIT_TYPE.LINK_ICON:
-                        res.push(<LinkWithIcon {...el} />);
-                        break;
+                        return <LinkWithIcon {...el} key={i} />;
+
                     case INFOBIT_TYPE.TEXT:
-                        res.push(<Text />);
-                        break;
+                        return <Text key={i} />;
+
                     case INFOBIT_TYPE.ICON:
-                        res.push(<Icon />);
-                        break;
+                        return <Icon key={i} />;
+
                     case INFOBIT_TYPE.LINK:
-                        res.push(<TextLink />);
-                        break;
+                        return <TextLink key={i} />;
+
                     case INFOBIT_TYPE.PROGRESS:
-                        res.push(<Progress />);
-                        break;
+                        return <Progress key={i} />;
+
                     case INFOBIT_TYPE.RATING:
-                        res.push(<Rating
-                            label={el.label}
-                            totalStars={parseToPrimitive(el.totalStars)}
-                            starsFilled={parseToPrimitive(el.starsFilled)} />);
-                        break;
+                        return (
+                            <Rating
+                                key={i}
+                                label={el.label}
+                                totalStars={parseToPrimitive(el.totalStars)}
+                                starsFilled={parseToPrimitive(el.starsFilled)} />
+                        );
+
                     case INFOBIT_TYPE.BOOKMARK:
-                        res.push(<Bookmark {...el} />);
+                        res.push(<Bookmark {...el}  key={i} />);
                         break;
                     case INFOBIT_TYPE.DATE:
-                        res.push(<DateInterval {...el} />);
+                        res.push(<DateInterval {...el} key={i} />);
                         break;
                     default: break;
                 }
-            });
-
-            return res;
-        } catch (e) {
-            alert(1);
-            return res;
-        }
-    };
-
-    return (<Fragment>{renderItems(renderList)}</Fragment>);
+            })}
+        </Fragment>
+    );
 }
 
 Group.propTypes = {

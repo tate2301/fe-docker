@@ -64,7 +64,9 @@ const AspectRatio1to1Card = (props) => {
                 className="consonant-aspect-ratio-1-1-card--inner"
                 tabIndex="0">
                 {label && <span className="consonant-aspect-ratio-1-1-card--label">{label}</span>}
-                <h2 className="consonant-aspect-ratio-1-1-card--title" dangerouslySetInnerHTML={{ __html: title }} />
+                <h2 className="consonant-aspect-ratio-1-1-card--title">
+                    {title}
+                </h2>
             </a>
         </div>
     );
