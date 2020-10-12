@@ -59,37 +59,38 @@ const AspectRatio3to2Card = ({
                 style={{ backgroundImage: `url("${image}")` }}>
                 {
                     bannerDescription &&
-          bannerFontColor &&
-          bannerBackgroundColor &&
-          <span
-              data-testid="consonant-card--banner"
-              className="consonant-aspect-ratio-3-2-card--banner"
-              style={({
-                  backgroundColor: bannerBackgroundColor,
-                  color: bannerFontColor,
-              })}>
-              {
-                  bannerIcon &&
-                  <img
-                      src={bannerIcon}
-                      alt=""
-                      loading="lazy"
-                      width="8"
-                      data-testid="consonant-card--banner-icon"
-                      className="consonant-aspect-ratio-3-2-card--banner-icon" />
-              }
-              {bannerDescription}
-          </span>
+                    bannerFontColor &&
+                    bannerBackgroundColor &&
+                    <span
+                        data-testid="consonant-card--banner"
+                        className="consonant-aspect-ratio-3-2-card--banner"
+                        style={({
+                            backgroundColor: bannerBackgroundColor,
+                            color: bannerFontColor,
+                        })}>
+                        {
+                            bannerIcon && (
+                                <div className="consonant-aspect-ratio-3-2-card--banner-icon-wrapper">
+                                    <img
+                                        alt=""
+                                        loading="lazy"
+                                        src={bannerIcon}
+                                        data-testid="consonant-card--banner-icon" />
+                                </div>
+                            )
+                        }
+                        {bannerDescription}
+                    </span>
                 }
                 {badgeText && <span className="consonant-aspect-ratio-3-2-card--badge">{badgeText}</span>}
                 {videoURL &&
-                <a
-                    href={videoURL}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="consonant-aspect-ratio-3-2-card--video-ico"
-                    tabIndex="0">Open video link
-                </a>}
+                    <a
+                        href={videoURL}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="consonant-aspect-ratio-3-2-card--video-ico"
+                        tabIndex="0">Open video link
+                    </a>}
             </div>
             <div className="consonant-aspect-ratio-3-2-card--inner">
                 {

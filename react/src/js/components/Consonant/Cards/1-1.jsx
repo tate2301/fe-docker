@@ -34,14 +34,15 @@ const AspectRatio1to1Card = (props) => {
                             color: bannerFontColor,
                         })}>
                         {
-                            bannerIcon &&
-                            <img
-                                src={bannerIcon}
-                                alt=""
-                                loading="lazy"
-                                width="8"
-                                data-testid="consonant-card--banner-icon"
-                                className="consonant-aspect-ratio-1-1-card--banner-icon" />
+                            bannerIcon && (
+                                <div className="consonant-aspect-ratio-1-1-card--banner-icon-wrapper">
+                                    <img
+                                        alt=""
+                                        loading="lazy"
+                                        src={bannerIcon}
+                                        data-testid="consonant-card--banner-icon" />
+                                </div>
+                            )
                         }
                         {bannerDescription}
                     </span>

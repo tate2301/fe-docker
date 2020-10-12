@@ -139,9 +139,13 @@
         user-select: none;
         overflow-y: auto;
 
-        img {
-            width: unit((@consonant-root-rem * 0.5), px);
-            margin-right: 2/@consonant-root-rem;
+        &-icon-wrapper {
+            margin-right: unit((@consonant-root-rem * 0.25), px);
+
+            & img {
+                width: unit((@consonant-root-rem * 0.5), px);
+                height: unit((@consonant-root-rem * 0.5), px);
+            }
         }
     }
 
