@@ -3,7 +3,6 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import 'whatwg-fetch';
-import { getHighlightedTextComponent } from '../../../utils/rendering';
 import {
     DESKTOP_MIN_WIDTH,
     FILTER_LOGIC,
@@ -36,6 +35,7 @@ import {
 
 
 import { useWindowDimensions } from '../../../utils/hooks';
+import { getHighlightedTextComponent } from '../../../utils/rendering';
 
 
 import Bookmarks from '../Bookmarks/Bookmarks';
@@ -73,7 +73,7 @@ const Container = (props) => {
 
     const [openDropdown, setOpenDropdown] = useState(null);
     const [bookmarkedCardIds, setBookmarkedCardIds] = useState([]);
-    const [pages, setPages] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
     const [filters, setFilters] = useState([]);
     const page = useRef();
     const [searchQuery, setSearchQuery] = useState('');
@@ -103,7 +103,7 @@ const Container = (props) => {
     }), []);
 
     const onLoadMoreClick = useCallback(() => {
-        setPages(prevState => prevState + 1);
+        setCurrentPage(prevState => prevState + 1);
         window.scrollTo(0, window.pageYOffset);
     }, []);
 
@@ -360,28 +360,25 @@ const Container = (props) => {
         [sortedCards],
     );
 
-    const collectionCards = useMemo(() => {
+    const collectionCards = useMemo(
+        () =>
         // INFO: bookmarked cards will be ordered because bookmarked cards is
         //  derived from sorted Cards
-        const shownCards = showBookmarks ? bookmarkedCards : sortedCards;
-
-        const isUsingPaginator = paginationType === 'paginator';
-        if (resultsPerPage && isUsingPaginator) {
-            const start = (pages - 1) * resultsPerPage;
-            return shownCards.slice(start, start + resultsPerPage);
-        }
-
-        return shownCards;
-    }, [sortedCards, pages, resultsPerPage, showBookmarks, bookmarkedCards]);
+            (showBookmarks ? bookmarkedCards : sortedCards)
+        , [sortedCards, showBookmarks, bookmarkedCards],
+    );
 
     const totalPages = useMemo(
-        () => Math.ceil(filteredCards.length / resultsPerPage),
+        () => {
+            if (resultsPerPage === 0) return 0;
+            return Math.ceil(filteredCards.length / resultsPerPage);
+        },
         [filteredCards, resultsPerPage],
     );
 
     const numCardsToShow = useMemo(
-        () => Math.min(resultsPerPage * pages, filteredCards.length),
-        [resultsPerPage, filteredCards, pages],
+        () => Math.min(resultsPerPage * currentPage, filteredCards.length),
+        [resultsPerPage, filteredCards, currentPage],
     );
 
     const selectedFiltersItemsQty = getNumSelectedFilterItems(filters);
@@ -500,7 +497,7 @@ const Container = (props) => {
                                 <Fragment>
                                     <Collection
                                         showItemsPerPage={resultsPerPage}
-                                        pages={pages}
+                                        pages={currentPage}
                                         cards={collectionCards}
                                         onCardBookmark={handleCardBookmarking} />
                                     {/* TODO: Migrate to useRef */}
@@ -513,15 +510,15 @@ const Container = (props) => {
                                         </div>
                                     )}
                                     {shouldDisplayPaginator && paginationType === 'paginator' &&
-                                        <Paginator
-                                            pageCount={windowWidth <= DESKTOP_MIN_WIDTH ?
-                                                PAGINATION_COUNT.MOBILE : PAGINATION_COUNT.DESKTOP
-                                            }
-                                            currentPageNumber={pages}
-                                            totalPages={totalPages}
-                                            showItemsPerPage={resultsPerPage}
-                                            totalResults={filteredCards.length}
-                                            onClick={setPages} />
+                                    <Paginator
+                                        pageCount={windowWidth <= DESKTOP_MIN_WIDTH ?
+                                            PAGINATION_COUNT.MOBILE : PAGINATION_COUNT.DESKTOP
+                                        }
+                                        currentPageNumber={currentPage}
+                                        totalPages={totalPages}
+                                        showItemsPerPage={resultsPerPage}
+                                        totalResults={filteredCards.length}
+                                        onClick={setCurrentPage} />
                                     }
                                 </Fragment> : (
                                     isLoading && (

@@ -1,8 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { isNullish } from '../../../utils/general';
 import { useConfig } from '../../../utils/hooks';
-import AspectRatio3to2Card from '../Cards/3-2';
 import AspectRatio1to1Card from '../Cards/1-1';
+import AspectRatio3to2Card from '../Cards/3-2';
 import FullCard from '../Cards/Full';
 
 const DEFAULT_SHOW_ITEMS_PER_PAGE = 8;
@@ -27,9 +28,11 @@ const Collection = (props) => {
     let cardsToShow = showItemsPerPage * pages;
 
     if (cardsToShow > cards.length) cardsToShow = cards.length;
-    if (cardsToShow && cards.length > cardsToShow) cards = cards.slice(0, cardsToShow);
+    if (!isNullish(showItemsPerPage) && cards.length > cardsToShow) {
+        cards = cards.slice(0, cardsToShow);
+    }
 
-    return cards.length && (
+    return cards.length > 0 && (
         <div data-testid="consonant-collection" className="consonant-card-collection">
             {cards.map((card) => {
                 const type = cardsStyle && cardsStyle.toLowerCase() !== 'none' ? cardsStyle : card.cardStyle;
