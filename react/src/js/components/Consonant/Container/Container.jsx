@@ -82,6 +82,7 @@ const Container = (props) => {
     const [showBookmarks, setShowBookmarks] = useState(false);
     const [showLimitedFiltersQty, setShowLimitedFiltersQty] = useState(filterPanelType === 'top');
     const [rawCards, setCards] = useState([]);
+    const [isLoading, setLoading] = useState(false);
 
     const cards = useMemo(() => rawCards.map(card => ({
         ...card,
@@ -205,6 +206,7 @@ const Container = (props) => {
     // Effects
 
     useEffect(() => {
+        setLoading(true);
         window.fetch(collectionEndpoint)
             .then(resp => resp.json())
             .then((payload) => {
@@ -234,6 +236,7 @@ const Container = (props) => {
                         selected: false,
                     })),
                 })));
+                setLoading(false);
             });
     }, [bookmarkedCardIds, config.featuredCards, populateCardMetadata]);
 
@@ -522,11 +525,14 @@ const Container = (props) => {
                                             totalResults={filteredCards.length}
                                             onClick={setPages} />
                                     }
-                                </Fragment> :
-                                <Loader
-                                    size={LOADER_SIZE.BIG}
-                                    hidden={!getConfig('collection', 'totalCardLimit')}
-                                    absolute />
+                                </Fragment> : (
+                                    isLoading && (
+                                        <Loader
+                                            size={LOADER_SIZE.BIG}
+                                            hidden={!getConfig('collection', 'totalCardLimit')}
+                                            absolute />
+                                    )
+                                )
                             }
                         </span>
                     </div>
