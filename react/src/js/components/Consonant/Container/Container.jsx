@@ -1,5 +1,8 @@
 import produce from 'immer';
-import _ from 'lodash';
+import get from 'lodash/get';
+import set from 'lodash/set';
+import debounce from 'lodash/debounce';
+import includes from 'lodash/includes';
 import PropTypes from 'prop-types';
 import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import 'whatwg-fetch';
@@ -213,7 +216,7 @@ const Container = (props) => {
         window.fetch(collectionEndpoint)
             .then(resp => resp.json())
             .then((payload) => {
-                if (!_.get(payload, 'cards.length')) return;
+                if (!get(payload, 'cards.length')) return;
 
                 let featuredCards = config.featuredCards || [];
                 featuredCards = featuredCards.map(el => ({
@@ -225,7 +228,7 @@ const Container = (props) => {
 
                 // If this.config.bookmarks.bookmarkOnlyCollection;
                 if (onlyShowBookmarks) {
-                    allCards = allCards.filter(card => _.includes(bookmarkedCardIds, card.id));
+                    allCards = allCards.filter(card => includes(bookmarkedCardIds, card.id));
                 }
 
                 allCards = filterCardsByDateRange(allCards);
@@ -249,7 +252,7 @@ const Container = (props) => {
 
     // Update dimensions on resize
     useEffect(() => {
-        const updateDimensions = _.debounce(() => setShowMobileFilters(false), 100);
+        const updateDimensions = debounce(() => setShowMobileFilters(false), 100);
         window.addEventListener('resize', updateDimensions);
         return () => window.removeEventListener('resize', updateDimensions);
     }, []);
@@ -307,14 +310,14 @@ const Container = (props) => {
         if (!query) return filteredCards;
         return filteredCards
             .filter(card => searchFields.some((searchField) => {
-                const searchFieldValue = cleanText(_.get(card, searchField, ''));
-                return _.includes(searchFieldValue, query);
+                const searchFieldValue = cleanText(get(card, searchField, ''));
+                return includes(searchFieldValue, query);
             }))
             .map(card => searchFields.reduce((modifiedCard, field) =>
                 produce(modifiedCard, (draft) => {
-                    const currentValue = _.get(draft, field, null);
+                    const currentValue = get(draft, field, null);
                     if (currentValue === null) return;
-                    _.set(draft, field, getHighlightedTextComponent(currentValue, query));
+                    set(draft, field, getHighlightedTextComponent(currentValue, query));
                 }), card));
     }, [searchQuery, filteredCards]);
 
@@ -330,7 +333,7 @@ const Container = (props) => {
 
         // Sorting for featured and date;
 
-        const sortingByDate = _.includes(['dateasc', 'datedesc'], sortName.toLowerCase());
+        const sortingByDate = includes(['dateasc', 'datedesc'], sortName.toLowerCase());
         if (sortingByDate) {
             sorted = sortByKey(searchedCards, c => c[cardField]);
         } else {
@@ -338,7 +341,7 @@ const Container = (props) => {
                 .sort((a, b) => a[cardField].localeCompare(b[cardField], 'en', { numeric: true }));
         }
 
-        if (_.includes(sortName.toLowerCase(), 'desc')) sorted.reverse();
+        if (includes(sortName.toLowerCase(), 'desc')) sorted.reverse();
         // In case of featured, move featured items to the top;
         if (sortName.toLowerCase() === 'featured') {
             sorted.sort((a, b) => {
