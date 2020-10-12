@@ -283,6 +283,8 @@ const Container = (props) => {
             || filterLogic === FILTER_LOGIC.AND;
         const usingOrFilter = filterLogic === FILTER_LOGIC.OR;
 
+        if (activeFilterIdsSet.size === 0) return cards;
+
         return cards.filter((card) => {
             if (!card.appliesTo) {
                 return false;
