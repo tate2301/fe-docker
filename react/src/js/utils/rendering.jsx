@@ -1,3 +1,6 @@
+import React from 'react';
+
+
 export const getHighlightedTextComponent = (text, value) => {
     const parts = text.split(new RegExp(`(${value})`, 'gi'));
     return parts.map((part, i) => (
