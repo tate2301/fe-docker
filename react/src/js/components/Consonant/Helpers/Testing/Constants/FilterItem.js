@@ -16,7 +16,7 @@ export const DEFAULT_PROPS = {
     results: 0, // filtered cards count
     name: group,
     isOpened: false,
-    itemsSelected: 0,
+    numItemsSelected: 0,
 
     onCheck: jest.fn(),
     onClick: jest.fn(),
@@ -24,6 +24,6 @@ export const DEFAULT_PROPS = {
 };
 
 export const selectedAllItems = {
-    itemsSelected: DEFAULT_PROPS.items.length,
+    numItemsSelected: DEFAULT_PROPS.items.length,
     items: DEFAULT_PROPS.items.map(item => ({ ...item, selected: true })),
 };

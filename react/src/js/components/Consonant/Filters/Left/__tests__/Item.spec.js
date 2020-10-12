@@ -27,7 +27,7 @@ describe('Consonant/FilterItem', () => {
 
         expect(badgeElement).not.toBeNull();
 
-        expect(badgeElement).toHaveTextContent(String(selectedAllItems.itemsSelected));
+        expect(badgeElement).toHaveTextContent(String(selectedAllItems.numItemsSelected));
     });
     test('should render all list items', () => {
         const { props: { items } } = setup();

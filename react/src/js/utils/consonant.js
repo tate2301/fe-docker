@@ -7,17 +7,17 @@ export const getNumSelectedFilterItems = (filters) => {
     return _.sum(filterItems.map(item => item.selected));
 };
 
-export function getDefaultSortOption(config, query) {
-    const sortOptions = _.get(config, 'sort.options', '[]');
-    return sortOptions.find(el => el.sort === query) || {
-        label: 'Featured',
-        sort: 'featured',
-    };
-}
-
 export const makeConfigGetter = config => (object, key) => {
     const defaultValue = DEFAULT_CONFIG[object][key];
     const value = _.get(config, `${object}.${key}`);
     if (isNullish(value)) return defaultValue;
     return value;
 };
+
+export function getDefaultSortOption(config, query) {
+    const sortOptions = makeConfigGetter(config)('sort', 'options');
+    return sortOptions.find(el => el.sort === query) || {
+        label: 'Featured',
+        sort: 'featured',
+    };
+}

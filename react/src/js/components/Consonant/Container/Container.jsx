@@ -183,6 +183,7 @@ const Container = (props) => {
 
     const handleCardBookmarking = useCallback((id) => {
         // Update bookmarked IDs
+        console.log('about to find');
         const cardIsBookmarked = bookmarkedCardIds.find(card => card === id);
 
         if (cardIsBookmarked) {
