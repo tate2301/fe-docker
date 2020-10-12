@@ -22,7 +22,9 @@ const Collection = (props) => {
     const getConfig = useConfig();
     const allowBookmarking = getConfig('bookmarks', 'enabled');
     const cardsStyle = getConfig('collection', 'cardStyle');
-
+    const { prettyDateIntervalFormat: dateFormat } = getConfig('collection', 'i18n');
+    const locale = getConfig('language', 'current');
+    console.log('COLLECTION', `${dateFormat} <<< >>>> ${locale}`);
     let cards = [...props.cards];
     let cardsToShow = showItemsPerPage * pages;
 
@@ -48,7 +50,9 @@ const Collection = (props) => {
                     key={card.id}
                     {...card}
                     onClick={onCardBookmark}
-                    allowBookmarking={allowBookmarking} />);
+                    allowBookmarking={allowBookmarking}
+                    dateFormat={dateFormat}
+                    locale={locale} />);
             })}
             <div className="consonant-card-collection--placeholder" />
             <div className="consonant-card-collection--placeholder" />

@@ -57,6 +57,11 @@
                 cardStyleOverride: "none", // could also be "3:2" or "full-card"
                 displayTotalResults: true,
                 totalResultsText: "{} results",
+                i18n: {
+                    prettyDateIntervalFormat: '{LLL} {dd} | {timeRange} {timeZone}',
+                    totalResultsText: '{total} results',
+                    title: 'Your Favorite Picks',
+                },
             },
             featuredCards: [
                 {
@@ -171,6 +176,9 @@
                 inputPlaceholderText: 'Search here...',
                 leftPanelTitle: 'Search now',
                 searchFields: '["title","description", "label", "badgeText","meta-categories"]',
+            },
+            language: {
+              current: 'de',
             },
         };
         const consonantCardCollection = new ConsonantCardCollection(config, document.getElementById("someDivId"));

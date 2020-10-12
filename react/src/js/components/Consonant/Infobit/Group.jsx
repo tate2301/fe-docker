@@ -10,20 +10,9 @@ import Price from './Type/Price';
 import Progress from './Type/Progress';
 import Rating from './Type/Rating/Rating';
 import Text from './Type/Text';
+import DateInterval from './Type/DateInterval/DateInterval';
 import { parseToPrimitive } from '../../../utils/general';
-
-const INFOBIT_TYPE = {
-    PRICE: 'price',
-    BUTTON: 'button',
-    ICON_TEXT: 'icon-with-text',
-    LINK_ICON: 'link-with-icon',
-    TEXT: 'text',
-    ICON: 'icon',
-    LINK: 'link',
-    PROGRESS: 'progress-bar',
-    RATING: 'rating',
-    BOOKMARK: 'bookmark',
-};
+import { INFOBIT_TYPE } from '../../../constants';
 
 function Group(props) {
     const { renderList } = props;
@@ -69,6 +58,9 @@ function Group(props) {
                         break;
                     case INFOBIT_TYPE.BOOKMARK:
                         res.push(<Bookmark {...el} />);
+                        break;
+                    case INFOBIT_TYPE.DATE:
+                        res.push(<DateInterval {...el} />);
                         break;
                     default: break;
                 }

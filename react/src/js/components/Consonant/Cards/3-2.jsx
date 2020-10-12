@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CardFooter from './CardFooter/CardFooter';
+import { INFOBIT_TYPE } from '../../../constants';
 
 export const Tooltip = (props) => {
     const { text } = props;
@@ -30,18 +31,26 @@ const AspectRatio3to2Card = ({
     disableBookmarkIco,
     isBookmarked,
     onClick,
+    dateFormat,
+    locale,
 }) => {
     const extendFooterData = (data) => {
         if (!data) return null;
 
         return data.map((el) => {
-            if (el.type === 'bookmark') {
+            if (el.type === INFOBIT_TYPE.BOOKMARK) {
                 return {
                     ...el,
                     cardId: id,
                     disableBookmarkIco,
                     isBookmarked,
                     onClick,
+                };
+            } else if (el.type === INFOBIT_TYPE.DATE) {
+                return {
+                    ...el,
+                    dateFormat,
+                    locale,
                 };
             }
             return el;
@@ -133,6 +142,8 @@ AspectRatio3to2Card.propTypes = {
     disableBookmarkIco: PropTypes.bool,
     isBookmarked: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired,
+    dateFormat: PropTypes.string.isRequired,
+    locale: PropTypes.string.isRequired,
 };
 
 AspectRatio3to2Card.defaultProps = {
