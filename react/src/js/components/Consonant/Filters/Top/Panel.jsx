@@ -70,7 +70,7 @@ const FiltersPanelTop = ({
                                     key={filter.id}
                                     name={filter.group}
                                     items={filter.items}
-                                    itemsSelected={filter.items.some(i => i.selected)}
+                                    numItemsSelected={filter.items.some(i => i.selected)}
                                     results={resQty}
                                     id={filter.id}
                                     isOpened={filter.opened}
