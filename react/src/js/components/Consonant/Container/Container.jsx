@@ -1,3 +1,4 @@
+import produce from 'immer';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -16,6 +17,7 @@ import { ConfigContext, ExpandableContext } from '../../../contexts';
 import { filterCardsByDateRange } from '../../../utils/cards';
 import {
     getDefaultSortOption,
+    getHighlightedTextComponent,
     getNumSelectedFilterItems,
     makeConfigGetter,
 } from '../../../utils/consonant';
@@ -297,26 +299,20 @@ const Container = (props) => {
         });
     }, [cards, activeFilterIds]);
 
-    const highlightSearchResultText = (text, val) => text.replace(new RegExp(val, 'gi'), value => `
-            <span data-testid="consonant-search-result" class="consonant-search-result">
-                ${value}
-            </span>
-        `);
-
     const searchedCards = useMemo(() => {
         const query = searchQuery.trim().toLowerCase();
         if (!query) return filteredCards;
-        const fieldsToHighlight = ['title', 'description'];
-
         return filteredCards
             .filter(card => searchFields.some((searchField) => {
                 const searchFieldValue = cleanText(_.get(card, searchField, ''));
                 return _.includes(searchFieldValue, query);
             }))
-            .map(card => fieldsToHighlight.reduce((modifiedCard, field) => ({
-                ...modifiedCard,
-                [field]: highlightSearchResultText(modifiedCard[field], query),
-            }), card));
+            .map(card => searchFields.reduce((modifiedCard, field) =>
+                produce(modifiedCard, (draft) => {
+                    const currentValue = _.get(draft, field, null);
+                    if (currentValue === null) return;
+                    _.set(draft, field, getHighlightedTextComponent(currentValue, query));
+                }), card));
     }, [searchQuery, filteredCards]);
 
     const sortedCards = useMemo(() => {

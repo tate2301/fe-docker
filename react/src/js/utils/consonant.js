@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import React from 'react';
 import { DEFAULT_CONFIG } from '../constants';
 import { chainFromIterable } from './general';
 
@@ -16,3 +17,17 @@ export function getDefaultSortOption(config, query) {
 }
 
 export const makeConfigGetter = config => (object, key) => _.get(config, `${object}.${key}`, DEFAULT_CONFIG[object][key]);
+
+export const getHighlightedTextComponent = (text, value) => {
+    const parts = text.split(new RegExp(`(${value})`, 'gi'));
+    return parts.map((part, i) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <span key={i}>
+            {part.toLowerCase() === value ? (
+                <span data-testid="consonant-search-result" className="consonant-search-result">
+                    {part}
+                </span>
+            ) : part}
+        </span>
+    ));
+};
