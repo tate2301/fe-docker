@@ -14,21 +14,39 @@ Tooltip.propTypes = {
     text: PropTypes.string.isRequired,
 };
 
-const AspectRatio3to2Card = (props) => {
-    const {
-        id,
-        title,
-        label,
-        description,
-        image,
-        bannerDescription,
-        bannerFontColor,
-        bannerBackgroundColor,
-        bannerIcon,
-        badgeText,
-        videoURL,
-        footer,
-    } = props;
+const AspectRatio3to2Card = ({
+    id,
+    title,
+    label,
+    description,
+    image,
+    bannerDescription,
+    bannerFontColor,
+    bannerBackgroundColor,
+    bannerIcon,
+    badgeText,
+    videoURL,
+    footer,
+    disableBookmarkIco,
+    isBookmarked,
+    onClick,
+}) => {
+    const extendFooterData = (data) => {
+        if (!data) return null;
+
+        return data.map((el) => {
+            if (el.type === 'bookmark') {
+                return {
+                    ...el,
+                    cardId: id,
+                    disableBookmarkIco,
+                    isBookmarked,
+                    onClick,
+                };
+            }
+            return el;
+        });
+    };
 
     return (
         <div
@@ -41,37 +59,37 @@ const AspectRatio3to2Card = (props) => {
                 style={{ backgroundImage: `url("${image}")` }}>
                 {
                     bannerDescription &&
-                    bannerFontColor &&
-                    bannerBackgroundColor &&
-                    <span
-                        data-testid="consonant-card--banner"
-                        className="consonant-aspect-ratio-3-2-card--banner"
-                        style={({
-                            backgroundColor: bannerBackgroundColor,
-                            color: bannerFontColor,
-                        })}>
-                        {
-                            bannerIcon &&
-                            <img
-                                src={bannerIcon}
-                                alt=""
-                                loading="lazy"
-                                width="8"
-                                data-testid="consonant-card--banner-icon"
-                                className="consonant-aspect-ratio-3-2-card--banner-icon" />
-                        }
-                        {bannerDescription}
-                    </span>
+          bannerFontColor &&
+          bannerBackgroundColor &&
+          <span
+              data-testid="consonant-card--banner"
+              className="consonant-aspect-ratio-3-2-card--banner"
+              style={({
+                  backgroundColor: bannerBackgroundColor,
+                  color: bannerFontColor,
+              })}>
+              {
+                  bannerIcon &&
+                  <img
+                      src={bannerIcon}
+                      alt=""
+                      loading="lazy"
+                      width="8"
+                      data-testid="consonant-card--banner-icon"
+                      className="consonant-aspect-ratio-3-2-card--banner-icon" />
+              }
+              {bannerDescription}
+          </span>
                 }
                 {badgeText && <span className="consonant-aspect-ratio-3-2-card--badge">{badgeText}</span>}
                 {videoURL &&
-                    <a
-                        href={videoURL}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="consonant-aspect-ratio-3-2-card--video-ico"
-                        tabIndex="0">Open video link
-                    </a>}
+                <a
+                    href={videoURL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="consonant-aspect-ratio-3-2-card--video-ico"
+                    tabIndex="0">Open video link
+                </a>}
             </div>
             <div className="consonant-aspect-ratio-3-2-card--inner">
                 {
@@ -85,9 +103,9 @@ const AspectRatio3to2Card = (props) => {
                     className="consonant-aspect-ratio-3-2-card--text"
                     dangerouslySetInnerHTML={{ __html: description }} />
                 <CardFooter
-                    left={footer.left}
-                    center={footer.center}
-                    right={footer.right} />
+                    left={extendFooterData(footer.left)}
+                    center={extendFooterData(footer.center)}
+                    right={extendFooterData(footer.right)} />
             </div>
         </div>
     );
@@ -112,6 +130,9 @@ AspectRatio3to2Card.propTypes = {
         center: PropTypes.arrayOf(PropTypes.shape({ type: PropTypes.string })),
         right: PropTypes.arrayOf(PropTypes.shape({ type: PropTypes.string })),
     }),
+    disableBookmarkIco: PropTypes.bool,
+    isBookmarked: PropTypes.bool.isRequired,
+    onClick: PropTypes.func.isRequired,
 };
 
 AspectRatio3to2Card.defaultProps = {
@@ -123,4 +144,5 @@ AspectRatio3to2Card.defaultProps = {
     label: '',
     videoURL: '',
     footer: {},
+    disableBookmarkIco: false,
 };

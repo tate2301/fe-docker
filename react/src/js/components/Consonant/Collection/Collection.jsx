@@ -21,10 +21,6 @@ const Collection = (props) => {
 
     const getConfig = useConfig();
     const allowBookmarking = getConfig('bookmarks', 'enabled');
-    const cardUnsavedIco = getConfig('bookmarks', 'cardUnsavedIcon');
-    const cardSavedIco = getConfig('bookmarks', 'cardSavedIcon');
-    const saveCardText = getConfig('bookmarks', 'saveCardText');
-    const unsaveCardText = getConfig('bookmarks', 'unsaveCardText');
     const cardsStyle = getConfig('collection', 'cardStyle');
 
     let cards = [...props.cards];
@@ -52,11 +48,7 @@ const Collection = (props) => {
                     key={card.id}
                     {...card}
                     onClick={onCardBookmark}
-                    cardSavedIco={cardSavedIco}
-                    cardUnsavedIco={cardUnsavedIco}
-                    allowBookmarking={allowBookmarking}
-                    saveCardText={saveCardText}
-                    unsaveCardText={unsaveCardText} />);
+                    allowBookmarking={allowBookmarking} />);
             })}
             <div className="consonant-card-collection--placeholder" />
             <div className="consonant-card-collection--placeholder" />

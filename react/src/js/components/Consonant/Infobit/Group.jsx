@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Bookmark from './Type/Bookmark';
+import Bookmark from './Type/Bookmark/Bookmark';
 import Button from './Type/Button';
 import Icon from './Type/Icon';
 import IconWithText from './Type/IconWithText';
@@ -68,7 +68,7 @@ function Group(props) {
                             starsFilled={parseToPrimitive(el.starsFilled)} />);
                         break;
                     case INFOBIT_TYPE.BOOKMARK:
-                        res.push(<Bookmark />);
+                        res.push(<Bookmark {...el} />);
                         break;
                     default: break;
                 }
