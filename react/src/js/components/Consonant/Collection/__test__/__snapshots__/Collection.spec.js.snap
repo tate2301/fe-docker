@@ -48,20 +48,14 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
       
       <h2
         className="consonant-aspect-ratio-3-2-card--title"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "Some Title 1",
-          }
-        }
-      />
+      >
+        Some Title 1
+      </h2>
       <p
         className="consonant-aspect-ratio-3-2-card--text"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars",
-          }
-        }
-      />
+      >
+        Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars
+      </p>
       <div
         className="consonant-card-footer"
       >
@@ -128,20 +122,14 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       
       <h2
         className="consonant-aspect-ratio-3-2-card--title"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "Some Title 1",
-          }
-        }
-      />
+      >
+        Some Title 1
+      </h2>
       <p
         className="consonant-aspect-ratio-3-2-card--text"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars",
-          }
-        }
-      />
+      >
+        Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars
+      </p>
       <div
         className="consonant-card-footer"
       >
@@ -208,20 +196,14 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       
       <h2
         className="consonant-aspect-ratio-3-2-card--title"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "Some Title 1",
-          }
-        }
-      />
+      >
+        Some Title 1
+      </h2>
       <p
         className="consonant-aspect-ratio-3-2-card--text"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars",
-          }
-        }
-      />
+      >
+        Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars
+      </p>
       <div
         className="consonant-card-footer"
       >
@@ -288,20 +270,14 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       
       <h2
         className="consonant-aspect-ratio-3-2-card--title"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "Some Title 1",
-          }
-        }
-      />
+      >
+        Some Title 1
+      </h2>
       <p
         className="consonant-aspect-ratio-3-2-card--text"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars",
-          }
-        }
-      />
+      >
+        Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars
+      </p>
       <div
         className="consonant-card-footer"
       >
@@ -368,20 +344,14 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       
       <h2
         className="consonant-aspect-ratio-3-2-card--title"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "Some Title 1",
-          }
-        }
-      />
+      >
+        Some Title 1
+      </h2>
       <p
         className="consonant-aspect-ratio-3-2-card--text"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars",
-          }
-        }
-      />
+      >
+        Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars
+      </p>
       <div
         className="consonant-card-footer"
       >

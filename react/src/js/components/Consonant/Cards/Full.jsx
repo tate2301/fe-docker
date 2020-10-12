@@ -65,7 +65,9 @@ const FullCard = (props) => {
                 className="consonant-full-card--inner"
                 tabIndex="0">
                 {label && <span className="consonant-full-card--label">{label}</span>}
-                <h2 className="consonant-full-card--title" dangerouslySetInnerHTML={{ __html: title }} />
+                <h2 className="consonant-full-card--title" >
+                    {title}
+                </h2>
             </a>
         </div>
     );

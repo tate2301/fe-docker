@@ -45,11 +45,10 @@ describe('Top Filter Panel', () => {
     });
 
     test('Should be able to render a search box on mobile', () => {
-        global.innerWidth = MOBILE_MIN_WIDTH;
-
         render((
             <FilterPanelTop
                 {...DEFAULT_PROPS}
+                windowWidth={MOBILE_MIN_WIDTH}
                 searchComponent={(
                     <Search
                         name="filtersTopSearch"
@@ -75,11 +74,10 @@ describe('Top Filter Panel', () => {
         expect(footerTotalResElement).toBeNull();
     });
     test('Should be able to show the Sort Popup', () => {
+        // TODO: Refactor to use context
         render((
             <FilterPanelTop
                 {...DEFAULT_PROPS}
-                sortEnabled
-                sortOptions={[{ label: 'Featured', sort: 'featured' }]}
                 sortComponent={(
                     <Select
                         childrenKey="filtersTopSelect"

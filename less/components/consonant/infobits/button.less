@@ -4,7 +4,6 @@
 
 @consonant-btn-infobit-min-width: 76px;
 @consonant-btn-infobit-max-height: 32px;
-// @consonant-btn-infobit-margin-left: 32px;
 
 .consonant-btn-infobit {
     display: block;
@@ -30,12 +29,36 @@
     overflow: hidden;
     cursor: pointer;
 
+    &:hover {
+        color: @consonant-color-white;
+        border-color: @consonant-color-light-grey-3;
+        background-color: @consonant-color-light-grey-3;
+    }
+
+    &:active {
+        color: @consonant-color-white;
+        border-color: @consonant-color-dark-grey-7;
+        background-color: @consonant-color-dark-grey-7;
+    }
+
     .focused;
 
     &.consonant-btn-infobit_cta {
-        background-color: @consonant-color-blue-2;
         color: @consonant-color-white;
+        background-color: @consonant-color-blue-2;
         border-color: @consonant-color-blue-2;
+
+        &:hover {
+            color: @consonant-color-white;
+            background-color: @consonant-color-blue-3;
+            border-color: @consonant-color-blue-3;
+        }
+
+        &:active {
+            color: @consonant-color-white;
+            background-color: @consonant-color-blue-4;
+            border-color: @consonant-color-blue-4;
+        }
     }
 }
 
@@ -48,6 +71,6 @@
     margin-left: 0;
 }
 
-*:last-child > .consonant-btn-infobit:last-child {
+*:last-child:not(:only-child) > .consonant-btn-infobit:last-child {
     margin-left: 32px;
 }
