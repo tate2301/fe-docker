@@ -294,11 +294,9 @@ const Container = (props) => {
         });
     }, [cards, activeFilterIds]);
 
-    const highlightSearchResultText = (text, val) => text.replace(new RegExp(val, 'gi'), value => `
-            <span data-testid="consonant-search-result" class="consonant-search-result">
-                ${value}
-            </span>
-        `);
+    const highlightSearchResultText = (text, value) => text
+        .replace(new RegExp(value, 'gi'), matchedValue =>
+            `<span data-testid="consonant-search-result" class="consonant-search-result">${matchedValue}</span>`);
 
     const searchedCards = useMemo(() => {
         const query = searchQuery.trim().toLowerCase();
