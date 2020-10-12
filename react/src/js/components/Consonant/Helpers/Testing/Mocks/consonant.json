@@ -4,7 +4,8 @@
         "endpoint": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.json",
         "title": "A great collection",
         "totalCardLimit": -1,
-        "cardStyle": "none"
+        "cardStyle": "none",
+        "displayTotalResults": true
     },
     "featuredCards": [
         {

@@ -27,7 +27,7 @@ describe('Consonant/FiltersInfo', () => {
         expect(titleElement).toBeNull();
     });
     test('should render without total result', () => {
-        setup({ showTotalResults: false });
+        setup({ displayTotalResults: false });
 
         const resultsElement = screen.queryByTestId('results');
 

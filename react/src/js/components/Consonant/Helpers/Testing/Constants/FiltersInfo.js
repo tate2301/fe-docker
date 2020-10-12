@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { filterPanel, collection, totalResults } from '../Mocks/consonant.json';
 
 const { title } = collection;
@@ -15,11 +15,15 @@ export const DEFAULT_PROPS = {
 
     cardsQty: 0,
     selectedFiltersQty: 0,
-    showTotalResults: display,
+    displayTotalResults: display,
     windowWidth: DESKTOP_WIDTH,
 
     onSelectedFilterClick: jest.fn(),
     onMobileFiltersToggleClick: jest.fn(),
+
+    searchComponent: <React.Fragment />,
+    sortComponent: <React.Fragment />,
+    sortOptions: [],
 };
 
 export const selectedAllFilters = filters.map(({ items, ...filter }) => ({

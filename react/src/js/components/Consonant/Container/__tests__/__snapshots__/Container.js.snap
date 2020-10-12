@@ -3,6 +3,8 @@
 exports[`Consonant/FilterItem Check snapshots should renders correctly with desktop width 1`] = `
 <section
   className="consonant-wrapper"
+  onClick={[Function]}
+  role="group"
 >
   <div
     className="consonant-wrapper--inner"
@@ -22,6 +24,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
           </h3>
           <button
             className="consonant-left-filters--clear-link"
+            data-testid="left-filter-panel-clear-all-btn"
             onClick={[Function]}
             tabIndex="0"
             type="button"
@@ -49,6 +52,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
                 data-testid="search-input"
                 id="consonant-search"
                 onChange={[Function]}
+                onClick={[Function]}
                 placeholder="Search here..."
                 required={true}
                 type="search"
@@ -130,6 +134,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
           <button
             className="consonant-select--btn"
             data-testid="select-button"
+            onClick={[Function]}
             tabIndex="0"
             type="button"
           >
@@ -204,6 +209,8 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
 exports[`Consonant/FilterItem Check snapshots should renders correctly without featured cards 1`] = `
 <section
   className="consonant-wrapper"
+  onClick={[Function]}
+  role="group"
 >
   <div
     className="consonant-wrapper--inner"
@@ -223,6 +230,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
           </h3>
           <button
             className="consonant-left-filters--clear-link"
+            data-testid="left-filter-panel-clear-all-btn"
             onClick={[Function]}
             tabIndex="0"
             type="button"
@@ -250,6 +258,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
                 data-testid="search-input"
                 id="consonant-search"
                 onChange={[Function]}
+                onClick={[Function]}
                 placeholder="Search here..."
                 required={true}
                 type="search"
@@ -331,6 +340,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
           <button
             className="consonant-select--btn"
             data-testid="select-button"
+            onClick={[Function]}
             tabIndex="0"
             type="button"
           >

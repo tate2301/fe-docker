@@ -67,17 +67,7 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
       >
         <div
           className="consonant-card-footer--row"
-        >
-          <div
-            className="consonant-card-footer--cell"
-          />
-          <div
-            className="consonant-card-footer--cell"
-          />
-          <div
-            className="consonant-card-footer--cell"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -157,17 +147,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       >
         <div
           className="consonant-card-footer--row"
-        >
-          <div
-            className="consonant-card-footer--cell"
-          />
-          <div
-            className="consonant-card-footer--cell"
-          />
-          <div
-            className="consonant-card-footer--cell"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -247,17 +227,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       >
         <div
           className="consonant-card-footer--row"
-        >
-          <div
-            className="consonant-card-footer--cell"
-          />
-          <div
-            className="consonant-card-footer--cell"
-          />
-          <div
-            className="consonant-card-footer--cell"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -337,17 +307,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       >
         <div
           className="consonant-card-footer--row"
-        >
-          <div
-            className="consonant-card-footer--cell"
-          />
-          <div
-            className="consonant-card-footer--cell"
-          />
-          <div
-            className="consonant-card-footer--cell"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -427,17 +387,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       >
         <div
           className="consonant-card-footer--row"
-        >
-          <div
-            className="consonant-card-footer--cell"
-          />
-          <div
-            className="consonant-card-footer--cell"
-          />
-          <div
-            className="consonant-card-footer--cell"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>

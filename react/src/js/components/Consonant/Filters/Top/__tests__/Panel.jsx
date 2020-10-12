@@ -11,7 +11,7 @@ import {
     DEFAULT_PROPS,
     TABLET_MIN_WIDTH,
     selectedAllFilters,
-    NON_TABLET_MIN_WIDTH,
+    MOBILE_MIN_WIDTH,
 } from '../../../Helpers/Testing/Constants/FilterPanelTop';
 
 import { DEFAULT_PROPS as SEARCH_DEFAULT_PROPS } from '../../../Helpers/Testing/Constants/Search';
@@ -24,28 +24,28 @@ const setup = makeSetup(FilterPanelTop, DEFAULT_PROPS);
 const multipleFilters = [...DEFAULT_PROPS.filters, ...DEFAULT_PROPS.filters]
     .map((item, index) => ({ ...item, id: `${item}_${index}` }));
 
-describe('Consonant/FilterItem', () => {
+describe('Top Filter Panel', () => {
     beforeEach(() => {
         global.innerWidth = TABLET_MIN_WIDTH;
     });
 
-    test('should render all filters', () => {
+    test('Should render all groups of filters', () => {
         const { props: { filters } } = setup();
 
         const filterGroupElements = screen.queryAllByTestId('filter-group');
 
         expect(filterGroupElements).toHaveLength(filters.length);
     });
-    test('should render total results', () => {
-        setup({ showTotalResults: true });
+    test('Should display total results if authored', () => {
+        setup({ displayTotalResults: true });
 
         const footerTotalResElement = screen.queryByTestId('filter-top-result-count');
 
         expect(footerTotalResElement).not.toBeNull();
     });
 
-    test('should renders correctly with search', () => {
-        global.innerWidth = NON_TABLET_MIN_WIDTH;
+    test('Should be able to render a search box on mobile', () => {
+        global.innerWidth = MOBILE_MIN_WIDTH;
 
         render((
             <FilterPanelTop
@@ -61,7 +61,7 @@ describe('Consonant/FilterItem', () => {
 
         expect(footerTotalResElement).not.toBeNull();
     });
-    test('should renders correctly without search', () => {
+    test('Should renders correctly without search', () => {
         render((
             <FilterPanelTop {...DEFAULT_PROPS} >
                 <Search
@@ -74,7 +74,7 @@ describe('Consonant/FilterItem', () => {
 
         expect(footerTotalResElement).toBeNull();
     });
-    test('should renders correctly with select', () => {
+    test('Should be able to show the Sort Popup', () => {
         render((
             <FilterPanelTop
                 {...DEFAULT_PROPS}
@@ -87,7 +87,7 @@ describe('Consonant/FilterItem', () => {
                 )} />
         ));
 
-        const footerTotalResElement = screen.queryByTestId('top-filters__select-wrapper');
+        const footerTotalResElement = screen.queryByTestId('top-filters__sort-popup');
 
         expect(footerTotalResElement).not.toBeNull();
     });
@@ -100,8 +100,22 @@ describe('Consonant/FilterItem', () => {
         expect(footerTotalResElement).toHaveTextContent('more filters +');
     });
 
+    test('Filter Group Button Should Exist', () => {
+        setup();
+        const [filterGroupBtn] = screen.queryAllByTestId('filter-group-btn');
+        expect(filterGroupBtn).toBeDefined();
+    });
+
+    test('should show clear all filters text', () => {
+        setup({ filters: selectedAllFilters });
+
+        const clearButtonElement = screen.queryByTestId('top-filter__clear-button');
+
+        expect(clearButtonElement).not.toBeNull();
+    });
+
     describe('Check snapshots', () => {
-        test('should renders correctly with search icon', () => {
+        test('The Top Filter Should Show A Search Icon', () => {
             const tree = createTree((
                 <FilterPanelTop {...DEFAULT_PROPS} >
                     <SearchIco
@@ -118,7 +132,7 @@ describe('Consonant/FilterItem', () => {
 
             expect(tree).toMatchSnapshot();
         });
-        test('should renders correctly with desktop width', () => {
+        test('Shoulld renders correctly on desktop', () => {
             const { tree } = setup();
 
             expect(tree).toMatchSnapshot();
@@ -134,7 +148,7 @@ describe('Consonant/FilterItem', () => {
             expect(tree).toMatchSnapshot();
         });
         test('should renders correctly with non-table width', () => {
-            global.innerWidth = NON_TABLET_MIN_WIDTH;
+            global.innerWidth = MOBILE_MIN_WIDTH;
 
             const { tree } = setup();
 
@@ -142,29 +156,15 @@ describe('Consonant/FilterItem', () => {
         });
     });
 
-    describe('Interaction with UI', () => {
-        test('should call onFilterClick', () => {
-            const { props: { onFilterClick } } = setup();
-
-            const [filterItemElement] = screen.queryAllByTestId('filter-item-link');
-
-            expect(filterItemElement).toBeDefined();
-
-            fireEvent.click(filterItemElement);
-
-            expect(onFilterClick).toBeCalled();
-        });
-        test('should call onClearAllFilters', () => {
+    describe('Testing UI Interactions', () => {
+        test('When "Clear All Filters" is clicked, the appropriate event handler should be called', () => {
             const {
                 props: {
                     onClearAllFilters,
-                    clearAllFiltersText,
                 },
             } = setup({ filters: selectedAllFilters });
 
-            const clearButtonElement = screen.queryByText(clearAllFiltersText);
-
-            expect(clearButtonElement).not.toBeNull();
+            const clearButtonElement = screen.queryByTestId('top-filter__clear-button');
 
             fireEvent.click(clearButtonElement);
 

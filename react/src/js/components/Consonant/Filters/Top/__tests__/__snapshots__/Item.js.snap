@@ -13,7 +13,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
     >
       <button
         className="consonant-top-filter--link"
-        data-testid="filter-item-link"
+        data-testid="filter-group-btn"
         onClick={[Function]}
         tabIndex="0"
         type="button"
@@ -41,6 +41,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="we-retail:activity/hiking"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}
@@ -68,6 +69,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="we-retail:activity/biking"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}
@@ -95,6 +97,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="adobe-com-enterprise:topic/customer-intelligence"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}
@@ -122,6 +125,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="adobe-com-enterprise:topic/data-management-platform"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}
@@ -149,6 +153,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="adobe-com-enterprise:topic/digital-foundation"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}
@@ -176,6 +181,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="adobe-com-enterprise:topic/digital-trends"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}
@@ -203,6 +209,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="adobe-com-enterprise:topic/document-management"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}
@@ -230,6 +237,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="adobe-com-enterprise:topic/marketing-automation"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}
@@ -257,6 +265,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="adobe-com-enterprise:topic/personalization"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}
@@ -284,6 +293,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="adobe-com-enterprise:topic/Stock"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}
@@ -334,7 +344,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
 
 exports[`Consonant/FilterItem Check snapshots should renders correctly when opened 1`] = `
 <div
-  className="consonant-top-filter consonant-top-filter_opened"
+  className="consonant-top-filter"
   data-testid="filter-item"
 >
   <div
@@ -345,7 +355,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
     >
       <button
         className="consonant-top-filter--link"
-        data-testid="filter-item-link"
+        data-testid="filter-group-btn"
         onClick={[Function]}
         tabIndex="0"
         type="button"
@@ -373,6 +383,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="we-retail:activity/hiking"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}
@@ -400,6 +411,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="we-retail:activity/biking"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}
@@ -427,6 +439,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="adobe-com-enterprise:topic/customer-intelligence"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}
@@ -454,6 +467,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="adobe-com-enterprise:topic/data-management-platform"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}
@@ -481,6 +495,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="adobe-com-enterprise:topic/digital-foundation"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}
@@ -508,6 +523,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="adobe-com-enterprise:topic/digital-trends"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}
@@ -535,6 +551,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="adobe-com-enterprise:topic/document-management"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}
@@ -562,6 +579,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="adobe-com-enterprise:topic/marketing-automation"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}
@@ -589,6 +607,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="adobe-com-enterprise:topic/personalization"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}
@@ -616,6 +635,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
             <label
               className="consonant-top-filter--items-item-label"
               htmlFor="adobe-com-enterprise:topic/Stock"
+              onClick={[Function]}
             >
               <input
                 checked={undefined}

@@ -196,7 +196,7 @@ describe('Consonant/FilterItem', () => {
         // Collections shouldn't render if there aren't cards
         expect(screen.queryByTestId('consonant-collection')).toBeNull();
     });
-    test('shouldn get empty response', async () => {
+    test('should get empty response', async () => {
         /**
          * Re-assign handlers to mocks api
          * Should return empty response
@@ -596,7 +596,7 @@ describe('Consonant/FilterItem', () => {
             await waitFor(() => screen.getAllByTestId('filter-item'));
 
             const [firstFilterItem, secondFilterItem] = screen.queryAllByTestId('filter-item');
-            const [firstFilterLink, secondFilterLink] = screen.queryAllByTestId('filter-item-link');
+            const [firstFilterLink, secondFilterLink] = screen.queryAllByTestId('filter-group-btn');
 
             fireEvent.click(firstFilterLink);
 
@@ -836,7 +836,7 @@ describe('Consonant/FilterItem', () => {
 
             const [firstFilterItem] = screen.queryAllByTestId('filter-item');
 
-            const filterItemLink = getByTestId(firstFilterItem, 'filter-item-link');
+            const filterItemLink = getByTestId(firstFilterItem, 'filter-group-btn');
 
             fireEvent.click(filterItemLink);
 

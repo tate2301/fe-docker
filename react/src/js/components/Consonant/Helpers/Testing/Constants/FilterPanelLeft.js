@@ -1,3 +1,4 @@
+import React from 'react';
 import { filterPanel } from '../Mocks/consonant.json';
 
 const { clearFilterText, clearAllFiltersText, filters } = filterPanel;
@@ -20,6 +21,9 @@ export const DEFAULT_PROPS = {
     onClearAllFilters: jest.fn(),
     onClearFilterItems: jest.fn(),
     onMobileFiltersToggleClick: jest.fn(),
+
+    searchComponent: <React.Fragment />,
+    bookmarkComponent: <React.Fragment />,
 };
 
 export const selectedAllFilters = filters.map(({ items, ...filter }) => ({

@@ -28,20 +28,10 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
         <div
           className="consonant-left-filter--selected-items-qty"
           data-qty=""
-        >
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        </div>
+        />
       </button>
     </h3>
+    0
     <ul
       className="consonant-left-filter--items"
       data-testid="filter-group"
@@ -366,20 +356,10 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
         <div
           className="consonant-left-filter--selected-items-qty"
           data-qty=""
-        >
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        </div>
+        />
       </button>
     </h3>
+    0
     <ul
       className="consonant-left-filter--items"
       data-testid="filter-group"

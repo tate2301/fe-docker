@@ -15,45 +15,14 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
     </h3>
     <button
       className="consonant-left-filters--clear-link"
+      data-testid="left-filter-panel-clear-all-btn"
       onClick={[MockFunction]}
       tabIndex="0"
       type="button"
     >
-      Clear
+      Clear all
     </button>
   </div>
-  <button
-    className="bookmarks"
-    data-testid="bookmarks"
-    onClick={[MockFunction]}
-    tabIndex="0"
-    type="button"
-  >
-    <span
-      className="bookmarks--ico-wrapper"
-    >
-      <span
-        className="bookmarks--ico"
-        data-testid="bookmarks--ico"
-        style={
-          Object {
-            "backgroundImage": "url(path-to-unselectBookmarksIcon)",
-          }
-        }
-      />
-      <span
-        className="bookmarks--title"
-      >
-        My favorites
-      </span>
-    </span>
-    <span
-      className="bookmarks--item-badge"
-      data-testid="bookmarks--item-badge"
-    >
-      0
-    </span>
-  </button>
   <div
     className="consonant-left-filters--list"
   >
@@ -84,18 +53,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
             <div
               className="consonant-left-filter--selected-items-qty"
               data-qty=""
-            >
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            </div>
+            />
           </button>
         </h3>
         <ul
@@ -419,10 +377,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
             <div
               className="consonant-left-filter--selected-items-qty"
               data-qty=""
-            >
-              
-              
-            </div>
+            />
           </button>
         </h3>
         <ul
@@ -522,11 +477,12 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
     </h3>
     <button
       className="consonant-left-filters--clear-link"
+      data-testid="left-filter-panel-clear-all-btn"
       onClick={[MockFunction]}
       tabIndex="0"
       type="button"
     >
-      Clear
+      Clear all
     </button>
   </div>
   <div
@@ -559,18 +515,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
             <div
               className="consonant-left-filter--selected-items-qty"
               data-qty=""
-            >
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            </div>
+            />
           </button>
         </h3>
         <ul
@@ -894,10 +839,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
             <div
               className="consonant-left-filter--selected-items-qty"
               data-qty=""
-            >
-              
-              
-            </div>
+            />
           </button>
         </h3>
         <ul
@@ -997,11 +939,12 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
     </h3>
     <button
       className="consonant-left-filters--clear-link"
+      data-testid="left-filter-panel-clear-all-btn"
       onClick={[MockFunction]}
       tabIndex="0"
       type="button"
     >
-      Clear
+      Clear all
     </button>
   </div>
   <div
@@ -1034,18 +977,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
             <div
               className="consonant-left-filter--selected-items-qty"
               data-qty=""
-            >
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            </div>
+            />
           </button>
         </h3>
         <ul
@@ -1369,10 +1301,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
             <div
               className="consonant-left-filter--selected-items-qty"
               data-qty=""
-            >
-              
-              
-            </div>
+            />
           </button>
         </h3>
         <ul
@@ -1510,18 +1439,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
             <div
               className="consonant-left-filter--selected-items-qty"
               data-qty=""
-            >
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            </div>
+            />
           </button>
         </h3>
         <ul
@@ -1845,10 +1763,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
             <div
               className="consonant-left-filter--selected-items-qty"
               data-qty=""
-            >
-              
-              
-            </div>
+            />
           </button>
         </h3>
         <ul
@@ -1933,6 +1848,12 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
   <div
     className="consonant-left-filters--mobile-footer"
   >
+    <span
+      className="consonant-left-filters--mobile-footer-total-res-qty"
+      data-testid="mobile-footer-total-res"
+    >
+      0 results
+    </span>
     <button
       className="consonant-left-filters--mobile-footer-btn"
       data-testid="mobile-footer-btn"
@@ -1960,49 +1881,13 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
     </h3>
     <button
       className="consonant-left-filters--clear-link"
+      data-testid="left-filter-panel-clear-all-btn"
       onClick={[MockFunction]}
       tabIndex="0"
       type="button"
     >
-      Clear
+      Clear all
     </button>
-  </div>
-  <div
-    className="consonant-search"
-    data-testid="filtersSideSearch"
-  >
-    <label
-      htmlFor="consonant-search"
-    >
-      <span
-        className="consonant-search--input-title"
-      >
-        Search
-      </span>
-      <span
-        className="consonant-search--input-wrapper"
-      >
-        <input
-          className="consonant-search--input"
-          data-testid="search-input"
-          id="consonant-search"
-          onChange={[Function]}
-          placeholder="search text"
-          required={true}
-          type="search"
-          value=""
-        />
-        <button
-          className="consonant-search--input-clear"
-          onClick={[Function]}
-          tabIndex="0"
-          title="Click to clear search query"
-          type="button"
-        >
-          clear
-        </button>
-      </span>
-    </label>
   </div>
   <div
     className="consonant-left-filters--list"
@@ -2034,18 +1919,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
             <div
               className="consonant-left-filter--selected-items-qty"
               data-qty=""
-            >
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            </div>
+            />
           </button>
         </h3>
         <ul
@@ -2369,10 +2243,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
             <div
               className="consonant-left-filter--selected-items-qty"
               data-qty=""
-            >
-              
-              
-            </div>
+            />
           </button>
         </h3>
         <ul
@@ -2472,82 +2343,14 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
     </h3>
     <button
       className="consonant-left-filters--clear-link"
+      data-testid="left-filter-panel-clear-all-btn"
       onClick={[MockFunction]}
       tabIndex="0"
       type="button"
     >
-      Clear
+      Clear all
     </button>
   </div>
-  <div
-    className="consonant-search"
-    data-testid="filtersSideSearch"
-  >
-    <label
-      htmlFor="consonant-search"
-    >
-      <span
-        className="consonant-search--input-title"
-      >
-        Search
-      </span>
-      <span
-        className="consonant-search--input-wrapper"
-      >
-        <input
-          className="consonant-search--input"
-          data-testid="search-input"
-          id="consonant-search"
-          onChange={[Function]}
-          placeholder="search text"
-          required={true}
-          type="search"
-          value=""
-        />
-        <button
-          className="consonant-search--input-clear"
-          onClick={[Function]}
-          tabIndex="0"
-          title="Click to clear search query"
-          type="button"
-        >
-          clear
-        </button>
-      </span>
-    </label>
-  </div>
-  <button
-    className="bookmarks"
-    data-testid="bookmarks"
-    onClick={[MockFunction]}
-    tabIndex="0"
-    type="button"
-  >
-    <span
-      className="bookmarks--ico-wrapper"
-    >
-      <span
-        className="bookmarks--ico"
-        data-testid="bookmarks--ico"
-        style={
-          Object {
-            "backgroundImage": "url(path-to-unselectBookmarksIcon)",
-          }
-        }
-      />
-      <span
-        className="bookmarks--title"
-      >
-        My favorites
-      </span>
-    </span>
-    <span
-      className="bookmarks--item-badge"
-      data-testid="bookmarks--item-badge"
-    >
-      0
-    </span>
-  </button>
   <div
     className="consonant-left-filters--list"
   >
@@ -2578,18 +2381,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
             <div
               className="consonant-left-filter--selected-items-qty"
               data-qty=""
-            >
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            </div>
+            />
           </button>
         </h3>
         <ul
@@ -2913,10 +2705,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
             <div
               className="consonant-left-filter--selected-items-qty"
               data-qty=""
-            >
-              
-              
-            </div>
+            />
           </button>
         </h3>
         <ul
