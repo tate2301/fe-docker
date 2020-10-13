@@ -1,0 +1,20 @@
+@consonant-icon-infobit-max-size: 28px;
+
+.consonant-icon-infobit {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: @consonant-icon-infobit-max-size;
+    max-height: @consonant-icon-infobit-max-size;
+    margin-left: 16px;
+    object-fit: contain;
+    user-select: none;
+}
+
+.consonant-icon-infobit + .consonant-icon-infobit {
+    margin-left: 8px;
+}
+
+*:first-child > .consonant-icon-infobit:first-child {
+    margin-left: 0;
+}

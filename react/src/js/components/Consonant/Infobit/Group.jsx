@@ -40,7 +40,7 @@ function Group(props) {
                         return <Text {...el} key={i} />;
 
                     case INFOBIT_TYPE.ICON:
-                        return <Icon key={i} />;
+                        return <Icon {...el} key={i} />;
 
                     case INFOBIT_TYPE.LINK:
                         return <TextLink key={i} />;
