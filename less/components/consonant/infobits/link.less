@@ -1,0 +1,31 @@
+.consonant-link-infobit {
+    min-width: 0;
+    max-width: 100%;
+    margin-left: 16px;
+
+    .font(
+        0.9375rem,
+        1.25rem,
+        700,
+        @consonant-color-blue,
+        left
+    );
+
+    text-decoration: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    transition: color @transition-time @transition-func;
+
+    &:hover {
+        color: @consonant-color-blue-3;
+    }
+
+    &:active {
+        color: @consonant-color-blue-4;
+    }
+}
+
+*:first-child > .consonant-link-infobit:first-child {
+    margin-left: 0;
+}

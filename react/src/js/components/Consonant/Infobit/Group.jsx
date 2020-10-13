@@ -43,7 +43,7 @@ function Group(props) {
                         return <Icon {...el} key={i} />;
 
                     case INFOBIT_TYPE.LINK:
-                        return <TextLink key={i} />;
+                        return <TextLink {...el} key={i} />;
 
                     case INFOBIT_TYPE.PROGRESS:
                         return <Progress {...el} key={i} />;
