@@ -437,36 +437,37 @@ const Container = (props) => {
                             </span>
                         )}
                         <span>
-                            {filterPanelEnabled &&
-                              filterPanelType === FILTER_PANEL.TOP &&
-                              <FiltersPanelTop
-                                  filters={filters}
-                                  windowWidth={windowWidth}
-                                  resQty={filteredCards.length}
-                                  onCheckboxClick={handleCheckBoxChange}
-                                  onFilterClick={handleFilterItemClick}
-                                  onClearFilterItems={clearFilterItems}
-                                  onClearAllFilters={resetFiltersSearchAndBookmarks}
-                                  showLimitedFiltersQty={showLimitedFiltersQty}
-                                  searchComponent={(
-                                      <Search
-                                          name="filtersTopSearch"
-                                          value={searchQuery}
-                                          autofocus={windowWidth >= DESKTOP_MIN_WIDTH}
-                                          onSearch={handleSearchInputChange} />
-                                  )}
-                                  sortComponent={(
-                                      <Select
-                                          opened={sortOpened}
-                                          id="sort"
-                                          val={sort}
-                                          values={getConfig('sort', 'options')}
-                                          onSelect={handleSortChange}
-                                          name="filtersTopSelect"
-                                          autoWidth
-                                          optionsAlignment={filters.length > 0 && windowWidth < TABLET_MIN_WIDTH ? 'left' : 'right'} />
-                                  )}
-                                  onShowAllClick={handleShowAllTopFilters} />
+                            {
+                                filterPanelType === FILTER_PANEL.TOP &&
+                                <FiltersPanelTop
+                                    filterPanelEnabled={filterPanelEnabled}
+                                    filters={filters}
+                                    windowWidth={windowWidth}
+                                    resQty={filteredCards.length}
+                                    onCheckboxClick={handleCheckBoxChange}
+                                    onFilterClick={handleFilterItemClick}
+                                    onClearFilterItems={clearFilterItems}
+                                    onClearAllFilters={resetFiltersSearchAndBookmarks}
+                                    showLimitedFiltersQty={showLimitedFiltersQty}
+                                    searchComponent={(
+                                        <Search
+                                            name="filtersTopSearch"
+                                            value={searchQuery}
+                                            autofocus={windowWidth >= DESKTOP_MIN_WIDTH}
+                                            onSearch={handleSearchInputChange} />
+                                    )}
+                                    sortComponent={(
+                                        <Select
+                                            opened={sortOpened}
+                                            id="sort"
+                                            val={sort}
+                                            values={getConfig('sort', 'options')}
+                                            onSelect={handleSortChange}
+                                            name="filtersTopSelect"
+                                            autoWidth
+                                            optionsAlignment={filters.length > 0 && windowWidth < TABLET_MIN_WIDTH ? 'left' : 'right'} />
+                                    )}
+                                    onShowAllClick={handleShowAllTopFilters} />
                             }
                             {filterPanelType === FILTER_PANEL.LEFT &&
                             <FilterInfo

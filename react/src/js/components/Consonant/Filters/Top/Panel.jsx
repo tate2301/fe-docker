@@ -21,6 +21,7 @@ const FiltersPanelTop = ({
     windowWidth,
     searchComponent,
     sortComponent,
+    filterPanelEnabled,
 }) => {
     const getConfig = useConfig();
 
@@ -54,7 +55,7 @@ const FiltersPanelTop = ({
             )}
             <div
                 className="consonant-top-filters--inner">
-                {filters.length &&
+                {filters.length && filterPanelEnabled &&
                     <div className="consonant-top-filters--filters-wrapper">
                         {windowWidth >= TABLET_MIN_WIDTH &&
                             <strong className="consonant-top-filters--title">Filters:</strong>
@@ -154,6 +155,7 @@ FiltersPanelTop.propTypes = {
     onShowAllClick: PropTypes.func.isRequired,
     windowWidth: PropTypes.number.isRequired,
     searchComponent: PropTypes.node.isRequired,
+    filterPanelEnabled: PropTypes.bool.isRequired,
     sortComponent: PropTypes.node.isRequired,
 };
 
