@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import prettyFormatDate from './prettyFormat';
+import prettyFormatDate from '../../../../../utils/prettyFormat';
 
 function DateInterval({
     startTime, endTime, locale, dateFormat,

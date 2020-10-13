@@ -277,7 +277,10 @@ const Container = (props) => {
                                 detailText: '',
                                 title: 'Descended from astronomers rock and the headline keeps going to three lines.',
                                 description: '',
-                                dateDetailText: {},
+                                dateDetailText: {
+                                    startTime: '2020-10-20T20:00:00Z',
+                                    endTime: '2020-10-27T21:45:00Z',
+                                },
                             },
                             footer: [
                                 {
@@ -1060,7 +1063,7 @@ const Container = (props) => {
                                 until: '2025-10-31T21:45:00Z',
                             },
                             styles: {
-                                typeOverride: 'full-card',
+                                typeOverride: '1:1',
                                 backgroundImage: 'https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png',
                             },
                             overlays: {
@@ -1100,7 +1103,10 @@ const Container = (props) => {
                                 detailText: 'Details',
                                 title: 'Check out cats in Lorem onto two lines.',
                                 description: '',
-                                dateDetailText: {},
+                                dateDetailText: {
+                                    startTime: '2020-10-20T20:00:00Z',
+                                    endTime: '2020-10-27T21:45:00Z',
+                                },
                             },
                             footer: [],
                             search: {
@@ -1172,7 +1178,10 @@ const Container = (props) => {
                                 detailText: 'Details',
                                 title: 'Check out cats in Lorem onto two lines.',
                                 description: '',
-                                dateDetailText: {},
+                                dateDetailText: {
+                                    startTime: '2020-10-20T20:00:00Z',
+                                    endTime: '2020-10-27T21:45:00Z',
+                                },
                             },
                             footer: [],
                             search: {
@@ -1340,6 +1349,8 @@ const Container = (props) => {
         , [sortedCards, showBookmarks, bookmarkedCards],
     );
 
+    console.log(collectionCards.length);
+
     const totalPages = useMemo(
         () => {
             if (resultsPerPage === 0) return 0;
@@ -1471,7 +1482,7 @@ const Container = (props) => {
                             {collectionCards.length > 0 ?
                                 <Fragment>
                                     <Collection
-                                        showItemsPerPage={resultsPerPage}
+                                        resultsPerPage={resultsPerPage}
                                         pages={currentPage}
                                         cards={collectionCards}
                                         onCardBookmark={handleCardBookmarking} />

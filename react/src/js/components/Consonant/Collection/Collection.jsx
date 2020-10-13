@@ -16,9 +16,10 @@ const CARD_STYLE = {
 
 const Collection = (props) => {
     const {
-        showItemsPerPage,
+        resultsPerPage,
         pages,
         onCardBookmark,
+        cards,
     } = props;
 
     const getConfig = useConfig();
@@ -26,17 +27,21 @@ const Collection = (props) => {
     const cardsStyle = getConfig('collection', 'cardStyle');
     const dateFormat = getConfig('collection', 'i18n.prettyDateIntervalFormat');
     const locale = getConfig('language', '');
-    let cards = [...props.cards];
-    let cardsToShow = showItemsPerPage * pages;
+    const paginationType = getConfig('pagination', 'type');
 
-    if (cardsToShow > cards.length) cardsToShow = cards.length;
-    if (!isNullish(showItemsPerPage) && cards.length > cardsToShow) {
-        cards = cards.slice(0, cardsToShow);
+    let shownCards;
+
+    if (paginationType === 'paginator') {
+        shownCards = cards.slice(resultsPerPage * (pages - 1), resultsPerPage * pages);
+    } else if (paginationType === 'loadMore') {
+        shownCards = cards.slice(0, resultsPerPage * pages);
+    } else {
+        throw new Error(`Unrecognized pagination type ${paginationType}`);
     }
 
-    return cards.length > 0 && (
+    return shownCards.length > 0 && (
         <div data-testid="consonant-collection" className="consonant-card-collection">
-            {cards.map((card) => {
+            {shownCards.map((card) => {
                 const type = cardsStyle && cardsStyle.toLowerCase() !== 'none' ? cardsStyle : get(card, 'styles.typeOverride');
 
                 if (type === CARD_STYLE.FULL) {
@@ -65,14 +70,14 @@ const Collection = (props) => {
 export default Collection;
 
 Collection.propTypes = {
-    showItemsPerPage: PropTypes.number,
+    resultsPerPage: PropTypes.number,
     pages: PropTypes.number,
     cards: PropTypes.arrayOf(PropTypes.object),
     onCardBookmark: PropTypes.func.isRequired,
 };
 
 Collection.defaultProps = {
-    showItemsPerPage: DEFAULT_SHOW_ITEMS_PER_PAGE,
+    resultsPerPage: DEFAULT_SHOW_ITEMS_PER_PAGE,
     pages: 1,
     cards: [],
 };

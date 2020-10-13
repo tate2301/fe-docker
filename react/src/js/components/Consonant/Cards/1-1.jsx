@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useConfig } from '../../../utils/hooks';
+import prettyFormatDate from '../../../utils/prettyFormat';
 
 const AspectRatio1to1Card = (props) => {
     const {
@@ -13,6 +15,10 @@ const AspectRatio1to1Card = (props) => {
         contentArea: {
             title,
             detailText: label,
+            dateDetailText: {
+                startTime,
+                endTime,
+            },
         },
         overlays: {
             banner: {
@@ -26,6 +32,14 @@ const AspectRatio1to1Card = (props) => {
             },
         },
     } = props;
+
+    const getConfig = useConfig();
+
+    const i18nFormat = getConfig('collection', 'i18n.prettyDateIntervalFormat');
+    const locale = getConfig('language', '');
+
+    const prettyDate = startTime ? prettyFormatDate(startTime, endTime, locale, i18nFormat) : null;
+    const detailText = prettyDate || label || '';
 
     return (
         <div
@@ -75,7 +89,7 @@ const AspectRatio1to1Card = (props) => {
                 title="Click to open in a new tab"
                 className="consonant-aspect-ratio-1-1-card--inner"
                 tabIndex="0">
-                {label && <span className="consonant-aspect-ratio-1-1-card--label">{label}</span>}
+                {detailText && <span className="consonant-aspect-ratio-1-1-card--label">{detailText}</span>}
                 <h2 className="consonant-aspect-ratio-1-1-card--title">
                     {title}
                 </h2>

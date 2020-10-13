@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useConfig } from '../../../utils/hooks';
+import prettyFormatDate from '../../../utils/prettyFormat';
 import CardFooter from './CardFooter/CardFooter';
 import { INFOBIT_TYPE } from '../../../constants';
 
@@ -23,7 +25,6 @@ const AspectRatio3to2Card = ({
     isBookmarked,
     onClick,
     dateFormat,
-    locale,
     styles: {
         backgroundImage: image,
     },
@@ -31,6 +32,10 @@ const AspectRatio3to2Card = ({
         title,
         detailText: label,
         description,
+        dateDetailText: {
+            startTime,
+            endTime,
+        },
 
     },
     overlays: {
@@ -67,6 +72,14 @@ const AspectRatio3to2Card = ({
             return el;
         });
     };
+
+    const getConfig = useConfig();
+
+    const i18nFormat = getConfig('collection', 'i18n.prettyDateIntervalFormat');
+    const locale = getConfig('language', '');
+
+    const prettyDate = startTime ? prettyFormatDate(startTime, endTime, locale, i18nFormat) : null;
+    const detailText = prettyDate || label || '';
 
     return (
         <div
@@ -113,10 +126,9 @@ const AspectRatio3to2Card = ({
                     </a>}
             </div>
             <div className="consonant-aspect-ratio-3-2-card--inner">
-                {
-                    label &&
-                    <span className="consonant-aspect-ratio-3-2-card--label">{label}</span>
-                }
+                {detailText && (
+                    <span className="consonant-aspect-ratio-3-2-card--label">{detailText}</span>
+                )}
                 <h2
                     className="consonant-aspect-ratio-3-2-card--title">
                     {title}
