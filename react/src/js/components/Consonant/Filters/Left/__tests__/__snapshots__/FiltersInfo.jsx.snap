@@ -19,7 +19,6 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly when des
   <div
     className="consonant-filters-info--search"
   />
-  0
 </aside>
 `;
 
@@ -51,7 +50,6 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly when mob
       </span>
     </button>
   </div>
-  0
 </aside>
 `;
 
@@ -74,7 +72,6 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with sea
   <div
     className="consonant-filters-info--search"
   />
-  0
 </aside>
 `;
 
@@ -97,7 +94,6 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with sel
   <div
     className="consonant-filters-info--search"
   />
-  0
 </aside>
 `;
 
@@ -120,6 +116,5 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with two
   <div
     className="consonant-filters-info--search"
   />
-  0
 </aside>
 `;
