@@ -128,7 +128,7 @@ describe('Consonant/Card', () => {
         test('should call onClick', () => {
             const { props: { onClick } } = setup({ allowBookmarking: true, cardStyle: '3:2' });
 
-            const bookmarkButtonElement = screen.getByTestId('consonant-card__bookmark-button');
+            const bookmarkButtonElement = screen.getByTestId('bookmark-button');
 
             fireEvent.click(bookmarkButtonElement);
 

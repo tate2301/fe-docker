@@ -14,6 +14,7 @@ const [{
     bannerFontColor,
     secondaryLabelText,
     bannerIcon,
+    footer,
 }] = cards;
 const {
     enabled: allowBookmarking,
@@ -39,6 +40,7 @@ export const DEFAULT_PROPS = {
     secondaryLabelText,
     unsaveCardText,
     bannerBackgroundColor,
+    footer,
 
     key: id,
     isBookmarked: false,

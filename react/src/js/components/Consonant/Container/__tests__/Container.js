@@ -292,10 +292,6 @@ describe('Consonant/FilterItem', () => {
             const {
                 config: {
                     collection: { resultsPerPage },
-                    bookmarks: {
-                        saveCardText,
-                        unsaveCardText,
-                    },
                 },
             } = init({ collection: { cardsStyle: '3:2' } });
 
@@ -309,7 +305,7 @@ describe('Consonant/FilterItem', () => {
             expect(screen.queryAllByTestId('consonant-card')).toHaveLength(resultsPerPage);
 
             // get first unbookmarkedButton from whole DOM tree
-            const [saveBookmarkButton] = screen.queryAllByText(saveCardText);
+            const [saveBookmarkButton] = screen.queryAllByTestId('bookmark-button');
 
             expect(saveBookmarkButton).toBeDefined();
 
@@ -334,10 +330,10 @@ describe('Consonant/FilterItem', () => {
              * his bookmark button will change text from saveBookmarkButton to unsaveCardText
              * we should wait for this
              */
-            await waitFor(() => screen.getByText(unsaveCardText));
+            await waitFor(() => screen.getByText('Unsave Card'));
 
             // get first bookmarkedButton from whole DOM tree
-            const [unsaveBookmarkButton] = screen.queryAllByText(unsaveCardText);
+            const [unsaveBookmarkButton] = screen.queryAllByTestId('bookmark-button');
 
             expect(unsaveBookmarkButton).toBeDefined();
 
@@ -392,14 +388,14 @@ describe('Consonant/FilterItem', () => {
             expect(firstCheckbox.checked).toBeFalsy();
         });
         test('should reset favourites', async () => {
-            const { config: { bookmarks: { saveCardText } } } = init({ filterPanel: { filterLogic: 'xor' } });
+            init({ filterPanel: { filterLogic: 'xor' } });
 
             // Need wait for render all checkboxes
             await waitFor(() => screen.getAllByTestId('list-item-checkbox'));
 
             const [firstFilter] = screen.queryAllByTestId('filter-item');
 
-            const [saveBookmarkButton] = screen.queryAllByText(saveCardText);
+            const [saveBookmarkButton] = screen.queryAllByTestId('bookmark-button');
             const [firstCheckbox] = queryAllByTestId(firstFilter, 'list-item-checkbox');
 
             const bookmarkButton = screen.getByText('My favorites');
@@ -421,13 +417,12 @@ describe('Consonant/FilterItem', () => {
             expect(screen.queryAllByTestId('consonant-card')).toHaveLength(10);
         });
         test('should remove card from bookmarks', async () => {
-            const { config: { bookmarks: { saveCardText, unsaveCardText } } } =
-                init({ collection: { cardsStyle: '3:2' }, filterPanel: { filterLogic: 'xor' } });
+            init({ collection: { cardsStyle: '3:2' }, filterPanel: { filterLogic: 'xor' } });
 
             // Need wait for api response and state updating
             await waitFor(() => screen.getByTestId('consonant-collection'));
 
-            const [saveBookmarkButton] = screen.queryAllByText(saveCardText);
+            const [saveBookmarkButton] = screen.queryAllByTestId('bookmark-button');
 
             const bookmarkButton = screen.getByText('My favorites');
 
@@ -438,16 +433,16 @@ describe('Consonant/FilterItem', () => {
             fireEvent.click(saveBookmarkButton);
             fireEvent.click(bookmarkButton);
 
-            expect(screen.queryAllByTestId('consonant-card')).toHaveLength(2);
+            expect(screen.queryAllByTestId('consonant-card')).toHaveLength(1);
 
-            await waitFor(() => screen.queryAllByText(unsaveCardText));
+            await waitFor(() => screen.queryAllByText('Unsave Card'));
 
-            const [unsaveBookmarkButton] = screen.queryAllByText(unsaveCardText);
+            const [unsaveBookmarkButton] = screen.queryAllByTestId('bookmark-button');
 
             // remove card from bookmarks
             fireEvent.click(unsaveBookmarkButton);
 
-            expect(screen.queryAllByTestId('consonant-card')).toHaveLength(1);
+            expect(screen.queryAllByTestId('consonant-card')).toHaveLength(0);
         });
         test('should change search value', async () => {
             init();

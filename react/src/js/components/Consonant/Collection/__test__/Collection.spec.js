@@ -50,7 +50,7 @@ describe('Consonant/Collection', () => {
                 props: { onCardBookmark },
             } = setup({ allowBookmarking: true, cardsStyle: '3:2' });
 
-            const bookmarkButton = screen.getByTestId('consonant-card__bookmark-button');
+            const bookmarkButton = screen.getByTestId('bookmark-button');
 
             fireEvent.click(bookmarkButton);
 

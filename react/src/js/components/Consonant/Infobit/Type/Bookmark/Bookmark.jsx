@@ -28,6 +28,7 @@ function Bookmark({
         if (!isBookmarked && unsaveCardIcon) src = unsaveCardIcon;
 
         return (<span
+            data-testid="bookmarks--ico"
             className="consonant-bookmark-infobit--ico"
             style={{ backgroundImage: src ? `url(${src})` : '' }} />);
     };
@@ -39,15 +40,18 @@ function Bookmark({
 
     return (
         <button
+            data-testid="bookmark-button"
             data-tooltip-wrapper
             type="button"
             className={className}
             onClick={handleClick}
             tabIndex="0">
             {renderIcon()}
-            <Tooltip text={
-                isBookmarked ? cardUnsaveText : cardSaveText
-            } />
+            <Tooltip
+                data-testid="bookmark-tooltip"
+                text={
+                    isBookmarked ? cardUnsaveText : cardSaveText
+                } />
         </button>
     );
 }
