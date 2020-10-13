@@ -215,6 +215,7 @@ const Container = (props) => {
         window.fetch(collectionEndpoint)
             .then(resp => resp.json())
             .then((payload) => {
+                setLoading(false);
                 if (!get(payload, 'cards.length')) return;
 
                 let featuredCards = config.featuredCards || [];
@@ -241,7 +242,6 @@ const Container = (props) => {
                         selected: false,
                     })),
                 })));
-                setLoading(false);
             });
     }, [bookmarkedCardIds, config.featuredCards, populateCardMetadata]);
 
