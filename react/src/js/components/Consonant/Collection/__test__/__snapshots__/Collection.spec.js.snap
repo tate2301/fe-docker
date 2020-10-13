@@ -29,14 +29,16 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
           }
         }
       >
-        <img
-          alt=""
-          className="consonant-aspect-ratio-3-2-card--banner-icon"
-          data-testid="consonant-card--banner-icon"
-          loading="lazy"
-          src="some-banner-icon"
-          width="8"
-        />
+        <div
+          className="consonant-aspect-ratio-3-2-card--banner-icon-wrapper"
+        >
+          <img
+            alt=""
+            data-testid="consonant-card--banner-icon"
+            loading="lazy"
+            src="some-banner-icon"
+          />
+        </div>
         Some Banner Description
       </span>
       
@@ -144,14 +146,16 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
           }
         }
       >
-        <img
-          alt=""
-          className="consonant-aspect-ratio-3-2-card--banner-icon"
-          data-testid="consonant-card--banner-icon"
-          loading="lazy"
-          src="some-banner-icon"
-          width="8"
-        />
+        <div
+          className="consonant-aspect-ratio-3-2-card--banner-icon-wrapper"
+        >
+          <img
+            alt=""
+            data-testid="consonant-card--banner-icon"
+            loading="lazy"
+            src="some-banner-icon"
+          />
+        </div>
         Some Banner Description
       </span>
       
@@ -259,14 +263,16 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
           }
         }
       >
-        <img
-          alt=""
-          className="consonant-aspect-ratio-3-2-card--banner-icon"
-          data-testid="consonant-card--banner-icon"
-          loading="lazy"
-          src="some-banner-icon"
-          width="8"
-        />
+        <div
+          className="consonant-aspect-ratio-3-2-card--banner-icon-wrapper"
+        >
+          <img
+            alt=""
+            data-testid="consonant-card--banner-icon"
+            loading="lazy"
+            src="some-banner-icon"
+          />
+        </div>
         Some Banner Description
       </span>
       
@@ -374,14 +380,16 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
           }
         }
       >
-        <img
-          alt=""
-          className="consonant-aspect-ratio-3-2-card--banner-icon"
-          data-testid="consonant-card--banner-icon"
-          loading="lazy"
-          src="some-banner-icon"
-          width="8"
-        />
+        <div
+          className="consonant-aspect-ratio-3-2-card--banner-icon-wrapper"
+        >
+          <img
+            alt=""
+            data-testid="consonant-card--banner-icon"
+            loading="lazy"
+            src="some-banner-icon"
+          />
+        </div>
         Some Banner Description
       </span>
       
@@ -489,14 +497,16 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
           }
         }
       >
-        <img
-          alt=""
-          className="consonant-aspect-ratio-3-2-card--banner-icon"
-          data-testid="consonant-card--banner-icon"
-          loading="lazy"
-          src="some-banner-icon"
-          width="8"
-        />
+        <div
+          className="consonant-aspect-ratio-3-2-card--banner-icon-wrapper"
+        >
+          <img
+            alt=""
+            data-testid="consonant-card--banner-icon"
+            loading="lazy"
+            src="some-banner-icon"
+          />
+        </div>
         Some Banner Description
       </span>
       
