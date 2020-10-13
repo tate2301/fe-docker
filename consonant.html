@@ -10,6 +10,7 @@
     <meta name="template" content="northstar-collection" />
 
     <link rel="stylesheet" href="./dist/app.css" type="text/css">
+    <link rel="stylesheet" href="./typekit.css" type="text/css">
 
     <title>CaaS</title>
 
@@ -50,7 +51,7 @@
     <script type="text/javascript">
         var config = {
             collection: {
-                resultsPerPage: null,
+                resultsPerPage: "5",
                 endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/sample-cards.json",
                 title: "Your Favorite Cards",
                 totalCardLimit: '-1',
@@ -88,7 +89,7 @@
             ],
             filterPanel: {
                 enabled: 'true',
-                type: 'top',
+                type: 'left',
                 filters: [
                     {
                         "group": "Activity",
@@ -143,7 +144,7 @@
                 ],
                 clearAllFiltersText: 'Clear All',
                 clearFilterText: 'Clear filter',
-                filterLogic: 'and',
+                filterLogic: 'or',
                 leftPanelHeader: 'Refine your results',
             },
             sort: {
@@ -161,21 +162,24 @@
                 loadMoreQuantityText: "{} of {} total items",
             },
             bookmarks: {
-                enabled: 'false',
+                enabled: 'true',
                 bookmarkOnlyCollection: 'false',
-                cardSavedIcon: '',
-                cardUnsavedIcon: '',
                 selectBookmarksIcon: '',
                 unselectBookmarksIcon: '',
-                saveCardText: 'Save card',
-                unsaveCardText: 'Unsave card',
                 bookmarksFilterTitle: 'My Favorites',
             },
             search: {
                 enabled: 'true',
                 inputPlaceholderText: 'Search here...',
                 leftPanelTitle: 'Search now',
-                searchFields: '["title","description", "label", "badgeText","meta-categories"]',
+                searchFields: [
+                    "contentArea.title",
+                    "contentArea.description", 
+                    "contentArea.detailText", 
+                    "contentArea.dateDetailText", 
+                    "overlays.banner.decsription", 
+                    "overlays.label.text"
+                ],
             },
             language: {
               current: 'de',
