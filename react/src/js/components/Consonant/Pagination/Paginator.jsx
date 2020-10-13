@@ -14,9 +14,9 @@ const Paginator = (props) => {
 
     const getConfig = useConfig();
 
-    const quantityText = getConfig('pagination', 'paginatorQuantityText');
-    const prevLabel = getConfig('pagination', 'paginatorPrevLabel');
-    const nextLabel = getConfig('pagination', 'paginatorNextLabel');
+    const quantityText = getConfig('pagination', 'i18n.paginator.resultsQuantityText');
+    const prevLabel = getConfig('pagination', 'i18n.paginator.prevLabel');
+    const nextLabel = getConfig('pagination', 'i18n.paginator.nextLabel');
 
     /**
      * @function generateRange
@@ -105,9 +105,9 @@ const Paginator = (props) => {
     };
 
     const renderQtyHTML = () => quantityText
-        .replace('{}', `<strong>${getStartNumber()}</strong>`)
-        .replace('{}', `<strong>${getEndNumber()}</strong>`)
-        .replace('{}', `<strong>${totalResults}</strong>`);
+        .replace('{start}', `<strong>${getStartNumber()}</strong>`)
+        .replace('{end}', `<strong>${getEndNumber()}</strong>`)
+        .replace('{total}', `<strong>${totalResults}</strong>`);
 
     return (
         <div className="consonant-pagination">

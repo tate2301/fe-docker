@@ -8,12 +8,12 @@ const LoadMore = ({
     total,
 }) => {
     const getConfig = useConfig();
-    const loadMoreButtonText = getConfig('pagination', 'loadMoreButtonText');
-    const loadMoreQuantityText = getConfig('pagination', 'loadMoreQuantityText');
+    const loadMoreButtonText = getConfig('pagination', 'i18n.loadMore.btnText');
+    const loadMoreQuantityText = getConfig('pagination', 'i18n.loadMore.resultsQuantityText');
 
     const qtyHTML = loadMoreQuantityText
-        .replace('{}', `<span class="consonant-load-more--shown">${show}</span>`)
-        .replace('{}', `<span class="consonant-load-more--total">${total}</span>`);
+        .replace('{start}', `<span class="consonant-load-more--shown">${show}</span>`)
+        .replace('{end}', `<span class="consonant-load-more--total">${total}</span>`);
 
 
     return (show > 0 && total > 0) ? (

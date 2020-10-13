@@ -159,12 +159,18 @@
             },
             pagination: {
                 enabled: 'true',
-                type: 'loadMore',
-                paginatorQuantityText: "{}-{} of {} results",
-                paginatorPrevLabel: "Previous",
-                paginatorNextLabel: "Next",
-                loadMoreButtonText: "Load More",
-                loadMoreQuantityText: "{} of {} total items",
+                type: 'paginator',
+                i18n: {
+                    loadMore: {
+                        btnText: 'i18n.loadMore.btnText',
+                        resultsQuantityText: 'i18n.loadMore.resultsQuantityText {start} {end}',
+                    },
+                    paginator: {
+                        resultsQuantityText: 'i18n.paginator.resultsQuantityText {start} {end} {total}',
+                        prevLabel:  'i18n.paginator.prevLabel',
+                        nextLabel: 'i18n.paginator.nextLabel',
+                    }
+                }
             },
             bookmarks: {
                 enabled: 'true',
