@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import forOwn from 'lodash/forOwn';
 
 export const saveBookmarksToLocalStorage = (bookmarksValue) => {
     try {
@@ -75,7 +75,7 @@ export const cleanText = text => text.toLowerCase().trim();
 export const mapObject = (object, func) => {
     const newObj = {};
 
-    _.forOwn(object, (value, key) => {
+    forOwn(object, (value, key) => {
         newObj[key] = func(value);
     });
 

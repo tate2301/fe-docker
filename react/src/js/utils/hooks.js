@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import debounce from 'lodash/debounce';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { makeConfigGetter } from './consonant';
 import { ConfigContext, ExpandableContext } from '../contexts';
@@ -12,7 +12,7 @@ export const useWindowDimensions = () => {
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
     useEffect(() => {
-        const handleResize = _.debounce(() => setWindowDimensions(getWindowDimensions()));
+        const handleResize = debounce(() => setWindowDimensions(getWindowDimensions()));
 
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
