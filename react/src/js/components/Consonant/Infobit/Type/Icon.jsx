@@ -1,8 +1,12 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-function Icon() {
+function Icon({src}) {
     return (<span>Icon bit</span>);
 }
+
+Icon.propTypes = {
+  src: PropTypes.string.isRequired,
+};
 
 export default Icon;

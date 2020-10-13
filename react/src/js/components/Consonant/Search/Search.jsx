@@ -70,10 +70,12 @@ Search.propTypes = {
     onSearch: PropTypes.func.isRequired,
     value: PropTypes.string,
     autofocus: PropTypes.bool,
+    placeholderText: PropTypes.string,
 };
 
 Search.defaultProps = {
     value: '',
     name: 'consonant-search',
     autofocus: true,
+    placeholderText: 'Search...',
 };

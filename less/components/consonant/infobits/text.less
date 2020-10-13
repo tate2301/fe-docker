@@ -1,0 +1,21 @@
+.consonant-text-infobit {
+    min-width: 0;
+    max-width: 100%;
+    margin: 0 0 0 16px;
+
+    .font(
+        0.875rem,
+        1.375rem,
+        400,
+        @consonant-color-dark-grey-3,
+        left
+    );
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+*:first-child > .consonant-text-infobit:first-child {
+    margin-left: 0;
+}
