@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
+import { useConfig } from '../../../../utils/hooks';
 
 const Item = ({
     name,
@@ -14,6 +15,7 @@ const Item = ({
     results,
     clearFilterText,
 }) => {
+    const getConfig = useConfig();
     const handleClick = useCallback((e) => {
         e.preventDefault();
         onClick(id);
@@ -65,7 +67,7 @@ const Item = ({
     );
     const footerComponent = (
         <div className="consonant-left-filter--footer">
-            <span className="consonant-left-filter--footer-res-qty">{results} results</span>
+            <span className="consonant-left-filter--footer-res-qty">{getConfig('filterPanel', 'i18n.leftPanel.mobile.group.totalResultsText').replace('{total}', results)}</span>
             {numItemsSelected > 0 &&
             <button
                 type="button"
@@ -76,7 +78,7 @@ const Item = ({
                 type="button"
                 onClick={handleClick}
                 className="consonant-left-filter--footer-btn">
-                {numItemsSelected > 0 ? 'Apply' : 'Done'}
+                {numItemsSelected > 0 ? getConfig('filterPanel', 'i18n.leftPanel.mobile.group.applyBtnText') : getConfig('filterPanel', 'i18n.leftPanel.mobile.group.doneBtnText')}
             </button>
         </div>
     );

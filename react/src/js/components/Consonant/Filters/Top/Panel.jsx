@@ -26,8 +26,8 @@ const FiltersPanelTop = ({
     const getConfig = useConfig();
 
     const searchEnabled = getConfig('search', 'enabled');
-    const clearFilterText = getConfig('filterPanel', 'clearFilterText');
-    const clearAllFiltersText = getConfig('filterPanel', 'clearAllFiltersText');
+    const clearFilterText = getConfig('filterPanel', 'i18n.leftPanel.mobile.panel.clearFilterText');
+    const clearAllFiltersText = getConfig('filterPanel', 'i18n.topPanel.clearAllFiltersText');
     const showTotalResults = getConfig('collection', 'showTotalResults');
     const showTotalResultsText = getConfig('collection', 'i18n.totalResultsText');
     const sortEnabled = getConfig('sort', 'enabled');
@@ -58,7 +58,9 @@ const FiltersPanelTop = ({
                 {filters.length > 0 && filterPanelEnabled &&
                     <div className="consonant-top-filters--filters-wrapper">
                         {windowWidth >= TABLET_MIN_WIDTH &&
-                            <strong className="consonant-top-filters--title">Filters:</strong>
+                            <strong className="consonant-top-filters--title">
+                                {getConfig('filterPanel', 'i18n.topPanel.groupLabel')}
+                            </strong>
                         }
                         <div
                             data-testid="consonant-filters__top__filters"
@@ -90,7 +92,8 @@ const FiltersPanelTop = ({
                                     type="button"
                                     data-testid="top-filter__more-button"
                                     className="consonant-top-filters--more-btn"
-                                    onClick={onShowAllClick}>more filters +
+                                    onClick={onShowAllClick}>
+                                    {getConfig('filterPanel', 'i18n.topPanel.moreFiltersBtnText')}
                                 </button>
                             }
                         </div>
@@ -108,7 +111,8 @@ const FiltersPanelTop = ({
                                         data-testid="top-filter__clear-button"
                                         className="consonant-top-filters--clear-btn"
                                         onClick={onClearAllFilters}
-                                        tabIndex="0">{clearAllFiltersText}
+                                        tabIndex="0">
+                                        {clearAllFiltersText}
                                     </button>
                                 }
                             </div>
@@ -119,7 +123,7 @@ const FiltersPanelTop = ({
                     <span
                         data-testid="filter-top-result-count"
                         className="consonant-top-filters--res-qty">
-                        <strong>{showTotalResultsText.replace('{}', resQty)}</strong>
+                        <strong>{showTotalResultsText.replace('{total}', resQty)}</strong>
                     </span>
                 }
                 {searchEnabled && windowWidth >= TABLET_MIN_WIDTH && (

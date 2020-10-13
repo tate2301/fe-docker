@@ -112,63 +112,45 @@
             ],
             filterPanel: {
                 enabled: 'true',
-                type: 'left',
-                filters: [
-                    {
-                        "group": "Activity",
-                        "id": "we-retail:activity",
-                        "icon": 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg',
-                        "items": [
-                            {
-                                "label": "Biking",
-                                "id": "we-retail:activity/biking"
+                type: 'top',
+                filters: '[{"openedOnLoad":false,"id":"we-retail:activity","items":[{"label":"Biking","id":"we-retail:activity/biking"},{"label":"Hiking","id":"we-retail:activity/hiking"},{"label":"Other","id":"we-retail:activity/others"},{"label":"Running","id":"we-retail:activity/running"},{"label":"Skiing","id":"we-retail:activity/skiing"},{"label":"Surfing","id":"we-retail:activity/surfing"},{"label":"Swimming","id":"we-retail:activity/swimming"}],"group":"Activity"},{"openedOnLoad":false,"id":"we-retail:apparel","items":[{"label":"Coat","id":"we-retail:apparel/coat"},{"label":"Footwear","id":"we-retail:apparel/footwear"},{"label":"Glasses","id":"we-retail:apparel/glasses"},{"label":"Gloves","id":"we-retail:apparel/gloves"},{"label":"Hat","id":"we-retail:apparel/hat"},{"label":"Helmet","id":"we-retail:apparel/helmet"},{"label":"Pancho","id":"we-retail:apparel/pancho"},{"label":"Pants","id":"we-retail:apparel/pants"},{"label":"Scarf","id":"we-retail:apparel/scarf"},{"label":"Shirt","id":"we-retail:apparel/shirt"},{"label":"Shorts","id":"we-retail:apparel/shorts"}],"group":"Apparel"}]',
+                filterLogic: 'and',
+                i18n: {
+                    leftPanel: {
+                        header: 'leftPanel.header',
+                        // searchBoxTitle: 'Search',
+                        clearAllFiltersText: 'leftPanel.clearAllFiltersText',
+                        mobile: {
+                            filtersBtnLabel: 'leftPanel.mobile.filtersBtnLabel',
+                            panel: {
+                                header: 'leftPanel.mobile.panel.header',
+                                totalResultsText: 'leftPanel.mobile.panel.totalResultsText {total}',
+                                applyBtnText: 'leftPanel.mobile.panel.applyBtnText',
+                                clearFilterText: 'leftPanel.mobile.panel.clearFilterText',
+                                doneBtnText: 'leftPanel.mobile.panel.doneBtnText',
                             },
-                            {
-                                "label": "Hiking",
-                                "id": "we-retail:activity/hiking"
-                            },
-                            {
-                                "label": "Running",
-                                "id": "we-retail:activity/running"
-                            },
-                            {
-                                "label": "Skiing",
-                                "id": "we-retail:activity/skiing"
-                            },
-                            {
-                                "label": "Surfing",
-                                "id": "we-retail:activity/surfing"
-                            },
-                            {
-                                "label": "Swimming",
-                                "id": "we-retail:activity/swimming"
-                            },
-                            {
-                                "label": "Others",
-                                "id": "we-retail:activity/Others"
+                            group: {
+                                totalResultsText: 'leftPanel.mobile.group.totalResultsText{total}',
+                                applyBtnText: 'leftPanel.mobile.group.applyBtnText',
+                                clearFilterText: 'leftPanel.mobile.group.clearFilterText',
+                                doneBtnText: 'leftPanel.mobile.group.doneBtnText',
                             }
-                        ]
+                        }
                     },
-                    {
-                        "group": "apparel",
-                        "id": "we-retail:apparel",
-                        "icon": 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg',
-                        "items": [
-                            {
-                                "label": "Coat",
-                                "id": "we-retail:apparel/coat"
-                            },
-                            {
-                                "label": "Footweara",
-                                "id": "we-retail:apparel/footwear"
+                    topPanel: {
+                        groupLabel:  'i18n.topPanel.groupLabel',
+                        clearAllFiltersText: 'i18n.topPanel.clearAllFiltersText',
+                        moreFiltersBtnText: 'i18n.topPanel.moreFiltersBtnText',
+                        mobile: {
+                            group: {
+                                totalResultsText: 'i18n.topPanel.mobile.group.totalResultsText {total}',
+                                applyBtnText: 'i18n.topPanel.mobile.group.applyBtnText',
+                                clearFilterText: 'i18n.topPanel.mobile.group.clearFilterText',
+                                doneBtnText: 'i18n.topPanel.mobile.group.doneBtnText',
                             }
-                        ]
+                        }
                     }
-                ],
-                clearAllFiltersText: 'Clear All',
-                clearFilterText: 'Clear filter',
-                filterLogic: 'or',
-                leftPanelHeader: 'Refine your results',
+                }
             },
             sort: {
                 enabled: 'true',

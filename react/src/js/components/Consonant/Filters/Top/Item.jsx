@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
-import { useExpandable } from '../../../../utils/hooks';
+import { useConfig, useExpandable } from '../../../../utils/hooks';
 
 const clipWrapperItemsCount = 9;
 const TopFilterItem = ({
@@ -14,6 +14,7 @@ const TopFilterItem = ({
     results,
     clearFilterText,
 }) => {
+    const getConfig = useConfig();
     const [openDropdown, handleToggle] = useExpandable(id);
     const isOpened = openDropdown === id;
 
@@ -61,21 +62,22 @@ const TopFilterItem = ({
     );
     const footerComponent = (
         <div className="consonant-top-filter--footer">
-            <span className="consonant-top-filter--footer-res-qty">{results} results</span>
+            <span className="consonant-top-filter--footer-res-qty">{getConfig('filterPanel', 'i18n.topPanel.mobile.group.totalResultsText').replace('{total}', results)}</span>
             {numItemsSelected > 0 &&
             <button
                 data-testid="clear-btn"
                 type="button"
                 onClick={handleClear}
                 className="consonant-top-filter--footer-clear-btn"
-                tabIndex="0">{clearFilterText}
+                tabIndex="0">
+                {clearFilterText}
             </button>}
             <button
                 type="button"
                 onClick={handleToggle}
                 className="consonant-top-filter--footer-btn"
                 tabIndex="0">
-                {numItemsSelected > 0 ? 'Apply' : 'Done'}
+                {numItemsSelected > 0 ? getConfig('filterPanel', 'i18n.topPanel.mobile.group.applyBtnText') : getConfig('filterPanel', 'i18n.topPanel.mobile.group.doneBtnText')}
             </button>
         </div>
     );

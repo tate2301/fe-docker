@@ -16,18 +16,21 @@ const LeftFilterPanel = ({
     onCheckboxClick,
     onMobileFiltersToggleClick,
     resQty,
-    panelHeader,
     searchComponent,
     bookmarkComponent,
 }) => {
     const getConfig = useConfig();
 
     const showTotalResults = getConfig('collection', 'showTotalResults');
-    const showTotalResultsText = getConfig('collection', 'i18n.totalResultsText');
-    const clearFilterText = getConfig('filterPanel', 'clearFilterText');
-    const clearAllFiltersText = getConfig('filterPanel', 'clearAllFiltersText');
+    const clearAllFiltersText = getConfig('filterPanel', 'i18n.leftPanel.clearAllFiltersText');
     const bookmarksEnabled = getConfig('bookmarks', 'enabled');
     const searchEnabled = getConfig('search', 'enabled');
+    const panelHeader = getConfig('filterPanel', 'i18n.leftPanel.header');
+    const showTotalResultsText = getConfig('filterPanel', 'i18n.leftPanel.mobile.panel.totalResultsText');
+    const clearFilterText = getConfig('filterPanel', 'i18n.leftPanel.mobile.panel.clearFilterText');
+    const leftPanelMobileHeader = getConfig('filterPanel', 'i18n.leftPanel.mobile.panel.header');
+    const applyText = getConfig('filterPanel', 'i18n.leftPanel.mobile.panel.applyBtnText');
+    const doneText = getConfig('filterPanel', 'i18n.leftPanel.mobile.panel.doneBtnText');
 
     const someFiltersAreSelected = useMemo(
         () =>
@@ -44,7 +47,7 @@ const LeftFilterPanel = ({
                 className="consonant-left-filters--mob-back">
                 Back
             </button>
-            <span>Filter by</span>
+            <span>{leftPanelMobileHeader}</span>
         </div>
     );
     const desktopFiltersTitle = windowWidth >= DESKTOP_MIN_WIDTH && (
@@ -56,7 +59,8 @@ const LeftFilterPanel = ({
             data-testid="left-filter-panel-clear-all-btn"
             className="consonant-left-filters--clear-link"
             onClick={onClearAllFilters}
-            tabIndex="0">{clearAllFiltersText}
+            tabIndex="0">
+            {clearAllFiltersText}
         </button>
     );
 
@@ -66,7 +70,7 @@ const LeftFilterPanel = ({
                 <span
                     data-testid="mobile-footer-total-res"
                     className="consonant-left-filters--mobile-footer-total-res-qty">
-                    {showTotalResultsText.replace('{}', resQty)}
+                    {showTotalResultsText.replace('{total}', resQty)}
                 </span>
             )}
             {someFiltersAreSelected && (
@@ -83,7 +87,7 @@ const LeftFilterPanel = ({
                 data-testid="mobile-footer-btn"
                 className="consonant-left-filters--mobile-footer-btn"
                 onClick={onMobileFiltersToggleClick}>
-                {someFiltersAreSelected ? 'Apply' : 'Done'}
+                {someFiltersAreSelected ? applyText : doneText}
             </button>
         </div>
     );
@@ -135,7 +139,6 @@ LeftFilterPanel.propTypes = {
     onCheckboxClick: PropTypes.func.isRequired,
     onMobileFiltersToggleClick: PropTypes.func.isRequired,
     resQty: PropTypes.number,
-    panelHeader: PropTypes.string,
     searchComponent: PropTypes.node.isRequired,
     bookmarkComponent: PropTypes.node.isRequired,
 };
@@ -145,5 +148,4 @@ LeftFilterPanel.defaultProps = {
     windowWidth: window.innerWidth,
     showMobileFilters: false,
     resQty: 0,
-    panelHeader: 'Refine the results',
 };

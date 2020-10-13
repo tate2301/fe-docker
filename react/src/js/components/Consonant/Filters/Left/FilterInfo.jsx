@@ -65,7 +65,7 @@ const FilterInfo = (props) => {
                         }
                         onClick={onMobileFiltersToggleClick}>
                         <span className="consonant-filters-info--btn-ico" />
-                        <span className="consonant-filters-info--btn-text">filters</span>
+                        <span className="consonant-filters-info--btn-text">{getConfig('filterPanel', 'i18n.leftPanel.mobile.filtersBtnLabel')}</span>
                         {
                             selectedFiltersQty > 0 &&
                             <span

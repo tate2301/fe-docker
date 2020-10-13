@@ -432,8 +432,7 @@ const Container = (props) => {
                                             value={searchQuery}
                                             autofocus={false}
                                             onSearch={handleSearchInputChange} />
-                                    )}
-                                    panelHeader={getConfig('filterPanel', 'leftPanelHeader')} />
+                                    )} />
                             </span>
                         )}
                         <span>
