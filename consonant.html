@@ -52,7 +52,7 @@
         var config = {
             collection: {
                 resultsPerPage: "5",
-                endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/sample-cards.json",
+                endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/scratch5.json",
                 title: "Your Favorite Cards",
                 totalCardLimit: '-1',
                 cardStyleOverride: "none", // could also be "3:2" or "full-card"
@@ -84,7 +84,32 @@
                     "secondaryLabelText": "Some secondary text",
                     "bannerIcon": "",
                     "cardStyle": "3:2",
-                    "label": "some label 1"
+                    "label": "some label 1",
+                    "showCardFrom": "12/12/2012 - 12/12/2020",
+                    "footer": {
+                        "left": [
+                            {
+                                "type": "bookmark",
+                                "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                                "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                                "cardSaveText": "Custom Save Card",
+                                "cardUnsaveText": "Custom Unsave Card"
+                            },
+                            {
+                                "type": "date-interval",
+                                "startTime": "2020-10-20T20:00:00Z",
+                                "endTime": "2020-10-27T21:45:00Z"
+                            }
+                        ],
+                        "right": [
+                            {
+                                "type": "button",
+                                "style": "call-to-action",
+                                "text": "Read More",
+                                "href": "https://www.google.com"
+                            }
+                        ]
+                    }                    
                 }
             ],
             filterPanel: {
