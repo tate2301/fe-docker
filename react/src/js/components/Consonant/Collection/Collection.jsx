@@ -24,7 +24,7 @@ const Collection = (props) => {
     const allowBookmarking = getConfig('bookmarks', 'leftFilterPanel.showBookmarksFilter');
     const cardsStyle = getConfig('collection', 'cardStyle');
     const dateFormat = getConfig('collection', 'i18n.prettyDateIntervalFormat');
-    const locale = getConfig('language', 'current');
+    const locale = getConfig('language', '');
     let cards = [...props.cards];
     let cardsToShow = showItemsPerPage * pages;
 
