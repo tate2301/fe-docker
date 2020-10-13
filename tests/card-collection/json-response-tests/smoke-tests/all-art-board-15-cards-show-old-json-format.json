@@ -1,0 +1,769 @@
+{
+	"cards": [
+		{
+			"id": "1",
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {
+				"divider": true,
+				"left": [],
+				"center": [],
+				"right": [
+					{
+						"type": "button",
+						"style": "call-to-action",
+						"text": "Read More",
+						"href": "https://www.google.com"
+					}
+				]
+			},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "1 Descended from astronomers rock and the headline keeps going to three lines.",
+			"description": "",
+			"appliesTo": [
+				{
+					"id": "we-retail:apparrel/coat"
+				},
+				{
+					"id": "we-retail:apparrel/footwear"
+				},
+				{
+					"id": "we-retail:apparrel/glasses"
+				},
+				{
+					"id": "we-retail:apparrel/gloves"
+				},
+				{
+					"id": "we-retail:apparrel/hat"
+				},
+				{
+					"id": "we-retail:apparrel/helmet"
+				},
+				{
+					"id": "we-retail:apparrel/pancho"
+				},
+				{
+					"id": "we-retail:apparrel/pants"
+				},
+				{
+					"id": "we-retail:apparrel/scarf"
+				},
+				{
+					"id": "we-retail:apparrel/shirt"
+				},
+				{
+					"id": "we-retail:apparrel/shorts"
+				}
+			],
+			"label": "Some Label",
+			"cardStyle": "3:2",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+		},
+		{
+			"id": "2",
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"label": "Details",
+			"footer":
+				{
+					"divider": true,
+					"left": [],
+					"center": [
+						{
+							"type": "link",
+							"href": "https://www.google.com",
+							"text": "Text link"
+						}
+					],
+					"right": [
+						{
+							"type": "button",
+							"style": "call-to-action",
+							"text": "Read More"
+						}
+					]
+				}
+			,
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "2 Descended from astronomers rock and the headline keeps going to three lines.",
+			"description": "",
+			"appliesTo": [
+				{
+					"id": "we-retail:activity/biking"
+				},
+				{
+					"id": "we-retail:activity/hiking"
+				},
+				{
+					"id": "we-retail:activity/other"
+				},
+				{
+					"id": "we-retail:activity/running"
+				},
+				{
+					"id": "we-retail:activity/skiing"
+				},
+				{
+					"id": "we-retail:activity/surfing"
+				},
+				{
+					"id": "we-retail:activity/swimming"
+				}
+			],
+			"bannerDescription": "Featured",
+			"bannerBackgroundColor": "#EBC526",
+			"bannerFontColor": "#002148",
+			"cardStyle": "3:2",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+		},
+		{
+			"id": "3",
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer":
+				{
+					"divider": true,
+					"left": [],
+					"center": [
+						{
+							"type": "link",
+							"href": "https://www.google.com",
+							"text": "Text link"
+						}
+					],
+					"right": [
+						{
+							"type": "button",
+							"style": "call-to-action",
+							"text": "Read More"
+						}
+					]
+				}
+			,
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "3 Descended from astronomers rock and the headline keeps going to three lines.",
+			"description": "The wizard quickly jinxed the gnomes before they vaporized. Zelda might fix the job growth plans very quickly on Monday.",
+			"appliesTo": [
+				{
+					"id": "we-retail:apparrel/coat"
+				},
+				{
+					"id": "we-retail:apparrel/footwear"
+				},
+				{
+					"id": "we-retail:apparrel/glasses"
+				},
+				{
+					"id": "we-retail:apparrel/gloves"
+				},
+				{
+					"id": "we-retail:apparrel/hat"
+				},
+				{
+					"id": "we-retail:apparrel/helmet"
+				},
+				{
+					"id": "we-retail:apparrel/pancho"
+				},
+				{
+					"id": "we-retail:apparrel/pants"
+				},
+				{
+					"id": "we-retail:apparrel/scarf"
+				},
+				{
+					"id": "we-retail:apparrel/shirt"
+				},
+				{
+					"id": "we-retail:apparrel/shorts"
+				}
+			],
+			"label": "Details",
+			"cardStyle": "3:2",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+		},
+		{
+			"id": "4",
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer":
+				{
+					"divider": true,
+					"left": [
+						{
+							"type": "icon-with-text",
+							"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/heart.svg",
+							"text": "4"
+						},
+						{
+							"type": "icon-with-text",
+							"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/upload.svg",
+							"text": "8"
+						},
+						{
+							"type": "icon",
+							"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg"
+						}
+					],
+					"center": [],
+					"right": [
+						{
+							"type": "button",
+							"style": "call-to-action",
+							"text": "Read More"
+						}
+					]
+				}
+			,
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "4 Descended from astronomers rock and the headline keeps going to three lines.",
+			"description": "Author Name",
+			"appliesTo": [
+				{
+					"id": "we-retail:activity/biking"
+				},
+				{
+					"id": "we-retail:activity/hiking"
+				},
+				{
+					"id": "we-retail:activity/other"
+				},
+				{
+					"id": "we-retail:activity/running"
+				},
+				{
+					"id": "we-retail:activity/skiing"
+				},
+				{
+					"id": "we-retail:activity/surfing"
+				},
+				{
+					"id": "we-retail:activity/swimming"
+				}
+			],
+			"label": "Details",
+			"cardStyle": "3:2",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+		},
+		{
+			"id": "5",
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {
+				"divider": false,
+				"left": [
+					{
+						"type": "progress-bar",
+						"label": "Progress",
+						"completionText": "6/10",
+						"percentage": "60%",
+						"color": "#1473E6"
+					}
+				],
+				"center": [],
+				"right": []
+			}
+			,
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "5 Descended from astronomers rock and the headline keeps going to three lines.",
+			"description": "Author Name",
+			"appliesTo": [
+				{
+					"id": "we-retail:apparrel/coat"
+				},
+				{
+					"id": "we-retail:apparrel/footwear"
+				},
+				{
+					"id": "we-retail:apparrel/glasses"
+				},
+				{
+					"id": "we-retail:apparrel/gloves"
+				},
+				{
+					"id": "we-retail:apparrel/hat"
+				},
+				{
+					"id": "we-retail:apparrel/helmet"
+				},
+				{
+					"id": "we-retail:apparrel/pancho"
+				},
+				{
+					"id": "we-retail:apparrel/pants"
+				},
+				{
+					"id": "we-retail:apparrel/scarf"
+				},
+				{
+					"id": "we-retail:apparrel/shirt"
+				},
+				{
+					"id": "we-retail:apparrel/shorts"
+				}
+			],
+			"label": "Details",
+			"cardStyle": "3:2",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+		},
+		{
+			"id": "6",
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer":
+				{
+					"divider": true,
+					"left": [
+						{
+							"type": "progress-bar",
+							"label": "Progress",
+							"completionText": "6/10",
+							"percentage": "60%",
+							"color": "#1473E6"
+						}
+					],
+					"center": [],
+					"right": []
+				}
+			,
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "6 Descended from astronomers rock and the headline keeps going to three lines.",
+			"description": "Author Name",
+			"appliesTo": [
+				{
+					"id": "we-retail:activity/biking"
+				},
+				{
+					"id": "we-retail:activity/hiking"
+				},
+				{
+					"id": "we-retail:activity/other"
+				},
+				{
+					"id": "we-retail:activity/running"
+				},
+				{
+					"id": "we-retail:activity/skiing"
+				},
+				{
+					"id": "we-retail:activity/surfing"
+				},
+				{
+					"id": "we-retail:activity/swimming"
+				}
+			],
+			"label": "Details",
+			"cardStyle": "3:2",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+		},
+		{
+			"id": "7",
+			"styles": {
+				"typeOverride": "1:1",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "7 Descended from astronomers rock and the headline keeps going to three lines.",
+			"description": "",
+			"appliesTo": [
+				{
+					"id": "we-retail:apparrel/coat"
+				},
+				{
+					"id": "we-retail:apparrel/footwear"
+				},
+				{
+					"id": "we-retail:apparrel/glasses"
+				},
+				{
+					"id": "we-retail:apparrel/gloves"
+				},
+				{
+					"id": "we-retail:apparrel/hat"
+				},
+				{
+					"id": "we-retail:apparrel/helmet"
+				},
+				{
+					"id": "we-retail:apparrel/pancho"
+				},
+				{
+					"id": "we-retail:apparrel/pants"
+				},
+				{
+					"id": "we-retail:apparrel/scarf"
+				},
+				{
+					"id": "we-retail:apparrel/shirt"
+				},
+				{
+					"id": "we-retail:apparrel/shorts"
+				}
+			],
+			"label": "",
+			"cardStyle": "1:1",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+		},
+		{
+			"id": "8",
+			"styles": {
+				"typeOverride": "1:1",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "8 Descended from astronomers rock and the headline keeps going to three lines.",
+			"description": "",
+			"appliesTo": [
+				{
+					"id": "we-retail:activity/biking"
+				},
+				{
+					"id": "we-retail:activity/hiking"
+				},
+				{
+					"id": "we-retail:activity/other"
+				},
+				{
+					"id": "we-retail:activity/running"
+				},
+				{
+					"id": "we-retail:activity/skiing"
+				},
+				{
+					"id": "we-retail:activity/surfing"
+				},
+				{
+					"id": "we-retail:activity/swimming"
+				}
+			],
+			"label": "Details",
+			"bannerDescription": "Featured",
+			"bannerBackgroundColor": "#EBC526",
+			"bannerFontColor": "#002148",
+			"cardStyle": "1:1",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+		},
+		{
+			"id": "9",
+			"styles": {
+				"typeOverride": "1:1",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": [],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "9 Descended from astronomers rock and the headline keeps going to three lines.",
+			"description": "",
+			"appliesTo": [
+				{
+					"id": "we-retail:apparrel/coat"
+				},
+				{
+					"id": "we-retail:apparrel/footwear"
+				},
+				{
+					"id": "we-retail:apparrel/glasses"
+				},
+				{
+					"id": "we-retail:apparrel/gloves"
+				},
+				{
+					"id": "we-retail:apparrel/hat"
+				},
+				{
+					"id": "we-retail:apparrel/helmet"
+				},
+				{
+					"id": "we-retail:apparrel/pancho"
+				},
+				{
+					"id": "we-retail:apparrel/pants"
+				},
+				{
+					"id": "we-retail:apparrel/scarf"
+				},
+				{
+					"id": "we-retail:apparrel/shirt"
+				},
+				{
+					"id": "we-retail:apparrel/shorts"
+				}
+			],
+			"label": "Details",
+			"cardStyle": "1:1",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+			"videoURL": "https://www.youtube.com/watch?v=hcr7cszxINk&ab_channel=knytrix"
+		},
+		{
+			"id": "10",
+			"styles": {
+				"typeOverride": "1:1",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "A10 Descended from astronomers rock and the headline keeps going to three lines.",
+			"description": "",
+			"appliesTo": [
+				{
+					"id": "we-retail:activity/biking"
+				},
+				{
+					"id": "we-retail:activity/hiking"
+				},
+				{
+					"id": "we-retail:activity/other"
+				},
+				{
+					"id": "we-retail:activity/running"
+				},
+				{
+					"id": "we-retail:activity/skiing"
+				},
+				{
+					"id": "we-retail:activity/surfing"
+				},
+				{
+					"id": "we-retail:activity/swimming"
+				}
+			],
+			"label": "Details",
+			"cardStyle": "1:1",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+			"videoURL": "https://www.youtube.com/watch?v=hcr7cszxINk&ab_channel=knytrix"
+		},
+		{
+			"id": "11",
+			"styles": {
+				"typeOverride": "full-card",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "A11 Check out cats in Lorem",
+			"description": "",
+			"appliesTo": [
+				{
+					"id": "we-retail:apparrel/coat"
+				},
+				{
+					"id": "we-retail:apparrel/footwear"
+				},
+				{
+					"id": "we-retail:apparrel/glasses"
+				},
+				{
+					"id": "we-retail:apparrel/gloves"
+				},
+				{
+					"id": "we-retail:apparrel/hat"
+				},
+				{
+					"id": "we-retail:apparrel/helmet"
+				},
+				{
+					"id": "we-retail:apparrel/pancho"
+				},
+				{
+					"id": "we-retail:apparrel/pants"
+				},
+				{
+					"id": "we-retail:apparrel/scarf"
+				},
+				{
+					"id": "we-retail:apparrel/shirt"
+				},
+				{
+					"id": "we-retail:apparrel/shorts"
+				}
+			],
+			"label": "",
+			"cardStyle": "full-card",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+		},
+		{
+			"id": "12",
+			"styles": {
+				"typeOverride": "full-card",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "A12 Check out cats in Lorem onto two lines.",
+			"description": "",
+			"appliesTo": [
+				{
+					"id": "we-retail:activity/biking"
+				},
+				{
+					"id": "we-retail:activity/hiking"
+				},
+				{
+					"id": "we-retail:activity/other"
+				},
+				{
+					"id": "we-retail:activity/running"
+				},
+				{
+					"id": "we-retail:activity/skiing"
+				},
+				{
+					"id": "we-retail:activity/surfing"
+				},
+				{
+					"id": "we-retail:activity/swimming"
+				}
+			],
+			"label": "Details",
+			"bannerDescription": "Featured",
+			"bannerBackgroundColor": "#EBC526",
+			"bannerFontColor": "#002148",
+			"cardStyle": "full-card",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+		},
+		{
+			"id": "13",
+			"styles": {
+				"typeOverride": "full-card",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "A13 Check out cats in Lorem onto two lines.",
+			"description": "",
+			"appliesTo": [
+				{
+					"id": "we-retail:apparrel/coat"
+				},
+				{
+					"id": "we-retail:apparrel/footwear"
+				},
+				{
+					"id": "we-retail:apparrel/glasses"
+				},
+				{
+					"id": "we-retail:apparrel/gloves"
+				},
+				{
+					"id": "we-retail:apparrel/hat"
+				},
+				{
+					"id": "we-retail:apparrel/helmet"
+				},
+				{
+					"id": "we-retail:apparrel/pancho"
+				},
+				{
+					"id": "we-retail:apparrel/pants"
+				},
+				{
+					"id": "we-retail:apparrel/scarf"
+				},
+				{
+					"id": "we-retail:apparrel/shirt"
+				},
+				{
+					"id": "we-retail:apparrel/shorts"
+				}
+			],
+			"label": "Details",
+			"bannerDescription": "Featured",
+			"bannerBackgroundColor": "#EBC526",
+			"bannerFontColor": "#002148",
+			"cardStyle": "full-card",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+			"videoURL": "https://www.youtube.com/watch?v=hcr7cszxINk&ab_channel=knytrix"
+		}
+	]
+}

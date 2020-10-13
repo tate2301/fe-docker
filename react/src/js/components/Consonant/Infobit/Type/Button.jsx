@@ -23,11 +23,12 @@ function Button({ style, text, href }) {
 Button.propTypes = {
     style: PropTypes.string,
     text: PropTypes.string.isRequired,
-    href: PropTypes.string.isRequired,
+    href: PropTypes.string,
 };
 
 Button.defaultProps = {
     style: BUTTON_STYLE.CTA,
+    href: '',
 };
 
 export default Button;
