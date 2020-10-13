@@ -61,7 +61,48 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
       >
         <div
           className="consonant-card-footer--row"
-        />
+        >
+          <div
+            className="consonant-card-footer--cell"
+          >
+            <button
+              className="consonant-bookmark-infobit"
+              data-testid="bookmark-button"
+              data-tooltip-wrapper={true}
+              onClick={[Function]}
+              tabIndex="0"
+              type="button"
+            >
+              <span
+                className="consonant-bookmark-infobit--ico"
+                data-testid="bookmarks--ico"
+                style={
+                  Object {
+                    "backgroundImage": "url(https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg)",
+                  }
+                }
+              />
+              <span
+                className="consonant-tooltip"
+              >
+                Save Card
+              </span>
+            </button>
+          </div>
+          <div
+            className="consonant-card-footer--cell"
+          >
+            <a
+              className="consonant-btn-infobit consonant-btn-infobit_cta"
+              href="https://www.google.com"
+              rel="noreferrer"
+              tabIndex="0"
+              target="_blank"
+            >
+              Read More
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -135,7 +176,48 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       >
         <div
           className="consonant-card-footer--row"
-        />
+        >
+          <div
+            className="consonant-card-footer--cell"
+          >
+            <button
+              className="consonant-bookmark-infobit"
+              data-testid="bookmark-button"
+              data-tooltip-wrapper={true}
+              onClick={[Function]}
+              tabIndex="0"
+              type="button"
+            >
+              <span
+                className="consonant-bookmark-infobit--ico"
+                data-testid="bookmarks--ico"
+                style={
+                  Object {
+                    "backgroundImage": "url(https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg)",
+                  }
+                }
+              />
+              <span
+                className="consonant-tooltip"
+              >
+                Save Card
+              </span>
+            </button>
+          </div>
+          <div
+            className="consonant-card-footer--cell"
+          >
+            <a
+              className="consonant-btn-infobit consonant-btn-infobit_cta"
+              href="https://www.google.com"
+              rel="noreferrer"
+              tabIndex="0"
+              target="_blank"
+            >
+              Read More
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -209,7 +291,48 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       >
         <div
           className="consonant-card-footer--row"
-        />
+        >
+          <div
+            className="consonant-card-footer--cell"
+          >
+            <button
+              className="consonant-bookmark-infobit"
+              data-testid="bookmark-button"
+              data-tooltip-wrapper={true}
+              onClick={[Function]}
+              tabIndex="0"
+              type="button"
+            >
+              <span
+                className="consonant-bookmark-infobit--ico"
+                data-testid="bookmarks--ico"
+                style={
+                  Object {
+                    "backgroundImage": "url(https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg)",
+                  }
+                }
+              />
+              <span
+                className="consonant-tooltip"
+              >
+                Save Card
+              </span>
+            </button>
+          </div>
+          <div
+            className="consonant-card-footer--cell"
+          >
+            <a
+              className="consonant-btn-infobit consonant-btn-infobit_cta"
+              href="https://www.google.com"
+              rel="noreferrer"
+              tabIndex="0"
+              target="_blank"
+            >
+              Read More
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -283,7 +406,48 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       >
         <div
           className="consonant-card-footer--row"
-        />
+        >
+          <div
+            className="consonant-card-footer--cell"
+          >
+            <button
+              className="consonant-bookmark-infobit"
+              data-testid="bookmark-button"
+              data-tooltip-wrapper={true}
+              onClick={[Function]}
+              tabIndex="0"
+              type="button"
+            >
+              <span
+                className="consonant-bookmark-infobit--ico"
+                data-testid="bookmarks--ico"
+                style={
+                  Object {
+                    "backgroundImage": "url(https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg)",
+                  }
+                }
+              />
+              <span
+                className="consonant-tooltip"
+              >
+                Save Card
+              </span>
+            </button>
+          </div>
+          <div
+            className="consonant-card-footer--cell"
+          >
+            <a
+              className="consonant-btn-infobit consonant-btn-infobit_cta"
+              href="https://www.google.com"
+              rel="noreferrer"
+              tabIndex="0"
+              target="_blank"
+            >
+              Read More
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -357,7 +521,48 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       >
         <div
           className="consonant-card-footer--row"
-        />
+        >
+          <div
+            className="consonant-card-footer--cell"
+          >
+            <button
+              className="consonant-bookmark-infobit"
+              data-testid="bookmark-button"
+              data-tooltip-wrapper={true}
+              onClick={[Function]}
+              tabIndex="0"
+              type="button"
+            >
+              <span
+                className="consonant-bookmark-infobit--ico"
+                data-testid="bookmarks--ico"
+                style={
+                  Object {
+                    "backgroundImage": "url(https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg)",
+                  }
+                }
+              />
+              <span
+                className="consonant-tooltip"
+              >
+                Save Card
+              </span>
+            </button>
+          </div>
+          <div
+            className="consonant-card-footer--cell"
+          >
+            <a
+              className="consonant-btn-infobit consonant-btn-infobit_cta"
+              href="https://www.google.com"
+              rel="noreferrer"
+              tabIndex="0"
+              target="_blank"
+            >
+              Read More
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
