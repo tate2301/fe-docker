@@ -77,7 +77,7 @@ const FilterInfo = (props) => {
                     </button>
                 </div>
             }
-            {sortEnabled && sortOptions.length && sortComponent}
+            {sortEnabled && sortOptions.length > 0 && sortComponent}
             {windowWidth >= DESKTOP_MIN_WIDTH && selectedFiltersQty > 0 &&
                 <div
                     data-testid="selected-filters"

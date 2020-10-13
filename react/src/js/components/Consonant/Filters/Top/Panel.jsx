@@ -55,7 +55,7 @@ const FiltersPanelTop = ({
             )}
             <div
                 className="consonant-top-filters--inner">
-                {filters.length && filterPanelEnabled &&
+                {filters.length > 0 && filterPanelEnabled &&
                     <div className="consonant-top-filters--filters-wrapper">
                         {windowWidth >= TABLET_MIN_WIDTH &&
                             <strong className="consonant-top-filters--title">Filters:</strong>
@@ -132,7 +132,7 @@ const FiltersPanelTop = ({
                         )}
                     </div>
                 )}
-                {sortEnabled && sortOptions.length &&
+                {sortEnabled && sortOptions.length > 0 &&
                     <div data-testid="top-filters__sort-popup" className="consonant-top-filters--select-wrapper">
                         {sortComponent}
                     </div>

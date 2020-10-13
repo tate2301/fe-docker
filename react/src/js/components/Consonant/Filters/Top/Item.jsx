@@ -82,7 +82,7 @@ const TopFilterItem = ({
 
     const containerClassnames = classNames('consonant-top-filter', {
         'consonant-top-filter_opened': isOpened,
-        'consonant-top-filter_selected': items.filter(i => i.selected).length && !isOpened,
+        'consonant-top-filter_selected': items.filter(i => i.selected).length > 0 && !isOpened,
     });
 
     return (
