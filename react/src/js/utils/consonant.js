@@ -9,7 +9,7 @@ export const getNumSelectedFilterItems = (filters) => {
 };
 
 export const makeConfigGetter = config => (object, key) => {
-    const defaultValue = DEFAULT_CONFIG[object][key];
+    const defaultValue = get(DEFAULT_CONFIG, `${object}.${key}`);
     const value = get(config, `${object}.${key}`);
     if (isNullish(value)) return defaultValue;
     return value;
