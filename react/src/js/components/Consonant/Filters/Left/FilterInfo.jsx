@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { useConfig } from '../../../../utils/hooks';
 import ChosenFilter from './ChosenItem';
 
@@ -20,19 +21,29 @@ const FilterInfo = (props) => {
 
     const getConfig = useConfig();
     const title = getConfig('collection', 'title');
+    const enableFilterPanel = getConfig('filterPanel', 'enabled');
     const showTotalResults = getConfig('collection', 'displayTotalResults');
     const showTotalResultsText = getConfig('collection', 'totalResultsText');
     const searchEnabled = getConfig('search', 'enabled');
     const sortEnabled = getConfig('sort', 'enabled');
 
+    const wrapperClassName = classNames(
+        'consonant-filters-info--wrapper',
+        {
+            'consonant-filters-info--wrapper_no-line': !sortEnabled || !sortOptions.length,
+        },
+    );
+    const containerClassName = classNames(
+        'consonant-filters-info',
+        {
+            'consonant-filters-info_no-filter-panel': !enableFilterPanel,
+        },
+    );
+
     return (
-        <aside data-testid="consonant-filters__info" className="consonant-filters-info">
+        <aside data-testid="consonant-filters__info" className={containerClassName}>
             {windowWidth >= DESKTOP_MIN_WIDTH &&
-                <div className={
-                    (sortEnabled && sortOptions.length) ?
-                        'consonant-filters-info--wrapper' :
-                        'consonant-filters-info--wrapper consonant-filters-info--wrapper_no-line'
-                }>
+                <div className={wrapperClassName}>
                     {title && <h2 data-testid="title" className="consonant-filters-info--title">{title}</h2>}
                     {showTotalResults && <span data-testid="results" className="consonant-filters-info--results">{showTotalResultsText.replace('{}', cardsQty)}</span>}
                 </div>

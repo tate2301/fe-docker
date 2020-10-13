@@ -68,18 +68,11 @@
         .focused;
 
         &.consonant-select--btn_active + .consonant-select--options {
-            visibility: visible;
             opacity: 1;
-            z-index: 2;
-        }
-
-        &:not(.consonant-select--btn_active) + .consonant-select--options {
-            transition-delay: 0.2s;
         }
     }
 
     .consonant-select--options {
-        visibility: hidden;
         opacity: 0;
         position: absolute;
         max-width: 70vw;
@@ -89,8 +82,8 @@
         border: 1px solid @consonant-color-lightest-grey;
         background-color: @consonant-color-white;
         box-shadow: 0 3px 15px fade(@consonant-color-brown-grey, 10%);
-        transition: all @transition-time @transition-func;
-        z-index: -1;
+        transition: opacity @transition-time @transition-func;
+        z-index: 2;
         border-radius: unit((@consonant-root-rem * 0.3125), px);
         overflow: hidden;
 
