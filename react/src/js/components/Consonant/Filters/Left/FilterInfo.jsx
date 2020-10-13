@@ -20,10 +20,10 @@ const FilterInfo = (props) => {
     } = props;
 
     const getConfig = useConfig();
-    const title = getConfig('collection', 'title');
+    const title = getConfig('collection', 'i18n.title');
     const enableFilterPanel = getConfig('filterPanel', 'enabled');
-    const showTotalResults = getConfig('collection', 'displayTotalResults');
-    const showTotalResultsText = getConfig('collection', 'totalResultsText');
+    const showTotalResults = getConfig('collection', 'showTotalResults');
+    const showTotalResultsText = getConfig('collection', 'i18n.totalResultsText');
     const searchEnabled = getConfig('search', 'enabled');
     const sortEnabled = getConfig('sort', 'enabled');
 

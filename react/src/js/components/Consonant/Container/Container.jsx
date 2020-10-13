@@ -69,7 +69,7 @@ const Container = (props) => {
     const filtersConfig = getConfig('filterPanel', 'filters');
     const filterLogic = getConfig('filterPanel', 'filterLogic').toLowerCase().trim();
     const collectionEndpoint = getConfig('collection', 'endpoint');
-    const totalCardLimit = getConfig('collection', 'totalCardLimit');
+    const totalCardLimit = getConfig('collection', 'totalCardsToShow');
     const searchFields = getConfig('search', 'searchFields');
     const sortOptions = getConfig('sort', 'options');
     const defaultSortOption = getDefaultSortOption(config, getConfig('sort', 'defaultSort'));
@@ -528,7 +528,7 @@ const Container = (props) => {
                                     isLoading && (
                                         <Loader
                                             size={LOADER_SIZE.BIG}
-                                            hidden={!getConfig('collection', 'totalCardLimit')}
+                                            hidden={!getConfig('collection', 'totalCardsToShow')}
                                             absolute />
                                     )
                                 )

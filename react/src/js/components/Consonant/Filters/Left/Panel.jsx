@@ -22,8 +22,8 @@ const LeftFilterPanel = ({
 }) => {
     const getConfig = useConfig();
 
-    const showTotalResults = getConfig('collection', 'displayTotalResults');
-    const showTotalResultsText = getConfig('collection', 'totalResultsText');
+    const showTotalResults = getConfig('collection', 'showTotalResults');
+    const showTotalResultsText = getConfig('collection', 'i18n.totalResultsText');
     const clearFilterText = getConfig('filterPanel', 'clearFilterText');
     const clearAllFiltersText = getConfig('filterPanel', 'clearAllFiltersText');
     const bookmarksEnabled = getConfig('bookmarks', 'enabled');

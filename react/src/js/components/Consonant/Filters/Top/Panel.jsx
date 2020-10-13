@@ -28,8 +28,8 @@ const FiltersPanelTop = ({
     const searchEnabled = getConfig('search', 'enabled');
     const clearFilterText = getConfig('filterPanel', 'clearFilterText');
     const clearAllFiltersText = getConfig('filterPanel', 'clearAllFiltersText');
-    const showTotalResults = getConfig('collection', 'displayTotalResults');
-    const showTotalResultsText = getConfig('collection', 'totalResultsText');
+    const showTotalResults = getConfig('collection', 'showTotalResults');
+    const showTotalResultsText = getConfig('collection', 'i18n.totalResultsText');
     const sortEnabled = getConfig('sort', 'enabled');
     const sortOptions = getConfig('sort', 'options');
 

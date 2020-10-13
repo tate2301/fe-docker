@@ -51,18 +51,16 @@
     <script type="text/javascript">
         var config = {
             collection: {
-                resultsPerPage: "5",
-                endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/scratch5.json",
-                title: "Your Favorite Cards",
-                totalCardLimit: '-1',
-                cardStyleOverride: "none", // could also be "3:2" or "full-card"
-                displayTotalResults: true,
-                totalResultsText: "{} results",
+                resultsPerPage: '10',
+                endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/sample-cards.json",
+                totalCardsToShow: '150',
+                cardStyle: "none", // could also be "3:2" or "full-card"
+                showTotalResults: 'true',
                 i18n: {
                     prettyDateIntervalFormat: '{LLL} {dd} | {timeRange} {timeZone}',
                     totalResultsText: '{total} results',
                     title: 'Your Favorite Picks',
-                },
+                }
             },
             featuredCards: [
                 {
@@ -109,7 +107,7 @@
                                 "href": "https://www.google.com"
                             }
                         ]
-                    }                    
+                    }
                 }
             ],
             filterPanel: {
@@ -199,10 +197,10 @@
                 leftPanelTitle: 'Search now',
                 searchFields: [
                     "contentArea.title",
-                    "contentArea.description", 
-                    "contentArea.detailText", 
-                    "contentArea.dateDetailText", 
-                    "overlays.banner.decsription", 
+                    "contentArea.description",
+                    "contentArea.detailText",
+                    "contentArea.dateDetailText",
+                    "overlays.banner.decsription",
                     "overlays.label.text"
                 ],
             },

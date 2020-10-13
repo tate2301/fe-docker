@@ -23,7 +23,7 @@ const Collection = (props) => {
     const getConfig = useConfig();
     const allowBookmarking = getConfig('bookmarks', 'enabled');
     const cardsStyle = getConfig('collection', 'cardStyle');
-    const { prettyDateIntervalFormat: dateFormat } = getConfig('collection', 'i18n');
+    const dateFormat = getConfig('collection', 'i18n.prettyDateIntervalFormat');
     const locale = getConfig('language', 'current');
     let cards = [...props.cards];
     let cardsToShow = showItemsPerPage * pages;
