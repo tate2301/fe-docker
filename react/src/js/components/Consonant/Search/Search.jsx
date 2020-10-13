@@ -8,11 +8,11 @@ const Search = ({
     onSearch,
     name,
     autofocus,
+    placeholderText,
 }) => {
     const getConfig = useConfig();
 
-    const placeholderText = getConfig('search', 'inputPlaceholderText');
-    const leftPanelTitle = getConfig('search', 'leftPanelTitle');
+    const leftPanelTitle = getConfig('search', 'i18n.leftFilterPanel.searchTitle');
 
 
     const textInput = useRef(null);

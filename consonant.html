@@ -187,16 +187,22 @@
             },
             search: {
                 enabled: 'true',
-                inputPlaceholderText: 'Search here...',
-                leftPanelTitle: 'Search now',
-                searchFields: [
-                    "contentArea.title",
-                    "contentArea.description",
-                    "contentArea.detailText",
-                    "contentArea.dateDetailText",
-                    "overlays.banner.decsription",
-                    "overlays.label.text"
-                ],
+                searchFields: '["contentArea.title","contentArea.detail","search.meta.author","overlays.label.text", "foo.bar"]',
+                i18n: {
+                    leftFilterPanel: {
+                        searchTitle: 'i18n.leftFilterPanel.searchTitle',
+                        searchPlaceholderText: 'i18n.leftFilterPanel.searchPlaceholderText',
+                    },
+                    topFilterPanel: {
+                        searchPlaceholderText: 'i18n.topFilterPanel.searchPlaceholderText',
+                    },
+                    // INFO: Added new config -- you might have missed this but
+                    //  search is used is 3 places: left, top, and filterInfo
+                    //  (which is the mobile version of both)
+                    filterInfo: {
+                        searchPlaceholderText: 'i18n.filterInfo.searchPlaceholderText',
+                    }
+                }
             },
             language: {
               current: 'de',

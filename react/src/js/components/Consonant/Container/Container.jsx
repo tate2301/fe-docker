@@ -428,6 +428,7 @@ const Container = (props) => {
                                     )}
                                     searchComponent={(
                                         <Search
+                                            placeholderText={getConfig('search', 'i18n.leftFilterPanel.searchPlaceholderText')}
                                             name="filtersSideSearch"
                                             value={searchQuery}
                                             autofocus={false}
@@ -450,6 +451,7 @@ const Container = (props) => {
                                     showLimitedFiltersQty={showLimitedFiltersQty}
                                     searchComponent={(
                                         <Search
+                                            placeholderText={getConfig('search', 'i18n.topFilterPanel.searchPlaceholderText')}
                                             name="filtersTopSearch"
                                             value={searchQuery}
                                             autofocus={windowWidth >= DESKTOP_MIN_WIDTH}
@@ -478,6 +480,7 @@ const Container = (props) => {
                                 onMobileFiltersToggleClick={handleFiltersToggle}
                                 searchComponent={(
                                     <Search
+                                        placeholderText={getConfig('search', 'i18n.filterInfo.searchPlaceholderText')}
                                         name="searchFiltersInfo"
                                         value={searchQuery}
                                         autofocus={false}
