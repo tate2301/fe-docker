@@ -23,7 +23,7 @@ const LeftFilterPanel = ({
 
     const showTotalResults = getConfig('collection', 'showTotalResults');
     const clearAllFiltersText = getConfig('filterPanel', 'i18n.leftPanel.clearAllFiltersText');
-    const bookmarksEnabled = getConfig('bookmarks', 'enabled');
+    const bookmarksEnabled = getConfig('bookmarks', 'leftFilterPanel.showBookmarksFilter');
     const searchEnabled = getConfig('search', 'enabled');
     const panelHeader = getConfig('filterPanel', 'i18n.leftPanel.header');
     const showTotalResultsText = getConfig('filterPanel', 'i18n.leftPanel.mobile.panel.totalResultsText');

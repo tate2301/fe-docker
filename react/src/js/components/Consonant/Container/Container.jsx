@@ -65,7 +65,7 @@ const Container = (props) => {
     const paginationType = getConfig('pagination', 'type');
     const paginationIsEnabled = getConfig('pagination', 'enabled');
     const resultsPerPage = getConfig('collection', 'resultsPerPage');
-    const onlyShowBookmarks = getConfig('bookmarks', 'bookmarkOnlyCollection');
+    const onlyShowBookmarks = getConfig('bookmarks', 'leftFilterPanel.bookmarkOnlyCollection');
     const filtersConfig = getConfig('filterPanel', 'filters');
     const filterLogic = getConfig('filterPanel', 'filterLogic').toLowerCase().trim();
     const collectionEndpoint = getConfig('collection', 'endpoint');

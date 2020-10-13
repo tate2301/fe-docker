@@ -10,9 +10,9 @@ const Bookmarks = (props) => {
     } = props;
 
     const getConfig = useConfig();
-    const title = getConfig('bookmarks', 'bookmarksFilterTitle');
-    const selectedIco = getConfig('bookmarks', 'selectBookmarksIcon');
-    const unselectedIco = getConfig('bookmarks', 'unselectBookmarksIcon');
+    const title = getConfig('bookmarks', 'i18n.leftFilterPanel.filterTitle');
+    const selectedIco = getConfig('bookmarks', 'leftFilterPanel.selectBookmarksIcon');
+    const unselectedIco = getConfig('bookmarks', 'leftFilterPanel.unselectBookmarksIcon');
 
     const src = selected ? selectedIco : unselectedIco;
 

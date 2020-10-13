@@ -21,7 +21,7 @@ const Collection = (props) => {
     } = props;
 
     const getConfig = useConfig();
-    const allowBookmarking = getConfig('bookmarks', 'enabled');
+    const allowBookmarking = getConfig('bookmarks', 'leftFilterPanel.showBookmarksFilter');
     const cardsStyle = getConfig('collection', 'cardStyle');
     const dateFormat = getConfig('collection', 'i18n.prettyDateIntervalFormat');
     const locale = getConfig('language', 'current');

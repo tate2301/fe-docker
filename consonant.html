@@ -112,7 +112,7 @@
             ],
             filterPanel: {
                 enabled: 'true',
-                type: 'top',
+                type: 'left',
                 filters: '[{"openedOnLoad":false,"id":"we-retail:activity","items":[{"label":"Biking","id":"we-retail:activity/biking"},{"label":"Hiking","id":"we-retail:activity/hiking"},{"label":"Other","id":"we-retail:activity/others"},{"label":"Running","id":"we-retail:activity/running"},{"label":"Skiing","id":"we-retail:activity/skiing"},{"label":"Surfing","id":"we-retail:activity/surfing"},{"label":"Swimming","id":"we-retail:activity/swimming"}],"group":"Activity"},{"openedOnLoad":false,"id":"we-retail:apparel","items":[{"label":"Coat","id":"we-retail:apparel/coat"},{"label":"Footwear","id":"we-retail:apparel/footwear"},{"label":"Glasses","id":"we-retail:apparel/glasses"},{"label":"Gloves","id":"we-retail:apparel/gloves"},{"label":"Hat","id":"we-retail:apparel/hat"},{"label":"Helmet","id":"we-retail:apparel/helmet"},{"label":"Pancho","id":"we-retail:apparel/pancho"},{"label":"Pants","id":"we-retail:apparel/pants"},{"label":"Scarf","id":"we-retail:apparel/scarf"},{"label":"Shirt","id":"we-retail:apparel/shirt"},{"label":"Shorts","id":"we-retail:apparel/shorts"}],"group":"Apparel"}]',
                 filterLogic: 'and',
                 i18n: {
@@ -173,11 +173,17 @@
                 }
             },
             bookmarks: {
-                enabled: 'true',
-                bookmarkOnlyCollection: 'false',
-                selectBookmarksIcon: '',
-                unselectBookmarksIcon: '',
-                bookmarksFilterTitle: 'My Favorites',
+                leftFilterPanel: {
+                    bookmarkOnlyCollection: 'false',
+                    showBookmarksFilter: 'true',
+                    selectBookmarksIcon: 'http://placehold.it/150x150',
+                    unselectBookmarksIcon: 'http://placehold.it/150x150/red',
+                },
+                i18n: {
+                    leftFilterPanel: {
+                        filterTitle: 'i18n.leftFilterPanel.filterTitle',
+                    }
+                }
             },
             search: {
                 enabled: 'true',
