@@ -17,22 +17,33 @@ Tooltip.propTypes = {
 
 const AspectRatio3to2Card = ({
     id,
-    title,
-    label,
-    description,
-    image,
-    bannerDescription,
-    bannerFontColor,
-    bannerBackgroundColor,
-    bannerIcon,
     badgeText,
-    videoURL,
     footer,
     disableBookmarkIco,
     isBookmarked,
     onClick,
     dateFormat,
     locale,
+    styles: {
+        backgroundImage: image,
+    },
+    contentArea: {
+        title,
+        detailText: label,
+        description,
+
+    },
+    overlays: {
+        banner: {
+            description: bannerDescription,
+            fontColor: bannerFontColor,
+            backgroundColor: bannerBackgroundColor,
+            icon: bannerIcon,
+        },
+        videoButton: {
+            url: videoURL,
+        },
+    },
 }) => {
     const extendFooterData = (data) => {
         if (!data) return null;
@@ -114,10 +125,12 @@ const AspectRatio3to2Card = ({
                     className="consonant-aspect-ratio-3-2-card--text">
                     {description}
                 </p>
-                <CardFooter
-                    left={extendFooterData(footer.left)}
-                    center={extendFooterData(footer.center)}
-                    right={extendFooterData(footer.right)} />
+                {footer.map(f => (
+                    <CardFooter
+                        left={extendFooterData(f.left)}
+                        center={extendFooterData(f.center)}
+                        right={extendFooterData(f.right)} />
+                ))}
             </div>
         </div>
     );

@@ -4,16 +4,27 @@ import PropTypes from 'prop-types';
 const FullCard = (props) => {
     const {
         id,
-        title,
-        label,
-        ctaLink,
-        image,
-        bannerDescription,
-        bannerFontColor,
-        bannerBackgroundColor,
-        bannerIcon,
+        styles: {
+            backgroundImage: image,
+        },
+        contentArea: {
+            title,
+            detailText: label,
+
+        },
+        overlays: {
+            banner: {
+                description: bannerDescription,
+                fontColor: bannerFontColor,
+                backgroundColor: bannerBackgroundColor,
+                icon: bannerIcon,
+            },
+            videoButton: {
+                url: videoURL,
+            },
+        },
+
         badgeText,
-        videoURL,
     } = props;
 
     return (
@@ -58,7 +69,7 @@ const FullCard = (props) => {
                 </a>}
             </div>
             <a
-                href={ctaLink}
+                href="ctaLink"
                 target="_blank"
                 rel="noreferrer"
                 title="Click to open in a new tab"

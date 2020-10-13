@@ -1,3 +1,4 @@
+import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { isNullish } from '../../../utils/general';
@@ -36,7 +37,7 @@ const Collection = (props) => {
     return cards.length > 0 && (
         <div data-testid="consonant-collection" className="consonant-card-collection">
             {cards.map((card) => {
-                const type = cardsStyle && cardsStyle.toLowerCase() !== 'none' ? cardsStyle : card.cardStyle;
+                const type = cardsStyle && cardsStyle.toLowerCase() !== 'none' ? cardsStyle : get(card, 'styles.typeOverride');
 
                 if (type === CARD_STYLE.FULL) {
                     return (<FullCard
@@ -52,7 +53,6 @@ const Collection = (props) => {
                     key={card.id}
                     {...card}
                     onClick={onCardBookmark}
-                    allowBookmarking={allowBookmarking}
                     dateFormat={dateFormat}
                     locale={locale} />);
             })}

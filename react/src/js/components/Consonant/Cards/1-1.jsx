@@ -4,16 +4,27 @@ import PropTypes from 'prop-types';
 const AspectRatio1to1Card = (props) => {
     const {
         id,
-        title,
-        label,
         ctaLink,
-        image,
-        bannerDescription,
-        bannerFontColor,
-        bannerBackgroundColor,
-        bannerIcon,
         badgeText,
-        videoURL,
+
+        styles: {
+            backgroundImage: image,
+        },
+        contentArea: {
+            title,
+            detailText: label,
+        },
+        overlays: {
+            banner: {
+                description: bannerDescription,
+                fontColor: bannerFontColor,
+                backgroundColor: bannerBackgroundColor,
+                icon: bannerIcon,
+            },
+            videoButton: {
+                url: videoURL,
+            },
+        },
     } = props;
 
     return (
