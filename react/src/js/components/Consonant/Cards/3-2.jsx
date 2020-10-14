@@ -154,7 +154,7 @@ export default AspectRatio3to2Card;
 
 AspectRatio3to2Card.propTypes = {
     id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     label: PropTypes.string,
     description: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
@@ -184,6 +184,7 @@ AspectRatio3to2Card.defaultProps = {
     badgeText: '',
     label: '',
     videoURL: '',
+    title: '',
     footer: {},
     disableBookmarkIco: false,
 };

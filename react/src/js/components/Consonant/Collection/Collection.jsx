@@ -2,7 +2,6 @@
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { isNullish } from '../../../utils/general';
 import { useConfig } from '../../../utils/hooks';
 import AspectRatio1to1Card from '../Cards/1-1';
 import AspectRatio3to2Card from '../Cards/3-2';
@@ -24,7 +23,6 @@ const Collection = (props) => {
     } = props;
 
     const getConfig = useConfig();
-    const allowBookmarking = getConfig('bookmarks', 'leftFilterPanel.showBookmarksFilter');
     const cardsStyle = getConfig('collection', 'cardStyle');
     const dateFormat = getConfig('collection', 'i18n.prettyDateIntervalFormat');
     const locale = getConfig('language', '');
