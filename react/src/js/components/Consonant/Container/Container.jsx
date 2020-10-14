@@ -1,3 +1,4 @@
+/*eslint-disable */
 import produce from 'immer';
 import get from 'lodash/get';
 import set from 'lodash/set';
@@ -216,375 +217,18 @@ const Container = (props) => {
             .then(resp => resp.json())
             .then((payload) => {
                 setLoading(false);
+                // eslint-disable-next-line
                 payload = {
                     cards: [
                         {
-                            id: '1',
+                            id: "3",
                             showCard: {
-                                from: '2020-10-01T20:00:00Z',
-                                until: '2025-10-31T21:45:00Z',
+                                from: "2020-10-01T20:00:00Z",
+                                until: "2025-10-31T21:45:00Z",
                             },
                             styles: {
-                                typeOverride: '3:2',
-                                backgroundImage: 'https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png',
-                            },
-                            overlays: {
-                                banner: {},
-                                logo: {
-                                    src: 'https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg',
-                                },
-                                label: {
-                                    text: 'Some Label',
-                                },
-                                videoButton: {},
-                            },
-                            tags: [
-                                {
-                                    id: 'we-retail:apparrel/coat',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/footwear',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/glasses',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/gloves',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/hat',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/helmet',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/pancho',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/pants',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/scarf',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/shirt',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/shorts',
-                                },
-                            ],
-                            contentArea: {
-                                detailText: '',
-                                title: 'Descended from astronomers rock and the headline keeps going to three lines.',
-                                description: '',
-                                dateDetailText: {
-                                    startTime: '2020-10-20T20:00:00Z',
-                                    endTime: '2020-10-27T21:45:00Z',
-                                },
-                            },
-                            footer: [
-                                {
-                                    divider: true,
-                                    left: [{
-
-                                    }],
-                                    center: [],
-                                    right: [{
-                                        type: 'button',
-                                        style: 'call-to-action',
-                                        text: 'Read More',
-                                        href: 'https://www.google.com',
-                                    }],
-                                },
-                            ],
-                            search: {
-                                meta: {
-                                    author: 'Sanjay Rai',
-                                    description: 'Some meta description',
-                                    tags: 'Analytics',
-                                },
-                            },
-                        },
-                        {
-                            id: '2',
-                            showCard: {
-                                from: '2020-10-01T20:00:00Z',
-                                until: '2025-10-31T21:45:00Z',
-                            },
-                            styles: {
-                                typeOverride: '3:2',
-                                backgroundImage: 'https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png',
-                            },
-                            overlays: {
-                                banner: {
-                                    backgroundColor: '#EBC526',
-                                    fontColor: '#002148',
-                                    description: 'Featured',
-                                    icon: '',
-                                },
-                                logo: {},
-                                label: {},
-                                videoButton: {
-                                    url: 'https://www.youtube.com/watch?v=hY7m5jjJ9mM&ab_channel=TigerFunnyWorks',
-                                },
-                            },
-                            tags: [
-                                {
-                                    id: 'we-retail:activity/biking',
-                                },
-                                {
-                                    id: 'we-retail:activity/hiking',
-                                },
-                                {
-                                    id: 'we-retail:activity/other',
-                                },
-                                {
-                                    id: 'we-retail:activity/running',
-                                },
-                                {
-                                    id: 'we-retail:activity/skiing',
-                                },
-                                {
-                                    id: 'we-retail:activity/surfing',
-                                },
-                                {
-                                    id: 'we-retail:activity/swimming',
-                                },
-                            ],
-                            contentArea: {
-                                detailText: 'Details',
-                                title: 'Descended from astronomers rock and the headline keeps going to three lines.',
-                                description: '',
-                                dateDetailText: {},
-                            },
-                            footer: [
-                                {
-                                    divider: true,
-                                    left: [
-                                        {
-                                            type: 'bookmark',
-                                            saveCardIcon: 'path-to-svg',
-                                            unsaveCardIcon: 'path-to-another-svg',
-                                            cardSaveText: 'Save Card',
-                                            cardUnsaveText: 'Unsave Card',
-                                        },
-                                        {
-                                            type: 'date-interval',
-                                            startTime: '2020-10-20T20:00:00Z',
-                                            endTime: '2020-10-27T21:45:00Z',
-                                        },
-                                    ],
-                                    center: [
-                                        {
-                                            type: 'link',
-                                            href: 'https://www.google.com',
-                                            text: 'Text link',
-                                        },
-                                    ],
-                                    right: [{
-                                        type: 'button',
-                                        style: 'call-to-action',
-                                        text: 'Read More',
-                                    }],
-                                },
-                            ],
-                            search: {
-                                meta: {
-                                    author: 'Sanjay Rai',
-                                    description: 'Some meta description',
-                                    tags: 'Analytics',
-                                },
-                            },
-                        },
-                        {
-                            id: '3',
-                            showCard: {
-                                from: '2020-10-01T20:00:00Z',
-                                until: '2025-10-31T21:45:00Z',
-                            },
-                            styles: {
-                                typeOverride: '3:2',
-                                backgroundImage: 'https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png',
-                            },
-                            overlays: {
-                                banner: {},
-                                logo: {},
-                                label: {},
-                                videoButton: {
-                                    url: 'https://www.youtube.com/watch?v=hY7m5jjJ9mM&ab_channel=TigerFunnyWorks',
-                                },
-                            },
-                            tags: [
-                                {
-                                    id: 'we-retail:apparrel/coat',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/footwear',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/glasses',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/gloves',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/hat',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/helmet',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/pancho',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/pants',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/scarf',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/shirt',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/shorts',
-                                },
-                            ],
-                            contentArea: {
-                                detailText: 'Details',
-                                title: 'Descended from astronomers rock and the headline keeps going to three lines.',
-                                description: 'The wizard quickly jinxed the gnomes before they vaporized. Zelda might fix the job growth plans very quickly on Monday.',
-                                dateDetailText: {},
-                            },
-                            footer: [
-                                {
-                                    divider: true,
-                                    left: [
-                                        {
-                                            type: 'bookmark',
-                                            saveCardIcon: 'path-to-svg',
-                                            unsaveCardIcon: 'path-to-another-svg',
-                                            cardSaveText: 'Save Card',
-                                            cardUnsaveText: 'Unsave Card',
-                                        },
-                                        {
-                                            type: 'date-interval',
-                                            startTime: '2020-10-20T20:00:00Z',
-                                            endTime: '2020-10-27T21:45:00Z',
-                                        },
-                                    ],
-                                    center: [
-                                        {
-                                            type: 'link',
-                                            href: 'https://www.google.com',
-                                            text: 'Text link',
-                                        },
-                                    ],
-                                    right: [{
-                                        type: 'button',
-                                        style: 'call-to-action',
-                                        text: 'Read More',
-                                    }],
-                                },
-                            ],
-                            search: {
-                                meta: {
-                                    author: 'Sanjay Rai',
-                                    description: 'Some meta description',
-                                    tags: 'Analytics',
-                                },
-                            },
-                        },
-                        {
-                            id: '4',
-                            showCard: {
-                                from: '2020-10-01T20:00:00Z',
-                                until: '2025-10-31T21:45:00Z',
-                            },
-                            styles: {
-                                typeOverride: '3:2',
-                                backgroundImage: 'https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png',
-                            },
-                            overlays: {
-                                banner: {},
-                                logo: {
-                                    src: 'https://caas-chimera.s3-us-west-1.amazonaws.com/img/looka.png',
-                                },
-                                label: {},
-                                videoButton: {},
-                            },
-                            tags: [
-                                {
-                                    id: 'we-retail:activity/biking',
-                                },
-                                {
-                                    id: 'we-retail:activity/hiking',
-                                },
-                                {
-                                    id: 'we-retail:activity/other',
-                                },
-                                {
-                                    id: 'we-retail:activity/running',
-                                },
-                                {
-                                    id: 'we-retail:activity/skiing',
-                                },
-                                {
-                                    id: 'we-retail:activity/surfing',
-                                },
-                                {
-                                    id: 'we-retail:activity/swimming',
-                                },
-                            ],
-                            contentArea: {
-                                detailText: 'Details',
-                                title: 'Descended from astronomers rock and the headline keeps going to three lines.',
-                                description: 'Author Name',
-                                dateDetailText: {},
-                            },
-                            footer: [
-                                {
-                                    divider: true,
-                                    left: [
-                                        {
-                                            type: 'icon-with-text',
-                                            src: 'https://caas-chimera.s3-us-west-1.amazonaws.com/icons/heart.svg',
-                                            text: '4',
-                                        },
-                                        {
-                                            type: 'icon-with-text',
-                                            src: 'https://caas-chimera.s3-us-west-1.amazonaws.com/icons/upload.svg',
-                                            text: '8',
-                                        },
-                                        {
-                                            type: 'icon',
-                                            src: 'https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg',
-                                        },
-                                    ],
-                                    center: [],
-                                    right: [{
-                                        type: 'button',
-                                        style: 'call-to-action',
-                                        text: 'Read More',
-                                    }],
-                                },
-                            ],
-                            search: {
-                                meta: {
-                                    author: 'Sanjay Rai',
-                                    description: 'Some meta description',
-                                    tags: 'Analytics',
-                                },
-                            },
-                        },
-                        {
-                            id: '5',
-                            showCard: {
-                                from: '2020-10-01T20:00:00Z',
-                                until: '2025-10-31T21:45:00Z',
-                            },
-                            styles: {
-                                typeOverride: '3:2',
-                                backgroundImage: 'https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png',
+                                typeOverride: "3:2",
+                                backgroundImage: "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
                             },
                             overlays: {
                                 banner: {},
@@ -592,95 +236,43 @@ const Container = (props) => {
                                 label: {},
                                 videoButton: {},
                             },
-                            tags: [
-                                {
-                                    id: 'we-retail:apparrel/coat',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/footwear',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/glasses',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/gloves',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/hat',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/helmet',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/pancho',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/pants',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/scarf',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/shirt',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/shorts',
-                                },
-                            ],
+                            tags: [],
                             contentArea: {
-                                detailText: 'Details',
-                                title: 'Descended from astronomers rock and the headline keeps going to three lines.',
-                                description: 'Author Name',
+                                detailText: "",
+                                title: "3 - Infobit",
+                                description: "",
                                 dateDetailText: {},
                             },
                             footer: [
                                 {
                                     divider: false,
-                                    left: [{
-                                        type: 'progress-bar',
-                                        label: 'Progress',
-                                        completionText: '6/10',
-                                        percentage: '60',
-                                    }],
-                                    center: [],
+                                    left: [],
+                                    center: [
+                                        {
+                                            type: "icon-with-text",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/bookmark.svg",
+                                            text: "10 Tuts",
+                                        },
+                                        {
+                                            type: "icon-with-text",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg",
+                                            text: "117 min",
+                                        },
+                                    ],
                                     right: [],
-                                },
-                                {
-                                    divider: true,
-                                    left: [{
-                                        type: 'icon-with-text',
-                                        src: 'https://caas-chimera.s3-us-west-1.amazonaws.com/icons/bookmark.svg',
-                                        text: '10 Tuts',
-                                    }],
-                                    center: [{
-                                        type: 'icon-with-text',
-                                        src: 'https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg',
-                                        text: '117 min',
-                                    }],
-                                    right: [{
-                                        type: 'icon-with-text',
-                                        src: 'https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg',
-                                        text: '68k',
-                                    }],
-                                },
+                                }
                             ],
-                            search: {
-                                meta: {
-                                    author: 'Sanjay Rai',
-                                    description: 'Some meta description',
-                                    tags: 'Analytics',
-                                },
-                            },
+                            search: {},
                         },
                         {
-                            id: '6',
+                            id: "4",
                             showCard: {
-                                from: '2020-10-01T20:00:00Z',
-                                until: '2025-10-31T21:45:00Z',
+                                from: "2020-10-01T20:00:00Z",
+                                until: "2025-10-31T21:45:00Z",
                             },
                             styles: {
-                                typeOverride: '3:2',
-                                backgroundImage: 'https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png',
+                                typeOverride: "3:2",
+                                backgroundImage: "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
                             },
                             overlays: {
                                 banner: {},
@@ -688,65 +280,663 @@ const Container = (props) => {
                                 label: {},
                                 videoButton: {},
                             },
-                            tags: [
-                                {
-                                    id: 'we-retail:activity/biking',
-                                },
-                                {
-                                    id: 'we-retail:activity/hiking',
-                                },
-                                {
-                                    id: 'we-retail:activity/other',
-                                },
-                                {
-                                    id: 'we-retail:activity/running',
-                                },
-                                {
-                                    id: 'we-retail:activity/skiing',
-                                },
-                                {
-                                    id: 'we-retail:activity/surfing',
-                                },
-                                {
-                                    id: 'we-retail:activity/swimming',
-                                },
-                            ],
+                            tags: [],
                             contentArea: {
-                                detailText: 'Details',
-                                title: 'Descended from astronomers rock and the headline keeps going to three lines.',
-                                description: 'Author Name',
+                                detailText: "",
+                                title: "4 - infobit",
+                                description: "",
+                                dateDetailText: {},
+                            },
+                            footer: [
+                                {
+                                    divider: false,
+                                    left: [
+                                        {
+                                            type: "icon",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/bookmark.svg",
+                                        },
+                                        {
+                                            type: "text",
+                                            text: "10 tuts",
+                                        },
+                                    ],
+                                    center: [
+                                        {
+                                            type: "icon",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg",
+                                        },
+                                        {
+                                            type: "text",
+                                            text: "117 min",
+                                        },
+                                    ],
+                                    right: [
+                                        {
+                                            type: "icon-with-text",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+                                            text: "68k",
+                                        }
+                                    ],
+                                }
+                            ],
+                            search: {},
+                        },
+                        {
+                            id: "5",
+                            showCard: {
+                                from: "2020-10-01T20:00:00Z",
+                                until: "2025-10-31T21:45:00Z",
+                            },
+                            styles: {
+                                typeOverride: "3:2",
+                                backgroundImage: "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+                            },
+                            overlays: {
+                                banner: {},
+                                logo: {},
+                                label: {},
+                                videoButton: {},
+                            },
+                            tags: [],
+                            contentArea: {
+                                detailText: "",
+                                title: "5 - infobit",
+                                description: "",
                                 dateDetailText: {},
                             },
                             footer: [
                                 {
                                     divider: true,
-                                    left: [{
-                                        type: 'progress-bar',
-                                        label: 'Progress',
-                                        completionText: '6/10',
-                                        percentage: '60',
-                                    }],
+                                    left: [],
+                                    center: [
+                                        {
+                                            type: "icon-with-text",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/heart.svg",
+                                            text: "4",
+                                        },
+                                        {
+                                            type: "icon-with-text",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/upload.svg",
+                                            text: 8,
+                                        },
+                                        {
+                                            type: "icon",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                                        },
+                                    ],
+                                    right: [],
+                                }
+                            ],
+                        },
+                        {
+                            id: "6",
+                            showCard: {
+                                from: "2020-10-01T20:00:00Z",
+                                until: "2025-10-31T21:45:00Z",
+                            },
+                            styles: {
+                                typeOverride: "3:2",
+                                backgroundImage: "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+                            },
+                            overlays: {
+                                banner: {},
+                                logo: {},
+                                label: {},
+                                videoButton: {},
+                            },
+                            tags: [],
+                            contentArea: {
+                                detailText: "",
+                                title: "6 - infobit",
+                                description: "",
+                                dateDetailText: {},
+                            },
+                            footer: [
+                                {
+                                    divider: true,
+                                    left: [],
+                                    center: [],
+                                    right: [
+                                        {
+                                            type: "button",
+                                            style: "call-to-action",
+                                            text: "Button",
+                                        }
+                                    ],
+                                }
+                            ],
+                        },
+                        {
+                            id: "10",
+                            showCard: {
+                                from: "2020-10-01T20:00:00Z",
+                                until: "2025-10-31T21:45:00Z",
+                            },
+                            styles: {
+                                typeOverride: "3:2",
+                                backgroundImage: "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+                            },
+                            overlays: {
+                                banner: {},
+                                logo: {},
+                                label: {},
+                                videoButton: {},
+                            },
+                            tags: [],
+                            contentArea: {
+                                detailText: "",
+                                title: "10 - Infobit",
+                                description: "",
+                                dateDetailText: {},
+                            },
+                            footer: [
+                                {
+                                    divider: true,
+                                    left: [
+                                        {
+                                            type: "icon",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/desktop.svg",
+                                        },
+                                        {
+                                            type: "icon",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/smartphone.svg",
+                                        },
+                                    ],
+                                    center: [],
+                                    right: [
+                                        {
+                                            type: "button",
+                                            style: "call-to-action",
+                                            text: "Button",
+                                        }
+                                    ],
+                                }
+                            ],
+                        },
+                        {
+                            id: "12",
+                            showCard: {
+                                from: "2020-10-01T20:00:00Z",
+                                until: "2025-10-31T21:45:00Z",
+                            },
+                            styles: {
+                                typeOverride: "3:2",
+                                backgroundImage: "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+                            },
+                            overlays: {
+                                banner: {},
+                                logo: {},
+                                label: {},
+                                videoButton: {},
+                            },
+                            tags: [],
+                            contentArea: {
+                                detailText: "",
+                                title: "12 - Infobit",
+                                description: "",
+                                dateDetailText: {},
+                            },
+                            footer: [
+                                {
+                                    divider: true,
+                                    left: [
+                                        {
+                                            type: "icon",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/pr_mnemonic.svg",
+                                        },
+                                        {
+                                            type: "icon",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/lr_mnemonic.svg",
+                                        },
+                                    ],
+                                    center: [],
+                                    right: [
+                                        {
+                                            type: "button",
+                                            style: "call-to-action",
+                                            text: "Button",
+                                        }
+                                    ],
+                                }
+                            ],
+                        },
+                        {
+                            id: "N",
+                            showCard: {
+                                from: "2020-10-01T20:00:00Z",
+                                until: "2025-10-31T21:45:00Z",
+                            },
+                            styles: {
+                                typeOverride: "3:2",
+                                backgroundImage: "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+                            },
+                            overlays: {
+                                banner: {},
+                                logo: {},
+                                label: {},
+                                videoButton: {},
+                            },
+                            tags: [],
+                            contentArea: {
+                                detailText: "",
+                                title: "14 Infoobit",
+                                description: "",
+                                dateDetailText: {},
+                            },
+                            footer: [
+                                {
+                                    divider: true,
+                                    left: [
+                                        {
+                                            type: "rating",
+                                            totalStars: 5,
+                                            starsFilled: 2.5,
+                                            label: "1.4",
+                                        }
+                                    ],
+                                    center: [],
+                                    right: [
+                                        {
+                                            type: "button",
+                                            style: "call-to-action",
+                                            text: "Button",
+                                        }
+                                    ],
+                                }
+                            ],
+                        },
+                        {
+                            id: "11",
+                            showCard: {
+                                from: "2020-10-01T20:00:00Z",
+                                until: "2025-10-31T21:45:00Z",
+                            },
+                            styles: {
+                                typeOverride: "3:2",
+                                backgroundImage: "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+                            },
+                            overlays: {
+                                banner: {},
+                                logo: {},
+                                label: {},
+                                videoButton: {},
+                            },
+                            tags: [],
+                            contentArea: {
+                                detailText: "",
+                                title: "11 - Infobit",
+                                description: "",
+                                dateDetailText: {},
+                            },
+                            footer: [
+                                {
+                                    divider: true,
+                                    left: [
+                                        {
+                                            type: "price",
+                                            price: "$29.99",
+                                            term: "month",
+                                        }
+                                    ],
+                                    center: [],
+                                    right: [
+                                        {
+                                            type: "button",
+                                            style: "call-to-action",
+                                            text: "Button",
+                                        }
+                                    ],
+                                }
+                            ],
+                        },
+                        {
+                            id: "7",
+                            showCard: {
+                                from: "2020-10-01T20:00:00Z",
+                                until: "2025-10-31T21:45:00Z",
+                            },
+                            styles: {
+                                typeOverride: "3:2",
+                                backgroundImage: "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+                            },
+                            overlays: {
+                                banner: {},
+                                logo: {},
+                                label: {},
+                                videoButton: {},
+                            },
+                            tags: [],
+                            contentArea: {
+                                detailText: "",
+                                title: "7 - Infobit",
+                                description: "",
+                                dateDetailText: {},
+                            },
+                            footer: [
+                                {
+                                    left: [],
+                                    center: [
+                                        {
+                                            type: "link",
+                                            href: "https://www.google.com",
+                                            text: "Click here",
+                                        }
+                                    ],
+                                    right: [
+                                        {
+                                            type: "button",
+                                            text: "Button",
+                                        }
+                                    ],
+                                }
+                            ],
+                        },
+                        {
+                            id: "13",
+                            showCard: {
+                                from: "2020-10-01T20:00:00Z",
+                                until: "2025-10-31T21:45:00Z",
+                            },
+                            styles: {
+                                typeOverride: "3:2",
+                                backgroundImage: "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+                            },
+                            overlays: {
+                                banner: {},
+                                logo: {},
+                                label: {},
+                                videoButton: {},
+                            },
+                            tags: [],
+                            contentArea: {
+                                detailText: "",
+                                title: "13 Infobit",
+                                description: "",
+                                dateDetailText: {},
+                            },
+                            footer: [
+                                {
+                                    divider: true,
+                                    left: [
+                                        {
+                                            type: "icon",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/pr_mnemonic.svg",
+                                        },
+                                        {
+                                            type: "icon",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/lr_mnemonic.svg",
+                                        },
+                                    ],
+                                    center: [
+                                        {
+                                            type: "icon-with-text",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/grey_star.svg",
+                                            text: "3.7",
+                                        }
+                                    ],
+                                    right: [
+                                        {
+                                            type: "button",
+                                            style: "call-to-action",
+                                            text: "$9.99",
+                                        }
+                                    ],
+                                }
+                            ],
+                        },
+                        {
+                            id: "14",
+                            showCard: {
+                                from: "2020-10-01T20:00:00Z",
+                                until: "2025-10-31T21:45:00Z",
+                            },
+                            styles: {
+                                typeOverride: "3:2",
+                                backgroundImage: "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+                            },
+                            overlays: {
+                                banner: {},
+                                logo: {},
+                                label: {},
+                                videoButton: {},
+                            },
+                            tags: [],
+                            contentArea: {
+                                detailText: "",
+                                title: "14 - Infobit",
+                                description: "",
+                                dateDetailText: {},
+                            },
+                            footer: [
+                                {
+                                    left: [
+                                        {
+                                            type: "icon-with-text",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+                                            text: "68k",
+                                        }
+                                    ],
+                                    center: [],
+                                    right: [
+                                        {
+                                            type: "button",
+                                            style: "call-to-action",
+                                            text: "Button",
+                                        }
+                                    ],
+                                }
+                            ],
+                        },
+                        {
+                            id: "8",
+                            showCard: {
+                                from: "2020-10-01T20:00:00Z",
+                                until: "2025-10-31T21:45:00Z",
+                            },
+                            styles: {
+                                typeOverride: "3:2",
+                                backgroundImage: "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+                            },
+                            overlays: {
+                                banner: {},
+                                logo: {},
+                                label: {},
+                                videoButton: {},
+                            },
+                            tags: [],
+                            contentArea: {
+                                detailText: "",
+                                title: "8 - Infobit",
+                                description: "",
+                                dateDetailText: {},
+                            },
+                            footer: [
+                                {
+                                    left: [
+                                        {
+                                            type: "icon-with-text",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+                                            text: "68k",
+                                        }
+                                    ],
+                                    center: [],
+                                    right: [
+                                        {
+                                            type: "button",
+                                            style: "call-to-action",
+                                            text: "Button",
+                                        }
+                                    ],
+                                }
+                            ],
+                        },
+                        {
+                            id: "9",
+                            showCard: {
+                                from: "2020-10-01T20:00:00Z",
+                                until: "2025-10-31T21:45:00Z",
+                            },
+                            styles: {
+                                typeOverride: "3:2",
+                                backgroundImage: "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+                            },
+                            overlays: {
+                                banner: {},
+                                logo: {},
+                                label: {},
+                                videoButton: {},
+                            },
+                            tags: [],
+                            contentArea: {
+                                detailText: "",
+                                title: "Infobit 15",
+                                description: "",
+                                dateDetailText: {},
+                            },
+                            footer: [
+                                {
+                                    left: [
+                                        {
+                                            type: "icon-with-text",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+                                            text: "68k",
+                                        }
+                                    ],
+                                    center: [
+                                        {
+                                            type: "link",
+                                            href: "https://www.google.com",
+                                            text: "Text link",
+                                        }
+                                    ],
+                                    right: [
+                                        {
+                                            type: "button",
+                                            style: "call-to-action",
+                                            text: "Button",
+                                        }
+                                    ],
+                                }
+                            ],
+                        },
+                        {
+                            id: "15",
+                            showCard: {
+                                from: "2020-10-01T20:00:00Z",
+                                until: "2025-10-31T21:45:00Z",
+                            },
+                            styles: {
+                                typeOverride: "3:2",
+                                backgroundImage: "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+                            },
+                            overlays: {
+                                banner: {},
+                                logo: {},
+                                label: {},
+                                videoButton: {},
+                            },
+                            tags: [],
+                            contentArea: {
+                                detailText: "",
+                                title: "15 Infobit",
+                                description: "",
+                                dateDetailText: {},
+                            },
+                            footer: [
+                                {
+                                    left: [
+                                        {
+                                            type: "progress-bar",
+                                            label: "Progress",
+                                            completionText: "6/10",
+                                            percentage: "60%",
+                                            color: "#1473E6",
+                                        }
+                                    ],
+                                    center: [],
+                                    right: [],
+                                }
+                            ],
+                        },
+                        {
+                            id: "16",
+                            showCard: {
+                                from: "2020-10-01T20:00:00Z",
+                                until: "2025-10-31T21:45:00Z",
+                            },
+                            styles: {
+                                typeOverride: "3:2",
+                                backgroundImage: "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+                            },
+                            overlays: {
+                                banner: {},
+                                logo: {},
+                                label: {},
+                                videoButton: {},
+                            },
+                            tags: [],
+                            contentArea: {
+                                detailText: "",
+                                title: "16 - Infobit",
+                                description: "",
+                                dateDetailText: {},
+                            },
+                            footer: [
+                                {
+                                    divider: false,
+                                    left: [
+                                        {
+                                            type: "progress-bar",
+                                            label: "Progress",
+                                            completionText: "6/10",
+                                            percentage: "60%",
+                                            color: "#1473E6",
+                                        }
+                                    ],
                                     center: [],
                                     right: [],
                                 },
-                            ],
-                            search: {
-                                meta: {
-                                    author: 'Sanjay Rai',
-                                    description: 'Some meta description',
-                                    tags: 'Analytics',
+                                {
+                                    divider: true,
+                                    left: [
+                                        {
+                                            type: "icon",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/bookmark.svg",
+                                        },
+                                        {
+                                            type: "text",
+                                            text: "10 tuts",
+                                        },
+                                    ],
+                                    center: [
+                                        {
+                                            type: "icon",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg",
+                                        },
+                                        {
+                                            type: "text",
+                                            text: "117 min",
+                                        },
+                                    ],
+                                    right: [
+                                        {
+                                            type: "icon-with-text",
+                                            src: "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+                                            text: "68k",
+                                        }
+                                    ],
                                 },
-                            },
+                            ],
                         },
                         {
-                            id: '7',
+                            id: "17",
                             showCard: {
-                                from: '2020-10-01T20:00:00Z',
-                                until: '2025-10-31T21:45:00Z',
+                                from: "2020-10-01T20:00:00Z",
+                                until: "2025-10-31T21:45:00Z",
                             },
                             styles: {
-                                typeOverride: '1:1',
-                                backgroundImage: 'https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png',
+                                typeOverride: "3:2",
+                                backgroundImage: "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
                             },
                             overlays: {
                                 banner: {},
@@ -754,445 +944,47 @@ const Container = (props) => {
                                 label: {},
                                 videoButton: {},
                             },
-                            tags: [
-                                {
-                                    id: 'we-retail:apparrel/coat',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/footwear',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/glasses',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/gloves',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/hat',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/helmet',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/pancho',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/pants',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/scarf',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/shirt',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/shorts',
-                                },
-                            ],
+                            tags: [],
                             contentArea: {
-                                detailText: '',
-                                title: 'Descended from astronomers rock and the headline keeps going to three lines.',
-                                description: '',
+                                detailText: "",
+                                title: "16 - Infobit",
+                                description: "",
                                 dateDetailText: {},
                             },
-                            footer: [],
-                            search: {
-                                meta: {
-                                    author: 'Sanjay Rai',
-                                    description: 'Some meta description',
-                                    tags: 'Analytics',
-                                },
-                            },
-                        },
-                        {
-                            id: '8',
-                            showCard: {
-                                from: '2020-10-01T20:00:00Z',
-                                until: '2025-10-31T21:45:00Z',
-                            },
-                            styles: {
-                                typeOverride: '1:1',
-                                backgroundImage: 'https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png',
-                            },
-                            overlays: {
-                                banner: {
-                                    backgroundColor: '#EBC526',
-                                    fontColor: '#002148',
-                                    description: 'Featured',
-                                },
-                                logo: {},
-                                label: {},
-                                videoButton: {},
-                            },
-                            tags: [
+                            footer: [
                                 {
-                                    id: 'we-retail:activity/biking',
+                                    left: [
+                                        {
+                                            type: "progress-bar",
+                                            label: "Progress",
+                                            completionText: "6/10",
+                                            percentage: "60%",
+                                            color: "#1473E6",
+                                        }
+                                    ],
+                                    center: [],
+                                    right: [],
                                 },
                                 {
-                                    id: 'we-retail:activity/hiking',
-                                },
-                                {
-                                    id: 'we-retail:activity/other',
-                                },
-                                {
-                                    id: 'we-retail:activity/running',
-                                },
-                                {
-                                    id: 'we-retail:activity/skiing',
-                                },
-                                {
-                                    id: 'we-retail:activity/surfing',
-                                },
-                                {
-                                    id: 'we-retail:activity/swimming',
+                                    left: [],
+                                    center: [
+                                        {
+                                            type: "link",
+                                            href: "https://www.google.com",
+                                            text: "Text link",
+                                        }
+                                    ],
+                                    right: [
+                                        {
+                                            type: "button",
+                                            style: "call-to-action",
+                                            text: "Button",
+                                        }
+                                    ],
                                 },
                             ],
-                            contentArea: {
-                                detailText: 'Details',
-                                title: 'Descended from astronomers rock and the headline keeps going to three lines.',
-                                description: '',
-                                dateDetailText: {},
-                            },
-                            footer: [],
-                            search: {
-                                meta: {
-                                    author: 'Sanjay Rai',
-                                    description: 'Some meta description',
-                                    tags: 'Analytics',
-                                },
-                            },
                         },
-                        {
-                            id: '9',
-                            showCard: {
-                                from: '2020-10-01T20:00:00Z',
-                                until: '2025-10-31T21:45:00Z',
-                            },
-                            styles: {
-                                typeOverride: '1:1',
-                                backgroundImage: 'https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png',
-                            },
-                            overlays: {
-                                banner: {},
-                                logo: {},
-                                label: {},
-                                videoButton: {
-                                    url: 'https://www.youtube.com/watch?v=hY7m5jjJ9mM&ab_channel=TigerFunnyWorks',
-                                },
-                            },
-                            tags: [
-                                {
-                                    id: 'we-retail:apparrel/coat',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/footwear',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/glasses',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/gloves',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/hat',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/helmet',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/pancho',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/pants',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/scarf',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/shirt',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/shorts',
-                                },
-                            ],
-                            contentArea: {
-                                detailText: 'Details',
-                                title: 'Descended from astronomers rock and the headline keeps going to three lines.',
-                                description: '',
-                                dateDetailText: {},
-                            },
-                            footer: [],
-                            search: {
-                                meta: {
-                                    author: 'Sanjay Rai',
-                                    description: 'Some meta description',
-                                    tags: 'Analytics',
-                                },
-                            },
-                        },
-                        {
-                            id: '10',
-                            showCard: {
-                                from: '2020-10-01T20:00:00Z',
-                                until: '2025-10-31T21:45:00Z',
-                            },
-                            styles: {
-                                typeOverride: '1:1',
-                                backgroundImage: 'https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png',
-                            },
-                            overlays: {
-                                banner: {},
-                                logo: {
-                                    src: 'https://caas-chimera.s3-us-west-1.amazonaws.com/img/looka.png',
-                                },
-                                label: {},
-                                videoButton: {
-                                    url: 'https://www.youtube.com/watch?v=hY7m5jjJ9mM&ab_channel=TigerFunnyWorks',
-                                },
-                            },
-                            tags: [
-                                {
-                                    id: 'we-retail:activity/biking',
-                                },
-                                {
-                                    id: 'we-retail:activity/hiking',
-                                },
-                                {
-                                    id: 'we-retail:activity/other',
-                                },
-                                {
-                                    id: 'we-retail:activity/running',
-                                },
-                                {
-                                    id: 'we-retail:activity/skiing',
-                                },
-                                {
-                                    id: 'we-retail:activity/surfing',
-                                },
-                                {
-                                    id: 'we-retail:activity/swimming',
-                                },
-                            ],
-                            contentArea: {
-                                detailText: 'Details',
-                                title: 'Descended from astronomers rock and the headline keeps going to three lines.',
-                                description: '',
-                                dateDetailText: {},
-                            },
-                            footer: [],
-                            search: {
-                                meta: {
-                                    author: 'Sanjay Rai',
-                                    description: 'Some meta description',
-                                    tags: 'Analytics',
-                                },
-                            },
-                        },
-                        {
-                            id: '11',
-                            showCard: {
-                                from: '2020-10-01T20:00:00Z',
-                                until: '2025-10-31T21:45:00Z',
-                            },
-                            styles: {
-                                typeOverride: 'full-card',
-                                backgroundImage: 'https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png',
-                            },
-                            overlays: {
-                                banner: {},
-                                logo: {},
-                                label: {},
-                                videoButton: {
-                                    url: 'https://www.youtube.com/watch?v=hY7m5jjJ9mM&ab_channel=TigerFunnyWorks',
-                                },
-                            },
-                            tags: [
-                                {
-                                    id: 'we-retail:apparrel/coat',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/footwear',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/glasses',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/gloves',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/hat',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/helmet',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/pancho',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/pants',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/scarf',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/shirt',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/shorts',
-                                },
-                            ],
-                            contentArea: {
-                                detailText: '',
-                                title: 'Check out cats in Lorem',
-                                description: '',
-                                dateDetailText: {},
-                            },
-                            footer: [],
-                            search: {
-                                meta: {
-                                    author: 'Sanjay Rai',
-                                    description: 'Some meta description',
-                                    tags: 'Analytics',
-                                },
-                            },
-                        },
-                        {
-                            id: '12',
-                            showCard: {
-                                from: '2020-10-01T20:00:00Z',
-                                until: '2025-10-31T21:45:00Z',
-                            },
-                            styles: {
-                                typeOverride: '1:1',
-                                backgroundImage: 'https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png',
-                            },
-                            overlays: {
-                                banner: {
-                                    backgroundColor: '#EBC526',
-                                    fontColor: '#002148',
-                                    description: 'Featured',
-                                },
-                                logo: {},
-                                label: {},
-                                videoButton: {},
-                            },
-                            tags: [
-                                {
-                                    id: 'we-retail:activity/biking',
-                                },
-                                {
-                                    id: 'we-retail:activity/hiking',
-                                },
-                                {
-                                    id: 'we-retail:activity/other',
-                                },
-                                {
-                                    id: 'we-retail:activity/running',
-                                },
-                                {
-                                    id: 'we-retail:activity/skiing',
-                                },
-                                {
-                                    id: 'we-retail:activity/surfing',
-                                },
-                                {
-                                    id: 'we-retail:activity/swimming',
-                                },
-                            ],
-                            contentArea: {
-                                detailText: 'Details',
-                                title: 'Check out cats in Lorem onto two lines.',
-                                description: '',
-                                dateDetailText: {
-                                    startTime: '2020-10-20T20:00:00Z',
-                                    endTime: '2020-10-27T21:45:00Z',
-                                },
-                            },
-                            footer: [],
-                            search: {
-                                meta: {
-                                    author: 'Sanjay Rai',
-                                    description: 'Some meta description',
-                                    tags: 'Analytics',
-                                },
-                            },
-                        },
-                        {
-                            id: '13',
-                            showCard: {
-                                from: '2020-10-01T20:00:00Z',
-                                until: '2025-10-31T21:45:00Z',
-                            },
-                            styles: {
-                                typeOverride: 'full-card',
-                                backgroundImage: 'https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png',
-                            },
-                            overlays: {
-                                banner: {
-                                    backgroundColor: '#EBC526',
-                                    fontColor: '#002148',
-                                    description: 'Featured',
-                                },
-                                logo: {},
-                                label: {},
-                                videoButton: {
-                                    url: 'https://www.youtube.com/watch?v=hY7m5jjJ9mM&ab_channel=TigerFunnyWorks',
-                                },
-                            },
-                            tags: [
-                                {
-                                    id: 'we-retail:apparrel/coat',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/footwear',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/glasses',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/gloves',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/hat',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/helmet',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/pancho',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/pants',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/scarf',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/shirt',
-                                },
-                                {
-                                    id: 'we-retail:apparrel/shorts',
-                                },
-                            ],
-                            contentArea: {
-                                detailText: 'Details',
-                                title: 'Check out cats in Lorem onto two lines.',
-                                description: '',
-                                dateDetailText: {
-                                    startTime: '2020-10-20T20:00:00Z',
-                                    endTime: '2020-10-27T21:45:00Z',
-                                },
-                            },
-                            footer: [],
-                            search: {
-                                meta: {
-                                    author: 'Sanjay Rai',
-                                    description: 'Some meta description',
-                                    tags: 'Analytics',
-                                },
-                            },
-                        },
-                    ],
+                    ]
                 };
                 if (!get(payload, 'cards.length')) return;
 
@@ -1343,8 +1135,8 @@ const Container = (props) => {
 
     const collectionCards = useMemo(
         () =>
-        // INFO: bookmarked cards will be ordered because bookmarked cards is
-        //  derived from sorted Cards
+            // INFO: bookmarked cards will be ordered because bookmarked cards is
+            //  derived from sorted Cards
             (showBookmarks ? bookmarkedCards : sortedCards)
         , [sortedCards, showBookmarks, bookmarkedCards],
     );
@@ -1451,33 +1243,33 @@ const Container = (props) => {
                                     onShowAllClick={handleShowAllTopFilters} />
                             }
                             {filterPanelType === FILTER_PANEL.LEFT &&
-                            <FilterInfo
-                                enabled={filterPanelEnabled}
-                                filters={filters}
-                                cardsQty={filteredCards.length}
-                                selectedFiltersQty={selectedFiltersItemsQty}
-                                windowWidth={windowWidth}
-                                onMobileFiltersToggleClick={handleFiltersToggle}
-                                searchComponent={(
-                                    <Search
-                                        placeholderText={getConfig('search', 'i18n.filterInfo.searchPlaceholderText')}
-                                        name="searchFiltersInfo"
-                                        value={searchQuery}
-                                        autofocus={false}
-                                        onSearch={handleSearchInputChange} />
-                                )}
-                                sortComponent={(
-                                    <Select
-                                        opened={sortOpened}
-                                        id="sort"
-                                        val={sort}
-                                        values={sortOptions}
-                                        onSelect={handleSortChange}
-                                        autoWidth={false}
-                                        optionsAlignment="right" />
-                                )}
-                                sortOptions={sortOptions}
-                                onSelectedFilterClick={handleCheckBoxChange} />
+                                <FilterInfo
+                                    enabled={filterPanelEnabled}
+                                    filters={filters}
+                                    cardsQty={filteredCards.length}
+                                    selectedFiltersQty={selectedFiltersItemsQty}
+                                    windowWidth={windowWidth}
+                                    onMobileFiltersToggleClick={handleFiltersToggle}
+                                    searchComponent={(
+                                        <Search
+                                            placeholderText={getConfig('search', 'i18n.filterInfo.searchPlaceholderText')}
+                                            name="searchFiltersInfo"
+                                            value={searchQuery}
+                                            autofocus={false}
+                                            onSearch={handleSearchInputChange} />
+                                    )}
+                                    sortComponent={(
+                                        <Select
+                                            opened={sortOpened}
+                                            id="sort"
+                                            val={sort}
+                                            values={sortOptions}
+                                            onSelect={handleSortChange}
+                                            autoWidth={false}
+                                            optionsAlignment="right" />
+                                    )}
+                                    sortOptions={sortOptions}
+                                    onSelectedFilterClick={handleCheckBoxChange} />
                             }
                             {collectionCards.length > 0 ?
                                 <Fragment>
@@ -1496,15 +1288,15 @@ const Container = (props) => {
                                         </div>
                                     )}
                                     {shouldDisplayPaginator && paginationType === 'paginator' &&
-                                    <Paginator
-                                        pageCount={windowWidth <= DESKTOP_MIN_WIDTH ?
-                                            PAGINATION_COUNT.MOBILE : PAGINATION_COUNT.DESKTOP
-                                        }
-                                        currentPageNumber={currentPage}
-                                        totalPages={totalPages}
-                                        showItemsPerPage={resultsPerPage}
-                                        totalResults={filteredCards.length}
-                                        onClick={setCurrentPage} />
+                                        <Paginator
+                                            pageCount={windowWidth <= DESKTOP_MIN_WIDTH ?
+                                                PAGINATION_COUNT.MOBILE : PAGINATION_COUNT.DESKTOP
+                                            }
+                                            currentPageNumber={currentPage}
+                                            totalPages={totalPages}
+                                            showItemsPerPage={resultsPerPage}
+                                            totalResults={filteredCards.length}
+                                            onClick={setCurrentPage} />
                                     }
                                 </Fragment> : (
                                     isLoading && (

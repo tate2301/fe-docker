@@ -1,3 +1,4 @@
+/*eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useConfig } from '../../../utils/hooks';
@@ -139,6 +140,7 @@ const AspectRatio3to2Card = ({
                 </p>
                 {footer.map(f => (
                     <CardFooter
+                        divider={f.divider}
                         left={extendFooterData(f.left)}
                         center={extendFooterData(f.center)}
                         right={extendFooterData(f.right)} />

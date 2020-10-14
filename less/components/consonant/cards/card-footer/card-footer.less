@@ -1,8 +1,32 @@
+/* Available modificators:
+- .consonant-card-footer_divider;
+- .consonant-card-footer--cell_left;
+- .consonant-card-footer--cell_center;
+- .consonant-card-footer--cell_right;
+*/
+
 @consonant-card-footer-height: 32px;
+@consonant-card-footer-max-in-cell: 10;
 
 .consonant-card-footer {
     margin-top: auto;
     padding-top: 24px;
+
+    &:not(:last-of-type) {
+        padding-bottom: 24px;
+    }
+
+    & + .consonant-card-footer {
+        margin-top: 0;
+    }
+
+    & + .consonant-card-footer:not(.consonant-card-footer_divider) {
+        margin-top: -24px;
+    }
+
+    &.consonant-card-footer_divider {
+        border-top: 1px solid @consonant-color-lightest-grey;
+    }
 }
 
 .consonant-card-footer--row {
@@ -20,21 +44,49 @@
     align-items: center;
     min-width: 0;
     max-width: 100%;
+    flex-basis: 0;
     flex-grow: 1;
 
     &:empty {
         display: none;
     }
 
-    &:not(:first-child):not(:last-child) {
-        justify-content: center;
+    &.consonant-card-footer--cell_left > *:first-child {
+        margin-left: 0;
     }
 
-    &:last-child {
+    &.consonant-card-footer--cell_center {
+        justify-content: center;
+
+        &:first-child:not(:only-child) {
+            min-width: 33%;
+            max-width: 33%;
+            margin-left: 33%;
+        }
+
+        &:last-child:not(:only-child) {
+            min-width: 33%;
+            max-width: 33%;
+            margin-right: 33%;
+        }
+
+        & > *:only-child {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    &.consonant-card-footer--cell_right {
         justify-content: flex-end;
     }
 
-    &:only-child {
-        justify-content: space-between;
+    & > *:nth-of-type(n + 11) {
+        display: none;
     }
+}
+
+.set-bits-max-width(@consonant-card-footer-max-in-cell);
+
+.consonant-card-footer + .consonant-card-footer ~ .consonant-card-footer {
+    display: none;
 }

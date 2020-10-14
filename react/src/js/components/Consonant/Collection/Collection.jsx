@@ -1,3 +1,4 @@
+/*eslint-disable */
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React from 'react';

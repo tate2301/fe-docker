@@ -1,7 +1,12 @@
-@consonant-rating-wrapper-height: 15px;
-@consonant-rating-star-size: 15px;
+/*Available modificators:
+- .consonant-rating-infobit_neg-margin;
+*/
+
+@consonant-rating-star-heigth: 15px;
 @consonant-rating-max-star-qty: 5;
 @consonant-rating-steps: 100;
+@consonant-rating-star-width: 17px;
+@consonant-rating-text-min-width: 24px;
 
 .consonant-rating-infobit {
     display: flex;
@@ -9,49 +14,53 @@
     align-items: center;
     max-width: 100%;
     margin-left: 16px;
-}
 
-*:first-child > .consonant-rating-infobit:first-child {
-    margin-left: 0;
+    &.consonant-rating-infobit_neg-margin {
+        margin-right: @consonant-rating-text-min-width * -1;
+    }
 }
 
 .consonant-rating-infobit--stars {
     display: block;
     position: relative;
-    height: @consonant-rating-wrapper-height;
+    height: @consonant-rating-star-heigth;
     max-width: 100%;
     white-space: nowrap;
 
     &:before {
-        position: relative;
-        top: -1px;
+        content: '';
         display: block;
-
-        .font(@consonant-rating-star-size, @consonant-rating-wrapper-height, 400, @consonant-color-light-grey-6, left);
+        position: relative;
+        height: @consonant-rating-star-heigth;
+        background: transparent url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 17 15' style='enable-background:new 0 0 17 15;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:none;%7D .st1%7Bfill:%23D4D6DB;%7D%0A%3C/style%3E%3Cg id='Shape' transform='translate(-0.029 -0.412)'%3E%3Cpath class='st0' d='M8.6,0.7c-0.1,0-0.3,0.1-0.3,0.2L6.4,5.7L1.2,5.9C1,5.9,0.9,6.1,0.9,6.3c0,0.1,0,0.2,0.1,0.2l4,3.2l-1.4,5 c0,0.2,0.1,0.3,0.2,0.4c0,0,0,0,0,0c0,0,0.1,0,0.1,0c0.1,0,0.1,0,0.2-0.1l4.3-2.8l4.3,2.8c0.1,0.1,0.3,0.1,0.4-0.1 c0-0.1,0.1-0.2,0-0.3l-1.4-5l4-3.2c0.1-0.1,0.2-0.3,0-0.4C16,6,15.9,5.9,15.8,5.9l-5.2-0.2L8.9,0.9C8.8,0.8,8.7,0.7,8.6,0.7 L8.6,0.7z'/%3E%3Cpath class='st1' d='M8.6,2.2L7.1,6L6.9,6.4l-0.5,0l-4,0.2l3.2,2.5l0.4,0.3L5.8,9.9l-1.1,3.9l3.4-2.2l0.4-0.3l0.4,0.3l3.4,2.2 l-1.1-3.9l-0.1-0.5l0.4-0.3l3.2-2.5l-4-0.2l-0.5,0L10,6L8.6,2.2 M8.6,0.7c0.1,0,0.2,0.1,0.3,0.2l1.8,4.8l5.2,0.2 c0.1,0,0.2,0.1,0.3,0.2c0,0.1,0,0.3-0.1,0.3l-4,3.2l1.4,5c0,0,0,0.1,0,0.1c0,0.1-0.1,0.2-0.2,0.3c0,0-0.1,0-0.2,0 c-0.1,0-0.1,0-0.2-0.1l-4.3-2.8l-4.3,2.8c-0.1,0-0.1,0.1-0.2,0.1c0,0-0.1,0-0.1,0c-0.1,0-0.2-0.1-0.2-0.1c0-0.1-0.1-0.2,0-0.2 l1.4-5L1,6.5C0.9,6.4,0.9,6.3,0.9,6.2C1,6,1.1,5.9,1.2,5.9l5.2-0.2l1.9-4.8C8.3,0.8,8.4,0.7,8.6,0.7C8.6,0.7,8.6,0.7,8.6,0.7 C8.6,0.7,8.6,0.7,8.6,0.7z'/%3E%3C/g%3E%3C/svg%3E") repeat-x 0 0;
+        z-index: 1;
+        overflow: hidden;
     }
 
     &:after {
+        content: '';
         display: block;
         position: absolute;
-
-        .font(@consonant-rating-star-size, @consonant-rating-wrapper-height, 400, @consonant-color-blue, left);
-
-        z-index: 1;
+        height: @consonant-rating-star-heigth;
+        background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Layer_1' x='0px' y='0px' viewBox='0 0 17 15' style='enable-background:new 0 0 17 15;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%231473E6;%7D%0A%3C/style%3E%3Cg id='Shape' transform='translate(-0.029 -0.412)'%3E%3Cpath class='st0' d='M8.6,0.7c-0.1,0-0.3,0.1-0.3,0.2L6.4,5.7L1.2,5.9C1,5.9,0.9,6.1,0.9,6.3c0,0.1,0,0.2,0.1,0.2l4,3.2l-1.4,5 c0,0.2,0.1,0.3,0.2,0.4c0,0,0,0,0,0c0,0,0.1,0,0.1,0c0.1,0,0.1,0,0.2-0.1l4.3-2.8l4.3,2.8c0.1,0.1,0.3,0.1,0.4-0.1 c0-0.1,0.1-0.2,0-0.3l-1.4-5l4-3.2c0.1-0.1,0.2-0.3,0-0.4C16,6,15.9,5.9,15.8,5.9l-5.2-0.2L8.9,0.9C8.8,0.8,8.7,0.7,8.6,0.7 L8.6,0.7z'/%3E%3Cpath class='st0' d='M8.6,2.2L7.1,6L6.9,6.4l-0.5,0l-4,0.2l3.2,2.5l0.4,0.3L5.8,9.9l-1.1,3.9l3.4-2.2l0.4-0.3l0.4,0.3l3.4,2.2 l-1.1-3.9l-0.1-0.5l0.4-0.3l3.2-2.5l-4-0.2l-0.5,0L10,6L8.6,2.2 M8.6,0.7c0.1,0,0.2,0.1,0.3,0.2l1.8,4.8l5.2,0.2 c0.1,0,0.2,0.1,0.3,0.2c0,0.1,0,0.3-0.1,0.3l-4,3.2l1.4,5c0,0,0,0.1,0,0.1c0,0.1-0.1,0.2-0.2,0.3c0,0-0.1,0-0.2,0 c-0.1,0-0.1,0-0.2-0.1l-4.3-2.8l-4.3,2.8c-0.1,0-0.1,0.1-0.2,0.1c0,0-0.1,0-0.1,0c-0.1,0-0.2-0.1-0.2-0.1c0-0.1-0.1-0.2,0-0.2 l1.4-5L1,6.5C0.9,6.4,0.9,6.3,0.9,6.2C1,6,1.1,5.9,1.2,5.9l5.2-0.2l1.9-4.8C8.3,0.8,8.4,0.7,8.6,0.7C8.6,0.7,8.6,0.7,8.6,0.7 C8.6,0.7,8.6,0.7,8.6,0.7z'/%3E%3C/g%3E%3C/svg%3E") repeat-x 0 0;
+        z-index: 2;
         left: 0;
-        top: -1px;
+        top: 0;
         bottom: 0;
         overflow: hidden;
     }
 }
 
-.generate-rating-stars(@consonant-rating-max-star-qty);
+.set-rating-width(@consonant-rating-max-star-qty);
 .set-rating(@consonant-rating-steps);
 
 .consonant-rating-infobit--text {
-    max-width: 100%;
+    max-width: 35%;
     margin-left: 7px;
 
     .font(0.875rem, 1.375rem, 400, @consonant-color-dark-grey-6);
 
     white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }

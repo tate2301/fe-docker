@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { maxAllowedStars, maxPercantage, defaultFilledStars } from './const';
 
 function Rating({ totalStars, starsFilled, label }) {
     let total = totalStars;
     let filled = starsFilled;
+    const className = classNames('consonant-rating-infobit', { 'consonant-rating-infobit_neg-margin': !label });
 
     if (totalStars <= 0 || totalStars > maxAllowedStars) {
         total = maxAllowedStars;
@@ -18,10 +20,9 @@ function Rating({ totalStars, starsFilled, label }) {
     const starsFilledMultiplier = Math.round(maxPercantage / total);
 
     return (
-        <div className="consonant-rating-infobit">
+        <div className={className} data-stars={total}>
             <span
                 className="consonant-rating-infobit--stars"
-                data-stars={total}
                 data-rating={Math.round(filled * starsFilledMultiplier)} />
             {label && <span className="consonant-rating-infobit--text">{label}</span>}
         </div>

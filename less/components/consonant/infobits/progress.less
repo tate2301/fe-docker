@@ -11,10 +11,6 @@
     margin-left: 16px;
 }
 
-*:first-child > .consonant-progress-infobit:first-child {
-    margin-left: 0;
-}
-
 .consonant-progress-infobit--wrapper {
     display: flex;
     justify-content: space-between;
@@ -30,10 +26,11 @@
     .font(
         0.875rem,
         1.375rem,
-        400,
+        700,
         @consonant-color-dark-grey-3
     );
 
+    text-transform: uppercase;
     white-space: nowrap;
     text-overflow: ellipsis;
     letter-spacing: 0.14px;

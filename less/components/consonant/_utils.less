@@ -68,22 +68,17 @@
     }
 }
 
-.repeat(@char, @i) when (@i> 0) {
-    .repeat(@char, (@i - 1));
-
-    content+_: '@{char}';
-}
-
-.generate-rating-stars (@i) when (@i > 0) {
-    .consonant-rating-infobit--stars[data-stars = "@{i}"]:before {
-        .repeat('\2606', @i);
+.set-rating-width (@i) when (@i > 0) {
+    .consonant-rating-infobit[data-stars = "@{i}"] {
+        min-width: @i * @consonant-rating-star-width + @consonant-rating-text-min-width;
     }
 
-    .consonant-rating-infobit--stars[data-stars = "@{i}"]:after {
-        .repeat('\2605', @i);
+    .consonant-rating-infobit[data-stars = "@{i}"] .consonant-rating-infobit--stars:before {
+        min-width: @i * @consonant-rating-star-width;
+        max-width: @i * @consonant-rating-star-width;
     }
 
-    .generate-rating-stars(@i - 1);
+    .set-rating-width (@i - 1);
 }
 
 .set-rating (@i) when (@i >= 0) {
@@ -92,4 +87,12 @@
     }
 
     .set-rating (@i - 1);
+}
+
+.set-bits-max-width (@i) when (@i > 0) {
+    .consonant-card-footer--cell[data-max-width = "@{i}"] > * {
+        max-width: 100% / @i;
+    }
+
+    .set-bits-max-width (@i - 1);
 }
