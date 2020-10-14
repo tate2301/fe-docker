@@ -1,23 +1,37 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { render } from '@testing-library/react';
+import mockconfig from '../Mocks/consonant.json';
+
+import ContextProvider from './ContextProvider';
 
 export const createTree = component => renderer
     .create(component)
     .toJSON();
 
-export default (Component, defaultProps) => (passedProps) => {
+export default (Component, defaultProps) => (passedProps, passedConfig) => {
     const props = {
         ...defaultProps,
         ...passedProps,
     };
+    const config = {
+        ...mockconfig,
+        ...passedConfig,
+    };
 
-    const wrapper = render(<Component {...props} />);
-    const tree = createTree(<Component {...props} />);
+    const WrapperComponent = () => (
+        <ContextProvider context={config}>
+            <Component {...props} />
+        </ContextProvider>
+    );
+
+    const wrapper = render(<WrapperComponent />);
+    const tree = createTree(<WrapperComponent />);
 
     return {
         tree,
         props,
+        config,
         wrapper,
     };
 };

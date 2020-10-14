@@ -1,489 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Consonant/Card Check snapshots should renders correctly with different card style 1`] = `
-<div
-  className="consonant-aspect-ratio-3-2-card"
-  data-testid="consonant-card"
-  id="6d6438c8-1"
->
-  <div
-    className="consonant-aspect-ratio-3-2-card--img"
-    data-testid="consonant-card--img"
-    style={
-      Object {
-        "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
-      }
-    }
-  >
-    <span
-      className="consonant-aspect-ratio-3-2-card--banner"
-      data-testid="consonant-card--banner"
-      style={
-        Object {
-          "backgroundColor": "#CB6F10",
-          "color": "#FFFFFF",
-        }
-      }
-    >
-      <div
-        className="consonant-aspect-ratio-3-2-card--banner-icon-wrapper"
-      >
-        <img
-          alt=""
-          data-testid="consonant-card--banner-icon"
-          loading="lazy"
-          src="some-banner-icon"
-        />
-      </div>
-      Some Banner Description
-    </span>
-    
-    <a
-      className="consonant-aspect-ratio-3-2-card--video-ico"
-      href="some-video-url"
-      rel="noreferrer"
-      tabIndex="0"
-      target="_blank"
-    >
-      Open video link
-    </a>
-  </div>
-  <div
-    className="consonant-aspect-ratio-3-2-card--inner"
-  >
-    <span
-      className="consonant-aspect-ratio-3-2-card--label"
-    >
-      Some label
-    </span>
-    <h2
-      className="consonant-aspect-ratio-3-2-card--title"
-    >
-      Some Title 1
-    </h2>
-    <p
-      className="consonant-aspect-ratio-3-2-card--text"
-    >
-      Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars
-    </p>
-    <div
-      className="consonant-card-footer"
-    >
-      <div
-        className="consonant-card-footer--row"
-      >
-        <div
-          className="consonant-card-footer--cell"
-        >
-          <button
-            className="consonant-bookmark-infobit"
-            data-testid="bookmark-button"
-            data-tooltip-wrapper={true}
-            onClick={[Function]}
-            tabIndex="0"
-            type="button"
-          >
-            <span
-              className="consonant-bookmark-infobit--ico"
-              data-testid="bookmarks--ico"
-              style={
-                Object {
-                  "backgroundImage": "url(https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg)",
-                }
-              }
-            />
-            <span
-              className="consonant-tooltip"
-            >
-              Save Card
-            </span>
-          </button>
-        </div>
-        <div
-          className="consonant-card-footer--cell"
-        >
-          <a
-            className="consonant-btn-infobit consonant-btn-infobit_cta"
-            href="https://www.google.com"
-            rel="noreferrer"
-            tabIndex="0"
-            target="_blank"
-          >
-            Read More
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Consonant/Card Check snapshots should renders correctly with different card style 2`] = `
-<div
-  className="consonant-aspect-ratio-3-2-card"
-  data-testid="consonant-card"
-  id="6d6438c8-1"
->
-  <div
-    className="consonant-aspect-ratio-3-2-card--img"
-    data-testid="consonant-card--img"
-    style={
-      Object {
-        "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
-      }
-    }
-  >
-    <span
-      className="consonant-aspect-ratio-3-2-card--banner"
-      data-testid="consonant-card--banner"
-      style={
-        Object {
-          "backgroundColor": "#CB6F10",
-          "color": "#FFFFFF",
-        }
-      }
-    >
-      <div
-        className="consonant-aspect-ratio-3-2-card--banner-icon-wrapper"
-      >
-        <img
-          alt=""
-          data-testid="consonant-card--banner-icon"
-          loading="lazy"
-          src="some-banner-icon"
-        />
-      </div>
-      Some Banner Description
-    </span>
-    
-    <a
-      className="consonant-aspect-ratio-3-2-card--video-ico"
-      href="some-video-url"
-      rel="noreferrer"
-      tabIndex="0"
-      target="_blank"
-    >
-      Open video link
-    </a>
-  </div>
-  <div
-    className="consonant-aspect-ratio-3-2-card--inner"
-  >
-    <span
-      className="consonant-aspect-ratio-3-2-card--label"
-    >
-      Some label
-    </span>
-    <h2
-      className="consonant-aspect-ratio-3-2-card--title"
-    >
-      Some Title 1
-    </h2>
-    <p
-      className="consonant-aspect-ratio-3-2-card--text"
-    >
-      Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars
-    </p>
-    <div
-      className="consonant-card-footer"
-    >
-      <div
-        className="consonant-card-footer--row"
-      >
-        <div
-          className="consonant-card-footer--cell"
-        >
-          <button
-            className="consonant-bookmark-infobit"
-            data-testid="bookmark-button"
-            data-tooltip-wrapper={true}
-            onClick={[Function]}
-            tabIndex="0"
-            type="button"
-          >
-            <span
-              className="consonant-bookmark-infobit--ico"
-              data-testid="bookmarks--ico"
-              style={
-                Object {
-                  "backgroundImage": "url(https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg)",
-                }
-              }
-            />
-            <span
-              className="consonant-tooltip"
-            >
-              Save Card
-            </span>
-          </button>
-        </div>
-        <div
-          className="consonant-card-footer--cell"
-        >
-          <a
-            className="consonant-btn-infobit consonant-btn-infobit_cta"
-            href="https://www.google.com"
-            rel="noreferrer"
-            tabIndex="0"
-            target="_blank"
-          >
-            Read More
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Consonant/Card Check snapshots should renders correctly with different card style 3`] = `
-<div
-  className="consonant-aspect-ratio-3-2-card"
-  data-testid="consonant-card"
-  id="6d6438c8-1"
->
-  <div
-    className="consonant-aspect-ratio-3-2-card--img"
-    data-testid="consonant-card--img"
-    style={
-      Object {
-        "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
-      }
-    }
-  >
-    <span
-      className="consonant-aspect-ratio-3-2-card--banner"
-      data-testid="consonant-card--banner"
-      style={
-        Object {
-          "backgroundColor": "#CB6F10",
-          "color": "#FFFFFF",
-        }
-      }
-    >
-      <div
-        className="consonant-aspect-ratio-3-2-card--banner-icon-wrapper"
-      >
-        <img
-          alt=""
-          data-testid="consonant-card--banner-icon"
-          loading="lazy"
-          src="some-banner-icon"
-        />
-      </div>
-      Some Banner Description
-    </span>
-    
-    <a
-      className="consonant-aspect-ratio-3-2-card--video-ico"
-      href="some-video-url"
-      rel="noreferrer"
-      tabIndex="0"
-      target="_blank"
-    >
-      Open video link
-    </a>
-  </div>
-  <div
-    className="consonant-aspect-ratio-3-2-card--inner"
-  >
-    <span
-      className="consonant-aspect-ratio-3-2-card--label"
-    >
-      Some label
-    </span>
-    <h2
-      className="consonant-aspect-ratio-3-2-card--title"
-    >
-      Some Title 1
-    </h2>
-    <p
-      className="consonant-aspect-ratio-3-2-card--text"
-    >
-      Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars
-    </p>
-    <div
-      className="consonant-card-footer"
-    >
-      <div
-        className="consonant-card-footer--row"
-      >
-        <div
-          className="consonant-card-footer--cell"
-        >
-          <button
-            className="consonant-bookmark-infobit"
-            data-testid="bookmark-button"
-            data-tooltip-wrapper={true}
-            onClick={[Function]}
-            tabIndex="0"
-            type="button"
-          >
-            <span
-              className="consonant-bookmark-infobit--ico"
-              data-testid="bookmarks--ico"
-              style={
-                Object {
-                  "backgroundImage": "url(https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg)",
-                }
-              }
-            />
-            <span
-              className="consonant-tooltip"
-            >
-              Save Card
-            </span>
-          </button>
-        </div>
-        <div
-          className="consonant-card-footer--cell"
-        >
-          <a
-            className="consonant-btn-infobit consonant-btn-infobit_cta"
-            href="https://www.google.com"
-            rel="noreferrer"
-            tabIndex="0"
-            target="_blank"
-          >
-            Read More
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Consonant/Card Check snapshots should renders correctly with different card style 4`] = `
-<div
-  className="consonant-aspect-ratio-3-2-card"
-  data-testid="consonant-card"
-  id="6d6438c8-1"
->
-  <div
-    className="consonant-aspect-ratio-3-2-card--img"
-    data-testid="consonant-card--img"
-    style={
-      Object {
-        "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
-      }
-    }
-  >
-    <span
-      className="consonant-aspect-ratio-3-2-card--banner"
-      data-testid="consonant-card--banner"
-      style={
-        Object {
-          "backgroundColor": "#CB6F10",
-          "color": "#FFFFFF",
-        }
-      }
-    >
-      <div
-        className="consonant-aspect-ratio-3-2-card--banner-icon-wrapper"
-      >
-        <img
-          alt=""
-          data-testid="consonant-card--banner-icon"
-          loading="lazy"
-          src="some-banner-icon"
-        />
-      </div>
-      Some Banner Description
-    </span>
-    
-    <a
-      className="consonant-aspect-ratio-3-2-card--video-ico"
-      href="some-video-url"
-      rel="noreferrer"
-      tabIndex="0"
-      target="_blank"
-    >
-      Open video link
-    </a>
-  </div>
-  <div
-    className="consonant-aspect-ratio-3-2-card--inner"
-  >
-    <span
-      className="consonant-aspect-ratio-3-2-card--label"
-    >
-      Some label
-    </span>
-    <h2
-      className="consonant-aspect-ratio-3-2-card--title"
-    >
-      Some Title 1
-    </h2>
-    <p
-      className="consonant-aspect-ratio-3-2-card--text"
-    >
-      Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars
-    </p>
-    <div
-      className="consonant-card-footer"
-    >
-      <div
-        className="consonant-card-footer--row"
-      >
-        <div
-          className="consonant-card-footer--cell"
-        >
-          <button
-            className="consonant-bookmark-infobit"
-            data-testid="bookmark-button"
-            data-tooltip-wrapper={true}
-            onClick={[Function]}
-            tabIndex="0"
-            type="button"
-          >
-            <span
-              className="consonant-bookmark-infobit--ico"
-              data-testid="bookmarks--ico"
-              style={
-                Object {
-                  "backgroundImage": "url(https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg)",
-                }
-              }
-            />
-            <span
-              className="consonant-tooltip"
-            >
-              Save Card
-            </span>
-          </button>
-        </div>
-        <div
-          className="consonant-card-footer--cell"
-        >
-          <a
-            className="consonant-btn-infobit consonant-btn-infobit_cta"
-            href="https://www.google.com"
-            rel="noreferrer"
-            tabIndex="0"
-            target="_blank"
-          >
-            Read More
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
 <div
   className="consonant-aspect-ratio-3-2-card"
   data-testid="consonant-card"
-  id="6d6438c8-1"
+  id="3"
 >
   <div
     className="consonant-aspect-ratio-3-2-card--img"
     data-testid="consonant-card--img"
     style={
       Object {
-        "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
+        "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png\\")",
       }
     }
   >
@@ -512,7 +40,7 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
     
     <a
       className="consonant-aspect-ratio-3-2-card--video-ico"
-      href="some-video-url"
+      href="some-video-videoURL"
       rel="noreferrer"
       tabIndex="0"
       target="_blank"
@@ -525,18 +53,19 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
   >
     <span
       className="consonant-aspect-ratio-3-2-card--label"
+      data-testid="3-2-card--label"
     >
-      Some label
+      Okt 12 | 00:00 – 00:00 GMT+3
     </span>
     <h2
       className="consonant-aspect-ratio-3-2-card--title"
     >
-      Some Title 1
+      3 - Infobit
     </h2>
     <p
       className="consonant-aspect-ratio-3-2-card--text"
     >
-      Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars
+      Some Description
     </p>
     <div
       className="consonant-card-footer"
@@ -545,7 +74,8 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
         className="consonant-card-footer--row"
       >
         <div
-          className="consonant-card-footer--cell"
+          className="consonant-card-footer--cell consonant-card-footer--cell_center"
+          data-max-width={2}
         >
           <button
             className="consonant-bookmark-infobit consonant-bookmark-infobit_active consonant-bookmark-infobit_disabled"
@@ -560,7 +90,7 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
               data-testid="bookmarks--ico"
               style={
                 Object {
-                  "backgroundImage": "url(https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg)",
+                  "backgroundImage": "",
                 }
               }
             />
@@ -570,19 +100,32 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
               Unsave Card
             </span>
           </button>
+          <div
+            className="consonant-icon-with-text-infobit"
+          >
+            <img
+              alt=""
+              height="22"
+              loading="lazy"
+              src="https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg"
+            />
+            <span
+              className="consonant-icon-with-text-infobit--text"
+            >
+              117 min
+            </span>
+          </div>
         </div>
         <div
-          className="consonant-card-footer--cell"
+          className="consonant-card-footer--cell consonant-card-footer--cell_right"
+          data-max-width={1}
         >
-          <a
-            className="consonant-btn-infobit consonant-btn-infobit_cta"
-            href="https://www.google.com"
-            rel="noreferrer"
-            tabIndex="0"
-            target="_blank"
+          <span
+            className="consonant-date-interval-infobit"
+            title="Okt 12 | 00:00 – 00:00 GMT+3"
           >
-            Read More
-          </a>
+            Okt 12 | 00:00 – 00:00 GMT+3
+          </span>
         </div>
       </div>
     </div>

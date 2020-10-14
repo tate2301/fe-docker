@@ -24,7 +24,6 @@ module.exports = {
     testPathIgnorePatterns: ['\\\\node_modules\\\\', '__tests__/mocks', '__tests__/utils', '__tests__/constants'],
 
     testURL: 'http://localhost',
-
     transformIgnorePatterns: ['<rootDir>/node_modules/'],
 
     // Indicates whether each individual test should be reported during the run

@@ -1,6 +1,8 @@
 import { screen, fireEvent, getNodeText } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
+import mockconfig from '../../Helpers/Testing/Mocks/consonant.json';
+
 import Paginator from '../Paginator';
 
 import { PAGE_LIST, PAGES_PROPS, DEFAULT_PROPS } from '../../Helpers/Testing/Constants/Pagination';
@@ -10,17 +12,28 @@ import { getItemsRange } from '../../Helpers/Testing/Utils/Pagination';
 
 const setup = makeSetup(Paginator, DEFAULT_PROPS);
 
+const { pagination: { i18n: { paginator: { resultsQuantityText } } } } = mockconfig;
+
 describe('Consonant/Pagination', () => {
     test('should render different items range', () => {
         PAGE_LIST.forEach((page) => {
             const { props: { showItemsPerPage, totalResults }, wrapper } =
                 setup({ currentPageNumber: page });
 
-            const itemRange = getItemsRange({ page, totalResults, itemsPerPage: showItemsPerPage });
+            const { start, end } = getItemsRange({
+                page, totalResults, itemsPerPage: showItemsPerPage,
+            });
+
+            const itemsToDisplay = {
+                start, end, total: totalResults,
+            };
+
+            const summary = resultsQuantityText
+                .replace(/\{(\w*)}/gi, (_, matchedKey) => itemsToDisplay[matchedKey]);
 
             const paginationSummaryElement = screen.getByTestId('pagination--summary');
 
-            expect(paginationSummaryElement).toHaveTextContent(itemRange);
+            expect(paginationSummaryElement).toHaveTextContent(summary);
             wrapper.unmount();
         });
     });

@@ -14,11 +14,16 @@ exports[`Consonant/Bookmarks Check snapshots should renders correctly 1`] = `
     <span
       className="bookmarks--ico"
       data-testid="bookmarks--ico"
+      style={
+        Object {
+          "backgroundImage": "url(http://placehold.it/150x150/red)",
+        }
+      }
     />
     <span
       className="bookmarks--title"
     >
-      My favorites
+      i18n.leftFilterPanel.filterTitle
     </span>
   </span>
   <span

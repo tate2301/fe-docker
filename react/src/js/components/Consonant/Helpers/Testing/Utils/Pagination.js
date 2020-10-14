@@ -8,19 +8,10 @@ const getEndNumber = ({ page, itemsPerPage, totalResults }) => {
     return res < totalResults ? res : totalResults;
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export const getItemsRange = ({ page, itemsPerPage, totalResults }) => {
     const start = getStartNumber({ page, itemsPerPage });
     const end = getEndNumber({ page, itemsPerPage, totalResults });
 
-    return `Showing ${start}-${end} of ${totalResults} Results`;
+    return { start, end };
 };
-
-export const createEvent = (element, nodeValue) => ({
-    preventDefault: () => {},
-    target: {
-        firstChild: { nodeValue },
-        classList: {
-            contains: className => element.hasClass(className),
-        },
-    },
-});

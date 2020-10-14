@@ -100,10 +100,11 @@ const FiltersPanelTop = ({
                         {
                             (someFiltersAreSelected || filters.length >= MIN_FILTERS_SHOW_BG) &&
                             <div
+                                data-testid="top-filter__clear-button-wrapper"
                                 className={
                                     filters.length === 1 ?
                                         'consonant-top-filters--clear-btn-wrapper consonant-top-filters--clear-btn-wrapper_no-bg' :
-                                        'conson0ant-top-filters--clear-btn-wrapper'
+                                        'consonant-top-filters--clear-btn-wrapper'
                                 }>
                                 {someFiltersAreSelected &&
                                     <button

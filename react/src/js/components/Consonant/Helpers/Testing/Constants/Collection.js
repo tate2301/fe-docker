@@ -1,36 +1,19 @@
 
-import { cards, bookmarks, collection } from '../Mocks/consonant.json';
-
-const {
-    cardStyle,
-} = collection;
-
-const {
-    enabled: allowBookmarking,
-    cardUnsavedIcon,
-    cardSavedIcon,
-    saveCardText,
-    unsaveCardText,
-} = bookmarks;
+import { collection } from '../Mocks/consonant.json';
+import cards from '../Mocks/cards.json';
 
 export const DEFAULT_PROPS = {
     cards,
-    allowBookmarking,
-    saveCardText,
-    unsaveCardText,
 
-    page: 10,
-    showItemsPerPage: 1,
-    cardsStyle: cardStyle,
-    cardSavedIco: cardSavedIcon,
-    cardUnsavedIco: cardUnsavedIcon,
+    pages: 10,
+    resultsPerPage: 1,
 
     onCardBookmark: jest.fn(),
 };
 
-export const CARD_STYLE = [
+export const COLLECTION_PROPS = [
     '3:2',
     '1:1',
     'none',
     'full-card',
-];
+].map(cardStyle => ({ ...collection, cardStyle }));

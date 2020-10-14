@@ -20,15 +20,14 @@ const setup = makeSetup(Info, DEFAULT_PROPS);
 
 describe('Consonant/FiltersInfo', () => {
     test('should render without title', () => {
-        setup({ title: '' });
+        setup({}, { collection: { i18n: { title: '' } } });
 
         const titleElement = screen.queryByTestId('title');
 
         expect(titleElement).toBeNull();
     });
     test('should render without total result', () => {
-        // TODO: Change to use context
-        setup({ displayTotalResults: false });
+        setup({}, { collection: { showTotalResults: false } });
 
         const resultsElement = screen.queryByTestId('results');
 

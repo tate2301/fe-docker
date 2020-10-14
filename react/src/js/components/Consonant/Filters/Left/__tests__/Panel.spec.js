@@ -15,9 +15,14 @@ import {
 import { DEFAULT_PROPS as SEARCH_DEFAULT_PROPS } from '../../../Helpers/Testing/Constants/Search';
 import { DEFAULT_PROPS as BOOKMARKS_DEFAULT_PROPS } from '../../../Helpers/Testing/Constants/Bookmarks';
 
-import makeSetup, { createTree } from '../../../Helpers/Testing/Utils/Settings';
+import makeSetup from '../../../Helpers/Testing/Utils/Settings';
 
 const setup = makeSetup(Panel, DEFAULT_PROPS);
+
+const CHILD_COMPONENTS = {
+    search: <Search {...SEARCH_DEFAULT_PROPS} />,
+    bookmarks: <Bookmarks {...BOOKMARKS_DEFAULT_PROPS} />,
+};
 
 describe('Consonant/FilterPanelLeft', () => {
     test('should render all filters', () => {
@@ -37,8 +42,13 @@ describe('Consonant/FilterPanelLeft', () => {
 
         expect(footerTotalResElement).not.toBeNull();
     });
+
     test('should render non-desktop elements when filters selected', () => {
-        setup({
+        const {
+            config: {
+                filterPanel: { i18n: { leftPanel: { mobile: { panel: { applyBtnText } } } } },
+            },
+        } = setup({
             filters: selectedAllFilters,
             windowWidth: NON_DESKTOP_WIDTH,
         });
@@ -49,43 +59,29 @@ describe('Consonant/FilterPanelLeft', () => {
 
         const mobileFooterBtnElement = screen.queryByTestId('mobile-footer-btn');
 
-        expect(mobileFooterBtnElement).toHaveTextContent('Apply');
+        expect(mobileFooterBtnElement).toHaveTextContent(applyBtnText);
     });
 
     describe('Check snapshots', () => {
         test('should renders correctly with two children', () => {
-            const tree = createTree((
-                <Panel {...DEFAULT_PROPS} >
-                    <Search
-                        name="filtersSideSearch"
-                        {...SEARCH_DEFAULT_PROPS} />
-                    <Bookmarks
-                        childrenKey="filtersSideBookmarks"
-                        {...BOOKMARKS_DEFAULT_PROPS} />
-                </Panel>
-            ));
+            const { tree } = setup({
+                searchComponent: CHILD_COMPONENTS.search,
+                bookmarkComponent: CHILD_COMPONENTS.bookmarks,
+            });
 
             expect(tree).toMatchSnapshot();
         });
         test('should renders correctly with search', () => {
-            const tree = createTree((
-                <Panel {...DEFAULT_PROPS} >
-                    <Search
-                        name="filtersSideSearch"
-                        {...SEARCH_DEFAULT_PROPS} />
-                </Panel>
-            ));
+            const { tree } = setup({
+                searchComponent: CHILD_COMPONENTS.search,
+            });
 
             expect(tree).toMatchSnapshot();
         });
         test('should renders correctly with bookmarks', () => {
-            const tree = createTree((
-                <Panel {...DEFAULT_PROPS} >
-                    <Bookmarks
-                        childrenKey="filtersSideBookmarks"
-                        {...BOOKMARKS_DEFAULT_PROPS} />
-                </Panel>
-            ));
+            const { tree } = setup({
+                bookmarkComponent: CHILD_COMPONENTS.bookmarks,
+            });
 
             expect(tree).toMatchSnapshot();
         });

@@ -1,5 +1,6 @@
 import React from 'react';
 import { filterPanel } from '../Mocks/consonant.json';
+
 const { clearFilterText, clearAllFiltersText, filters } = filterPanel;
 
 export const TABLET_MIN_WIDTH = 768;
@@ -13,6 +14,7 @@ export const DEFAULT_PROPS = {
     resQty: 0, // total result
     displayTotalResults: false,
     showMobileFilters: false,
+    filterPanelEnabled: false,
 
     onFilterClick: jest.fn(),
     onCheckboxClick: jest.fn(),

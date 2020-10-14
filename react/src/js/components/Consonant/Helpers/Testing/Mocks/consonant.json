@@ -1,107 +1,148 @@
 {
     "collection": {
         "resultsPerPage": 10,
-        "endpoint": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.json",
-        "title": "A great collection",
-        "totalCardLimit": -1,
+        "endpoint": "https://caas-chimera.s3-us-west-1.amazonaws.com/tests/card-collection/json-response-tests/features/infobits/all_infobits_from_xd_work.json",
+        "totalCardsToShow": 150,
         "cardStyle": "none",
-        "displayTotalResults": true,
+        "showTotalResults": true,
         "i18n": {
-          "prettyDateIntervalFormat": "{LLL} {dd} | {timeRange} {timeZone}"
+            "prettyDateIntervalFormat": "{LLL} {dd} | {timeRange} {timeZone}",
+            "totalResultsText": "i18n.totalResultsText {total}",
+            "title": "i18n.title"
         }
     },
     "featuredCards": [
         {
-            "title": "Some Featured Card",
+            "id": "6d6438c8-1",
+            "showCard": {
+                "from": "2020-10-01T20:00:00Z",
+                "until": "2025-10-31T21:45:00Z"
+            },
+            "styles": {
+                "typeOverride": "3:2",
+                "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg"
+            },
+            "overlays": {
+                "banner": {
+                    "description": "Some Banner Description",
+                    "backgroundColor": "#CB6F10",
+                    "fontColor": "#FFFFFF",
+                    "icon": "some-banner-icon"
+                },
+                "logo": {},
+                "label": {},
+                "videoButton": {
+                    "url": "some-video-videoURL"
+                }
+            },
+            "tags": [],
+            "contentArea": {
+                "detailText": "some details",
+                "title": "Some Featured Card",
+                "description": "Some Description",
+                "dateDetailText": {
+                    "startTime": "2021-10-11T21:00:00.000Z",
+                    "endTime": "2021-10-11T21:00:00.000Z"
+                }
+            },
             "appliesTo": [
                 {
                     "id": "we-retail:activity/biking"
                 }
             ],
-            "id": "6d6438c8-1",
-            "description": "Some Description",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "",
-            "cardStyle": "3:2",
-            "label": "testLabel",
-            "videoURL": "https://youtu.be/3OC2aPCuzjo",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					},
-					{
-						"type": "date-interval",
-						"startTime": "2020-10-20T20:00:00Z",
-						"endTime": "2020-10-27T21:45:00Z"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
-            }
+            "footer": [
+                {
+                    "divider": false,
+                    "left": [
+                        {
+                            "type": "bookmark",
+                            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                            "cardSaveText": "Save Card",
+                            "cardUnsaveText": "Unsave Card"
+                        },
+                        {
+                            "type": "date-interval",
+                            "startTime": "2020-10-20T20:00:00Z",
+                            "endTime": "2020-10-27T21:45:00Z"
+                        }
+                    ],
+                    "right": [
+                        {
+                            "type": "button",
+                            "style": "call-to-action",
+                            "text": "Read More",
+                            "href": "https://www.google.com"
+                        }
+                    ]
+                }
+            ]
         },
         {
-            "title": "Featured Card",
+            "id": "6d6438c8-3",
+            "showCard": {
+                "from": "2020-10-01T20:00:00Z",
+                "until": "2025-10-31T21:45:00Z"
+            },
+            "styles": {
+                "typeOverride": "3:2",
+                "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg"
+            },
+            "overlays": {
+                "banner": {
+                    "description": "Some Banner Description",
+                    "backgroundColor": "#CB6F10",
+                    "fontColor": "#FFFFFF",
+                    "icon": "some-banner-icon"
+                },
+                "logo": {},
+                "label": {},
+                "videoButton": {
+                    "url": "https://youtu.be/3OC2aPCuzjo"
+                }
+            },
+            "tags": [],
+            "contentArea": {
+                "detailText": "some unique details",
+                "title": "Featured Card",
+                "description": "Some Description",
+                "dateDetailText": {
+                    "startTime": "2021-10-11T21:00:00.000Z",
+                    "endTime": "2021-10-11T21:00:00.000Z"
+                }
+            },
             "appliesTo": [
                 {
                     "id": "we-retail:activity/running"
                 }
             ],
-            "id": "6d6438c8-3",
-            "description": "Some Description",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon",
-            "cardStyle": "3:2",
-            "label": "testLabel",
-            "videoURL": "https://youtu.be/3OC2aPCuzjo",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					},
-					{
-						"type": "date-interval",
-						"startTime": "2020-10-20T20:00:00Z",
-						"endTime": "2020-10-27T21:45:00Z"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
-            }
+            "footer": [
+                {
+                    "divider": false,
+                    "left": [
+                        {
+                            "type": "bookmark",
+                            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+                            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                            "cardSaveText": "Save Card",
+                            "cardUnsaveText": "Unsave Card"
+                        },
+                        {
+                            "type": "date-interval",
+                            "startTime": "2020-10-20T20:00:00Z",
+                            "endTime": "2020-10-27T21:45:00Z"
+                        }
+                    ],
+                    "right": [
+                        {
+                            "type": "button",
+                            "style": "call-to-action",
+                            "text": "Read More",
+                            "href": "https://www.google.com"
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "header": {
@@ -110,6 +151,7 @@
     "filterPanel": {
         "enabled": true,
         "type": "left",
+        "filterLogic": "and",
         "filters": [
             {
                 "group": "Topic",
@@ -176,13 +218,45 @@
                 ]
             }
         ],
-        "clearAllFiltersText": "Clear",
-        "clearFilterText": "Clear filter",
-        "filterLogic": "and"
+        "i18n": {
+            "leftPanel": {
+                "header": "leftPanel.header",
+                "clearAllFiltersText": "leftPanel.clearAllFiltersText",
+                "mobile": {
+                    "filtersBtnLabel": "leftPanel.mobile.filtersBtnLabel",
+                    "panel": {
+                        "header": "leftPanel.mobile.panel.header",
+                        "totalResultsText": "leftPanel.mobile.panel.totalResultsText {total}",
+                        "applyBtnText": "leftPanel.mobile.panel.applyBtnText",
+                        "clearFilterText": "leftPanel.mobile.panel.clearFilterText",
+                        "doneBtnText": "leftPanel.mobile.panel.doneBtnText"
+                    },
+                    "group": {
+                        "totalResultsText": "leftPanel.mobile.group.totalResultsText{total}",
+                        "applyBtnText": "leftPanel.mobile.group.applyBtnText",
+                        "clearFilterText": "leftPanel.mobile.group.clearFilterText",
+                        "doneBtnText": "leftPanel.mobile.group.doneBtnText"
+                    }
+                }
+            },
+            "topPanel": {
+                "groupLabel": "i18n.topPanel.groupLabel",
+                "clearAllFiltersText": "i18n.topPanel.clearAllFiltersText",
+                "moreFiltersBtnText": "i18n.topPanel.moreFiltersBtnText",
+                "mobile": {
+                    "group": {
+                        "totalResultsText": "i18n.topPanel.mobile.group.totalResultsText {total}",
+                        "applyBtnText": "i18n.topPanel.mobile.group.applyBtnText",
+                        "clearFilterText": "i18n.topPanel.mobile.group.clearFilterText",
+                        "doneBtnText": "i18n.topPanel.mobile.group.doneBtnText"
+                    }
+                }
+            }
+        }
     },
     "sort": {
         "enabled": true,
-        "defaultSort": "titleAsc",
+        "defaultSort": "featured",
         "options": [
             {
                 "label": "featured",
@@ -198,7 +272,7 @@
             },
             {
                 "label": "Date",
-                "sort": "dateAscEnding"
+                "sort": "dateAsc"
             },
             {
                 "label": "Date: (Newest to oldest)",
@@ -208,820 +282,47 @@
     },
     "pagination": {
         "enabled": true,
-        "type": "paginator"
+        "type": "paginator",
+        "i18n": {
+            "loadMore": {
+                "btnText": "i18n.loadMore.btnText",
+                "resultsQuantityText": "i18n.loadMore.resultsQuantityText {start} {end}"
+            },
+            "paginator": {
+                "resultsQuantityText": "i18n.paginator.resultsQuantityText {start} {end} {total}",
+                "prevLabel": "i18n.paginator.prevLabel",
+                "nextLabel": "i18n.paginator.nextLabel"
+            }
+        }
     },
     "bookmarks": {
-        "enabled": true,
-        "bookmarkOnlyCollection": false,
-        "cardSavedIcon": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Ukrposhta-ua-icon.svg",
-        "cardUnsavedIcon": "https://upload.some-url",
-        "selectBookmarksIcon": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Ukrposhta-ua-icon.svg",
-        "unselectBookmarksIcon": "path-to-unselectBookmarksIcon",
-        "saveCardText": "Save breakout session",
-        "unsaveCardText": "Unsave breakout session"
+        "leftFilterPanel": {
+            "bookmarkOnlyCollection": false,
+            "showBookmarksFilter": true,
+            "selectBookmarksIcon": "http://placehold.it/150x150",
+            "unselectBookmarksIcon": "http://placehold.it/150x150/red"
+        },
+        "i18n": {
+            "leftFilterPanel": {
+                "filterTitle": "i18n.leftFilterPanel.filterTitle"
+            }
+        }
     },
     "search": {
         "enabled": true,
-        "placeholderText": "Search here...",
-        "searchFields": [
-            "title",
-            "description",
-            "meta-author",
-            "meta-categories"
-        ]
-    },
-    "totalResults": {
-        "display": true
-    },
-    "cards": [
-        {
-            "title": "Some Title 1",
-            "appliesTo": [
-                {
-                    "id": "we-retail:activity/biking"
-                }
-            ],
-            "id": "6d6438c8-1",
-            "description": "Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon",
-            "cardStyle": "3:2",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Some Title 22",
-            "appliesTo": [
-                {
-                    "id": "we-retail:activity/hiking"
-                }
-            ],
-            "id": "6d6438c8-2",
-            "description": "Description with 200 chars Description with 200 chars Description with 200 chars Description with 200 chars Description with 200 chars Description with 200 chars Description with 200 chars DescDescription with 200 chars Description with 200 chars Description with 200 chars Description with 200 chars Description with 200 chars Description with 200 chars Description with 200 chars Desc",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-08-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon",
-            "cardStyle": "3:2",
-            "showCardFrom": "12/12/2012 - 12/12/2021",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					},
-					{
-						"type": "date-interval",
-						"startTime": "2020-10-20T20:00:00Z",
-						"endTime": "2020-10-27T21:45:00Z"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Some Title 22",
-            "appliesTo": [
-                {
-                    "id": "we-retail:activity/running"
-                }
-            ],
-            "id": "6d6438c8-3",
-            "description": "Some Description",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-09-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon",
-            "cardStyle": "3:2",
-            "showCardFrom": " - 12/12/2021",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					},
-					{
-						"type": "date-interval",
-						"startTime": "2020-10-20T20:00:00Z",
-						"endTime": "2020-10-27T21:45:00Z"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Some Title 4",
-            "appliesTo": [
-                {
-                    "id": "we-retail:activity/skiing"
-                }
-            ],
-            "id": "6d6438c8-4",
-            "description": "Some Description",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2019-07-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon",
-            "cardStyle": "3:2",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					},
-					{
-						"type": "date-interval",
-						"startTime": "2020-10-20T20:00:00Z",
-						"endTime": "2020-10-27T21:45:00Z"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Some Title 5",
-            "appliesTo": [
-                {
-                    "id": "we-retail:activity/surfing"
-                }
-            ],
-            "id": "6d6438c8-5",
-            "description": "Some Description",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-01-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon",
-            "cardStyle": "3:2",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					},
-					{
-						"type": "date-interval",
-						"startTime": "2020-10-20T20:00:00Z",
-						"endTime": "2020-10-27T21:45:00Z"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Some Title 6",
-            "appliesTo": [
-                {
-                    "id": "we-retail:activity/swimming"
-                }
-            ],
-            "id": "6d6438c8-6",
-            "description": "Some Description",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon",
-            "cardStyle": "3:2",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					},
-					{
-						"type": "date-interval",
-						"startTime": "2020-10-20T20:00:00Z",
-						"endTime": "2020-10-27T21:45:00Z"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Some Title 7",
-            "appliesTo": [
-                {
-                    "id": "we-retail:activity/others"
-                }
-            ],
-            "id": "6d6438c8-7",
-            "description": "Some Description",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon",
-            "cardStyle": "3:2",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					},
-					{
-						"type": "date-interval",
-						"startTime": "2020-10-20T20:00:00Z",
-						"endTime": "2020-10-27T21:45:00Z"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Some Title 8",
-            "appliesTo": [
-                {
-                    "id": "we-retail:apparel/coat"
-                }
-            ],
-            "id": "6d6438c8-8",
-            "description": "Some Description",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon",
-            "cardStyle": "3:2",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					},
-					{
-						"type": "date-interval",
-						"startTime": "2020-10-20T20:00:00Z",
-						"endTime": "2020-10-27T21:45:00Z"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Some Title 9",
-            "appliesTo": [
-                {
-                    "id": "we-retail:apparel/footwear"
-                }
-            ],
-            "id": "6d6438c8-9",
-            "description": "Some Description",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description uniq",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon",
-            "cardStyle": "3:2",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					},
-					{
-						"type": "date-interval",
-						"startTime": "2020-10-20T20:00:00Z",
-						"endTime": "2020-10-27T21:45:00Z"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Some Title 10",
-            "appliesTo": [
-                {
-                    "id": "we-retail:apparel/glasses"
-                }
-            ],
-            "id": "6d6438c8-10",
-            "description": "Some Description",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon",
-            "cardStyle": "3:2",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					},
-					{
-						"type": "date-interval",
-						"startTime": "2020-10-20T20:00:00Z",
-						"endTime": "2020-10-27T21:45:00Z"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Some Title 11",
-            "appliesTo": [
-                {
-                    "id": "we-retail:apparel/gloves"
-                }
-            ],
-            "id": "6d6438c8-11",
-            "description": "Some Description",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon",
-            "cardStyle": "3:2",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					},
-					{
-						"type": "date-interval",
-						"startTime": "2020-10-20T20:00:00Z",
-						"endTime": "2020-10-27T21:45:00Z"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Some Title 12",
-            "appliesTo": [
-                {
-                    "id": "we-retail:apparel/hat"
-                }
-            ],
-            "id": "6d6438c8-12",
-            "description": "Some Description",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon",
-            "cardStyle": "3:2",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					},
-					{
-						"type": "date-interval",
-						"startTime": "2020-10-20T20:00:00Z",
-						"endTime": "2020-10-27T21:45:00Z"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Some Title 13",
-            "appliesTo": [
-                {
-                    "id": "we-retail:apparel/helmet"
-                }
-            ],
-            "id": "6d6438c8-13",
-            "description": "Some Description",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon",
-            "cardStyle": "3:2",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					},
-					{
-						"type": "date-interval",
-						"startTime": "2020-10-20T20:00:00Z",
-						"endTime": "2020-10-27T21:45:00Z"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Some Title 14",
-            "appliesTo": [
-                {
-                    "id": "we-retail:apparel/pancho"
-                }
-            ],
-            "id": "6d6438c8-14",
-            "description": "Some Description",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon",
-            "cardStyle": "3:2",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					},
-					{
-						"type": "date-interval",
-						"startTime": "2020-10-20T20:00:00Z",
-						"endTime": "2020-10-27T21:45:00Z"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Some Title 15",
-            "appliesTo": [
-                {
-                    "id": "we-retail:apparel/pants"
-                }
-            ],
-            "id": "6d6438c8-15",
-            "description": "Some Description",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon",
-            "cardStyle": "3:2",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					},
-					{
-						"type": "date-interval",
-						"startTime": "2020-10-20T20:00:00Z",
-						"endTime": "2020-10-27T21:45:00Z"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Some Title 16",
-            "appliesTo": [
-                {
-                    "id": "we-retail:apparel/scarf"
-                }
-            ],
-            "id": "6d6438c8-16",
-            "description": "Some Description",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon",
-            "cardStyle": "3:2",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					},
-					{
-						"type": "date-interval",
-						"startTime": "2020-10-20T20:00:00Z",
-						"endTime": "2020-10-27T21:45:00Z"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Some Title 17",
-            "appliesTo": [
-                {
-                    "id": "we-retail:apparel/shirt"
-                }
-            ],
-            "id": "6d6438c8-17",
-            "description": "Some Description",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon",
-            "cardStyle": "3:2",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					},
-					{
-						"type": "date-interval",
-						"startTime": "2020-10-20T20:00:00Z",
-						"endTime": "2020-10-27T21:45:00Z"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Some Title 18",
-            "appliesTo": [
-                {
-                    "id": "we-retail:apparel/shorts"
-                }
-            ],
-            "id": "6d6438c8-18",
-            "description": "Some Description",
-            "image": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg",
-            "lastModified": "2020-07-02T09:41:35.933Z",
-            "bannerDescription": "Some Banner Description",
-            "ctaLabel": "Some CTA",
-            "ctaLink": "https://google.com",
-            "bannerBackgroundColor": "#CB6F10",
-            "bannerFontColor": "#FFFFFF",
-            "secondaryLabelText": "Some secondary text",
-            "bannerIcon": "some-banner-icon",
-            "cardStyle": "3:2",
-            "footer": {
-				"left": [
-					{
-						"type": "bookmark",
-						"saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-						"unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-						"cardSaveText": "Save Card",
-						"cardUnsaveText": "Unsave Card"
-					},
-					{
-						"type": "date-interval",
-						"startTime": "2020-10-20T20:00:00Z",
-						"endTime": "2020-10-27T21:45:00Z"
-					}
-				],
-				"right": [
-                    {
-                        "type": "button",
-						"style": "call-to-action",
-						"text": "Read More",
-						"href": "https://www.google.com"
-                    }
-                ]
+        "searchFields": ["contentArea.title", "contentArea.description", "search.meta.author", "overlays.label.text", "foo.bar"],
+        "i18n": {
+            "leftFilterPanel": {
+                "searchTitle": "i18n.leftFilterPanel.searchTitle",
+                "searchPlaceholderText": "i18n.leftFilterPanel.searchPlaceholderText"
+            },
+            "topFilterPanel": {
+                "searchPlaceholderText": "i18n.topFilterPanel.searchPlaceholderText"
+            },
+            "filterInfo": {
+                "searchPlaceholderText": "i18n.filterInfo.searchPlaceholderText"
             }
         }
-    ]
+    },
+    "language": "de"
 }

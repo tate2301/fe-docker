@@ -11,7 +11,7 @@ exports[`Consonant/Search Check snapshots should renders correctly with value 1`
     <span
       className="consonant-search--input-title"
     >
-      Search
+      i18n.leftFilterPanel.searchTitle
     </span>
     <span
       className="consonant-search--input-wrapper"
@@ -22,7 +22,7 @@ exports[`Consonant/Search Check snapshots should renders correctly with value 1`
         id="consonant-search"
         onChange={[Function]}
         onClick={[Function]}
-        placeholder="Search here..."
+        placeholder="search text"
         required={true}
         type="search"
         value=""
@@ -52,7 +52,7 @@ exports[`Consonant/Search Check snapshots should renders correctly without value
     <span
       className="consonant-search--input-title"
     >
-      Search
+      i18n.leftFilterPanel.searchTitle
     </span>
     <span
       className="consonant-search--input-wrapper"
@@ -63,7 +63,7 @@ exports[`Consonant/Search Check snapshots should renders correctly without value
         id="consonant-search"
         onChange={[Function]}
         onClick={[Function]}
-        placeholder="Search here..."
+        placeholder="search text"
         required={true}
         type="search"
         value="search value"

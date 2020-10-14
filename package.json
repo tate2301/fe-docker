@@ -50,6 +50,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.0.4",
+    "@testing-library/react-hooks": "^3.4.2",
     "aemsync": "^3.0.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",

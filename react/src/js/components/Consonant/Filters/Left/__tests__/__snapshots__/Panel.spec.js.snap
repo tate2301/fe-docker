@@ -11,7 +11,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
     <h3
       className="consonant-left-filters--desk-title"
     >
-      Refine the results
+      leftPanel.header
     </h3>
     <button
       className="consonant-left-filters--clear-link"
@@ -20,9 +20,41 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
       tabIndex="0"
       type="button"
     >
-      Clear all
+      leftPanel.clearAllFiltersText
     </button>
   </div>
+  <button
+    className="bookmarks"
+    data-testid="bookmarks"
+    onClick={[MockFunction]}
+    tabIndex="0"
+    type="button"
+  >
+    <span
+      className="bookmarks--ico-wrapper"
+    >
+      <span
+        className="bookmarks--ico"
+        data-testid="bookmarks--ico"
+        style={
+          Object {
+            "backgroundImage": "url(http://placehold.it/150x150/red)",
+          }
+        }
+      />
+      <span
+        className="bookmarks--title"
+      >
+        i18n.leftFilterPanel.filterTitle
+      </span>
+    </span>
+    <span
+      className="bookmarks--item-badge"
+      data-testid="bookmarks--item-badge"
+    >
+      0
+    </span>
+  </button>
   <div
     className="consonant-left-filters--list"
   >
@@ -337,15 +369,14 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
           <span
             className="consonant-left-filter--footer-res-qty"
           >
-            0
-             results
+            leftPanel.mobile.group.totalResultsText0
           </span>
           <button
             className="consonant-left-filter--footer-btn"
             onClick={[Function]}
             type="button"
           >
-            Done
+            leftPanel.mobile.group.doneBtnText
           </button>
         </div>
       </div>
@@ -445,15 +476,14 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
           <span
             className="consonant-left-filter--footer-res-qty"
           >
-            0
-             results
+            leftPanel.mobile.group.totalResultsText0
           </span>
           <button
             className="consonant-left-filter--footer-btn"
             onClick={[Function]}
             type="button"
           >
-            Done
+            leftPanel.mobile.group.doneBtnText
           </button>
         </div>
       </div>
@@ -473,7 +503,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
     <h3
       className="consonant-left-filters--desk-title"
     >
-      Refine the results
+      leftPanel.header
     </h3>
     <button
       className="consonant-left-filters--clear-link"
@@ -482,7 +512,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
       tabIndex="0"
       type="button"
     >
-      Clear all
+      leftPanel.clearAllFiltersText
     </button>
   </div>
   <div
@@ -799,15 +829,14 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
           <span
             className="consonant-left-filter--footer-res-qty"
           >
-            0
-             results
+            leftPanel.mobile.group.totalResultsText0
           </span>
           <button
             className="consonant-left-filter--footer-btn"
             onClick={[Function]}
             type="button"
           >
-            Done
+            leftPanel.mobile.group.doneBtnText
           </button>
         </div>
       </div>
@@ -907,15 +936,14 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
           <span
             className="consonant-left-filter--footer-res-qty"
           >
-            0
-             results
+            leftPanel.mobile.group.totalResultsText0
           </span>
           <button
             className="consonant-left-filter--footer-btn"
             onClick={[Function]}
             type="button"
           >
-            Done
+            leftPanel.mobile.group.doneBtnText
           </button>
         </div>
       </div>
@@ -935,7 +963,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
     <h3
       className="consonant-left-filters--desk-title"
     >
-      Refine the results
+      leftPanel.header
     </h3>
     <button
       className="consonant-left-filters--clear-link"
@@ -944,7 +972,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
       tabIndex="0"
       type="button"
     >
-      Clear all
+      leftPanel.clearAllFiltersText
     </button>
   </div>
   <div
@@ -1261,15 +1289,14 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
           <span
             className="consonant-left-filter--footer-res-qty"
           >
-            0
-             results
+            leftPanel.mobile.group.totalResultsText0
           </span>
           <button
             className="consonant-left-filter--footer-btn"
             onClick={[Function]}
             type="button"
           >
-            Done
+            leftPanel.mobile.group.doneBtnText
           </button>
         </div>
       </div>
@@ -1369,15 +1396,14 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
           <span
             className="consonant-left-filter--footer-res-qty"
           >
-            0
-             results
+            leftPanel.mobile.group.totalResultsText0
           </span>
           <button
             className="consonant-left-filter--footer-btn"
             onClick={[Function]}
             type="button"
           >
-            Done
+            leftPanel.mobile.group.doneBtnText
           </button>
         </div>
       </div>
@@ -1405,7 +1431,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
         Back
       </button>
       <span>
-        Filter by
+        leftPanel.mobile.panel.header
       </span>
     </div>
   </div>
@@ -1723,15 +1749,14 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
           <span
             className="consonant-left-filter--footer-res-qty"
           >
-            0
-             results
+            leftPanel.mobile.group.totalResultsText0
           </span>
           <button
             className="consonant-left-filter--footer-btn"
             onClick={[Function]}
             type="button"
           >
-            Done
+            leftPanel.mobile.group.doneBtnText
           </button>
         </div>
       </div>
@@ -1831,15 +1856,14 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
           <span
             className="consonant-left-filter--footer-res-qty"
           >
-            0
-             results
+            leftPanel.mobile.group.totalResultsText0
           </span>
           <button
             className="consonant-left-filter--footer-btn"
             onClick={[Function]}
             type="button"
           >
-            Done
+            leftPanel.mobile.group.doneBtnText
           </button>
         </div>
       </div>
@@ -1852,7 +1876,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
       className="consonant-left-filters--mobile-footer-total-res-qty"
       data-testid="mobile-footer-total-res"
     >
-      0 results
+      leftPanel.mobile.panel.totalResultsText 0
     </span>
     <button
       className="consonant-left-filters--mobile-footer-btn"
@@ -1860,7 +1884,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
       onClick={[MockFunction]}
       type="button"
     >
-      Done
+      leftPanel.mobile.panel.doneBtnText
     </button>
   </div>
 </div>
@@ -1877,7 +1901,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
     <h3
       className="consonant-left-filters--desk-title"
     >
-      Refine the results
+      leftPanel.header
     </h3>
     <button
       className="consonant-left-filters--clear-link"
@@ -1886,8 +1910,46 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
       tabIndex="0"
       type="button"
     >
-      Clear all
+      leftPanel.clearAllFiltersText
     </button>
+  </div>
+  <div
+    className="consonant-search"
+    data-testid="consonant-search"
+  >
+    <label
+      htmlFor="consonant-search"
+    >
+      <span
+        className="consonant-search--input-title"
+      >
+        i18n.leftFilterPanel.searchTitle
+      </span>
+      <span
+        className="consonant-search--input-wrapper"
+      >
+        <input
+          className="consonant-search--input"
+          data-testid="search-input"
+          id="consonant-search"
+          onChange={[Function]}
+          onClick={[Function]}
+          placeholder="search text"
+          required={true}
+          type="search"
+          value=""
+        />
+        <button
+          className="consonant-search--input-clear"
+          onClick={[Function]}
+          tabIndex="0"
+          title="Click to clear search query"
+          type="button"
+        >
+          clear
+        </button>
+      </span>
+    </label>
   </div>
   <div
     className="consonant-left-filters--list"
@@ -2203,15 +2265,14 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
           <span
             className="consonant-left-filter--footer-res-qty"
           >
-            0
-             results
+            leftPanel.mobile.group.totalResultsText0
           </span>
           <button
             className="consonant-left-filter--footer-btn"
             onClick={[Function]}
             type="button"
           >
-            Done
+            leftPanel.mobile.group.doneBtnText
           </button>
         </div>
       </div>
@@ -2311,15 +2372,14 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
           <span
             className="consonant-left-filter--footer-res-qty"
           >
-            0
-             results
+            leftPanel.mobile.group.totalResultsText0
           </span>
           <button
             className="consonant-left-filter--footer-btn"
             onClick={[Function]}
             type="button"
           >
-            Done
+            leftPanel.mobile.group.doneBtnText
           </button>
         </div>
       </div>
@@ -2339,7 +2399,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
     <h3
       className="consonant-left-filters--desk-title"
     >
-      Refine the results
+      leftPanel.header
     </h3>
     <button
       className="consonant-left-filters--clear-link"
@@ -2348,9 +2408,79 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
       tabIndex="0"
       type="button"
     >
-      Clear all
+      leftPanel.clearAllFiltersText
     </button>
   </div>
+  <div
+    className="consonant-search"
+    data-testid="consonant-search"
+  >
+    <label
+      htmlFor="consonant-search"
+    >
+      <span
+        className="consonant-search--input-title"
+      >
+        i18n.leftFilterPanel.searchTitle
+      </span>
+      <span
+        className="consonant-search--input-wrapper"
+      >
+        <input
+          className="consonant-search--input"
+          data-testid="search-input"
+          id="consonant-search"
+          onChange={[Function]}
+          onClick={[Function]}
+          placeholder="search text"
+          required={true}
+          type="search"
+          value=""
+        />
+        <button
+          className="consonant-search--input-clear"
+          onClick={[Function]}
+          tabIndex="0"
+          title="Click to clear search query"
+          type="button"
+        >
+          clear
+        </button>
+      </span>
+    </label>
+  </div>
+  <button
+    className="bookmarks"
+    data-testid="bookmarks"
+    onClick={[MockFunction]}
+    tabIndex="0"
+    type="button"
+  >
+    <span
+      className="bookmarks--ico-wrapper"
+    >
+      <span
+        className="bookmarks--ico"
+        data-testid="bookmarks--ico"
+        style={
+          Object {
+            "backgroundImage": "url(http://placehold.it/150x150/red)",
+          }
+        }
+      />
+      <span
+        className="bookmarks--title"
+      >
+        i18n.leftFilterPanel.filterTitle
+      </span>
+    </span>
+    <span
+      className="bookmarks--item-badge"
+      data-testid="bookmarks--item-badge"
+    >
+      0
+    </span>
+  </button>
   <div
     className="consonant-left-filters--list"
   >
@@ -2665,15 +2795,14 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
           <span
             className="consonant-left-filter--footer-res-qty"
           >
-            0
-             results
+            leftPanel.mobile.group.totalResultsText0
           </span>
           <button
             className="consonant-left-filter--footer-btn"
             onClick={[Function]}
             type="button"
           >
-            Done
+            leftPanel.mobile.group.doneBtnText
           </button>
         </div>
       </div>
@@ -2773,15 +2902,14 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
           <span
             className="consonant-left-filter--footer-res-qty"
           >
-            0
-             results
+            leftPanel.mobile.group.totalResultsText0
           </span>
           <button
             className="consonant-left-filter--footer-btn"
             onClick={[Function]}
             type="button"
           >
-            Done
+            leftPanel.mobile.group.doneBtnText
           </button>
         </div>
       </div>

@@ -1,15 +1,13 @@
-import renderer from 'react-test-renderer';
-import React from 'react';
 import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import Card, { Tooltip } from '../3-2';
+import Card from '../1-1';
 
-import { DEFAULT_PROPS_3_2 } from '../../Helpers/Testing/Constants/Card';
+import { DEFAULT_PROPS_1_1 } from '../../Helpers/Testing/Constants/Card';
 
 import makeSetup from '../../Helpers/Testing/Utils/Settings';
 
-const setup = makeSetup(Card, DEFAULT_PROPS_3_2);
+const setup = makeSetup(Card, DEFAULT_PROPS_1_1);
 
 describe('Consonant/Card', () => {
     test('should renders banner correctly', () => {
@@ -36,24 +34,13 @@ describe('Consonant/Card', () => {
         expect(bannerElement).toHaveTextContent(bannerDescription);
         expect(bannerIconElement).toHaveAttribute('src', bannerIcon);
     });
+
     test('should renders with badge', () => {
         setup({ badgeText: 'some badge text' });
 
         const badgeElement = screen.queryByText('some badge text');
 
         expect(badgeElement).not.toBeNull();
-    });
-
-    describe('Check snapshots', () => {
-        test('should renders with bookmarking', () => {
-            const { tree } = setup({
-                isBookmarked: true,
-                allowBookmarking: true,
-                disableBookmarkIco: true,
-            });
-
-            expect(tree).toMatchSnapshot();
-        });
     });
 
     test('should renders with label', () => {
@@ -66,7 +53,7 @@ describe('Consonant/Card', () => {
             },
         });
 
-        const labelElement = screen.queryByTestId('3-2-card--label');
+        const labelElement = screen.queryByTestId('1-1-card--label');
 
         expect(labelElement).not.toBeNull();
     });
@@ -84,17 +71,5 @@ describe('Consonant/Card', () => {
         const labelElement = screen.queryByText('datail label');
 
         expect(labelElement).not.toBeNull();
-    });
-
-    describe('Consonant/Tooltip', () => {
-        describe('Check snapshots', () => {
-            test('should renders correctly', () => {
-                const tree = renderer
-                    .create(<Tooltip text="Tooltip text" />)
-                    .toJSON();
-
-                expect(tree).toMatchSnapshot();
-            });
-        });
     });
 });

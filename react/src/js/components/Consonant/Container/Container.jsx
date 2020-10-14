@@ -372,8 +372,6 @@ const Container = (props) => {
         , [sortedCards, showBookmarks, bookmarkedCards],
     );
 
-    console.log(collectionCards.length);
-
     const totalPages = useMemo(
         () => {
             if (resultsPerPage === 0) return 0;
@@ -397,7 +395,6 @@ const Container = (props) => {
             resultsPerPageNotZero &&
             cardLengthExceedsDisplayLimit;
     }, [filteredCards.length, resultsPerPage]);
-
 
     return (
         <ConfigContext.Provider value={config}>

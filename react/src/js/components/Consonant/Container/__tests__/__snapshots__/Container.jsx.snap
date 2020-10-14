@@ -20,7 +20,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
           <h3
             className="consonant-left-filters--desk-title"
           >
-            Refine the results
+            leftPanel.header
           </h3>
           <button
             className="consonant-left-filters--clear-link"
@@ -29,7 +29,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
             tabIndex="0"
             type="button"
           >
-            Clear
+            leftPanel.clearAllFiltersText
           </button>
         </div>
         <div
@@ -42,7 +42,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
             <span
               className="consonant-search--input-title"
             >
-              Search
+              i18n.leftFilterPanel.searchTitle
             </span>
             <span
               className="consonant-search--input-wrapper"
@@ -53,7 +53,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
                 id="consonant-search"
                 onChange={[Function]}
                 onClick={[Function]}
-                placeholder="Search here..."
+                placeholder="i18n.leftFilterPanel.searchPlaceholderText"
                 required={true}
                 type="search"
                 value=""
@@ -85,14 +85,14 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
               data-testid="bookmarks--ico"
               style={
                 Object {
-                  "backgroundImage": "url(path-to-unselectBookmarksIcon)",
+                  "backgroundImage": "url(http://placehold.it/150x150/red)",
                 }
               }
             />
             <span
               className="bookmarks--title"
             >
-              My favorites
+              i18n.leftFilterPanel.filterTitle
             </span>
           </span>
           <span
@@ -116,13 +116,13 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
             className="consonant-filters-info--title"
             data-testid="title"
           >
-            A great collection
+            i18n.title
           </h2>
           <span
             className="consonant-filters-info--results"
             data-testid="results"
           >
-            0 results
+            i18n.totalResultsText {total}
           </span>
         </div>
         <div
@@ -138,14 +138,14 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
             tabIndex="0"
             type="button"
           >
-            Title: (A-Z)
+            featured
           </button>
           <div
             className="consonant-select--options consonant-select--options_right"
             data-testid="consonant-select--options"
           >
             <button
-              className="consonant-select--option"
+              className="consonant-select--option consonant-select--option_selected"
               data-testid="select-option"
               onClick={[Function]}
               tabIndex="0"
@@ -154,7 +154,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
               featured
             </button>
             <button
-              className="consonant-select--option consonant-select--option_selected"
+              className="consonant-select--option"
               data-testid="select-option"
               onClick={[Function]}
               tabIndex="0"
@@ -217,7 +217,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
           <h3
             className="consonant-left-filters--desk-title"
           >
-            Refine the results
+            leftPanel.header
           </h3>
           <button
             className="consonant-left-filters--clear-link"
@@ -226,7 +226,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
             tabIndex="0"
             type="button"
           >
-            Clear
+            leftPanel.clearAllFiltersText
           </button>
         </div>
         <div
@@ -239,7 +239,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
             <span
               className="consonant-search--input-title"
             >
-              Search
+              i18n.leftFilterPanel.searchTitle
             </span>
             <span
               className="consonant-search--input-wrapper"
@@ -250,7 +250,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
                 id="consonant-search"
                 onChange={[Function]}
                 onClick={[Function]}
-                placeholder="Search here..."
+                placeholder="i18n.leftFilterPanel.searchPlaceholderText"
                 required={true}
                 type="search"
                 value=""
@@ -282,14 +282,14 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
               data-testid="bookmarks--ico"
               style={
                 Object {
-                  "backgroundImage": "url(path-to-unselectBookmarksIcon)",
+                  "backgroundImage": "url(http://placehold.it/150x150/red)",
                 }
               }
             />
             <span
               className="bookmarks--title"
             >
-              My favorites
+              i18n.leftFilterPanel.filterTitle
             </span>
           </span>
           <span
@@ -313,13 +313,13 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
             className="consonant-filters-info--title"
             data-testid="title"
           >
-            A great collection
+            i18n.title
           </h2>
           <span
             className="consonant-filters-info--results"
             data-testid="results"
           >
-            0 results
+            i18n.totalResultsText {total}
           </span>
         </div>
         <div
@@ -335,14 +335,14 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
             tabIndex="0"
             type="button"
           >
-            Title: (A-Z)
+            featured
           </button>
           <div
             className="consonant-select--options consonant-select--options_right"
             data-testid="consonant-select--options"
           >
             <button
-              className="consonant-select--option"
+              className="consonant-select--option consonant-select--option_selected"
               data-testid="select-option"
               onClick={[Function]}
               tabIndex="0"
@@ -351,7 +351,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
               featured
             </button>
             <button
-              className="consonant-select--option consonant-select--option_selected"
+              className="consonant-select--option"
               data-testid="select-option"
               onClick={[Function]}
               tabIndex="0"

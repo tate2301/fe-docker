@@ -1,4 +1,4 @@
-import { screen, fireEvent } from '@testing-library/react';
+import { screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import Bookmarks from '../Bookmarks';
@@ -6,11 +6,24 @@ import Bookmarks from '../Bookmarks';
 import {
     COUNT_LIST,
     DEFAULT_PROPS,
+    WITHOUT_ICONS,
 } from '../../Helpers/Testing/Constants/Bookmarks';
 
 import makeSetup from '../../Helpers/Testing/Utils/Settings';
 
 const setup = makeSetup(Bookmarks, DEFAULT_PROPS);
+
+
+// const {
+//     props: {
+//         bookmarks: {
+//             leftFilterPanel: {
+//                 selectBookmarksIcon,
+//                 unselectBookmarksIcon,
+//             },
+//         },
+//     },
+// } = setup();
 
 describe('Consonant/Bookmarks', () => {
     test('should renders correctly different bookmarks count', () => {
@@ -24,31 +37,47 @@ describe('Consonant/Bookmarks', () => {
         });
     });
 
-    test('should render unselectedIco', () => {
-        const { props: { unselectedIco } } = setup();
+    test('should render unselectedIco', async () => {
+        const {
+            config: {
+                bookmarks: {
+                    leftFilterPanel: {
+                        unselectBookmarksIcon,
+                    },
+                },
+            },
+        } = setup();
 
         const iconElement = screen.getByTestId('bookmarks--ico');
 
-        expect(iconElement).toHaveStyle({ backgroundImage: `url(${unselectedIco})` });
+        expect(iconElement).toHaveStyle(`background-image: url(${unselectBookmarksIcon})`);
     });
     test('should render selectedIco', () => {
-        const { props: { selectedIco } } = setup({ selected: true });
+        const {
+            config: {
+                bookmarks: {
+                    leftFilterPanel: {
+                        selectBookmarksIcon,
+                    },
+                },
+            },
+        } = setup({ selected: true });
 
         const iconElement = screen.getByTestId('bookmarks--ico');
 
-        expect(iconElement).toHaveStyle({ backgroundImage: `url(${selectedIco})` });
+        expect(iconElement).toHaveStyle(`background-image: url(${selectBookmarksIcon})`);
     });
-    test('shouldn`t have style object when selected === true && selectedIco didnt exists', () => {
-        setup({ selected: true, selectedIco: '' });
+    test('shouldn`t have style object when selected === true && selectedIco didnt exists', async () => {
+        setup({ selected: true }, { bookmarks: WITHOUT_ICONS });
 
-        const iconElement = screen.getByTestId('bookmarks--ico');
+        const iconElement = await waitFor(() => screen.getByTestId('bookmarks--ico'));
 
         expect(iconElement).not.toHaveStyle({ backgroundImage: "url('')" });
     });
-    test('shouldn`t have style object when selected === false && unselectedIco didnt exists', () => {
-        setup({ unselectedIco: '' });
+    test('shouldn`t have style object when selected === false && unselectedIco didnt exists', async () => {
+        setup({}, { bookmarks: WITHOUT_ICONS });
 
-        const iconElement = screen.getByTestId('bookmarks--ico');
+        const iconElement = await waitFor(() => screen.getByTestId('bookmarks--ico'));
 
         expect(iconElement).not.toHaveStyle({ backgroundImage: "url('')" });
     });

@@ -8,6 +8,7 @@ export const options = [
 
 export const DEFAULT_PROPS = {
     val: {},
+    id: 'select-id',
     opened: false,
     values: options,
     autoWidth: false,

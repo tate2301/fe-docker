@@ -12,18 +12,19 @@ exports[`Consonant/LoadMore Check snapshots should renders correctly with show <
       className="consonant-load-more--text"
       dangerouslySetInnerHTML={
         Object {
-          "__html": "<span class=\\"consonant-load-more--shown\\">1</span> of <span class=\\"consonant-load-more--total\\">100</span> displayed",
+          "__html": "i18n.loadMore.resultsQuantityText <span class=\\"consonant-load-more--shown\\">1</span> <span class=\\"consonant-load-more--total\\">100</span>",
         }
       }
       data-testid="consonant-load-more--text"
     />
     <button
       className="consonant-load-more--btn"
+      data-testid="load-more__button"
       onClick={[MockFunction]}
       tabIndex="0"
       type="button"
     >
-      Load more
+      i18n.loadMore.btnText
     </button>
   </div>
 </div>
@@ -41,7 +42,7 @@ exports[`Consonant/LoadMore Check snapshots should renders correctly with show >
       className="consonant-load-more--text"
       dangerouslySetInnerHTML={
         Object {
-          "__html": "<span class=\\"consonant-load-more--shown\\">100</span> of <span class=\\"consonant-load-more--total\\">1</span> displayed",
+          "__html": "i18n.loadMore.resultsQuantityText <span class=\\"consonant-load-more--shown\\">100</span> <span class=\\"consonant-load-more--total\\">1</span>",
         }
       }
       data-testid="consonant-load-more--text"

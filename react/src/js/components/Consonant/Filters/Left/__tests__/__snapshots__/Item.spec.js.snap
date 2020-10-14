@@ -312,15 +312,14 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
       <span
         className="consonant-left-filter--footer-res-qty"
       >
-        0
-         results
+        leftPanel.mobile.group.totalResultsText0
       </span>
       <button
         className="consonant-left-filter--footer-btn"
         onClick={[Function]}
         type="button"
       >
-        Done
+        leftPanel.mobile.group.doneBtnText
       </button>
     </div>
   </div>
@@ -639,15 +638,14 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
       <span
         className="consonant-left-filter--footer-res-qty"
       >
-        0
-         results
+        leftPanel.mobile.group.totalResultsText0
       </span>
       <button
         className="consonant-left-filter--footer-btn"
         onClick={[Function]}
         type="button"
       >
-        Done
+        leftPanel.mobile.group.doneBtnText
       </button>
     </div>
   </div>

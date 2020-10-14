@@ -128,7 +128,7 @@ const AspectRatio3to2Card = ({
             </div>
             <div className="consonant-aspect-ratio-3-2-card--inner">
                 {detailText && (
-                    <span className="consonant-aspect-ratio-3-2-card--label">{detailText}</span>
+                    <span  data-testid="3-2-card--label" className="consonant-aspect-ratio-3-2-card--label">{detailText}</span>
                 )}
                 <h2
                     className="consonant-aspect-ratio-3-2-card--title">
@@ -138,9 +138,10 @@ const AspectRatio3to2Card = ({
                     className="consonant-aspect-ratio-3-2-card--text">
                     {description}
                 </p>
-                {footer.map(f => (
+                {footer.map((f, index) => (
                     <CardFooter
                         divider={f.divider}
+                        key={index}
                         left={extendFooterData(f.left)}
                         center={extendFooterData(f.center)}
                         right={extendFooterData(f.right)} />
@@ -152,28 +153,31 @@ const AspectRatio3to2Card = ({
 
 export default AspectRatio3to2Card;
 
+const footerItemType = PropTypes.shape({
+    divider: PropTypes.bool,
+    left: PropTypes.arrayOf(PropTypes.shape({ type: PropTypes.string })),
+    center: PropTypes.arrayOf(PropTypes.shape({ type: PropTypes.string })),
+    right: PropTypes.arrayOf(PropTypes.shape({ type: PropTypes.string })),
+});
+
 AspectRatio3to2Card.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string,
     label: PropTypes.string,
-    description: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    image: PropTypes.string,
     bannerDescription: PropTypes.string,
     bannerFontColor: PropTypes.string,
     bannerBackgroundColor: PropTypes.string,
     bannerIcon: PropTypes.string,
     badgeText: PropTypes.string,
     videoURL: PropTypes.string,
-    footer: PropTypes.shape({
-        left: PropTypes.arrayOf(PropTypes.shape({ type: PropTypes.string })),
-        center: PropTypes.arrayOf(PropTypes.shape({ type: PropTypes.string })),
-        right: PropTypes.arrayOf(PropTypes.shape({ type: PropTypes.string })),
-    }),
+    footer: PropTypes.arrayOf(footerItemType),
     disableBookmarkIco: PropTypes.bool,
-    isBookmarked: PropTypes.bool.isRequired,
+    isBookmarked: PropTypes.bool,
     onClick: PropTypes.func.isRequired,
-    dateFormat: PropTypes.string.isRequired,
-    locale: PropTypes.string.isRequired,
+    dateFormat: PropTypes.string,
+    locale: PropTypes.string,
 };
 
 AspectRatio3to2Card.defaultProps = {

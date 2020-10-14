@@ -39,6 +39,7 @@
     "jQuery": true
   },
   "rules": {
+    "jest/no-large-snapshots": ["warn", { "maxSize": 50, "inlineMaxSize": 50 }],
     "react/no-unknown-property": ["warn", {"ignore" : ["class", "for", "hreflang"]}],
     "react/react-in-jsx-scope": "off",
     "react/jsx-indent": ["error", 4],

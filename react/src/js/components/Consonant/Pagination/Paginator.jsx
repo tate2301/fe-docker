@@ -104,10 +104,22 @@ const Paginator = (props) => {
         return res < totalResults ? res : totalResults;
     };
 
-    const renderQtyHTML = () => quantityText
-        .replace('{start}', `<strong>${getStartNumber()}</strong>`)
-        .replace('{end}', `<strong>${getEndNumber()}</strong>`)
-        .replace('{total}', `<strong>${totalResults}</strong>`);
+    const renderQtyHTML = () => {
+        const regexp = /\{(\w*)}/gi;
+
+        const itemsToDisplay = {
+            total: totalResults,
+
+            end: getEndNumber(),
+            start: getStartNumber(),
+        };
+
+        return quantityText.replace(regexp, (_, matchedKey) => {
+            const value = itemsToDisplay[matchedKey];
+
+            return `<strong>${value}</strong>`;
+        });
+    };
 
     return (
         <div className="consonant-pagination">

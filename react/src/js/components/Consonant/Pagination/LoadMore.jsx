@@ -26,6 +26,7 @@ const LoadMore = ({
                 {show < total &&
                     <button
                         type="button"
+                        data-testid="load-more__button"
                         className="consonant-load-more--btn"
                         onClick={onClick}
                         tabIndex="0">{loadMoreButtonText}

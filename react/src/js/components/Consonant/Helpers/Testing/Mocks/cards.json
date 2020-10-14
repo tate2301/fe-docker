@@ -1,0 +1,951 @@
+[
+    {
+        "id": "3",
+        "appliesTo": [
+            {
+                "id": "we-retail:activity/biking"
+            }
+        ],
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "3:2",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "some details",
+            "title": "3 - Infobit",
+            "description": "Some Description",
+            "dateDetailText": {
+                "startTime": "2021-10-11T21:00:00.000Z",
+                "endTime": "2021-10-11T21:00:00.000Z"
+            }
+        },
+        "footer": [
+            {
+                "divider": false,
+                "left":  null,
+                "center": [
+                    {
+                        "type": "bookmark",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/bookmark.svg",
+                        "text": "10 Tuts"
+                    },
+                    {
+                        "type": "icon-with-text",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg",
+                        "text": "117 min"
+                    }
+                ],
+                "right": [
+                    {
+                        "type": "date-interval",
+                        "startTime": "2021-10-11T21:00:00.000Z",
+                        "endTime": "2021-10-11T21:00:00.000Z"
+                    }
+                ]
+            }
+        ],
+        "search": {}
+    },
+    {
+        "id": "4",
+        "appliesTo": [
+            {
+                "id": "we-retail:activity/hiking"
+            }
+        ],
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "3:2",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "Some Title 5",
+            "description": "",
+            "dateDetailText": {
+                "startTime": "2021-10-11T21:00:00.000Z"
+            }
+        },
+        "footer": [
+            {
+                "divider": false,
+                "left": [
+                    {
+                        "type": "icon",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/bookmark.svg"
+                    },
+                    {
+                        "type": "date",
+                        "text": "10 tuts"
+                    }
+                ],
+                "center": [
+                    {
+                        "type": "icon",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg"
+                    },
+                    {
+                        "type": "text",
+                        "text": "117 min"
+                    }
+                ],
+                "right": [
+                    {
+                        "type": "icon-with-text",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+                        "text": "68k"
+                    }
+                ]
+            }
+        ],
+        "search": {}
+    },
+    {
+        "id": "5",
+        "appliesTo": [
+            {
+                "id": "we-retail:activity/running"
+            }
+        ],
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "3:2",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "5 - infobit",
+            "description": "",
+            "dateDetailText": {
+                "endTime": "2021-10-11T21:00:00.000Z"
+            }
+        },
+        "footer": [
+            {
+                "divider": true,
+                "left": [],
+                "center": [
+                    {
+                        "type": "icon-with-text",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/heart.svg",
+                        "text": "4"
+                    },
+                    {
+                        "type": "icon-with-text",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/upload.svg",
+                        "text": 8
+                    },
+                    {
+                        "type": "icon",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg"
+                    }
+                ],
+                "right": []
+            }
+        ]
+    },
+    {
+        "id": "6",
+        "appliesTo": [
+            {
+                "id": "we-retail:activity/skiing"
+            }
+        ],
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "3:2",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "some details",
+            "title": "6 - infobit",
+            "description": "",
+            "dateDetailText": {}
+        },
+        "footer": [
+            {
+                "divider": true,
+                "left": [],
+                "center": [],
+                "right": [
+                    {
+                        "type": "button",
+                        "style": "call-to-action",
+                        "text": "Button"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "10",
+        "appliesTo": [
+            {
+                "id": "we-retail:activity/surfing"
+            }
+        ],
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "3:2",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description uniq",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "10 - Infobit",
+            "description": "Some Description uniq",
+            "dateDetailText": {}
+        },
+        "footer": [
+            {
+                "divider": true,
+                "left": [
+                    {
+                        "type": "icon",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/desktop.svg"
+                    },
+                    {
+                        "type": "icon",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/smartphone.svg"
+                    }
+                ],
+                "center": [],
+                "right": [
+                    {
+                        "type": "button",
+                        "style": "call-to-action",
+                        "text": "Button"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "12",
+        "appliesTo": [
+            {
+                "id": "we-retail:activity/skiing"
+            }
+        ],
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "3:2",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "12 - Infobit",
+            "description": "",
+            "dateDetailText": {}
+        },
+        "footer": [
+            {
+                "divider": true,
+                "left": [
+                    {
+                        "type": "icon",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/pr_mnemonic.svg"
+                    },
+                    {
+                        "type": "icon",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/lr_mnemonic.svg"
+                    }
+                ],
+                "center": [],
+                "right": [
+                    {
+                        "type": "button",
+                        "style": "call-to-action",
+                        "text": "Button"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "N",
+        "appliesTo": [
+            {
+                "id": "we-retail:activity/surfing"
+            }
+        ],
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "3:2",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "14 Infoobit",
+            "description": "",
+            "dateDetailText": {}
+        },
+        "footer": [
+            {
+                "divider": true,
+                "left": [
+                    {
+                        "type": "rating",
+                        "totalStars": 5,
+                        "starsFilled": 2.5,
+                        "label": "1.4"
+                    }
+                ],
+                "center": [],
+                "right": [
+                    {
+                        "type": "button",
+                        "style": "call-to-action",
+                        "text": "Button"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "11",
+        "appliesTo": [
+            {
+                "id": "we-retail:activity/swimming"
+            }
+        ],
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "3:2",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "11 - Infobit",
+            "description": "",
+            "dateDetailText": {}
+        },
+        "footer": [
+            {
+                "divider": true,
+                "left": [
+                    {
+                        "type": "price",
+                        "price": "$29.99",
+                        "term": "month"
+                    }
+                ],
+                "center": [],
+                "right": [
+                    {
+                        "type": "button",
+                        "style": "call-to-action",
+                        "text": "Button"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "7",
+        "appliesTo": [
+            {
+                "id": "we-retail:activity/others"
+            }
+        ],
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "3:2",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "7 - Infobit",
+            "description": "",
+            "dateDetailText": {}
+        },
+        "footer": [
+            {
+                "left": [],
+                "center": [
+                    {
+                        "type": "link",
+                        "href": "https://www.google.com",
+                        "text": "Click here"
+                    }
+                ],
+                "right": [
+                    {
+                        "type": "button",
+                        "text": "Button"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "13",
+        "appliesTo": [
+            {
+                "id": "we-retail:apparel/coat"
+            }
+        ],
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "3:2",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "13 Infobit",
+            "description": "",
+            "dateDetailText": {}
+        },
+        "footer": [
+            {
+                "divider": true,
+                "left": [
+                    {
+                        "type": "icon",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/pr_mnemonic.svg"
+                    },
+                    {
+                        "type": "icon",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/lr_mnemonic.svg"
+                    }
+                ],
+                "center": [
+                    {
+                        "type": "icon-with-text",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/grey_star.svg",
+                        "text": "3.7"
+                    }
+                ],
+                "right": [
+                    {
+                        "type": "button",
+                        "style": "call-to-action",
+                        "text": "$9.99"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "14",
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "3:2",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "14 - Infobit",
+            "description": "",
+            "dateDetailText": {}
+        },
+        "footer": [
+            {
+                "left": [
+                    {
+                        "type": "icon-with-text",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+                        "text": "68k"
+                    }
+                ],
+                "center": [],
+                "right": [
+                    {
+                        "type": "button",
+                        "style": "call-to-action",
+                        "text": "Button"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "8",
+        "title": "Some Title 9",
+        "appliesTo": [
+                {
+                    "id": "we-retail:apparel/footwear"
+                }
+            ],
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "3:2",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "8 - Infobit",
+            "description": "",
+            "dateDetailText": {}
+        },
+        "footer": [
+            {
+                "left": [
+                    {
+                        "type": "icon-with-text",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+                        "text": "68k"
+                    }
+                ],
+                "center": [],
+                "right": [
+                    {
+                        "type": "button",
+                        "style": "call-to-action",
+                        "text": "Button"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "9",
+        "appliesTo": [
+            {
+                "id": "we-retail:apparel/glasses"
+            }
+        ],
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "3:2",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "Infobit 15",
+            "description": "",
+            "dateDetailText": {}
+        },
+        "footer": [
+            {
+                "left": [
+                    {
+                        "type": "icon-with-text",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+                        "text": "68k"
+                    }
+                ],
+                "center": [
+                    {
+                        "type": "link",
+                        "href": "https://www.google.com",
+                        "text": "Text link"
+                    }
+                ],
+                "right": [
+                    {
+                        "type": "button",
+                        "style": "call-to-action",
+                        "text": "Button"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "15",
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "3:2",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "15 Infobit",
+            "description": "",
+            "dateDetailText": {}
+        },
+        "footer": [
+            {
+                "left": [
+                    {
+                        "type": "progress-bar",
+                        "label": "Progress",
+                        "completionText": "6/10",
+                        "percentage": "60%",
+                        "color": "#1473E6"
+                    }
+                ],
+                "center": [],
+                "right": []
+            }
+        ]
+    },
+    {
+        "id": "16",
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "3:2",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "16 - Infobit",
+            "description": "",
+            "dateDetailText": {}
+        },
+        "footer": [
+            {
+                "left": [
+                    {
+                        "type": "progress-bar",
+                        "label": "Progress",
+                        "completionText": "6/10",
+                        "percentage": "60%",
+                        "color": "#1473E6"
+                    }
+                ],
+                "center": [],
+                "right": []
+            },
+            {
+                "divider": false,
+                "left": [
+                    {
+                        "type": "icon",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/bookmark.svg"
+                    },
+                    {
+                        "type": "text",
+                        "text": "10 tuts"
+                    }
+                ],
+                "center": [
+                    {
+                        "type": "icon",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg"
+                    },
+                    {
+                        "type": "text",
+                        "text": "117 min"
+                    }
+                ],
+                "right": [
+                    {
+                        "type": "icon-with-text",
+                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+                        "text": "68k"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "17",
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "3:2",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "16 - Infobit",
+            "description": "",
+            "dateDetailText": {}
+        },
+        "footer": [
+            {
+                "left": [
+                    {
+                        "type": "progress-bar",
+                        "label": "Progress",
+                        "completionText": "6/10",
+                        "percentage": "60%",
+                        "color": "#1473E6"
+                    }
+                ],
+                "center": [],
+                "right": []
+            },
+            {
+                "left": [],
+                "center": [
+                    {
+                        "type": "link",
+                        "href": "https://www.google.com",
+                        "text": "Text link"
+                    }
+                ],
+                "right": [
+                    {
+                        "type": "button",
+                        "style": "call-to-action",
+                        "text": "Button"
+                    }
+                ]
+            }
+        ]
+    }
+]

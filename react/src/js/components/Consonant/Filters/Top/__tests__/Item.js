@@ -27,6 +27,16 @@ describe('Consonant/FilterItem', () => {
 
         expect(filterItemElement).toHaveLength(items.length);
     });
+    test('shouldn`t cliped items if items length < 9', () => {
+        const defaultItems = [...DEFAULT_PROPS.items];
+        defaultItems.length = 5;
+
+        setup({ items: defaultItems });
+
+        const filterGroupElement = screen.getByTestId('filter-group');
+
+        expect(filterGroupElement).not.toHaveClass('consonant-top-filter--items_clipped');
+    });
 
     describe('Check snapshots', () => {
         test('should renders correctly when closed', () => {

@@ -8,12 +8,17 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly when des
   <div
     className="consonant-filters-info--wrapper consonant-filters-info--wrapper_no-line"
   >
-    
+    <h2
+      className="consonant-filters-info--title"
+      data-testid="title"
+    >
+      i18n.title
+    </h2>
     <span
       className="consonant-filters-info--results"
       data-testid="results"
     >
-      0 results
+      i18n.totalResultsText {total}
     </span>
   </div>
   <div
@@ -46,7 +51,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly when mob
       <span
         className="consonant-filters-info--btn-text"
       >
-        filters
+        leftPanel.mobile.filtersBtnLabel
       </span>
     </button>
   </div>
@@ -61,13 +66,12 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with sea
   <div
     className="consonant-filters-info--wrapper consonant-filters-info--wrapper_no-line"
   >
-    
-    <span
-      className="consonant-filters-info--results"
-      data-testid="results"
+    <h2
+      className="consonant-filters-info--title"
+      data-testid="title"
     >
-      0 results
-    </span>
+      Your Favorite Picks
+    </h2>
   </div>
   <div
     className="consonant-filters-info--search"
@@ -83,13 +87,12 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with sel
   <div
     className="consonant-filters-info--wrapper consonant-filters-info--wrapper_no-line"
   >
-    
-    <span
-      className="consonant-filters-info--results"
-      data-testid="results"
+    <h2
+      className="consonant-filters-info--title"
+      data-testid="title"
     >
-      0 results
-    </span>
+      Your Favorite Picks
+    </h2>
   </div>
   <div
     className="consonant-filters-info--search"
@@ -105,13 +108,12 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with two
   <div
     className="consonant-filters-info--wrapper consonant-filters-info--wrapper_no-line"
   >
-    
-    <span
-      className="consonant-filters-info--results"
-      data-testid="results"
+    <h2
+      className="consonant-filters-info--title"
+      data-testid="title"
     >
-      0 results
-    </span>
+      Your Favorite Picks
+    </h2>
   </div>
   <div
     className="consonant-filters-info--search"

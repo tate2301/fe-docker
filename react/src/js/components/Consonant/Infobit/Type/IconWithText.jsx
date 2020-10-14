@@ -13,7 +13,10 @@ function IconWithText({ src, srcAltText, text }) {
 IconWithText.propTypes = {
     src: PropTypes.string,
     srcAltText: PropTypes.string,
-    text: PropTypes.string,
+    text: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+    ]),
 };
 
 IconWithText.defaultProps = {

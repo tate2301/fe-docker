@@ -8,3 +8,12 @@ export const DEFAULT_PROPS = {
     onClick: jest.fn(), // handler to switch selected prop
     qty: 0, // bookmarked cards count
 };
+
+export const WITHOUT_ICONS = {
+    ...bookmarks,
+    leftFilterPanel: {
+        ...bookmarks.leftFilterPanel,
+        selectBookmarksIcon: undefined,
+        unselectBookmarksIcon: undefined,
+    },
+};

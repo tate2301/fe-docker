@@ -57,19 +57,20 @@ function Bookmark({
 }
 
 Bookmark.propTypes = {
+    isBookmarked: PropTypes.bool,
     cardId: PropTypes.string.isRequired,
     saveCardIcon: PropTypes.string,
     unsaveCardIcon: PropTypes.string,
     cardSaveText: PropTypes.string,
     cardUnsaveText: PropTypes.string,
     onClick: PropTypes.func.isRequired,
-    isBookmarked: PropTypes.bool.isRequired,
     disableBookmarkIco: PropTypes.bool.isRequired,
 };
 
 Bookmark.defaultProps = {
     saveCardIcon: '',
     unsaveCardIcon: '',
+    isBookmarked: false,
     cardSaveText: 'Save Card',
     cardUnsaveText: 'Unsave Card',
 };

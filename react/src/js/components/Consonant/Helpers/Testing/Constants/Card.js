@@ -1,67 +1,47 @@
+import { bookmarks, collection } from '../Mocks/consonant.json';
 
-import { cards, bookmarks, collection } from '../Mocks/consonant.json';
+import cardList from '../Mocks/cards.json';
 
-const { cardStyle } = collection;
+const { i18n: { prettyDateIntervalFormat } } = collection;
+const {
+    leftFilterPanel: {
+        bookmarkOnlyCollection,
+    },
+} = bookmarks;
 const [{
     id,
-    title,
-    description,
-    image,
-    bannerDescription,
-    ctaLabel,
-    ctaLink,
-    bannerBackgroundColor,
-    bannerFontColor,
-    secondaryLabelText,
-    bannerIcon,
+    badgeText,
     footer,
-}] = cards;
-const {
-    enabled: allowBookmarking,
-    cardUnsavedIcon,
-    cardSavedIcon,
-    saveCardText,
-    unsaveCardText,
-} = bookmarks;
+    styles,
+    contentArea,
+    overlays,
+}] = cardList;
 
-export const DEFAULT_PROPS = {
+const CARD_PROPS = {
     id,
-    title,
-    image,
-    ctaLink,
-    ctaLabel,
-    cardStyle,
-    bannerIcon,
-    description,
-    bannerFontColor,
-    allowBookmarking,
-    saveCardText,
-    bannerDescription,
-    secondaryLabelText,
-    unsaveCardText,
-    bannerBackgroundColor,
-    footer,
+    styles,
+    overlays,
+    badgeText,
+    contentArea,
+};
 
-    key: id,
+export const DEFAULT_PROPS_3_2 = {
+    ...CARD_PROPS,
+
+    footer,
     isBookmarked: false,
-    label: 'Some label',
-    disableBookmarkIco: false,
-    videoURL: 'some-video-url',
-    cardSavedIco: cardSavedIcon,
-    cardUnsavedIco: cardUnsavedIcon,
+    dateFormat: prettyDateIntervalFormat,
+    disableBookmarkIco: Boolean(bookmarkOnlyCollection),
 
     onClick: jest.fn(),
 };
 
-export const CARD_STYLE = [
-    '3:2',
-    '1:1',
-    'none',
-    'full-card',
-];
+export const DEFAULT_PROPS_1_1 = {
+    ...CARD_PROPS,
 
-export const PROPS_WITHOUT_BANNER = [
-    { bannerDescription: '' },
-    { bannerFontColor: '' },
-    { bannerBackgroundColor: '' },
-];
+    ctaLink: 'some_link',
+};
+
+export const DEFAULT_PROPS_FULL = {
+    ...CARD_PROPS,
+};

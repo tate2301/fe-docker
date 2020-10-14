@@ -88,10 +88,10 @@ const FullCard = (props) => {
 export default FullCard;
 
 FullCard.propTypes = {
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+    id: PropTypes.string,
+    title: PropTypes.string,
     label: PropTypes.string,
-    image: PropTypes.string.isRequired,
+    image: PropTypes.string,
     bannerDescription: PropTypes.string,
     bannerFontColor: PropTypes.string,
     bannerBackgroundColor: PropTypes.string,

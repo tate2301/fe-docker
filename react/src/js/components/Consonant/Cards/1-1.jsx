@@ -38,8 +38,8 @@ const AspectRatio1to1Card = (props) => {
 
     const i18nFormat = getConfig('collection', 'i18n.prettyDateIntervalFormat');
     const locale = getConfig('language', '');
-
     const prettyDate = startTime ? prettyFormatDate(startTime, endTime, locale, i18nFormat) : null;
+
     const detailText = prettyDate || label || '';
 
     return (
@@ -90,7 +90,7 @@ const AspectRatio1to1Card = (props) => {
                 title="Click to open in a new tab"
                 className="consonant-aspect-ratio-1-1-card--inner"
                 tabIndex="0">
-                {detailText && <span className="consonant-aspect-ratio-1-1-card--label">{detailText}</span>}
+                {detailText && <span data-testid="1-1-card--label" className="consonant-aspect-ratio-1-1-card--label">{detailText}</span>}
                 <h2 className="consonant-aspect-ratio-1-1-card--title">
                     {title}
                 </h2>
@@ -103,9 +103,9 @@ export default AspectRatio1to1Card;
 
 AspectRatio1to1Card.propTypes = {
     id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     label: PropTypes.string,
-    image: PropTypes.string.isRequired,
+    image: PropTypes.string,
     bannerDescription: PropTypes.string,
     bannerFontColor: PropTypes.string,
     bannerBackgroundColor: PropTypes.string,

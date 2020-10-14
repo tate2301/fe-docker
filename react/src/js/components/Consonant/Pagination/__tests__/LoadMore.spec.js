@@ -37,7 +37,7 @@ describe('Consonant/LoadMore', () => {
         test('should call onClick', () => {
             const { props: { onClick } } = setup();
 
-            const buttonElement = screen.getByText('Load more');
+            const buttonElement = screen.getByTestId('load-more__button');
 
             fireEvent.click(buttonElement);
 

@@ -13,7 +13,7 @@ exports[`Top Filter Panel Check snapshots Shoulld renders correctly on desktop 1
       data-testid="filter-top-result-count"
     >
       <strong>
-        0 results
+        i18n.totalResultsText 0
       </strong>
     </span>
     <div
@@ -30,40 +30,10 @@ exports[`Top Filter Panel Check snapshots Shoulld renders correctly on desktop 1
         <span />
       </button>
     </div>
-  </div>
-</div>
-`;
-
-exports[`Top Filter Panel Check snapshots The Top Filter Should Show A Search Icon 1`] = `
-<div
-  className="consonant-top-filters"
-  data-testid="consonant-filters__top"
->
-  <div
-    className="consonant-top-filters--inner"
-  >
-    <span
-      className="consonant-top-filters--res-qty"
-      data-testid="filter-top-result-count"
-    >
-      <strong>
-        0 results
-      </strong>
-    </span>
     <div
-      className="consonant-top-filters--search-ico-wrapper"
-      data-testid="filter-top-ico-wrapper"
-    >
-      <button
-        className="search-ico"
-        onClick={[Function]}
-        tabIndex="0"
-        type="button"
-      >
-        Click to search
-        <span />
-      </button>
-    </div>
+      className="consonant-top-filters--select-wrapper"
+      data-testid="top-filters__sort-popup"
+    />
   </div>
 </div>
 `;
@@ -81,7 +51,7 @@ exports[`Top Filter Panel Check snapshots should renders correctly with limited 
       data-testid="filter-top-result-count"
     >
       <strong>
-        0 results
+        i18n.totalResultsText 0
       </strong>
     </span>
     <div
@@ -98,6 +68,10 @@ exports[`Top Filter Panel Check snapshots should renders correctly with limited 
         <span />
       </button>
     </div>
+    <div
+      className="consonant-top-filters--select-wrapper"
+      data-testid="top-filters__sort-popup"
+    />
   </div>
 </div>
 `;
@@ -115,7 +89,7 @@ exports[`Top Filter Panel Check snapshots should renders correctly with more but
       data-testid="filter-top-result-count"
     >
       <strong>
-        0 results
+        i18n.totalResultsText 0
       </strong>
     </span>
     <div
@@ -132,6 +106,10 @@ exports[`Top Filter Panel Check snapshots should renders correctly with more but
         <span />
       </button>
     </div>
+    <div
+      className="consonant-top-filters--select-wrapper"
+      data-testid="top-filters__sort-popup"
+    />
   </div>
 </div>
 `;
@@ -149,7 +127,7 @@ exports[`Top Filter Panel Check snapshots should renders correctly with non-tabl
       data-testid="filter-top-result-count"
     >
       <strong>
-        0 results
+        i18n.totalResultsText 0
       </strong>
     </span>
     <div
@@ -166,40 +144,10 @@ exports[`Top Filter Panel Check snapshots should renders correctly with non-tabl
         <span />
       </button>
     </div>
-  </div>
-</div>
-`;
-
-exports[`Top Filter Panel Check snapshots should renders correctly without children 1`] = `
-<div
-  className="consonant-top-filters"
-  data-testid="consonant-filters__top"
->
-  <div
-    className="consonant-top-filters--inner"
-  >
-    <span
-      className="consonant-top-filters--res-qty"
-      data-testid="filter-top-result-count"
-    >
-      <strong>
-        0 results
-      </strong>
-    </span>
     <div
-      className="consonant-top-filters--search-ico-wrapper"
-      data-testid="filter-top-ico-wrapper"
-    >
-      <button
-        className="search-ico"
-        onClick={[Function]}
-        tabIndex="0"
-        type="button"
-      >
-        Click to search
-        <span />
-      </button>
-    </div>
+      className="consonant-top-filters--select-wrapper"
+      data-testid="top-filters__sort-popup"
+    />
   </div>
 </div>
 `;

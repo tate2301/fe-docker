@@ -1,15 +1,13 @@
-import renderer from 'react-test-renderer';
-import React from 'react';
 import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import Card, { Tooltip } from '../3-2';
+import Card from '../Full';
 
-import { DEFAULT_PROPS_3_2 } from '../../Helpers/Testing/Constants/Card';
+import { DEFAULT_PROPS_FULL } from '../../Helpers/Testing/Constants/Card';
 
 import makeSetup from '../../Helpers/Testing/Utils/Settings';
 
-const setup = makeSetup(Card, DEFAULT_PROPS_3_2);
+const setup = makeSetup(Card, DEFAULT_PROPS_FULL);
 
 describe('Consonant/Card', () => {
     test('should renders banner correctly', () => {
@@ -43,7 +41,6 @@ describe('Consonant/Card', () => {
 
         expect(badgeElement).not.toBeNull();
     });
-
     describe('Check snapshots', () => {
         test('should renders with bookmarking', () => {
             const { tree } = setup({
@@ -53,48 +50,6 @@ describe('Consonant/Card', () => {
             });
 
             expect(tree).toMatchSnapshot();
-        });
-    });
-
-    test('should renders with label', () => {
-        setup({
-            contentArea: {
-                dateDetailText: {
-                    endTime: '2021-10-11T21:00:00.000Z',
-                    startTime: '2021-10-11T21:00:00.000Z',
-                },
-            },
-        });
-
-        const labelElement = screen.queryByTestId('3-2-card--label');
-
-        expect(labelElement).not.toBeNull();
-    });
-
-    test('should renders with detail text in label ', () => {
-        setup({
-            contentArea: {
-                detailText: 'datail label',
-                dateDetailText: {
-                    startTime: undefined,
-                },
-            },
-        });
-
-        const labelElement = screen.queryByText('datail label');
-
-        expect(labelElement).not.toBeNull();
-    });
-
-    describe('Consonant/Tooltip', () => {
-        describe('Check snapshots', () => {
-            test('should renders correctly', () => {
-                const tree = renderer
-                    .create(<Tooltip text="Tooltip text" />)
-                    .toJSON();
-
-                expect(tree).toMatchSnapshot();
-            });
         });
     });
 });

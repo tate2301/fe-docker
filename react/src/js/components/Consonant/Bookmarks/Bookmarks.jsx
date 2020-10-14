@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useConfig } from '../../../utils/hooks';
 
@@ -16,6 +16,10 @@ const Bookmarks = (props) => {
 
     const src = selected ? selectedIco : unselectedIco;
 
+    const iconStyles = useMemo(() => ({
+        backgroundImage: src ? `url(${src})` : '',
+    }));
+
     return (
         <button
             data-testid="bookmarks"
@@ -24,14 +28,10 @@ const Bookmarks = (props) => {
             className={selected ? 'bookmarks bookmarks_selected' : 'bookmarks'}
             tabIndex="0">
             <span className="bookmarks--ico-wrapper">
-                {src ? (
-                    <span
-                        data-testid="bookmarks--ico"
-                        className="bookmarks--ico"
-                        style={{ backgroundImage: `url(${src})` }} />
-                ) : (
-                    <span data-testid="bookmarks--ico" className="bookmarks--ico" />
-                )}
+                <span
+                    style={iconStyles}
+                    className="bookmarks--ico"
+                    data-testid="bookmarks--ico" />
                 <span className="bookmarks--title">{title}</span>
             </span>
             <span data-testid="bookmarks--item-badge" className="bookmarks--item-badge">{qty}</span>

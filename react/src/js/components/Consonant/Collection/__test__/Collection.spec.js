@@ -1,11 +1,11 @@
-import { screen, fireEvent } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import Collection from '../Collection';
 
 import {
-    CARD_STYLE,
     DEFAULT_PROPS,
+    COLLECTION_PROPS,
 } from '../../Helpers/Testing/Constants/Collection';
 
 import makeSetup from '../../Helpers/Testing/Utils/Settings';
@@ -23,7 +23,7 @@ describe('Consonant/Collection', () => {
     test('should renders all card', () => {
         const {
             props: { cards },
-        } = setup({ page: 100, showItemsPerPage: 100 });
+        } = setup({ resultsPerPage: 100 }, { pagination: { type: 'loadMore' } });
 
         const cardElementList = screen.queryAllByTestId('consonant-card');
 
@@ -36,25 +36,11 @@ describe('Consonant/Collection', () => {
             expect(tree).toMatchSnapshot();
         });
         test('should renders correctly with different card style', () => {
-            CARD_STYLE.forEach((style) => {
-                const { tree } = setup({ cardStyle: style });
+            COLLECTION_PROPS.forEach((collectionProps) => {
+                const { tree } = setup({}, { collection: collectionProps });
 
                 expect(tree).toMatchSnapshot();
             });
-        });
-    });
-
-    describe('Interaction with UI', () => {
-        test('should call onClick', () => {
-            const {
-                props: { onCardBookmark },
-            } = setup({ allowBookmarking: true, cardsStyle: '3:2' });
-
-            const bookmarkButton = screen.getByTestId('bookmark-button');
-
-            fireEvent.click(bookmarkButton);
-
-            expect(onCardBookmark).toBeCalled();
         });
     });
 });

@@ -1,11 +1,10 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import FilterPanelTop from '../Panel';
 import Select from '../../../Select/Select';
 import Search from '../../../Search/Search';
-import SearchIco from '../../../Search/SearchIco';
 
 import {
     DEFAULT_PROPS,
@@ -17,12 +16,17 @@ import {
 import { DEFAULT_PROPS as SEARCH_DEFAULT_PROPS } from '../../../Helpers/Testing/Constants/Search';
 import { DEFAULT_PROPS as SELECT_DEFAULT_PROPS } from '../../../Helpers/Testing/Constants/Select';
 
-import makeSetup, { createTree } from '../../../Helpers/Testing/Utils/Settings';
+import makeSetup from '../../../Helpers/Testing/Utils/Settings';
 
 const setup = makeSetup(FilterPanelTop, DEFAULT_PROPS);
 
 const multipleFilters = [...DEFAULT_PROPS.filters, ...DEFAULT_PROPS.filters]
     .map((item, index) => ({ ...item, id: `${item}_${index}` }));
+
+const CHILD_COMPONENTS = {
+    search: <Search {...SEARCH_DEFAULT_PROPS} />,
+    select: <Select {...SELECT_DEFAULT_PROPS} />,
+};
 
 describe('Top Filter Panel', () => {
     beforeEach(() => {
@@ -30,7 +34,10 @@ describe('Top Filter Panel', () => {
     });
 
     test('Should render all groups of filters', () => {
-        const { props: { filters } } = setup();
+        const { props: { filters } } = setup({
+            filterPanelEnabled: true,
+            filters: selectedAllFilters,
+        });
 
         const filterGroupElements = screen.queryAllByTestId('filter-group');
 
@@ -45,67 +52,76 @@ describe('Top Filter Panel', () => {
     });
 
     test('Should be able to render a search box on mobile', () => {
-        render((
-            <FilterPanelTop
-                {...DEFAULT_PROPS}
-                windowWidth={MOBILE_MIN_WIDTH}
-                searchComponent={(
-                    <Search
-                        name="filtersTopSearch"
-                        {...SEARCH_DEFAULT_PROPS} />
-                )} />
-        ));
+        setup({ windowWidth: MOBILE_MIN_WIDTH, searchComponent: CHILD_COMPONENTS.search });
 
         const footerTotalResElement = screen.queryByTestId('top-filters__search-wrapper');
 
         expect(footerTotalResElement).not.toBeNull();
     });
     test('Should renders correctly without search', () => {
-        render((
-            <FilterPanelTop {...DEFAULT_PROPS} >
-                <Search
-                    name="filtersTopSearch"
-                    {...SEARCH_DEFAULT_PROPS} />
-            </FilterPanelTop>
-        ));
+        setup({ searchComponent: CHILD_COMPONENTS.search });
 
         const footerTotalResElement = screen.queryByTestId('top-filters__search-wrapper');
 
         expect(footerTotalResElement).toBeNull();
     });
     test('Should be able to show the Sort Popup', () => {
-        // TODO: Refactor to use context
-        render((
-            <FilterPanelTop
-                {...DEFAULT_PROPS}
-                sortComponent={(
-                    <Select
-                        childrenKey="filtersTopSelect"
-                        {...SELECT_DEFAULT_PROPS} />
-                )} />
-        ));
+        setup({ sortComponent: CHILD_COMPONENTS.select });
 
         const footerTotalResElement = screen.queryByTestId('top-filters__sort-popup');
 
         expect(footerTotalResElement).not.toBeNull();
     });
 
-    test('should renders more button with `more filters +` text', () => {
-        setup({ showLimitedFiltersQty: true, filters: multipleFilters });
+    test('should renders more button with correct text', () => {
+        const {
+            config: {
+                filterPanel: {
+                    i18n: {
+                        topPanel: {
+                            moreFiltersBtnText,
+                        },
+                    },
+                },
+            },
+        } = setup({
+            filterPanelEnabled: true,
+            filters: multipleFilters,
+            showLimitedFiltersQty: true,
+        });
 
         const footerTotalResElement = screen.queryByTestId('top-filter__more-button');
 
-        expect(footerTotalResElement).toHaveTextContent('more filters +');
+        expect(footerTotalResElement).toHaveTextContent(moreFiltersBtnText);
+    });
+    test('should renders clear button wrapper without background', () => {
+        const [firstSelectedFilter] = selectedAllFilters;
+
+        setup({
+            filterPanelEnabled: true,
+            showLimitedFiltersQty: true,
+            filters: [firstSelectedFilter],
+        });
+
+        const clearButtonWrapperElement = screen.queryByTestId('top-filter__clear-button-wrapper');
+
+        expect(clearButtonWrapperElement).toHaveClass('consonant-top-filters--clear-btn-wrapper_no-bg');
     });
 
     test('Filter Group Button Should Exist', () => {
-        setup();
+        setup({ filterPanelEnabled: true });
+
         const [filterGroupBtn] = screen.queryAllByTestId('filter-group-btn');
+
         expect(filterGroupBtn).toBeDefined();
     });
 
     test('should show clear all filters text', () => {
-        setup({ filters: selectedAllFilters });
+        setup({
+            filterPanelEnabled: true,
+            filters: selectedAllFilters,
+            showLimitedFiltersQty: true,
+        });
 
         const clearButtonElement = screen.queryByTestId('top-filter__clear-button');
 
@@ -113,30 +129,33 @@ describe('Top Filter Panel', () => {
     });
 
     describe('Check snapshots', () => {
-        test('The Top Filter Should Show A Search Icon', () => {
-            const tree = createTree((
-                <FilterPanelTop {...DEFAULT_PROPS} >
-                    <SearchIco
-                        childrenKey="filtersTopSearchIco" />
-                </FilterPanelTop>
-            ));
+        // test('The Top Filter Should Show A Search Icon', () => {
+        //     setup({ showSearchbar: true, sortComponent: CHILD_COMPONENTS.select });
 
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly without children', () => {
-            const tree = createTree((
-                <FilterPanelTop {...DEFAULT_PROPS} />
-            ));
+        //     const tree = createTree((
+        //         <FilterPanelTop showSearchbar {...DEFAULT_PROPS} >
+        //             <SearchIco
+        //                 childrenKey="filtersTopSearchIco" />
+        //         </FilterPanelTop>
+        //     ));
 
-            expect(tree).toMatchSnapshot();
-        });
+        //     expect(tree).toMatchSnapshot();
+        // // });
+        // test('should renders correctly without children', () => {
+        //     const { tree } = setup({
+        //         sortComponent: null,
+        //         searchComponent: null,
+        //     });
+
+        //     expect(tree).toMatchSnapshot();
+        // });
         test('Shoulld renders correctly on desktop', () => {
             const { tree } = setup();
 
             expect(tree).toMatchSnapshot();
         });
         test('should renders correctly with limited filters', () => {
-            const { tree } = setup({ showLimitedFiltersQty: 10 });
+            const { tree } = setup({ showLimitedFiltersQty: true });
 
             expect(tree).toMatchSnapshot();
         });
@@ -160,7 +179,11 @@ describe('Top Filter Panel', () => {
                 props: {
                     onClearAllFilters,
                 },
-            } = setup({ filters: selectedAllFilters });
+            } = setup({
+                filterPanelEnabled: true,
+                filters: selectedAllFilters,
+                showLimitedFiltersQty: true,
+            });
 
             const clearButtonElement = screen.queryByTestId('top-filter__clear-button');
 

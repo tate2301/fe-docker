@@ -8,14 +8,14 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
   <div
     className="consonant-aspect-ratio-3-2-card"
     data-testid="consonant-card"
-    id="6d6438c8-1"
+    id="13"
   >
     <div
       className="consonant-aspect-ratio-3-2-card--img"
       data-testid="consonant-card--img"
       style={
         Object {
-          "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
+          "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png\\")",
         }
       }
     >
@@ -42,7 +42,15 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
         Some Banner Description
       </span>
       
-      
+      <a
+        className="consonant-aspect-ratio-3-2-card--video-ico"
+        href="some-video-videoURL"
+        rel="noreferrer"
+        tabIndex="0"
+        target="_blank"
+      >
+        Open video link
+      </a>
     </div>
     <div
       className="consonant-aspect-ratio-3-2-card--inner"
@@ -51,57 +59,70 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
       <h2
         className="consonant-aspect-ratio-3-2-card--title"
       >
-        Some Title 1
+        13 Infobit
       </h2>
       <p
         className="consonant-aspect-ratio-3-2-card--text"
       >
-        Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars
+        
       </p>
       <div
-        className="consonant-card-footer"
+        className="consonant-card-footer consonant-card-footer_divider"
       >
         <div
           className="consonant-card-footer--row"
         >
           <div
-            className="consonant-card-footer--cell"
+            className="consonant-card-footer--cell consonant-card-footer--cell_left"
+            data-max-width={2}
           >
-            <button
-              className="consonant-bookmark-infobit"
-              data-testid="bookmark-button"
-              data-tooltip-wrapper={true}
-              onClick={[Function]}
-              tabIndex="0"
-              type="button"
-            >
-              <span
-                className="consonant-bookmark-infobit--ico"
-                data-testid="bookmarks--ico"
-                style={
-                  Object {
-                    "backgroundImage": "url(https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg)",
-                  }
-                }
-              />
-              <span
-                className="consonant-tooltip"
-              >
-                Save Card
-              </span>
-            </button>
+            <img
+              alt=""
+              className="consonant-icon-infobit"
+              loading="lazy"
+              src="https://caas-chimera.s3-us-west-1.amazonaws.com/icons/pr_mnemonic.svg"
+              width="28"
+            />
+            <img
+              alt=""
+              className="consonant-icon-infobit"
+              loading="lazy"
+              src="https://caas-chimera.s3-us-west-1.amazonaws.com/icons/lr_mnemonic.svg"
+              width="28"
+            />
           </div>
           <div
-            className="consonant-card-footer--cell"
+            className="consonant-card-footer--cell consonant-card-footer--cell_center"
+            data-max-width={1}
+          >
+            <div
+              className="consonant-icon-with-text-infobit"
+            >
+              <img
+                alt=""
+                height="22"
+                loading="lazy"
+                src="https://caas-chimera.s3-us-west-1.amazonaws.com/icons/grey_star.svg"
+              />
+              <span
+                className="consonant-icon-with-text-infobit--text"
+              >
+                3.7
+              </span>
+            </div>
+          </div>
+          <div
+            className="consonant-card-footer--cell consonant-card-footer--cell_right"
+            data-max-width={1}
           >
             <a
               className="consonant-btn-infobit consonant-btn-infobit_cta"
-              href="https://www.google.com"
+              href=""
               rel="noreferrer"
               tabIndex="0"
               target="_blank"
             >
-              Read More
+              $9.99
             </a>
           </div>
         </div>
@@ -125,14 +146,14 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
   <div
     className="consonant-aspect-ratio-3-2-card"
     data-testid="consonant-card"
-    id="6d6438c8-1"
+    id="13"
   >
     <div
       className="consonant-aspect-ratio-3-2-card--img"
       data-testid="consonant-card--img"
       style={
         Object {
-          "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
+          "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png\\")",
         }
       }
     >
@@ -159,7 +180,15 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         Some Banner Description
       </span>
       
-      
+      <a
+        className="consonant-aspect-ratio-3-2-card--video-ico"
+        href="some-video-videoURL"
+        rel="noreferrer"
+        tabIndex="0"
+        target="_blank"
+      >
+        Open video link
+      </a>
     </div>
     <div
       className="consonant-aspect-ratio-3-2-card--inner"
@@ -168,57 +197,70 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       <h2
         className="consonant-aspect-ratio-3-2-card--title"
       >
-        Some Title 1
+        13 Infobit
       </h2>
       <p
         className="consonant-aspect-ratio-3-2-card--text"
       >
-        Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars
+        
       </p>
       <div
-        className="consonant-card-footer"
+        className="consonant-card-footer consonant-card-footer_divider"
       >
         <div
           className="consonant-card-footer--row"
         >
           <div
-            className="consonant-card-footer--cell"
+            className="consonant-card-footer--cell consonant-card-footer--cell_left"
+            data-max-width={2}
           >
-            <button
-              className="consonant-bookmark-infobit"
-              data-testid="bookmark-button"
-              data-tooltip-wrapper={true}
-              onClick={[Function]}
-              tabIndex="0"
-              type="button"
-            >
-              <span
-                className="consonant-bookmark-infobit--ico"
-                data-testid="bookmarks--ico"
-                style={
-                  Object {
-                    "backgroundImage": "url(https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg)",
-                  }
-                }
-              />
-              <span
-                className="consonant-tooltip"
-              >
-                Save Card
-              </span>
-            </button>
+            <img
+              alt=""
+              className="consonant-icon-infobit"
+              loading="lazy"
+              src="https://caas-chimera.s3-us-west-1.amazonaws.com/icons/pr_mnemonic.svg"
+              width="28"
+            />
+            <img
+              alt=""
+              className="consonant-icon-infobit"
+              loading="lazy"
+              src="https://caas-chimera.s3-us-west-1.amazonaws.com/icons/lr_mnemonic.svg"
+              width="28"
+            />
           </div>
           <div
-            className="consonant-card-footer--cell"
+            className="consonant-card-footer--cell consonant-card-footer--cell_center"
+            data-max-width={1}
+          >
+            <div
+              className="consonant-icon-with-text-infobit"
+            >
+              <img
+                alt=""
+                height="22"
+                loading="lazy"
+                src="https://caas-chimera.s3-us-west-1.amazonaws.com/icons/grey_star.svg"
+              />
+              <span
+                className="consonant-icon-with-text-infobit--text"
+              >
+                3.7
+              </span>
+            </div>
+          </div>
+          <div
+            className="consonant-card-footer--cell consonant-card-footer--cell_right"
+            data-max-width={1}
           >
             <a
               className="consonant-btn-infobit consonant-btn-infobit_cta"
-              href="https://www.google.com"
+              href=""
               rel="noreferrer"
               tabIndex="0"
               target="_blank"
             >
-              Read More
+              $9.99
             </a>
           </div>
         </div>
@@ -240,21 +282,21 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
   data-testid="consonant-collection"
 >
   <div
-    className="consonant-aspect-ratio-3-2-card"
+    className="consonant-aspect-ratio-1-1-card"
     data-testid="consonant-card"
-    id="6d6438c8-1"
+    id="13"
   >
     <div
-      className="consonant-aspect-ratio-3-2-card--img"
+      className="consonant-aspect-ratio-1-1-card--img"
       data-testid="consonant-card--img"
       style={
         Object {
-          "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
+          "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png\\")",
         }
       }
     >
       <span
-        className="consonant-aspect-ratio-3-2-card--banner"
+        className="consonant-aspect-ratio-1-1-card--banner"
         data-testid="consonant-card--banner"
         style={
           Object {
@@ -264,7 +306,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         }
       >
         <div
-          className="consonant-aspect-ratio-3-2-card--banner-icon-wrapper"
+          className="consonant-aspect-ratio-1-1-card--banner-icon-wrapper"
         >
           <img
             alt=""
@@ -276,71 +318,31 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         Some Banner Description
       </span>
       
-      
+      <a
+        className="consonant-aspect-ratio-1-1-card--video-ico"
+        href="some-video-videoURL"
+        rel="noreferrer"
+        tabIndex="0"
+        target="_blank"
+      >
+        Open video link
+      </a>
     </div>
-    <div
-      className="consonant-aspect-ratio-3-2-card--inner"
+    <a
+      className="consonant-aspect-ratio-1-1-card--inner"
+      href=""
+      rel="noreferrer"
+      tabIndex="0"
+      target="_blank"
+      title="Click to open in a new tab"
     >
       
       <h2
-        className="consonant-aspect-ratio-3-2-card--title"
+        className="consonant-aspect-ratio-1-1-card--title"
       >
-        Some Title 1
+        13 Infobit
       </h2>
-      <p
-        className="consonant-aspect-ratio-3-2-card--text"
-      >
-        Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars
-      </p>
-      <div
-        className="consonant-card-footer"
-      >
-        <div
-          className="consonant-card-footer--row"
-        >
-          <div
-            className="consonant-card-footer--cell"
-          >
-            <button
-              className="consonant-bookmark-infobit"
-              data-testid="bookmark-button"
-              data-tooltip-wrapper={true}
-              onClick={[Function]}
-              tabIndex="0"
-              type="button"
-            >
-              <span
-                className="consonant-bookmark-infobit--ico"
-                data-testid="bookmarks--ico"
-                style={
-                  Object {
-                    "backgroundImage": "url(https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg)",
-                  }
-                }
-              />
-              <span
-                className="consonant-tooltip"
-              >
-                Save Card
-              </span>
-            </button>
-          </div>
-          <div
-            className="consonant-card-footer--cell"
-          >
-            <a
-              className="consonant-btn-infobit consonant-btn-infobit_cta"
-              href="https://www.google.com"
-              rel="noreferrer"
-              tabIndex="0"
-              target="_blank"
-            >
-              Read More
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+    </a>
   </div>
   <div
     className="consonant-card-collection--placeholder"
@@ -359,14 +361,14 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
   <div
     className="consonant-aspect-ratio-3-2-card"
     data-testid="consonant-card"
-    id="6d6438c8-1"
+    id="13"
   >
     <div
       className="consonant-aspect-ratio-3-2-card--img"
       data-testid="consonant-card--img"
       style={
         Object {
-          "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
+          "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png\\")",
         }
       }
     >
@@ -393,7 +395,15 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         Some Banner Description
       </span>
       
-      
+      <a
+        className="consonant-aspect-ratio-3-2-card--video-ico"
+        href="some-video-videoURL"
+        rel="noreferrer"
+        tabIndex="0"
+        target="_blank"
+      >
+        Open video link
+      </a>
     </div>
     <div
       className="consonant-aspect-ratio-3-2-card--inner"
@@ -402,57 +412,70 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       <h2
         className="consonant-aspect-ratio-3-2-card--title"
       >
-        Some Title 1
+        13 Infobit
       </h2>
       <p
         className="consonant-aspect-ratio-3-2-card--text"
       >
-        Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars
+        
       </p>
       <div
-        className="consonant-card-footer"
+        className="consonant-card-footer consonant-card-footer_divider"
       >
         <div
           className="consonant-card-footer--row"
         >
           <div
-            className="consonant-card-footer--cell"
+            className="consonant-card-footer--cell consonant-card-footer--cell_left"
+            data-max-width={2}
           >
-            <button
-              className="consonant-bookmark-infobit"
-              data-testid="bookmark-button"
-              data-tooltip-wrapper={true}
-              onClick={[Function]}
-              tabIndex="0"
-              type="button"
-            >
-              <span
-                className="consonant-bookmark-infobit--ico"
-                data-testid="bookmarks--ico"
-                style={
-                  Object {
-                    "backgroundImage": "url(https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg)",
-                  }
-                }
-              />
-              <span
-                className="consonant-tooltip"
-              >
-                Save Card
-              </span>
-            </button>
+            <img
+              alt=""
+              className="consonant-icon-infobit"
+              loading="lazy"
+              src="https://caas-chimera.s3-us-west-1.amazonaws.com/icons/pr_mnemonic.svg"
+              width="28"
+            />
+            <img
+              alt=""
+              className="consonant-icon-infobit"
+              loading="lazy"
+              src="https://caas-chimera.s3-us-west-1.amazonaws.com/icons/lr_mnemonic.svg"
+              width="28"
+            />
           </div>
           <div
-            className="consonant-card-footer--cell"
+            className="consonant-card-footer--cell consonant-card-footer--cell_center"
+            data-max-width={1}
+          >
+            <div
+              className="consonant-icon-with-text-infobit"
+            >
+              <img
+                alt=""
+                height="22"
+                loading="lazy"
+                src="https://caas-chimera.s3-us-west-1.amazonaws.com/icons/grey_star.svg"
+              />
+              <span
+                className="consonant-icon-with-text-infobit--text"
+              >
+                3.7
+              </span>
+            </div>
+          </div>
+          <div
+            className="consonant-card-footer--cell consonant-card-footer--cell_right"
+            data-max-width={1}
           >
             <a
               className="consonant-btn-infobit consonant-btn-infobit_cta"
-              href="https://www.google.com"
+              href=""
               rel="noreferrer"
               tabIndex="0"
               target="_blank"
             >
-              Read More
+              $9.99
             </a>
           </div>
         </div>
@@ -474,21 +497,21 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
   data-testid="consonant-collection"
 >
   <div
-    className="consonant-aspect-ratio-3-2-card"
+    className="consonant-full-card"
     data-testid="consonant-card"
-    id="6d6438c8-1"
+    id="13"
   >
     <div
-      className="consonant-aspect-ratio-3-2-card--img"
+      className="consonant-full-card--img"
       data-testid="consonant-card--img"
       style={
         Object {
-          "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg\\")",
+          "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png\\")",
         }
       }
     >
       <span
-        className="consonant-aspect-ratio-3-2-card--banner"
+        className="consonant-full-card--banner"
         data-testid="consonant-card--banner"
         style={
           Object {
@@ -498,7 +521,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         }
       >
         <div
-          className="consonant-aspect-ratio-3-2-card--banner-icon-wrapper"
+          className="consonant-full-card--banner-icon-wrapper"
         >
           <img
             alt=""
@@ -510,71 +533,31 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         Some Banner Description
       </span>
       
-      
+      <a
+        className="consonant-full-card--video-ico"
+        href="some-video-videoURL"
+        rel="noreferrer"
+        tabIndex="0"
+        target="_blank"
+      >
+        Open video link
+      </a>
     </div>
-    <div
-      className="consonant-aspect-ratio-3-2-card--inner"
+    <a
+      className="consonant-full-card--inner"
+      href="ctaLink"
+      rel="noreferrer"
+      tabIndex="0"
+      target="_blank"
+      title="Click to open in a new tab"
     >
       
       <h2
-        className="consonant-aspect-ratio-3-2-card--title"
+        className="consonant-full-card--title"
       >
-        Some Title 1
+        13 Infobit
       </h2>
-      <p
-        className="consonant-aspect-ratio-3-2-card--text"
-      >
-        Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ charsDescription with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars Description with 200+ chars
-      </p>
-      <div
-        className="consonant-card-footer"
-      >
-        <div
-          className="consonant-card-footer--row"
-        >
-          <div
-            className="consonant-card-footer--cell"
-          >
-            <button
-              className="consonant-bookmark-infobit"
-              data-testid="bookmark-button"
-              data-tooltip-wrapper={true}
-              onClick={[Function]}
-              tabIndex="0"
-              type="button"
-            >
-              <span
-                className="consonant-bookmark-infobit--ico"
-                data-testid="bookmarks--ico"
-                style={
-                  Object {
-                    "backgroundImage": "url(https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg)",
-                  }
-                }
-              />
-              <span
-                className="consonant-tooltip"
-              >
-                Save Card
-              </span>
-            </button>
-          </div>
-          <div
-            className="consonant-card-footer--cell"
-          >
-            <a
-              className="consonant-btn-infobit consonant-btn-infobit_cta"
-              href="https://www.google.com"
-              rel="noreferrer"
-              tabIndex="0"
-              target="_blank"
-            >
-              Read More
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+    </a>
   </div>
   <div
     className="consonant-card-collection--placeholder"
