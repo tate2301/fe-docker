@@ -1,0 +1,693 @@
+{
+    "cards": [
+		{
+			"id": "3",
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {
+				"divider": false,
+				"left": [],
+				"center": [
+					{
+						"type": "icon-with-text",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/bookmark.svg",
+						"text": "10 Tuts"
+					},
+					{
+						"type": "icon-with-text",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg",
+						"text": "117 min"
+					}
+				],
+				"right": []
+			},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "3 - Infobit",
+			"description": "",
+			"label": "",
+			"cardStyle": "",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+			"bannerDescription": "",
+			"bannerBackgroundColor": "",
+			"bannerFontColor": ""
+		},
+		{
+			"id": "4",
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"label": "",
+			"footer": {
+				"divider": false,
+				"left": [
+					{
+						"type": "icon",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/bookmark.svg"
+					},
+					{
+						"type": "text",
+						"text": "10 tuts"
+					}
+				],
+				"center": [
+					{
+						"type": "icon",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg"
+					},
+					{
+						"type": "text",
+						"text": "117 min"
+					}
+				],
+				"right": [
+					{
+						"type": "icon-with-text",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+						"text": "68k"
+					}
+				]
+			},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "4 - Infobit.",
+			"description": "",
+			"bannerDescription": "",
+			"bannerBackgroundColor": "",
+			"bannerFontColor": "",
+			"cardStyle": "",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+		},
+		{
+			"id": "5",
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {
+				"divider": true,
+				"left": [],
+				"center": [
+					{
+						"type": "icon-with-text",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/heart.svg",
+						"text": "4"
+					},
+					{
+						"type": "icon-with-text",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/upload.svg",
+						"text": 8
+					},
+					{
+						"type": "icon",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg"
+					}
+				],
+				"right": []
+			},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "5 - Infobit",
+			"description": "The wizard quickly jinxed the gnomes before they vaporized. Zelda might fix the job growth plans very quickly on Monday.",
+			"label": "",
+			"cardStyle": "",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+			"bannerDescription": "",
+			"bannerBackgroundColor": "",
+			"bannerFontColor": ""
+		},
+		{
+			"id": "6",
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {
+				"divider": true,
+				"left": [],
+				"center": [],
+				"right": [
+					{
+						"type": "button",
+						"style": "call-to-action",
+						"text": "Button"
+					}
+				]
+			},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "6 - Infobit",
+			"description": "Author Name",
+			"label": "",
+			"cardStyle": "",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+			"bannerDescription": "",
+			"bannerBackgroundColor": "",
+			"bannerFontColor": ""
+		},
+		{
+			"id": "10",
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {
+				"divider": true,
+				"left": [
+					{
+						"type": "icon",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/desktop.svg"
+					},
+					{
+						"type": "icon",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/smartphone.svg"
+					}
+				],
+				"center": [],
+				"right": [
+					{
+						"type": "button",
+						"style": "call-to-action",
+						"text": "Button"
+					}
+				]
+			},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "10 Infobit",
+			"description": "Author Name",
+			"label": "",
+			"cardStyle": "",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+			"bannerDescription": "",
+			"bannerBackgroundColor": "",
+			"bannerFontColor": ""
+		},
+		{
+			"id": "12",
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {
+				"divider": true,
+				"left": [
+					{
+						"type": "icon",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/pr_mnemonic.svg"
+					},
+					{
+						"type": "icon",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/lr_mnemonic.svg"
+					}
+				],
+				"center": [],
+				"right": [
+					{
+						"type": "button",
+						"style": "call-to-action",
+						"text": "Button"
+					}
+				]
+			},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "12 Infobit",
+			"description": "Author Name",
+			"label": "",
+			"cardStyle": "",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+			"bannerDescription": "",
+			"bannerBackgroundColor": "",
+			"bannerFontColor": ""
+		},
+		{
+			"id": "14",
+			"styles": {
+				"typeOverride": "1:1",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {
+				"divider": true,
+				"left": [
+					{
+						"type": "rating",
+						"totalStars": 5,
+						"starsFilled": 2.5,
+						"label": "1.4"
+					}
+				],
+				"center": [],
+				"right": [
+					{
+						"type": "button",
+						"style": "call-to-action",
+						"text": "Button"
+					}
+				]
+			},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "14 infofbit",
+			"description": "",
+			"label": "",
+			"bannerDescription": "",
+			"bannerBackgroundColor": "",
+			"bannerFontColor": "",
+			"cardStyle": "",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+		},
+		{
+			"id": "11",
+			"styles": {
+				"typeOverride": "1:1",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {
+				"divider": true,
+				"left": [
+					{
+						"type": "price",
+						"price": "$29.99",
+						"term": "month"
+					}
+				],
+				"center": [],
+				"right": [
+					{
+						"type": "button",
+						"style": "call-to-action",
+						"text": "Button"
+					}
+				]
+			},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "11 infobit",
+			"description": "",
+			"label": "",
+			"cardStyle": "",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+			"videoURL": "https://www.youtube.com/watch?v=hcr7cszxINk&ab_channel=knytrix",
+			"bannerDescription": "",
+			"bannerBackgroundColor": "",
+			"bannerFontColor": ""
+		},
+		{
+			"id": "7",
+			"styles": {
+				"typeOverride": "1:1",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {
+				"left": [],
+				"center": [{
+					"type": "link",
+					"href": "https://www.google.com",
+					"text": "Click here"
+				}],
+				"right": [{
+					"type": "button",
+					"text": "Button"
+				}]
+			},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "7 infobit",
+			"description": "",
+			"label": "",
+			"cardStyle": "",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+			"videoURL": "https://www.youtube.com/watch?v=hcr7cszxINk&ab_channel=knytrix",
+			"bannerDescription": "",
+			"bannerBackgroundColor": "",
+			"bannerFontColor": ""
+		},
+		{
+			"id": "13",
+			"styles": {
+				"typeOverride": "full-card",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {
+				"divider": true,
+				"left": [
+					{
+						"type": "icon",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/pr_mnemonic.svg"
+					},
+					{
+						"type": "icon",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/lr_mnemonic.svg"
+					}
+				],
+				"center": [
+					{
+						"type": "icon-with-text",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/grey_star.svg",
+						"text": "3.7"
+					}
+				],
+				"right": [
+					{
+						"type": "button",
+						"style": "call-to-action",
+						"text": "$9.99"
+					}
+				]
+			},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "13 infobit",
+			"description": "",
+			"label": "",
+			"cardStyle": "",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+			"bannerDescription": "",
+			"bannerBackgroundColor": "",
+			"bannerFontColor": ""
+		},
+		{
+			"id": "14",
+			"styles": {
+				"typeOverride": "full-card",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "14 infobit",
+			"description": "",
+			"label": "",
+			"bannerDescription": "",
+			"bannerBackgroundColor": "",
+			"bannerFontColor": "",
+			"cardStyle": "",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+		},
+		{
+			"id": "8",
+			"styles": {
+				"typeOverride": "full-card",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {
+				"left": [
+					{
+						"type": "icon-with-text",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+						"text": "68k"
+					}
+				],
+				"center": [],
+				"right": [
+					{
+						"type": "button",
+						"style": "call-to-action",
+						"text": "Button"
+					}
+				]
+			},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "8 infobit",
+			"description": "",
+			"label": "",
+			"bannerDescription": "",
+			"bannerBackgroundColor": "",
+			"bannerFontColor": "",
+			"cardStyle": "",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+			"videoURL": "https://www.youtube.com/watch?v=hcr7cszxINk&ab_channel=knytrix"
+		},
+		{
+			"id": "9",
+			"styles": {
+				"typeOverride": "full-card",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {
+				"left": [
+					{
+						"type": "icon-with-text",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+						"text": "68k"
+					}
+				],
+				"center": [
+					{
+						"type": "link",
+						"href": "https://www.google.com",
+						"text": "Text link"
+					}
+				],
+				"right": [
+					{
+						"type": "button",
+						"style": "call-to-action",
+						"text": "Button"
+					}
+				]
+			},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "9 infobit",
+			"description": "",
+			"label": "",
+			"bannerDescription": "",
+			"bannerBackgroundColor": "",
+			"bannerFontColor": "",
+			"cardStyle": "",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+			"videoURL": "https://www.youtube.com/watch?v=hcr7cszxINk&ab_channel=knytrix"
+		},
+		{
+			"id": "15",
+			"styles": {
+				"typeOverride": "full-card",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": {
+				"left": [
+					{
+						"type": "progress-bar",
+						"label": "Progress",
+						"completionText": "6/10",
+						"percentage": "60%",
+						"color": "#1473E6"
+					}
+				],
+				"center": [],
+				"right": []
+			},
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "15 infobit",
+			"description": "",
+			"label": "",
+			"bannerDescription": "",
+			"bannerBackgroundColor": "",
+			"bannerFontColor": "",
+			"cardStyle": "",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+			"videoURL": "https://www.youtube.com/watch?v=hcr7cszxINk&ab_channel=knytrix"
+		},
+		{
+			"id": "16",
+			"styles": {
+				"typeOverride": "full-card",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": [
+					{
+						"left": [
+							{
+								"type": "progress-bar",
+								"label": "Progress",
+								"completionText": "6/10",
+								"percentage": "60%",
+								"color": "#1473E6"
+							}
+						],
+						"center": [],
+						"right": []
+				},
+				{
+					"divider": false,
+					"left": [
+						{
+							"type": "icon",
+							"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/bookmark.svg"
+						},
+						{
+							"type": "text",
+							"text": "10 tuts"
+						}
+					],
+					"center": [
+						{
+							"type": "icon",
+							"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg"
+						},
+						{
+							"type": "text",
+							"text": "117 min"
+						}
+					],
+					"right": [
+						{
+							"type": "icon-with-text",
+							"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+							"text": "68k"
+						}
+					]
+				}
+			],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "16 infobit",
+			"description": "",
+			"label": "",
+			"bannerDescription": "",
+			"bannerBackgroundColor": "",
+			"bannerFontColor": "",
+			"cardStyle": "",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+			"videoURL": "https://www.youtube.com/watch?v=hcr7cszxINk&ab_channel=knytrix"
+		},
+		{
+			"id": "17",
+			"styles": {
+				"typeOverride": "full-card",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"footer": [
+				{
+					"left": [
+						{
+							"type": "progress-bar",
+							"label": "Progress",
+							"completionText": "6/10",
+							"percentage": "60%",
+							"color": "#1473E6"
+						}
+					],
+					"center": [],
+					"right": []
+				},
+				{
+					"left": [
+					],
+					"center": [
+						{
+							"type": "link",
+							"href": "https://www.google.com",
+							"text": "Text link"
+						}
+					],
+					"right": [
+						{
+							"type": "button",
+							"style": "call-to-action",
+							"text": "Button"
+						}
+					]
+				}
+			],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+			},
+			"title": "17 infobit",
+			"description": "",
+			"label": "",
+			"bannerDescription": "",
+			"bannerBackgroundColor": "",
+			"bannerFontColor": "",
+			"cardStyle": "",
+			"image": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png",
+			"videoURL": "https://www.youtube.com/watch?v=hcr7cszxINk&ab_channel=knytrix"
+		}
+	]
+}

@@ -13,12 +13,13 @@ function IconWithText({ src, srcAltText, text }) {
 IconWithText.propTypes = {
     src: PropTypes.string,
     srcAltText: PropTypes.string,
-    text: PropTypes.string.isRequired,
+    text: PropTypes.string,
 };
 
 IconWithText.defaultProps = {
     src: '',
     srcAltText: '',
+    text: '',
 };
 
 export default IconWithText;
