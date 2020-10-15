@@ -11,7 +11,8 @@ function Link({
             href={href}
             target={target}
             title={linkHint}
-            rel="noreferrer">{text}
+            rel="noreferrer"
+            tabIndex="0">{text}
         </a>
     );
 }

@@ -10,7 +10,8 @@ function LinkWithIcon({
             target={openInNewTab ? '__blank' : '_self'}
             className="consonant-link-widh-ico-infobit"
             title={linkHint}
-            rel="noreferrer">
+            rel="noreferrer"
+            tabIndex="0">
             {src && <img src={src} alt={srcAltText} loading="lazy" height="18" />}
             <span>{text}</span>
         </a>

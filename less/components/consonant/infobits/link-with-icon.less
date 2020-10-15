@@ -9,6 +9,8 @@
     max-width: 100%;
     margin-left: 16px;
     text-decoration: none;
+
+    .focused;
 }
 
 .consonant-link-widh-ico-infobit span {
@@ -21,13 +23,16 @@
     overflow: hidden;
 }
 
+.consonant-link-widh-ico-infobit img:not(:last-child) {
+    margin-right: 8px;
+}
+
 .consonant-link-widh-ico-infobit img {
     display: block;
     width: auto;
     height: auto;
     max-width: @consonant-link-widh-ico-infobit-img-max-size;
     max-height: @consonant-link-widh-ico-infobit-img-max-size;
-    margin-right: 8px;
     object-fit: contain;
     user-select: none;
 }

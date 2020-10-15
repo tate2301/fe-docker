@@ -107,6 +107,10 @@
         border: 2px solid transparent;
         order: -1;
 
+        &:focus {
+            border-color: @consonant-focus-color;
+        }
+
         &:after {
             content: '';
             position: absolute;
@@ -117,12 +121,6 @@
             bottom: 0;
             background-color: @consonant-color-lightest-grey;
             z-index: 1;
-        }
-
-        &:focus {
-            border-color: @consonant-focus-color;
-            border-radius: 5px;
-            border-width: 1px;
         }
 
         .bookmarks--item-badge {
