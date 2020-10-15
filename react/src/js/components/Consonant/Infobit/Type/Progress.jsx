@@ -5,7 +5,7 @@ function Progress({
     label, completionText, percentage, color,
 }) {
     const valueStyles = {
-        width: percentage,
+        width: `calc(${percentage} + 2px)`,
         backgroundColor: color,
     };
 
