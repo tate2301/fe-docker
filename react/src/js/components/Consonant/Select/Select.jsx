@@ -39,7 +39,7 @@ const Select = ({
                             'consonant-select--option'
                         }
                         onClick={e => handleOptionClick(e, item)}
-                        tabIndex="0">
+                        tabIndex={opened ? '0' : '-1'}>
                         {item.label}
                     </button>
                 ))}
