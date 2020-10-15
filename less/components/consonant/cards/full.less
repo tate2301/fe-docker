@@ -1,4 +1,4 @@
-@consonant-card-full-inner-min-height: 86px;
+@consonant-card-full-inner-min-height: 108px;
 
 .consonant-full-card {
     &:extend(
@@ -28,14 +28,11 @@
         &:extend(
             .flex,
             .flex .direction .column,
-            .flex .justify .center
+            .flex .justify .end
         );
 
         margin-top: auto;
-        padding:
-            36/@consonant-root-rem
-            unit((@consonant-root-rem * 1.0625), px)
-            28/@consonant-root-rem;
+        padding: 0 unit((@consonant-root-rem * 1.5), px) 24/@consonant-root-rem;
         text-decoration: none;
         background:
             transparent
@@ -80,14 +77,13 @@
         width: @consonant-card-video-ico-size;
         height: @consonant-card-video-ico-size;
         right: unit((@consonant-root-rem * 1.5), px);
-        top: 302/@consonant-root-rem;
-        bottom: unset;
+        bottom: 124/@consonant-root-rem;
 
         .no-font;
 
         background: transparent url(@consonant-card-play-ico-data) no-repeat 0 0;
         background-size: cover;
-        z-index: 1;
+        z-index: 3;
         cursor: pointer;
         transform-origin: 50% 50%;
         transition: transform @transition-time @transition-func;
@@ -100,10 +96,35 @@
         .focused;
     }
 
+    .consonant-full-card--logo {
+        position: absolute;
+        display: block;
+        bottom: 124/@consonant-root-rem;
+        left: 0;
+        padding: 8px 24px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: transparent;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        z-index: 3;
+
+        .no-font;
+    }
+
+    .consonant-full-card--logo img {
+        width: auto;
+        height: auto;
+        max-width: @consonant-card-logo-img-max-widht;
+        max-height: @consonant-card-logo-img-max-height;
+        object-fit: contain;
+        user-select: none;
+    }
+
     .consonant-full-card--label {
         display: block;
         max-width: 100%;
-        margin-bottom: 4/@consonant-root-rem;
+        margin-bottom: 5/@consonant-root-rem;
 
         .font(@color: @consonant-color-brown-grey);
 
@@ -206,23 +227,8 @@
         z-index: 1;
     }
 
-    @media @consonant-for-tablet-landscape-up {
-        padding-bottom: 0;
-
-        .consonant-full-card--inner {
-            padding:
-                20/@consonant-root-rem
-                unit((@consonant-root-rem * 1.5), px)
-                24/@consonant-root-rem;
-        }
-    }
-
     @media @consonant-for-desktop-up {
         .consonant-full-card--inner {
-            padding:
-                18/@consonant-root-rem
-                unit((@consonant-root-rem), px)
-                22/@consonant-root-rem;
             border: 2px solid transparent;
             outline: 0;
 

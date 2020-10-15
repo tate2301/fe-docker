@@ -8,7 +8,6 @@ const AspectRatio1to1Card = (props) => {
     const {
         id,
         ctaLink,
-        badgeText,
 
         styles: {
             backgroundImage: image,
@@ -31,6 +30,15 @@ const AspectRatio1to1Card = (props) => {
             videoButton: {
                 url: videoURL,
             },
+            logo: {
+                src: logoSrc,
+                alt: logoAlt,
+                backgroundColor: logoBg,
+                borderColor: logoBorderBg,
+            },
+            label: {
+                description: badgeText,
+            }
         },
     } = props;
 
@@ -75,13 +83,26 @@ const AspectRatio1to1Card = (props) => {
                 }
                 {badgeText && <span className="consonant-aspect-ratio-1-1-card--badge">{badgeText}</span>}
                 {videoURL &&
-                <a
-                    href={videoURL}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="consonant-aspect-ratio-1-1-card--video-ico"
-                    tabIndex="0">Open video link
+                    <a
+                        href={videoURL}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="consonant-aspect-ratio-1-1-card--video-ico"
+                        tabIndex="0">Open video link
                 </a>}
+                {logoSrc &&
+                    <div style={({
+                        backgroundColor: logoBg,
+                        borderColor: logoBorderBg,
+                    })}
+                        className="consonant-aspect-ratio-1-1-card--logo">
+                        <img
+                            src={logoSrc}
+                            alt={logoAlt}
+                            loading="lazy"
+                            width="32"
+                        />
+                    </div>}
             </div>
             <a
                 href={ctaLink}
@@ -113,6 +134,10 @@ AspectRatio1to1Card.propTypes = {
     badgeText: PropTypes.string,
     ctaLink: PropTypes.string,
     videoURL: PropTypes.string,
+    logoSrc: PropTypes.string,
+    logoAlt: PropTypes.string,
+    logoBg: PropTypes.string,
+    logoBorderBg: PropTypes.string,
 };
 
 AspectRatio1to1Card.defaultProps = {
@@ -124,4 +149,8 @@ AspectRatio1to1Card.defaultProps = {
     label: '',
     ctaLink: '',
     videoURL: '',
+    logoSrc: '',
+    logoAlt: '',
+    logoBg: '',
+    logoBorderBg: '',
 };

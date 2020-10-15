@@ -23,9 +23,16 @@ const FullCard = (props) => {
             videoButton: {
                 url: videoURL,
             },
+            logo: {
+                src: logoSrc,
+                alt: logoAlt,
+                backgroundColor: logoBg,
+                borderColor: logoBorderBg,
+            },
+            label: {
+                description: badgeText,
+            }
         },
-
-        badgeText,
     } = props;
 
     return (
@@ -61,13 +68,26 @@ const FullCard = (props) => {
                 }
                 {badgeText && <span className="consonant-full-card--badge">{badgeText}</span>}
                 {videoURL &&
-                <a
-                    href={videoURL}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="consonant-full-card--video-ico"
-                    tabIndex="0">Open video link
+                    <a
+                        href={videoURL}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="consonant-full-card--video-ico"
+                        tabIndex="0">Open video link
                 </a>}
+                {logoSrc &&
+                    <div style={({
+                        backgroundColor: logoBg,
+                        borderColor: logoBorderBg,
+                    })}
+                        className="consonant-full-card--logo">
+                        <img
+                            src={logoSrc}
+                            alt={logoAlt}
+                            loading="lazy"
+                            width="32"
+                        />
+                    </div>}
             </div>
             <a
                 href="ctaLink"
@@ -99,6 +119,10 @@ FullCard.propTypes = {
     badgeText: PropTypes.string,
     ctaLink: PropTypes.string,
     videoURL: PropTypes.string,
+    logoSrc: PropTypes.string,
+    logoAlt: PropTypes.string,
+    logoBg: PropTypes.string,
+    logoBorderBg: PropTypes.string,
 };
 
 FullCard.defaultProps = {
@@ -110,4 +134,8 @@ FullCard.defaultProps = {
     label: '',
     ctaLink: '',
     videoURL: '',
+    logoSrc: '',
+    logoAlt: '',
+    logoBg: '',
+    logoBorderBg: '',
 };

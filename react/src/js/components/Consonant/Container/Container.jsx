@@ -1,4 +1,3 @@
-/*eslint-disable */
 import produce from 'immer';
 import get from 'lodash/get';
 import set from 'lodash/set';

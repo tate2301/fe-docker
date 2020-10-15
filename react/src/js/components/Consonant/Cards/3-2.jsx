@@ -20,7 +20,6 @@ Tooltip.propTypes = {
 
 const AspectRatio3to2Card = ({
     id,
-    badgeText,
     footer,
     disableBookmarkIco,
     isBookmarked,
@@ -49,6 +48,15 @@ const AspectRatio3to2Card = ({
         videoButton: {
             url: videoURL,
         },
+        logo: {
+            src: logoSrc,
+            alt: logoAlt,
+            backgroundColor: logoBg,
+            borderColor: logoBorderBg,
+        },
+        label: {
+            description: badgeText,
+        }
     },
 }) => {
     const extendFooterData = (data) => {
@@ -125,10 +133,23 @@ const AspectRatio3to2Card = ({
                         className="consonant-aspect-ratio-3-2-card--video-ico"
                         tabIndex="0">Open video link
                     </a>}
+                {logoSrc &&
+                    <div style={({
+                        backgroundColor: logoBg,
+                        borderColor: logoBorderBg,
+                    })}
+                        className="consonant-aspect-ratio-3-2-card--logo">
+                        <img
+                            src={logoSrc}
+                            alt={logoAlt}
+                            loading="lazy"
+                            width="32"
+                        />
+                    </div>}
             </div>
             <div className="consonant-aspect-ratio-3-2-card--inner">
                 {detailText && (
-                    <span  data-testid="3-2-card--label" className="consonant-aspect-ratio-3-2-card--label">{detailText}</span>
+                    <span data-testid="3-2-card--label" className="consonant-aspect-ratio-3-2-card--label">{detailText}</span>
                 )}
                 <h2
                     className="consonant-aspect-ratio-3-2-card--title">
@@ -178,6 +199,10 @@ AspectRatio3to2Card.propTypes = {
     onClick: PropTypes.func.isRequired,
     dateFormat: PropTypes.string,
     locale: PropTypes.string,
+    logoSrc: PropTypes.string,
+    logoAlt: PropTypes.string,
+    logoBg: PropTypes.string,
+    logoBorderBg: PropTypes.string,
 };
 
 AspectRatio3to2Card.defaultProps = {
@@ -191,4 +216,8 @@ AspectRatio3to2Card.defaultProps = {
     title: '',
     footer: {},
     disableBookmarkIco: false,
+    logoSrc: '',
+    logoAlt: '',
+    logoBg: '',
+    logoBorderBg: '',
 };
