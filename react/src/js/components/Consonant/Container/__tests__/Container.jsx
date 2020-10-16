@@ -292,7 +292,7 @@ describe('Consonant/FilterItem', () => {
             expect(filtersLeftElement).toHaveClass('consonant-left-filters_opened');
         });
         test('should check checkbox on left filter`s item click', async () => {
-            init();
+            init({ filterPanel: { filterLogic: 'xor' } });
 
             // Need wait for render all checkboxes
             await waitFor(() => screen.getAllByTestId('list-item-checkbox'));
@@ -332,19 +332,9 @@ describe('Consonant/FilterItem', () => {
             fireEvent.change(searchInput, { target: { value: 'Search string' } });
 
             expect(searchInput.value).toEqual('Search string');
-
-            await waitFor(() => screen.getByText(filterTitle));
-
-            const bookmarkButton = screen.getByText(filterTitle);
-
-            fireEvent.click(bookmarkButton);
-
-            await waitFor(() => screen.getByTestId('search-input'));
-
-            expect(searchInput.value).toEqual('');
         });
         test('should change search value', async () => {
-            init();
+            init({ filterPanel: { filterLogic: 'or' } });
 
             await waitFor(() => screen.getByTestId('search-input'));
 
@@ -520,6 +510,97 @@ describe('Consonant/FilterItem', () => {
             expect(secondFilterItem).toHaveClass('consonant-left-filter_opened');
             expect(firstFilterItem).toHaveClass('consonant-left-filter_opened');
         });
+        test('should toggle favourites', async () => {
+            const {
+                config: {
+                    collection: { resultsPerPage },
+                },
+            } = init({ collection: { cardsStyle: '3:2' } });
+
+            // Need wait for api response and state updating
+            await waitFor(() => screen.getByTestId('consonant-collection'));
+
+            // get first unbookmarkedButton from whole DOM tree
+            const [bookmarkButton] = screen.queryAllByTestId('bookmark-button');
+
+            // Cards isn't filtered by bookmarks
+            expect(screen.queryAllByTestId('consonant-card')).toHaveLength(resultsPerPage);
+
+            // get first unbookmarkedButton from whole DOM tree
+            const [saveBookmarkButton] = screen.queryAllByTestId('bookmark-button');
+
+            expect(saveBookmarkButton).toBeDefined();
+
+            /**
+             * bookmark first card(we get first bookmarkButton from DOM tree)
+             * filter by bookmarks
+             */
+            fireEvent.click(saveBookmarkButton);
+            fireEvent.click(bookmarkButton);
+
+            // should render only bookmarked cards
+            expect(screen.queryAllByTestId('consonant-card')).toHaveLength(10);
+
+            // reset filter by bookmarks
+            fireEvent.click(bookmarkButton);
+
+            // should render card collection without bookmark filter
+            expect(screen.queryAllByTestId('consonant-card')).toHaveLength(resultsPerPage);
+
+            /**
+             * If card is bookmarked
+             * his bookmark button will change text from saveBookmarkButton to unsaveCardText
+             * we should wait for this
+             */
+            await waitFor(() => screen.getByText('Unsave Card'));
+
+            // get first bookmarkedButton from whole DOM tree
+            const [unsaveBookmarkButton] = screen.queryAllByTestId('bookmark-button');
+
+            expect(unsaveBookmarkButton).toBeDefined();
+
+            /**
+             * unbookmark first card(we get first bookmarkButton from DOM tree)
+             * filter by bookmarks
+             */
+            fireEvent.click(unsaveBookmarkButton);
+            fireEvent.click(bookmarkButton);
+
+            // should render only bookmarked cards
+            expect(screen.queryAllByTestId('consonant-card')).toHaveLength(10);
+
+            // reset filter by bookmarks
+            fireEvent.click(bookmarkButton);
+
+            // should render card collection without bookmark filter
+            expect(screen.queryAllByTestId('consonant-card')).toHaveLength(resultsPerPage);
+        });
+        // TODO: We need to revise the functionality of clearAllFilters
+        // this should clear the filters, but apparently it doesn't touch them
+        test('should clear all selected checkboxes', async () => {
+            const { config: { filterPanel: { i18n: { topPanel: { clearAllFiltersText } } } } }
+                = init({ filterPanel: { type: 'top' } });
+
+            await waitFor(() => screen.getAllByTestId('filter-item'));
+
+            const [firstFilter, secondFilter] = screen.queryAllByTestId('filter-item');
+
+            const [firstFilterCheckbox] = queryAllByTestId(firstFilter, 'list-item-checkbox');
+            const [secondFilterCheckbox] = queryAllByTestId(secondFilter, 'list-item-checkbox');
+
+            fireEvent.click(firstFilterCheckbox);
+            fireEvent.click(secondFilterCheckbox);
+
+            expect(firstFilterCheckbox.checked).toBeTruthy();
+            expect(secondFilterCheckbox.checked).toBeTruthy();
+
+            const clearAllFiltersButton = screen.getByText(clearAllFiltersText);
+
+            fireEvent.click(clearAllFiltersButton);
+
+            expect(firstFilterCheckbox.checked).toBeFalsy();
+            expect(secondFilterCheckbox.checked).toBeFalsy();
+        });
         test('should clear all selected checkboxes only in the first filter', async () => {
             const {
                 config: {
@@ -535,7 +616,7 @@ describe('Consonant/FilterItem', () => {
                         },
                     },
                 },
-            } = init({ filterPanel: { type: 'top' } });
+            } = init({ filterPanel: { type: 'top', filterLogic: 'or' } });
             await waitFor(() => screen.getAllByTestId('filter-item'));
 
             const [firstFilter, secondFilter] = screen.queryAllByTestId('filter-item');

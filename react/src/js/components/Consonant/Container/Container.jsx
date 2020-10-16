@@ -301,6 +301,7 @@ const Container = (props) => {
             } else if (usingOrFilter) {
                 return intersection(tagIds, activeFilterIdsSet).size;
             }
+
             throw new Error(`Unrecognized filter logic: ${filterLogic}`);
         });
     }, [cards, activeFilterIds]);

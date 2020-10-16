@@ -117,6 +117,7 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
           >
             <a
               className="consonant-btn-infobit consonant-btn-infobit_cta"
+              data-testid="consonant-btn-infobit"
               href=""
               rel="noreferrer"
               tabIndex="0"
@@ -255,6 +256,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
           >
             <a
               className="consonant-btn-infobit consonant-btn-infobit_cta"
+              data-testid="consonant-btn-infobit"
               href=""
               rel="noreferrer"
               tabIndex="0"
@@ -470,6 +472,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
           >
             <a
               className="consonant-btn-infobit consonant-btn-infobit_cta"
+              data-testid="consonant-btn-infobit"
               href=""
               rel="noreferrer"
               tabIndex="0"

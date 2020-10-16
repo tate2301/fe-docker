@@ -71,9 +71,14 @@ function Group(props) {
 }
 
 Group.propTypes = {
-    renderList: PropTypes.arrayOf(PropTypes.shape({
-        type: PropTypes.string,
-    })),
+    renderList: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.shape({
+            type: PropTypes.string,
+        })),
+        PropTypes.shape({
+            type: PropTypes.string,
+        }),
+    ]),
 };
 
 Group.defaultProps = {

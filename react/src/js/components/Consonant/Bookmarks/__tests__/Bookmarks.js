@@ -13,18 +13,6 @@ import makeSetup from '../../Helpers/Testing/Utils/Settings';
 
 const setup = makeSetup(Bookmarks, DEFAULT_PROPS);
 
-
-// const {
-//     props: {
-//         bookmarks: {
-//             leftFilterPanel: {
-//                 selectBookmarksIcon,
-//                 unselectBookmarksIcon,
-//             },
-//         },
-//     },
-// } = setup();
-
 describe('Consonant/Bookmarks', () => {
     test('should renders correctly different bookmarks count', () => {
         COUNT_LIST.forEach((count) => {

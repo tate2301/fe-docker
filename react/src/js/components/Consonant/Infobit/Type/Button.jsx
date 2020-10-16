@@ -12,6 +12,7 @@ function Button({ style, text, href }) {
             className={style === BUTTON_STYLE.CTA ?
                 'consonant-btn-infobit consonant-btn-infobit_cta' :
                 'consonant-btn-infobit'}
+            data-testid="consonant-btn-infobit"
             tabIndex="0"
             rel="noreferrer"
             target="_blank"
@@ -22,13 +23,14 @@ function Button({ style, text, href }) {
 
 Button.propTypes = {
     style: PropTypes.string,
-    text: PropTypes.string.isRequired,
+    text: PropTypes.string,
     href: PropTypes.string,
 };
 
 Button.defaultProps = {
     style: BUTTON_STYLE.CTA,
     href: '',
+    text: '',
 };
 
 export default Button;

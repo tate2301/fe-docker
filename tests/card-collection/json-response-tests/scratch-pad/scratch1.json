@@ -1,0 +1,56 @@
+{
+  "cards": [
+    {
+      "id": "3",
+      "showCard": {
+        "from": "2020-10-01T20:00:00Z",
+        "until": "2020-10-31T21:45:00Z"
+      },
+      "styles": {
+        "typeOverride": "3:2",
+        "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+      },
+      "overlays": {
+        "banner": {},
+        "logo": {},
+        "label": {},
+        "videoButton": {}
+      },
+      "tags": [],
+      "contentArea": {
+        "detailText": "",
+        "title": "Testing Date Infobit",
+        "description": "",
+        "dateDetailText": {
+          "startTime": "2020-10-20T20:00:00Z",
+          "endTime": "2020-10-27T21:45:00Z"
+        }
+      },
+      "footer": [
+        {
+          "divider": false,
+          "left": [
+            {
+              "type": "text",
+              "text": "a",
+            }
+          ],
+          "center": [
+            {
+              "type": "link",
+              "href": "link"
+            }
+          ],
+          "right": [
+            {
+              "type": "button",
+              "text": "Some good button",
+              "href": ""
+            }
+          ]
+        }
+      ],
+      "search": {}
+    }
+  ]
+}
