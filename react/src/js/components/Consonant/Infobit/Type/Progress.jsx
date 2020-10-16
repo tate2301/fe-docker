@@ -43,7 +43,7 @@ Progress.defaultProps = {
     label: '',
     completionText: '',
     percentage: '0',
-    color: '',
+    color: '#1473E6',
 };
 
 export default Progress;
