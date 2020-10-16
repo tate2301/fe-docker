@@ -159,10 +159,12 @@ const AspectRatio3to2Card = ({
                     className="consonant-aspect-ratio-3-2-card--title">
                     {title}
                 </h2>
-                <p
-                    className="consonant-aspect-ratio-3-2-card--text">
-                    {description}
-                </p>
+                {
+                    description &&
+                    <p
+                        className="consonant-aspect-ratio-3-2-card--text"
+                    >{description}</p>
+                }
                 {footer.map((f, index) => (
                     <CardFooter
                         divider={f.divider}
