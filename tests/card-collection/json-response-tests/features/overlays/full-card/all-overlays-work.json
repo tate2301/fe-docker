@@ -15,17 +15,20 @@
 					"backgroundColor": "#CB6F10",
 					"fontColor": "#FFFFFF",
 					"description": "Upcoming",
-					"icon": ""                    
+					"icon": ""
                 },
 				"logo": {
-					"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg"
+					"src": "https://about.canva.com/wp-content/uploads/sites/3/2016/08/logos-1.png",
+					"alt": "logoAlt",
+					"backgroundColor": "#ffffff",
+					"borderColor": "#ffffff"
 				},
 				"label": {
-					"text": "Some Label"
+					"description": "Some Label"
 				},
 				"videoButton": {
 					"url": "https://www.youtube.com/watch?v=hcr7cszxINk&ab_channel=knytrix"
-				} 
+				}
 			},
 			"tags": [],
 			"contentArea": {

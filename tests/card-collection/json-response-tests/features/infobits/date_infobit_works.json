@@ -29,11 +29,15 @@
 			"footer": [
 				{
 					"divider": false,
-					"left": [{
-                        "type": "date-interval",
-                        "startTime": "2020-10-20T20:00:00Z",
-                        "endTime": "2020-10-27T21:45:00Z"
-                    }],
+					"left": [
+						{
+							"type": "bookmark"
+						},
+						{
+                        	"type": "date-interval",
+                        	"startTime": "2020-10-20T20:00:00Z",
+                        	"endTime": "2020-10-27T21:45:00Z"
+                    	}],
 					"center": [],
 					"right": []
 				}

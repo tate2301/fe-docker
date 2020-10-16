@@ -378,15 +378,18 @@
 			},
 			"footer": [{
 				"left": [],
-				"center": [{
-					"type": "link",
-					"href": "https://www.google.com",
-					"text": "Click here"
-				}],
-				"right": [{
+				"center": [],
+				"right": [
+					{
+						"type": "link",
+						"href": "https://www.google.com",
+						"text": "Click here"
+					},
+					{
 					"type": "button",
 					"text": "Button"
-				}]
+					}
+				]
 			}]
         },
         {
@@ -716,13 +719,13 @@
 					"left": [
 					],
 					"center": [
+					],
+					"right": [
 						{
 							"type": "link",
 							"href": "https://www.google.com",
 							"text": "Text link"
-						}
-					],
-					"right": [
+						},
 						{
 							"type": "button",
 							"style": "call-to-action",

@@ -18,7 +18,7 @@
 				"label": {
 					"text": "Some Label"
 				},
-				"videoButton": {} 
+				"videoButton": {}
 			},
 			"tags": [
 				{
@@ -57,7 +57,7 @@
 			],
 			"contentArea": {
 				"detailText": "",
-				"title": "Descended from astronomers rock and the headline keeps going to three lines.",
+				"title": "1 - Descended from astronomers rock and the headline keeps going to three lines.",
 				"description": "",
 				"dateDetailText": {}
 			},
@@ -101,9 +101,7 @@
 				},
 				"logo": {},
 				"label": {},
-				"videoButton": {
-					"url": "https://www.youtube.com/watch?v=hY7m5jjJ9mM&ab_channel=TigerFunnyWorks"
-				} 
+				"videoButton": {}
 			},
 			"tags": [
 				{
@@ -130,39 +128,27 @@
 			],
 			"contentArea": {
 				"detailText": "Details",
-				"title": "Descended from astronomers rock and the headline keeps going to three lines.",
+				"title": "2 - Descended from astronomers rock and onto two lines.",
 				"description": "",
 				"dateDetailText": {}
 			},
 			"footer": [
 				{
 					"divider": true,
-					"left": [
-						{
-							"type": "bookmark",
-							"saveCardIcon": "path-to-svg",
-							"unsaveCardIcon": "path-to-another-svg",
-							"cardSaveText": "Save Card",
-							"cardUnsaveText": "Unsave Card"
-						},
-						{
-							"type": "date-interval",
-							"startTime": "2020-10-20T20:00:00Z",
-							"endTime": "2020-10-27T21:45:00Z"
-						}
-					],
-					"center": [
+					"left": [],
+					"center": [],
+					"right": [
 						{
 							"type": "link",
 							"href": "https://www.google.com",
 							"text": "Text link"
+						},
+						{
+							"type": "button",
+							"style": "call-to-action",
+							"text": "Read More"
 						}
-					],
-					"right": [{
-						"type": "button",
-						"style": "call-to-action",
-						"text": "Read More"
-					}]
+					]
 				}
 			],
 			"search": {
@@ -189,7 +175,7 @@
 				"label": {},
 				"videoButton": {
 					"url": "https://www.youtube.com/watch?v=hY7m5jjJ9mM&ab_channel=TigerFunnyWorks"
-				} 
+				}
 			},
 			"tags": [
 				{
@@ -228,7 +214,7 @@
 			],
 			"contentArea": {
 				"detailText": "Details",
-				"title": "Descended from astronomers rock and the headline keeps going to three lines.",
+				"title": "3 - Descended from astronomers rock and onto two lines.",
 				"description": "The wizard quickly jinxed the gnomes before they vaporized. Zelda might fix the job growth plans very quickly on Monday.",
 				"dateDetailText": {}
 			},
@@ -236,31 +222,20 @@
 				{
 					"divider": true,
 					"left": [
-						{
-							"type": "bookmark",
-							"saveCardIcon": "path-to-svg",
-							"unsaveCardIcon": "path-to-another-svg",
-							"cardSaveText": "Save Card",
-							"cardUnsaveText": "Unsave Card"
-						},
-						{
-							"type": "date-interval",
-							"startTime": "2020-10-20T20:00:00Z",
-							"endTime": "2020-10-27T21:45:00Z"
-						}
 					],
-					"center": [
+					"center": [],
+					"right": [
 						{
 							"type": "link",
 							"href": "https://www.google.com",
 							"text": "Text link"
+						},
+						{
+							"type": "button",
+							"style": "call-to-action",
+							"text": "Read More"
 						}
-					],
-					"right": [{
-						"type": "button",
-						"style": "call-to-action",
-						"text": "Read More"
-					}]
+					]
 				}
 			],
 			"search": {
@@ -284,10 +259,13 @@
 			"overlays": {
 				"banner": {},
 				"logo": {
-					"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/looka.png"
+					"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/looka.png",
+					"alt": "",
+					"backgroundColor": "#ffffff",
+					"borderColor": "#ffffff"
 				},
 				"label": {},
-				"videoButton": {} 
+				"videoButton": {}
 			},
 			"tags": [
 				{
@@ -314,7 +292,7 @@
 			],
 			"contentArea": {
 				"detailText": "Details",
-				"title": "Descended from astronomers rock and the headline keeps going to three lines.",
+				"title": "4 - Descended from astronomers rock and onto two lines.",
 				"description": "Author Name",
 				"dateDetailText": {}
 			},
@@ -367,7 +345,7 @@
 				"banner": {},
 				"logo": {},
 				"label": {},
-				"videoButton": {} 
+				"videoButton": {}
 			},
 			"tags": [
 				{
@@ -406,18 +384,19 @@
 			],
 			"contentArea": {
 				"detailText": "Details",
-				"title": "Descended from astronomers rock and the headline keeps going to three lines.",
-				"description": "Author Name",
+				"title": "5 - Descended from astronomers rock and onto two lines.",
+				"description": "",
 				"dateDetailText": {}
 			},
 			"footer": [
 				{
 					"divider": false,
 					"left": [{
-						"infobit": "progress-bar",
+						"type": "progress-bar",
 						"label": "Progress",
 						"completionText": "6/10",
-						"percentage": "60"
+						"percentage": "60%",
+						"color": "#1473E6"
 					}],
 					"center": [],
 					"right": []
@@ -463,7 +442,7 @@
 				"banner": {},
 				"logo": {},
 				"label": {},
-				"videoButton": {} 
+				"videoButton": {}
 			},
 			"tags": [
 				{
@@ -490,18 +469,19 @@
 			],
 			"contentArea": {
 				"detailText": "Details",
-				"title": "Descended from astronomers rock and the headline keeps going to three lines.",
-				"description": "Author Name",
+				"title": "6 - Descended from astronomers rock and onto two lines.",
+				"description": "",
 				"dateDetailText": {}
 			},
 			"footer": [
 				{
 					"divider": true,
 					"left": [{
-						"infobit": "progress-bar",
+						"type": "progress-bar",
 						"label": "Progress",
 						"completionText": "6/10",
-						"percentage": "60"
+						"percentage": "60%",
+						"color": "#1473E6"
 					}],
 					"center": [],
 					"right": []
@@ -529,7 +509,7 @@
 				"banner": {},
 				"logo": {},
 				"label": {},
-				"videoButton": {} 
+				"videoButton": {}
 			},
 			"tags": [
 				{
@@ -568,7 +548,7 @@
 			],
 			"contentArea": {
 				"detailText": "",
-				"title": "Descended from astronomers rock and the headline keeps going to three lines.",
+				"title": "7 - Descended from astronomers rock and onto two lines.",
 				"description": "",
 				"dateDetailText": {}
 			},
@@ -599,7 +579,7 @@
 				},
 				"logo": {},
 				"label": {},
-				"videoButton": {} 
+				"videoButton": {}
 			},
 			"tags": [
 				{
@@ -626,7 +606,7 @@
 			],
 			"contentArea": {
 				"detailText": "Details",
-				"title": "Descended from astronomers rock and the headline keeps going to three lines.",
+				"title": "8 - Descended from astronomers rock and onto two lines.",
 				"description": "",
 				"dateDetailText": {}
 			},
@@ -655,7 +635,7 @@
 				"label": {},
 				"videoButton": {
 					"url": "https://www.youtube.com/watch?v=hY7m5jjJ9mM&ab_channel=TigerFunnyWorks"
-				} 
+				}
 			},
 			"tags": [
 				{
@@ -694,7 +674,7 @@
 			],
 			"contentArea": {
 				"detailText": "Details",
-				"title": "Descended from astronomers rock and the headline keeps going to three lines.",
+				"title": "9 - Descended from astronomers rock and onto two lines.",
 				"description": "",
 				"dateDetailText": {}
 			},
@@ -720,12 +700,15 @@
 			"overlays": {
 				"banner": {},
 				"logo": {
-					"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/looka.png"
+					"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/looka.png",
+					"alt": "",
+					"backgroundColor": "#ffffff",
+					"borderColor": "#ffffff"
 				},
 				"label": {},
 				"videoButton": {
 					"url": "https://www.youtube.com/watch?v=hY7m5jjJ9mM&ab_channel=TigerFunnyWorks"
-				} 
+				}
 			},
 			"tags": [
 				{
@@ -752,7 +735,7 @@
 			],
 			"contentArea": {
 				"detailText": "Details",
-				"title": "Descended from astronomers rock and the headline keeps going to three lines.",
+				"title": "10 - Descended from astronomers rock and onto two lines.",
 				"description": "",
 				"dateDetailText": {}
 			},
@@ -779,9 +762,7 @@
 				"banner": {},
 				"logo": {},
 				"label": {},
-				"videoButton": {
-					"url": "https://www.youtube.com/watch?v=hY7m5jjJ9mM&ab_channel=TigerFunnyWorks"
-				} 
+				"videoButton": {}
 			},
 			"tags": [
 				{
@@ -820,7 +801,7 @@
 			],
 			"contentArea": {
 				"detailText": "",
-				"title": "Check out cats in Lorem",
+				"title": "11 - Check out cats in Lorem",
 				"description": "",
 				"dateDetailText": {}
 			},
@@ -847,11 +828,11 @@
 				"banner": {
 					"backgroundColor": "#EBC526",
 					"fontColor": "#002148",
-					"description": "Featured"
+					"description": "Badge"
 				},
 				"logo": {},
 				"label": {},
-				"videoButton": {} 
+				"videoButton": {}
 			},
 			"tags": [
 				{
@@ -878,7 +859,7 @@
 			],
 			"contentArea": {
 				"detailText": "Details",
-				"title": "Check out cats in Lorem onto two lines.",
+				"title": "12 - Check out cats in Lorem onto two lines.",
 				"description": "",
 				"dateDetailText": {}
 			},
@@ -911,7 +892,7 @@
 				"label": {},
 				"videoButton": {
 					"url": "https://www.youtube.com/watch?v=hY7m5jjJ9mM&ab_channel=TigerFunnyWorks"
-				} 
+				}
 			},
 			"tags": [
 				{
@@ -950,7 +931,7 @@
 			],
 			"contentArea": {
 				"detailText": "Details",
-				"title": "Check out cats in Lorem onto two lines.",
+				"title": "13 - Check out cats in Lorem onto two lines.",
 				"description": "",
 				"dateDetailText": {}
 			},
