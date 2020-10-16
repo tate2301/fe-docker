@@ -242,7 +242,7 @@ const Container = (props) => {
                         selected: false,
                     })),
                 })));
-            });
+            }).catch(() => setLoading(false));
     }, [bookmarkedCardIds, config.featuredCards, populateCardMetadata]);
 
     useEffect(() => {
