@@ -55,7 +55,7 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
       className="consonant-aspect-ratio-3-2-card--label"
       data-testid="3-2-card--label"
     >
-      Okt 12 | 00:00 – 00:00 GMT+3
+      Oct 11 | 14:00 – 14:00 PDT
     </span>
     <h2
       className="consonant-aspect-ratio-3-2-card--title"
@@ -122,9 +122,9 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
         >
           <span
             className="consonant-date-interval-infobit"
-            title="Okt 12 | 00:00 – 00:00 GMT+3"
+            title="Oct 11 | 14:00 – 14:00 PDT"
           >
-            Okt 12 | 00:00 – 00:00 GMT+3
+            Oct 11 | 14:00 – 14:00 PDT
           </span>
         </div>
       </div>

@@ -148,7 +148,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
               className="consonant-select--option consonant-select--option_selected"
               data-testid="select-option"
               onClick={[Function]}
-              tabIndex="0"
+              tabIndex="-1"
               type="button"
             >
               featured
@@ -157,7 +157,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
               className="consonant-select--option"
               data-testid="select-option"
               onClick={[Function]}
-              tabIndex="0"
+              tabIndex="-1"
               type="button"
             >
               Title: (A-Z)
@@ -166,7 +166,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
               className="consonant-select--option"
               data-testid="select-option"
               onClick={[Function]}
-              tabIndex="0"
+              tabIndex="-1"
               type="button"
             >
               Title: (Z-A)
@@ -175,7 +175,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
               className="consonant-select--option"
               data-testid="select-option"
               onClick={[Function]}
-              tabIndex="0"
+              tabIndex="-1"
               type="button"
             >
               Date
@@ -184,7 +184,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
               className="consonant-select--option"
               data-testid="select-option"
               onClick={[Function]}
-              tabIndex="0"
+              tabIndex="-1"
               type="button"
             >
               Date: (Newest to oldest)
@@ -345,7 +345,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
               className="consonant-select--option consonant-select--option_selected"
               data-testid="select-option"
               onClick={[Function]}
-              tabIndex="0"
+              tabIndex="-1"
               type="button"
             >
               featured
@@ -354,7 +354,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
               className="consonant-select--option"
               data-testid="select-option"
               onClick={[Function]}
-              tabIndex="0"
+              tabIndex="-1"
               type="button"
             >
               Title: (A-Z)
@@ -363,7 +363,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
               className="consonant-select--option"
               data-testid="select-option"
               onClick={[Function]}
-              tabIndex="0"
+              tabIndex="-1"
               type="button"
             >
               Title: (Z-A)
@@ -372,7 +372,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
               className="consonant-select--option"
               data-testid="select-option"
               onClick={[Function]}
-              tabIndex="0"
+              tabIndex="-1"
               type="button"
             >
               Date
@@ -381,7 +381,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
               className="consonant-select--option"
               data-testid="select-option"
               onClick={[Function]}
-              tabIndex="0"
+              tabIndex="-1"
               type="button"
             >
               Date: (Newest to oldest)
