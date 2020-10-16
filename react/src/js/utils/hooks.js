@@ -39,3 +39,28 @@ export const useConfig = () => {
     const config = useContext(ConfigContext);
     return useCallback(makeConfigGetter(config), [config]);
 };
+
+export const useLazyLoading = (imageRef, image) => {
+    const [lazyLoadImage, setLazyLoadImage] = useState(""); 
+    const imageObserver = new IntersectionObserver(elements => {
+        if (elements[0].intersectionRatio !== 0) {
+            setLazyLoadImage(image);
+        }
+    })
+
+    useEffect(() => {
+        if(lazyLoadImage){
+            const img = new Image();
+            img.src = lazyLoadImage;
+            img.onload = () => setLazyLoadImage(lazyLoadImage)
+        }
+      }, [lazyLoadImage])
+
+    useEffect(() => {
+        if(imageRef.current){
+            imageObserver.observe(imageRef.current);
+        }
+    }, [imageRef]);
+
+    return [ lazyLoadImage ];   
+}

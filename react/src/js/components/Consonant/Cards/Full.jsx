@@ -1,6 +1,7 @@
 /*eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useLazyLoading } from '../../../utils/hooks';
 
 const FullCard = (props) => {
     const {
@@ -35,6 +36,9 @@ const FullCard = (props) => {
         },
     } = props;
 
+    const imageRef = React.useRef();
+    const [ lazyLoadedImage ] = useLazyLoading(imageRef, image);
+
     return (
         <div
             className="consonant-full-card"
@@ -43,7 +47,8 @@ const FullCard = (props) => {
             <div
                 data-testid="consonant-card--img"
                 className="consonant-full-card--img"
-                style={{ backgroundImage: `url("${image}")` }}>
+                ref={imageRef}
+                style={{ backgroundImage: `url("${lazyLoadedImage}")` }}>
                 {bannerDescription && bannerFontColor && bannerBackgroundColor &&
                     <span
                         data-testid="consonant-card--banner"

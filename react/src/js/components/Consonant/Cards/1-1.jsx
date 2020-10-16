@@ -1,7 +1,7 @@
 /*eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useConfig } from '../../../utils/hooks';
+import { useConfig, useLazyLoading } from '../../../utils/hooks';
 import prettyFormatDate from '../../../utils/prettyFormat';
 
 const AspectRatio1to1Card = (props) => {
@@ -50,6 +50,9 @@ const AspectRatio1to1Card = (props) => {
 
     const detailText = prettyDate || label || '';
 
+    const imageRef = React.useRef();
+    const [ lazyLoadedImage ] = useLazyLoading(imageRef, image);
+
     return (
         <div
             className="consonant-aspect-ratio-1-1-card"
@@ -58,7 +61,8 @@ const AspectRatio1to1Card = (props) => {
             <div
                 data-testid="consonant-card--img"
                 className="consonant-aspect-ratio-1-1-card--img"
-                style={{ backgroundImage: `url("${image}")` }}>
+                ref={imageRef}
+                style={{ backgroundImage: `url("${lazyLoadedImage}")` }}>
                 {bannerDescription && bannerFontColor && bannerBackgroundColor &&
                     <span
                         data-testid="consonant-card--banner"
