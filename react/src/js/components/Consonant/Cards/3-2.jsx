@@ -1,5 +1,5 @@
 /*eslint-disable */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useConfig } from '../../../utils/hooks';
 import prettyFormatDate from '../../../utils/prettyFormat';
@@ -82,6 +82,35 @@ const AspectRatio3to2Card = ({
         });
     };
 
+    const someRef = React.useRef();
+    const [lazyLoadedImage, setLazyLoadedImage] = useState("") 
+
+     /** 
+     * Effect to swap out images
+     * */
+    useEffect(() => {
+        if(lazyLoadedImage){
+            const img = new Image();
+            img.src = lazyLoadedImage;
+            img.onload = () => setLazyLoadedImage(lazyLoadedImage)
+        }
+      }, [lazyLoadedImage])
+
+    const myObserver = new IntersectionObserver(elements => {
+        if (elements[0].intersectionRatio !== 0) {
+            setLazyLoadedImage(image);
+        }
+    })
+
+    /** 
+     * Register Intersection Observer Hook 
+     * */
+    useEffect(() => {
+        if(someRef.current){
+            myObserver.observe(someRef.current);
+        }
+    }, [someRef]);
+
     const getConfig = useConfig();
 
     const i18nFormat = getConfig('collection', 'i18n.prettyDateIntervalFormat');
@@ -98,7 +127,8 @@ const AspectRatio3to2Card = ({
             <div
                 data-testid="consonant-card--img"
                 className="consonant-aspect-ratio-3-2-card--img"
-                style={{ backgroundImage: `url("${image}")` }}>
+                ref={someRef}
+                style={{ backgroundImage: `url("${lazyLoadedImage}")` }}>
                 {
                     bannerDescription &&
                     bannerFontColor &&
