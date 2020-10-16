@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Consonant/Bookmarks should correct render 1`] = `
+Array [
+  <span
+    className="consonant-price-infobit"
+  >
+    <strong
+      className="consonant-price-infobit--price"
+    >
+      price
+    </strong>
+    <span
+      className="consonant-price-infobit--term"
+    >
+      term
+    </span>
+  </span>,
+  <a
+    className="consonant-btn-infobit consonant-btn-infobit_cta"
+    data-testid="consonant-btn-infobit"
+    href=""
+    rel="noreferrer"
+    tabIndex="0"
+    target="_blank"
+  >
+    
+  </a>,
+  <div
+    className="consonant-icon-with-text-infobit"
+  >
+    
+    <span
+      className="consonant-icon-with-text-infobit--text"
+    >
+      
+    </span>
+  </div>,
+  <a
+    className="consonant-link-widh-ico-infobit"
+    href="/some/href/"
+    rel="noreferrer"
+    target="__blank"
+    title=""
+  >
+    
+    <span>
+      text
+    </span>
+  </a>,
+  <p
+    className="consonant-text-infobit"
+  >
+    text
+  </p>,
+  <img
+    alt=""
+    className="consonant-icon-infobit"
+    loading="lazy"
+    src="icon"
+    width="28"
+  />,
+  <a
+    className="consonant-link-infobit"
+    href="/some/href/"
+    rel="noreferrer"
+    target="_blank"
+    title=""
+  >
+    text
+  </a>,
+  <div
+    className="consonant-progress-infobit"
+  >
+    <div
+      className="consonant-progress-infobit--wrapper"
+    >
+      <span
+        className="consonant-progress-infobit--text"
+        title=""
+      >
+        
+      </span>
+      <span
+        className="consonant-progress-infobit--text consonant-progress-infobit--text_italic"
+        title=""
+      >
+        
+      </span>
+    </div>
+    <div
+      className="consonant-progress-infobit--el"
+    >
+      <span
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow={0}
+        className="consonant-progress-infobit--val"
+        role="progressbar"
+        style={
+          Object {
+            "backgroundColor": "",
+            "width": "0",
+          }
+        }
+      >
+        Progress: 
+        0
+      </span>
+    </div>
+  </div>,
+  <div
+    className="consonant-rating-infobit"
+    data-stars={5}
+  >
+    <span
+      className="consonant-rating-infobit--stars"
+      data-rating={0}
+    />
+    <span
+      className="consonant-rating-infobit--text"
+    >
+      label
+    </span>
+  </div>,
+  <button
+    className="consonant-bookmark-infobit consonant-bookmark-infobit_disabled"
+    data-testid="bookmark-button"
+    data-tooltip-wrapper={true}
+    onClick={[Function]}
+    tabIndex="0"
+    type="button"
+  >
+    <span
+      className="consonant-bookmark-infobit--ico"
+      data-testid="bookmarks--ico"
+      style={
+        Object {
+          "backgroundImage": "",
+        }
+      }
+    />
+    <span
+      className="consonant-tooltip"
+    >
+      Save Card
+    </span>
+  </button>,
+  <span
+    className="consonant-date-interval-infobit"
+    title="Invalid DateTime Invalid DateTime | Invalid Interval Invalid DateTime"
+  >
+    Invalid DateTime Invalid DateTime | Invalid Interval Invalid DateTime
+  </span>,
+]
+`;
+
+exports[`Consonant/Bookmarks should correct render not array 1`] = `
+<span
+  className="consonant-price-infobit"
+>
+  <strong
+    className="consonant-price-infobit--price"
+  >
+    price
+  </strong>
+  <span
+    className="consonant-price-infobit--term"
+  >
+    term
+  </span>
+</span>
+`;

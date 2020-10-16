@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Consonant/Rating should correct render 1`] = `
+<div
+  className="consonant-rating-infobit consonant-rating-infobit_neg-margin"
+  data-stars={5}
+>
+  <span
+    className="consonant-rating-infobit--stars"
+    data-rating={0}
+  />
+  
+</div>
+`;
+
+exports[`Consonant/Rating should correct render with totalStars < 0 1`] = `
+<div
+  className="consonant-rating-infobit consonant-rating-infobit_neg-margin"
+  data-stars={5}
+>
+  <span
+    className="consonant-rating-infobit--stars"
+    data-rating={0}
+  />
+  
+</div>
+`;
+
+exports[`Consonant/Rating should correct render with totalStars 1`] = `
+<div
+  className="consonant-rating-infobit consonant-rating-infobit_neg-margin"
+  data-stars={5}
+>
+  <span
+    className="consonant-rating-infobit--stars"
+    data-rating={0}
+  />
+  
+</div>
+`;

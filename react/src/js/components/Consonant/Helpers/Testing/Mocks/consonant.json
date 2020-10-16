@@ -35,7 +35,7 @@
                     "url": "some-video-videoURL"
                 }
             },
-            "tags": [],
+            "tags": [ { "id": 1 } ],
             "contentArea": {
                 "detailText": "some details",
                 "title": "Some Featured Card",

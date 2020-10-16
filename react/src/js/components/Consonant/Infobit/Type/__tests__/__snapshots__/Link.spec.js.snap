@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Consonant/Bookmarks should correct render 1`] = `
+<a
+  className="consonant-link-infobit"
+  href="/some/valid/uri"
+  rel="noreferrer"
+  target="_self"
+  title=""
+>
+  text
+</a>
+`;
+
+exports[`Consonant/Bookmarks should correct render with current tab 1`] = `
+<a
+  className="consonant-link-infobit"
+  href="/some/valid/uri"
+  rel="noreferrer"
+  target="_self"
+  title=""
+>
+  text
+</a>
+`;
