@@ -2,17 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useConfig } from '../../../../utils/hooks';
-import ChosenFilter from './ChosenItem';
 
 const DESKTOP_MIN_WIDTH = 1200;
 const FilterInfo = (props) => {
     const {
         enabled,
-        filters,
+        filtersQty,
         cardsQty,
         selectedFiltersQty,
         windowWidth,
-        onSelectedFilterClick,
         onMobileFiltersToggleClick,
         searchComponent,
         sortComponent,
@@ -51,7 +49,7 @@ const FilterInfo = (props) => {
             <div className="consonant-filters-info--search">
                 {searchEnabled && windowWidth <= DESKTOP_MIN_WIDTH && searchComponent}
             </div>
-            {windowWidth < DESKTOP_MIN_WIDTH && filters.length > 0 && enabled &&
+            {windowWidth < DESKTOP_MIN_WIDTH && filtersQty > 0 && enabled &&
                 <div
                     data-testid="btn-wrapper"
                     className="consonant-filters-info--btn-wrapper">
@@ -78,23 +76,6 @@ const FilterInfo = (props) => {
                 </div>
             }
             {sortEnabled && sortOptions.length > 0 && sortComponent}
-            {windowWidth >= DESKTOP_MIN_WIDTH && selectedFiltersQty > 0 &&
-                <div
-                    data-testid="selected-filters"
-                    className="consonant-filters-info--selected-filters">
-                    {filters.map(el => (
-                        el.items.map(filter => (
-                            filter.selected &&
-                            <ChosenFilter
-                                key={filter.id}
-                                name={filter.label}
-                                id={filter.id}
-                                parentId={el.id}
-                                onClick={onSelectedFilterClick} />
-                        ))
-                    ))}
-                </div>
-            }
         </aside>
     );
 };
@@ -103,19 +84,18 @@ export default FilterInfo;
 
 FilterInfo.propTypes = {
     enabled: PropTypes.bool.isRequired,
-    filters: PropTypes.arrayOf(PropTypes.object),
+    filtersQty: PropTypes.number,
     cardsQty: PropTypes.number,
     selectedFiltersQty: PropTypes.number,
     windowWidth: PropTypes.number,
     onMobileFiltersToggleClick: PropTypes.func.isRequired,
-    onSelectedFilterClick: PropTypes.func.isRequired,
     searchComponent: PropTypes.node.isRequired,
     sortComponent: PropTypes.node.isRequired,
     sortOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 FilterInfo.defaultProps = {
-    filters: [],
+    filtersQty: 0,
     cardsQty: 0,
     selectedFiltersQty: 0,
     windowWidth: window.innerWidth,

@@ -410,12 +410,14 @@ const Container = (props) => {
                             <span>
                                 <LeftFilterPanel
                                     filters={filters}
+                                    selectedFiltersQty={selectedFiltersItemsQty}
                                     windowWidth={windowWidth}
                                     onFilterClick={handleFilterItemClick}
                                     onClearAllFilters={resetFiltersSearchAndBookmarks}
                                     onClearFilterItems={clearFilterItems}
                                     onCheckboxClick={handleCheckBoxChange}
                                     onMobileFiltersToggleClick={handleFiltersToggle}
+                                    onSelectedFilterClick={handleCheckBoxChange}
                                     showMobileFilters={showMobileFilters}
                                     resQty={filteredCards.length}
                                     bookmarkComponent={(
@@ -472,7 +474,7 @@ const Container = (props) => {
                             {filterPanelType === FILTER_PANEL.LEFT &&
                                 <FilterInfo
                                     enabled={filterPanelEnabled}
-                                    filters={filters}
+                                    filtersQty={filters.length}
                                     cardsQty={filteredCards.length}
                                     selectedFiltersQty={selectedFiltersItemsQty}
                                     windowWidth={windowWidth}
@@ -495,8 +497,7 @@ const Container = (props) => {
                                             autoWidth={false}
                                             optionsAlignment="right" />
                                     )}
-                                    sortOptions={sortOptions}
-                                    onSelectedFilterClick={handleCheckBoxChange} />
+                                    sortOptions={sortOptions} />
                             }
                             {collectionCards.length > 0 ?
                                 <Fragment>

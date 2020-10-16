@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import sum from 'lodash/sum';
 import React, { useMemo } from 'react';
+import ChosenFilter from './ChosenItem';
 import { chainFromIterable } from '../../../../utils/general';
 import { useConfig } from '../../../../utils/hooks';
 import Item from './Item';
@@ -8,6 +9,7 @@ import Item from './Item';
 const DESKTOP_MIN_WIDTH = 1200;
 const LeftFilterPanel = ({
     filters,
+    selectedFiltersQty,
     windowWidth,
     showMobileFilters,
     onFilterClick,
@@ -15,6 +17,7 @@ const LeftFilterPanel = ({
     onClearFilterItems,
     onCheckboxClick,
     onMobileFiltersToggleClick,
+    onSelectedFilterClick,
     resQty,
     searchComponent,
     bookmarkComponent,
@@ -102,6 +105,22 @@ const LeftFilterPanel = ({
                 {desktopFiltersClearBtn}
             </div>
             {windowWidth >= DESKTOP_MIN_WIDTH && searchEnabled && searchComponent}
+            {windowWidth >= DESKTOP_MIN_WIDTH && selectedFiltersQty > 0 &&
+                <div
+                    className="consonant-left-filters--chosen-filters">
+                    {filters.map(el => (
+                        el.items.map(filter => (
+                            filter.selected &&
+                            <ChosenFilter
+                                key={filter.id}
+                                name={filter.label}
+                                id={filter.id}
+                                parentId={el.id}
+                                onClick={onSelectedFilterClick} />
+                        ))
+                    ))}
+                </div>
+            }
             {bookmarksEnabled && bookmarkComponent}
             {filters.length > 0 && (
                 <div className="consonant-left-filters--list">
@@ -131,6 +150,7 @@ export default LeftFilterPanel;
 
 LeftFilterPanel.propTypes = {
     filters: PropTypes.arrayOf(PropTypes.object),
+    selectedFiltersQty: PropTypes.number,
     windowWidth: PropTypes.number,
     showMobileFilters: PropTypes.bool,
     onFilterClick: PropTypes.func.isRequired,
@@ -138,6 +158,7 @@ LeftFilterPanel.propTypes = {
     onClearFilterItems: PropTypes.func.isRequired,
     onCheckboxClick: PropTypes.func.isRequired,
     onMobileFiltersToggleClick: PropTypes.func.isRequired,
+    onSelectedFilterClick: PropTypes.func.isRequired,
     resQty: PropTypes.number,
     searchComponent: PropTypes.node.isRequired,
     bookmarkComponent: PropTypes.node.isRequired,
@@ -145,6 +166,7 @@ LeftFilterPanel.propTypes = {
 
 LeftFilterPanel.defaultProps = {
     filters: [],
+    selectedFiltersQty: 0,
     windowWidth: window.innerWidth,
     showMobileFilters: false,
     resQty: 0,
