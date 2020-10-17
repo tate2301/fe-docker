@@ -82,7 +82,7 @@ const AspectRatio1to1Card = (props) => {
                                 </div>
                             )
                         }
-                        {bannerDescription}
+                        <span>{bannerDescription}</span>
                     </span>
                 }
                 {badgeText && <span className="consonant-aspect-ratio-1-1-card--badge">{badgeText}</span>}

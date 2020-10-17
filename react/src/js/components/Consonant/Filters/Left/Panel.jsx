@@ -105,6 +105,7 @@ const LeftFilterPanel = ({
                 {desktopFiltersClearBtn}
             </div>
             {windowWidth >= DESKTOP_MIN_WIDTH && searchEnabled && searchComponent}
+            {bookmarksEnabled && bookmarkComponent}
             {windowWidth >= DESKTOP_MIN_WIDTH && selectedFiltersQty > 0 &&
                 <div
                     className="consonant-left-filters--chosen-filters">
@@ -121,7 +122,6 @@ const LeftFilterPanel = ({
                     ))}
                 </div>
             }
-            {bookmarksEnabled && bookmarkComponent}
             {filters.length > 0 && (
                 <div className="consonant-left-filters--list">
                     {filters.map(filter => (

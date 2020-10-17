@@ -47,9 +47,13 @@
         white-space: nowrap;
         text-transform: capitalize;
         background-color: transparent;
+        border: 2px solid transparent;
+        outline: 0;
+        transition: border-color @transition-time @transition-func;
 
-        .no-border-no-outline;
-        .focused;
+        &:focus {
+            border-color: @consonant-focus-color;
+        }
     }
 
     .consonant-pagination--items {
@@ -209,10 +213,6 @@
 
         .consonant-pagination--summary {
             display: block;
-        }
-
-        .consonant-pagination--btn.consonant-pagination--btn_prev {
-            transform: translate3d(2px, 0, 0);
         }
     }
 

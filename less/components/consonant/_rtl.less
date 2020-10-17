@@ -1,0 +1,531 @@
+[dir = rtl] {
+    /* Filters info */
+    .consonant-filters-info {
+        & > :last-child {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .consonant-filters-info--btn.consonant-filters-info--btn_with-filters {
+            padding-left: 0;
+        }
+
+        .consonant-filters-info--btn-text {
+            padding-left: 7px;
+            text-align: right;
+        }
+
+        .consonant-filters-info--btn .consonant-filters-info--btn-selected {
+            padding-right: 8px;
+            padding-left: 7px;
+            border-left: 0;
+            border-right: 1px solid @consonant-color-brown-grey;
+        }
+
+        .consonant-filters-info--results {
+            text-align: right;
+        }
+    }
+
+    /* Left filter panel */
+    .consonant-left-filters {
+        .consonant-left-filters--mob-back {
+            margin-left: 13px;
+            margin-right: 0;
+            transform: scale(-1);
+        }
+
+        .consonant-left-filter--link {
+            padding-left: 36px;
+            padding-right: 6px;
+            text-align: right;
+        }
+
+        .consonant-left-filters--mobile-footer-btn {
+            flex-direction: row-reverse;
+        }
+
+        .consonant-left-filters--mob-title span,
+        .consonant-left-filters--mobile-footer-total-res-qty {
+            text-align: right;
+        }
+    }
+
+    /* Left filter */
+    .consonant-left-filter {
+        &:after {
+            left: 16px;
+            right: unset;
+            transform: scale(-1) rotate(-135deg);
+        }
+
+        .consonant-left-filter--items-item-name,
+        .consonant-left-filters--clear-link,
+        .consonant-left-filters--desk-title,
+        .consonant-left-filter--footer-clear-btn,
+        .consonant-left-filter--footer-res-qty {
+            text-align: right;
+        }
+
+        .consonant-left-filter--items-item-checkmark {
+            margin-left: 10px;
+            margin-right: 0;
+        }
+
+        .consonant-left-filter--selected-items-qty {
+            text-align: right;
+            padding-left: 18px;
+            padding-right: 0;
+
+            &:after {
+                left: 0;
+                right: unset;
+            }
+        }
+
+        &.consonant-left-filter_opened {
+            .consonant-left-filter--name {
+                padding-left: 0;
+                padding-right: 20px;
+            }
+        }
+    }
+
+    /* Top filters panel */
+    .consonant-top-filters {
+        .consonant-top-filters--filters {
+            margin-right: 0;
+            margin-left: 17px;
+        }
+
+        .consonant-top-filters--clear-btn-wrapper {
+            left: 0;
+            right: unset;
+            margin-left: 0;
+            margin-right: 0;
+
+            &:empty {
+                margin-left: 0;
+                margin-right: -16px;
+            }
+
+            &:after {
+                right: unset;
+                left: 100%;
+                transform: scale(-1);
+            }
+        }
+
+        .consonant-top-filters--clear-btn {
+            text-align: right;
+        }
+
+        .consonant-top-filters--select-wrapper {
+            margin-right: 0;
+            margin-left: 8px;
+        }
+    }
+
+    /* Top filter */
+    .consonant-top-filter {
+        margin-right: 0;
+        margin-left: 8px;
+
+        &:last-of-type {
+            margin-left: 0;
+        }
+
+        .consonant-top-filter--items-item-checkmark {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+
+        .consonant-top-filter--items-item-name,
+        .consonant-top-filter--footer-clear-btn,
+        .consonant-top-filter--footer-res-qty,
+        .consonant-top-filter--link {
+            text-align: right;
+        }
+
+        .consonant-top-filter--selcted-items-qty {
+            margin-right: 9px;
+            margin-left: 0;
+            text-align: right;
+
+            &:after {
+                left: unset;
+                right: 0;
+            }
+        }
+
+        &.consonant-top-filter_selected {
+            :not(.consonant-top-filter_opened) .consonant-top-filter--link {
+                padding-left: 0;
+                padding-right: 12px;
+            }
+        }
+
+        &.consonant-top-filter_opened {
+            .consonant-top-filter--link {
+                padding-right: 20px;
+                padding-left: 12px;
+                text-align: right;
+            }
+        }
+    }
+
+    /* Sort select */
+    .consonant-select {
+        &:after {
+            right: unset;
+            left: 12px;
+        }
+
+        .consonant-select--btn {
+            padding-left: 34px;
+            padding-right: 12px;
+            text-align: right;
+        }
+
+        .consonant-select--options {
+            left: 0;
+            right: unset;
+
+            &.consonant-select--options_left {
+                right: 0;
+                left: unset;
+            }
+        }
+
+        .consonant-select--option {
+            text-align: right;
+            padding-left: 30px;
+            padding-right: 20px;
+
+            &.consonant-select--option_selected {
+                text-align: right;
+            }
+
+            &.consonant-select--option_selected:after {
+                right: unset;
+                left: 12px;
+            }
+        }
+    }
+
+    /* Search */
+    .consonant-search {
+        input {
+            text-align: right;
+
+            &:focus {
+                padding-right: 8px;
+            }
+        }
+
+        .consonant-search--input-title {
+            text-align: right;
+        }
+
+        .consonant-search--input-clear {
+            display: none;
+        }
+    }
+
+    /* Cards */
+    .consonant-aspect-ratio-3-2-card .consonant-aspect-ratio-3-2-card--title,
+    .consonant-aspect-ratio-3-2-card .consonant-aspect-ratio-3-2-card--label,
+    .consonant-aspect-ratio-3-2-card .consonant-aspect-ratio-3-2-card--text,
+    .consonant-aspect-ratio-3-2-card .consonant-aspect-ratio-3-2-card--secondary-text,
+    .consonant-aspect-ratio-3-2-card .consonant-aspect-ratio-3-2-card--banner,
+    .consonant-aspect-ratio-3-2-card .consonant-aspect-ratio-3-2-card--badge,
+    .consonant-aspect-ratio-1-1-card .consonant-aspect-ratio-1-1-card--label,
+    .consonant-aspect-ratio-1-1-card .consonant-aspect-ratio-1-1-card--title,
+    .consonant-aspect-ratio-1-1-card .consonant-aspect-ratio-1-1-card--banner,
+    .consonant-aspect-ratio-1-1-card .consonant-aspect-ratio-1-1-card--badge,
+    .consonant-full-card .consonant-full-card--label,
+    .consonant-full-card .consonant-full-card--title,
+    .consonant-full-card .consonant-full-card--banner,
+    .consonant-full-card .consonant-full-card--badge {
+        text-align: right;
+    }
+
+    .consonant-aspect-ratio-3-2-card .consonant-aspect-ratio-3-2-card--video-ico,
+    .consonant-aspect-ratio-1-1-card .consonant-aspect-ratio-1-1-card--video-ico,
+    .consonant-full-card .consonant-full-card--video-ico {
+        transform: rotate(180deg);
+
+        &:hover {
+            transform: rotate(180deg) scale(1.1);
+        }
+    }
+
+    .consonant-aspect-ratio-1-1-card .consonant-aspect-ratio-1-1-card--banner,
+    .consonant-aspect-ratio-3-2-card .consonant-aspect-ratio-3-2-card--banner,
+    .consonant-full-card .consonant-full-card--banner {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .consonant-aspect-ratio-1-1-card .consonant-aspect-ratio-1-1-card--banner-icon-wrapper,
+    .consonant-aspect-ratio-3-2-card .consonant-aspect-ratio-3-2-card--banner-icon-wrapper,
+    .consonant-full-card .consonant-full-card--banner-icon-wrapper {
+        margin-left: 4px;
+        margin-right: 0;
+    }
+
+    /* Infobits */
+    .consonant-card-footer--cell {
+        &.consonant-card-footer--cell_left:not(:only-child) > *:first-child,
+        &.consonant-card-footer--cell_left:not(:only-child) > *:last-child {
+            margin-left: 16px;
+        }
+
+        &.consonant-card-footer--cell_right > *:last-child {
+            margin-left: 0;
+        }
+    }
+
+    .consonant-date-interval-infobit,
+    .consonant-icon-with-text-infobit--text,
+    .consonant-link-widh-ico-infobit span,
+    .consonant-link-infobit,
+    .consonant-price-infobit--price,
+    .consonant-price-infobit--term,
+    .consonant-progress-infobit--text,
+    .consonant-rating-infobit--text,
+    .consonant-text-infobit {
+        text-align: right;
+    }
+
+    .consonant-icon-with-text-infobit img {
+        margin-right: 0;
+        margin-left: 4px;
+    }
+
+    img + .consonant-text-infobit {
+        margin-right: -12px;
+    }
+
+    .consonant-rating-infobit--text {
+        margin-left: 0;
+        margin-right: 7px;
+    }
+
+    .consonant-progress-infobit--text:not(:last-child) {
+        padding-right: 0;
+        padding-left: 8px;
+    }
+
+    /* Bookmarks */
+    .bookmarks {
+        .bookmarks--title {
+            padding-left: 55px;
+            padding-right: 0;
+            text-align: right;
+        }
+
+        .bookmarks--item-badge {
+            left: 16px;
+            right: unset;
+        }
+
+        .bookmarks--ico-wrapper .bookmarks--ico {
+            margin-left: 6px;
+            margin-right: 0;
+        }
+    }
+
+    /* Pagination */
+    .consonant-pagination {
+        .consonant-pagination--summary {
+            text-align: right;
+        }
+
+        .consonant-pagination--btn {
+            text-align: right;
+        }
+    }
+
+    @media @consonant-mq-min-2-cards {
+        /* Card collection */
+        .consonant-card-collection > div {
+            margin-left: @consonant-card-margin-right;
+            margin-right: 0;
+
+            &:nth-of-type(even) {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    }
+
+    @media @consonant-mq-min-3-cards {
+        /* Card collection */
+        .consonant-card-collection > div {
+            &:nth-of-type(even) {
+                margin-left: @consonant-card-margin-right;
+            }
+
+            &:nth-of-type(3n) {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    }
+
+    @media @consonant-for-tablet-landscape-up {
+        /* Top filters panel */
+        .consonant-top-filters {
+            .consonant-top-filters--filters-wrapper {
+                margin-right: 0;
+                margin-left: 16px;
+            }
+
+            .consonant-top-filters--title {
+                text-align: right;
+                margin-left: 12px;
+                margin-right: 0;
+            }
+
+            .consonant-top-filters--filters {
+                &.consonant-top-filters--filters_truncated {
+                    .consonant-top-filters--more-btn {
+                        margin-left: 23px;
+                        margin-right: 0;
+                    }
+                }
+            }
+
+            .consonant-top-filters--res-qty {
+                text-align: right;
+
+                &:after {
+                    right: unset;
+                    left: 0;
+                }
+            }
+
+            .consonant-top-filters--res-qty strong {
+                text-align: right;
+            }
+
+            .consonant-top-filters--search-ico-wrapper > div {
+                left: 20px;
+                right: unset;
+            }
+        }
+
+        /* Top filter */
+        .consonant-top-filter {
+            &.consonant-top-filter_opened {
+                margin-left: 8px;
+                margin-right: 0;
+
+                &:last-child {
+                    margin-left: 0;
+                }
+
+                .consonant-top-filter--link {
+                    margin-right: 0;
+                    padding-right: 17px;
+                }
+            }
+        }
+    }
+
+    @media @consonant-for-desktop-up {
+        /* Left filters panel */
+        .consonant-left-filters {
+            margin-right: 0;
+            margin-left: 32px;
+        }
+
+        /* Top filters panel */
+        .consonant-top-filters {
+            .consonant-top-filters--res-qty {
+                margin-left: 0;
+                margin-right: auto;
+            }
+
+            .consonant-top-filters--select-wrapper > div:first-child:after {
+                right: unset;
+                left: 12px;
+            }
+        }
+
+        /* Left filter */
+        .consonant-left-filter {
+            &:after {
+                transform: scale(-1) rotate(135deg);
+            }
+
+            .consonant-left-filter--link {
+                padding-right: 6px;
+            }
+
+            .consonant-left-filter--item-badge {
+                left: 32px;
+                right: unset;
+            }
+
+            &.consonant-left-filter_opened {
+                .consonant-left-filter--name {
+                    padding-right: 0;
+                }
+
+                .consonant-left-filter--link {
+                    padding-right: 8px;
+                }
+            }
+        }
+
+        /* Chosen filter */
+        .consonant-chosen-filter {
+            margin-right: 0;
+            margin-left: 7px;
+            padding-left: 17px;
+            padding-right: 8px;
+            text-align: right;
+
+            &:before,
+            &:after {
+                left: 8px;
+                right: unset;
+            }
+        }
+
+        /* Card collection */
+        * + * > .consonant-card-collection > div {
+            &:nth-of-type(even),
+            &:nth-of-type(3n) {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            &:nth-of-type(odd) {
+                margin-left: @consonant-card-margin-right;
+                margin-right: 0;
+            }
+        }
+
+        /* Bookmarks */
+        .bookmarks .bookmarks--item-badge {
+            left: 30px;
+        }
+    }
+
+    @media @consonant-for-big-desktop-up {
+        /* Card collection */
+        * + * > .consonant-card-collection > div {
+            &:nth-of-type(even) {
+                margin-left: @consonant-card-margin-right;
+            }
+
+            &:nth-of-type(3n) {
+                margin-left: 0;
+            }
+        }
+    }
+}

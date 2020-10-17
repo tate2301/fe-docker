@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="en" dir="rtl">
 
 <head>
 
@@ -51,7 +51,7 @@
     <script type="text/javascript">
         var config = {
             collection: {
-                resultsPerPage: '100',
+                resultsPerPage: '7',
                 endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/tests/card-collection/json-response-tests/smoke-tests/all-art-board-15-cards-show.json",
                 totalCardsToShow: '150',
                 cardStyle: "none", // could also be "3:2" or "full-card"
@@ -65,7 +65,7 @@
             featuredCards: [],
             filterPanel: {
                 enabled: 'true',
-                type: 'left',
+                type: 'top',
                 filters: '[{"openedOnLoad":false,"id":"we-retail:activity","items":[{"label":"Biking","id":"we-retail:activity/biking"},{"label":"Hiking","id":"we-retail:activity/hiking"},{"label":"Other","id":"we-retail:activity/others"},{"label":"Running","id":"we-retail:activity/running"},{"label":"Skiing","id":"we-retail:activity/skiing"},{"label":"Surfing","id":"we-retail:activity/surfing"},{"label":"Swimming","id":"we-retail:activity/swimming"}],"group":"Activity"},{"openedOnLoad":false,"id":"we-retail:apparel","items":[{"label":"Coat","id":"we-retail:apparel/coat"},{"label":"Footwear","id":"we-retail:apparel/footwear"},{"label":"Glasses","id":"we-retail:apparel/glasses"},{"label":"Gloves","id":"we-retail:apparel/gloves"},{"label":"Hat","id":"we-retail:apparel/hat"},{"label":"Helmet","id":"we-retail:apparel/helmet"},{"label":"Pancho","id":"we-retail:apparel/pancho"},{"label":"Pants","id":"we-retail:apparel/pants"},{"label":"Scarf","id":"we-retail:apparel/scarf"},{"label":"Shirt","id":"we-retail:apparel/shirt"},{"label":"Shorts","id":"we-retail:apparel/shorts"}],"group":"Apparel"}]',
                 filterLogic: 'and',
                 i18n: {
@@ -112,7 +112,7 @@
             },
             pagination: {
                 enabled: 'true',
-                type: 'loadMore',
+                type: 'paginator',
                 i18n: {
                     loadMore: {
                         btnText: 'i18n.loadMore.btnText',
@@ -128,7 +128,7 @@
             bookmarks: {
                 leftFilterPanel: {
                     bookmarkOnlyCollection: 'false',
-                    showBookmarksFilter: 'false',
+                    showBookmarksFilter: 'true',
                     selectBookmarksIcon: 'http://placehold.it/150x150',
                     unselectBookmarksIcon: 'http://placehold.it/150x150/red',
                 },

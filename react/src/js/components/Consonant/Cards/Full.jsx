@@ -68,7 +68,7 @@ const FullCard = (props) => {
                                 </div>
                             )
                         }
-                        {bannerDescription}
+                        <span>{bannerDescription}</span>
                     </span>
                 }
                 {badgeText && <span className="consonant-full-card--badge">{badgeText}</span>}

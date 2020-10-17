@@ -125,7 +125,7 @@ const AspectRatio3to2Card = ({
                                 </div>
                             )
                         }
-                        {bannerDescription}
+                        <span>{bannerDescription}</span>
                     </span>
                 }
                 {badgeText && <span className="consonant-aspect-ratio-3-2-card--badge">{badgeText}</span>}
