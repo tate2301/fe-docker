@@ -70,7 +70,7 @@ export const sortByKey = (iterable, keyFunc) => [...iterable].sort((a, b) => {
     return 0;
 });
 
-export const cleanText = text => text.toLowerCase().trim();
+export const sanitizeText = text => text.toLowerCase().trim();
 
 export const mapObject = (object, func) => {
     const newObj = {};

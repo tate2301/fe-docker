@@ -1,14 +1,13 @@
-import produce from 'immer';
+/* eslint-disable */
 import get from 'lodash/get';
-import set from 'lodash/set';
 import debounce from 'lodash/debounce';
 import includes from 'lodash/includes';
 import PropTypes from 'prop-types';
-import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
 import 'whatwg-fetch';
 import {
     DESKTOP_MIN_WIDTH,
-    FILTER_LOGIC,
+    FILTER_TYPES,
     FILTER_PANEL,
     LOADER_SIZE,
     PAGINATION_COUNT,
@@ -17,7 +16,6 @@ import {
     TRUNCATE_TEXT_QTY,
 } from '../../../constants';
 import { ConfigContext, ExpandableContext } from '../../../contexts';
-import { filterCardsByDateRange } from '../../../utils/cards';
 import {
     getDefaultSortOption,
     getNumSelectedFilterItems,
@@ -25,21 +23,25 @@ import {
 } from '../../../utils/consonant';
 import {
     chainFromIterable,
-    cleanText,
-    intersection,
-    isSuperset,
     readBookmarksFromLocalStorage,
-    removeDuplicatesByKey,
     saveBookmarksToLocalStorage,
     sortByKey,
-    truncateList,
-    truncateString,
 } from '../../../utils/general';
 
+import {
+    shouldDisplayPaginator,
+    getNumCardsToShow,
+    getTotalPages,
+    getCollectionCards,
+    getBookmarkedCards,
+    getActiveFilterIds,
+    getFilteredCards,
+    getCardsMatchingSearch,
+    highlightCard,
+    CardProccesor,
+} from './Helpers';
 
 import { useWindowDimensions } from '../../../utils/hooks';
-import { getHighlightedTextComponent } from '../../../utils/rendering';
-
 
 import Bookmarks from '../Bookmarks/Bookmarks';
 import Collection from '../Collection/Collection';
@@ -56,7 +58,7 @@ import Select from '../Select/Select';
 const Container = (props) => {
     const { config } = props;
 
-    const getConfig = useCallback(makeConfigGetter(config), [config]);
+    const getConfig = makeConfigGetter(config);
 
     // Config
 
@@ -89,28 +91,24 @@ const Container = (props) => {
     const [rawCards, setCards] = useState([]);
     const [isLoading, setLoading] = useState(false);
 
-    const cards = useMemo(() => rawCards.map(card => ({
+    const cards = (() => rawCards.map(card => ({
         ...card,
         isBookmarked: bookmarkedCardIds.some(i => i === card.id),
-    })), [rawCards, bookmarkedCardIds]);
+    })))();
+
+    const featuredCards = getConfig('featuredCards', '').map(el => ({
+        ...el,
+        isFeatured: true,
+    }));
 
     // callbacks
 
-    const populateCardMetadata = useCallback(card => ({
-        ...card,
-        initialTitle: get(card, 'contentArea.title', ''),
-        description: truncateString(get(card, 'contentArea.description', ''), TRUNCATE_TEXT_QTY),
-        initialText: get(card, 'contentArea.description', ''),
-        isBookmarked: false,
-        disableBookmarkIco: onlyShowBookmarks,
-    }), []);
-
-    const onLoadMoreClick = useCallback(() => {
+    const onLoadMoreClick = () => {
         setCurrentPage(prevState => prevState + 1);
         window.scrollTo(0, window.pageYOffset);
-    }, []);
+    };
 
-    const clearFilterItems = useCallback((id) => {
+    const clearFilterItems = (id) => {
         setFilters(prevFilters => prevFilters.map((el) => {
             if (el.id !== id) return el;
             return {
@@ -121,30 +119,30 @@ const Container = (props) => {
                 })),
             };
         }));
-    }, [setFilters]);
+    };
 
-    const clearFilters = useCallback(() => {
+    const clearFilters = () => {
         setFilters(prevFilters => prevFilters.map(el => ({
             ...el,
             items: el.items.map(filter => ({ ...filter, selected: false })),
         })));
-    }, [setFilters]);
+    };
 
-    const resetFiltersSearchAndBookmarks = useCallback(() => {
+    const resetFiltersSearchAndBookmarks = () => {
         clearFilters();
         setSearchQuery('');
         setShowBookmarks(false);
-    }, [clearFilters]);
+    };
 
-    const handleSortChange = useCallback((option) => {
+    const handleSortChange = (option) => {
         setSort(option);
         setSortOpened(false);
-    }, [setSort, setSortOpened]);
+    };
 
-    const handleSearchInputChange = useCallback((val) => {
+    const handleSearchInputChange = (val) => {
         clearFilters();
         setSearchQuery(val);
-    }, [setSearchQuery, clearFilters]);
+    };
 
     const handleFilterItemClick = (filterId) => {
         const isUsingTopFilter = filterPanelType === 'top';
@@ -165,9 +163,9 @@ const Container = (props) => {
         });
     };
 
-    const handleCheckBoxChange = useCallback((filterId, itemId, isChecked) => {
+    const handleCheckBoxChange = (filterId, itemId, isChecked) => {
         // If xor filterLogic set, we reset all filters;
-        if (filterLogic.toLowerCase().trim() === FILTER_LOGIC.XOR && isChecked) clearFilters();
+        if (filterLogic.toLowerCase().trim() === FILTER_TYPES.XOR && isChecked) clearFilters();
 
         setFilters(prevFilters => prevFilters.map((filter) => {
             if (filter.id !== filterId) return filter;
@@ -180,11 +178,11 @@ const Container = (props) => {
                 })),
             };
         }));
-    }, [clearFilters, setFilters]);
+    };
 
     const handleFiltersToggle = () => setShowMobileFilters(prev => !prev);
 
-    const handleCardBookmarking = useCallback((id) => {
+    const handleCardBookmarking = (id) => {
         // Update bookmarked IDs
         const cardIsBookmarked = bookmarkedCardIds.find(card => card === id);
 
@@ -193,46 +191,48 @@ const Container = (props) => {
         } else {
             setBookmarkedCardIds(prev => [...prev, id]);
         }
-    }, [bookmarkedCardIds]);
+    };
 
-    const handleShowFavoritesClick = useCallback((e) => {
+    const handleShowFavoritesClick = (e) => {
         e.stopPropagation();
         setShowBookmarks(prev => !prev);
-    }, [setShowBookmarks]);
+    };
 
-    const handleShowAllTopFilters = useCallback(() => {
+    const handleShowAllTopFilters = () => {
         setShowLimitedFiltersQty(prev => !prev);
-    }, []);
+    };
 
-    const handleWindowClick = useCallback(() => {
+    const handleWindowClick = () => {
         setOpenDropdown(null);
-    }, []);
+    };
 
     // Effects
 
     useEffect(() => {
+        console.log('second use effect ran');
+        setBookmarkedCardIds(readBookmarksFromLocalStorage());
+    }, []);
+
+    useEffect(() => {
+        console.log('first use effect ran');
         setLoading(true);
         window.fetch(collectionEndpoint)
             .then(resp => resp.json())
             .then((payload) => {
+                console.log('first use effect in then block');
                 setLoading(false);
                 if (!get(payload, 'cards.length')) return;
 
-                let featuredCards = config.featuredCards || [];
-                featuredCards = featuredCards.map(el => ({
-                    ...el,
-                    isFeatured: true,
-                }));
+                const cardProcessor = new CardProccesor(payload.cards);
+                const { allCards } = cardProcessor
+                    .addFeaturedCards(featuredCards)
+                    .removeDuplicates()
+                    .truncateList(totalCardLimit)
+                    .keepBookmarkedCardsOnly(onlyShowBookmarks, bookmarkedCardIds)
+                    .keepCardsWithinDateRange()
+                    .populateCardMetaData(TRUNCATE_TEXT_QTY, onlyShowBookmarks);
 
-                let allCards = removeDuplicatesByKey(featuredCards.concat(payload.cards), 'id');
 
-                // If this.config.bookmarks.bookmarkOnlyCollection;
-                if (onlyShowBookmarks) {
-                    allCards = allCards.filter(card => includes(bookmarkedCardIds, card.id));
-                }
-
-                allCards = filterCardsByDateRange(allCards);
-                allCards = truncateList(totalCardLimit, allCards).map(populateCardMetadata);
                 setCards(allCards);
                 setFilters(filtersConfig.map(el => ({
                     ...el,
@@ -243,96 +243,72 @@ const Container = (props) => {
                     })),
                 })));
             }).catch(() => setLoading(false));
-    }, [bookmarkedCardIds, config.featuredCards, populateCardMetadata]);
-
-    useEffect(() => {
-        setBookmarkedCardIds(readBookmarksFromLocalStorage());
-    }, []);
+    }, [config.featuredCards]);
 
     // Update dimensions on resize
     useEffect(() => {
+        console.log("Third is running");
         const updateDimensions = debounce(() => setShowMobileFilters(false), 100);
         window.addEventListener('resize', updateDimensions);
         return () => window.removeEventListener('resize', updateDimensions);
     }, []);
 
     useEffect(() => {
+        console.log('fourth use effect');
         saveBookmarksToLocalStorage(bookmarkedCardIds);
-    }, [cards, bookmarkedCardIds]);
+        console.log(bookmarkedCardIds);
+    }, [bookmarkedCardIds]);
 
     useEffect(() => {
+        console.log("Fifth is running");
         if (showBookmarks) {
             clearFilters();
             setSearchQuery('');
         }
-    }, [showBookmarks, clearFilters]);
+    }, [showBookmarks]);
 
     useEffect(() => {
+        console.log("Sixth is running");
         if (chainFromIterable(filters.map(f => f.items)).some(i => i.selected)) {
-            setShowBookmarks(false);
+            // setShowBookmarks(false);
         }
     }, [filters]);
 
     // Derived state
 
-    const activeFilterIds = useMemo(() => chainFromIterable(filters.map(f => f.items))
-        .filter(item => item.selected)
-        .map(item => item.id), [filters]);
+    const activeFilterIds = getActiveFilterIds(filters);
 
-    const filteredCards = useMemo(() => {
-        const activeFilterIdsSet = new Set(activeFilterIds);
+    const filteredCards = getFilteredCards(cards, activeFilterIds, filterLogic, FILTER_TYPES);
 
-        const usingXorAndFilter = filterLogic === FILTER_LOGIC.XOR
-            || filterLogic === FILTER_LOGIC.AND;
-        const usingOrFilter = filterLogic === FILTER_LOGIC.OR;
-
-        if (activeFilterIdsSet.size === 0) return cards;
-
-        return cards.filter((card) => {
-            if (!card.tags) {
-                return false;
-            }
-
-            const tagIds = new Set(card.tags.map(tag => tag.id));
-
-            if (usingXorAndFilter) {
-                return isSuperset(tagIds, activeFilterIdsSet);
-            } else if (usingOrFilter) {
-                return intersection(tagIds, activeFilterIdsSet).size;
-            }
-            throw new Error(`Unrecognized filter logic: ${filterLogic}`);
-        });
-    }, [cards, activeFilterIds]);
-
-    const searchedCards = useMemo(() => {
+    const searchedCards = (() => {
         const query = searchQuery.trim().toLowerCase();
-        if (!query) return filteredCards;
-        return filteredCards
-            .filter(card => searchFields.some((searchField) => {
-                const searchFieldValue = cleanText(get(card, searchField, ''));
-                return includes(searchFieldValue, query);
-            }))
-            .map(card => searchFields.reduce((modifiedCard, field) =>
-                produce(modifiedCard, (draft) => {
-                    const currentValue = get(draft, field, null);
-                    if (currentValue === null) return;
-                    set(draft, field, getHighlightedTextComponent(currentValue, query));
-                }), card));
-    }, [searchQuery, filteredCards]);
+        const cardsMatchingSearch = getCardsMatchingSearch(
+            searchQuery,
+            filteredCards,
+            searchFields,
+        );
 
-    const sortedCards = useMemo(() => {
+        return cardsMatchingSearch
+            .map(card => searchFields.reduce((baseCard, searchField) => highlightCard(
+                baseCard,
+                searchField,
+                query,
+            ), card));
+    })();
+
+    const sortedCards = (() => {
+        let sorted;
         const sortName = sort ? sort.sort : null;
         if (!sortName) {
             return searchedCards;
         }
+        const sortType = sortName.toLowerCase();
         const cardField = SORTING_OPTION[sortName.toUpperCase().trim()];
         if (!cardField) return searchedCards;
 
-        let sorted;
-
         // Sorting for featured and date;
 
-        const sortingByDate = includes(['dateasc', 'datedesc'], sortName.toLowerCase());
+        const sortingByDate = includes(['dateasc', 'datedesc'], sortType);
         if (sortingByDate) {
             sorted = sortByKey(searchedCards, c => c[cardField]);
         } else {
@@ -340,9 +316,9 @@ const Container = (props) => {
                 .sort((a, b) => a[cardField].localeCompare(b[cardField], 'en', { numeric: true }));
         }
 
-        if (includes(sortName.toLowerCase(), 'desc')) sorted.reverse();
+        if (includes(sortType, 'desc')) sorted.reverse();
         // In case of featured, move featured items to the top;
-        if (sortName.toLowerCase() === 'featured') {
+        if (sortType === 'featured') {
             sorted.sort((a, b) => {
                 if (a.isFeatured && b.isFeatured) {
                     return a.initialTitle < b.initialTitle ? -1 : 0;
@@ -356,44 +332,26 @@ const Container = (props) => {
         }
 
         return sorted;
-    }, [searchedCards, sort]);
+    })();
 
-    const bookmarkedCards = useMemo(
-        () => sortedCards.filter(card => card.isBookmarked),
-        [sortedCards],
-    );
+    const bookmarkedCards = getBookmarkedCards(sortedCards);
 
-    const collectionCards = useMemo(
-        () =>
-            // INFO: bookmarked cards will be ordered because bookmarked cards is
-            //  derived from sorted Cards
-            (showBookmarks ? bookmarkedCards : sortedCards)
-        , [sortedCards, showBookmarks, bookmarkedCards],
-    );
+    window.showBookmarks = showBookmarks;
+    window.bookmarkedCards = bookmarkedCards;
+    window.sortedCards = sortedCards;
+    const collectionCards = getCollectionCards(showBookmarks, bookmarkedCards, sortedCards);
 
-    const totalPages = useMemo(
-        () => {
-            if (resultsPerPage === 0) return 0;
-            return Math.ceil(filteredCards.length / resultsPerPage);
-        },
-        [filteredCards, resultsPerPage],
-    );
+    const totalPages = getTotalPages(resultsPerPage, filteredCards.length);
 
-    const numCardsToShow = useMemo(
-        () => Math.min(resultsPerPage * currentPage, filteredCards.length),
-        [resultsPerPage, filteredCards, currentPage],
-    );
+    const numCardsToShow = getNumCardsToShow(resultsPerPage, currentPage, filteredCards.length);
 
     const selectedFiltersItemsQty = getNumSelectedFilterItems(filters);
 
-    const shouldDisplayPaginator = useMemo(() => {
-        const resultsPerPageNotZero = resultsPerPage > 0;
-        const cardLengthExceedsDisplayLimit = filteredCards.length > resultsPerPage;
-
-        return paginationIsEnabled &&
-            resultsPerPageNotZero &&
-            cardLengthExceedsDisplayLimit;
-    }, [filteredCards.length, resultsPerPage]);
+    const displayPaginator = shouldDisplayPaginator(
+        paginationIsEnabled,
+        resultsPerPage,
+        filteredCards.length,
+    );
 
     return (
         <ConfigContext.Provider value={config}>
@@ -507,7 +465,7 @@ const Container = (props) => {
                                         cards={collectionCards}
                                         onCardBookmark={handleCardBookmarking} />
                                     {/* TODO: Migrate to useRef */}
-                                    {shouldDisplayPaginator && paginationType === 'loadMore' && (
+                                    {displayPaginator && paginationType === 'loadMore' && (
                                         <div ref={page}>
                                             <LoadMore
                                                 onClick={onLoadMoreClick}
@@ -515,7 +473,7 @@ const Container = (props) => {
                                                 total={filteredCards.length} />
                                         </div>
                                     )}
-                                    {shouldDisplayPaginator && paginationType === 'paginator' &&
+                                    {displayPaginator && paginationType === 'paginator' &&
                                         <Paginator
                                             pageCount={windowWidth <= DESKTOP_MIN_WIDTH ?
                                                 PAGINATION_COUNT.MOBILE : PAGINATION_COUNT.DESKTOP

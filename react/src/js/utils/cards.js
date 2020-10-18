@@ -1,12 +1,19 @@
-export const parseCardDate = dateString => dateString.split(' - ').map(d => new Date(d).getTime());
+import get from 'lodash/get';
+export const getCardDate = date => new Date(date).getTime();
 
 export const filterCardsByDateRange = (_cards) => {
+    debugger;
     const currentDate = new Date().getTime();
 
     return _cards.filter((card) => {
-        if (!card.showCardFrom) return true;
-        const dates = parseCardDate(card.showCardFrom);
-        if (!dates.every(Number.isInteger)) return false;
-        return currentDate >= dates[0] && currentDate <= dates[1];
+        let showCardFromField = get(card, 'showCard.from', '');
+        let showCardUntilField = get(card, 'showCard.until', '');
+
+        if (!showCardFromField || !showCardUntilField) return true;
+
+        let showCardFromDate = getCardDate(showCardFromField);
+        let showCardUntilDate = getCardDate(showCardUntilField);
+
+        return currentDate >= showCardFromDate && currentDate <= showCardUntilDate;
     });
 };

@@ -54,7 +54,7 @@ module.exports = {
                 loader: 'eslint-loader',
                 options: {
                     failOnError: false,
-                    fix: true,
+                    fix: false,
                 },
             },
             {

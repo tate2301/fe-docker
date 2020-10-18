@@ -9,7 +9,7 @@ export const LOADER_SIZE = {
     MEDIUM: 'medium',
     BIG: 'big',
 };
-export const FILTER_LOGIC = {
+export const FILTER_TYPES = {
     AND: 'and',
     OR: 'or',
     XOR: 'xor',

@@ -503,7 +503,7 @@
 			},
 			"styles": {
 				"typeOverride": "1:1",
-				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat-large.png"
 			},
 			"overlays": {
 				"banner": {},
@@ -569,7 +569,7 @@
 			},
 			"styles": {
 				"typeOverride": "1:1",
-				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat-large.png"
 			},
 			"overlays": {
 				"banner": {
@@ -627,7 +627,7 @@
 			},
 			"styles": {
 				"typeOverride": "1:1",
-				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat-large.png"
 			},
 			"overlays": {
 				"banner": {},
@@ -695,7 +695,7 @@
 			},
 			"styles": {
 				"typeOverride": "1:1",
-				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat-large.png"
 			},
 			"overlays": {
 				"banner": {},
@@ -756,7 +756,7 @@
 			},
 			"styles": {
 				"typeOverride": "full-card",
-				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat-large.png"
 			},
 			"overlays": {
 				"banner": {},
@@ -822,7 +822,7 @@
 			},
 			"styles": {
 				"typeOverride": "full-card",
-				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat-large.png"
 			},
 			"overlays": {
 				"banner": {
@@ -880,7 +880,7 @@
 			},
 			"styles": {
 				"typeOverride": "full-card",
-				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat-large.png"
 			},
 			"overlays": {
 				"banner": {
