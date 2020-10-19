@@ -18,7 +18,7 @@ export const FILTER_PANEL = {
     LEFT: 'left',
     TOP: 'top',
 };
-export const SORTING_OPTION = {
+export const CARD_SORT_FIELD = {
     FEATURED: 'initialTitle',
     DATEASC: 'cardDate',
     DATEDESC: 'cardDate',

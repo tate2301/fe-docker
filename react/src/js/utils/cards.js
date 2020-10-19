@@ -2,7 +2,6 @@ import get from 'lodash/get';
 export const getCardDate = date => new Date(date).getTime();
 
 export const filterCardsByDateRange = (_cards) => {
-    debugger;
     const currentDate = new Date().getTime();
 
     return _cards.filter((card) => {

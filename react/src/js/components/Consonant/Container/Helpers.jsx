@@ -10,11 +10,7 @@ import {
     isSuperset,
     sanitizeText,
     removeDuplicatesByKey,
-    truncateList,
-    truncateString,
 } from '../../../utils/general';
-
-import { filterCardsByDateRange } from '../../../utils/cards';
 
 export const shouldDisplayPaginator = (enabled, resultsPerPage, totalResults) => {
     const resultsPerPageNotZero = resultsPerPage > 0;
@@ -103,32 +99,41 @@ export const getCardsMatchingQuery = (cards, searchFields, query) => {
     return Array.from(cardsMatchingQuerySet);
 };
 
-export const getAlphabetSortCards = (cards) => {
+export const getTitleAscSort = (cards) => {
     return cards.sort((cardOne, cardTwo) => {
         const cardOneTitle = get(cardOne, 'contentArea.title');
         const cardTwoTitle = get(cardTwo, 'contentArea.title');
-        return cardOneTitle > cardTwoTitle;
+        return cardOneTitle.localeCompare(cardTwoTitle);
     });
 };
 
-export const getReverseAlphabetSortCards = (cards) => {
-    return getTitleSortedCards(cards).reverse();
+export const getTitleDescSort = (cards) => {
+    return getTitleAscSort(cards).reverse();
 };
 
-export const getFeatureSortCards = (cards, featuredCards) => {
-    return featuredCards.concat(cards);
+export const getFeaturedSort = (cards) => {
+    return getTitleAscSort(cards).sort((a, b) => {
+        if (a.isFeatured && b.isFeatured) {
+            return a.initialTitle < b.initialTitle ? -1 : 0;
+        } else if (a.isFeatured) {
+            return -1;
+        } else if (b.isFeatured) {
+            return 1;
+        }
+        return 0;
+    });
 };
 
-export const getDateSortCards = (cards) => {
+export const getDateAscSort = (cards) => {
     return cards.sort((cardOne, cardTwo) => {
-        const cardOneTitle = get(cardOne, 'cardDate');
-        const cardTwoTitle = get(cardTwo, 'cardDate');
-        return cardOneTitle > cardTwoTitle;
+        const cardOneDate = get(cardOne, 'cardDate');
+        const cardTwoDate = get(cardTwo, 'cardDate');
+        return cardOneDate.localeCompare(cardTwoDate);
     });
 };
 
-export const getReverseDateSortCards = (cards) => {
-    return getDateSortCards(cards).reverse();
+export const getDateDescSort = (cards) => {
+    return getDateAscSort(cards).reverse();
 };
 
 export const getCardsMatchingSearch = (query, cards, searchFields) => {
@@ -146,50 +151,4 @@ const joinCardSets = (cardSetOne, cardSetTwo) => {
 
 export const processCards = (featuredCards, rawCards) => {
     return removeDuplicatesByKey(joinCardSets(featuredCards, rawCards), 'id');
-}
-
-export class CardProccesor {
-    constructor(allCards){
-        this.allCards = allCards;
-    }
-
-    removeDuplicates(){
-        this.allCards = removeDuplicatesByKey(this.allCards, 'id');
-        return this;
-    }
-
-    addFeaturedCards(featuredCards){
-        this.allCards = featuredCards.concat(this.allCards);
-        return this;
-    }
-
-    truncateList(totalCardLimit){
-        this.allCards = truncateList(totalCardLimit, this.allCards);
-        return this;
-    }
-
-    keepBookmarkedCardsOnly(onlyShowBookmarks, bookmarkedCardIds){
-        if(onlyShowBookmarks){
-            this.allCards = this.allCards.filter(card => includes(bookmarkedCardIds, card.id));
-        }
-        return this;
-    }
-
-    keepCardsWithinDateRange(){
-        this.allCards = filterCardsByDateRange(this.allCards);
-        return this;
-    }
-
-    populateCardMetaData(truncateTextQty, onlyShowBookmarks){
-        this.allCards = this.allCards.map(card => ({
-            ...card,
-            initialTitle: get(card, 'contentArea.title', ''),
-            description: truncateString(get(card, 'contentArea.description', ''), truncateTextQty),
-            initialText: get(card, 'contentArea.description', ''),
-            isBookmarked: false,
-            disableBookmarkIco: onlyShowBookmarks,
-        }));
-        return this;
-    }
-    
 }

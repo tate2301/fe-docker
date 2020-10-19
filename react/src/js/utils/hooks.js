@@ -1,3 +1,4 @@
+import React  from 'react';
 import debounce from 'lodash/debounce';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { makeConfigGetter } from './consonant';
@@ -40,10 +41,24 @@ export const useConfig = () => {
     return useCallback(makeConfigGetter(config), [config]);
 };
 
+
+export const useIsMounted = () => {
+    const isMounted = React.useRef(true);
+
+    React.useEffect(() => {
+        return () => {
+        isMounted.current = false;
+        };
+    }, []);
+
+    return isMounted;
+}
+
 export const useLazyLoading = (imageRef, image) => {
     const [lazyLoadImage, setLazyLoadImage] = useState(""); 
+    const isMounted = useIsMounted(); 
     const imageObserver = new IntersectionObserver(elements => {
-        if (elements[0].intersectionRatio !== 0) {
+        if (elements[0].intersectionRatio !== 0 && isMounted.current) {
             setLazyLoadImage(image);
         }
     })
@@ -52,7 +67,11 @@ export const useLazyLoading = (imageRef, image) => {
         if(lazyLoadImage){
             const img = new Image();
             img.src = lazyLoadImage;
-            img.onload = () => setLazyLoadImage(lazyLoadImage)
+            img.onload = () => {
+                if (isMounted.current) {
+                    setLazyLoadImage(lazyLoadImage);
+                }
+            }
         }
       }, [lazyLoadImage])
 

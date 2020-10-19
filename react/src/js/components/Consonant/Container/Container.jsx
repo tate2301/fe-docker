@@ -1,7 +1,6 @@
 /* eslint-disable */
 import get from 'lodash/get';
 import debounce from 'lodash/debounce';
-import includes from 'lodash/includes';
 import PropTypes from 'prop-types';
 import React, { Fragment, useEffect, useRef, useState } from 'react';
 import 'whatwg-fetch';
@@ -11,7 +10,6 @@ import {
     FILTER_PANEL,
     LOADER_SIZE,
     PAGINATION_COUNT,
-    SORTING_OPTION,
     TABLET_MIN_WIDTH,
     TRUNCATE_TEXT_QTY,
 } from '../../../constants';
@@ -22,24 +20,19 @@ import {
     makeConfigGetter,
 } from '../../../utils/consonant';
 import {
-    chainFromIterable,
     readBookmarksFromLocalStorage,
     saveBookmarksToLocalStorage,
-    sortByKey,
 } from '../../../utils/general';
 
 import {
     shouldDisplayPaginator,
     getNumCardsToShow,
     getTotalPages,
-    getCollectionCards,
-    getBookmarkedCards,
     getActiveFilterIds,
-    getFilteredCards,
-    getCardsMatchingSearch,
-    highlightCard,
-    CardProccesor,
 } from './Helpers';
+
+import CardFilterer from './CardFilterer';
+import JsonProccesor from './JsonProccesor';
 
 import { useWindowDimensions } from '../../../utils/hooks';
 
@@ -68,38 +61,34 @@ const Container = (props) => {
     const paginationIsEnabled = getConfig('pagination', 'enabled');
     const resultsPerPage = getConfig('collection', 'resultsPerPage');
     const onlyShowBookmarks = getConfig('bookmarks', 'leftFilterPanel.bookmarkOnlyCollection');
-    const filtersConfig = getConfig('filterPanel', 'filters');
+    const authoredFilters = getConfig('filterPanel', 'filters');
     const filterLogic = getConfig('filterPanel', 'filterLogic').toLowerCase().trim();
     const collectionEndpoint = getConfig('collection', 'endpoint');
     const totalCardLimit = getConfig('collection', 'totalCardsToShow');
     const searchFields = getConfig('search', 'searchFields');
     const sortOptions = getConfig('sort', 'options');
     const defaultSortOption = getDefaultSortOption(config, getConfig('sort', 'defaultSort'));
+    const featuredCards = getConfig('featuredCards', '');
+    const leftPanelSearchPlaceholder = getConfig('search', 'i18n.leftFilterPanel.searchPlaceholderText');
+    const topPanelSearchPlaceholder = getConfig('search', 'i18n.topFilterPanel.searchPlaceholderText');
+    const searchPlaceholderText = getConfig('search', 'i18n.filterInfo.searchPlaceholderText');
 
     const [openDropdown, setOpenDropdown] = useState(null);
-    const [bookmarkedCardIds, setBookmarkedCardIds] = useState([]);
+    const [bookmarkedCardIds, setBookmarkedCardIds] = useState(readBookmarksFromLocalStorage());
     const [currentPage, setCurrentPage] = useState(1);
     const [filters, setFilters] = useState([]);
     const page = useRef();
     const [searchQuery, setSearchQuery] = useState('');
     const [sortOpened, setSortOpened] = useState(false);
-    const [sort, setSort] = useState(defaultSortOption);
+    const [sortOption, setSortOption] = useState(defaultSortOption);
     const { width: windowWidth } = useWindowDimensions();
     const [showMobileFilters, setShowMobileFilters] = useState(false);
     const [showBookmarks, setShowBookmarks] = useState(false);
     const [showLimitedFiltersQty, setShowLimitedFiltersQty] = useState(filterPanelType === 'top');
-    const [rawCards, setCards] = useState([]);
+    const [cards, setCards] = useState([]);
     const [isLoading, setLoading] = useState(false);
 
-    const cards = (() => rawCards.map(card => ({
-        ...card,
-        isBookmarked: bookmarkedCardIds.some(i => i === card.id),
-    })))();
 
-    const featuredCards = getConfig('featuredCards', '').map(el => ({
-        ...el,
-        isFeatured: true,
-    }));
 
     // callbacks
 
@@ -135,7 +124,7 @@ const Container = (props) => {
     };
 
     const handleSortChange = (option) => {
-        setSort(option);
+        setSortOption(option);
         setSortOpened(false);
     };
 
@@ -209,149 +198,88 @@ const Container = (props) => {
     // Effects
 
     useEffect(() => {
-        console.log('second use effect ran');
-        setBookmarkedCardIds(readBookmarksFromLocalStorage());
-    }, []);
+        setFilters(authoredFilters.map(filterGroup => ({
+            ...filterGroup,
+            opened: DESKTOP_SCREEN_SIZE ? filterGroup.openedOnLoad : false,
+            items: filterGroup.items.map(filterItem => ({
+                ...filterItem,
+                selected: false,
+            })),
+        })));
+    }, [])
 
     useEffect(() => {
-        console.log('first use effect ran');
         setLoading(true);
         window.fetch(collectionEndpoint)
             .then(resp => resp.json())
             .then((payload) => {
-                console.log('first use effect in then block');
                 setLoading(false);
                 if (!get(payload, 'cards.length')) return;
 
-                const cardProcessor = new CardProccesor(payload.cards);
-                const { allCards } = cardProcessor
+                const jsonProcessor = new JsonProccesor(payload.cards);
+                const { processedCards } = jsonProcessor
                     .addFeaturedCards(featuredCards)
-                    .removeDuplicates()
-                    .truncateList(totalCardLimit)
-                    .keepBookmarkedCardsOnly(onlyShowBookmarks, bookmarkedCardIds)
-                    .keepCardsWithinDateRange()
-                    .populateCardMetaData(TRUNCATE_TEXT_QTY, onlyShowBookmarks);
+                    .removeDuplicateCards()
+                    .addCardMetaData(TRUNCATE_TEXT_QTY, onlyShowBookmarks, bookmarkedCardIds);
+                            
+                setCards(processedCards);
 
-
-                setCards(allCards);
-                setFilters(filtersConfig.map(el => ({
-                    ...el,
-                    opened: window.innerWidth >= DESKTOP_MIN_WIDTH ? el.openedOnLoad : false,
-                    items: el.items.map(item => ({
-                        ...item,
-                        selected: false,
-                    })),
-                })));
             }).catch(() => setLoading(false));
-    }, [config.featuredCards]);
+    }, []);
 
     // Update dimensions on resize
     useEffect(() => {
-        console.log("Third is running");
         const updateDimensions = debounce(() => setShowMobileFilters(false), 100);
         window.addEventListener('resize', updateDimensions);
         return () => window.removeEventListener('resize', updateDimensions);
     }, []);
 
     useEffect(() => {
-        console.log('fourth use effect');
         saveBookmarksToLocalStorage(bookmarkedCardIds);
-        console.log(bookmarkedCardIds);
     }, [bookmarkedCardIds]);
 
     useEffect(() => {
-        console.log("Fifth is running");
         if (showBookmarks) {
             clearFilters();
             setSearchQuery('');
         }
     }, [showBookmarks]);
 
-    useEffect(() => {
-        console.log("Sixth is running");
-        if (chainFromIterable(filters.map(f => f.items)).some(i => i.selected)) {
-            // setShowBookmarks(false);
-        }
-    }, [filters]);
-
     // Derived state
 
     const activeFilterIds = getActiveFilterIds(filters);
 
-    const filteredCards = getFilteredCards(cards, activeFilterIds, filterLogic, FILTER_TYPES);
+    const cardFilterer = new CardFilterer(cards);
 
-    const searchedCards = (() => {
-        const query = searchQuery.trim().toLowerCase();
-        const cardsMatchingSearch = getCardsMatchingSearch(
-            searchQuery,
-            filteredCards,
-            searchFields,
-        );
+    const { someFilteredCards } = cardFilterer
+        .keepBookmarkedCardsOnly(onlyShowBookmarks, bookmarkedCardIds, showBookmarks)
+        .filterCards(activeFilterIds, filterLogic, FILTER_TYPES)
+        .sortCards(sortOption)
+        .keepCardsWithinDateRange()
+        .truncateList(totalCardLimit)
+        .searchCards(searchQuery, searchFields)
 
-        return cardsMatchingSearch
-            .map(card => searchFields.reduce((baseCard, searchField) => highlightCard(
-                baseCard,
-                searchField,
-                query,
-            ), card));
-    })();
+    const collectionCards = someFilteredCards;
 
-    const sortedCards = (() => {
-        let sorted;
-        const sortName = sort ? sort.sort : null;
-        if (!sortName) {
-            return searchedCards;
-        }
-        const sortType = sortName.toLowerCase();
-        const cardField = SORTING_OPTION[sortName.toUpperCase().trim()];
-        if (!cardField) return searchedCards;
+    const totalPages = getTotalPages(resultsPerPage, someFilteredCards.length);
 
-        // Sorting for featured and date;
-
-        const sortingByDate = includes(['dateasc', 'datedesc'], sortType);
-        if (sortingByDate) {
-            sorted = sortByKey(searchedCards, c => c[cardField]);
-        } else {
-            sorted = [...searchedCards]
-                .sort((a, b) => a[cardField].localeCompare(b[cardField], 'en', { numeric: true }));
-        }
-
-        if (includes(sortType, 'desc')) sorted.reverse();
-        // In case of featured, move featured items to the top;
-        if (sortType === 'featured') {
-            sorted.sort((a, b) => {
-                if (a.isFeatured && b.isFeatured) {
-                    return a.initialTitle < b.initialTitle ? -1 : 0;
-                } else if (a.isFeatured) {
-                    return -1;
-                } else if (b.isFeatured) {
-                    return 1;
-                }
-                return 0;
-            });
-        }
-
-        return sorted;
-    })();
-
-    const bookmarkedCards = getBookmarkedCards(sortedCards);
-
-    window.showBookmarks = showBookmarks;
-    window.bookmarkedCards = bookmarkedCards;
-    window.sortedCards = sortedCards;
-    const collectionCards = getCollectionCards(showBookmarks, bookmarkedCards, sortedCards);
-
-    const totalPages = getTotalPages(resultsPerPage, filteredCards.length);
-
-    const numCardsToShow = getNumCardsToShow(resultsPerPage, currentPage, filteredCards.length);
+    const numCardsToShow = getNumCardsToShow(resultsPerPage, currentPage, someFilteredCards.length);
 
     const selectedFiltersItemsQty = getNumSelectedFilterItems(filters);
 
-    const displayPaginator = shouldDisplayPaginator(
+    const displayPagination = shouldDisplayPaginator(
         paginationIsEnabled,
         resultsPerPage,
-        filteredCards.length,
+        someFilteredCards.length,
     );
+
+    const displayLoadMore = displayPagination && paginationType === 'loadMore';
+    const displayPaginator = displayPagination && paginationType == 'paginator';
+    const displayLeftFilterPanel = filterPanelEnabled && filterPanelType === FILTER_PANEL.LEFT;
+    const atLeastOneCard = collectionCards.length > 0;
+    const topPanelSortPopupLocation = filters.length > 0 && windowWidth < TABLET_MIN_WIDTH ? 'left' : 'right';
+
+    const DESKTOP_SCREEN_SIZE = window.innerWidth >= DESKTOP_MIN_WIDTH;
 
     return (
         <ConfigContext.Provider value={config}>
@@ -364,7 +292,7 @@ const Container = (props) => {
                     onClick={handleWindowClick}
                     className="consonant-wrapper">
                     <div className="consonant-wrapper--inner">
-                        {filterPanelEnabled && filterPanelType === FILTER_PANEL.LEFT && (
+                        {displayLeftFilterPanel && (
                             <span>
                                 <LeftFilterPanel
                                     filters={filters}
@@ -377,7 +305,7 @@ const Container = (props) => {
                                     onMobileFiltersToggleClick={handleFiltersToggle}
                                     onSelectedFilterClick={handleCheckBoxChange}
                                     showMobileFilters={showMobileFilters}
-                                    resQty={filteredCards.length}
+                                    resQty={someFilteredCards.length}
                                     bookmarkComponent={(
                                         <Bookmarks
                                             name="filtersSideBookmarks"
@@ -387,7 +315,7 @@ const Container = (props) => {
                                     )}
                                     searchComponent={(
                                         <Search
-                                            placeholderText={getConfig('search', 'i18n.leftFilterPanel.searchPlaceholderText')}
+                                            placeholderText={leftPanelSearchPlaceholder}
                                             name="filtersSideSearch"
                                             value={searchQuery}
                                             autofocus={false}
@@ -402,7 +330,7 @@ const Container = (props) => {
                                     filterPanelEnabled={filterPanelEnabled}
                                     filters={filters}
                                     windowWidth={windowWidth}
-                                    resQty={filteredCards.length}
+                                    resQty={someFilteredCards.length}
                                     onCheckboxClick={handleCheckBoxChange}
                                     onFilterClick={handleFilterItemClick}
                                     onClearFilterItems={clearFilterItems}
@@ -410,22 +338,22 @@ const Container = (props) => {
                                     showLimitedFiltersQty={showLimitedFiltersQty}
                                     searchComponent={(
                                         <Search
-                                            placeholderText={getConfig('search', 'i18n.topFilterPanel.searchPlaceholderText')}
+                                            placeholderText={topPanelSearchPlaceholder}
                                             name="filtersTopSearch"
                                             value={searchQuery}
-                                            autofocus={windowWidth >= DESKTOP_MIN_WIDTH}
+                                            autofocus={DESKTOP_SCREEN_SIZE}
                                             onSearch={handleSearchInputChange} />
                                     )}
                                     sortComponent={(
                                         <Select
                                             opened={sortOpened}
                                             id="sort"
-                                            val={sort}
-                                            values={getConfig('sort', 'options')}
+                                            val={sortOption}
+                                            values={sortOptions}
                                             onSelect={handleSortChange}
                                             name="filtersTopSelect"
                                             autoWidth
-                                            optionsAlignment={filters.length > 0 && windowWidth < TABLET_MIN_WIDTH ? 'left' : 'right'} />
+                                            optionsAlignment={topPanelSortPopupLocation} />
                                     )}
                                     onShowAllClick={handleShowAllTopFilters} />
                             }
@@ -434,12 +362,14 @@ const Container = (props) => {
                                     enabled={filterPanelEnabled}
                                     filtersQty={filters.length}
                                     cardsQty={filteredCards.length}
+                                    filters={filters}
+                                    cardsQty={someFilteredCards.length}
                                     selectedFiltersQty={selectedFiltersItemsQty}
                                     windowWidth={windowWidth}
                                     onMobileFiltersToggleClick={handleFiltersToggle}
                                     searchComponent={(
                                         <Search
-                                            placeholderText={getConfig('search', 'i18n.filterInfo.searchPlaceholderText')}
+                                            placeholderText={searchPlaceholderText}
                                             name="searchFiltersInfo"
                                             value={searchQuery}
                                             autofocus={false}
@@ -449,7 +379,7 @@ const Container = (props) => {
                                         <Select
                                             opened={sortOpened}
                                             id="sort"
-                                            val={sort}
+                                            val={sortOption}
                                             values={sortOptions}
                                             onSelect={handleSortChange}
                                             autoWidth={false}
@@ -457,7 +387,7 @@ const Container = (props) => {
                                     )}
                                     sortOptions={sortOptions} />
                             }
-                            {collectionCards.length > 0 ?
+                            {atLeastOneCard ?
                                 <Fragment>
                                     <Collection
                                         resultsPerPage={resultsPerPage}
@@ -465,30 +395,30 @@ const Container = (props) => {
                                         cards={collectionCards}
                                         onCardBookmark={handleCardBookmarking} />
                                     {/* TODO: Migrate to useRef */}
-                                    {displayPaginator && paginationType === 'loadMore' && (
+                                    {displayLoadMore && (
                                         <div ref={page}>
                                             <LoadMore
                                                 onClick={onLoadMoreClick}
                                                 show={numCardsToShow}
-                                                total={filteredCards.length} />
+                                                total={someFilteredCards.length} />
                                         </div>
                                     )}
-                                    {displayPaginator && paginationType === 'paginator' &&
+                                    {displayPaginator &&
                                         <Paginator
-                                            pageCount={windowWidth <= DESKTOP_MIN_WIDTH ?
-                                                PAGINATION_COUNT.MOBILE : PAGINATION_COUNT.DESKTOP
+                                            pageCount={DESKTOP_SCREEN_SIZE ?
+                                                PAGINATION_COUNT.DESKTOP : PAGINATION_COUNT.MOBILE
                                             }
                                             currentPageNumber={currentPage}
                                             totalPages={totalPages}
                                             showItemsPerPage={resultsPerPage}
-                                            totalResults={filteredCards.length}
+                                            totalResults={someFilteredCards.length}
                                             onClick={setCurrentPage} />
                                     }
                                 </Fragment> : (
                                     isLoading && (
                                         <Loader
                                             size={LOADER_SIZE.BIG}
-                                            hidden={!getConfig('collection', 'totalCardsToShow')}
+                                            hidden={!totalCardLimit}
                                             absolute />
                                     )
                                 )
@@ -504,33 +434,63 @@ const Container = (props) => {
 Container.propTypes = {
     config: PropTypes.shape({
         collection: PropTypes.shape({
-            resultsPerPage: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+            resultsPerPage: PropTypes.oneOfType([
+                PropTypes.string, 
+                PropTypes.number
+            ]),
             endpoint: PropTypes.string,
             title: PropTypes.string,
-            totalCardLimit: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+            totalCardLimit: PropTypes.oneOfType([
+                PropTypes.string, 
+                PropTypes.number
+            ]),
             cardStyle: PropTypes.string,
-            displayTotalResults: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+            displayTotalResults: PropTypes.oneOfType([
+                PropTypes.string, 
+                PropTypes.bool
+            ]),
             totalResultsText: PropTypes.string,
         }),
-        featuredCards: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.object)]),
+        featuredCards: PropTypes.oneOfType([
+            PropTypes.string, 
+            PropTypes.arrayOf(PropTypes.object)
+        ]),
         header: PropTypes.shape({
-            enabled: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+            enabled: PropTypes.oneOfType([
+                PropTypes.string, 
+                PropTypes.bool
+            ]),
         }),
         filterPanel: PropTypes.shape({
-            enabled: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+            enabled: PropTypes.oneOfType([
+                PropTypes.string, 
+                PropTypes.bool
+            ]),
             type: PropTypes.string,
-            filters: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.object)]),
+            filters: PropTypes.oneOfType([
+                PropTypes.string, 
+                PropTypes.arrayOf(PropTypes.object)
+            ]),
             clearAllFiltersText: PropTypes.string,
             clearFilterText: PropTypes.string,
             filterLogic: PropTypes.string,
             leftPanelHeader: PropTypes.string,
         }),
         sort: PropTypes.shape({
-            enabled: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-            options: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.object)]),
+            enabled: PropTypes.oneOfType([
+                PropTypes.string, 
+                PropTypes.bool
+            ]),
+            options: PropTypes.oneOfType([
+                PropTypes.string, 
+                PropTypes.arrayOf(PropTypes.object)
+            ]),
         }),
         pagination: PropTypes.shape({
-            enabled: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+            enabled: PropTypes.oneOfType([
+                PropTypes.string, 
+                PropTypes.bool
+            ]),
             type: PropTypes.string,
             paginatorQuantityText: PropTypes.string,
             paginatorPrevLabel: PropTypes.string,
@@ -539,7 +499,9 @@ Container.propTypes = {
             loadMoreQuantityText: PropTypes.string,
         }),
         bookmarks: PropTypes.shape({
-            enabled: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+            enabled: PropTypes.oneOfType([
+                PropTypes.string, 
+                PropTypes.bool]),
             cardSavedIcon: PropTypes.string,
             cardUnsavedIcon: PropTypes.string,
             saveCardText: PropTypes.string,
@@ -549,11 +511,15 @@ Container.propTypes = {
             bookmarksFilterTitle: PropTypes.string,
         }),
         search: PropTypes.shape({
-            enabled: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+            enabled: PropTypes.oneOfType([
+                PropTypes.string, 
+                PropTypes.bool
+            ]),
             leftPanelTitle: PropTypes.string,
             inputPlaceholderText: PropTypes.string,
             searchFields: PropTypes.oneOfType([
-                PropTypes.string, PropTypes.arrayOf(PropTypes.string),
+                PropTypes.string, 
+                PropTypes.arrayOf(PropTypes.string),
             ]),
         }),
     }),
