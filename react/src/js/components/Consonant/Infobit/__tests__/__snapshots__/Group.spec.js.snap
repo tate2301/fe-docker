@@ -24,7 +24,9 @@ Array [
     tabIndex="0"
     target="_blank"
   >
-    
+    <span>
+      
+    </span>
   </a>,
   <div
     className="consonant-icon-with-text-infobit"
@@ -37,7 +39,7 @@ Array [
     </span>
   </div>,
   <a
-    className="consonant-link-widh-ico-infobit"
+    className="consonant-link-with-ico-infobit"
     href="/some/href/"
     rel="noreferrer"
     tabIndex="0"

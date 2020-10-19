@@ -1,28 +1,22 @@
 import React from 'react';
 import { filterPanel } from '../Mocks/consonant.json';
 
-const { enabled, filters } = filterPanel;
+const { enabled } = filterPanel;
 
 export const DESKTOP_WIDTH = 1900;
 export const NON_DESKTOP_WIDTH = 800;
 
 export const DEFAULT_PROPS = {
     enabled,
-    filters,
 
+    filtersQty: 0,
     cardsQty: 0,
     selectedFiltersQty: 0,
     windowWidth: DESKTOP_WIDTH,
 
-    onSelectedFilterClick: jest.fn(),
     onMobileFiltersToggleClick: jest.fn(),
 
-    searchComponent: <React.Fragment />,
-    sortComponent: <React.Fragment />,
+    searchComponent: <div data-testid="filters-info__search-component" />,
+    sortComponent: <div data-testid="filters-info__sort-component" />,
     sortOptions: [],
 };
-
-export const selectedAllFilters = filters.map(({ items, ...filter }) => ({
-    ...filter,
-    items: items.map(item => ({ ...item, selected: true })),
-}));

@@ -2,7 +2,7 @@
 
 exports[`Consonant/Bookmarks should correct render 1`] = `
 <a
-  className="consonant-link-widh-ico-infobit"
+  className="consonant-link-with-ico-infobit"
   href="/some/valid/uri"
   rel="noreferrer"
   tabIndex="0"
@@ -23,7 +23,7 @@ exports[`Consonant/Bookmarks should correct render 1`] = `
 
 exports[`Consonant/Bookmarks should correct render with icon 1`] = `
 <a
-  className="consonant-link-widh-ico-infobit"
+  className="consonant-link-with-ico-infobit"
   href="/some/valid/uri"
   rel="noreferrer"
   tabIndex="0"
