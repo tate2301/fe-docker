@@ -5,6 +5,7 @@ import ChosenFilter from './ChosenItem';
 import { chainFromIterable } from '../../../../utils/general';
 import { useConfig } from '../../../../utils/hooks';
 import Item from './Item';
+import LeftPanelMobileFilterTitle from './Mobile/FilterTitle';
 
 const DESKTOP_MIN_WIDTH = 1200;
 const LeftFilterPanel = ({
@@ -42,17 +43,18 @@ const LeftFilterPanel = ({
         [filters],
     );
 
-    const mobileFiltersTitle = windowWidth < DESKTOP_MIN_WIDTH && (
-        <div className="consonant-left-filters--mob-title">
-            <button
-                type="button"
-                onClick={onMobileFiltersToggleClick}
-                className="consonant-left-filters--mob-back">
-                Back
-            </button>
-            <span>{leftPanelMobileHeader}</span>
-        </div>
-    );
+    // const mobileFiltersTitle = windowWidth < DESKTOP_MIN_WIDTH && (
+    //     <div className="consonant-left-filters--mob-title">
+    //         <button
+    //             type="button"
+    //             onClick={onMobileFiltersToggleClick}
+    //             className="consonant-left-filters--mob-back">
+    //             Back
+    //         </button>
+    //         <span>{leftPanelMobileHeader}</span>
+    //     </div>
+    // );
+
     const desktopFiltersTitle = windowWidth >= DESKTOP_MIN_WIDTH && (
         <h3 className="consonant-left-filters--desk-title">{panelHeader}</h3>
     );
@@ -100,7 +102,11 @@ const LeftFilterPanel = ({
             data-testid="consonant-filters__left"
             className={showMobileFilters ? 'consonant-left-filters consonant-left-filters_opened' : 'consonant-left-filters'}>
             <div className="consonant-left-filters--header">
-                {mobileFiltersTitle}
+                {windowWidth < DESKTOP_MIN_WIDTH &&
+                    <LeftPanelMobileFilterTitle
+                        onClick={onMobileFiltersToggleClick}
+                        leftPanelMobileHeader={leftPanelMobileHeader} />
+                }
                 {desktopFiltersTitle}
                 {desktopFiltersClearBtn}
             </div>

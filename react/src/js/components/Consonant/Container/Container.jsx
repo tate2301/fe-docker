@@ -29,6 +29,7 @@ import {
     getNumCardsToShow,
     getTotalPages,
     getActiveFilterIds,
+    getUpdatedCardBookmarkData,
 } from './Helpers';
 
 import CardFilterer from './CardFilterer';
@@ -182,7 +183,7 @@ const Container = (props) => {
         }
     };
 
-    const handleShowFavoritesClick = (e) => {
+    const handleShowBookmarksClick = (e) => {
         e.stopPropagation();
         setShowBookmarks(prev => !prev);
     };
@@ -236,6 +237,7 @@ const Container = (props) => {
 
     useEffect(() => {
         saveBookmarksToLocalStorage(bookmarkedCardIds);
+        setCards(getUpdatedCardBookmarkData(cards, bookmarkedCardIds));
     }, [bookmarkedCardIds]);
 
     useEffect(() => {
@@ -308,10 +310,9 @@ const Container = (props) => {
                                     resQty={someFilteredCards.length}
                                     bookmarkComponent={(
                                         <Bookmarks
-                                            name="filtersSideBookmarks"
-                                            selected={showBookmarks}
-                                            onClick={handleShowFavoritesClick}
-                                            qty={bookmarkedCardIds.length} />
+                                            showBookmarks={showBookmarks}
+                                            onClick={handleShowBookmarksClick}
+                                            savedCardsCount={bookmarkedCardIds.length} />
                                     )}
                                     searchComponent={(
                                         <Search

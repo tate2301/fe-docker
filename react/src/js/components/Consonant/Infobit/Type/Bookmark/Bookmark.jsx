@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -24,8 +25,12 @@ function Bookmark({
     const renderIcon = () => {
         let src = '';
 
-        if (isBookmarked && saveCardIcon) src = saveCardIcon;
-        if (!isBookmarked && unsaveCardIcon) src = unsaveCardIcon;
+        if (isBookmarked) {
+            src = saveCardIcon;
+        }
+        if (!isBookmarked) {
+            src = unsaveCardIcon;
+        }
 
         return (<span
             data-testid="bookmarks--ico"

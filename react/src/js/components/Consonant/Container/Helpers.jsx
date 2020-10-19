@@ -152,3 +152,10 @@ const joinCardSets = (cardSetOne, cardSetTwo) => {
 export const processCards = (featuredCards, rawCards) => {
     return removeDuplicatesByKey(joinCardSets(featuredCards, rawCards), 'id');
 }
+
+export const getUpdatedCardBookmarkData = (cards, bookmarkedCardIds) => {
+   return cards.map(card => ({
+        ...card,
+        isBookmarked: bookmarkedCardIds.some(i => i === card.id),
+    }));
+}

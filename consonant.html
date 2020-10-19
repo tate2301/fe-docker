@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
 
@@ -51,15 +51,15 @@
     <script type="text/javascript">
         var config = {
             collection: {
-                resultsPerPage: '33',
-                endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/tests/card-collection/json-response-tests/features/infobits/all_infobits_from_xd_work.json",
+                resultsPerPage: '3',
+                endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/tests/card-collection/json-response-tests/smoke-tests/webinars.json",
                 totalCardsToShow: '100',
-                cardStyle: "none", // could also be "3:2" or "full-card"
+                cardStyle: "3:2", // could also be "3:2" or "full-card"
                 showTotalResults: 'true',
                 i18n: {
                     prettyDateIntervalFormat: '{LLL} {dd} | {timeRange} {timeZone}',
-                    totalResultsText: 'i18n.totalResultsText {total}',
-                    title: 'i18n.title',
+                    totalResultsText: '{total} Results',
+                    title: 'Your Favorite Cards',
                 }
             },
             featuredCards: [{
@@ -87,13 +87,13 @@
                         "icon":""
                     },
                     "logo":{
-                        
+
                     },
                     "label":{
-                        
+
                     },
                     "videoButton":{
-                        
+
                     }
                 },
                 "contentArea":{
@@ -101,7 +101,7 @@
                     "title":"n",
                     "description":"This month and next will be devoted exclusively to you — making you a true expert in creating agile, creative, and consistent experiences. The kinds of experiences your customers demand (and will love). Over the next few months, we’re going to focus on modernizing the nuts and bolts of your operation.",
                     "dateDetailText":{
-                        
+
                     }
                 },
                 "styles":{
@@ -126,7 +126,7 @@
                             }
                         ],
                         "center":[
-                            
+
                         ],
                         "right":[
                             {
@@ -205,12 +205,12 @@
                     ]
                     }
                 ],
-                filterLogic: 'xor',
+                filterLogic: 'or',
                 i18n: {
                     leftPanel: {
-                        header: 'leftPanel.header',
+                        header: 'My Favorites',
                         // searchBoxTitle: 'Search',
-                        clearAllFiltersText: 'leftPanel.clearAllFiltersText',
+                        clearAllFiltersText: 'Clear All',
                         mobile: {
                             filtersBtnLabel: 'leftPanel.mobile.filtersBtnLabel',
                             panel: {
@@ -250,16 +250,16 @@
             },
             pagination: {
                 enabled: 'true',
-                type: 'paginator',
+                type: 'loadMore',
                 i18n: {
                     loadMore: {
-                        btnText: 'i18n.loadMore.btnText',
+                        btnText: 'Load More',
                         resultsQuantityText: 'i18n.loadMore.resultsQuantityText {start} {end}',
                     },
                     paginator: {
-                        resultsQuantityText: 'i18n.paginator.resultsQuantityText {start} {end} {total}',
-                        prevLabel:  'i18n.paginator.prevLabel',
-                        nextLabel: 'i18n.paginator.nextLabel',
+                        resultsQuantityText: '{start}-{end} of {total} results',
+                        prevLabel:  'Prev',
+                        nextLabel: 'Next',
                     }
                 }
             },
@@ -267,12 +267,12 @@
                 leftFilterPanel: {
                     bookmarkOnlyCollection: 'false',
                     showBookmarksFilter: 'true',
-                    selectBookmarksIcon: 'http://placehold.it/150x150',
-                    unselectBookmarksIcon: 'http://placehold.it/150x150/red',
+                    selectBookmarksIcon: '',
+                    unselectBookmarksIcon: '',
                 },
                 i18n: {
                     leftFilterPanel: {
-                        filterTitle: 'i18n.leftFilterPanel.filterTitle',
+                        filterTitle: 'My Favorites',
                     }
                 }
             },
@@ -281,8 +281,8 @@
                 searchFields: '["contentArea.title","contentArea.description","search.meta.author","overlays.banner.description", "foo.bar"]',
                 i18n: {
                     leftFilterPanel: {
-                        searchTitle: 'i18n.leftFilterPanel.searchTitle',
-                        searchPlaceholderText: 'i18n.leftFilterPanel.searchPlaceholderText',
+                        searchTitle: 'Search',
+                        searchPlaceholderText: 'Search here...',
                     },
                     topFilterPanel: {
                         searchPlaceholderText: 'i18n.topFilterPanel.searchPlaceholderText',

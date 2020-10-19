@@ -321,9 +321,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         rel="noreferrer"
         tabIndex="0"
         target="_blank"
-      >
-        Open video link
-      </a>
+      />
     </div>
     <a
       className="consonant-aspect-ratio-1-1-card--inner"
