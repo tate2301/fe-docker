@@ -6,57 +6,76 @@
 @consonant-btn-infobit-max-height: 32px;
 
 .consonant-btn-infobit {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-width: @consonant-btn-infobit-min-width;
     max-width: 100%;
-    margin-left: 7px;
-    padding-left: 14px;
-    padding-right: 14px;
+    height: @consonant-btn-infobit-max-height;
+    max-height: @consonant-btn-infobit-max-height;
+    margin-left: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-decoration: none;
     border: 2px solid @consonant-color-brown-grey;
     border-radius: 16px;
     background-color: @consonant-color-white;
+    cursor: pointer;
     transition:
         border-color @transition-time @transition-func,
-        background-color @transition-time @transition-func,
-        color @transition-time @transition-func;
+        background-color @transition-time @transition-func;
 
-    .font(0.8235rem, @consonant-btn-infobit-max-height - 4px, 700, @consonant-color-brown-grey, center);
+    span {
+        .font(0.8235rem, 0.9375rem, 700, @consonant-color-brown-grey, center);
+        .line-clamp(2);
 
-    text-decoration: none;
-    text-overflow: clip;
-    white-space: normal;
-    overflow: hidden;
-    cursor: pointer;
+        transition: color @transition-time @transition-func;
+    }
 
     &:hover {
-        color: @consonant-color-white;
         border-color: @consonant-color-light-grey-3;
         background-color: @consonant-color-light-grey-3;
     }
 
-    &:active {
+    &:hover span {
         color: @consonant-color-white;
+    }
+
+    &:active {
         border-color: @consonant-color-dark-grey-7;
         background-color: @consonant-color-dark-grey-7;
+    }
+
+    &:active span {
+        color: @consonant-color-white;
     }
 
     .focused;
 
     &.consonant-btn-infobit_cta {
-        color: @consonant-color-white;
         background-color: @consonant-color-blue-2;
         border-color: @consonant-color-blue-2;
 
-        &:hover {
+        span {
             color: @consonant-color-white;
+        }
+
+        &:hover {
             background-color: @consonant-color-blue-3;
             border-color: @consonant-color-blue-3;
         }
 
-        &:active {
+        &:hover span {
             color: @consonant-color-white;
+        }
+
+        &:active {
             background-color: @consonant-color-blue-4;
             border-color: @consonant-color-blue-4;
+        }
+
+        &:active span {
+            color: @consonant-color-white;
         }
     }
 }

@@ -97,10 +97,17 @@
     .set-rating-stars-as-cover (@i - 1);
 }
 
-.set-bits-max-width (@i) when (@i > 0) {
-    .consonant-card-footer--cell[data-max-width = "@{i}"] > * {
-        // max-width: 100% / @i;
+.set-cell-max-width (@i) when (@i >= 0) {
+    [data-cells = "@{i}"]:not(.consonant-card-footer--row_fluid) .consonant-card-footer--cell {
+        max-width: 100% / @i;
     }
 
-    .set-bits-max-width (@i - 1);
+    .set-cell-max-width (@i - 1);
+}
+
+.line-clamp(@lines) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @lines;
+    overflow: hidden;
 }

@@ -1,20 +1,19 @@
 .consonant-link-infobit {
     min-width: 0;
     max-width: 100%;
+    max-height: 1rem * 2;
     margin-left: 16px;
 
     .font(
         0.9375rem,
-        1.25rem,
+        1rem,
         700,
         @consonant-color-blue,
         left
     );
+    .line-clamp(2);
 
     text-decoration: none;
-    white-space: normal;
-    text-overflow: clip;
-    overflow: hidden;
     transition: color @transition-time @transition-func;
 
     &:hover {

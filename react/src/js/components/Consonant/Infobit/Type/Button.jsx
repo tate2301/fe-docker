@@ -16,7 +16,9 @@ function Button({ style, text, href }) {
             tabIndex="0"
             rel="noreferrer"
             target="_blank"
-            href={href}>{text}
+            href={href}
+        >
+            <span>{text}</span>
         </a>
     );
 }

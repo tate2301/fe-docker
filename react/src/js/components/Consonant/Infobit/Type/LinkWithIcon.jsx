@@ -8,7 +8,7 @@ function LinkWithIcon({
         <a
             href={href}
             target={openInNewTab ? '__blank' : '_self'}
-            className="consonant-link-widh-ico-infobit"
+            className="consonant-link-with-ico-infobit"
             title={linkHint}
             rel="noreferrer"
             tabIndex="0">

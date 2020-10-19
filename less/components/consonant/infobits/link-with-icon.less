@@ -1,7 +1,7 @@
-@consonant-link-widh-ico-infobit-img-max-size: 18px;
+@consonant-link-with-ico-infobit-img-max-size: 18px;
 @consonant-link-widh-ico-text-max-width: 100px;
 
-.consonant-link-widh-ico-infobit {
+.consonant-link-with-ico-infobit {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -13,26 +13,24 @@
     .focused;
 }
 
-.consonant-link-widh-ico-infobit span {
+.consonant-link-with-ico-infobit span {
     max-width: 100%;
+    max-height: 1rem * 2;
 
-    .font(0.9375rem, 1.25rem, 700, @consonant-color-blue);
-
-    white-space: normal;
-    text-overflow: ellipsis;
-    overflow: hidden;
+    .font(0.9375rem, 1rem, 700, @consonant-color-blue);
+    .line-clamp(2);
 }
 
-.consonant-link-widh-ico-infobit img:not(:last-child) {
+.consonant-link-with-ico-infobit img:not(:last-child) {
     margin-right: 8px;
 }
 
-.consonant-link-widh-ico-infobit img {
+.consonant-link-with-ico-infobit img {
     display: block;
     width: auto;
     height: auto;
-    max-width: @consonant-link-widh-ico-infobit-img-max-size;
-    max-height: @consonant-link-widh-ico-infobit-img-max-size;
+    max-width: @consonant-link-with-ico-infobit-img-max-size;
+    max-height: @consonant-link-with-ico-infobit-img-max-size;
     object-fit: contain;
     user-select: none;
 }

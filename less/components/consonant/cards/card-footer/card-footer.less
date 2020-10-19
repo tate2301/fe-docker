@@ -1,5 +1,6 @@
 /* Available modificators:
 - .consonant-card-footer_divider;
+- .consonant-card-footer--row_fluid;
 - .consonant-card-footer--cell_left;
 - .consonant-card-footer--cell_center;
 - .consonant-card-footer--cell_right;
@@ -7,6 +8,7 @@
 
 @consonant-card-footer-height: 32px;
 @consonant-card-footer-max-in-cell: 10;
+@consonant-card-footer-max-cells: 3;
 
 .consonant-card-footer {
     margin-top: auto;
@@ -42,10 +44,10 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    min-width: 0;
     max-width: 100%;
-    flex-basis: 1;
+    flex-basis: auto;
     flex-grow: 1;
+    border: 1px solid greenyellow;
 
     &:empty {
         display: none;
@@ -85,7 +87,7 @@
     }
 }
 
-.set-bits-max-width(@consonant-card-footer-max-in-cell);
+.set-cell-max-width(@consonant-card-footer-max-cells);
 
 .consonant-card-footer + .consonant-card-footer ~ .consonant-card-footer {
     display: none;
