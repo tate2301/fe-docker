@@ -34,7 +34,11 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly when mob
 >
   <div
     className="consonant-filters-info--search"
-  />
+  >
+    <div
+      data-testid="filters-info__search-component"
+    />
+  </div>
 </aside>
 `;
 

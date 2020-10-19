@@ -61,7 +61,7 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
       className="consonant-aspect-ratio-3-2-card--label"
       data-testid="3-2-card--label"
     >
-      Oct 11 | 14:00 – 14:00 PDT
+      Okt 12 | 00:00 – 00:00 GMT+3
     </span>
     <h2
       className="consonant-aspect-ratio-3-2-card--title"
@@ -77,11 +77,11 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
       className="consonant-card-footer"
     >
       <div
-        className="consonant-card-footer--row"
+        className="consonant-card-footer--row consonant-card-footer--row_fluid"
+        data-cells={2}
       >
         <div
           className="consonant-card-footer--cell consonant-card-footer--cell_left"
-          data-max-width={2}
         >
           <button
             className="consonant-bookmark-infobit consonant-bookmark-infobit_active consonant-bookmark-infobit_disabled"
@@ -124,13 +124,12 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
         </div>
         <div
           className="consonant-card-footer--cell consonant-card-footer--cell_right"
-          data-max-width={1}
         >
           <span
             className="consonant-date-interval-infobit"
-            title="Oct 11 | 14:00 – 14:00 PDT"
+            title="Okt 12 | 00:00 – 00:00 GMT+3"
           >
-            Oct 11 | 14:00 – 14:00 PDT
+            Okt 12 | 00:00 – 00:00 GMT+3
           </span>
         </div>
       </div>

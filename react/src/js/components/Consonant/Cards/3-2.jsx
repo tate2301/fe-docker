@@ -60,7 +60,7 @@ const AspectRatio3to2Card = ({
     },
 }) => {
     const extendFooterData = (data) => {
-        if (!data) return null;
+        if (!data) return;
 
         return data.map((el) => {
             if (el.type === INFOBIT_TYPE.BOOKMARK) {

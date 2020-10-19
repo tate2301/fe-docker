@@ -9,7 +9,6 @@ import Select from '../../../Select/Select';
 import {
     DEFAULT_PROPS,
     NON_DESKTOP_WIDTH,
-    selectedAllFilters,
 } from '../../../Helpers/Testing/Constants/FiltersInfo';
 import { DEFAULT_PROPS as SELECT_DEFAULT_PROPS } from '../../../Helpers/Testing/Constants/Select';
 import { DEFAULT_PROPS as SEARCH_DEFAULT_PROPS } from '../../../Helpers/Testing/Constants/Search';
@@ -33,22 +32,6 @@ describe('Consonant/FiltersInfo', () => {
 
         expect(resultsElement).toBeNull();
     });
-    test('should render all list items', () => {
-        const {
-            props: { filters },
-        } = setup({ selectedFiltersQty: 1, filters: selectedAllFilters });
-
-        const filterItemsLength = filters.reduce((acc, filter) =>
-            acc + filter.items.length, 0);
-
-        const selectedFiltersWrapper = screen.queryByTestId('selected-filters');
-
-        expect(selectedFiltersWrapper).not.toBeNull();
-
-        const selectedFilterList = screen.queryAllByTestId('selected-filter');
-
-        expect(selectedFilterList).toHaveLength(filterItemsLength);
-    });
     test('shouldn`t render list items', () => {
         setup();
 
@@ -57,7 +40,7 @@ describe('Consonant/FiltersInfo', () => {
         expect(selectedFiltersWrapper).toBeNull();
     });
     test('should render mobile button', () => {
-        setup({ windowWidth: NON_DESKTOP_WIDTH, selectedFiltersQty: 1 });
+        setup({ windowWidth: NON_DESKTOP_WIDTH, selectedFiltersQty: 1, filtersQty: 1 });
 
         const btnWrapperElement = screen.queryByTestId('btn-wrapper');
 
@@ -67,6 +50,14 @@ describe('Consonant/FiltersInfo', () => {
 
         expect(btnSelectedElement).not.toBeNull();
         expect(btnSelectedElement).toHaveTextContent('1');
+    });
+
+    test('should render sort component', () => {
+        setup({ sortOptions: [{ sort: 'fatures' }] });
+
+        const sortElement = screen.queryByTestId('filters-info__sort-component');
+
+        expect(sortElement).not.toBeNull();
     });
 
     describe('Check snapshots', () => {
@@ -119,22 +110,9 @@ describe('Consonant/FiltersInfo', () => {
     });
 
     describe('Interaction with UI', () => {
-        test('should call onSelectedFilterClick', () => {
-            const { props: { onSelectedFilterClick } } = setup({
-                filters: selectedAllFilters,
-                selectedFiltersQty: 1,
-            });
-
-            const [selectedFilter] = screen.queryAllByTestId('selected-filter');
-
-            expect(selectedFilter).toBeDefined();
-
-            fireEvent.click(selectedFilter);
-
-            expect(onSelectedFilterClick).toBeCalled();
-        });
         test('should call onMobileFiltersToggleClick', () => {
             const { props: { onMobileFiltersToggleClick } } = setup({
+                filtersQty: 1,
                 windowWidth: NON_DESKTOP_WIDTH,
             });
 
