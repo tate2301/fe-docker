@@ -15,7 +15,7 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
       data-testid="consonant-card--img"
       style={
         Object {
-          "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png\\")",
+          "backgroundImage": "url(\\"\\")",
         }
       }
     >
@@ -39,9 +39,10 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
             src="some-banner-icon"
           />
         </div>
-        Some Banner Description
+        <span>
+          Some Banner Description
+        </span>
       </span>
-      
       <a
         className="consonant-aspect-ratio-3-2-card--video-ico"
         href="some-video-videoURL"
@@ -61,11 +62,7 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
       >
         13 Infobit
       </h2>
-      <p
-        className="consonant-aspect-ratio-3-2-card--text"
-      >
-        
-      </p>
+      
       <div
         className="consonant-card-footer consonant-card-footer_divider"
       >
@@ -154,7 +151,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       data-testid="consonant-card--img"
       style={
         Object {
-          "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png\\")",
+          "backgroundImage": "url(\\"\\")",
         }
       }
     >
@@ -178,9 +175,10 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
             src="some-banner-icon"
           />
         </div>
-        Some Banner Description
+        <span>
+          Some Banner Description
+        </span>
       </span>
-      
       <a
         className="consonant-aspect-ratio-3-2-card--video-ico"
         href="some-video-videoURL"
@@ -200,11 +198,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       >
         13 Infobit
       </h2>
-      <p
-        className="consonant-aspect-ratio-3-2-card--text"
-      >
-        
-      </p>
+      
       <div
         className="consonant-card-footer consonant-card-footer_divider"
       >
@@ -293,7 +287,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       data-testid="consonant-card--img"
       style={
         Object {
-          "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png\\")",
+          "backgroundImage": "url(\\"\\")",
         }
       }
     >
@@ -317,9 +311,10 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
             src="some-banner-icon"
           />
         </div>
-        Some Banner Description
+        <span>
+          Some Banner Description
+        </span>
       </span>
-      
       <a
         className="consonant-aspect-ratio-1-1-card--video-ico"
         href="some-video-videoURL"
@@ -370,7 +365,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       data-testid="consonant-card--img"
       style={
         Object {
-          "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png\\")",
+          "backgroundImage": "url(\\"\\")",
         }
       }
     >
@@ -394,9 +389,10 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
             src="some-banner-icon"
           />
         </div>
-        Some Banner Description
+        <span>
+          Some Banner Description
+        </span>
       </span>
-      
       <a
         className="consonant-aspect-ratio-3-2-card--video-ico"
         href="some-video-videoURL"
@@ -416,11 +412,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       >
         13 Infobit
       </h2>
-      <p
-        className="consonant-aspect-ratio-3-2-card--text"
-      >
-        
-      </p>
+      
       <div
         className="consonant-card-footer consonant-card-footer_divider"
       >
@@ -509,7 +501,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       data-testid="consonant-card--img"
       style={
         Object {
-          "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png\\")",
+          "backgroundImage": "url(\\"\\")",
         }
       }
     >
@@ -533,9 +525,10 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
             src="some-banner-icon"
           />
         </div>
-        Some Banner Description
+        <span>
+          Some Banner Description
+        </span>
       </span>
-      
       <a
         className="consonant-full-card--video-ico"
         href="some-video-videoURL"

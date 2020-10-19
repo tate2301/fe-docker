@@ -5,6 +5,7 @@ exports[`Consonant/Bookmarks should correct render 1`] = `
   className="consonant-link-infobit"
   href="/some/valid/uri"
   rel="noreferrer"
+  tabIndex="0"
   target="_self"
   title=""
 >
@@ -17,6 +18,7 @@ exports[`Consonant/Bookmarks should correct render with current tab 1`] = `
   className="consonant-link-infobit"
   href="/some/valid/uri"
   rel="noreferrer"
+  tabIndex="0"
   target="_self"
   title=""
 >

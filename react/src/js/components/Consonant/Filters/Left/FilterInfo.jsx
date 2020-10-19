@@ -25,18 +25,14 @@ const FilterInfo = (props) => {
     const searchEnabled = getConfig('search', 'enabled');
     const sortEnabled = getConfig('sort', 'enabled');
 
-    const wrapperClassName = classNames(
-        'consonant-filters-info--wrapper',
-        {
-            'consonant-filters-info--wrapper_no-line': !sortEnabled || !sortOptions.length,
-        },
-    );
-    const containerClassName = classNames(
-        'consonant-filters-info',
-        {
-            'consonant-filters-info_no-filter-panel': !enableFilterPanel,
-        },
-    );
+    const wrapperClassName = classNames({
+        'consonant-filters-info--wrapper': true,
+        'consonant-filters-info--wrapper_no-line': !sortEnabled || !sortOptions.length,
+    });
+    const containerClassName = classNames({
+        'consonant-filters-info': true,
+        'consonant-filters-info_no-filter-panel': !enableFilterPanel,
+    });
 
     return (
         <aside data-testid="consonant-filters__info" className={containerClassName}>

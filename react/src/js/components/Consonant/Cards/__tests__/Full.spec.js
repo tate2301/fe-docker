@@ -35,9 +35,17 @@ describe('Consonant/Card', () => {
         expect(bannerIconElement).toHaveAttribute('src', bannerIcon);
     });
     test('should renders with badge', () => {
-        setup({ badgeText: 'some badge text' });
+        const {
+            props: {
+                overlays: {
+                    label: {
+                        description: someBadgeText,
+                    },
+                },
+            },
+        } = setup();
 
-        const badgeElement = screen.queryByText('some badge text');
+        const badgeElement = screen.queryByText(someBadgeText);
 
         expect(badgeElement).not.toBeNull();
     });

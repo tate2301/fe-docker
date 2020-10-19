@@ -11,7 +11,7 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
     data-testid="consonant-card--img"
     style={
       Object {
-        "backgroundImage": "url(\\"https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png\\")",
+        "backgroundImage": "url(\\"\\")",
       }
     }
   >
@@ -35,9 +35,15 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
           src="some-banner-icon"
         />
       </div>
-      Some Banner Description
+      <span>
+        Some Banner Description
+      </span>
     </span>
-    
+    <span
+      className="consonant-aspect-ratio-3-2-card--badge"
+    >
+      Some Badge Text
+    </span>
     <a
       className="consonant-aspect-ratio-3-2-card--video-ico"
       href="some-video-videoURL"
@@ -74,7 +80,7 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
         className="consonant-card-footer--row"
       >
         <div
-          className="consonant-card-footer--cell consonant-card-footer--cell_center"
+          className="consonant-card-footer--cell consonant-card-footer--cell_left"
           data-max-width={2}
         >
           <button
@@ -90,7 +96,7 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
               data-testid="bookmarks--ico"
               style={
                 Object {
-                  "backgroundImage": "",
+                  "backgroundImage": "url(https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg)",
                 }
               }
             />

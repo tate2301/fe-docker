@@ -2,6 +2,9 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { render } from '@testing-library/react';
 import mockconfig from '../Mocks/consonant.json';
+import setupIntersectionObserverMock from '../Mocks/intersectionObserver';
+
+setupIntersectionObserverMock();
 
 import ContextProvider from './ContextProvider';
 

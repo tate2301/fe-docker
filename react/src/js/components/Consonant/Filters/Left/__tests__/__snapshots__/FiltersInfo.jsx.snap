@@ -35,26 +35,6 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly when mob
   <div
     className="consonant-filters-info--search"
   />
-  <div
-    className="consonant-filters-info--btn-wrapper"
-    data-testid="btn-wrapper"
-  >
-    <button
-      className="consonant-filters-info--btn"
-      data-testid="info-btn"
-      onClick={[MockFunction]}
-      type="button"
-    >
-      <span
-        className="consonant-filters-info--btn-ico"
-      />
-      <span
-        className="consonant-filters-info--btn-text"
-      >
-        leftPanel.mobile.filtersBtnLabel
-      </span>
-    </button>
-  </div>
 </aside>
 `;
 

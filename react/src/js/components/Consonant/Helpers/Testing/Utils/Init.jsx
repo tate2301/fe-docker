@@ -1,6 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { render } from '@testing-library/react';
+import setupIntersectionObserverMock from '../Mocks/intersectionObserver';
+
+setupIntersectionObserverMock();
+
 
 export const createTree = component => renderer
     .create(component)

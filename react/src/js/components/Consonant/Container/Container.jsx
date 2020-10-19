@@ -221,7 +221,7 @@ const Container = (props) => {
                     .addFeaturedCards(featuredCards)
                     .removeDuplicateCards()
                     .addCardMetaData(TRUNCATE_TEXT_QTY, onlyShowBookmarks, bookmarkedCardIds);
-                            
+
                 setCards(processedCards);
 
             }).catch(() => setLoading(false));
@@ -361,7 +361,6 @@ const Container = (props) => {
                                 <FilterInfo
                                     enabled={filterPanelEnabled}
                                     filtersQty={filters.length}
-                                    cardsQty={filteredCards.length}
                                     filters={filters}
                                     cardsQty={someFilteredCards.length}
                                     selectedFiltersQty={selectedFiltersItemsQty}
@@ -435,40 +434,40 @@ Container.propTypes = {
     config: PropTypes.shape({
         collection: PropTypes.shape({
             resultsPerPage: PropTypes.oneOfType([
-                PropTypes.string, 
+                PropTypes.string,
                 PropTypes.number
             ]),
             endpoint: PropTypes.string,
             title: PropTypes.string,
             totalCardLimit: PropTypes.oneOfType([
-                PropTypes.string, 
+                PropTypes.string,
                 PropTypes.number
             ]),
             cardStyle: PropTypes.string,
             displayTotalResults: PropTypes.oneOfType([
-                PropTypes.string, 
+                PropTypes.string,
                 PropTypes.bool
             ]),
             totalResultsText: PropTypes.string,
         }),
         featuredCards: PropTypes.oneOfType([
-            PropTypes.string, 
+            PropTypes.string,
             PropTypes.arrayOf(PropTypes.object)
         ]),
         header: PropTypes.shape({
             enabled: PropTypes.oneOfType([
-                PropTypes.string, 
+                PropTypes.string,
                 PropTypes.bool
             ]),
         }),
         filterPanel: PropTypes.shape({
             enabled: PropTypes.oneOfType([
-                PropTypes.string, 
+                PropTypes.string,
                 PropTypes.bool
             ]),
             type: PropTypes.string,
             filters: PropTypes.oneOfType([
-                PropTypes.string, 
+                PropTypes.string,
                 PropTypes.arrayOf(PropTypes.object)
             ]),
             clearAllFiltersText: PropTypes.string,
@@ -478,17 +477,17 @@ Container.propTypes = {
         }),
         sort: PropTypes.shape({
             enabled: PropTypes.oneOfType([
-                PropTypes.string, 
+                PropTypes.string,
                 PropTypes.bool
             ]),
             options: PropTypes.oneOfType([
-                PropTypes.string, 
+                PropTypes.string,
                 PropTypes.arrayOf(PropTypes.object)
             ]),
         }),
         pagination: PropTypes.shape({
             enabled: PropTypes.oneOfType([
-                PropTypes.string, 
+                PropTypes.string,
                 PropTypes.bool
             ]),
             type: PropTypes.string,
@@ -500,7 +499,7 @@ Container.propTypes = {
         }),
         bookmarks: PropTypes.shape({
             enabled: PropTypes.oneOfType([
-                PropTypes.string, 
+                PropTypes.string,
                 PropTypes.bool]),
             cardSavedIcon: PropTypes.string,
             cardUnsavedIcon: PropTypes.string,
@@ -512,13 +511,13 @@ Container.propTypes = {
         }),
         search: PropTypes.shape({
             enabled: PropTypes.oneOfType([
-                PropTypes.string, 
+                PropTypes.string,
                 PropTypes.bool
             ]),
             leftPanelTitle: PropTypes.string,
             inputPlaceholderText: PropTypes.string,
             searchFields: PropTypes.oneOfType([
-                PropTypes.string, 
+                PropTypes.string,
                 PropTypes.arrayOf(PropTypes.string),
             ]),
         }),

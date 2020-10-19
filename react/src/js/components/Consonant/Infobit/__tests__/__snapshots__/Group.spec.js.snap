@@ -40,6 +40,7 @@ Array [
     className="consonant-link-widh-ico-infobit"
     href="/some/href/"
     rel="noreferrer"
+    tabIndex="0"
     target="__blank"
     title=""
   >
@@ -64,6 +65,7 @@ Array [
     className="consonant-link-infobit"
     href="/some/href/"
     rel="noreferrer"
+    tabIndex="0"
     target="_blank"
     title=""
   >
@@ -99,8 +101,8 @@ Array [
         role="progressbar"
         style={
           Object {
-            "backgroundColor": "",
-            "width": "0",
+            "backgroundColor": "#1473E6",
+            "width": "calc(0 + 2px)",
           }
         }
       >
