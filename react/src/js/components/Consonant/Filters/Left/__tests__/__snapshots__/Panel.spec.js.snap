@@ -8,20 +8,20 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
   <div
     className="consonant-left-filters--header"
   >
-    <h3
-      className="consonant-left-filters--desk-title"
+    <div
+      className="consonant-left-filters--mob-title"
     >
-      leftPanel.header
-    </h3>
-    <button
-      className="consonant-left-filters--clear-link"
-      data-testid="left-filter-panel-clear-all-btn"
-      onClick={[MockFunction]}
-      tabIndex="0"
-      type="button"
-    >
-      leftPanel.clearAllFiltersText
-    </button>
+      <button
+        className="consonant-left-filters--mob-back"
+        onClick={[MockFunction]}
+        type="button"
+      >
+        Back
+      </button>
+      <span>
+        leftPanel.mobile.panel.header
+      </span>
+    </div>
   </div>
   <button
     className="bookmarks"
@@ -489,6 +489,24 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
       </div>
     </div>
   </div>
+  <div
+    className="consonant-left-filters--mobile-footer"
+  >
+    <span
+      className="consonant-left-filters--mobile-footer-total-res-qty"
+      data-testid="mobile-footer-total-res"
+    >
+      leftPanel.mobile.panel.totalResultsText 0
+    </span>
+    <button
+      className="consonant-left-filters--mobile-footer-btn"
+      data-testid="mobile-footer-btn"
+      onClick={[MockFunction]}
+      type="button"
+    >
+      leftPanel.mobile.panel.doneBtnText
+    </button>
+  </div>
 </div>
 `;
 
@@ -500,20 +518,20 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
   <div
     className="consonant-left-filters--header"
   >
-    <h3
-      className="consonant-left-filters--desk-title"
+    <div
+      className="consonant-left-filters--mob-title"
     >
-      leftPanel.header
-    </h3>
-    <button
-      className="consonant-left-filters--clear-link"
-      data-testid="left-filter-panel-clear-all-btn"
-      onClick={[MockFunction]}
-      tabIndex="0"
-      type="button"
-    >
-      leftPanel.clearAllFiltersText
-    </button>
+      <button
+        className="consonant-left-filters--mob-back"
+        onClick={[MockFunction]}
+        type="button"
+      >
+        Back
+      </button>
+      <span>
+        leftPanel.mobile.panel.header
+      </span>
+    </div>
   </div>
   <div
     className="consonant-left-filters--list"
@@ -948,6 +966,24 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
         </div>
       </div>
     </div>
+  </div>
+  <div
+    className="consonant-left-filters--mobile-footer"
+  >
+    <span
+      className="consonant-left-filters--mobile-footer-total-res-qty"
+      data-testid="mobile-footer-total-res"
+    >
+      leftPanel.mobile.panel.totalResultsText 0
+    </span>
+    <button
+      className="consonant-left-filters--mobile-footer-btn"
+      data-testid="mobile-footer-btn"
+      onClick={[MockFunction]}
+      type="button"
+    >
+      leftPanel.mobile.panel.doneBtnText
+    </button>
   </div>
 </div>
 `;
@@ -960,20 +996,20 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
   <div
     className="consonant-left-filters--header"
   >
-    <h3
-      className="consonant-left-filters--desk-title"
+    <div
+      className="consonant-left-filters--mob-title"
     >
-      leftPanel.header
-    </h3>
-    <button
-      className="consonant-left-filters--clear-link"
-      data-testid="left-filter-panel-clear-all-btn"
-      onClick={[MockFunction]}
-      tabIndex="0"
-      type="button"
-    >
-      leftPanel.clearAllFiltersText
-    </button>
+      <button
+        className="consonant-left-filters--mob-back"
+        onClick={[MockFunction]}
+        type="button"
+      >
+        Back
+      </button>
+      <span>
+        leftPanel.mobile.panel.header
+      </span>
+    </div>
   </div>
   <div
     className="consonant-left-filters--list"
@@ -1408,6 +1444,24 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
         </div>
       </div>
     </div>
+  </div>
+  <div
+    className="consonant-left-filters--mobile-footer"
+  >
+    <span
+      className="consonant-left-filters--mobile-footer-total-res-qty"
+      data-testid="mobile-footer-total-res"
+    >
+      leftPanel.mobile.panel.totalResultsText 0
+    </span>
+    <button
+      className="consonant-left-filters--mobile-footer-btn"
+      data-testid="mobile-footer-btn"
+      onClick={[MockFunction]}
+      type="button"
+    >
+      leftPanel.mobile.panel.doneBtnText
+    </button>
   </div>
 </div>
 `;
@@ -1898,58 +1952,20 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
   <div
     className="consonant-left-filters--header"
   >
-    <h3
-      className="consonant-left-filters--desk-title"
+    <div
+      className="consonant-left-filters--mob-title"
     >
-      leftPanel.header
-    </h3>
-    <button
-      className="consonant-left-filters--clear-link"
-      data-testid="left-filter-panel-clear-all-btn"
-      onClick={[MockFunction]}
-      tabIndex="0"
-      type="button"
-    >
-      leftPanel.clearAllFiltersText
-    </button>
-  </div>
-  <div
-    className="consonant-search"
-    data-testid="consonant-search"
-  >
-    <label
-      htmlFor="consonant-search"
-    >
-      <span
-        className="consonant-search--input-title"
+      <button
+        className="consonant-left-filters--mob-back"
+        onClick={[MockFunction]}
+        type="button"
       >
-        i18n.leftFilterPanel.searchTitle
+        Back
+      </button>
+      <span>
+        leftPanel.mobile.panel.header
       </span>
-      <span
-        className="consonant-search--input-wrapper"
-      >
-        <input
-          className="consonant-search--input"
-          data-testid="search-input"
-          id="consonant-search"
-          onChange={[Function]}
-          onClick={[Function]}
-          placeholder="search text"
-          required={true}
-          type="search"
-          value=""
-        />
-        <button
-          className="consonant-search--input-clear"
-          onClick={[Function]}
-          tabIndex="0"
-          title="Click to clear search query"
-          type="button"
-        >
-          clear
-        </button>
-      </span>
-    </label>
+    </div>
   </div>
   <div
     className="consonant-left-filters--list"
@@ -2385,6 +2401,24 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
       </div>
     </div>
   </div>
+  <div
+    className="consonant-left-filters--mobile-footer"
+  >
+    <span
+      className="consonant-left-filters--mobile-footer-total-res-qty"
+      data-testid="mobile-footer-total-res"
+    >
+      leftPanel.mobile.panel.totalResultsText 0
+    </span>
+    <button
+      className="consonant-left-filters--mobile-footer-btn"
+      data-testid="mobile-footer-btn"
+      onClick={[MockFunction]}
+      type="button"
+    >
+      leftPanel.mobile.panel.doneBtnText
+    </button>
+  </div>
 </div>
 `;
 
@@ -2396,58 +2430,20 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
   <div
     className="consonant-left-filters--header"
   >
-    <h3
-      className="consonant-left-filters--desk-title"
+    <div
+      className="consonant-left-filters--mob-title"
     >
-      leftPanel.header
-    </h3>
-    <button
-      className="consonant-left-filters--clear-link"
-      data-testid="left-filter-panel-clear-all-btn"
-      onClick={[MockFunction]}
-      tabIndex="0"
-      type="button"
-    >
-      leftPanel.clearAllFiltersText
-    </button>
-  </div>
-  <div
-    className="consonant-search"
-    data-testid="consonant-search"
-  >
-    <label
-      htmlFor="consonant-search"
-    >
-      <span
-        className="consonant-search--input-title"
+      <button
+        className="consonant-left-filters--mob-back"
+        onClick={[MockFunction]}
+        type="button"
       >
-        i18n.leftFilterPanel.searchTitle
+        Back
+      </button>
+      <span>
+        leftPanel.mobile.panel.header
       </span>
-      <span
-        className="consonant-search--input-wrapper"
-      >
-        <input
-          className="consonant-search--input"
-          data-testid="search-input"
-          id="consonant-search"
-          onChange={[Function]}
-          onClick={[Function]}
-          placeholder="search text"
-          required={true}
-          type="search"
-          value=""
-        />
-        <button
-          className="consonant-search--input-clear"
-          onClick={[Function]}
-          tabIndex="0"
-          title="Click to clear search query"
-          type="button"
-        >
-          clear
-        </button>
-      </span>
-    </label>
+    </div>
   </div>
   <button
     className="bookmarks"
@@ -2914,6 +2910,24 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
         </div>
       </div>
     </div>
+  </div>
+  <div
+    className="consonant-left-filters--mobile-footer"
+  >
+    <span
+      className="consonant-left-filters--mobile-footer-total-res-qty"
+      data-testid="mobile-footer-total-res"
+    >
+      leftPanel.mobile.panel.totalResultsText 0
+    </span>
+    <button
+      className="consonant-left-filters--mobile-footer-btn"
+      data-testid="mobile-footer-btn"
+      onClick={[MockFunction]}
+      type="button"
+    >
+      leftPanel.mobile.panel.doneBtnText
+    </button>
   </div>
 </div>
 `;

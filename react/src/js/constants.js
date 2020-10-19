@@ -1,5 +1,8 @@
-export const TRUNCATE_TEXT_QTY = 200;
 export const DESKTOP_MIN_WIDTH = 1200;
+export const DESKTOP_SCREEN_SIZE = window.innerWidth >= DESKTOP_MIN_WIDTH;
+export const NOT_DESKTOP_SCREEN_SIZE = window.innerWidth < DESKTOP_MIN_WIDTH;
+
+export const TRUNCATE_TEXT_QTY = 200;
 export const TABLET_MIN_WIDTH = 768;
 export const PAGINATION_COUNT = {
     DESKTOP: 10,

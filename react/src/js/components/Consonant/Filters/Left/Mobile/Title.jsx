@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const LeftPanelMobileFilterTitle = ({
+const Title = ({
     onClick,
     leftPanelMobileHeader,
 }) => (
@@ -16,13 +16,14 @@ const LeftPanelMobileFilterTitle = ({
     </div>
 );
 
-export default LeftPanelMobileFilterTitle;
+/* eslint-disable-next-line import/prefer-default-export */
+export { Title };
 
-LeftPanelMobileFilterTitle.propTypes = {
+Title.propTypes = {
     onClick: PropTypes.func.isRequired,
     leftPanelMobileHeader: PropTypes.string,
 };
 
-LeftPanelMobileFilterTitle.defaultProps = {
+Title.defaultProps = {
     leftPanelMobileHeader: '',
 };
