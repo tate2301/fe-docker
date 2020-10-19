@@ -14,19 +14,21 @@
     margin-top: auto;
     padding-top: 24px;
 
-    &:not(:last-of-type) {
-        padding-bottom: 24px;
+    &:not(:last-child) {
+        padding-top: 0;
+        padding-bottom: 10px;
     }
 
     & + .consonant-card-footer {
         margin-top: 0;
+        padding-top: 10px;
     }
 
     & + .consonant-card-footer:not(.consonant-card-footer_divider) {
-        margin-top: -24px;
+        padding-top: 0;
     }
 
-    &.consonant-card-footer_divider {
+    &.consonant-card-footer_divider:last-child {
         border-top: 1px solid @consonant-color-lightest-grey;
     }
 }
@@ -47,7 +49,6 @@
     max-width: 100%;
     flex-basis: auto;
     flex-grow: 1;
-    border: 1px solid greenyellow;
 
     &:empty {
         display: none;
