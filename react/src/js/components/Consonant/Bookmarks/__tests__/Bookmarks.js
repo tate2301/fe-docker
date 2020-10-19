@@ -16,7 +16,7 @@ const setup = makeSetup(Bookmarks, DEFAULT_PROPS);
 describe('Consonant/Bookmarks', () => {
     test('should renders correctly different bookmarks count', () => {
         COUNT_LIST.forEach((count) => {
-            const { wrapper } = setup({ qty: count });
+            const { wrapper } = setup({ savedCardsCount: count });
 
             const badgeElement = screen.getByTestId('bookmarks--item-badge');
 
@@ -49,7 +49,7 @@ describe('Consonant/Bookmarks', () => {
                     },
                 },
             },
-        } = setup({ selected: true });
+        } = setup({ showBookmarks: true });
 
         const iconElement = screen.getByTestId('bookmarks--ico');
 
