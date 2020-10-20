@@ -2,14 +2,12 @@ import get from 'lodash/get';
 
 import {
     removeDuplicatesByKey,
-    truncateList,
     truncateString,
 } from './general';
 
-import { filterCardsByDateRange } from './cards';
-
 /**
- *
+ * Class that handles parsing raw JSON data and returning a set of processed cards
+ * that can be used within a card collection.
  *
  * @export
  * @class JsonProcessor
@@ -24,7 +22,11 @@ export default class JsonProcessor {
         this.processedCards = cardsToProcess;
     }
     /**
+     * This method handles removing duplicate cards for the following cases:
      *
+     * (1) API Repsonse contains duplicate cards
+     * (2) Authored Featured Cards contains duplicate cards
+     * (3) Duplicates between API responese and authored feature cards
      *
      * @return {*}
      * @memberof JsonProcessor
@@ -34,7 +36,7 @@ export default class JsonProcessor {
         return this;
     }
     /**
-     *
+     * This method joins authored featured caards with cards returned from API responsee
      *
      * @param {*} featuredCards
      * @return {*}
@@ -49,29 +51,10 @@ export default class JsonProcessor {
         return this;
     }
     /**
-     *
-     *
-     * @param {*} totalCardLimit
-     * @return {*}
-     * @memberof JsonProcessor
-     */
-    truncateList(totalCardLimit) {
-        this.processedCards = truncateList(totalCardLimit, this.processedCards);
-        return this;
-    }
-
-    /**
-     *
-     *
-     * @return {*}
-     * @memberof JsonProcessor
-     */
-    keepCardsWithinDateRange() {
-        this.processedCards = filterCardsByDateRange(this.processedCards);
-        return this;
-    }
-    /**
-     *
+     * This method adds necessary card metadata to cards such as:
+     * (1) Whether a card should be bookmarked or not
+     * (2) Initial Fields Before Pre-Processing occurs
+     * (3) Whether cards should behave as if they are in a Bookmark Only Collection
      *
      * @param {*} truncateTextQty
      * @param {*} onlyShowBookmarks
@@ -82,11 +65,16 @@ export default class JsonProcessor {
     addCardMetaData(truncateTextQty, onlyShowBookmarks, bookmarkedCardIds) {
         this.processedCards = this.processedCards.map(card => ({
             ...card,
-            initialTitle: get(card, 'contentArea.title', ''),
             description: truncateString(get(card, 'contentArea.description', ''), truncateTextQty),
-            initialText: get(card, 'contentArea.description', ''),
             isBookmarked: bookmarkedCardIds.some(i => i === card.id),
             disableBookmarkIco: onlyShowBookmarks,
+            initial: {
+                title: get(card, 'contentArea.title', ''),
+                description: get(card, 'contentArea.description', ''),
+                bannerText: get(card, 'overlays.banner.description', ''),
+                dateDetailText: get(card, 'contentArea.dateTetailText', ''),
+                detailText: get(card, 'contentArea.detailText', ''),
+            },
         }));
         return this;
     }
