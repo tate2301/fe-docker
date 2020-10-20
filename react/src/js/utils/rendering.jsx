@@ -6,6 +6,7 @@ export const highlightSearchField = (text, value) => {
     return parts.map((part, i) => (
         // eslint-disable-next-line react/no-array-index-key
         part.toLowerCase() === value ? (
+            // eslint-disable-next-line
             <span data-testid="consonant-search-result" className="consonant-search-result" key={i}>
                 {part}
             </span>

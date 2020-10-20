@@ -7,7 +7,6 @@
 */
 
 @consonant-card-footer-height: 32px;
-@consonant-card-footer-max-in-cell: 10;
 @consonant-card-footer-max-cells: 3;
 
 .consonant-card-footer {
@@ -61,21 +60,8 @@
     &.consonant-card-footer--cell_center {
         justify-content: center;
 
-        &:first-child:not(:only-child) {
-            min-width: 33%;
-            max-width: 33%;
-            margin-left: 33%;
-        }
-
-        &:last-child:not(:only-child) {
-            min-width: 33%;
-            max-width: 33%;
-            margin-right: 33%;
-        }
-
-        & > *:only-child {
-            margin-left: auto;
-            margin-right: auto;
+        &:first-child > *:first-child {
+            margin-left: 0;
         }
     }
 
