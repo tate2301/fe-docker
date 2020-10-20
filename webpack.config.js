@@ -82,5 +82,5 @@ module.exports = {
         ],
     },
     plugins,
-    devtool: 'eval-source-map',
+    devtool: 'none',
 };
