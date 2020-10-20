@@ -12,8 +12,8 @@ import {
     PAGINATION_COUNT,
     TABLET_MIN_WIDTH,
     TRUNCATE_TEXT_QTY,
-} from '../../../constants';
-import { ConfigContext, ExpandableContext } from '../../../contexts';
+} from '../../../utils/constants';
+import { ConfigContext, ExpandableContext } from '../../../utils/contexts';
 import {
     getDefaultSortOption,
     getNumSelectedFilterItems,
@@ -30,10 +30,10 @@ import {
     getTotalPages,
     getActiveFilterIds,
     getUpdatedCardBookmarkData,
-} from './Helpers';
+} from '../../../utils/Helpers';
 
-import CardFilterer from './CardFilterer';
-import JsonProccesor from './JsonProccesor';
+import CardFilterer from '../../../utils/CardFilterer';
+import JsonProcessor from '../../../utils/JsonProcessor';
 
 import { useWindowDimensions } from '../../../utils/hooks';
 
@@ -217,7 +217,7 @@ const Container = (props) => {
                 setLoading(false);
                 if (!get(payload, 'cards.length')) return;
 
-                const jsonProcessor = new JsonProccesor(payload.cards);
+                const jsonProcessor = new JsonProcessor(payload.cards);
                 const { processedCards } = jsonProcessor
                     .addFeaturedCards(featuredCards)
                     .removeDuplicateCards()

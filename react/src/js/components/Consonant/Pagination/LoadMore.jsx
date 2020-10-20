@@ -17,7 +17,9 @@ const LoadMore = ({
 
 
     return (show > 0 && total > 0) ? (
-        <div data-testid="consonant-load-more" className="consonant-load-more">
+        <div
+            data-testid="consonant-load-more"
+            className="consonant-load-more">
             <div className="consonant-load-more--inner">
                 <p
                     data-testid="consonant-load-more--text"
@@ -29,7 +31,8 @@ const LoadMore = ({
                         data-testid="load-more__button"
                         className="consonant-load-more--btn"
                         onClick={onClick}
-                        tabIndex="0">{loadMoreButtonText}
+                        tabIndex="0">
+                        {loadMoreButtonText}
                     </button>
                 }
             </div>

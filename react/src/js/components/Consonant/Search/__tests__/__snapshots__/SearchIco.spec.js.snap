@@ -7,7 +7,7 @@ exports[`Consonant/SearchIco Check snapshots should renders correctly 1`] = `
   tabIndex="0"
   type="button"
 >
-  Click to search
   <span />
+  Click to search
 </button>
 `;

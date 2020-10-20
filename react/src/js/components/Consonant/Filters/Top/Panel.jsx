@@ -3,7 +3,7 @@ import sum from 'lodash/sum';
 import React, { useMemo } from 'react';
 import { chainFromIterable } from '../../../../utils/general';
 import { useConfig, useExpandable } from '../../../../utils/hooks';
-import SearchIco from '../../Search/SearchIco';
+import SearchIcon from '../../Search/SearchIcon';
 import { Group as TopFilterItem } from './Group';
 
 const TABLET_MIN_WIDTH = 768;
@@ -139,7 +139,7 @@ const FiltersPanelTop = ({
                         className="consonant-top-filters--search-ico-wrapper">
                         {showSearchbar && searchComponent}
                         {windowWidth >= TABLET_MIN_WIDTH && (
-                            <SearchIco
+                            <SearchIcon
                                 childrenKey="filtersTopSearchIco"
                                 onClick={handleExpandableToggle} />
                         )}

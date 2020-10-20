@@ -9,8 +9,8 @@ import {
     getTitleAscSort,
     getTitleDescSort,
 } from './Helpers';
-import { filterCardsByDateRange } from '../../../utils/cards';
-import { truncateList } from '../../../utils/general';
+import { filterCardsByDateRange } from './cards';
+import { truncateList } from './general';
 
 /**
  *

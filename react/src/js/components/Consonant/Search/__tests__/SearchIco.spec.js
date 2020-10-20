@@ -1,11 +1,11 @@
 import { screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import SearchIco from '../SearchIco';
+import SearchIcon from '../SearchIcon';
 
 import makeSetup from '../../Helpers/Testing/Utils/Settings';
 
-const setup = makeSetup(SearchIco, {
+const setup = makeSetup(SearchIcon, {
     onClick: jest.fn(),
 });
 

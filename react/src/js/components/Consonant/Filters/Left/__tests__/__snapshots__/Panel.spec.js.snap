@@ -1915,7 +1915,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
   </div>
   <div
     className="consonant-search"
-    data-testid="consonant-search"
+    data-testid=""
   >
     <label
       htmlFor="consonant-search"
@@ -1943,7 +1943,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
           className="consonant-search--input-clear"
           onClick={[Function]}
           tabIndex="0"
-          title="Click to clear search query"
+          title=""
           type="button"
         >
           clear
@@ -2413,7 +2413,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
   </div>
   <div
     className="consonant-search"
-    data-testid="consonant-search"
+    data-testid=""
   >
     <label
       htmlFor="consonant-search"
@@ -2441,7 +2441,7 @@ exports[`Consonant/FilterPanelLeft Check snapshots should renders correctly with
           className="consonant-search--input-clear"
           onClick={[Function]}
           tabIndex="0"
-          title="Click to clear search query"
+          title=""
           type="button"
         >
           clear

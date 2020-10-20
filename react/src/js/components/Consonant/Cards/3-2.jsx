@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useConfig, useLazyLoading } from '../../../utils/hooks';
 import prettyFormatDate from '../../../utils/prettyFormat';
 import CardFooter from './CardFooter/CardFooter';
-import { INFOBIT_TYPE } from '../../../constants';
+import { INFOBIT_TYPE } from '../../../utils/constants';
 
 export const Tooltip = (props) => {
     const { text } = props;

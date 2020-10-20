@@ -13,7 +13,7 @@ import Rating from './Type/Rating/Rating';
 import Text from './Type/Text';
 import DateInterval from './Type/DateInterval/DateInterval';
 import { parseToPrimitive } from '../../../utils/general';
-import { INFOBIT_TYPE } from '../../../constants';
+import { INFOBIT_TYPE } from '../../../utils/constants';
 
 function Group(props) {
     const { renderList } = props;

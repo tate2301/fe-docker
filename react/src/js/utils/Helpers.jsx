@@ -3,14 +3,14 @@ import get from 'lodash/get';
 import set from 'lodash/set';
 import includes from 'lodash/includes';
 import produce from 'immer';
-import { highlightSearchField } from '../../../utils/rendering';
+import { highlightSearchField } from './rendering';
 import {
     chainFromIterable,
     intersection,
     isSuperset,
     sanitizeText,
     removeDuplicatesByKey,
-} from '../../../utils/general';
+} from './general';
 
 export const shouldDisplayPaginator = (enabled, resultsPerPage, totalResults) => {
     const resultsPerPageNotZero = resultsPerPage > 0;
@@ -76,7 +76,7 @@ export const highlightCard = (baseCard, searchField, query) => {
     return produce(baseCard, (draftCard) => {
         const searchFieldValue = get(draftCard, searchField, null);
         if (searchFieldValue === null) return;
-        const highlightedSearchFieldValue = highlightSearchField(searchFieldValue, query); 
+        const highlightedSearchFieldValue = highlightSearchField(searchFieldValue, query);
         set(draftCard, searchField, highlightedSearchFieldValue);
     })
 }

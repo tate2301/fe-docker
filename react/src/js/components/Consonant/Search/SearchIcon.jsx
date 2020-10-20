@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SearchIco = (props) => {
+const SearchIcon = (props) => {
     const { onClick } = props;
 
     return (
@@ -10,14 +10,14 @@ const SearchIco = (props) => {
             className="search-ico"
             onClick={onClick}
             tabIndex="0">
-            Click to search
             <span />
+            Click to search
         </button>
     );
 };
 
-export default SearchIco;
+export default SearchIcon;
 
-SearchIco.propTypes = {
+SearchIcon.propTypes = {
     onClick: PropTypes.func.isRequired,
 };

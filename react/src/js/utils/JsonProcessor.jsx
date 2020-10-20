@@ -1,22 +1,24 @@
 import get from 'lodash/get';
-import includes from 'lodash/includes';
+
 import {
     removeDuplicatesByKey,
     truncateList,
     truncateString,
-} from '../../../utils/general';
-import { filterCardsByDateRange } from '../../../utils/cards';
+} from './general';
+
+import { filterCardsByDateRange } from './cards';
+
 /**
  *
  *
  * @export
- * @class JsonProccesor
+ * @class JsonProcessor
  */
-export default class JsonProccesor {
+export default class JsonProcessor {
     /**
-     * Creates an instance of JsonProccesor.
+     * Creates an instance of JsonProcessor.
      * @param {*} cardsToProcess
-     * @memberof JsonProccesor
+     * @memberof JsonProcessor
      */
     constructor(cardsToProcess) {
         this.processedCards = cardsToProcess;
@@ -25,7 +27,7 @@ export default class JsonProccesor {
      *
      *
      * @return {*}
-     * @memberof JsonProccesor
+     * @memberof JsonProcessor
      */
     removeDuplicateCards() {
         this.processedCards = removeDuplicatesByKey(this.processedCards, 'id');
@@ -36,7 +38,7 @@ export default class JsonProccesor {
      *
      * @param {*} featuredCards
      * @return {*}
-     * @memberof JsonProccesor
+     * @memberof JsonProcessor
      */
     addFeaturedCards(featuredCards) {
         const someFeaturedCards = featuredCards.map(card => ({
@@ -51,34 +53,18 @@ export default class JsonProccesor {
      *
      * @param {*} totalCardLimit
      * @return {*}
-     * @memberof JsonProccesor
+     * @memberof JsonProcessor
      */
     truncateList(totalCardLimit) {
         this.processedCards = truncateList(totalCardLimit, this.processedCards);
         return this;
     }
-    /**
-     *
-     *
-     * @param {*} onlyShowBookmarks
-     * @param {*} bookmarkedCardIds
-     * @return {*}
-     * @memberof JsonProccesor
-     */
-    keepBookmarkedCardsOnly(onlyShowBookmarks, bookmarkedCardIds) {
-        if (onlyShowBookmarks) {
-            this.processedCards = this.processedCards.filter(card => includes(
-                bookmarkedCardIds,
-                card.id,
-            ));
-        }
-        return this;
-    }
+
     /**
      *
      *
      * @return {*}
-     * @memberof JsonProccesor
+     * @memberof JsonProcessor
      */
     keepCardsWithinDateRange() {
         this.processedCards = filterCardsByDateRange(this.processedCards);
@@ -91,7 +77,7 @@ export default class JsonProccesor {
      * @param {*} onlyShowBookmarks
      * @param {*} bookmarkedCardIds
      * @return {*}
-     * @memberof JsonProccesor
+     * @memberof JsonProcessor
      */
     addCardMetaData(truncateTextQty, onlyShowBookmarks, bookmarkedCardIds) {
         this.processedCards = this.processedCards.map(card => ({

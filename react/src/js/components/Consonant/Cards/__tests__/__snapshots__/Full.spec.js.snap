@@ -50,9 +50,7 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
       rel="noreferrer"
       tabIndex="0"
       target="_blank"
-    >
-      Open video link
-    </a>
+    />
   </div>
   <a
     className="consonant-full-card--inner"
