@@ -77,7 +77,7 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
       className="consonant-card-footer"
     >
       <div
-        className="consonant-card-footer--row consonant-card-footer--row_fluid"
+        className="consonant-card-footer--row"
         data-cells={2}
       >
         <div

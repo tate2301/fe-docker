@@ -67,7 +67,7 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
         className="consonant-card-footer consonant-card-footer_divider"
       >
         <div
-          className="consonant-card-footer--row consonant-card-footer--row_fluid"
+          className="consonant-card-footer--row"
           data-cells={3}
         >
           <div
@@ -203,7 +203,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         className="consonant-card-footer consonant-card-footer_divider"
       >
         <div
-          className="consonant-card-footer--row consonant-card-footer--row_fluid"
+          className="consonant-card-footer--row"
           data-cells={3}
         >
           <div
@@ -415,7 +415,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         className="consonant-card-footer consonant-card-footer_divider"
       >
         <div
-          className="consonant-card-footer--row consonant-card-footer--row_fluid"
+          className="consonant-card-footer--row"
           data-cells={3}
         >
           <div

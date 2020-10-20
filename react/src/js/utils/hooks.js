@@ -1,6 +1,6 @@
-import React  from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import debounce from 'lodash/debounce';
-import { useCallback, useContext, useEffect, useState } from 'react';
+
 import { makeConfigGetter } from './consonant';
 import { ConfigContext, ExpandableContext } from './contexts';
 
@@ -45,41 +45,39 @@ export const useConfig = () => {
 export const useIsMounted = () => {
     const isMounted = React.useRef(true);
 
-    React.useEffect(() => {
-        return () => {
+    React.useEffect(() => () => {
         isMounted.current = false;
-        };
     }, []);
 
     return isMounted;
-}
+};
 
 export const useLazyLoading = (imageRef, image) => {
-    const [lazyLoadImage, setLazyLoadImage] = useState("");
+    const [lazyLoadImage, setLazyLoadImage] = useState('');
     const isMounted = useIsMounted();
-    const imageObserver = new IntersectionObserver(elements => {
+    const imageObserver = new IntersectionObserver((elements) => {
         if (elements[0].intersectionRatio !== 0 && isMounted.current) {
             setLazyLoadImage(image);
         }
-    })
+    });
 
     useEffect(() => {
-        if(lazyLoadImage){
+        if (lazyLoadImage) {
             const img = new Image();
             img.src = lazyLoadImage;
             img.onload = () => {
                 if (isMounted.current) {
                     setLazyLoadImage(lazyLoadImage);
                 }
-            }
+            };
         }
-      }, [lazyLoadImage])
+    }, [lazyLoadImage]);
 
     useEffect(() => {
-        if(imageRef.current){
+        if (imageRef.current) {
             imageObserver.observe(imageRef.current);
         }
     }, [imageRef]);
 
-    return [ lazyLoadImage ];
-}
+    return [lazyLoadImage];
+};

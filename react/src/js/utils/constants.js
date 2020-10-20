@@ -72,17 +72,17 @@ export const CLASS_NAME = {
  */
 
 export const INFOBIT_TYPE = {
-  PRICE: 'price',
-  BUTTON: 'button',
-  ICON_TEXT: 'icon-with-text',
-  LINK_ICON: 'link-with-icon',
-  TEXT: 'text',
-  ICON: 'icon',
-  LINK: 'link',
-  PROGRESS: 'progress-bar',
-  RATING: 'rating',
-  BOOKMARK: 'bookmark',
-  DATE: 'date-interval',
+    PRICE: 'price',
+    BUTTON: 'button',
+    ICON_TEXT: 'icon-with-text',
+    LINK_ICON: 'link-with-icon',
+    TEXT: 'text',
+    ICON: 'icon',
+    LINK: 'link',
+    PROGRESS: 'progress-bar',
+    RATING: 'rating',
+    BOOKMARK: 'bookmark',
+    DATE: 'date-interval',
 };
 
 /**
@@ -98,10 +98,10 @@ export const DEFAULT_CONFIG = {
         displayTotalResults: true,
         totalResultsText: '{} results',
         i18n: {
-          prettyDateIntervalFormat: '{LLL} {dd} | {timeRange} {timeZone}',
-          totalResultsText: '{total} results',
-          title: '',
-      },
+            prettyDateIntervalFormat: '{LLL} {dd} | {timeRange} {timeZone}',
+            totalResultsText: '{total} results',
+            title: '',
+        },
     },
     featuredCards: [],
     header: {
