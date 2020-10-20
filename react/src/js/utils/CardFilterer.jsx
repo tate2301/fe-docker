@@ -9,27 +9,30 @@ import {
     getTitleAscSort,
     getTitleDescSort,
 } from './Helpers';
+import { SORT_TYPES } from './constants';
 import { filterCardsByDateRange } from './cards';
 import { truncateList } from './general';
 
 /**
- *
+ * Class that will constrain result set based on current state of the component
  *
  * @export
  * @class CardFilterer
  */
 export default class CardFilterer {
     /**
-     * Creates an instance of CardFilterer.
+     * Creates an instance of a CardFilterer
+     *
      * @param {*} cardsToFilter
      * @memberof CardFilterer
      */
     constructor(cardsToFilter) {
-        this.someFilteredCards = cardsToFilter;
+        this.filteredCards = cardsToFilter;
     }
 
     /**
-     *
+     * Given a set of filters a user selected, this method will return all cards that contain
+     * those filtlers
      *
      * @param {*} activeFilters
      * @param {*} filterType
@@ -38,8 +41,8 @@ export default class CardFilterer {
      * @memberof CardFilterer
      */
     filterCards(activeFilters, filterType, filterTypes) {
-        this.someFilteredCards = getFilteredCards(
-            this.someFilteredCards,
+        this.filteredCards = getFilteredCards(
+            this.filteredCards,
             activeFilters,
             filterType,
             filterTypes,
@@ -48,7 +51,8 @@ export default class CardFilterer {
     }
 
     /**
-     *
+     * Given a user search query and the fields to search, this method will return all cards that
+     * match that query.
      *
      * @param {*} searchQuery
      * @param {*} searchFields
@@ -59,11 +63,11 @@ export default class CardFilterer {
         const query = searchQuery.trim().toLowerCase();
         const cardsMatchingSearch = getCardsMatchingSearch(
             searchQuery,
-            this.someFilteredCards,
+            this.filteredCards,
             searchFields,
         );
 
-        this.someFilteredCards = cardsMatchingSearch
+        this.filteredCards = cardsMatchingSearch
             .map(card => searchFields.reduce((baseCard, searchField) => highlightCard(
                 baseCard,
                 searchField,
@@ -74,7 +78,7 @@ export default class CardFilterer {
     }
 
     /**
-     *
+     * This method will return a chainable of all cards sorted by a given sort option
      *
      * @param {*} sortOption
      * @return {*} Chainable
@@ -84,20 +88,20 @@ export default class CardFilterer {
         const sortType = sortOption ? sortOption.sort.toLowerCase() : null;
 
         switch (sortType) {
-            case 'dateasc':
-                this.someFilteredCards = getDateAscSort(this.someFilteredCards);
+            case SORT_TYPES.DATEASC:
+                this.filteredCards = getDateAscSort(this.filteredCards);
                 break;
-            case 'datedesc':
-                this.someFilteredCards = getDateDescSort(this.someFilteredCards);
+            case SORT_TYPES.DATEDESC:
+                this.filteredCards = getDateDescSort(this.filteredCards);
                 break;
-            case 'featured':
-                this.someFilteredCards = getFeaturedSort(this.someFilteredCards);
+            case SORT_TYPES.FEATURED:
+                this.filteredCards = getFeaturedSort(this.filteredCards);
                 break;
-            case 'titleasc':
-                this.someFilteredCards = getTitleAscSort(this.someFilteredCards);
+            case SORT_TYPES.TITLEASC:
+                this.filteredCards = getTitleAscSort(this.filteredCards);
                 break;
-            case 'titledesc':
-                this.someFilteredCards = getTitleDescSort(this.someFilteredCards);
+            case SORT_TYPES.TITLEDESC:
+                this.filteredCards = getTitleDescSort(this.filteredCards);
                 break;
             default:
                 return this;
@@ -107,17 +111,19 @@ export default class CardFilterer {
     }
 
     /**
-     *
+     * If cards were authored to be shown or hidden based off a given date range, this method
+     * constrains the result set to only cards that should be shown within that date interval.
      *
      * @return {*} Chainable
      * @memberof CardFilterer
      */
     keepCardsWithinDateRange() {
-        this.someFilteredCards = filterCardsByDateRange(this.someFilteredCards);
+        this.filteredCards = filterCardsByDateRange(this.filteredCards);
         return this;
     }
     /**
-     *
+     * If a bookmark only collection is authored, this method will constrain result set to only
+     * cards that were saved.
      *
      * @param {*} onlyShowBookmarks
      * @param {*} bookmarkedCardIds
@@ -127,7 +133,7 @@ export default class CardFilterer {
      */
     keepBookmarkedCardsOnly(onlyShowBookmarks, bookmarkedCardIds, showBookmarks) {
         if (onlyShowBookmarks || showBookmarks) {
-            this.someFilteredCards = this.someFilteredCards.filter(card => includes(
+            this.filteredCards = this.filteredCards.filter(card => includes(
                 bookmarkedCardIds,
                 card.id,
             ));
@@ -136,14 +142,15 @@ export default class CardFilterer {
     }
 
     /**
-     *
+     * If a total card limit is authored, this method will truncate returned cards to adhere to
+     * that limit.
      *
      * @param {*} totalCardLimit
      * @return {*} Chainable
      * @memberof CardFilterer
      */
     truncateList(totalCardLimit) {
-        this.someFilteredCards = truncateList(totalCardLimit, this.someFilteredCards);
+        this.filteredCards = truncateList(totalCardLimit, this.filteredCards);
         return this;
     }
 }

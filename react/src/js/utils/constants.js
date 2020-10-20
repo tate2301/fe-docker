@@ -47,6 +47,14 @@ export const CARD_SORT_FIELD = {
     TITLEDESC: 'initialTitle',
 };
 
+export const SORT_TYPES = {
+    DATEASC: 'dateasc',
+    DATEDESC: 'datedesc',
+    FEATURED: 'featured',
+    TITLEASC: 'titleasc',
+    TITLEDESC: 'titledesc',
+};
+
 /**
  * CSS Constants
  */

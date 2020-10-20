@@ -253,7 +253,7 @@ const Container = (props) => {
 
     const cardFilterer = new CardFilterer(cards);
 
-    const { someFilteredCards } = cardFilterer
+    const { filteredCards } = cardFilterer
         .keepBookmarkedCardsOnly(onlyShowBookmarks, bookmarkedCardIds, showBookmarks)
         .filterCards(activeFilterIds, filterLogic, FILTER_TYPES)
         .sortCards(sortOption)
@@ -261,18 +261,18 @@ const Container = (props) => {
         .truncateList(totalCardLimit)
         .searchCards(searchQuery, searchFields)
 
-    const collectionCards = someFilteredCards;
+    const collectionCards = filteredCards;
 
-    const totalPages = getTotalPages(resultsPerPage, someFilteredCards.length);
+    const totalPages = getTotalPages(resultsPerPage, collectionCards.length);
 
-    const numCardsToShow = getNumCardsToShow(resultsPerPage, currentPage, someFilteredCards.length);
+    const numCardsToShow = getNumCardsToShow(resultsPerPage, currentPage, collectionCards.length);
 
     const selectedFiltersItemsQty = getNumSelectedFilterItems(filters);
 
     const displayPagination = shouldDisplayPaginator(
         paginationIsEnabled,
         resultsPerPage,
-        someFilteredCards.length,
+        collectionCards.length,
     );
 
     const displayLoadMore = displayPagination && paginationType === 'loadMore';
@@ -307,7 +307,7 @@ const Container = (props) => {
                                     onMobileFiltersToggleClick={handleFiltersToggle}
                                     onSelectedFilterClick={handleCheckBoxChange}
                                     showMobileFilters={showMobileFilters}
-                                    resQty={someFilteredCards.length}
+                                    resQty={collectionCards.length}
                                     bookmarkComponent={(
                                         <Bookmarks
                                             showBookmarks={showBookmarks}
@@ -331,7 +331,7 @@ const Container = (props) => {
                                     filterPanelEnabled={filterPanelEnabled}
                                     filters={filters}
                                     windowWidth={windowWidth}
-                                    resQty={someFilteredCards.length}
+                                    resQty={collectionCards.length}
                                     onCheckboxClick={handleCheckBoxChange}
                                     onFilterClick={handleFilterItemClick}
                                     onClearFilterItems={clearFilterItems}
@@ -363,7 +363,7 @@ const Container = (props) => {
                                     enabled={filterPanelEnabled}
                                     filtersQty={filters.length}
                                     filters={filters}
-                                    cardsQty={someFilteredCards.length}
+                                    cardsQty={collectionCards.length}
                                     selectedFiltersQty={selectedFiltersItemsQty}
                                     windowWidth={windowWidth}
                                     onMobileFiltersToggleClick={handleFiltersToggle}
@@ -399,7 +399,7 @@ const Container = (props) => {
                                             <LoadMore
                                                 onClick={onLoadMoreClick}
                                                 show={numCardsToShow}
-                                                total={someFilteredCards.length} />
+                                                total={collectionCards.length} />
                                         </div>
                                     )}
                                     {displayPaginator &&
@@ -410,7 +410,7 @@ const Container = (props) => {
                                             currentPageNumber={currentPage}
                                             totalPages={totalPages}
                                             showItemsPerPage={resultsPerPage}
-                                            totalResults={someFilteredCards.length}
+                                            totalResults={collectionCards.length}
                                             onClick={setCurrentPage} />
                                     }
                                 </Fragment> : (
