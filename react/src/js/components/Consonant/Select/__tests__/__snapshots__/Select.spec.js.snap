@@ -10,9 +10,7 @@ exports[`Consonant/Select Check snapshots should renders correctly 1`] = `
     onClick={[Function]}
     tabIndex="0"
     type="button"
-  >
-    Please select
-  </button>
+  />
   <div
     className="consonant-select--options consonant-select--options_right"
     data-testid="consonant-select--options"
@@ -76,9 +74,7 @@ exports[`Consonant/Select Check snapshots should renders correctly opened select
     onClick={[Function]}
     tabIndex="0"
     type="button"
-  >
-    Please select
-  </button>
+  />
   <div
     className="consonant-select--options consonant-select--options_right"
     data-testid="consonant-select--options"
@@ -142,9 +138,7 @@ exports[`Consonant/Select Check snapshots should renders correctly with autoWidt
     onClick={[Function]}
     tabIndex="0"
     type="button"
-  >
-    Please select
-  </button>
+  />
   <div
     className="consonant-select--options consonant-select--options_right"
     data-testid="consonant-select--options"

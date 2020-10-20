@@ -1,7 +1,7 @@
 import { screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import Item from '../Item';
+import { Group as Item } from '../Group';
 
 import {
     DEFAULT_PROPS,

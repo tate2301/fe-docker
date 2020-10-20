@@ -67,11 +67,11 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
         className="consonant-card-footer consonant-card-footer_divider"
       >
         <div
-          className="consonant-card-footer--row"
+          className="consonant-card-footer--row consonant-card-footer--row_fluid"
+          data-cells={3}
         >
           <div
             className="consonant-card-footer--cell consonant-card-footer--cell_left"
-            data-max-width={2}
           >
             <img
               alt=""
@@ -90,7 +90,6 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
           </div>
           <div
             className="consonant-card-footer--cell consonant-card-footer--cell_center"
-            data-max-width={1}
           >
             <div
               className="consonant-icon-with-text-infobit"
@@ -110,7 +109,6 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
           </div>
           <div
             className="consonant-card-footer--cell consonant-card-footer--cell_right"
-            data-max-width={1}
           >
             <a
               className="consonant-btn-infobit consonant-btn-infobit_cta"
@@ -120,7 +118,9 @@ exports[`Consonant/Collection Check snapshots should correct renders 1`] = `
               tabIndex="0"
               target="_blank"
             >
-              $9.99
+              <span>
+                $9.99
+              </span>
             </a>
           </div>
         </div>
@@ -203,11 +203,11 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         className="consonant-card-footer consonant-card-footer_divider"
       >
         <div
-          className="consonant-card-footer--row"
+          className="consonant-card-footer--row consonant-card-footer--row_fluid"
+          data-cells={3}
         >
           <div
             className="consonant-card-footer--cell consonant-card-footer--cell_left"
-            data-max-width={2}
           >
             <img
               alt=""
@@ -226,7 +226,6 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
           </div>
           <div
             className="consonant-card-footer--cell consonant-card-footer--cell_center"
-            data-max-width={1}
           >
             <div
               className="consonant-icon-with-text-infobit"
@@ -246,7 +245,6 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
           </div>
           <div
             className="consonant-card-footer--cell consonant-card-footer--cell_right"
-            data-max-width={1}
           >
             <a
               className="consonant-btn-infobit consonant-btn-infobit_cta"
@@ -256,7 +254,9 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
               tabIndex="0"
               target="_blank"
             >
-              $9.99
+              <span>
+                $9.99
+              </span>
             </a>
           </div>
         </div>
@@ -321,9 +321,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         rel="noreferrer"
         tabIndex="0"
         target="_blank"
-      >
-        Open video link
-      </a>
+      />
     </div>
     <a
       className="consonant-aspect-ratio-1-1-card--inner"
@@ -417,11 +415,11 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         className="consonant-card-footer consonant-card-footer_divider"
       >
         <div
-          className="consonant-card-footer--row"
+          className="consonant-card-footer--row consonant-card-footer--row_fluid"
+          data-cells={3}
         >
           <div
             className="consonant-card-footer--cell consonant-card-footer--cell_left"
-            data-max-width={2}
           >
             <img
               alt=""
@@ -440,7 +438,6 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
           </div>
           <div
             className="consonant-card-footer--cell consonant-card-footer--cell_center"
-            data-max-width={1}
           >
             <div
               className="consonant-icon-with-text-infobit"
@@ -460,7 +457,6 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
           </div>
           <div
             className="consonant-card-footer--cell consonant-card-footer--cell_right"
-            data-max-width={1}
           >
             <a
               className="consonant-btn-infobit consonant-btn-infobit_cta"
@@ -470,7 +466,9 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
               tabIndex="0"
               target="_blank"
             >
-              $9.99
+              <span>
+                $9.99
+              </span>
             </a>
           </div>
         </div>
@@ -535,9 +533,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
         rel="noreferrer"
         tabIndex="0"
         target="_blank"
-      >
-        Open video link
-      </a>
+      />
     </div>
     <a
       className="consonant-full-card--inner"
@@ -545,7 +541,7 @@ exports[`Consonant/Collection Check snapshots should renders correctly with diff
       rel="noreferrer"
       tabIndex="0"
       target="_blank"
-      title="Click to open in a new tab"
+      title=""
     >
       
       <h2

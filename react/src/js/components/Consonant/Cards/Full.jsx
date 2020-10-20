@@ -59,7 +59,8 @@ const FullCard = (props) => {
                         })}>
                         {
                             bannerIcon && (
-                                <div className="consonant-full-card--banner-icon-wrapper">
+                                <div
+                                    className="consonant-full-card--banner-icon-wrapper">
                                     <img
                                         alt=""
                                         loading="lazy"
@@ -68,23 +69,31 @@ const FullCard = (props) => {
                                 </div>
                             )
                         }
-                        <span>{bannerDescription}</span>
+                        <span>
+                            {bannerDescription}
+                        </span>
                     </span>
                 }
-                {badgeText && <span className="consonant-full-card--badge">{badgeText}</span>}
+                {badgeText &&
+                    <span
+                        className="consonant-full-card--badge">
+                        {badgeText}
+                    </span>
+                }
                 {videoURL &&
                     <a
                         href={videoURL}
                         target="_blank"
                         rel="noreferrer"
                         className="consonant-full-card--video-ico"
-                        tabIndex="0">Open video link
-                </a>}
+                        tabIndex="0"/>
+                }
                 {logoSrc &&
-                    <div style={({
-                        backgroundColor: logoBg,
-                        borderColor: logoBorderBg,
-                    })}
+                    <div 
+                        style={({
+                            backgroundColor: logoBg,
+                            borderColor: logoBorderBg,
+                        })}
                         className="consonant-full-card--logo">
                         <img
                             src={logoSrc}
@@ -98,11 +107,17 @@ const FullCard = (props) => {
                 href="ctaLink"
                 target="_blank"
                 rel="noreferrer"
-                title="Click to open in a new tab"
+                title=""
                 className="consonant-full-card--inner"
                 tabIndex="0">
-                {label && <span className="consonant-full-card--label">{label}</span>}
-                <h2 className="consonant-full-card--title" >
+                {label && 
+                    <span
+                        className="consonant-full-card--label">
+                        {label}
+                    </span>
+                }
+                <h2
+                    className="consonant-full-card--title">
                     {title}
                 </h2>
             </a>

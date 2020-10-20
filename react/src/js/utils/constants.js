@@ -1,14 +1,30 @@
-export const TRUNCATE_TEXT_QTY = 200;
+/**
+ * Screen Size Constants
+ */
 export const DESKTOP_MIN_WIDTH = 1200;
 export const TABLET_MIN_WIDTH = 768;
+export const DESKTOP_SCREEN_SIZE = window.innerWidth >= DESKTOP_MIN_WIDTH;
+export const NOT_DESKTOP_SCREEN_SIZE = window.innerWidth < DESKTOP_MIN_WIDTH;
+
+/**
+ * Limit Constants
+ */
+export const MAX_TRUNCATED_FILTERS = 3;
+export const MIN_FILTERS_SHOW_BG = 3;
+export const TRUNCATE_TEXT_QTY = 200;
+
+/**
+ * Paginator Constants
+ */
 export const PAGINATION_COUNT = {
     DESKTOP: 10,
     MOBILE: 4,
 };
-export const LOADER_SIZE = {
-    MEDIUM: 'medium',
-    BIG: 'big',
-};
+
+/**
+ * Fitler Constants
+ */
+
 export const FILTER_TYPES = {
     AND: 'and',
     OR: 'or',
@@ -18,6 +34,11 @@ export const FILTER_PANEL = {
     LEFT: 'left',
     TOP: 'top',
 };
+
+/**
+ * Sorting Constants
+ */
+
 export const CARD_SORT_FIELD = {
     FEATURED: 'initialTitle',
     DATEASC: 'cardDate',
@@ -25,6 +46,19 @@ export const CARD_SORT_FIELD = {
     TITLEASC: 'initialTitle',
     TITLEDESC: 'initialTitle',
 };
+
+export const SORT_TYPES = {
+    DATEASC: 'dateasc',
+    DATEDESC: 'datedesc',
+    FEATURED: 'featured',
+    TITLEASC: 'titleasc',
+    TITLEDESC: 'titledesc',
+};
+
+/**
+ * CSS Constants
+ */
+
 export const CLASS_NAME = {
     TOP_FILTER: 'consonant-top-filter',
     TOP_FILTER_OPENED: 'consonant-top-filter consonant-top-filter_opened',
@@ -32,6 +66,10 @@ export const CLASS_NAME = {
     SEARCH: 'consonant-top-filters--search-ico-wrapper',
     SELECT: 'consonant-select--btn',
 };
+
+/**
+ * Card Footer Constants
+ */
 
 export const INFOBIT_TYPE = {
   PRICE: 'price',
@@ -47,10 +85,13 @@ export const INFOBIT_TYPE = {
   DATE: 'date-interval',
 };
 
+/**
+ * Default Authoring Constants
+ */
 export const DEFAULT_CONFIG = {
     collection: {
         resultsPerPage: 9,
-        endpoint: 'http://caas-publi-aa3c8qnjxs09-336471204.us-west-1.elb.amazonaws.com/api/v4/webinars',
+        endpoint: '',
         title: '',
         totalCardLimit: -1,
         cardStyle: 'none',
@@ -59,7 +100,7 @@ export const DEFAULT_CONFIG = {
         i18n: {
           prettyDateIntervalFormat: '{LLL} {dd} | {timeRange} {timeZone}',
           totalResultsText: '{total} results',
-          title: 'Your Favorite Picks',
+          title: '',
       },
     },
     featuredCards: [],
@@ -109,7 +150,13 @@ export const DEFAULT_CONFIG = {
             'description',
         ],
     },
-    language: {
-      current: 'en',
-    },
+    language: 'en',
+};
+
+/**
+ * Miscellanous Constants
+ */
+export const LOADER_SIZE = {
+    MEDIUM: 'medium',
+    BIG: 'big',
 };

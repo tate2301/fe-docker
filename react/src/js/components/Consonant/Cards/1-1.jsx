@@ -85,15 +85,20 @@ const AspectRatio1to1Card = (props) => {
                         <span>{bannerDescription}</span>
                     </span>
                 }
-                {badgeText && <span className="consonant-aspect-ratio-1-1-card--badge">{badgeText}</span>}
+                {badgeText && 
+                    <span className="consonant-aspect-ratio-1-1-card--badge">
+                        {badgeText}
+                    </span>
+                }
                 {videoURL &&
                     <a
                         href={videoURL}
                         target="_blank"
                         rel="noreferrer"
                         className="consonant-aspect-ratio-1-1-card--video-ico"
-                        tabIndex="0">Open video link
-                </a>}
+                        tabIndex="0">
+                    </a>
+                }
                 {logoSrc &&
                     <div style={({
                         backgroundColor: logoBg,
@@ -115,7 +120,13 @@ const AspectRatio1to1Card = (props) => {
                 title="Click to open in a new tab"
                 className="consonant-aspect-ratio-1-1-card--inner"
                 tabIndex="0">
-                {detailText && <span data-testid="1-1-card--label" className="consonant-aspect-ratio-1-1-card--label">{detailText}</span>}
+                {detailText && 
+                    <span 
+                        data-testid="1-1-card--label" 
+                        className="consonant-aspect-ratio-1-1-card--label">
+                            {detailText}
+                        </span>
+                }
                 <h2 className="consonant-aspect-ratio-1-1-card--title">
                     {title}
                 </h2>

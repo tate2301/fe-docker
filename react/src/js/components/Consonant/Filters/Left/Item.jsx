@@ -1,6 +1,10 @@
-import React, { useCallback } from 'react';
+import React from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { useConfig } from '../../../../utils/hooks';
+import { GroupFooter } from './Mobile-Only/GroupFooter';
+import { SelectedItem as DesktopSelectedItem } from './Desktop-Only/SelectedItem';
+import { Items } from './Items';
 
 const Item = ({
     name,
@@ -16,77 +20,40 @@ const Item = ({
     clearFilterText,
 }) => {
     const getConfig = useConfig();
-    const handleClick = useCallback((e) => {
+    const handleClick = (e) => {
         e.preventDefault();
         onClick(id);
-    }, []);
+    };
 
-    const handleClear = useCallback(() => onClearAll(id), []);
+    const handleClear = () => onClearAll(id);
 
-    const handleCheck = useCallback((evt) => {
+    const handleCheck = (evt) => {
         evt.stopPropagation();
         onCheck(id, evt.target.value, evt.target.checked);
-    }, []);
+    };
 
+    const mobileGroupTotalResultsText =
+        getConfig('filterPanel', 'i18n.leftPanel.mobile.group.totalResultsText').replace('{total}', results);
 
-    const selectedFilterComponent = numItemsSelected > 0 && (
-        <button
-            data-testid="item-badge"
-            type="button"
-            className="consonant-left-filter--item-badge"
-            onClick={handleClear}
-            tabIndex="0">
-            {numItemsSelected > 0 ? numItemsSelected : null}
-        </button>
-    );
+    const applyBtnText = getConfig('filterPanel', 'i18n.leftPanel.mobile.group.applyBtnText');
+    const doneBtnText = getConfig('filterPanel', 'i18n.leftPanel.mobile.group.doneBtnText');
+    const ctaText = numItemsSelected > 0 ? applyBtnText : doneBtnText;
 
-    const filterItemsComponent = (
-        <ul
-            data-testid="filter-group"
-            className="consonant-left-filter--items">
-            {items.map(item => (
-                <li
-                    key={item.id}
-                    data-testid="filter-group-item"
-                    className="consonant-left-filter--items-item">
-                    <label htmlFor={item.id} className="consonant-left-filter--items-item-label">
-                        <input
-                            data-testid="list-item-checkbox"
-                            id={item.id}
-                            value={item.id}
-                            type="checkbox"
-                            onChange={handleCheck}
-                            checked={item.selected}
-                            tabIndex="0" />
-                        <span className="consonant-left-filter--items-item-checkmark" />
-                        <span className="consonant-left-filter--items-item-name">{item.label}</span>
-                    </label>
-                </li>
-            ))}
-        </ul>
-    );
-    const footerComponent = (
-        <div className="consonant-left-filter--footer">
-            <span className="consonant-left-filter--footer-res-qty">{getConfig('filterPanel', 'i18n.leftPanel.mobile.group.totalResultsText').replace('{total}', results)}</span>
-            {numItemsSelected > 0 &&
-            <button
-                type="button"
-                onClick={handleClear}
-                className="consonant-left-filter--footer-clear-btn">{clearFilterText}
-            </button>}
-            <button
-                type="button"
-                onClick={handleClick}
-                className="consonant-left-filter--footer-btn">
-                {numItemsSelected > 0 ? getConfig('filterPanel', 'i18n.leftPanel.mobile.group.applyBtnText') : getConfig('filterPanel', 'i18n.leftPanel.mobile.group.doneBtnText')}
-            </button>
-        </div>
-    );
+    const leftFilterClassName = classNames({
+        'consonant-left-filter': true,
+        'consonant-left-filter_opened': isOpened,
+    });
+
+    const dataQtyTxt = numItemsSelected > 0 ? `+${numItemsSelected}` : '';
 
     return (
-        <div data-testid="filter-item" className={isOpened ? 'consonant-left-filter consonant-left-filter_opened' : 'consonant-left-filter'}>
-            <div className="consonant-left-filter--inner">
-                <h3 className="consonant-left-filter--name">
+        <div
+            data-testid="filter-item"
+            className={leftFilterClassName}>
+            <div
+                className="consonant-left-filter--inner">
+                <h3
+                    className="consonant-left-filter--name">
                     {icon &&
                     <img
                         src={icon}
@@ -103,16 +70,33 @@ const Item = ({
                         {name}
                         <div
                             className="consonant-left-filter--selected-items-qty"
-                            data-qty={numItemsSelected > 0 ? `+${numItemsSelected}` : ''}>
+                            data-qty={dataQtyTxt}>
                             {items.filter(i => i.selected).map((item, idx) =>
                                 (idx === items.length - 1 ? item.label : `${item.label}, `))
                             }
                         </div>
                     </button>
                 </h3>
-                {selectedFilterComponent}
-                {filterItemsComponent}
-                {footerComponent}
+                {
+                    numItemsSelected > 0 &&
+                    <DesktopSelectedItem
+                        handleClear={handleClear}
+                        numItemsSelected={numItemsSelected} />
+                }
+                {
+                    <Items
+                        items={items}
+                        handleCheck={handleCheck} />
+                }
+                {
+                    <GroupFooter
+                        ctaText={ctaText}
+                        handleClick={handleClick}
+                        clearFilterText={clearFilterText}
+                        handleClear={handleClear}
+                        numItemsSelected={numItemsSelected}
+                        mobileGroupTotalResultsText={mobileGroupTotalResultsText} />
+                }
             </div>
         </div>
     );

@@ -3,7 +3,7 @@
 exports[`Consonant/Search Check snapshots should renders correctly with value 1`] = `
 <div
   className="consonant-search"
-  data-testid="consonant-search"
+  data-testid=""
 >
   <label
     htmlFor="consonant-search"
@@ -31,7 +31,7 @@ exports[`Consonant/Search Check snapshots should renders correctly with value 1`
         className="consonant-search--input-clear"
         onClick={[Function]}
         tabIndex="0"
-        title="Click to clear search query"
+        title=""
         type="button"
       >
         clear
@@ -44,7 +44,7 @@ exports[`Consonant/Search Check snapshots should renders correctly with value 1`
 exports[`Consonant/Search Check snapshots should renders correctly without value 1`] = `
 <div
   className="consonant-search"
-  data-testid="consonant-search"
+  data-testid=""
 >
   <label
     htmlFor="consonant-search"
@@ -72,7 +72,7 @@ exports[`Consonant/Search Check snapshots should renders correctly without value
         className="consonant-search--input-clear"
         onClick={[Function]}
         tabIndex="0"
-        title="Click to clear search query"
+        title=""
         type="button"
       >
         clear

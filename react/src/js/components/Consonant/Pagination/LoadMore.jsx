@@ -11,25 +11,31 @@ const LoadMore = ({
     const loadMoreButtonText = getConfig('pagination', 'i18n.loadMore.btnText');
     const loadMoreQuantityText = getConfig('pagination', 'i18n.loadMore.resultsQuantityText');
 
-    const qtyHTML = loadMoreQuantityText
-        .replace('{start}', `<span class="consonant-load-more--shown">${show}</span>`)
-        .replace('{end}', `<span class="consonant-load-more--total">${total}</span>`);
+    const loadMoreText = loadMoreQuantityText
+        .replace('{start}', show)
+        .replace('{end}', total);
 
+    const shouldDisplayLoadMore = show > 0 && total > 0;
+    const shouldDisplayLoadMoreBtn = show < total;
 
-    return (show > 0 && total > 0) ? (
-        <div data-testid="consonant-load-more" className="consonant-load-more">
+    return (shouldDisplayLoadMore) ? (
+        <div
+            data-testid="consonant-load-more"
+            className="consonant-load-more">
             <div className="consonant-load-more--inner">
                 <p
                     data-testid="consonant-load-more--text"
-                    className="consonant-load-more--text"
-                    dangerouslySetInnerHTML={{ __html: qtyHTML }} />
-                {show < total &&
+                    className="consonant-load-more--text">
+                    {loadMoreText}
+                </p>
+                {shouldDisplayLoadMoreBtn &&
                     <button
                         type="button"
                         data-testid="load-more__button"
                         className="consonant-load-more--btn"
                         onClick={onClick}
-                        tabIndex="0">{loadMoreButtonText}
+                        tabIndex="0">
+                        {loadMoreButtonText}
                     </button>
                 }
             </div>

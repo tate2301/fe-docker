@@ -1,40 +1,54 @@
-import React, { useMemo } from 'react';
+import React from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { useConfig } from '../../../utils/hooks';
 
 const Bookmarks = (props) => {
     const {
-        selected,
+        showBookmarks,
         onClick,
-        qty,
+        savedCardsCount,
     } = props;
 
     const getConfig = useConfig();
-    const title = getConfig('bookmarks', 'i18n.leftFilterPanel.filterTitle');
-    const selectedIco = getConfig('bookmarks', 'leftFilterPanel.selectBookmarksIcon');
-    const unselectedIco = getConfig('bookmarks', 'leftFilterPanel.unselectBookmarksIcon');
+    const bookmarkTitle = getConfig('bookmarks', 'i18n.leftFilterPanel.filterTitle');
+    const bookmarkSelectedIcon = getConfig('bookmarks', 'leftFilterPanel.selectBookmarksIcon');
+    const bookmarkUnselectedIcon = getConfig('bookmarks', 'leftFilterPanel.unselectBookmarksIcon');
 
-    const src = selected ? selectedIco : unselectedIco;
+    const bookmarkIcon = showBookmarks ? bookmarkSelectedIcon : bookmarkUnselectedIcon;
 
-    const iconStyles = useMemo(() => ({
-        backgroundImage: src ? `url(${src})` : '',
-    }));
+    const iconStyles = {
+        backgroundImage: bookmarkIcon ? `url(${bookmarkIcon})` : '',
+    };
+
+    const bookmarkClass = classNames({
+        bookmarks: true,
+        bookmarks_selected: showBookmarks,
+    });
 
     return (
         <button
             data-testid="bookmarks"
             type="button"
             onClick={onClick}
-            className={selected ? 'bookmarks bookmarks_selected' : 'bookmarks'}
+            className={bookmarkClass}
             tabIndex="0">
-            <span className="bookmarks--ico-wrapper">
+            <span
+                className="bookmarks--ico-wrapper">
                 <span
                     style={iconStyles}
                     className="bookmarks--ico"
                     data-testid="bookmarks--ico" />
-                <span className="bookmarks--title">{title}</span>
+                <span
+                    className="bookmarks--title">
+                    {bookmarkTitle}
+                </span>
             </span>
-            <span data-testid="bookmarks--item-badge" className="bookmarks--item-badge">{qty}</span>
+            <span
+                data-testid="bookmarks--item-badge"
+                className="bookmarks--item-badge">
+                {savedCardsCount}
+            </span>
         </button>
     );
 };
@@ -42,12 +56,12 @@ const Bookmarks = (props) => {
 export default Bookmarks;
 
 Bookmarks.propTypes = {
-    selected: PropTypes.bool,
+    showBookmarks: PropTypes.bool,
     onClick: PropTypes.func.isRequired,
-    qty: PropTypes.number,
+    savedCardsCount: PropTypes.number,
 };
 
 Bookmarks.defaultProps = {
-    selected: false,
-    qty: 0,
+    showBookmarks: false,
+    savedCardsCount: 0,
 };

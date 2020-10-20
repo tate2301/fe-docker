@@ -21,6 +21,7 @@ export const DEFAULT_PROPS = {
     onClearAllFilters: jest.fn(),
     onClearFilterItems: jest.fn(),
     onMobileFiltersToggleClick: jest.fn(),
+    onSelectedFilterClick: jest.fn(),
 
     searchComponent: <React.Fragment />,
     bookmarkComponent: <React.Fragment />,

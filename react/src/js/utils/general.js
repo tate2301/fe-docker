@@ -101,3 +101,8 @@ export const parseToPrimitive = (value) => {
 };
 
 export const isNullish = val => val === undefined || val === null || Number.isNaN(val);
+
+export const isAtleastOneFilterSelected =
+        filters => chainFromIterable(filters.map(f => f.items)).some(item => item.selected);
+
+export const stopPropagation = e => e.stopPropagation();

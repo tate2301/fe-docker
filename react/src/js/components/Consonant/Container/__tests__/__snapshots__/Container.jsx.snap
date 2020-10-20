@@ -62,7 +62,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
                 className="consonant-search--input-clear"
                 onClick={[Function]}
                 tabIndex="0"
-                title="Click to clear search query"
+                title=""
                 type="button"
               >
                 clear
@@ -259,7 +259,7 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
                 className="consonant-search--input-clear"
                 onClick={[Function]}
                 tabIndex="0"
-                title="Click to clear search query"
+                title=""
                 type="button"
               >
                 clear

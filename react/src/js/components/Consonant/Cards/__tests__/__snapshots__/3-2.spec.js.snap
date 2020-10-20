@@ -77,11 +77,11 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
       className="consonant-card-footer"
     >
       <div
-        className="consonant-card-footer--row"
+        className="consonant-card-footer--row consonant-card-footer--row_fluid"
+        data-cells={2}
       >
         <div
           className="consonant-card-footer--cell consonant-card-footer--cell_left"
-          data-max-width={2}
         >
           <button
             className="consonant-bookmark-infobit consonant-bookmark-infobit_active consonant-bookmark-infobit_disabled"
@@ -124,7 +124,6 @@ exports[`Consonant/Card Check snapshots should renders with bookmarking 1`] = `
         </div>
         <div
           className="consonant-card-footer--cell consonant-card-footer--cell_right"
-          data-max-width={1}
         >
           <span
             className="consonant-date-interval-infobit"

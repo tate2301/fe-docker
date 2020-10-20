@@ -2,7 +2,7 @@ import React  from 'react';
 import debounce from 'lodash/debounce';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { makeConfigGetter } from './consonant';
-import { ConfigContext, ExpandableContext } from '../contexts';
+import { ConfigContext, ExpandableContext } from './contexts';
 
 export const useWindowDimensions = () => {
     const getWindowDimensions = () => ({
@@ -55,8 +55,8 @@ export const useIsMounted = () => {
 }
 
 export const useLazyLoading = (imageRef, image) => {
-    const [lazyLoadImage, setLazyLoadImage] = useState(""); 
-    const isMounted = useIsMounted(); 
+    const [lazyLoadImage, setLazyLoadImage] = useState("");
+    const isMounted = useIsMounted();
     const imageObserver = new IntersectionObserver(elements => {
         if (elements[0].intersectionRatio !== 0 && isMounted.current) {
             setLazyLoadImage(image);
@@ -81,5 +81,5 @@ export const useLazyLoading = (imageRef, image) => {
         }
     }, [imageRef]);
 
-    return [ lazyLoadImage ];   
+    return [ lazyLoadImage ];
 }

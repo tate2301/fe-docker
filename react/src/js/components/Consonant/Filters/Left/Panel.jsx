@@ -1,16 +1,19 @@
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import sum from 'lodash/sum';
-import React, { useMemo } from 'react';
-import ChosenFilter from './ChosenItem';
-import { chainFromIterable } from '../../../../utils/general';
+import React from 'react';
+import ChosenFilter from './Desktop-Only/ChosenItem';
+import { isAtleastOneFilterSelected } from '../../../../utils/general';
 import { useConfig } from '../../../../utils/hooks';
 import Item from './Item';
+import { Title as MobileTitle } from './Mobile-Only/Title';
+import { PanelFooter as MobileFooter } from './Mobile-Only/PanelFooter';
+import { Title as DesktopTitle } from './Desktop-Only/Title';
+import { ClearBtn as DesktopClearBtn } from './Desktop-Only/ClearButton';
 
-const DESKTOP_MIN_WIDTH = 1200;
 const LeftFilterPanel = ({
     filters,
     selectedFiltersQty,
-    windowWidth,
     showMobileFilters,
     onFilterClick,
     onClearAllFilters,
@@ -21,6 +24,7 @@ const LeftFilterPanel = ({
     resQty,
     searchComponent,
     bookmarkComponent,
+    windowWidth,
 }) => {
     const getConfig = useConfig();
 
@@ -35,74 +39,38 @@ const LeftFilterPanel = ({
     const applyText = getConfig('filterPanel', 'i18n.leftPanel.mobile.panel.applyBtnText');
     const doneText = getConfig('filterPanel', 'i18n.leftPanel.mobile.panel.doneBtnText');
 
-    const someFiltersAreSelected = useMemo(
-        () =>
-            chainFromIterable(filters.map(f => f.items))
-                .some(item => item.selected),
-        [filters],
-    );
+    const atleastOneFilterSelected = isAtleastOneFilterSelected(filters);
 
-    const mobileFiltersTitle = windowWidth < DESKTOP_MIN_WIDTH && (
-        <div className="consonant-left-filters--mob-title">
-            <button
-                type="button"
-                onClick={onMobileFiltersToggleClick}
-                className="consonant-left-filters--mob-back">
-                Back
-            </button>
-            <span>{leftPanelMobileHeader}</span>
-        </div>
-    );
-    const desktopFiltersTitle = windowWidth >= DESKTOP_MIN_WIDTH && (
-        <h3 className="consonant-left-filters--desk-title">{panelHeader}</h3>
-    );
-    const desktopFiltersClearBtn = windowWidth >= DESKTOP_MIN_WIDTH && (
-        <button
-            type="button"
-            data-testid="left-filter-panel-clear-all-btn"
-            className="consonant-left-filters--clear-link"
-            onClick={onClearAllFilters}
-            tabIndex="0">
-            {clearAllFiltersText}
-        </button>
-    );
+    const mobileFiltersClass = classNames({
+        'consonant-left-filters': true,
+        'consonant-left-filters_opened': showMobileFilters,
+    });
 
-    const mobileFiltersFooter = windowWidth < DESKTOP_MIN_WIDTH && (
-        <div className="consonant-left-filters--mobile-footer">
-            {showTotalResults && (
-                <span
-                    data-testid="mobile-footer-total-res"
-                    className="consonant-left-filters--mobile-footer-total-res-qty">
-                    {showTotalResultsText.replace('{total}', resQty)}
-                </span>
-            )}
-            {someFiltersAreSelected && (
-                <button
-                    type="button"
-                    data-testid="mobile-footer-clear"
-                    className="consonant-left-filters--mobile-footer-clear-btn"
-                    onClick={onClearAllFilters}>
-                    {clearAllFiltersText}
-                </button>
-            )}
-            <button
-                type="button"
-                data-testid="mobile-footer-btn"
-                className="consonant-left-filters--mobile-footer-btn"
-                onClick={onMobileFiltersToggleClick}>
-                {someFiltersAreSelected ? applyText : doneText}
-            </button>
-        </div>
-    );
+    const DESKTOP_MIN_WIDTH = 1200;
+    const DESKTOP_SCREEN_SIZE = windowWidth >= DESKTOP_MIN_WIDTH;
+    const NOT_DESKTOP_SCREEN_SIZE = windowWidth < DESKTOP_MIN_WIDTH;
 
     return (
         <div
             data-testid="consonant-filters__left"
-            className={showMobileFilters ? 'consonant-left-filters consonant-left-filters_opened' : 'consonant-left-filters'}>
-            <div className="consonant-left-filters--header">
-                {mobileFiltersTitle}
-                {desktopFiltersTitle}
-                {desktopFiltersClearBtn}
+            className={mobileFiltersClass}>
+            <div
+                className="consonant-left-filters--header">
+                {NOT_DESKTOP_SCREEN_SIZE &&
+                    <MobileTitle
+                        onClick={onMobileFiltersToggleClick}
+                        leftPanelMobileHeader={leftPanelMobileHeader} />
+                }
+                {DESKTOP_SCREEN_SIZE &&
+                    <DesktopTitle
+                        panelHeader={panelHeader} />
+                }
+                {DESKTOP_SCREEN_SIZE &&
+                    <DesktopClearBtn
+                        clearAllFiltersText={clearAllFiltersText}
+                        onClearAllFilters={onClearAllFilters}
+                        panelHeader={panelHeader} />
+                }
             </div>
             {windowWidth >= DESKTOP_MIN_WIDTH && searchEnabled && searchComponent}
             {windowWidth >= DESKTOP_MIN_WIDTH && selectedFiltersQty > 0 &&
@@ -141,7 +109,18 @@ const LeftFilterPanel = ({
                     ))}
                 </div>
             )}
-            {mobileFiltersFooter}
+            {NOT_DESKTOP_SCREEN_SIZE &&
+                <MobileFooter
+                    doneText={doneText}
+                    applyText={applyText}
+                    someFiltersAreSelected={atleastOneFilterSelected}
+                    showTotalResultsText={showTotalResultsText}
+                    onMobileFiltersToggleClick={onMobileFiltersToggleClick}
+                    clearAllFiltersText={clearAllFiltersText}
+                    onClearAllFilters={onClearAllFilters}
+                    resQty={resQty}
+                    showTotalResults={showTotalResults} />
+            }
         </div>
     );
 };
@@ -151,7 +130,6 @@ export default LeftFilterPanel;
 LeftFilterPanel.propTypes = {
     filters: PropTypes.arrayOf(PropTypes.object),
     selectedFiltersQty: PropTypes.number,
-    windowWidth: PropTypes.number,
     showMobileFilters: PropTypes.bool,
     onFilterClick: PropTypes.func.isRequired,
     onClearAllFilters: PropTypes.func.isRequired,
@@ -162,12 +140,13 @@ LeftFilterPanel.propTypes = {
     resQty: PropTypes.number,
     searchComponent: PropTypes.node.isRequired,
     bookmarkComponent: PropTypes.node.isRequired,
+    windowWidth: PropTypes.number,
 };
 
 LeftFilterPanel.defaultProps = {
     filters: [],
     selectedFiltersQty: 0,
-    windowWidth: window.innerWidth,
     showMobileFilters: false,
     resQty: 0,
+    windowWidth: window.innerWidth,
 };

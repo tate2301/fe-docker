@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useConfig } from '../../../utils/hooks';
 
 const searchId = 'consonant-search';
@@ -17,28 +17,37 @@ const Search = ({
 
     const textInput = useRef(null);
 
-    const handleSearch = useCallback((e) => {
+    const handleSearch = (e) => {
         onSearch(e.target.value);
-    }, []);
+    };
 
-    const focusTextInput = useCallback(() => {
+    const focusTextInput = () => {
         textInput.current.focus();
-    }, []);
+    };
 
-    const clearSearch = useCallback(() => {
+    const clearSearch = () => {
         onSearch('');
         focusTextInput();
-    }, []);
+    };
 
     useEffect(() => {
-        if (autofocus && textInput.current) textInput.current.focus();
+        if (autofocus && textInput.current) {
+            textInput.current.focus();
+        }
     }, [autofocus, textInput]);
 
     return (
-        <div data-testid={name} className="consonant-search">
-            <label htmlFor={searchId}>
-                <span className="consonant-search--input-title">{leftPanelTitle}</span>
-                <span className="consonant-search--input-wrapper">
+        <div
+            data-testid={name}
+            className="consonant-search">
+            <label
+                htmlFor={searchId}>
+                <span
+                    className="consonant-search--input-title">
+                    {leftPanelTitle}
+                </span>
+                <span
+                    className="consonant-search--input-wrapper">
                     <input
                         id={searchId}
                         data-testid="search-input"
@@ -52,10 +61,11 @@ const Search = ({
                         required />
                     <button
                         type="button"
-                        title="Click to clear search query"
+                        title=""
                         className="consonant-search--input-clear"
                         onClick={clearSearch}
-                        tabIndex="0">clear
+                        tabIndex="0">
+                        clear
                     </button>
                 </span>
             </label>
@@ -75,7 +85,7 @@ Search.propTypes = {
 
 Search.defaultProps = {
     value: '',
-    name: 'consonant-search',
+    name: '',
     autofocus: true,
-    placeholderText: 'Search...',
+    placeholderText: '',
 };

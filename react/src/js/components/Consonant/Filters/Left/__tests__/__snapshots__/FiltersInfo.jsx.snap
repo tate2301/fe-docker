@@ -34,7 +34,11 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly when mob
 >
   <div
     className="consonant-filters-info--search"
-  />
+  >
+    <div
+      data-testid="filters-info__search-component"
+    />
+  </div>
 </aside>
 `;
 
@@ -46,12 +50,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with sea
   <div
     className="consonant-filters-info--wrapper consonant-filters-info--wrapper_no-line"
   >
-    <h2
-      className="consonant-filters-info--title"
-      data-testid="title"
-    >
-      Your Favorite Picks
-    </h2>
+    
   </div>
   <div
     className="consonant-filters-info--search"
@@ -67,12 +66,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with sel
   <div
     className="consonant-filters-info--wrapper consonant-filters-info--wrapper_no-line"
   >
-    <h2
-      className="consonant-filters-info--title"
-      data-testid="title"
-    >
-      Your Favorite Picks
-    </h2>
+    
   </div>
   <div
     className="consonant-filters-info--search"
@@ -88,12 +82,7 @@ exports[`Consonant/FiltersInfo Check snapshots should renders correctly with two
   <div
     className="consonant-filters-info--wrapper consonant-filters-info--wrapper_no-line"
   >
-    <h2
-      className="consonant-filters-info--title"
-      data-testid="title"
-    >
-      Your Favorite Picks
-    </h2>
+    
   </div>
   <div
     className="consonant-filters-info--search"

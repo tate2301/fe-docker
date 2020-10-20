@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useConfig, useLazyLoading } from '../../../utils/hooks';
 import prettyFormatDate from '../../../utils/prettyFormat';
 import CardFooter from './CardFooter/CardFooter';
-import { INFOBIT_TYPE } from '../../../constants';
+import { INFOBIT_TYPE } from '../../../utils/constants';
 
 export const Tooltip = (props) => {
     const { text } = props;
@@ -60,7 +60,7 @@ const AspectRatio3to2Card = ({
     },
 }) => {
     const extendFooterData = (data) => {
-        if (!data) return null;
+        if (!data) return;
 
         return data.map((el) => {
             if (el.type === INFOBIT_TYPE.BOOKMARK) {

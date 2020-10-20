@@ -12,8 +12,8 @@ import {
     PAGINATION_COUNT,
     TABLET_MIN_WIDTH,
     TRUNCATE_TEXT_QTY,
-} from '../../../constants';
-import { ConfigContext, ExpandableContext } from '../../../contexts';
+} from '../../../utils/constants';
+import { ConfigContext, ExpandableContext } from '../../../utils/contexts';
 import {
     getDefaultSortOption,
     getNumSelectedFilterItems,
@@ -29,16 +29,17 @@ import {
     getNumCardsToShow,
     getTotalPages,
     getActiveFilterIds,
-} from './Helpers';
+    getUpdatedCardBookmarkData,
+} from '../../../utils/Helpers';
 
-import CardFilterer from './CardFilterer';
-import JsonProccesor from './JsonProccesor';
+import CardFilterer from '../../../utils/CardFilterer';
+import JsonProcessor from '../../../utils/JsonProcessor';
 
 import { useWindowDimensions } from '../../../utils/hooks';
 
 import Bookmarks from '../Bookmarks/Bookmarks';
 import Collection from '../Collection/Collection';
-import FilterInfo from '../Filters/Left/FilterInfo';
+import { Info as LeftInfo } from '../Filters/Left/Info';
 import LeftFilterPanel from '../Filters/Left/Panel';
 import FiltersPanelTop from '../Filters/Top/Panel';
 import Loader from '../Loader/Loader';
@@ -182,7 +183,7 @@ const Container = (props) => {
         }
     };
 
-    const handleShowFavoritesClick = (e) => {
+    const handleShowBookmarksClick = (e) => {
         e.stopPropagation();
         setShowBookmarks(prev => !prev);
     };
@@ -216,7 +217,7 @@ const Container = (props) => {
                 setLoading(false);
                 if (!get(payload, 'cards.length')) return;
 
-                const jsonProcessor = new JsonProccesor(payload.cards);
+                const jsonProcessor = new JsonProcessor(payload.cards);
                 const { processedCards } = jsonProcessor
                     .addFeaturedCards(featuredCards)
                     .removeDuplicateCards()
@@ -236,6 +237,7 @@ const Container = (props) => {
 
     useEffect(() => {
         saveBookmarksToLocalStorage(bookmarkedCardIds);
+        setCards(getUpdatedCardBookmarkData(cards, bookmarkedCardIds));
     }, [bookmarkedCardIds]);
 
     useEffect(() => {
@@ -251,7 +253,7 @@ const Container = (props) => {
 
     const cardFilterer = new CardFilterer(cards);
 
-    const { someFilteredCards } = cardFilterer
+    const { filteredCards } = cardFilterer
         .keepBookmarkedCardsOnly(onlyShowBookmarks, bookmarkedCardIds, showBookmarks)
         .filterCards(activeFilterIds, filterLogic, FILTER_TYPES)
         .sortCards(sortOption)
@@ -259,18 +261,18 @@ const Container = (props) => {
         .truncateList(totalCardLimit)
         .searchCards(searchQuery, searchFields)
 
-    const collectionCards = someFilteredCards;
+    const collectionCards = filteredCards;
 
-    const totalPages = getTotalPages(resultsPerPage, someFilteredCards.length);
+    const totalPages = getTotalPages(resultsPerPage, collectionCards.length);
 
-    const numCardsToShow = getNumCardsToShow(resultsPerPage, currentPage, someFilteredCards.length);
+    const numCardsToShow = getNumCardsToShow(resultsPerPage, currentPage, collectionCards.length);
 
     const selectedFiltersItemsQty = getNumSelectedFilterItems(filters);
 
     const displayPagination = shouldDisplayPaginator(
         paginationIsEnabled,
         resultsPerPage,
-        someFilteredCards.length,
+        collectionCards.length,
     );
 
     const displayLoadMore = displayPagination && paginationType === 'loadMore';
@@ -305,13 +307,12 @@ const Container = (props) => {
                                     onMobileFiltersToggleClick={handleFiltersToggle}
                                     onSelectedFilterClick={handleCheckBoxChange}
                                     showMobileFilters={showMobileFilters}
-                                    resQty={someFilteredCards.length}
+                                    resQty={collectionCards.length}
                                     bookmarkComponent={(
                                         <Bookmarks
-                                            name="filtersSideBookmarks"
-                                            selected={showBookmarks}
-                                            onClick={handleShowFavoritesClick}
-                                            qty={bookmarkedCardIds.length} />
+                                            showBookmarks={showBookmarks}
+                                            onClick={handleShowBookmarksClick}
+                                            savedCardsCount={bookmarkedCardIds.length} />
                                     )}
                                     searchComponent={(
                                         <Search
@@ -330,7 +331,7 @@ const Container = (props) => {
                                     filterPanelEnabled={filterPanelEnabled}
                                     filters={filters}
                                     windowWidth={windowWidth}
-                                    resQty={someFilteredCards.length}
+                                    resQty={collectionCards.length}
                                     onCheckboxClick={handleCheckBoxChange}
                                     onFilterClick={handleFilterItemClick}
                                     onClearFilterItems={clearFilterItems}
@@ -358,11 +359,11 @@ const Container = (props) => {
                                     onShowAllClick={handleShowAllTopFilters} />
                             }
                             {filterPanelType === FILTER_PANEL.LEFT &&
-                                <FilterInfo
+                                <LeftInfo
                                     enabled={filterPanelEnabled}
                                     filtersQty={filters.length}
                                     filters={filters}
-                                    cardsQty={someFilteredCards.length}
+                                    cardsQty={collectionCards.length}
                                     selectedFiltersQty={selectedFiltersItemsQty}
                                     windowWidth={windowWidth}
                                     onMobileFiltersToggleClick={handleFiltersToggle}
@@ -393,13 +394,12 @@ const Container = (props) => {
                                         pages={currentPage}
                                         cards={collectionCards}
                                         onCardBookmark={handleCardBookmarking} />
-                                    {/* TODO: Migrate to useRef */}
                                     {displayLoadMore && (
                                         <div ref={page}>
                                             <LoadMore
                                                 onClick={onLoadMoreClick}
                                                 show={numCardsToShow}
-                                                total={someFilteredCards.length} />
+                                                total={collectionCards.length} />
                                         </div>
                                     )}
                                     {displayPaginator &&
@@ -410,7 +410,7 @@ const Container = (props) => {
                                             currentPageNumber={currentPage}
                                             totalPages={totalPages}
                                             showItemsPerPage={resultsPerPage}
-                                            totalResults={someFilteredCards.length}
+                                            totalResults={collectionCards.length}
                                             onClick={setCurrentPage} />
                                     }
                                 </Fragment> : (

@@ -21,7 +21,9 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when clos
         Topic
         <span
           className="consonant-top-filter--selcted-items-qty"
-        />
+        >
+          
+        </span>
       </button>
     </h3>
     <div
@@ -362,7 +364,9 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly when open
         Topic
         <span
           className="consonant-top-filter--selcted-items-qty"
-        />
+        >
+          
+        </span>
       </button>
     </h3>
     <div
