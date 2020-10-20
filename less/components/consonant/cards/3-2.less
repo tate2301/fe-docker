@@ -12,10 +12,8 @@
 @consonant-card-logo-img-max-height: 32px;
 
 .consonant-aspect-ratio-3-2-card {
-    &:extend(
-        .flex,
-        .flex .direction .column
-    );
+    display: flex;
+    flex-direction: column;
 
     .full-width;
 
@@ -32,12 +30,9 @@
     background-color: @consonant-color-white;
 
     .consonant-aspect-ratio-3-2-card--inner {
-        &:extend(
-            .flex,
-            .flex .size-on-axis .grow-1,
-            .flex .direction .column
-        );
-
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
         padding: unit((@consonant-root-rem * 1.0625), px);
     }
 
@@ -150,12 +145,9 @@
     }
 
     .consonant-aspect-ratio-3-2-card--footer-wrapper {
-        &:extend(
-            .flex,
-            .flex .justify .between,
-            .flex .align .center
-        );
-
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin-top: auto;
         padding-top: 23/@consonant-root-rem;
         border-top: 1px solid @consonant-color-lightest-grey;
@@ -163,16 +155,13 @@
     }
 
     .consonant-aspect-ratio-3-2-card--footer-info {
+        display: flex;
+        flex-grow: 1;
+        justify-content: flex-start;
+        align-items: center;
         // Min btn width - 20 margin rigth;
         max-width: calc(~ '100% - 20px - ' @consonant-card-btn-min-width);
         margin-right: 20px;
-
-        &:extend(
-            .flex,
-            .flex .size-on-axis .grow-1,
-            .flex .justify .start,
-            .flex .align .center
-        );
     }
 
     .consonant-aspect-ratio-3-2-card--secondary-text {
@@ -225,12 +214,8 @@
 
     .consonant-aspect-ratio-3-2-card--banner {
         position: absolute;
-
-        &:extend(
-            .flex,
-            .flex .justify .start
-        );
-
+        display: flex;
+        justify-content: flex-start;
         max-width: 58%;
         max-height: 70%;
         top: unit((@consonant-root-rem * 1.5), px);

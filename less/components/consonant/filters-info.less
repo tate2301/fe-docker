@@ -12,20 +12,16 @@
 @consonant-filters-info-title-1440-break-width: unit((@consonant-root-rem * 45), px);
 
 .consonant-filters-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     min-width: 83.333vw;
     max-width: 83.333vw;
 
     .margin-auto;
 
     box-sizing: border-box;
-
-    &:extend(
-        .flex,
-        .flex .justify .between,
-        .flex .align .center,
-        .flex .wrap
-    );
-
     padding: 14/@consonant-root-rem 0 20/@consonant-root-rem;
     top: 0;
     left: 0;
@@ -45,9 +41,7 @@
 
     .consonant-filters-info--btn {
         display: inline-flex;
-
-        &:extend(.flex .align .center);
-
+        align-items: center;
         min-width: @consonant-filters-info-btn-min-width;
         max-width: 100%;
         margin-bottom: 10/@consonant-root-rem;

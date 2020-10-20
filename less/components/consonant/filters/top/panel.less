@@ -15,12 +15,9 @@
     padding: 14/@consonant-root-rem 0 20/@consonant-root-rem;
 
     .consonant-top-filters--inner {
-        &:extend(
-            .flex,
-            .flex .justify .between,
-            .flex .align .start
-        );
-
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
         max-width: 100%;
     }
 
@@ -38,14 +35,11 @@
     }
 
     .consonant-top-filters--filters-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
         flex-grow: 1;
         max-width: calc(~ '100% - ' @consonant-select-width * 0.85 ~ ' - ' unit((@consonant-root-rem * 0.5), px));
-
-        &:extend(
-            .flex,
-            .flex .justify .end,
-            .flex .align .start
-        );
 
         &:only-child {
             max-width: 100%;
@@ -58,12 +52,9 @@
     }
 
     .consonant-top-filters--filters {
-        &:extend(
-            .flex,
-            .flex .justify .start,
-            .flex .align .stretch
-        );
-
+        display: flex;
+        justify-content: flex-start;
+        align-items: stretch;
         margin-right: unit((@consonant-root-rem), px);
         overflow-y: auto;
 
@@ -126,13 +117,10 @@
     }
 
     .consonant-top-filters--clear-btn-wrapper {
-        &:extend(
-            .flex,
-            .flex .justify .center,
-            .flex .align .center
-        );
-
         position: sticky;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         right: 0;
         min-height: unit((@consonant-root-rem * 2), px);
         max-width: 40%;

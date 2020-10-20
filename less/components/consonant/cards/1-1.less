@@ -1,8 +1,6 @@
 .consonant-aspect-ratio-1-1-card {
-    &:extend(
-        .flex,
-        .flex .direction .column
-    );
+    display: flex;
+    flex-direction: column;
 
     .full-width;
 
@@ -20,12 +18,9 @@
     overflow: hidden;
 
     .consonant-aspect-ratio-1-1-card--inner {
-        &:extend(
-            .flex,
-            .flex .size-on-axis .grow-1,
-            .flex .direction .column
-        );
-
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
         padding:
             20/@consonant-root-rem
             unit((@consonant-root-rem * 1.5), px)
@@ -133,12 +128,8 @@
 
     .consonant-aspect-ratio-1-1-card--banner {
         position: absolute;
-
-        &:extend(
-            .flex,
-            .flex .justify .start
-        );
-
+        display: flex;
+        justify-content: flex-start;
         max-width: 58%;
         max-height: 70%;
         top: unit((@consonant-root-rem * 1.5), px);

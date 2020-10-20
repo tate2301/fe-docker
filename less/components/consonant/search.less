@@ -9,13 +9,9 @@
     padding-bottom: 12/@consonant-root-rem;
 
     label {
+        display: flex;
+        flex-wrap: wrap;
         max-width: 100%;
-
-        &:extend(
-            .flex,
-            .flex .wrap
-        );
-
         cursor: pointer;
         word-break: break-word;
     }

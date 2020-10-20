@@ -18,11 +18,9 @@
 
 .consonant-left-filters {
     position: static;
+    display: flex;
+    flex-direction: column;
 
-    &:extend(
-        .flex,
-        .flex .direction .column
-    );
     .full-width;
     .position-absolute-0;
 
@@ -40,14 +38,12 @@
     }
 
     .consonant-left-filters--header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
         .hide-all;
         .full-width;
-
-        &:extend(
-            .flex,
-            .flex .justify .between,
-            .flex .align .center
-        );
 
         padding: 14/@consonant-root-rem unit((@consonant-root-rem * 0.75), px);
         border-bottom: 1px solid @consonant-color-lightest-grey;
@@ -68,10 +64,8 @@
     }
 
     .consonant-left-filters--mob-title {
-        &:extend(
-            .flex,
-            .flex .align .center
-        );
+        display: flex;
+        align-items: center;
     }
 
     .consonant-left-filters--mob-title span {
@@ -127,9 +121,7 @@
 
     .consonant-left-filters--mobile-footer {
         display: none;
-
-        &:extend( .flex .align .center);
-
+        align-items: center;
         padding: 16/@consonant-root-rem unit((@consonant-root-rem), px);
         border-top: 1px solid @consonant-color-lightest-grey;
         order: 2;
@@ -197,12 +189,11 @@
     &.consonant-left-filters_opened {
         position: fixed;
         z-index: 1000001;
-
-        &:extend(.flex);
+        display: flex;
 
         .consonant-left-filters--mobile-footer,
         .consonant-left-filters--header {
-            &:extend(.flex);
+            display: flex;
         }
 
         .consonant-left-filters--list {
@@ -225,15 +216,12 @@
 
     .consonant-left-filters--chosen-filters {
         position: relative;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
         margin-top: -16px;
 
         .full-width;
-
-        &:extend(
-            .flex .wrap,
-            .flex .justify .start,
-            .flex .align .center
-        );
 
         padding-bottom: 8px;
         background-color: transparent;

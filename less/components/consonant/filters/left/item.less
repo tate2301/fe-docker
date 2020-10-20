@@ -29,26 +29,22 @@
     }
 
     .consonant-left-filter--inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: stretch;
+
         .full-width;
 
         max-height: 90vh;
-
-        &:extend(
-            .flex,
-            .flex .direction .column,
-            .flex .justify .between,
-            .flex .align .stretch
-        );
-
         background-color: @consonant-color-white;
         border-radius: unit((@consonant-root-rem * 0.3125), px);
     }
 
     .consonant-left-filter--name {
-        &:extend(
-            .flex,
-            .flex .align .center
-        );
+        display: flex;
+        align-items: center;
+
         .no-margin;
     }
 
@@ -187,11 +183,8 @@
     }
 
     .consonant-left-filter--items-item {
-        &:extend(
-            .flex,
-            .flex .align .baseline
-        );
-
+        display: flex;
+        align-items: baseline;
         transition: background-color @transition-time @transition-func;
 
         &:hover {
@@ -205,11 +198,9 @@
 
     .consonant-left-filter--items-item-label {
         position: relative;
+        display: flex;
+        align-items: center;
 
-        &:extend(
-            .flex,
-            .flex .align .center
-        );
         .full-width;
 
         padding:
@@ -292,9 +283,7 @@
     .consonant-left-filter--footer {
         display: none;
         margin-top: auto;
-
-        &:extend( .flex .align .center);
-
+        align-items: center;
         padding: 16/@consonant-root-rem unit((@consonant-root-rem), px);
         border-top: 1px solid @consonant-color-lightest-grey;
     }
@@ -355,13 +344,11 @@
 
     &.consonant-left-filter_opened {
         position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         .full-width;
-        &:extend(
-            .flex,
-            .flext .justify .center,
-            .flex .align .center
-        );
 
         padding-left: unit((@consonant-root-rem * 1.25), px);
         padding-right: unit((@consonant-root-rem * 1.25), px);

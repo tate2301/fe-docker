@@ -1,10 +1,8 @@
 @consonant-card-full-inner-min-height: 108px;
 
 .consonant-full-card {
-    &:extend(
-        .flex,
-        .flex .direction .column
-    );
+    display: flex;
+    flex-direction: column;
 
     .full-width;
 
@@ -23,14 +21,10 @@
 
     .consonant-full-card--inner {
         position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
         min-height: @consonant-card-full-inner-min-height;
-
-        &:extend(
-            .flex,
-            .flex .direction .column,
-            .flex .justify .end
-        );
-
         margin-top: auto;
         padding: 0 unit((@consonant-root-rem * 1.5), px) 24/@consonant-root-rem;
         text-decoration: none;
@@ -159,12 +153,8 @@
 
     .consonant-full-card--banner {
         position: absolute;
-
-        &:extend(
-            .flex,
-            .flex .justify .start
-        );
-
+        display: flex;
+        justify-content: flex-start;
         max-width: 58%;
         max-height: 70%;
         top: unit((@consonant-root-rem * 1.5), px);
