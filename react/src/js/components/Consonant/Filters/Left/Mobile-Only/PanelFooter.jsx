@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const Footer = ({
+const PanelFooter = ({
     showTotalResults,
     resQty,
     onClearAllFilters,
@@ -40,9 +40,9 @@ const Footer = ({
 );
 
 /* eslint-disable-next-line import/prefer-default-export */
-export { Footer };
+export { PanelFooter };
 
-Footer.propTypes = {
+PanelFooter.propTypes = {
     onClearAllFilters: PropTypes.func.isRequired,
     onMobileFiltersToggleClick: PropTypes.func.isRequired,
     doneText: PropTypes.string,
@@ -54,7 +54,7 @@ Footer.propTypes = {
     resQty: PropTypes.number,
 };
 
-Footer.defaultProps = {
+PanelFooter.defaultProps = {
     doneText: '',
     applyText: '',
     clearAllFiltersText: '',

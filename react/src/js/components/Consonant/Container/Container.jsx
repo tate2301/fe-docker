@@ -39,7 +39,7 @@ import { useWindowDimensions } from '../../../utils/hooks';
 
 import Bookmarks from '../Bookmarks/Bookmarks';
 import Collection from '../Collection/Collection';
-import FilterInfo from '../Filters/Left/FilterInfo';
+import { Info as LeftInfo } from '../Filters/Left/Info';
 import LeftFilterPanel from '../Filters/Left/Panel';
 import FiltersPanelTop from '../Filters/Top/Panel';
 import Loader from '../Loader/Loader';
@@ -359,7 +359,7 @@ const Container = (props) => {
                                     onShowAllClick={handleShowAllTopFilters} />
                             }
                             {filterPanelType === FILTER_PANEL.LEFT &&
-                                <FilterInfo
+                                <LeftInfo
                                     enabled={filterPanelEnabled}
                                     filtersQty={filters.length}
                                     filters={filters}
@@ -394,7 +394,6 @@ const Container = (props) => {
                                         pages={currentPage}
                                         cards={collectionCards}
                                         onCardBookmark={handleCardBookmarking} />
-                                    {/* TODO: Migrate to useRef */}
                                     {displayLoadMore && (
                                         <div ref={page}>
                                             <LoadMore

@@ -2,18 +2,14 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import sum from 'lodash/sum';
 import React from 'react';
-import ChosenFilter from './ChosenItem';
+import ChosenFilter from './Desktop-Only/ChosenItem';
 import { getAtleastOneFilterSelected } from '../../../../utils/general';
 import { useConfig } from '../../../../utils/hooks';
 import Item from './Item';
-import { Title as MobileTitle } from './Mobile/Title';
-import { Footer as MobileFooter } from './Mobile/Footer';
-import { Title as DesktopTitle } from './Desktop/Title';
-import { ClearBtn as DesktopClearBtn } from './Desktop/ClearButton';
-import {
-    DESKTOP_SCREEN_SIZE,
-    NOT_DESKTOP_SCREEN_SIZE,
-} from '../../../../constants';
+import { Title as MobileTitle } from './Mobile-Only/Title';
+import { PanelFooter as MobileFooter } from './Mobile-Only/PanelFooter';
+import { Title as DesktopTitle } from './Desktop-Only/Title';
+import { ClearBtn as DesktopClearBtn } from './Desktop-Only/ClearButton';
 
 const LeftFilterPanel = ({
     filters,
@@ -28,6 +24,7 @@ const LeftFilterPanel = ({
     resQty,
     searchComponent,
     bookmarkComponent,
+    windowWidth,
 }) => {
     const getConfig = useConfig();
 
@@ -48,6 +45,10 @@ const LeftFilterPanel = ({
         'consonant-left-filters': true,
         'consonant-left-filters_opened': showMobileFilters,
     });
+
+    const DESKTOP_MIN_WIDTH = 1200;
+    const DESKTOP_SCREEN_SIZE = windowWidth >= DESKTOP_MIN_WIDTH;
+    const NOT_DESKTOP_SCREEN_SIZE = windowWidth < DESKTOP_MIN_WIDTH;
 
     return (
         <div
@@ -139,6 +140,7 @@ LeftFilterPanel.propTypes = {
     resQty: PropTypes.number,
     searchComponent: PropTypes.node.isRequired,
     bookmarkComponent: PropTypes.node.isRequired,
+    windowWidth: PropTypes.number,
 };
 
 LeftFilterPanel.defaultProps = {
@@ -146,4 +148,5 @@ LeftFilterPanel.defaultProps = {
     selectedFiltersQty: 0,
     showMobileFilters: false,
     resQty: 0,
+    windowWidth: window.innerWidth,
 };

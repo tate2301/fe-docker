@@ -17,20 +17,58 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
         <div
           className="consonant-left-filters--header"
         >
-          <div
-            className="consonant-left-filters--mob-title"
+          <h3
+            className="consonant-left-filters--desk-title"
           >
-            <button
-              className="consonant-left-filters--mob-back"
-              onClick={[Function]}
-              type="button"
+            leftPanel.header
+          </h3>
+          <button
+            className="consonant-left-filters--clear-link"
+            data-testid="left-filter-panel-clear-all-btn"
+            onClick={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            leftPanel.clearAllFiltersText
+          </button>
+        </div>
+        <div
+          className="consonant-search"
+          data-testid="filtersSideSearch"
+        >
+          <label
+            htmlFor="consonant-search"
+          >
+            <span
+              className="consonant-search--input-title"
             >
-              Back
-            </button>
-            <span>
-              leftPanel.mobile.panel.header
+              i18n.leftFilterPanel.searchTitle
             </span>
-          </div>
+            <span
+              className="consonant-search--input-wrapper"
+            >
+              <input
+                className="consonant-search--input"
+                data-testid="search-input"
+                id="consonant-search"
+                onChange={[Function]}
+                onClick={[Function]}
+                placeholder="i18n.leftFilterPanel.searchPlaceholderText"
+                required={true}
+                type="search"
+                value=""
+              />
+              <button
+                className="consonant-search--input-clear"
+                onClick={[Function]}
+                tabIndex="0"
+                title="Click to clear search query"
+                type="button"
+              >
+                clear
+              </button>
+            </span>
+          </label>
         </div>
         <button
           className="bookmarks"
@@ -64,24 +102,6 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly with desk
             0
           </span>
         </button>
-        <div
-          className="consonant-left-filters--mobile-footer"
-        >
-          <span
-            className="consonant-left-filters--mobile-footer-total-res-qty"
-            data-testid="mobile-footer-total-res"
-          >
-            leftPanel.mobile.panel.totalResultsText 0
-          </span>
-          <button
-            className="consonant-left-filters--mobile-footer-btn"
-            data-testid="mobile-footer-btn"
-            onClick={[Function]}
-            type="button"
-          >
-            leftPanel.mobile.panel.doneBtnText
-          </button>
-        </div>
       </div>
     </span>
     <span>
@@ -194,20 +214,58 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
         <div
           className="consonant-left-filters--header"
         >
-          <div
-            className="consonant-left-filters--mob-title"
+          <h3
+            className="consonant-left-filters--desk-title"
           >
-            <button
-              className="consonant-left-filters--mob-back"
-              onClick={[Function]}
-              type="button"
+            leftPanel.header
+          </h3>
+          <button
+            className="consonant-left-filters--clear-link"
+            data-testid="left-filter-panel-clear-all-btn"
+            onClick={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            leftPanel.clearAllFiltersText
+          </button>
+        </div>
+        <div
+          className="consonant-search"
+          data-testid="filtersSideSearch"
+        >
+          <label
+            htmlFor="consonant-search"
+          >
+            <span
+              className="consonant-search--input-title"
             >
-              Back
-            </button>
-            <span>
-              leftPanel.mobile.panel.header
+              i18n.leftFilterPanel.searchTitle
             </span>
-          </div>
+            <span
+              className="consonant-search--input-wrapper"
+            >
+              <input
+                className="consonant-search--input"
+                data-testid="search-input"
+                id="consonant-search"
+                onChange={[Function]}
+                onClick={[Function]}
+                placeholder="i18n.leftFilterPanel.searchPlaceholderText"
+                required={true}
+                type="search"
+                value=""
+              />
+              <button
+                className="consonant-search--input-clear"
+                onClick={[Function]}
+                tabIndex="0"
+                title="Click to clear search query"
+                type="button"
+              >
+                clear
+              </button>
+            </span>
+          </label>
         </div>
         <button
           className="bookmarks"
@@ -674,24 +732,6 @@ exports[`Consonant/FilterItem Check snapshots should renders correctly without f
               </div>
             </div>
           </div>
-        </div>
-        <div
-          className="consonant-left-filters--mobile-footer"
-        >
-          <span
-            className="consonant-left-filters--mobile-footer-total-res-qty"
-            data-testid="mobile-footer-total-res"
-          >
-            leftPanel.mobile.panel.totalResultsText 0
-          </span>
-          <button
-            className="consonant-left-filters--mobile-footer-btn"
-            data-testid="mobile-footer-btn"
-            onClick={[Function]}
-            type="button"
-          >
-            leftPanel.mobile.panel.doneBtnText
-          </button>
         </div>
       </div>
     </span>

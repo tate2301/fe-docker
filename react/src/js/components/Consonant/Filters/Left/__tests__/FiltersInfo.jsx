@@ -2,7 +2,7 @@ import React from 'react';
 import { screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import Info from '../FilterInfo';
+import { Info } from '../Info';
 import Search from '../../../Search/Search';
 import Select from '../../../Select/Select';
 

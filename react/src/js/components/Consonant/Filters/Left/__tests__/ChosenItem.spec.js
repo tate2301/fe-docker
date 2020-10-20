@@ -1,7 +1,7 @@
 import { screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import ChosenItem from '../ChosenItem';
+import ChosenItem from '../Desktop-Only/ChosenItem';
 
 import { DEFAULT_PROPS } from '../../../Helpers/Testing/Constants/SelectedFilter';
 
