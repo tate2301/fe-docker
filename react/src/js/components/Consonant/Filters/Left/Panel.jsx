@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import sum from 'lodash/sum';
 import React from 'react';
 import ChosenFilter from './Desktop-Only/ChosenItem';
-import { getAtleastOneFilterSelected } from '../../../../utils/general';
+import { isAtleastOneFilterSelected } from '../../../../utils/general';
 import { useConfig } from '../../../../utils/hooks';
 import Item from './Item';
 import { Title as MobileTitle } from './Mobile-Only/Title';
@@ -39,7 +39,7 @@ const LeftFilterPanel = ({
     const applyText = getConfig('filterPanel', 'i18n.leftPanel.mobile.panel.applyBtnText');
     const doneText = getConfig('filterPanel', 'i18n.leftPanel.mobile.panel.doneBtnText');
 
-    const atleastOneFilterSelected = getAtleastOneFilterSelected(filters);
+    const atleastOneFilterSelected = isAtleastOneFilterSelected(filters);
 
     const mobileFiltersClass = classNames({
         'consonant-left-filters': true,

@@ -1,14 +1,17 @@
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import sum from 'lodash/sum';
-import React, { useMemo } from 'react';
-import { chainFromIterable } from '../../../../utils/general';
+import React from 'react';
+import { isAtleastOneFilterSelected } from '../../../../utils/general';
 import { useConfig, useExpandable } from '../../../../utils/hooks';
 import SearchIcon from '../../Search/SearchIcon';
 import { Group as TopFilterItem } from './Group';
+import {
+    TABLET_MIN_WIDTH,
+    MAX_TRUNCATED_FILTERS,
+    MIN_FILTERS_SHOW_BG,
+} from '../../../../utils/constants';
 
-const TABLET_MIN_WIDTH = 768;
-const SHOW_MAX_TRUNCATED_FILTERS = 3;
-const MIN_FILTERS_SHOW_BG = 3;
 const FiltersPanelTop = ({
     filters,
     resQty,
@@ -32,25 +35,43 @@ const FiltersPanelTop = ({
     const showTotalResultsText = getConfig('collection', 'i18n.totalResultsText');
     const sortEnabled = getConfig('sort', 'enabled');
     const sortOptions = getConfig('sort', 'options');
+    const filterGroupLabel = getConfig('filterPanel', 'i18n.topPanel.groupLabel');
+    const moreFiltersBtnText = getConfig('filterPanel', 'i18n.topPanel.moreFiltersBtnText');
 
     const searchId = 'top-search';
     const [openExpandable, handleExpandableToggle] = useExpandable(searchId);
 
-
     const showSearchbar = openExpandable === searchId;
 
-    const someFiltersAreSelected = useMemo(
-        () =>
-            chainFromIterable(filters.map(f => f.items))
-                .some(item => item.selected),
-        [filters],
-    );
+    const atleastOneFilterSelected = isAtleastOneFilterSelected(filters);
+
+    const TABLET_OR_MOBILE_SCREEN_SIZE = windowWidth < TABLET_MIN_WIDTH;
+    const TABLET_OR_DESKTOP_SCREEN_SIZE = windowWidth >= TABLET_MIN_WIDTH;
+
+    const shouldHideSomeFilters = filters.length > MAX_TRUNCATED_FILTERS;
+    const shouldDisplaySortComponent = sortEnabled && sortOptions.length > 0;
+    const shouldDisplayFilters = filters.length > 0 && filterPanelEnabled;
+    const shouldDisplayMoreFiltersBtn =
+        shouldHideSomeFilters && TABLET_OR_DESKTOP_SCREEN_SIZE && showLimitedFiltersQty;
+    const shouldShowTotalResults = TABLET_OR_DESKTOP_SCREEN_SIZE && showTotalResults;
+
+    const showLimitedFiltersQtyClass = classNames({
+        'consonant-top-filters--filters': true,
+        'consonant-top-filters--filters_truncated': showLimitedFiltersQty,
+    });
+
+    const totalResultsText = showTotalResultsText.replace('{total}', resQty);
+
+    const clearBtnWrapperClass = classNames({
+        'consonant-top-filters--clear-btn-wrapper': true,
+        'consonant-top-filters--clear-btn-wrapper_no-bg': filters.length === 1,
+    });
 
     return (
         <div
             data-testid="consonant-filters__top"
             className="consonant-top-filters">
-            {searchComponent && windowWidth < TABLET_MIN_WIDTH && (
+            {searchComponent && TABLET_OR_MOBILE_SCREEN_SIZE && (
                 <div
                     data-testid="top-filters__search-wrapper"
                     className="consonant-top-filters--search-wrapper">
@@ -59,22 +80,18 @@ const FiltersPanelTop = ({
             )}
             <div
                 className="consonant-top-filters--inner">
-                {filters.length > 0 && filterPanelEnabled &&
+                {shouldDisplayFilters &&
                     <div
                         className="consonant-top-filters--filters-wrapper">
-                        {windowWidth >= TABLET_MIN_WIDTH &&
+                        {TABLET_OR_DESKTOP_SCREEN_SIZE &&
                             <strong
                                 className="consonant-top-filters--title">
-                                {getConfig('filterPanel', 'i18n.topPanel.groupLabel')}
+                                {filterGroupLabel}
                             </strong>
                         }
                         <div
                             data-testid="consonant-filters__top__filters"
-                            className={
-                                showLimitedFiltersQty ?
-                                    'consonant-top-filters--filters consonant-top-filters--filters_truncated' :
-                                    'consonant-top-filters--filters'
-                            }>
+                            className={showLimitedFiltersQtyClass}>
                             {filters.map(filter =>
                                 (<TopFilterItem
                                     key={filter.id}
@@ -91,28 +108,22 @@ const FiltersPanelTop = ({
                                     isTopFilter />))
                             }
                             {
-                                filters.length > SHOW_MAX_TRUNCATED_FILTERS &&
-                                windowWidth >= TABLET_MIN_WIDTH &&
-                                showLimitedFiltersQty &&
+                                shouldDisplayMoreFiltersBtn &&
                                 <button
                                     type="button"
                                     data-testid="top-filter__more-button"
                                     className="consonant-top-filters--more-btn"
                                     onClick={onShowAllClick}>
-                                    {getConfig('filterPanel', 'i18n.topPanel.moreFiltersBtnText')}
+                                    {moreFiltersBtnText}
                                 </button>
                             }
                         </div>
                         {
-                            (someFiltersAreSelected || filters.length >= MIN_FILTERS_SHOW_BG) &&
+                            (atleastOneFilterSelected || filters.length >= MIN_FILTERS_SHOW_BG) &&
                             <div
                                 data-testid="top-filter__clear-button-wrapper"
-                                className={
-                                    filters.length === 1 ?
-                                        'consonant-top-filters--clear-btn-wrapper consonant-top-filters--clear-btn-wrapper_no-bg' :
-                                        'consonant-top-filters--clear-btn-wrapper'
-                                }>
-                                {someFiltersAreSelected &&
+                                className={clearBtnWrapperClass}>
+                                {atleastOneFilterSelected &&
                                     <button
                                         type="button"
                                         data-testid="top-filter__clear-button"
@@ -126,26 +137,27 @@ const FiltersPanelTop = ({
                         }
                     </div>
                 }
-                {windowWidth >= TABLET_MIN_WIDTH && showTotalResults &&
+                {shouldShowTotalResults &&
                     <span
                         data-testid="filter-top-result-count"
                         className="consonant-top-filters--res-qty">
-                        <strong>{showTotalResultsText.replace('{total}', resQty)}</strong>
+                        <strong>
+                            {totalResultsText}
+                        </strong>
                     </span>
                 }
-                {searchEnabled && windowWidth >= TABLET_MIN_WIDTH && (
+                {searchEnabled && TABLET_OR_DESKTOP_SCREEN_SIZE && (
                     <div
                         data-testid="filter-top-ico-wrapper"
                         className="consonant-top-filters--search-ico-wrapper">
                         {showSearchbar && searchComponent}
-                        {windowWidth >= TABLET_MIN_WIDTH && (
+                        {TABLET_OR_DESKTOP_SCREEN_SIZE && (
                             <SearchIcon
-                                childrenKey="filtersTopSearchIco"
                                 onClick={handleExpandableToggle} />
                         )}
                     </div>
                 )}
-                {sortEnabled && sortOptions.length > 0 &&
+                {shouldDisplaySortComponent &&
                     <div
                         data-testid="top-filters__sort-popup"
                         className="consonant-top-filters--select-wrapper">
