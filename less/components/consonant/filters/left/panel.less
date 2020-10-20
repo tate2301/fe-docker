@@ -34,14 +34,6 @@
         .hide-all;
     }
 
-    + div {
-        width: 100%;
-        height: calc(~ '100vh - ' @header-mobile-height);
-        position: relative;
-
-        &:extend(.horizontal-align .center);
-    }
-
     // We need anti-BEM approach here;
     > .consonant-search {
         .hide-all;
@@ -253,12 +245,6 @@
 
     /* End related to chosen filters */
 
-    @media @consonant-for-tablet-landscape-up {
-        & + div {
-            height: calc(~ '100vh - ' @header-900-break-height);
-        }
-    }
-
     @media @consonant-for-desktop-up {
         width: @consonant-filters-1200-break-width;
         max-width: @consonant-filters-1200-break-width;
@@ -312,18 +298,8 @@
             }
         }
 
-        & + div {
-            height: calc(~ '100vh - ' @header-1200-break-height);
-        }
-
         .consonant-left-filters--chosen-filters {
             display: flex;
-        }
-    }
-
-    @media @consonant-for-big-desktop-up {
-        & + div {
-            height: calc(~ '100vh - ' @header-1440-break-height);
         }
     }
 }
