@@ -4,7 +4,7 @@ import React, { useMemo } from 'react';
 import { chainFromIterable } from '../../../../utils/general';
 import { useConfig, useExpandable } from '../../../../utils/hooks';
 import SearchIco from '../../Search/SearchIco';
-import TopFilterItem from './Item';
+import { Group as TopFilterItem } from './Group';
 
 const TABLET_MIN_WIDTH = 768;
 const SHOW_MAX_TRUNCATED_FILTERS = 3;
@@ -47,18 +47,24 @@ const FiltersPanelTop = ({
     );
 
     return (
-        <div data-testid="consonant-filters__top" className="consonant-top-filters">
+        <div
+            data-testid="consonant-filters__top"
+            className="consonant-top-filters">
             {searchComponent && windowWidth < TABLET_MIN_WIDTH && (
-                <div data-testid="top-filters__search-wrapper" className="consonant-top-filters--search-wrapper">
+                <div
+                    data-testid="top-filters__search-wrapper"
+                    className="consonant-top-filters--search-wrapper">
                     {searchComponent}
                 </div>
             )}
             <div
                 className="consonant-top-filters--inner">
                 {filters.length > 0 && filterPanelEnabled &&
-                    <div className="consonant-top-filters--filters-wrapper">
+                    <div
+                        className="consonant-top-filters--filters-wrapper">
                         {windowWidth >= TABLET_MIN_WIDTH &&
-                            <strong className="consonant-top-filters--title">
+                            <strong
+                                className="consonant-top-filters--title">
                                 {getConfig('filterPanel', 'i18n.topPanel.groupLabel')}
                             </strong>
                         }
@@ -128,7 +134,9 @@ const FiltersPanelTop = ({
                     </span>
                 }
                 {searchEnabled && windowWidth >= TABLET_MIN_WIDTH && (
-                    <div data-testid="filter-top-ico-wrapper" className="consonant-top-filters--search-ico-wrapper">
+                    <div
+                        data-testid="filter-top-ico-wrapper"
+                        className="consonant-top-filters--search-ico-wrapper">
                         {showSearchbar && searchComponent}
                         {windowWidth >= TABLET_MIN_WIDTH && (
                             <SearchIco
@@ -138,7 +146,9 @@ const FiltersPanelTop = ({
                     </div>
                 )}
                 {sortEnabled && sortOptions.length > 0 &&
-                    <div data-testid="top-filters__sort-popup" className="consonant-top-filters--select-wrapper">
+                    <div
+                        data-testid="top-filters__sort-popup"
+                        className="consonant-top-filters--select-wrapper">
                         {sortComponent}
                     </div>
                 }

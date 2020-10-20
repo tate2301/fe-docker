@@ -104,3 +104,5 @@ export const isNullish = val => val === undefined || val === null || Number.isNa
 
 export const getAtleastOneFilterSelected =
         filters => chainFromIterable(filters.map(f => f.items)).some(item => item.selected);
+
+export const stopPropagation = e => e.stopPropagation();
