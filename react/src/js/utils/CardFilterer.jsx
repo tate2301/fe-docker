@@ -67,12 +67,16 @@ export default class CardFilterer {
             searchFields,
         );
 
-        this.filteredCards = cardsMatchingSearch
-            .map(card => searchFields.reduce((baseCard, searchField) => highlightCard(
-                baseCard,
-                searchField,
-                query,
-            ), card));
+        if (query.length >= 3) {
+            this.filteredCards = cardsMatchingSearch
+                .map(card => searchFields.reduce((baseCard, searchField) => highlightCard(
+                    baseCard,
+                    searchField,
+                    query,
+                ), card));
+        } else {
+            this.filteredCards = cardsMatchingSearch;
+        }
 
         return this;
     }
