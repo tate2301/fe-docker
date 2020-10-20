@@ -1,4 +1,5 @@
-import React, { useCallback } from 'react';
+import React from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { useExpandable } from '../../../utils/hooks';
 
@@ -13,22 +14,34 @@ const Select = ({
     const [openDropdown, handleToggle] = useExpandable(id);
     const opened = openDropdown === id;
 
-    const handleOptionClick = useCallback((e, item) => {
+    const handleOptionClick = (e, item) => {
         onSelect(item);
         handleToggle(e);
-    }, [handleToggle, onSelect]);
+    };
+
+    const shouldAutoWidthSortClass = classNames({
+        'consonant-select': true,
+        'consonant-select_auto-width': autoWidth,
+    });
+
+    const openButtonClass = classNames({
+        'consonant-select--btn': true,
+        'consonant-select--btn_active': opened,
+    });
 
     return (
-        <div className={autoWidth ? 'consonant-select consonant-select_auto-width' : 'consonant-select'}>
+        <div className={shouldAutoWidthSortClass}>
             <button
                 data-testid="select-button"
                 type="button"
                 onClick={handleToggle}
-                className={opened ? 'consonant-select--btn consonant-select--btn_active' : 'consonant-select--btn'}
+                className={openButtonClass}
                 tabIndex="0">
-                {val.label || 'Please select'}
+                {val.label}
             </button>
-            <div data-testid="consonant-select--options" className={`consonant-select--options consonant-select--options_${optionsAlignment}`}>
+            <div
+                data-testid="consonant-select--options"
+                className={`consonant-select--options consonant-select--options_${optionsAlignment}`}>
                 {values.map(item => (
                     <button
                         data-testid="select-option"
