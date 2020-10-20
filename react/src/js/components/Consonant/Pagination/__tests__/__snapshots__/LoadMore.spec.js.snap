@@ -10,13 +10,10 @@ exports[`Consonant/LoadMore Check snapshots should renders correctly with show <
   >
     <p
       className="consonant-load-more--text"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "i18n.loadMore.resultsQuantityText <span class=\\"consonant-load-more--shown\\">1</span> <span class=\\"consonant-load-more--total\\">100</span>",
-        }
-      }
       data-testid="consonant-load-more--text"
-    />
+    >
+      i18n.loadMore.resultsQuantityText 1 100
+    </p>
     <button
       className="consonant-load-more--btn"
       data-testid="load-more__button"
@@ -40,13 +37,10 @@ exports[`Consonant/LoadMore Check snapshots should renders correctly with show >
   >
     <p
       className="consonant-load-more--text"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "i18n.loadMore.resultsQuantityText <span class=\\"consonant-load-more--shown\\">100</span> <span class=\\"consonant-load-more--total\\">1</span>",
-        }
-      }
       data-testid="consonant-load-more--text"
-    />
+    >
+      i18n.loadMore.resultsQuantityText 100 1
+    </p>
   </div>
 </div>
 `;
