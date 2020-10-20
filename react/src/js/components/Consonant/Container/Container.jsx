@@ -276,7 +276,7 @@ const Container = (props) => {
     );
 
     const displayLoadMore = displayPagination && paginationType === 'loadMore';
-    const displayPaginator = displayPagination && paginationType == 'paginator';
+    const displayPaginator = displayPagination && paginationType === 'paginator';
     const displayLeftFilterPanel = filterPanelEnabled && filterPanelType === FILTER_PANEL.LEFT;
     const atLeastOneCard = collectionCards.length > 0;
     const topPanelSortPopupLocation = filters.length > 0 && windowWidth < TABLET_MIN_WIDTH ? 'left' : 'right';
