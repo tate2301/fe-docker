@@ -48,5 +48,5 @@ CardFooter.defaultProps = {
     center: [],
     right: [],
     divider: false,
-    isFluid: true,
+    isFluid: false,
 };

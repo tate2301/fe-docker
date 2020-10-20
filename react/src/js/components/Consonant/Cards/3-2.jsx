@@ -168,6 +168,7 @@ const AspectRatio3to2Card = ({
                 {footer.map((f, index) => (
                     <CardFooter
                         divider={f.divider}
+                        isFluid={f.isFluid}
                         key={index}
                         left={extendFooterData(f.left)}
                         center={extendFooterData(f.center)}
