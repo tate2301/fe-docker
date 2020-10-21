@@ -80,4 +80,20 @@ describe('Consonant/Card', () => {
 
         expect(labelElement).not.toBeNull();
     });
+
+    test('If No Detail Text or startTime is authored, then card label should not appear ', () => {
+        setup({
+            contentArea: {
+                detailText: null,
+                dateDetailText: {
+                    startTime: null,
+                },
+            },
+        });
+
+        const labelElement = screen.queryByTestId('1-1-card--label');
+
+        expect(labelElement)
+            .toBeNull();
+    });
 });

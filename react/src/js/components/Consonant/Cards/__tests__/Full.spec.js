@@ -49,4 +49,9 @@ describe('Consonant/Card', () => {
 
         expect(badgeElement).not.toBeNull();
     });
+    test('A full-card should be able to render a logo', () => {
+        setup();
+        const logoAltText = screen.getByAltText('logo-alt-text');
+        expect(logoAltText).not.toBeNull();
+    });
 });
