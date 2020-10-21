@@ -20,8 +20,11 @@ function Rating({ totalStars, starsFilled, label }) {
     const starsFilledMultiplier = Math.round(maxPercantage / total);
 
     return (
-        <div className={className} data-stars={total}>
+        <div
+            className={className}
+            data-stars={total}>
             <span
+                data-testid="rating-star"
                 className="consonant-rating-infobit--stars"
                 data-rating={Math.round(filled * starsFilledMultiplier)} />
             {label && <span className="consonant-rating-infobit--text">{label}</span>}

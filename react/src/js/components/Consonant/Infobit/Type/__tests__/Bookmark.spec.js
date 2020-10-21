@@ -3,7 +3,7 @@ import { render, fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import renderer from 'react-test-renderer';
 
-import Bookmark from '../../Bookmark/Bookmark';
+import Bookmark from '../Bookmark/Bookmark';
 
 const props = {
     cardId: '1',
