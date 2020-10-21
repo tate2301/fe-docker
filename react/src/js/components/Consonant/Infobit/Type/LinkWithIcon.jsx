@@ -20,8 +20,8 @@ function LinkWithIcon({
 }
 
 LinkWithIcon.propTypes = {
-    href: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
+    href: PropTypes.string,
+    text: PropTypes.string,
     src: PropTypes.string,
     openInNewTab: PropTypes.bool,
     linkHint: PropTypes.string,
@@ -29,6 +29,8 @@ LinkWithIcon.propTypes = {
 };
 
 LinkWithIcon.defaultProps = {
+    href: '',
+    text: '',
     src: '',
     openInNewTab: true,
     linkHint: '',

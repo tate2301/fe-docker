@@ -75,9 +75,9 @@ describe('Consonant/Paginator', () => {
         fireEvent.click(nextButton);
 
         if (filteredCards.length < 20) {
-            expect(paginationElement).toHaveTextContent('11 18');
+            expect(paginationElement).toHaveTextContent('11');
         } else {
-            expect(paginationElement).toHaveTextContent('11 20');
+            expect(paginationElement).toHaveTextContent('20');
         }
 
         fireEvent.click(prevButton);

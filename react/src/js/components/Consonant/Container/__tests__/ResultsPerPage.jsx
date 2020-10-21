@@ -89,6 +89,7 @@ describe('Testing Results Per Page', () => {
         /**
          * if totalCardLimit > cards.length then we should render all cards
          */
-        expect(screen.queryAllByTestId('consonant-card')).toHaveLength(18);
+        const totalCardLength = cards.length + config.featuredCards.length;
+        expect(screen.queryAllByTestId('consonant-card')).toHaveLength(totalCardLength);
     });
 });

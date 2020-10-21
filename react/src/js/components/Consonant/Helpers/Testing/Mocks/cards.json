@@ -971,5 +971,85 @@
             }
         ],
         "cardDate": "2020-10-19T05:42:36.871Z"
+    },
+    {
+        "id": "18",
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "3:2",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "18 - Infobit: Link w/ Icon use case",
+            "description": "",
+            "dateDetailText": {}
+        },
+        "footer": [
+            {
+                "left": [
+                    {
+                        "type": "link-with-icon",
+                        "openInNewTab": false,
+                        "linkHint": "Click Here",
+                        "src": "Some Src",
+                        "srcAltText": "Some Alt Text"
+                    }
+                ],
+                "center": [],
+                "right": []
+            }
+        ],
+        "cardDate": "2020-10-19T05:42:36.871Z"
+    },
+    {
+        "id": "19",
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "3:2",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "No Footer Defined",
+            "description": "",
+            "dateDetailText": {}
+        },
+        "footer": [],
+        "cardDate": "2020-10-19T05:42:36.871Z"
     }
 ]

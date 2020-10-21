@@ -17,12 +17,10 @@ import { INFOBIT_TYPE } from '../../../utils/constants';
 
 function Group(props) {
     const { renderList } = props;
-    const renderListIsNotArray = renderList && !Array.isArray(renderList) && typeof renderList === 'object';
-    const data = renderListIsNotArray ? [renderList] : renderList;
 
     return (
         <Fragment>
-            {data.map((el, i) => {
+            {renderList.map((el, i) => {
                 switch (el.type) {
                     case INFOBIT_TYPE.PRICE:
                         return <Price {...el} key={i} />;
@@ -71,14 +69,9 @@ function Group(props) {
 }
 
 Group.propTypes = {
-    renderList: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.shape({
-            type: PropTypes.string,
-        })),
-        PropTypes.shape({
-            type: PropTypes.string,
-        }),
-    ]),
+    renderList: PropTypes.arrayOf(PropTypes.shape({
+        type: PropTypes.string,
+    })),
 };
 
 Group.defaultProps = {
