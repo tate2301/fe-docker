@@ -192,11 +192,13 @@
         z-index: 1;
     }
 
-    @media @consonant-for-IE11-only {
-        flex-basis: 0;
+    @media @consonant-IE11-only {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: auto;
     }
 
-    @media @consonant-for-desktop-up {
+    @media @consonant-desktop-up {
         .consonant-aspect-ratio-1-1-card--inner {
             padding:
                 18/@consonant-root-rem

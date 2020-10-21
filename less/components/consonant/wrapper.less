@@ -6,7 +6,7 @@
     overflow: hidden;
 
     .consonant-wrapper--inner {
-        max-width: @consonant-size-responsive-desktop;
+        max-width: @consonant-width-desktop-min;
 
         .margin-auto;
 
@@ -18,7 +18,7 @@
         }
     }
 
-    @media @consonant-for-tablet-landscape-up {
+    @media @consonant-tablet-up {
         .consonant-wrapper--inner {
             > *:last-of-type {
                 min-height: 80vh;
@@ -26,7 +26,7 @@
         }
     }
 
-    @media @consonant-for-desktop-up {
+    @media @consonant-desktop-up {
         .consonant-wrapper--inner {
             // Can't use extend here, limitation of LESS;
             display: flex;

@@ -1,13 +1,4 @@
-@consonant-for-phone-only: %(~"only screen and (max-width: %s)", (@consonant-size-responsive-phone-only * @consonant-root-size/16));
-@consonant-for-tablet-portrait-up: %(~"only screen and (min-width: %s)", (@consonant-size-responsive-tablet-portrait-up * @consonant-root-size/16));
-@consonant-for-tablet-landscape-up: %(~"only screen and (min-width: %s)", (@consonant-size-responsive-ipad-min * @consonant-root-size/16));
-@consonant-for-desktop-up: %(~"only screen and (min-width: %s)", (@consonant-size-responsive-desktop * @consonant-root-size/16));
-@consonant-for-big-desktop-up: %(~"only screen and (min-width: %s)", (@consonant-size-responsive-max * @consonant-root-size/16));
-
-@consonant-for-tablet-only: %(
-    ~"only screen and (min-width:%s) and (max-width:%s)",
-    (@consonant-size-responsive-tablet-portrait-up * @consonant-root-size/16),
-    (@consonant-size-responsive-tablet-landscape-max * @consonant-root-size/16)
-);
-
-@consonant-for-IE11-only: ~"all and (-ms-high-contrast: none), (-ms-high-contrast: active)";
+@consonant-tablet-up: %(~"only screen and (min-width: %s)", @consonant-width-tablet-min);
+@consonant-desktop-up: %(~"only screen and (min-width: %s)", @consonant-width-desktop-min);
+@consonant-big-desktop-up: %(~"only screen and (min-width: %s)", @consonant-width-big-desktop-min);
+@consonant-IE11-only: ~"all and (-ms-high-contrast: none), (-ms-high-contrast: active)";
