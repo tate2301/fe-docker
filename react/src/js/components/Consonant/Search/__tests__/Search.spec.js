@@ -10,18 +10,6 @@ import makeSetup from '../../Helpers/Testing/Utils/Settings';
 const setup = makeSetup(Search, DEFAULT_PROPS);
 
 describe('Consonant/Search', () => {
-    describe('Check snapshots', () => {
-        test('should renders correctly without value', () => {
-            const { tree } = setup({ value: 'search value' });
-
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly with value', () => {
-            const { tree } = setup();
-
-            expect(tree).toMatchSnapshot();
-        });
-    });
 
     describe('Interaction with UI', () => {
         test('shouldn not throw error about onBlur is not a function', () => {

@@ -52,18 +52,6 @@ describe('Consonant/Card', () => {
         expect(badgeElement).not.toBeNull();
     });
 
-    describe('Check snapshots', () => {
-        test('should renders with bookmarking', () => {
-            const { tree } = setup({
-                isBookmarked: true,
-                allowBookmarking: true,
-                disableBookmarkIco: true,
-            });
-
-            expect(tree).toMatchSnapshot();
-        });
-    });
-
     test('should renders with label', () => {
         setup({
             contentArea: {
@@ -92,17 +80,5 @@ describe('Consonant/Card', () => {
         const labelElement = screen.queryByText('datail label');
 
         expect(labelElement).not.toBeNull();
-    });
-
-    describe('Consonant/Tooltip', () => {
-        describe('Check snapshots', () => {
-            test('should renders correctly', () => {
-                const tree = renderer
-                    .create(<Tooltip text="Tooltip text" />)
-                    .toJSON();
-
-                expect(tree).toMatchSnapshot();
-            });
-        });
     });
 });

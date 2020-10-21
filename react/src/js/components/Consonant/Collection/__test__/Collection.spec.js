@@ -29,18 +29,4 @@ describe('Consonant/Collection', () => {
 
         expect(cardElementList).toHaveLength(cards.length);
     });
-    describe('Check snapshots', () => {
-        test('should correct renders', () => {
-            const { tree } = setup();
-
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly with different card style', () => {
-            COLLECTION_PROPS.forEach((collectionProps) => {
-                const { tree } = setup({}, { collection: collectionProps });
-
-                expect(tree).toMatchSnapshot();
-            });
-        });
-    });
 });

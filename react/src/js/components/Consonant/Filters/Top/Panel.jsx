@@ -29,7 +29,7 @@ const FiltersPanelTop = ({
     const getConfig = useConfig();
 
     const searchEnabled = getConfig('search', 'enabled');
-    const clearFilterText = getConfig('filterPanel', 'i18n.leftPanel.mobile.panel.clearFilterText');
+    const clearFilterText = getConfig('filterPanel', 'i18n.topPanel.mobile.group.clearFilterText');
     const clearAllFiltersText = getConfig('filterPanel', 'i18n.topPanel.clearAllFiltersText');
     const showTotalResults = getConfig('collection', 'showTotalResults');
     const showTotalResultsText = getConfig('collection', 'i18n.totalResultsText');

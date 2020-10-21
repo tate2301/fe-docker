@@ -10,14 +10,6 @@ import makeSetup from '../../../Helpers/Testing/Utils/Settings';
 const setup = makeSetup(ChosenItem, DEFAULT_PROPS);
 
 describe('Consonant/ChosenItem', () => {
-    describe('Check snapshots', () => {
-        test('should renders correctly', () => {
-            const { tree } = setup();
-
-            expect(tree).toMatchSnapshot();
-        });
-    });
-
     describe('Interaction with UI', () => {
         test('should call onOpen', () => {
             const {

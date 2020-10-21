@@ -12,13 +12,6 @@ const props = {
 };
 
 describe('Consonant/Bookmarks', () => {
-    test('should correct render', async () => {
-        const tree = renderer
-            .create(<Bookmark {...props} />)
-            .toJSON();
-
-        expect(tree).toMatchSnapshot();
-    });
     describe('Interaction with UI', () => {
         test('should call onChange', () => {
             render(<Bookmark {...props} />);

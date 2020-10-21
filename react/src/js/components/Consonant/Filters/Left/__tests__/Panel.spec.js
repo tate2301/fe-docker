@@ -62,46 +62,6 @@ describe('Consonant/FilterPanelLeft', () => {
         expect(mobileFooterBtnElement).toHaveTextContent(applyBtnText);
     });
 
-    describe('Check snapshots', () => {
-        test('should renders correctly with two children', () => {
-            const { tree } = setup({
-                searchComponent: CHILD_COMPONENTS.search,
-                bookmarkComponent: CHILD_COMPONENTS.bookmarks,
-            });
-
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly with search', () => {
-            const { tree } = setup({
-                searchComponent: CHILD_COMPONENTS.search,
-            });
-
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly with bookmarks', () => {
-            const { tree } = setup({
-                bookmarkComponent: CHILD_COMPONENTS.bookmarks,
-            });
-
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly with desktop width', () => {
-            const { tree } = setup();
-
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly with non-desktop width', () => {
-            const { tree } = setup({ windowWidth: NON_DESKTOP_WIDTH });
-
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly with mobile filters', () => {
-            const { tree } = setup({ showMobileFilters: true });
-
-            expect(tree).toMatchSnapshot();
-        });
-    });
-
     describe('Interaction with UI', () => {
         test('should call onFilterClick', () => {
             const { props: { onFilterClick } } = setup();

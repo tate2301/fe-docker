@@ -10,13 +10,6 @@ const setup = makeSetup(SearchIcon, {
 });
 
 describe('Consonant/SearchIco', () => {
-    describe('Check snapshots', () => {
-        test('should renders correctly', () => {
-            const { tree } = setup();
-
-            expect(tree).toMatchSnapshot();
-        });
-    });
 
     describe('Interaction with UI', () => {
         test('should call onClick', () => {

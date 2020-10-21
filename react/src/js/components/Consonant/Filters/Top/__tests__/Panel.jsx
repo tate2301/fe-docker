@@ -128,51 +128,6 @@ describe('Top Filter Panel', () => {
         expect(clearButtonElement).not.toBeNull();
     });
 
-    describe('Check snapshots', () => {
-        // test('The Top Filter Should Show A Search Icon', () => {
-        //     setup({ showSearchbar: true, sortComponent: CHILD_COMPONENTS.select });
-
-        //     const tree = createTree((
-        //         <FilterPanelTop showSearchbar {...DEFAULT_PROPS} >
-        //             <SearchIco
-        //                 childrenKey="filtersTopSearchIco" />
-        //         </FilterPanelTop>
-        //     ));
-
-        //     expect(tree).toMatchSnapshot();
-        // // });
-        // test('should renders correctly without children', () => {
-        //     const { tree } = setup({
-        //         sortComponent: null,
-        //         searchComponent: null,
-        //     });
-
-        //     expect(tree).toMatchSnapshot();
-        // });
-        test('Shoulld renders correctly on desktop', () => {
-            const { tree } = setup();
-
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly with limited filters', () => {
-            const { tree } = setup({ showLimitedFiltersQty: true });
-
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly with more button', () => {
-            const { tree } = setup({ filters: multipleFilters });
-
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly with non-table width', () => {
-            global.innerWidth = MOBILE_MIN_WIDTH;
-
-            const { tree } = setup();
-
-            expect(tree).toMatchSnapshot();
-        });
-    });
-
     describe('Testing UI Interactions', () => {
         test('When "Clear All Filters" is clicked, the appropriate event handler should be called', () => {
             const {

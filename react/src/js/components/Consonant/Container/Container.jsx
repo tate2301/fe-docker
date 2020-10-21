@@ -2,7 +2,7 @@
 import get from 'lodash/get';
 import debounce from 'lodash/debounce';
 import PropTypes from 'prop-types';
-import React, { Fragment, useEffect, useRef, useState } from 'react';
+import React, { Fragment, useEffect, useRef, useState, useCallback } from 'react';
 import 'whatwg-fetch';
 import {
     DESKTOP_MIN_WIDTH,
@@ -207,7 +207,7 @@ const Container = (props) => {
                 selected: false,
             })),
         })));
-    }, [])
+    }, []);
 
     useEffect(() => {
         setLoading(true);
@@ -276,7 +276,7 @@ const Container = (props) => {
     );
 
     const displayLoadMore = displayPagination && paginationType === 'loadMore';
-    const displayPaginator = displayPagination && paginationType === 'paginator';
+    const displayPaginator = displayPagination && paginationType == 'paginator';
     const displayLeftFilterPanel = filterPanelEnabled && filterPanelType === FILTER_PANEL.LEFT;
     const atLeastOneCard = collectionCards.length > 0;
     const topPanelSortPopupLocation = filters.length > 0 && windowWidth < TABLET_MIN_WIDTH ? 'left' : 'right';

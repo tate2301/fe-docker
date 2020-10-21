@@ -20,18 +20,6 @@ describe('Consonant/LoadMore', () => {
 
         expect(container).toBeEmptyDOMElement();
     });
-    describe('Check snapshots', () => {
-        test('should renders correctly with show < total', () => {
-            const { tree } = setup();
-
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly with show > total', () => {
-            const { tree } = setup({ show: 100, total: 1 });
-
-            expect(tree).toMatchSnapshot();
-        });
-    });
 
     describe('Interaction with UI', () => {
         test('should call onClick', () => {

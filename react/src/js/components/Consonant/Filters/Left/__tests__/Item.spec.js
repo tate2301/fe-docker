@@ -37,19 +37,6 @@ describe('Consonant/FilterItem', () => {
         expect(filterItemElement).toHaveLength(items.length);
     });
 
-    describe('Check snapshots', () => {
-        test('should renders correctly when closed', () => {
-            const { tree } = setup();
-
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly when opened', () => {
-            const { tree } = setup({ isOpened: true });
-
-            expect(tree).toMatchSnapshot();
-        });
-    });
-
     describe('Interaction with UI', () => {
         test('should call onCheck', () => {
             const { props: { onCheck } } = setup();
