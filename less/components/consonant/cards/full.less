@@ -55,8 +55,8 @@
     .consonant-full-card--img {
         position: absolute;
         width: 100%;
-        height: unset;
-        max-height: unset;
+        height: auto;
+        max-height: none;
         background-color: @consonant-color-lightest-grey;
         background-position: 50% 50%;
         background-repeat: no-repeat;
@@ -215,6 +215,10 @@
         background-color: @consonant-color-white;
         overflow-y: auto;
         z-index: 1;
+    }
+
+    @media @consonant-for-IE11-only {
+        flex-basis: 0;
     }
 
     @media @consonant-for-desktop-up {

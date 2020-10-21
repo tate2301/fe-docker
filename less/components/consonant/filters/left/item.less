@@ -431,8 +431,8 @@
         /* Start related to filter items */
 
         .consonant-left-filter--items {
-            min-height: unset;
-            max-height: unset;
+            min-height: 0;
+            max-height: 100%;
             padding-top: 12/@consonant-root-rem;
             border-color: transparent;
             overflow-y: auto;
@@ -496,15 +496,15 @@
             &:after {
                 display: block;
                 top: unit((@consonant-root-rem * 1.5), px);
-                bottom: unset;
+                bottom: auto;
                 border-color: @consonant-color-light-grey-2;
                 transform: rotate(135deg);
             }
 
             .consonant-left-filter--inner {
-                min-height: unset;
-                max-height: unset;
-                max-width: unset;
+                min-height: 0;
+                max-height: none;
+                max-width: 100%;
                 margin-left: 0;
                 margin-right: 0;
                 overflow: hidden;

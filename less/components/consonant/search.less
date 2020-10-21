@@ -3,6 +3,7 @@
 @consonant-search-input-clear-size: unit((@consonant-root-rem * 1.25), px);
 @consonant-search-input-clear-size-1200-break: unit((@consonant-root-rem * 1.5), px);
 @consonant-search-input-clear-ico-size-1200-break: unit((@consonant-root-rem * 0.625), px);
+@consonant-search-input-input-min-height: 32px;
 
 .consonant-search {
     position: relative;
@@ -53,6 +54,7 @@
 
     input {
         box-sizing: border-box;
+        min-height: @consonant-search-input-input-min-height;
 
         .full-width;
 
@@ -106,11 +108,7 @@
         &:valid + .consonant-search--input-clear {
             visibility: visible;
             opacity: 1;
-            pointer-events: unset;
-        }
-
-        @media @consonant-for-IE11-only {
-            min-height: 30px;
+            pointer-events: auto;
         }
     }
 

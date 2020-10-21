@@ -29,10 +29,6 @@
     border-radius: unit((@consonant-root-rem * 0.3125), px);
     background-color: @consonant-color-white;
 
-    @media @consonant-for-IE11-only {
-        flex: 0;
-    }
-
     .consonant-aspect-ratio-3-2-card--inner {
         display: flex;
         flex-grow: 1;
@@ -273,6 +269,10 @@
         background-color: @consonant-color-white;
         overflow-y: auto;
         z-index: 1;
+    }
+
+    @media @consonant-for-IE11-only {
+        flex-basis: 0;
     }
 
     @media @consonant-for-tablet-landscape-up {

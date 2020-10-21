@@ -72,6 +72,10 @@
     & > *:nth-of-type(n + 11) {
         display: none;
     }
+
+    @media @consonant-for-IE11-only {
+        width: 100%;
+    }
 }
 
 .set-cell-max-width(@consonant-card-footer-max-cells);
