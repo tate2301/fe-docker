@@ -126,25 +126,6 @@ describe('Consonant/FilterItem', () => {
         expect(firstCheckbox.checked).toBeFalsy();
     });
 
-    test('should render card collection', async () => {
-
-        const configToUse = config;
-        configToUse.filterPanel.filterLogic = 'xor';
-        await act(async () => render(<Container config={configToUse} />));
-
-        // expect(screen.queryByTestId('consonant-loader')).not.toBeNull();
-
-        // Need wait for api response and state updating
-        await waitFor(() => screen.getByTestId('consonant-collection'));
-        /**
-         * All cards was loaded
-         * Loader component should not be exists
-         * Collection component should be exists
-         */
-        // expect(screen.queryByTestId('consonant-loader')).toBeNull();
-        expect(screen.getByTestId('consonant-collection')).not.toBeNull();
-    });
-
     test('should show mobile filters', async () => {
         const configToUse = config;
         configToUse.filterPanel.filterLogic = 'xor';
