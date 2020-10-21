@@ -87,16 +87,33 @@ const cardMatchesQuery = (searchField, card, searchQuery) => {
     return includes(cleanSearchFieldValue, searchQuery);
 };
 
+/**
+ * Would've used new Set(), but polyfill has bug in IE11 converting Array.from(new Set())
+ * 
+ * @param {*} cards
+ * @return {*} 
+ */
+const getUniqueCardSet = (cards) => {
+    const uniqueCardSet = [];
+    cards.forEach(card => {
+        var cardNotInSet = uniqueCardSet.findIndex(element => element.id == card.id) <= -1;
+        if(cardNotInSet){
+            uniqueCardSet.push(card);
+          }
+    })
+    return uniqueCardSet;
+}
+
 export const getCardsMatchingQuery = (cards, searchFields, query) => {
-    const cardsMatchingQuerySet = new Set([]);
+    const cardsMatchingQuery = [];
     cards.forEach((card) => {
         searchFields.forEach((searchField) => {
             if (cardMatchesQuery(searchField, card, query)) {
-                cardsMatchingQuerySet.add(card);
+                cardsMatchingQuery.push(card);
             }
         });
     });
-    return Array.from(cardsMatchingQuerySet);
+    return getUniqueCardSet(cardsMatchingQuery);
 };
 
 export const getTitleAscSort = (cards) => {
