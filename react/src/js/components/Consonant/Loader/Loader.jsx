@@ -4,17 +4,12 @@ import PropTypes from 'prop-types';
 import { LOADER_SIZE } from '../../../utils/constants';
 
 const Loader = ({ size, hidden, absolute }) => {
-    let sizeClass;
-
-    if (size === LOADER_SIZE.MEDIUM) {
-        sizeClass = 'consonant-loader_medium';
-    } else if (size === LOADER_SIZE.BIG) {
-        sizeClass = 'consonant-loader_big';
-    } else {
-        sizeClass = size;
-    }
-
-    const className = classNames('consonant-loader', sizeClass, { 'consonant-loader_absolute': absolute });
+    const className = classNames({
+        'consonant-loader_medium': size === LOADER_SIZE.MEDIUM,
+        'consonant-loader_big': size === LOADER_SIZE.BIG,
+        'consonant-loader': true,
+        'consonant-loader_absolute': absolute,
+    });
 
     return !hidden && (
         <div
@@ -37,7 +32,7 @@ Loader.propTypes = {
 };
 
 Loader.defaultProps = {
-    size: '',
+    size: LOADER_SIZE.BIG,
     hidden: false,
     absolute: false,
 };
