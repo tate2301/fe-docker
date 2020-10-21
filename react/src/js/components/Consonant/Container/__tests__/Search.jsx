@@ -81,7 +81,6 @@ describe('Consonant/search', () => {
         expect(searchInput.value).toEqual('Search string');
     });
     test('should change search value', async () => {
-
         const configToUse = config;
         configToUse.filterPanel.enabled = true;
         configToUse.filterPanel.filterLogic = 'or';
@@ -113,5 +112,22 @@ describe('Consonant/search', () => {
 
         expect(searchInput.value).toEqual('Search string');
     });
+    test('clicking search input should not change typed search value', async () => {
+        const configToUse = config;
+        configToUse.filterPanel.enabled = true;
+        configToUse.filterPanel.filterLogic = 'or';
+        await act(async () => render(<Container config={configToUse} />));
 
+
+        await waitFor(() => screen.getByTestId('search-input'));
+
+        const searchInput = screen.getByTestId('search-input');
+
+        expect(searchInput.value).toEqual('');
+
+        fireEvent.change(searchInput, { target: { value: 'Search string' } });
+        fireEvent.click(searchInput);
+
+        expect(searchInput.value).toEqual('Search string');
+    });
 });
