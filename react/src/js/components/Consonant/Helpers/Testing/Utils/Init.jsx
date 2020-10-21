@@ -1,16 +1,17 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import setupIntersectionObserverMock from '../Mocks/intersectionObserver';
+import Container from '../../../Container/Container';
 
 setupIntersectionObserverMock();
 
 
-export const createTree = component => renderer
-    .create(component)
-    .toJSON();
+// export const createTree = component => renderer
+//     .create(component)
+//     .toJSON();
 
-export default (Component, defaultConfig) => (props) => {
+export default (Component, defaultConfig) => async (props) => {
     let config = defaultConfig;
 
     if (props) {
@@ -30,11 +31,11 @@ export default (Component, defaultConfig) => (props) => {
         }, { ...defaultConfig });
     }
 
-    const wrapper = render(<Component config={config} />);
-    const tree = createTree(<Component config={config} />);
+    const wrapper = await act(async () => render(<Component config={config} />));
+    // const tree = createTree(<Component config={config} />);
 
     return {
-        tree,
+        // tree,
         config,
         wrapper,
     };

@@ -6,18 +6,6 @@ import prettyFormatDate from '../../../utils/prettyFormat';
 import CardFooter from './CardFooter/CardFooter';
 import { INFOBIT_TYPE } from '../../../utils/constants';
 
-export const Tooltip = (props) => {
-    const { text } = props;
-
-    return (
-        <span className="consonant-tooltip">{text}</span>
-    );
-};
-
-Tooltip.propTypes = {
-    text: PropTypes.string.isRequired,
-};
-
 const AspectRatio3to2Card = ({
     id,
     footer,

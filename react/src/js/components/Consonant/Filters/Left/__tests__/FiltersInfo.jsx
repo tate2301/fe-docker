@@ -60,55 +60,6 @@ describe('Consonant/FiltersInfo', () => {
         expect(sortElement).not.toBeNull();
     });
 
-    describe('Check snapshots', () => {
-        test('should renders correctly with two children', () => {
-            const tree = createTree((
-                <Info {...DEFAULT_PROPS} >
-                    <Search
-                        name="searchFiltersInfo"
-                        {...SEARCH_DEFAULT_PROPS} />
-                    <Select
-                        childrenKey="selectFiltersInfo"
-                        {...SELECT_DEFAULT_PROPS} />
-                </Info>
-            ));
-
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly with search', () => {
-            const tree = createTree((
-                <Info {...DEFAULT_PROPS} >
-                    <Search
-                        name="searchFiltersInfo"
-                        {...SEARCH_DEFAULT_PROPS} />
-                </Info>
-            ));
-
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly with select', () => {
-            const tree = createTree((
-                <Info {...DEFAULT_PROPS} >
-                    <Select
-                        childrenKey="selectFiltersInfo"
-                        {...SELECT_DEFAULT_PROPS} />
-                </Info>
-            ));
-
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly when desktop width', () => {
-            const { tree } = setup();
-
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly when mobile width', () => {
-            const { tree } = setup({ windowWidth: NON_DESKTOP_WIDTH });
-
-            expect(tree).toMatchSnapshot();
-        });
-    });
-
     describe('Interaction with UI', () => {
         test('should call onMobileFiltersToggleClick', () => {
             const { props: { onMobileFiltersToggleClick } } = setup({

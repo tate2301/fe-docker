@@ -21,7 +21,12 @@
                 "fontColor": "#FFFFFF",
                 "icon": "some-banner-icon"
             },
-            "logo": {},
+            "logo": {
+                "src": "somg.svg",
+                "alt": "logo-alt-text",
+                "backgroundColor": "#000000",
+                "borderColor": "#ffffff"
+            },
             "label": {
                 "description": "Some Badge Text"
             },

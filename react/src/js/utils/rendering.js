@@ -1,6 +1,7 @@
+/* eslint-disable */
 import React from 'react';
 
-/* eslint-disable import/prefer-default-export */
+/* eslint-disable import/prefer-default-export  */
 export const highlightSearchField = (text, value) => {
     const parts = text.split(new RegExp(`(${value})`, 'gi'));
     return parts.map((part, i) => (

@@ -18,29 +18,6 @@ describe('Consonant/Select', () => {
         expect(optionElements).toHaveLength(values.length);
     });
 
-    describe('Check snapshots', () => {
-        test('should renders correctly', () => {
-            const { tree } = setup();
-
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly with autoWidth', () => {
-            const { tree } = setup({ autoWidth: true });
-
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly opened select', () => {
-            const { tree } = setup({ opened: true });
-
-            expect(tree).toMatchSnapshot();
-        });
-        test('should renders correctly with selected option', () => {
-            const { tree } = setup({ val: { label: 'label 1' } });
-
-            expect(tree).toMatchSnapshot();
-        });
-    });
-
     describe('Interaction with UI', () => {
         test('should call onSelect', () => {
             const { props: { onSelect } } = setup();

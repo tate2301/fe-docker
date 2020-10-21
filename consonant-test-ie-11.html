@@ -9,7 +9,7 @@
 
     <meta name="template" content="northstar-collection" />
 
-    <link rel="stylesheet" href="./dist/app.css" type="text/css">
+    <link rel="stylesheet" href="https://caas-chimera.s3-us-west-1.amazonaws.com/temp/app.css" type="text/css">
     <link rel="stylesheet" href="./typekit.css" type="text/css">
 
     <title>CaaS</title>
@@ -46,13 +46,13 @@
 
 
 
-    <script type="text/javascript" src="./dist/main.js"></script>
+    <script type="text/javascript" src="https://caas-chimera.s3-us-west-1.amazonaws.com/temp/main.js"></script>
 
     <script type="text/javascript">
         var config = {
             collection: {
-                resultsPerPage: '3',
-                endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/tests/card-collection/json-response-tests/features/infobits/all-15-types-denis.json",
+                resultsPerPage: '30',
+                endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/tests/card-collection/json-response-tests/smoke-tests/all-art-board-15-cards-show.json",
                 totalCardsToShow: '100',
                 cardStyle: "3:2", // could also be "3:2" or "full-card"
                 showTotalResults: 'true',
@@ -223,20 +223,20 @@
                             group: {
                                 totalResultsText: '{total} Results',
                                 applyBtnText: 'Apply',
-                                clearFilterText: 'Clear Left',
+                                clearFilterText: 'Clear',
                                 doneBtnText: 'Done',
                             }
                         }
                     },
                     topPanel: {
                         groupLabel:  'Filters',
-                        clearAllFiltersText: 'Clear All Top',
+                        clearAllFiltersText: 'Clear All',
                         moreFiltersBtnText: 'More Filters: +',
                         mobile: {
                             group: {
                                 totalResultsText: '{total} Results',
                                 applyBtnText: 'Apply',
-                                clearFilterText: 'Clear Top',
+                                clearFilterText: 'Clear',
                                 doneBtnText: 'Done',
                             }
                         }
@@ -250,7 +250,7 @@
             },
             pagination: {
                 enabled: 'true',
-                type: 'paginator',
+                type: 'loadMore',
                 i18n: {
                     loadMore: {
                         btnText: 'Load More',
@@ -295,7 +295,7 @@
                     }
                 }
             },
-            language: 'de'
+            language: 'fr'
         };
         const consonantCardCollection = new ConsonantCardCollection(config, document.getElementById("someDivId"));
     </script>

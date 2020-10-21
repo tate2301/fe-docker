@@ -38,16 +38,6 @@ describe('Consonant/Pagination', () => {
         });
     });
 
-    describe('Check snapshots', () => {
-        test('should renders correctly pagination range', () => {
-            PAGES_PROPS.forEach((props) => {
-                const { tree } = setup(props);
-
-                expect(tree).toMatchSnapshot();
-            });
-        });
-    });
-
     describe('Interaction with UI', () => {
         test('should call onClick', () => {
             const { props: { onClick } } = setup();

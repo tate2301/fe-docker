@@ -42,7 +42,7 @@ const FullCard = (props) => {
     return (
         <div
             className="consonant-full-card"
-            data-testid="consonant-card"
+            data-testid="consonant-full-card"
             id={id}>
             <div
                 data-testid="consonant-card--img"
@@ -89,7 +89,7 @@ const FullCard = (props) => {
                         tabIndex="0"/>
                 }
                 {logoSrc &&
-                    <div 
+                    <div
                         style={({
                             backgroundColor: logoBg,
                             borderColor: logoBorderBg,
@@ -110,7 +110,7 @@ const FullCard = (props) => {
                 title=""
                 className="consonant-full-card--inner"
                 tabIndex="0">
-                {label && 
+                {label &&
                     <span
                         className="consonant-full-card--label">
                         {label}

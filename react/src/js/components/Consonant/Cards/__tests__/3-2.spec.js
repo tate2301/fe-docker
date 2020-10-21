@@ -1,9 +1,8 @@
-import renderer from 'react-test-renderer';
 import React from 'react';
-import { screen } from '@testing-library/react';
+import { screen, logDOM } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import Card, { Tooltip } from '../3-2';
+import Card from '../3-2';
 
 import { DEFAULT_PROPS_3_2 } from '../../Helpers/Testing/Constants/Card';
 
@@ -52,18 +51,6 @@ describe('Consonant/Card', () => {
         expect(badgeElement).not.toBeNull();
     });
 
-    describe('Check snapshots', () => {
-        test('should renders with bookmarking', () => {
-            const { tree } = setup({
-                isBookmarked: true,
-                allowBookmarking: true,
-                disableBookmarkIco: true,
-            });
-
-            expect(tree).toMatchSnapshot();
-        });
-    });
-
     test('should renders with label', () => {
         setup({
             contentArea: {
@@ -94,15 +81,9 @@ describe('Consonant/Card', () => {
         expect(labelElement).not.toBeNull();
     });
 
-    describe('Consonant/Tooltip', () => {
-        describe('Check snapshots', () => {
-            test('should renders correctly', () => {
-                const tree = renderer
-                    .create(<Tooltip text="Tooltip text" />)
-                    .toJSON();
-
-                expect(tree).toMatchSnapshot();
-            });
-        });
+    test('A 3:2 card should be able to render a logo', () => {
+        setup();
+        const logoAltText = screen.getByAltText('logo-alt-text');
+        expect(logoAltText).not.toBeNull();
     });
 });

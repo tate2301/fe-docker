@@ -37,18 +37,18 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx$/,
+                test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components|\.spec\.js$)/,
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['env', 'react'],
+                        presets: ['env'],
                         plugins: ['transform-class-properties', 'transform-object-rest-spread'],
                     },
                 },
             },
             {
-                test: /\.jsx$/,
+                test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components|\.spec\.js$)/,
                 enforce: 'pre',
                 loader: 'eslint-loader',
@@ -82,5 +82,5 @@ module.exports = {
         ],
     },
     plugins,
-    devtool: 'eval-source-map',
+    devtool: 'none',
 };

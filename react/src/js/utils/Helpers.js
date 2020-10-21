@@ -128,7 +128,11 @@ export const getDateAscSort = (cards) => {
     return cards.sort((cardOne, cardTwo) => {
         const cardOneDate = get(cardOne, 'cardDate');
         const cardTwoDate = get(cardTwo, 'cardDate');
-        return cardOneDate.localeCompare(cardTwoDate);
+        if(cardOneDate && cardTwoDate){
+            return cardOneDate.localeCompare(cardTwoDate);
+        } else {
+            return 0;
+        }
     });
 };
 
