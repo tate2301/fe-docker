@@ -3,6 +3,7 @@ import get from 'lodash/get';
 import set from 'lodash/set';
 import includes from 'lodash/includes';
 import produce from 'immer';
+import { enableES5 } from "immer"
 import { highlightSearchField } from './rendering';
 import {
     chainFromIterable,
@@ -11,6 +12,8 @@ import {
     sanitizeText,
     removeDuplicatesByKey,
 } from './general';
+
+enableES5();
 
 export const shouldDisplayPaginator = (enabled, resultsPerPage, totalResults) => {
     const resultsPerPageNotZero = resultsPerPage > 0;
