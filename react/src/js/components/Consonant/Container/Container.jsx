@@ -135,15 +135,11 @@ const Container = (props) => {
     };
 
     const handleFilterItemClick = (filterId) => {
-        const isUsingTopFilter = filterPanelType === 'top';
         setFilters((prevFilters) => {
             let opened;
             return prevFilters.map((el) => {
                 if (el.id === filterId) {
                     opened = !el.opened;
-                } else if (isUsingTopFilter) {
-                    // Top filter can only have 1 simultaneous filter that's opened
-                    opened = false;
                 } else {
                     // eslint-disable-next-line prefer-destructuring
                     opened = el.opened;
