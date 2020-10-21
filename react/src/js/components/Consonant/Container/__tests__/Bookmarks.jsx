@@ -65,7 +65,7 @@ describe('Consonant/FilterItem', () => {
         // await act(async () => render(<Container config={configToUse} />));
     });
 
-    test('should toggle favourites', async () => {
+    test('should save card to bookmarks', async () => {
         const { resultsPerPage } = config.collection;
         const configToUse = config;
         configToUse.collection.cardStyle = '3:2';
@@ -128,5 +128,20 @@ describe('Consonant/FilterItem', () => {
 
         // should render card collection without bookmark filter
         expect(screen.queryAllByTestId('consonant-card')).toHaveLength(resultsPerPage);
+    });
+
+    test('should be able to see between saved cards', async () => {
+        const configToUse = config;
+        configToUse.collection.cardStyle = '3:2';
+        await act(async () => render(<Container config={configToUse} />));
+
+        // Need wait for api response and state updating
+        await waitFor(() => screen.getByTestId('consonant-collection'));
+
+        // get first unbookmarkedButton from whole DOM tree
+        const [bookmarksFilter] = screen.queryAllByTestId('bookmarks');
+        fireEvent.click(bookmarksFilter);
+        expect(true).toBeTruthy();
+
     });
 });
