@@ -130,7 +130,7 @@ describe('Consonant/FilterItem', () => {
         expect(screen.queryAllByTestId('consonant-card')).toHaveLength(resultsPerPage);
     });
 
-    test('should be able to see between saved cards', async () => {
+    test('If a user does not have any saved cards, they should not see any cards when in that filter', async () => {
         const configToUse = config;
         configToUse.collection.cardStyle = '3:2';
         await act(async () => render(<Container config={configToUse} />));
@@ -138,10 +138,12 @@ describe('Consonant/FilterItem', () => {
         // Need wait for api response and state updating
         await waitFor(() => screen.getByTestId('consonant-collection'));
 
+        const bookmarksItemsBadge = screen.getByTestId('bookmarks--item-badge');
+
         // get first unbookmarkedButton from whole DOM tree
         const [bookmarksFilter] = screen.queryAllByTestId('bookmarks');
+        expect(bookmarksItemsBadge.innerHTML).toEqual('0');
         fireEvent.click(bookmarksFilter);
-        expect(true).toBeTruthy();
-
+        expect(screen.queryAllByTestId('consonant-card')).toHaveLength(0);
     });
 });
