@@ -8,6 +8,7 @@ import {
     act,
     logDOM,
     render,
+    debug,
 } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
@@ -100,28 +101,6 @@ describe('Consonant/FilterItem', () => {
          */
         // expect(screen.queryByTestId('consonant-loader')).toBeNull();
         expect(screen.getByTestId('consonant-collection')).not.toBeNull();
-    });
-
-    test('should render with left filter', async () => {
-        const configToUse = config;
-        configToUse.filterPanel.type = 'left';
-        await act(async () => render(<Container config={configToUse} />));
-
-        // search for FilterPanelTop in whole DOM tree
-        const filtersTopElement = screen.queryByTestId('consonant-filters__top');
-
-        // search for FilterPanelLeft FilterInfo in whole DOM tree
-        const filtersLeftElement = screen.queryByTestId('consonant-filters__left');
-        const filtersInfoElement = screen.queryByTestId('consonant-filters__info');
-
-        expect(filtersTopElement).toBeNull();
-        /**
-         * filterPanel.type === 'left'
-         * FilterPa not be exists
-         * Collection component should be exists
-         */
-        expect(filtersLeftElement).not.toBeNull();
-        expect(filtersInfoElement).not.toBeNull();
     });
 
     test('should check checkbox on left filter`s item click', async () => {
@@ -244,3 +223,34 @@ describe('Consonant/FilterItem', () => {
         expect(firstFilterItem).toHaveClass('consonant-left-filter_opened');
     });
 });
+
+describe('Another/Test Suite', () => {
+    beforeEach(async () => {
+
+    });
+
+    test('testing multiple clicks -- so selected filter quantity shows', async () => {
+
+        const configToUse = config;
+        configToUse.filterPanel.filterLogic = 'or';
+        configToUse.filterPanel.type = 'left';
+        global.innerWidth = DESKTOP_WIDTH;
+
+        await act(async () => render(<Container config={configToUse} />));
+        // Need wait for render all checkboxes
+        await waitFor(() => screen.getAllByTestId('list-item-checkbox'));
+
+        const filterElements = screen.getAllByTestId('consonant-filters__left');
+        const firstFilterElement = filterElements[0];
+
+        const [firstCheckbox] = queryAllByTestId(firstFilterElement, 'list-item-checkbox');
+
+        fireEvent.click(firstCheckbox);
+
+        await waitFor(() => screen.getAllByTestId('selected-filter'));
+        const [selectedFilter] = screen.getAllByTestId('selected-filter');
+
+        expect(selectedFilter).not.toBeNull();
+    });
+});
+
