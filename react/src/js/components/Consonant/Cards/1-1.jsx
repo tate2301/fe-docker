@@ -56,7 +56,7 @@ const AspectRatio1to1Card = (props) => {
     return (
         <div
             className="consonant-aspect-ratio-1-1-card"
-            data-testid="consonant-card"
+            data-testid="consonant-1-1-card"
             id={id}>
             <div
                 data-testid="consonant-card--img"
@@ -85,7 +85,7 @@ const AspectRatio1to1Card = (props) => {
                         <span>{bannerDescription}</span>
                     </span>
                 }
-                {badgeText && 
+                {badgeText &&
                     <span className="consonant-aspect-ratio-1-1-card--badge">
                         {badgeText}
                     </span>
@@ -120,9 +120,9 @@ const AspectRatio1to1Card = (props) => {
                 title="Click to open in a new tab"
                 className="consonant-aspect-ratio-1-1-card--inner"
                 tabIndex="0">
-                {detailText && 
-                    <span 
-                        data-testid="1-1-card--label" 
+                {detailText &&
+                    <span
+                        data-testid="1-1-card--label"
                         className="consonant-aspect-ratio-1-1-card--label">
                             {detailText}
                         </span>

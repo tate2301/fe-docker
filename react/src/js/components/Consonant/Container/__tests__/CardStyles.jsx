@@ -42,53 +42,44 @@ const handlers = [
     )),
 ];
 
+// const server = setupServer(...handlers);
+// beforeAll(() => server.listen());
+// afterEach(() => server.resetHandlers());
+// afterAll(() => server.close());
+
 global.fetch = jest.fn(() =>
     Promise.resolve({
         json: () => Promise.resolve({ cards }),
     }));
 
+// Create more than 2 filter with different ids
+const multipleFilters = [...filters, ...filters]
+    .map((item, index) => ({ ...item, id: `${item}_${index}` }));
+
 window.scrollTo = () => { };
 jest.setTimeout(30000);
 
-describe('Testing Results Per Page', () => {
-
-    test('should render limited count of card', async () => {
-
+describe('Container/CardStyles', () => {
+    test('can render the full-card style', async () => {
         const configToUse = config;
-        configToUse.collection.resultsPerPage = null;
+        configToUse.collection.cardStyle = 'full-card';
         await act(async () => render(<Container config={configToUse} />));
-
-        // Need wait for api response and state updating
-        await waitFor(() => screen.getByTestId('consonant-collection'));
-
-        /**
-         * If resultsPerPage didn't present - we should render all cards
-         */
-        expect(screen.queryAllByTestId('consonant-card')).toHaveLength(9);
+        const fullCards = screen.queryAllByTestId('consonant-full-card');
+        expect(fullCards).not.toBeNull();
     });
 
-    test('should render 1 cards by default if resultsPerPage === 1', async () => {
+    test('can render the 1:1 card style', async () => {
         const configToUse = config;
-        configToUse.collection.resultsPerPage = 1;
+        configToUse.collection.cardStyle = '1:1';
         await act(async () => render(<Container config={configToUse} />));
-
-        // Need wait for api response and state updating
-        await waitFor(() => screen.getByTestId('consonant-collection'));
-
-        expect(screen.queryAllByTestId('consonant-card')).toHaveLength(1);
+        const oneByOneCards = screen.queryAllByTestId('consonant-1-1-card');
+        expect(oneByOneCards).not.toBeNull();
     });
 
-    test('should render all cards if limit > cards count', async () => {
+    test('can still show correct cards per page even if pagination is missing', async () => {
         const configToUse = config;
-        configToUse.collection.resultsPerPage = 100;
+        configToUse.pagination.type = 'not-valid';
         await act(async () => render(<Container config={configToUse} />));
-
-        // Need wait for api response and state updating
-        await waitFor(() => screen.getByTestId('consonant-collection'));
-
-        /**
-         * if totalCardLimit > cards.length then we should render all cards
-         */
-        expect(screen.queryAllByTestId('consonant-card')).toHaveLength(18);
+        expect(screen.queryAllByTestId('consonant-card--img')).toHaveLength(configToUse.collection.resultsPerPage);
     });
 });

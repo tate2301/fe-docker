@@ -32,10 +32,9 @@ const Collection = (props) => {
 
     if (paginationType === 'paginator') {
         shownCards = cards.slice(resultsPerPage * (pages - 1), resultsPerPage * pages);
-    } else if (paginationType === 'loadMore') {
+    }
+    else {
         shownCards = cards.slice(0, resultsPerPage * pages);
-    } else {
-        throw new Error(`Unrecognized pagination type ${paginationType}`);
     }
 
     return shownCards.length > 0 && (
