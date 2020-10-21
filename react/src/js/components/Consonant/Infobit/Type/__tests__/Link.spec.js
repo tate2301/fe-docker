@@ -2,23 +2,21 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import LinkWithIcon from '../LinkWithIcon';
+import Link from '../Link';
 
 const props = {
     href: 'https://www.someTestUrl.com/',
     openInNewTab: false,
     linkHint: 'Some Link Hint',
     text: 'Click Here',
-    src: 'Some Src',
-    srcAltText: 'Some Src Alt Txt',
 };
 
-describe('Link With Icon', () => {
-    test('Loads with default propss', async () => {
+describe('Link Infobit', () => {
+    test('Loads with default props', async () => {
         const propsToUse = props;
-        const { getByText } = render(<LinkWithIcon {...propsToUse} />);
+        const { getByText } = render(<Link {...propsToUse} />);
 
-        const linkWithIcon = screen.getByTestId('link-with-icon');
+        const linkWithIcon = screen.getByTestId('link-infobit');
         expect(linkWithIcon).not.toBeNull();
         expect(linkWithIcon.target).toBe('_self');
         expect(getByText('Click Here').innerHTML).toContain('Click Here');
@@ -28,9 +26,9 @@ describe('Link With Icon', () => {
     test('Can be authored to open in a new tab', async () => {
         const propsToUse = props;
         propsToUse.openInNewTab = true;
-        render(<LinkWithIcon {...propsToUse} />);
+        render(<Link {...propsToUse} />);
 
-        const linkWithIcon = screen.getByTestId('link-with-icon');
+        const linkWithIcon = screen.getByTestId('link-infobit');
 
         expect(linkWithIcon.target).toBe('_blank');
     });

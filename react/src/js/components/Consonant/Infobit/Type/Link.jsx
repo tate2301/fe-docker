@@ -8,6 +8,7 @@ function Link({
     return (
         <a
             className="consonant-link-infobit"
+            data-testid="link-infobit"
             href={href}
             target={target}
             title={linkHint}
