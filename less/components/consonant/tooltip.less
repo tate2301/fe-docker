@@ -1,6 +1,6 @@
-@consonant-tooltip-width: unit((@consonant-root-rem * 10), px);
-@consonant-tooltip-arr-width: unit((@consonant-root-rem * 0.375), px);
-@consonant-tooltip-vert-pos-adder: unit((@consonant-root-rem * 0.5625), px);
+@consonant-tooltip-width: 160px;
+@consonant-tooltip-arr-width: 6px;
+@consonant-tooltip-vert-pos-adder: 9px;
 
 [data-tooltip-wrapper] {
     position: relative;
@@ -22,18 +22,14 @@
     position: absolute;
     display: none;
     width: @consonant-tooltip-width;
-    padding: 7/@consonant-root-rem unit((@consonant-root-rem * 0.875), px);
+    padding: 7px 14px;
     bottom: calc(~ '100% + ' @consonant-tooltip-vert-pos-adder);
-    left: unit((@consonant-root-rem * 4.5), px) * -1;
+    left: -72px;
 
-    .font(
-        @size: 12/@consonant-root-rem,
-        @align: center,
-        @color: @consonant-color-white
-    );
+    .font(@size: 0.75rem, @align: center, @color: @consonant-color-white);
 
     text-decoration: none;
-    border-radius: unit((@consonant-root-rem * 0.5), px);
+    border-radius: 8px;
     background-color: @consonant-color-dark-grey-1;
     z-index: -1;
     user-select: text;

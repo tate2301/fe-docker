@@ -1,13 +1,13 @@
 @consonant-search-search-ico-src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAxNSAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEzLjkyIDEyLjY3NUwxMC41ODYgOS4zNDIwMUMxMS4zOTAyIDguMjE5NTEgMTEuNzQyNyA2LjgzNTYgMTEuNTczNSA1LjQ2NTE3QzExLjQwNDMgNC4wOTQ3NSAxMC43MjU5IDIuODM4MDkgOS42NzI5MyAxLjk0NDgzQzguNjE5OTUgMS4wNTE1NiA3LjI2OTUxIDAuNTg3MDQ2IDUuODg5ODQgMC42NDM1NThDNC41MTAxNyAwLjcwMDA3MSAzLjIwMjI0IDEuMjczNDcgMi4yMjU4NSAyLjI0OTg2QzEuMjQ5NDYgMy4yMjYyNSAwLjY3NjA1MyA0LjUzNDE5IDAuNjE5NTQxIDUuOTEzODZDMC41NjMwMjkgNy4yOTM1MiAxLjAyNzU0IDguNjQzOTcgMS45MjA4MSA5LjY5Njk0QzIuODE0MDcgMTAuNzQ5OSA0LjA3MDczIDExLjQyODQgNS40NDExNiAxMS41OTc1QzYuODExNTggMTEuNzY2NyA4LjE5NTQ5IDExLjQxNDIgOS4zMTggMTAuNjFMMTIuNjUxIDEzLjk0M0MxMi44MjMyIDE0LjA5MDUgMTMuMDQ0NiAxNC4xNjc1IDEzLjI3MTEgMTQuMTU4OEMxMy40OTc3IDE0LjE1IDEzLjcxMjUgMTQuMDU2MSAxMy44NzI4IDEzLjg5NThDMTQuMDMzMSAxMy43MzU1IDE0LjEyNyAxMy41MjA3IDE0LjEzNTcgMTMuMjk0MkMxNC4xNDQ1IDEzLjA2NzcgMTQuMDY3NCAxMi44NDYyIDEzLjkyIDEyLjY3NFYxMi42NzVaTTIuMjY2IDYuMTUwMDFDMi4yNjYgNS4zODY1OCAyLjQ5MjM4IDQuNjQwMjggMi45MTY1MiA0LjAwNTUxQzMuMzQwNjYgMy4zNzA3NCAzLjk0MzUxIDIuODc1OTkgNC42NDg4NCAyLjU4Mzg0QzUuMzU0MTYgMi4yOTE2OCA2LjEzMDI4IDIuMjE1MjQgNi44NzkwNCAyLjM2NDE4QzcuNjI3ODEgMi41MTMxMiA4LjMxNTYgMi44ODA3NSA4Ljg1NTQzIDMuNDIwNThDOS4zOTUyNiAzLjk2MDQxIDkuNzYyODkgNC42NDgyIDkuOTExODMgNS4zOTY5NkMxMC4wNjA4IDYuMTQ1NzMgOS45ODQzMiA2LjkyMTg1IDkuNjkyMTcgNy42MjcxN0M5LjQwMDAyIDguMzMyNDkgOC45MDUyNyA4LjkzNTM0IDguMjcwNSA5LjM1OTQ5QzcuNjM1NzIgOS43ODM2MyA2Ljg4OTQzIDEwLjAxIDYuMTI1OTkgMTAuMDFDNS4xMDIyNiAxMC4wMSA0LjEyMDQ1IDkuNjAzMzQgMy4zOTY1NiA4Ljg3OTQ1QzIuNjcyNjcgOC4xNTU1NSAyLjI2NiA3LjE3Mzc1IDIuMjY2IDYuMTUwMDFWNi4xNTAwMVoiIGZpbGw9IiM1MDUwNTAiLz4KPC9zdmc+Cg==';
-@consonant-search-search-ico-size: unit((@consonant-root-rem * 0.9375), px);
-@consonant-search-input-clear-size: unit((@consonant-root-rem * 1.25), px);
-@consonant-search-input-clear-size-1200-break: unit((@consonant-root-rem * 1.5), px);
-@consonant-search-input-clear-ico-size-1200-break: unit((@consonant-root-rem * 0.625), px);
+@consonant-search-search-ico-size: 15px;
+@consonant-search-input-clear-size: 20px;
+@consonant-search-input-clear-size-1200-break: 24px;
+@consonant-search-input-clear-ico-size-1200-break: 10px;
 @consonant-search-input-input-min-height: 32px;
 
 .consonant-search {
     position: relative;
-    padding-bottom: 12/@consonant-root-rem;
+    padding-bottom: 12px;
 
     label {
         display: flex;
@@ -20,14 +20,9 @@
     .consonant-search--input-title {
         .hide-all;
 
-        margin: 0 0 5/@consonant-root-rem;
+        margin: 0 0 5px;
 
-        .font(
-            12/@consonant-root-rem,
-            14/@consonant-root-rem,
-            400,
-            @consonant-color-dark-grey-1
-        );
+        .font(0.75rem, 0.875rem, 400, @consonant-color-dark-grey-1);
 
         cursor: pointer;
     }
@@ -44,7 +39,7 @@
             position: absolute;
             top: 0;
             bottom: 0;
-            left: unit((@consonant-root-rem * 0.625), px);
+            left: 10px;
             margin: auto;
             background: transparent url(@consonant-search-search-ico-src) no-repeat 0 0;
             background-size: cover;
@@ -58,19 +53,12 @@
 
         .full-width;
 
-        padding:
-            0
-            unit((@consonant-root-rem * 0.5), px)
-            0
-            unit((@consonant-root-rem * 2), px);
+        padding: 0 8px 0 32px;
 
-        .font(
-            @line-height: 30/@consonant-root-rem,
-            @color: @consonant-color-brown-grey
-        );
+        .font(@line-height: 1.875rem, @color: @consonant-color-brown-grey);
 
         border: 1px solid @consonant-color-lightest-grey;
-        border-radius: unit((@consonant-root-rem * 0.3125), px);
+        border-radius: 5px;
         transition: border-color @transition-time @transition-func;
         outline: 0;
         box-shadow: none;
@@ -97,7 +85,7 @@
         }
 
         &:focus {
-            padding-right: unit((@consonant-root-rem * 2), px);
+            padding-right: 32px;
             border-color: @consonant-color-blue-2;
 
             &::placeholder {
@@ -120,7 +108,7 @@
         height: @consonant-search-input-clear-size;
         top: 0;
         bottom: 0;
-        right: unit((@consonant-root-rem * 0.375), px);
+        right: 6px;
         margin: auto;
         font-size: 0;
         line-height: 0;
@@ -135,7 +123,7 @@
         &:after {
             content: '';
             position: absolute;
-            width: unit((@consonant-root-rem * 0.5), px);
+            width: 8px;
             height: 1px;
 
             .position-absolute-0;

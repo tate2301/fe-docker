@@ -4,9 +4,9 @@
 - .consonant-loader_big;
 */
 
-@consonant-loader-size: unit((@consonant-root-rem), px);
-@consonant-loader-md-size: unit((@consonant-root-rem * 2), px);
-@consonant-loader-big-size: unit((@consonant-root-rem * 4), px);
+@consonant-loader-size: 16px;
+@consonant-loader-md-size: 32px;
+@consonant-loader-big-size: 64px;
 
 .consonant-loader {
     box-sizing: border-box;
@@ -74,7 +74,7 @@
         div {
             width: @consonant-loader-md-size;
             height: @consonant-loader-md-size;
-            border-width: unit((@consonant-root-rem * 0.25), px);
+            border-width: 4px;
         }
     }
 
@@ -86,7 +86,7 @@
         div {
             width: @consonant-loader-big-size;
             height: @consonant-loader-big-size;
-            border-width: unit((@consonant-root-rem * 0.3125), px);
+            border-width: 5px;
         }
     }
 }

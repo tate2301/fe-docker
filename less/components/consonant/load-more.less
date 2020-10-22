@@ -5,7 +5,7 @@
 
     .margin-auto;
 
-    padding-bottom: 115/@consonant-root-rem;
+    padding-bottom: 115px;
     text-align: center;
     user-select: none;
 
@@ -17,30 +17,22 @@
 
     .consonant-load-more--text {
         max-width: 75%;
-        margin: 0 0 14/@consonant-root-rem;
+        margin: 0 0 14px;
 
-        .font(
-            @line-height: 19/@consonant-root-rem,
-            @color: @consonant-color-brown-grey,
-            @align: center
-        );
+        .font(@line-height: 1.1875rem, @color: @consonant-color-brown-grey, @align: center);
     }
 
     .consonant-load-more--btn {
         max-width: 75%;
         box-sizing: border-box;
-        padding: 5/@consonant-root-rem unit((@consonant-root-rem * 0.8125), px);
+        padding: 5px 13px;
 
-        .font(
-            @line-height: 19/@consonant-root-rem,
-            @color: @consonant-color-brown-grey,
-            @align: center
-        );
+        .font(@line-height: 1.1875rem, @color: @consonant-color-brown-grey, @align: center);
 
         text-transform: capitalize;
         background-color: transparent;
         border: 2px solid @consonant-color-brown-grey;
-        border-radius: unit((@consonant-root-rem * 1.875), px);
+        border-radius: 30px;
         outline: 0;
         user-select: none;
         transition:
@@ -57,25 +49,25 @@
     }
 
     @media @consonant-tablet-up {
-        padding-bottom: 121/@consonant-root-rem;
+        padding-bottom: 121px;
     }
 
     @media @consonant-big-desktop-up {
         min-width: @consonant-width-desktop-min;
         max-width: @consonant-width-desktop-min;
-        padding-bottom: 140/@consonant-root-rem;
+        padding-bottom: 140px;
     }
 }
 
 // Left filter changes;
 * + * > div > .consonant-load-more {
     @media @consonant-desktop-up {
-        min-width: calc(83.333vw - (@consonant-filters-1200-break-width + unit((@consonant-root-rem * 2), px)));
-        max-width: calc(83.333vw - (@consonant-filters-1200-break-width + unit((@consonant-root-rem * 2), px)));
+        min-width: calc(83.333vw - @consonant-filters-1200-break-width ~ ' + 32px');
+        max-width: calc(83.333vw - @consonant-filters-1200-break-width ~ ' + 32px');
     }
 
     @media @consonant-big-desktop-up {
-        min-width: calc(@consonant-width-desktop-min - (@consonant-filters-1200-break-width + unit((@consonant-root-rem * 2), px)));
-        max-width: calc(@consonant-width-desktop-min - (@consonant-filters-1200-break-width + unit((@consonant-root-rem * 2), px)));
+        min-width: calc(@consonant-width-desktop-min - @consonant-filters-1200-break-width ~ ' + 32px');
+        max-width: calc(@consonant-width-desktop-min - @consonant-filters-1200-break-width ~ ' + 32px');
     }
 }

@@ -232,7 +232,6 @@
 
         .consonant-top-filters--search-ico-wrapper {
             position: relative;
-            // Can't use extend here, limitation of LESS;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -288,7 +287,7 @@
     }
 
     @media @consonant-desktop-up {
-        // Hide search input label;
+        /* Hide search input label; */
         .consonant-top-filters--search-ico-wrapper label > span:first-child {
             display: none;
         }
@@ -300,7 +299,7 @@
             margin-left: 0;
         }
 
-        // Add paddings for sort select;
+        /* Add paddings for sort select; */
         .consonant-top-filters--select-wrapper > div:first-child {
             &:after {
                 right: 12px;
