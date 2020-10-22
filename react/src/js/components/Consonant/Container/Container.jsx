@@ -2,7 +2,7 @@
 import get from 'lodash/get';
 import debounce from 'lodash/debounce';
 import PropTypes from 'prop-types';
-import React, { Fragment, useEffect, useRef, useState, useCallback } from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
 import 'whatwg-fetch';
 import {
     DESKTOP_MIN_WIDTH,
@@ -74,19 +74,135 @@ const Container = (props) => {
     const topPanelSearchPlaceholder = getConfig('search', 'i18n.topFilterPanel.searchPlaceholderText');
     const searchPlaceholderText = getConfig('search', 'i18n.filterInfo.searchPlaceholderText');
 
+    /**
+     * @typedef {Boolean} OpenDropdownState 
+     * @description — Passed in Context Provider So All Nested Components can be in sync 
+     * 
+     * @typedef {Function} OpenDropdownStateSetter
+     * @description
+     * 
+     * @type {[Boolean, Function]} OpenDropdown
+     */
     const [openDropdown, setOpenDropdown] = useState(null);
+
+    /**
+     * @typedef {Array} BookmarkedCardIdsState — Initiailzed From Local Storage
+     * 
+     * @typedef {Function} BookmarkedCardIdsSetter — Sets internal state of saved bookmarks
+     * 
+     * @type {[Array, Function]} BookmarkedCardIds
+     */
     const [bookmarkedCardIds, setBookmarkedCardIds] = useState(readBookmarksFromLocalStorage());
+
+    /**
+     * @typedef {Int} CurrentPageState — Initialized to the first page
+     * @description Same page state for 'Load More' or 'Paginator' 
+     * 
+     * @typedef {Function} CurrentPageStateSetter — Sets page as user navigates through pages
+     * 
+     * @type {[Int, Function]} CurrentPage
+     */
     const [currentPage, setCurrentPage] = useState(1);
+    
+    /**
+     * @typedef {Array} FiltersState — Contains Filters For Filter Panel
+     * @description Same Filter state for Left or Top 
+     * 
+     * @typedef {Function} FiltersStateSetter — Sets Authored Filters as State
+     * 
+     * @type {[Array, Function]} Filters
+     */
     const [filters, setFilters] = useState([]);
     const page = useRef();
+
+    /**
+     * @typedef {String} SearchQueryState — Will be used to search through cards
+     * @typedef {Function} SearchQueryStateSetter — Sets user search query
+     * 
+     * @type {[String, Function]} SearchQuery
+     */
     const [searchQuery, setSearchQuery] = useState('');
+
+    /**
+     * @typedef {String} SortOpenedState — Toggles Sort Popup Opened Or Closed
+     * @typedef {Function} SortOpenedStateSetter — Sets Sort Option
+     * 
+     * @type {[Boolean, Function]} SortOpened
+     */
     const [sortOpened, setSortOpened] = useState(false);
+
+    /**
+     * @typedef {String} SortOptionState — Can be one of a range of types
+     * @description 'Title (A-Z)', 'Title (Z-A), Date (New to Old), Date (Old to New), Featured
+     * 
+     * @typedef {Function} SortOptionStateSetter — Sets Sort Option
+     * 
+     * @type {[String, Function]} SortOption
+     */
     const [sortOption, setSortOption] = useState(defaultSortOption);
+
+    /**
+     * @typedef {Boolean} WindowWidthState — Can either be true or false
+     * @description Used to toggle between mobile and desktop layouts
+     * 
+     * @typedef {Function} WindowWidthStateSetter — Updates window width
+     * 
+     * @type {[Int]} WindowWidth
+     */
     const { width: windowWidth } = useWindowDimensions();
+
+    /**
+     * @typedef {Boolean} ShowMobileFiltersState — Can either be true or false
+     * @description When true mobile filters will appear on the page
+     * 
+     * @typedef {Function} ShowMobileFiltersStateSetter — Toggles mobile filter header/footer to show or hide
+     * @description Only updates on mobile
+     * 
+     * @type {[Boolean, Function]} ShowMobileFilters
+     */
     const [showMobileFilters, setShowMobileFilters] = useState(false);
+
+    /**
+     * @typedef {Boolean} ShowBookmarkState — Can either be true or false
+     * @description For Top Filter Panel, there is a limit to how many filter groups can show
+     * 
+     * @typedef {Function} ShowBookmarkStateSetter — Sets limit on filter quantity
+     * @description When over allowed Filter Group Quantity - A "More +" button appears
+     * 
+     * @type {[Boolean, Function]} ShowBookmarks
+     */
     const [showBookmarks, setShowBookmarks] = useState(false);
+
+    /**
+     * @typedef {Boolean} LimitFilterQuantityState — Can either be true or false
+     * @description For Top Filter Panel, there is a limit to how many filter groups can show
+     * 
+     * @typedef {Function} LimitFilterQuantityStateSetter — Sets limit on filter quantity
+     * @description When over allowed Filter Group Quantity - A "More +" button appears
+     * 
+     * @type {[Boolean, Function]} LimitFilterQuantity
+     */
     const [showLimitedFiltersQty, setShowLimitedFiltersQty] = useState(filterPanelType === 'top');
+
+    /**
+     * @typedef {Array} CardState
+     * @typedef {Function} CardStateSetter — sets cards retrieved either server side render or API call
+     * 
+     * @description E.g. Render Featured Cards Server side, While collection cards from API call
+     * 
+     * @type {[Array, Function]} Cards
+     */
     const [cards, setCards] = useState([]);
+
+    /**
+     * @typedef {Boolean} LoadingState — Can either be true or false
+     * @description When true a loading spinner will appear on the page
+     * 
+     * @typedef {Function} LoadingStateSetter — Sets loader true or false
+     * @description True while waiting for API response. False on cards retrieved or api failure
+     * 
+     * @type {[Boolean, Function]} Loading
+     */
     const [isLoading, setLoading] = useState(false);
 
 
@@ -166,7 +282,7 @@ const Container = (props) => {
         }));
     };
 
-    const handleFiltersToggle = () => setShowMobileFilters(prev => !prev);
+    const handleMobileFiltersToggle = () => setShowMobileFilters(prev => !prev);
 
     const handleCardBookmarking = (id) => {
         // Update bookmarked IDs
@@ -301,7 +417,7 @@ const Container = (props) => {
                                     onClearAllFilters={resetFiltersSearchAndBookmarks}
                                     onClearFilterItems={clearFilterItems}
                                     onCheckboxClick={handleCheckBoxChange}
-                                    onMobileFiltersToggleClick={handleFiltersToggle}
+                                    onMobileFiltersToggleClick={handleMobileFiltersToggle}
                                     onSelectedFilterClick={handleCheckBoxChange}
                                     showMobileFilters={showMobileFilters}
                                     resQty={collectionCards.length}
@@ -363,7 +479,7 @@ const Container = (props) => {
                                     cardsQty={collectionCards.length}
                                     selectedFiltersQty={selectedFiltersItemsQty}
                                     windowWidth={windowWidth}
-                                    onMobileFiltersToggleClick={handleFiltersToggle}
+                                    onMobileFiltersToggleClick={handleMobileFiltersToggle}
                                     searchComponent={(
                                         <Search
                                             placeholderText={searchPlaceholderText}
