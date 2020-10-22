@@ -106,3 +106,59 @@ export const isAtleastOneFilterSelected =
         filters => chainFromIterable(filters.map(f => f.items)).some(item => item.selected);
 
 export const stopPropagation = e => e.stopPropagation();
+
+/**
+ * @function generateRange
+ * @param {number} start - Start value in the range array;
+ * @param {number} end - End value in the range array;
+ * @return {Array}
+ * @description Return range  of numbers from [start, ... , end];
+ */
+export const generateRange = (startVal, end) => {
+    let start = startVal;
+    let step = 1;
+    const range = [];
+
+    if (end < start) {
+        step = -step;
+    }
+
+    while (step > 0 ? end >= start : end <= start) {
+        range.push(start);
+        start += step;
+    }
+
+    return range;
+};
+
+/**
+ * @function getPageStartEnd
+ * @param {number} pageCount - Total pages to display
+ * @param {number} currentPageNumber - Current page user is on
+ * @param {number} totalPages - Total number of pages available
+ * @return {Array}
+ * @description Return what start and end numbers should be for a given page
+ */
+export const getPageStartEnd = (currentPageNumber, pageCount, totalPages) => {
+    const halfPageCount = Math.floor(pageCount / 2);
+    let start;
+    let end;
+
+
+    if (totalPages <= (pageCount + 1)) {
+        // show all pages
+        start = 1;
+        end = totalPages;
+    } else {
+        start = Math.min(
+            Math.max(1, currentPageNumber - halfPageCount),
+            totalPages - pageCount,
+        );
+        end = Math.max(
+            Math.min(currentPageNumber + halfPageCount, totalPages),
+            pageCount + 1,
+        );
+    }
+
+    return [start, end];
+};

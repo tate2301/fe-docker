@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useConfig } from '../../../utils/hooks';
+import { getPageStartEnd, generateRange } from '../../../utils/general';
 
 const Paginator = (props) => {
     const {
@@ -18,70 +19,14 @@ const Paginator = (props) => {
     const prevLabel = getConfig('pagination', 'i18n.paginator.prevLabel');
     const nextLabel = getConfig('pagination', 'i18n.paginator.nextLabel');
 
-    /**
-     * @function generateRange
-     * @param {number} startVal - Start value in the range array;
-     * @param {number} end - End value in the range array;
-     * @return {Array}
-     * @description Return range array of pages;
-     */
-    const generateRange = (startVal, end) => {
-        let start = startVal;
-        let step = 1;
-        const range = [];
-
-        if (end < start) {
-            step = -step;
-        }
-
-        while (step > 0 ? end >= start : end <= start) {
-            range.push(start);
-            start += step;
-        }
-
-        // @TODO refactor, wrong logic in pagination;
-        if (startVal !== 1 && end === totalPages && totalPages > pageCount) range.shift();
-
-        return range;
-    };
-
-    /**
-     * @function generatePageList
-     * @param {number} pageCount - Total pages to display
-     * @param {number} currentPageNumber - Current page user is on
-     * @param {number} totalPages - Total number of pages available
-     * @return {Array}
-     * @description Return array of pages up to a max length of pageCount
-     */
-    const generatePageList = () => {
-        const halfPageCount = Math.floor(pageCount / 2);
-        let start;
-        let end;
-
-
-        if (totalPages <= (pageCount + 1)) {
-            // show all pages
-            start = 1;
-            end = totalPages;
-        } else {
-            start = Math.min(
-                Math.max(1, currentPageNumber - halfPageCount),
-                totalPages - pageCount,
-            );
-            end = Math.max(
-                Math.min(currentPageNumber + halfPageCount, totalPages),
-                pageCount + 1,
-            );
-        }
-
-        return generateRange(start, end);
-    };
+    const [pageStart, pageEnd] = getPageStartEnd(currentPageNumber, pageCount, totalPages);
+    const pageRange = generateRange(pageStart, pageEnd);
 
     const handleClick = (clickEvt) => {
+        let page;
         clickEvt.preventDefault();
 
         const { target } = clickEvt;
-        let page;
 
         if (target.classList.contains('consonant-pagination--btn_prev')) {
             page = currentPageNumber - 1 > 0 ? currentPageNumber - 1 : 1;
@@ -132,7 +77,7 @@ const Paginator = (props) => {
                     tabIndex="0">{prevLabel}
                 </button>
                 <ul className="consonant-pagination--items">
-                    {generatePageList().map(item => (
+                    {pageRange.map(item => (
                         <li
                             key={item}
                             className={
