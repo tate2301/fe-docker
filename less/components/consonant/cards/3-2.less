@@ -3,11 +3,9 @@
 @consonant-card-height: 448px;
 @consonant-card-margin-right: 32px;
 @consonant-card-play-ico-data: "data:image/svg+xml,%3Csvg width='42' height='42' viewBox='0 0 42 42' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21 0C25.1534 0 29.2135 1.23163 32.667 3.53914C36.1204 5.84665 38.812 9.1264 40.4015 12.9636C41.9909 16.8009 42.4068 21.0233 41.5965 25.0969C40.7862 29.1705 38.7861 32.9123 35.8492 35.8492C32.9123 38.7861 29.1705 40.7862 25.0969 41.5965C21.0233 42.4068 16.8009 41.9909 12.9636 40.4015C9.1264 38.812 5.84665 36.1204 3.53914 32.667C1.23163 29.2135 0 25.1534 0 21C0 15.4305 2.21249 10.089 6.15076 6.15076C10.089 2.21249 15.4305 0 21 0V0Z' fill='%231473E6'/%3E%3Cpath d='M21 1C18.2996 1 15.6805 1.52866 13.2154 2.57129C10.8339 3.57856 8.69495 5.02078 6.85786 6.85786C5.02078 8.69495 3.57856 10.8339 2.57129 13.2154C1.52866 15.6805 1 18.2996 1 21C1 23.7004 1.52866 26.3195 2.57129 28.7846C3.57856 31.1661 5.02078 33.305 6.85786 35.1421C8.69495 36.9792 10.8339 38.4214 13.2154 39.4287C15.6805 40.4713 18.2996 41 21 41C23.7004 41 26.3195 40.4713 28.7846 39.4287C31.1661 38.4214 33.305 36.9792 35.1421 35.1421C36.9792 33.305 38.4214 31.1661 39.4287 28.7846C40.4713 26.3195 41 23.7004 41 21C41 18.2996 40.4713 15.6805 39.4287 13.2154C38.4214 10.8339 36.9792 8.69495 35.1421 6.85786C33.305 5.02078 31.1661 3.57856 28.7846 2.57129C26.3195 1.52866 23.7004 1 21 1ZM21 0C32.598 0 42 9.40202 42 21C42 32.598 32.598 42 21 42C9.40202 42 0 32.598 0 21C0 9.40202 9.40202 0 21 0Z' fill='white' fill-opacity='0.85'/%3E%3Cg opacity='0.85'%3E%3Cpath opacity='0.85' d='M17.1599 13.323H15.8079C15.6626 13.323 15.5232 13.3807 15.4205 13.4835C15.3177 13.5863 15.2599 13.7257 15.2599 13.871V28.128C15.2599 28.2733 15.3177 28.4127 15.4205 28.5155C15.5232 28.6183 15.6626 28.676 15.8079 28.676H17.1599C17.3525 28.6752 17.5415 28.6238 17.7079 28.527L29.8079 21.472C29.8903 21.4236 29.9586 21.3546 30.006 21.2717C30.0534 21.1888 30.0784 21.095 30.0784 20.9995C30.0784 20.904 30.0534 20.8102 30.006 20.7273C29.9586 20.6444 29.8903 20.5754 29.8079 20.527L17.7089 13.472C17.5422 13.3751 17.3528 13.3237 17.1599 13.323V13.323Z' fill='white'/%3E%3C/g%3E%3C/svg%3E%0A";
-@consonant-card-img-heigh: unit((@consonant-root-rem * 13.3125), px);
-@consonant-card-btn-min-width: unit((@consonant-root-rem * 6.25), px);
-@consonant-card-video-ico-size: unit((@consonant-root-rem * 2.625), px);
-@consonant-mq-min-2-cards: %(~"only screen and (min-width: 768px)");
-@consonant-mq-min-3-cards: %(~"only screen and (min-width: 1157px)");
+@consonant-card-img-heigh: 213px;
+@consonant-card-btn-min-width: 100px;
+@consonant-card-video-ico-size: 42px;
 @consonant-card-logo-img-max-widht: 90px;
 @consonant-card-logo-img-max-height: 32px;
 
@@ -22,18 +20,18 @@
     max-width: @consonant-card-max-width;
     min-height: @consonant-card-height;
     max-height: @consonant-card-height;
-    margin-bottom: 32/@consonant-root-rem;
-    padding-bottom: 7/@consonant-root-rem;
+    margin-bottom: 32px;
+    padding-bottom: 7px;
     text-align: left;
     border: 1px solid @consonant-color-lightest-grey;
-    border-radius: unit((@consonant-root-rem * 0.3125), px);
+    border-radius: 5px;
     background-color: @consonant-color-white;
 
     .consonant-aspect-ratio-3-2-card--inner {
         display: flex;
         flex-grow: 1;
         flex-direction: column;
-        padding: unit((@consonant-root-rem * 1.0625), px);
+        padding: 17px;
     }
 
     .consonant-aspect-ratio-3-2-card--img {
@@ -50,8 +48,8 @@
         position: absolute;
         width: @consonant-card-video-ico-size;
         height: @consonant-card-video-ico-size;
-        right: unit((@consonant-root-rem * 1.5), px);
-        bottom: unit((@consonant-root-rem * 1.125), px);
+        right: 24px;
+        bottom: 18px;
 
         .no-font;
 
@@ -98,7 +96,7 @@
     .consonant-aspect-ratio-3-2-card--label {
         display: block;
         max-width: 100%;
-        margin-bottom: 4/@consonant-root-rem;
+        margin-bottom: 4px;
 
         .font(@color: @consonant-color-brown-grey);
 
@@ -111,15 +109,10 @@
     .consonant-aspect-ratio-3-2-card--title {
         display: -webkit-box;
         -webkit-box-orient: vertical;
-        max-height: 22 * 2 / @consonant-root-rem;
-        margin: 0 0 7/@consonant-root-rem;
+        max-height: 1.375rem * 2;
+        margin: 0 0 7px;
 
-        .font(
-            18/@consonant-root-rem,
-            22/@consonant-root-rem,
-            700,
-            @consonant-color-dark-grey-4
-        );
+        .font(1.125rem, 1.375rem, 700, @consonant-color-dark-grey-4);
 
         text-decoration: none;
         word-break: break-word;
@@ -130,8 +123,8 @@
     .consonant-aspect-ratio-3-2-card--text {
         display: -webkit-box;
         -webkit-box-orient: vertical;
-        max-height: 16 * 3 / @consonant-root-rem;
-        margin: 0 0 14/@consonant-root-rem;
+        max-height: 1rem * 3;
+        margin: 0 0 14px;
         padding: 0;
 
         .font();
@@ -149,7 +142,7 @@
         justify-content: space-between;
         align-items: center;
         margin-top: auto;
-        padding-top: 23/@consonant-root-rem;
+        padding-top: 23px;
         border-top: 1px solid @consonant-color-lightest-grey;
         text-align: right;
     }
@@ -169,7 +162,7 @@
         max-width: 100%;
 
         .font(
-            @line-height: 22/@consonant-root-rem,
+            @line-height: 1.375rem,
             @color: @consonant-color-dark-grey-1
         );
 
@@ -182,10 +175,7 @@
         display: inline-block;
         min-width: @consonant-card-btn-min-width;
         max-width: 100%;
-        padding:
-            5/@consonant-root-rem
-            unit((@consonant-root-rem * 0.5625), px)
-            7/@consonant-root-rem;
+        padding: 5px 9px 7px;
 
         .font(
             @weight: 700,
@@ -197,7 +187,7 @@
         text-decoration: none;
         white-space: nowrap;
         text-overflow: ellipsis;
-        border-radius: unit((@consonant-root-rem * 1.875), px);
+        border-radius: 30px;
         user-select: none;
         overflow: hidden;
         transition:
@@ -218,32 +208,27 @@
         justify-content: flex-start;
         max-width: 58%;
         max-height: 70%;
-        top: unit((@consonant-root-rem * 1.5), px);
+        top: 24px;
         right: 0;
-        padding: 8/@consonant-root-rem unit((@consonant-root-rem * 0.8125), px);
+        padding: 8px 13px;
 
-        .font(
-            12/@consonant-root-rem,
-            17/@consonant-root-rem,
-            700,
-            @consonant-color-white
-        );
+        .font(0.75rem, 1.0625rem, 700, @consonant-color-white);
 
         letter-spacing: 0.72px;
         text-transform: uppercase;
-        border-top-left-radius: unit((@consonant-root-rem * 0.25), px);
-        border-bottom-left-radius: unit((@consonant-root-rem * 0.25), px);
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
         z-index: 1;
         background-color: @consonant-color-blue;
         user-select: none;
         overflow-y: auto;
 
         &-icon-wrapper {
-            margin-right: unit((@consonant-root-rem * 0.25), px);
+            margin-right: 4px;
 
             & img {
-                width: unit((@consonant-root-rem * 0.5), px);
-                height: unit((@consonant-root-rem * 0.5), px);
+                width: 8px;
+                height: 8px;
             }
         }
     }
@@ -253,19 +238,14 @@
         display: block;
         max-width: 34%;
         max-height: 50%;
-        top: unit((@consonant-root-rem * 1.5), px);
-        left: unit((@consonant-root-rem * 1.5), px);
-        padding: 4/@consonant-root-rem unit((@consonant-root-rem * 0.6875), px);
+        top: 24px;
+        left: 24px;
+        padding: 4px 11px;
 
-        .font(
-            12/@consonant-root-rem,
-            16/@consonant-root-rem,
-            400,
-            @consonant-color-dark-grey-1
-        );
+        .font(0.75rem, 1rem, 400, @consonant-color-dark-grey-1);
 
         border: 1px solid @consonant-color-light-grey-2;
-        border-radius: unit((@consonant-root-rem * 0.25), px);
+        border-radius: 4px;
         background-color: @consonant-color-white;
         overflow-y: auto;
         z-index: 1;
@@ -281,16 +261,13 @@
         padding-bottom: 0;
 
         .consonant-aspect-ratio-3-2-card--inner {
-            padding:
-                20/@consonant-root-rem
-                unit((@consonant-root-rem * 1.5), px)
-                24/@consonant-root-rem;
+            padding: 20px 24px 24px;
         }
     }
 
     @media @consonant-big-desktop-up {
         .consonant-aspect-ratio-3-2-card--secondary-text {
-            font-size: 12/@consonant-root-rem;
+            font-size: 0.75rem;
         }
     }
 }

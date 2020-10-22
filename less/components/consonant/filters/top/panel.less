@@ -3,16 +3,15 @@
   - consonant-top-filters--clear-btn-wrapper_no-bg;
 */
 
-@consonant-top-filters-filters-fade-width: unit((@consonant-root-rem * 3.5), px);
-@consonant-top-filters-qty-hor-space: unit((@consonant-root-rem * 1.25), px);
-@consonant-top-filters-search-width: unit((@consonant-root-rem * 16.75), px);
+@consonant-top-filters-filters-fade-width: 56px;
+@consonant-top-filters-search-width: 268px;
 
 .consonant-top-filters {
     display: block;
     min-width: 83.333vw;
     max-width: 83.333vw;
     margin: 0 auto;
-    padding: 14/@consonant-root-rem 0 20/@consonant-root-rem;
+    padding: 14px 0 20px;
 
     .consonant-top-filters--inner {
         display: flex;
@@ -39,7 +38,7 @@
         justify-content: flex-end;
         align-items: flex-start;
         flex-grow: 1;
-        max-width: calc(~ '100% - ' @consonant-select-width * 0.85 ~ ' - ' unit((@consonant-root-rem * 0.5), px));
+        max-width: calc(~ '100% - ' @consonant-select-width * 0.85 ~ ' - 8px');
 
         &:only-child {
             max-width: 100%;
@@ -59,7 +58,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: stretch;
-        margin-right: unit((@consonant-root-rem), px);
+        margin-right: 16px;
         overflow-y: auto;
 
         &:last-child {
@@ -80,44 +79,30 @@
 
     .consonant-top-filters--more-btn {
         display: none;
-        margin-bottom: unit((@consonant-root-rem * 0.5), px);
-        padding:
-            5/@consonant-root-rem
-            unit((@consonant-root-rem * 0.75), px)
-            6/@consonant-root-rem;
+        margin-bottom: 8px;
+        padding: 5px 12px 6px;
 
-        .font(
-            14/@consonant-root-rem,
-            19/@consonant-root-rem,
-            700,
-            @consonant-color-brown-grey,
-            center
-        );
+        .font(0.875rem, 1.1875rem, 700, @consonant-color-brown-grey, center);
 
         text-transform: capitalize;
         background-color: transparent;
         border: 1px solid @consonant-color-lightest-grey;
-        border-radius: unit((@consonant-root-rem), px);
+        border-radius: 16px;
         outline: 0;
         user-select: none;
     }
 
     .consonant-top-filters--title {
         display: none;
-        margin-right: unit((@consonant-root-rem * 0.75), px);
-        min-width: unit((@consonant-root-rem * 3.4375), px);
+        margin-right: 12px;
+        min-width: 55px;
         max-width: 20%;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
         user-select: none;
 
-        .font(
-            16/@consonant-root-rem,
-            32/@consonant-root-rem,
-            600,
-            @consonant-color-dark-grey-2
-        );
+        .font(1rem, 2rem, 600, @consonant-color-dark-grey-2);
     }
 
     .consonant-top-filters--clear-btn-wrapper {
@@ -126,11 +111,11 @@
         justify-content: center;
         align-items: center;
         right: 0;
-        min-height: unit((@consonant-root-rem * 2), px);
+        min-height: 32px;
         max-width: 40%;
 
         &:empty {
-            margin-left: (unit((@consonant-root-rem), px) * -1);
+            margin-left: -16px;
             overflow: visible;
         }
 
@@ -166,13 +151,7 @@
         white-space: nowrap;
         text-overflow: ellipsis;
 
-        .font(
-            14/@consonant-root-rem,
-            32/@consonant-root-rem,
-            700,
-            @consonant-color-blue,
-            right
-        );
+        .font(0.875rem, 2rem, 700, @consonant-color-blue, right);
 
         background-color: transparent;
 
@@ -183,7 +162,7 @@
         display: block;
         min-width: @consonant-select-width * 0.85;
         max-width: @consonant-select-width * 0.85;
-        margin-right: unit((@consonant-root-rem * 0.5), px);
+        margin-right: 8px;
         order: -1;
         overflow: visible;
 
@@ -199,12 +178,12 @@
     }
 
     @media @consonant-tablet-up {
-        padding-bottom: 32/@consonant-root-rem;
+        padding-bottom: 32px;
 
         .consonant-top-filters--filters-wrapper {
             max-width: 60%;
             justify-content: flex-start;
-            margin-right: unit((@consonant-root-rem), px);
+            margin-right: 16px;
         }
 
         .consonant-top-filters--title {
@@ -223,8 +202,8 @@
 
                 .consonant-top-filters--more-btn {
                     display: block;
-                    min-width: unit((@consonant-root-rem * 7.5), px);
-                    margin-right: unit((@consonant-root-rem * 1.5), px);
+                    min-width: 120px;
+                    margin-right: 24px;
                 }
 
                 & > div:nth-child(n+4) {
@@ -257,15 +236,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-width: calc(@consonant-search-ico-size ~ ' + ' unit((@consonant-root-rem * 2.5), px));
-            min-height: unit((@consonant-root-rem * 2), px);
+            min-width: calc(@consonant-search-ico-size ~ ' + 40px');
+            min-height: 32px;
+            height: 32px;
         }
 
         .consonant-top-filters--search-ico-wrapper > div {
             position: absolute;
             width: @consonant-top-filters-search-width;
             top: 0;
-            right: unit((@consonant-root-rem * 1.25), px);
+            right: 20px;
             z-index: 3;
         }
 
@@ -283,19 +263,13 @@
             position: relative;
             display: flex;
             align-items: center;
-            min-width: unit((@consonant-root-rem * 6.875), px);
-            min-height: unit((@consonant-root-rem * 2), px);
-            height: unit((@consonant-root-rem * 2), px);
-            padding-left: @consonant-top-filters-qty-hor-space;
-            padding-right: @consonant-top-filters-qty-hor-space;
+            min-width: 110px;
+            min-height: 32px;
+            height: 32px;
+            padding-left: 20px;
+            padding-right: 20px;
 
-            .font(
-                14/@consonant-root-rem,
-                18/@consonant-root-rem,
-                400,
-                @consonant-color-brown-grey,
-                center
-            );
+            .font(0.875rem, 1.125rem, 400, @consonant-color-brown-grey, center);
 
             &:after {
                 content: '';
@@ -320,8 +294,8 @@
         }
 
         .consonant-top-filters--select-wrapper {
-            min-width: unit((@consonant-root-rem * 10), px);
-            max-width: unit((@consonant-root-rem * 10), px);
+            min-width: 160px;
+            max-width: 160px;
             margin-right: 0;
             margin-left: 0;
         }
@@ -329,15 +303,15 @@
         // Add paddings for sort select;
         .consonant-top-filters--select-wrapper > div:first-child {
             &:after {
-                right: unit((@consonant-root-rem * 0.75), px);
+                right: 12px;
             }
         }
 
         .consonant-top-filters--select-wrapper > div:first-child > button {
-            padding-left: unit((@consonant-root-rem * 0.75), px);
-            padding-right: unit((@consonant-root-rem * 0.75), px);
+            padding-left: 12px;
+            padding-right: 12px;
             border: 1px solid @consonant-color-lightest-grey;
-            border-radius: unit((@consonant-root-rem * 0.25), px);
+            border-radius: 4px;
         }
 
         .consonant-top-filters--filters {
@@ -355,7 +329,7 @@
         }
 
         &.consonant-top-filter_opened {
-            margin-bottom: unit((@consonant-root-rem * 0.5), px);
+            margin-bottom: 8px;
         }
     }
 

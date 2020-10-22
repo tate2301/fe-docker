@@ -11,12 +11,12 @@
     &:after {
         content: '';
         position: absolute;
-        right: unit((@consonant-root-rem), px);
+        right: 16px;
         top: 0;
         bottom: 0;
         margin: auto;
-        width: unit((@consonant-root-rem / 2), px);
-        height: unit((@consonant-root-rem / 2), px);
+        width: 8px;
+        height: 8px;
         border: 2px solid @consonant-color-light-grey;
         transform: rotate(-135deg);
         border-top: 0;
@@ -38,7 +38,7 @@
 
         max-height: 90vh;
         background-color: @consonant-color-white;
-        border-radius: unit((@consonant-root-rem * 0.3125), px);
+        border-radius: 5px;
     }
 
     .consonant-left-filter--name {
@@ -50,10 +50,10 @@
 
     .consonant-left-filter--name img {
         display: block;
-        max-width: unit((@consonant-root-rem), px);
+        max-width: 16px;
         height: auto;
-        max-height: unit((@consonant-root-rem), px);
-        margin-right: unit((@consonant-root-rem * 0.375), px);
+        max-height: 16px;
+        margin-right: 6px;
     }
 
     .consonant-left-filter--link {
@@ -61,16 +61,11 @@
 
         .full-width;
 
-        padding-top: 17/@consonant-root-rem;
-        padding-bottom: 17/@consonant-root-rem;
-        padding-right: unit((@consonant-root-rem * 2.25), px);
+        padding-top: 17px;
+        padding-bottom: 17px;
+        padding-right: 36px;
 
-        .font(
-            @size: 16/@consonant-root-rem,
-            @line-height: 19/@consonant-root-rem,
-            700,
-            @consonant-color-brown-grey
-        );
+        .font(1rem, 1.1875rem, 700, @consonant-color-brown-grey);
 
         text-transform: capitalize;
         text-decoration: none;
@@ -82,8 +77,8 @@
     .consonant-left-filter--selected-items-qty {
         position: relative;
         display: block;
-        margin-top: 4/@consonant-root-rem;
-        padding-right: unit((@consonant-root-rem * 1.125), px);
+        margin-top: 4px;
+        padding-right: 18px;
 
         .font(@color: @consonant-color-light-grey-2);
 
@@ -93,7 +88,7 @@
 
         &:after {
             position: absolute;
-            right: unit((@consonant-root-rem * 0.75), px);
+            right: 12px;
             content: attr(data-qty);
             font-weight: 700;
             background-color: @consonant-color-white;
@@ -110,21 +105,15 @@
         min-width: @consonant-filters-item-badge-min-width;
         max-width: @consonant-filters-item-badge-max-width;
         height: @consonant-filters-item-badge-height;
-        padding: 5/@consonant-root-rem unit((@consonant-root-rem * 0.4375), px);
-        top: 12/@consonant-root-rem;
-        right: unit((@consonant-root-rem * 1.875), px);
+        padding: 5px 7px;
+        top: 12px;
+        right: 30px;
 
-        .font(
-            14/@consonant-root-rem,
-            14/@consonant-root-rem,
-            700,
-            @consonant-color-white,
-            center
-        );
+        .font(0.875rem, 0.875rem, 700, @consonant-color-white, center);
 
         white-space: nowrap;
         text-overflow: ellipsis;
-        border-radius: unit((@consonant-root-rem * 0.9375), px);
+        border-radius: 15px;
         background-color: @consonant-color-blue;
         z-index: 1;
         opacity: 1;
@@ -192,7 +181,7 @@
         }
 
         &:nth-of-type(n+10):last-of-type {
-            margin-bottom: 32/@consonant-root-rem;
+            margin-bottom: 32px;
         }
     }
 
@@ -203,10 +192,7 @@
 
         .full-width;
 
-        padding:
-            8/@consonant-root-rem
-            unit((@consonant-root-rem * 1.25), px)
-            6/@consonant-root-rem;
+        padding: 8px 20px 6px;
         cursor: pointer;
     }
 
@@ -237,9 +223,9 @@
         min-width: @consonant-filters-checkmark-size;
         width: @consonant-filters-checkmark-size;
         height: @consonant-filters-checkmark-size;
-        margin-right: unit((@consonant-root-rem * 0.625), px);
+        margin-right: 10px;
         border: 2px solid @consonant-color-light-grey-2;
-        border-radius: unit((@consonant-root-rem * 0.1875), px);
+        border-radius: 3px;
         transition:
             border-color @transition-time @transition-func,
             background-color @transition-time @transition-func;
@@ -255,19 +241,19 @@
             margin: auto;
             width: @consonant-filters-checkmark-width;
             height: @consonant-filters-checkmark-height;
-            border: unit((@consonant-root-rem * 0.125), px) solid @consonant-color-white;
+            border: 2px solid @consonant-color-white;
             border-top: 0;
             border-right: 0;
-            border-radius: unit((@consonant-root-rem * 0.125), px);
+            border-radius: 2px;
             transform: rotate(-45deg) translate3d(1px, 0, 0);
         }
     }
 
     .consonant-left-filter--items-item-name {
-        padding-bottom: 1/@consonant-root-rem;
+        padding-bottom: 1px;
 
         .font(
-            @line-height: 19/@consonant-root-rem,
+            @line-height: 1.1875rem,
             @color: @consonant-color-brown-grey
         );
 
@@ -284,7 +270,7 @@
         display: none;
         margin-top: auto;
         align-items: center;
-        padding: 16/@consonant-root-rem unit((@consonant-root-rem), px);
+        padding: 16px;
         border-top: 1px solid @consonant-color-lightest-grey;
     }
 
@@ -302,7 +288,7 @@
 
     .consonant-left-filter--footer-clear-btn {
         display: block;
-        margin-right: unit((@consonant-root-rem * 1.0625), px);
+        margin-right: 17px;
         padding: 0;
 
         .font(
@@ -322,10 +308,7 @@
     .consonant-left-filter--footer-btn {
         min-width: @consonant-filters-mobile-footer-btn-min-width;
         margin-left: auto;
-        padding:
-            8/@consonant-root-rem
-            unit((@consonant-root-rem), px)
-            8/@consonant-root-rem;
+        padding: 8px 16px 8px;
 
         .font(
             @weight: 700,
@@ -335,7 +318,7 @@
 
         text-transform: capitalize;
         background-color: @consonant-color-blue;
-        border-radius: unit((@consonant-root-rem * 1.25), px);
+        border-radius: 20px;
 
         .no-border-no-outline;
     }
@@ -350,8 +333,8 @@
 
         .full-width;
 
-        padding-left: unit((@consonant-root-rem * 1.25), px);
-        padding-right: unit((@consonant-root-rem * 1.25), px);
+        padding-left: 20px;
+        padding-right: 20px;
 
         .position-absolute-0;
 
@@ -365,13 +348,9 @@
 
         .consonant-left-filter--inner {
             position: relative;
-            box-shadow:
-                0px
-                unit((@consonant-root-rem * 0.1875), px)
-                unit((@consonant-root-rem * 0.9375), px)
-                fade(@consonant-color-brown-grey, 80%);
+            box-shadow: 0 3px 15px fade(@consonant-color-brown-grey, 80%);
             border: 1px solid @consonant-color-lightest-grey;
-            border-radius: unit((@consonant-root-rem * 0.25), px);
+            border-radius: 4px;
 
             &:after {
                 content: '';
@@ -403,7 +382,7 @@
         }
 
         .consonant-left-filter--name {
-            padding-left: unit((@consonant-root-rem * 1.25), px);
+            padding-left: 20px;
         }
     }
 
@@ -418,7 +397,7 @@
     @media @consonant-desktop-up {
         &:after {
             display: block;
-            right: unit((@consonant-root-rem * 0.8125), px);
+            right: 13px;
             border-color: @consonant-color-grey;
             transform: rotate(-45deg);
         }
@@ -433,13 +412,13 @@
         .consonant-left-filter--items {
             min-height: 0;
             max-height: 100%;
-            padding-top: 12/@consonant-root-rem;
+            padding-top: 12px;
             border-color: transparent;
             overflow-y: auto;
         }
 
         .consonant-left-filter--items-item-label {
-            padding: 6/@consonant-root-rem unit((@consonant-root-rem * 0.5), px);
+            padding: 6px 8px;
         }
 
         input[type = checkbox]:focus + .consonant-left-filter--items-item-checkmark {
@@ -451,8 +430,8 @@
         }
 
         .consonant-left-filter--items-item-name {
-            font-size: 14/@consonant-root-rem;
-            line-height: 16/@consonant-root-rem;
+            font-size: 0.875rem;
+            line-height: 1rem;
         }
 
         /* End related to filter items */
@@ -462,10 +441,10 @@
         }
 
         .consonant-left-filter--link {
-            padding-top: 14/@consonant-root-rem;
-            padding-bottom: 14/@consonant-root-rem;
-            font-size: 14px;
-            line-height: 16px;
+            padding-top: 14px;
+            padding-bottom: 14px;
+            font-size: 0.875rem;
+            line-height: 1rem;
             word-break: break-word;
             transition: color @transition-time @transition-func;
             border: 2px solid transparent;
@@ -495,7 +474,7 @@
 
             &:after {
                 display: block;
-                top: unit((@consonant-root-rem * 1.5), px);
+                top: 24px;
                 bottom: auto;
                 border-color: @consonant-color-light-grey-2;
                 transform: rotate(135deg);
@@ -523,16 +502,16 @@
             .consonant-left-filter--name img {
                 display: block;
                 position: relative;
-                top: unit((@consonant-root-rem * 0.25), px);
+                top: 4px;
             }
 
             .consonant-left-filter--link {
-                padding-right: unit((@consonant-root-rem * 2.25), px);
+                padding-right: 36px;
                 color: @consonant-color-dark-grey-3;
             }
 
             .consonant-left-filter--items {
-                padding-top: 4/@consonant-root-rem;
+                padding-top: 4px;
             }
 
             .consonant-left-filter--footer {
