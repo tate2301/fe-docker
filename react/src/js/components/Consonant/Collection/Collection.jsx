@@ -23,7 +23,7 @@ const Collection = (props) => {
     } = props;
 
     const getConfig = useConfig();
-    const cardsStyle = getConfig('collection', 'cardStyle');
+    const collectionStyleOverride = getConfig('collection', 'cardStyle');
     const dateFormat = getConfig('collection', 'i18n.prettyDateIntervalFormat');
     const locale = getConfig('language', '');
     const paginationType = getConfig('pagination', 'type');
@@ -40,7 +40,8 @@ const Collection = (props) => {
     return shownCards.length > 0 && (
         <div data-testid="consonant-collection" className="consonant-card-collection">
             {shownCards.map((card) => {
-                const type = cardsStyle && cardsStyle.toLowerCase() !== 'none' ? cardsStyle : get(card, 'styles.typeOverride');
+                const cardStyleOverride = get(card, 'styles.typeOverride');
+                const type = cardStyleOverride ? cardStyleOverride : collectionStyleOverride;
 
                 if (type === CARD_STYLE.FULL) {
                     return (<FullCard
