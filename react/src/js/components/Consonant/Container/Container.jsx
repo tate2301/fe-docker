@@ -47,15 +47,33 @@ import Paginator from '../Pagination/Paginator';
 import Search from '../Search/Search';
 import Select from '../Select/Select';
 
-
+/**
+ * Conssonant Card Collection
+ * Config is implicitly populated by authors
+ *
+ * @component
+ * @example
+ * const config= {
+    collection: {},
+    featuredCards: [{}],
+    filterPanel: {},
+    sort: {},
+    pagination: {},
+    bookmarks: {},
+    search: {},
+    language: ''
+ * }
+ * return (
+ *   <Container config={config}/>
+ * )
+ */
 const Container = (props) => {
     const { config } = props;
-
-    const DESKTOP_SCREEN_SIZE = window.innerWidth >= DESKTOP_MIN_WIDTH;
     const getConfig = makeConfigGetter(config);
 
-    // Config
-
+    /**
+         **** Authored Configs ****
+     */
     const filterPanelEnabled = getConfig('filterPanel', 'enabled');
     const filterPanelType = getConfig('filterPanel', 'type');
     const paginationType = getConfig('pagination', 'type');
@@ -75,13 +93,23 @@ const Container = (props) => {
     const searchPlaceholderText = getConfig('search', 'i18n.filterInfo.searchPlaceholderText');
 
     /**
-     * @typedef {Boolean} OpenDropdownState
+     **** Constants ****
+     */
+    const DESKTOP_SCREEN_SIZE = window.innerWidth >= DESKTOP_MIN_WIDTH;
+    const isXorFilter = filterLogic.toLowerCase().trim() === FILTER_TYPES.XOR;
+
+    /**
+         **** Hooks ****
+     */
+
+    /**
+     * @typedef {Int} OpenDropdownState - Id of a selected dropdown
      * @description — Passed in Context Provider So All Nested Components can be in sync
      *
      * @typedef {Function} OpenDropdownStateSetter
      * @description
      *
-     * @type {[Boolean, Function]} OpenDropdown
+     * @type {[Int, Function]} OpenDropdown
      */
     const [openDropdown, setOpenDropdown] = useState(null);
 
@@ -209,48 +237,93 @@ const Container = (props) => {
 
     // callbacks
 
+    const getAllFiltersClearedState = filterGroups => filterGroups.map(filterGroup => ({
+        ...filterGroup,
+        items: filterGroup.items.map(filterItem => ({
+            ...filterItem,
+            selected: false,
+        })),
+    }));
+
+    const getFilterItemClearedState = (id, filterGroups) => filterGroups.map((filterGroup) => {
+        if (filterGroup.id !== id) {
+            return filterGroup;
+        }
+        return {
+            ...filterGroup,
+            items: filterGroup.items.map(filterItem => ({
+                ...filterItem,
+                selected: false,
+            })),
+        };
+    });
+
+    const clearFilterItem = (id) => {
+        setFilters((prevFilters) => {
+            const filterClearedState = getFilterItemClearedState(id, prevFilters);
+            return filterClearedState;
+        });
+    };
+
+    const clearAllFilters = () => {
+        setFilters((prevFilters) => {
+            const allFiltersClearedState = getAllFiltersClearedState(prevFilters);
+            return allFiltersClearedState;
+        });
+    };
+
+    const resetFiltersSearchAndBookmarks = () => {
+        clearAllFilters();
+        setSearchQuery('');
+        setShowBookmarks(false);
+    };
+
+    /**
+         **** EVENT HANDLERS ****
+     */
+
+    /**
+     * On Load More Button Click, Increment Page Cuonter By 1
+     *
+     * @param {ClickEvent} e
+     * @listens ClickEvent
+     */
     const onLoadMoreClick = () => {
         setCurrentPage(prevState => prevState + 1);
         window.scrollTo(0, window.pageYOffset);
     };
 
-    const clearFilterItems = (id) => {
-        setFilters(prevFilters => prevFilters.map((el) => {
-            if (el.id !== id) return el;
-            return {
-                ...el,
-                items: el.items.map(item => ({
-                    ...item,
-                    selected: false,
-                })),
-            };
-        }));
-    };
-
-    const clearFilters = () => {
-        setFilters(prevFilters => prevFilters.map(el => ({
-            ...el,
-            items: el.items.map(filter => ({ ...filter, selected: false })),
-        })));
-    };
-
-    const resetFiltersSearchAndBookmarks = () => {
-        clearFilters();
-        setSearchQuery('');
-        setShowBookmarks(false);
-    };
-
+    /**
+     * Takes sort user selects and sets it so cards are sorted
+     *
+     * @param {ClickEvent} e - The observable event.
+     * @listens ClickEvent
+     */
     const handleSortChange = (option) => {
         setSortOption(option);
         setSortOpened(false);
     };
 
+    /**
+     * Handles whenever the search box is clicked or input field
+     * changes
+     *
+     * @param {ClickEvent, ChangeEvent} e
+     * @listens ClickEvent, ChangeEvent
+     */
     const handleSearchInputChange = (val) => {
-        clearFilters();
+        clearAllFilters();
         setSearchQuery(val);
     };
 
-    const handleFilterItemClick = (filterId) => {
+    /**
+     * Handles when a group of filters is clicked. Behavior should be
+     * to toggle group open or closed
+     *
+     * @param {ClickEvent} e - The observable event.
+     * @listens ClickEvent
+     */
+    const handleFilterGroupClick = (filterId) => {
         setFilters((prevFilters) => {
             let opened;
             return prevFilters.map((el) => {
@@ -265,9 +338,17 @@ const Container = (props) => {
         });
     };
 
+    /**
+     * Handles what happens when a specific filter item (checkbox)
+     * is clicked
+     *
+     * @param {CheckboxClickEvent} e
+     * @listens CheckboxClickEvent
+     */
     const handleCheckBoxChange = (filterId, itemId, isChecked) => {
-        // If xor filterLogic set, we reset all filters;
-        if (filterLogic.toLowerCase().trim() === FILTER_TYPES.XOR && isChecked) clearFilters();
+        if (isXorFilter && isChecked) {
+            clearAllFilters();
+        }
 
         setFilters(prevFilters => prevFilters.map((filter) => {
             if (filter.id !== filterId) return filter;
@@ -282,8 +363,20 @@ const Container = (props) => {
         }));
     };
 
+    /**
+     * Shows/Hides Mobile Filter Panel
+     *
+     * @param {ClickEvent} e
+     * @listens ClickEvent
+     */
     const handleMobileFiltersToggle = () => setShowMobileFilters(prev => !prev);
 
+    /**
+     * When a card's bookmark icon is clicked, save the card
+     *
+     * @param {ClickEvent} e
+     * @listens ClickEvent
+     */
     const handleCardBookmarking = (id) => {
         // Update bookmarked IDs
         const cardIsBookmarked = bookmarkedCardIds.find(card => card === id);
@@ -295,21 +388,41 @@ const Container = (props) => {
         }
     };
 
-    const handleShowBookmarksClick = (e) => {
+    /**
+     * Will show  or hide all saved bookmarks when clicked
+     *
+     * @param {ClickEvent} e
+     * @listens ClickEvent
+     */
+    const handleShowBookmarksFilterClick = (e) => {
         e.stopPropagation();
         setShowBookmarks(prev => !prev);
         setCurrentPage(1);
     };
 
+    /**
+     * If top filter panel, toggle or hide more button
+     *
+     * @param {ClickEvent} e
+     * @listens ClickEvent
+     */
     const handleShowAllTopFilters = () => {
         setShowLimitedFiltersQty(prev => !prev);
     };
 
+    /**
+     * On window click, all dropdowns should hide
+     *
+     * @param {ClickEvent} e
+     * @listens ClickEvent
+     */
     const handleWindowClick = () => {
         setOpenDropdown(null);
     };
 
-    // Effects
+    /**
+         **** Effects ****
+     */
 
     useEffect(() => {
         setFilters(authoredFilters.map(filterGroup => ({
@@ -354,12 +467,14 @@ const Container = (props) => {
 
     useEffect(() => {
         if (showBookmarks) {
-            clearFilters();
+            clearAllFilters();
             setSearchQuery('');
         }
     }, [showBookmarks]);
 
-    // Derived state
+    /**
+         **** Derived State ****
+     */
 
     const activeFilterIds = getActiveFilterIds(filters);
 
@@ -410,9 +525,9 @@ const Container = (props) => {
                                     filters={filters}
                                     selectedFiltersQty={selectedFiltersItemsQty}
                                     windowWidth={windowWidth}
-                                    onFilterClick={handleFilterItemClick}
+                                    onFilterClick={handleFilterGroupClick}
                                     onClearAllFilters={resetFiltersSearchAndBookmarks}
-                                    onClearFilterItems={clearFilterItems}
+                                    onClearFilterItems={clearFilterItem}
                                     onCheckboxClick={handleCheckBoxChange}
                                     onMobileFiltersToggleClick={handleMobileFiltersToggle}
                                     onSelectedFilterClick={handleCheckBoxChange}
@@ -421,7 +536,7 @@ const Container = (props) => {
                                     bookmarkComponent={(
                                         <Bookmarks
                                             showBookmarks={showBookmarks}
-                                            onClick={handleShowBookmarksClick}
+                                            onClick={handleShowBookmarksFilterClick}
                                             savedCardsCount={bookmarkedCardIds.length} />
                                     )}
                                     searchComponent={(
@@ -443,8 +558,8 @@ const Container = (props) => {
                                     windowWidth={windowWidth}
                                     resQty={collectionCards.length}
                                     onCheckboxClick={handleCheckBoxChange}
-                                    onFilterClick={handleFilterItemClick}
-                                    onClearFilterItems={clearFilterItems}
+                                    onFilterClick={handleFilterGroupClick}
+                                    onClearFilterItems={clearFilterItem}
                                     onClearAllFilters={resetFiltersSearchAndBookmarks}
                                     showLimitedFiltersQty={showLimitedFiltersQty}
                                     searchComponent={(
