@@ -1,0 +1,224 @@
+<!DOCTYPE HTML>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="robots" content="noodp" />
+
+    <meta name="template" content="northstar-collection" />
+
+    <link rel="stylesheet" href="https://caas-chimera.s3-us-west-1.amazonaws.com/temp/app.css" type="text/css">
+    <link rel="stylesheet" href="../typekit.css" type="text/css">
+
+    <title>CaaS</title>
+
+</head>
+
+<body class="page basicpage spectrum spectrum--lightest">
+
+    <div class="root responsivegrid">
+        <div class="aem-Grid aem-Grid--12 aem-Grid--default--12">
+            <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+                <div class="position aem-GridColumn aem-GridColumn--default--12">
+                    <div id="root_content_position"
+                        class="dexter-Position mobile-place-static mobile-place-left mobile-place-top mobile-padding-top-0 mobile-padding-right-0 mobile-padding-bottom-0 mobile-padding-left-0 mobile-margin-top-0 mobile-margin-right-0 mobile-margin-bottom-0 mobile-margin-left-0 is-Editor-false"
+                        style="background-color: transparent; background-position: 50% 50%;">
+                        <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+                            <div class="cardcollection aem-GridColumn aem-GridColumn--default--12">
+                                <section id="create-app" class="create-app consonant">
+                                    <div class="collection-Container  create-card-collection">
+                                        <div class="container create-card-collection__outer-wrapper">
+                                            <div id="someDivId"></div>
+                                            <div id="someDivIdTwo"></div>
+                                            <!-- <consonant-page-hook></consonant-page-hook> -->
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript" src="https://caas-chimera.s3-us-west-1.amazonaws.com/temp/main.js"></script>
+
+    <script type="text/javascript">
+        var config = {
+            collection: {
+                resultsPerPage: '30',
+                endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/tests/card-collection/json-response-tests/features/infobits/all_infobits_from_xd_work.json",
+                totalCardsToShow: '100',
+                cardStyle: "3:2", // could also be "3:2" or "full-card"
+                showTotalResults: 'false',
+                i18n: {
+                    prettyDateIntervalFormat: '{LLL} {dd} | {timeRange} {timeZone}',
+                    totalResultsText: '{total} Results',
+                    title: '',
+                }
+            },
+            featuredCards: [],
+            filterPanel: {
+                enabled: 'false',
+                type: 'left',
+                filters: [
+                    {
+                    "group":"Topic",
+                    "id":"adobe-com-enterprise:topic",
+                    "items":[
+                        {
+                            "label":"Business Continuity",
+                            "id":"adobe-com-enterprise:topic/business-continuity"
+                        },
+                        {
+                            "label":"Creativity and Design",
+                            "id":"adobe-com-enterprise:topic/creativity-design"
+                        },
+                        {
+                            "label":"Customer Intelligence",
+                            "id":"adobe-com-enterprise:topic/customer-intelligence"
+                        },
+                        {
+                            "label":"Data Management Platform",
+                            "id":"adobe-com-enterprise:topic/data-management-platform"
+                        },
+                        {
+                            "label":"Digital Foundation",
+                            "id":"adobe-com-enterprise:topic/digital-foundation"
+                        },
+                        {
+                            "label":"Digital Trends",
+                            "id":"adobe-com-enterprise:topic/digital-trends"
+                        },
+                        {
+                            "label":"Document Management",
+                            "id":"adobe-com-enterprise:topic/document-management"
+                        },
+                        {
+                            "label":"Marketing Automation",
+                            "id":"adobe-com-enterprise:topic/marketing-automation"
+                        },
+                        {
+                            "label":"Personalization",
+                            "id":"adobe-com-enterprise:topic/personalization"
+                        },
+                        {
+                            "label":"Stock",
+                            "id":"adobe-com-enterprise:topic/Stock"
+                        }
+                    ]
+                    },
+                    {
+                    "group":"Availability",
+                    "id":"adobe-com-enterprise:availability",
+                    "items":[
+                        {
+                            "label":"On-Demand",
+                            "id":"adobe-com-enterprise:availability/on-demand"
+                        },
+                        {
+                            "label":"Upcoming",
+                            "id":"adobe-com-enterprise:availability/upcoming"
+                        }
+                    ]
+                    }
+                ],
+                filterLogic: 'or',
+                i18n: {
+                    leftPanel: {
+                        header: 'My Favorites',
+                        // searchBoxTitle: 'Search',
+                        clearAllFiltersText: 'Clear All',
+                        mobile: {
+                            filtersBtnLabel: 'Filters:',
+                            panel: {
+                                header: 'Filters',
+                                totalResultsText: '{total} Results',
+                                applyBtnText: 'Apply',
+                                clearFilterText: 'Clear',
+                                doneBtnText: 'Done',
+                            },
+                            group: {
+                                totalResultsText: '{total} Results',
+                                applyBtnText: 'Apply',
+                                clearFilterText: 'Clear',
+                                doneBtnText: 'Done',
+                            }
+                        }
+                    },
+                    topPanel: {
+                        groupLabel:  'Filters',
+                        clearAllFiltersText: 'Clear All',
+                        moreFiltersBtnText: 'More Filters: +',
+                        mobile: {
+                            group: {
+                                totalResultsText: '{total} Results',
+                                applyBtnText: 'Apply',
+                                clearFilterText: 'Clear',
+                                doneBtnText: 'Done',
+                            }
+                        }
+                    }
+                }
+            },
+            sort: {
+                enabled: 'false',
+                defaultSort: 'title',
+                options: '[{"label":"Featured","sort":"featured"},{"label":"Title: (A-Z)","sort":"titleAsc"},{"label":"Title: (Z-A)","sort":"titleDesc"},{"label":"Date: (Oldest to newest)","sort":"dateAsc"},{"label":"Date: (Newest to oldest)","sort":"dateDesc"}]',
+            },
+            pagination: {
+                enabled: 'true',
+                type: 'loadMore',
+                i18n: {
+                    loadMore: {
+                        btnText: 'Load More',
+                        resultsQuantityText: 'Showing {start}-{end} results',
+                    },
+                    paginator: {
+                        resultsQuantityText: '{start}-{end} of {total} results',
+                        prevLabel:  'Prev',
+                        nextLabel: 'Next',
+                    }
+                }
+            },
+            bookmarks: {
+                leftFilterPanel: {
+                    bookmarkOnlyCollection: 'false',
+                    showBookmarksFilter: 'true',
+                    selectBookmarksIcon: '',
+                    unselectBookmarksIcon: '',
+                },
+                i18n: {
+                    leftFilterPanel: {
+                        filterTitle: 'My Favorites',
+                    }
+                }
+            },
+            search: {
+                enabled: 'false',
+                searchFields: '["contentArea.title","contentArea.description","search.meta.author","overlays.banner.description", "foo.bar"]',
+                i18n: {
+                    leftFilterPanel: {
+                        searchTitle: 'Search',
+                        searchPlaceholderText: 'Search here...',
+                    },
+                    topFilterPanel: {
+                        searchPlaceholderText: 'i18n.topFilterPanel.searchPlaceholderText',
+                    },
+                    filterInfo: {
+                        searchPlaceholderText: 'i18n.filterInfo.searchPlaceholderText',
+                    }
+                }
+            },
+            language: 'fr'
+        };
+        const consonantCardCollection = new ConsonantCardCollection(config, document.getElementById("someDivId"));
+    </script>
+</body>
+
+</html>
