@@ -182,6 +182,7 @@ const Container = (props) => {
     const handleShowBookmarksClick = (e) => {
         e.stopPropagation();
         setShowBookmarks(prev => !prev);
+        setCurrentPage(1);
     };
 
     const handleShowAllTopFilters = () => {

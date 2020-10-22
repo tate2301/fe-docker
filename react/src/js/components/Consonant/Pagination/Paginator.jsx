@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useConfig } from '../../../utils/hooks';
-import { getPageStartEnd, generateRange } from '../../../utils/general';
+import {
+    getPageStartEnd,
+    generateRange,
+    getStartNumber,
+    getEndNumber,
+} from '../../../utils/general';
 
 const Paginator = (props) => {
     const {
@@ -22,61 +27,50 @@ const Paginator = (props) => {
     const [pageStart, pageEnd] = getPageStartEnd(currentPageNumber, pageCount, totalPages);
     const pageRange = generateRange(pageStart, pageEnd);
 
-    const handleClick = (clickEvt) => {
-        let page;
-        clickEvt.preventDefault();
+    const BASE_10 = 10;
+    const nextPageNotNegative = currentPageNumber - 1 > 0;
+    const nextPageNotOutOfBounds = currentPageNumber + 1 < totalPages;
 
+    const handleClick = (clickEvt) => {
         const { target } = clickEvt;
 
-        if (target.classList.contains('consonant-pagination--btn_prev')) {
-            page = currentPageNumber - 1 > 0 ? currentPageNumber - 1 : 1;
+        clickEvt.preventDefault();
+
+        let nextPage = null;
+        const previousButtonClicked = target.classList.contains('consonant-pagination--btn_prev');
+        const nextButtonClicked = target.classList.contains('consonant-pagination--btn_next');
+
+        if (previousButtonClicked) {
+            nextPage = nextPageNotNegative ? currentPageNumber - 1 : 1;
+        } else if (nextButtonClicked) {
+            nextPage = nextPageNotOutOfBounds ? currentPageNumber + 1 : totalPages;
+        } else {
+            /** numberButtonClicked was clicked * */
+            nextPage = parseInt(target.firstChild.nodeValue, BASE_10);
         }
-        if (target.classList.contains('consonant-pagination--btn_next')) {
-            page = currentPageNumber + 1 < totalPages ? currentPageNumber + 1 : totalPages;
-        }
-        if (typeof page !== 'number') page = parseInt(target.firstChild.nodeValue, 10);
-
-        onClick(page);
+        onClick(nextPage);
     };
 
-    const getStartNumber = () => {
-        if (currentPageNumber === 1) return 1;
-        return (currentPageNumber * showItemsPerPage) - (showItemsPerPage - 1);
-    };
-
-    const getEndNumber = () => {
-        const res = currentPageNumber * showItemsPerPage;
-        return res < totalResults ? res : totalResults;
-    };
-
-    const renderQtyHTML = () => {
-        const regexp = /\{(\w*)}/gi;
-
-        const itemsToDisplay = {
-            total: totalResults,
-
-            end: getEndNumber(),
-            start: getStartNumber(),
-        };
-
-        return quantityText.replace(regexp, (_, matchedKey) => {
-            const value = itemsToDisplay[matchedKey];
-
-            return `<strong>${value}</strong>`;
-        });
-    };
+    const resultsCount = quantityText
+        .replace('{start}', getStartNumber(currentPageNumber, showItemsPerPage))
+        .replace('{end}', getEndNumber(currentPageNumber, showItemsPerPage, totalResults))
+        .replace('{total}', totalResults);
 
     return (
-        <div className="consonant-pagination">
-            <div className="consonant-pagination--paginator">
+        <div
+            className="consonant-pagination">
+            <div
+                className="consonant-pagination--paginator">
                 <button
                     data-testid="btn_prev"
                     onClick={handleClick}
-                    type="buttton"
+                    type="button"
                     className="consonant-pagination--btn consonant-pagination--btn_prev"
-                    tabIndex="0">{prevLabel}
+                    tabIndex="0">
+                    {prevLabel}
                 </button>
-                <ul className="consonant-pagination--items">
+                <ul
+                    className="consonant-pagination--items">
                     {pageRange.map(item => (
                         <li
                             key={item}
@@ -99,15 +93,19 @@ const Paginator = (props) => {
                 <button
                     data-testid="btn_next"
                     onClick={handleClick}
-                    type="buttton"
+                    type="button"
                     className="consonant-pagination--btn consonant-pagination--btn_next"
-                    tabIndex="0">{nextLabel}
+                    tabIndex="0">
+                    {nextLabel}
                 </button>
             </div>
             <div
                 data-testid="pagination--summary"
-                className="consonant-pagination--summary"
-                dangerouslySetInnerHTML={{ __html: renderQtyHTML() }} />
+                className="consonant-pagination--summary">
+                <strong>
+                    {resultsCount}
+                </strong>
+            </div>
         </div>
     );
 };
@@ -121,7 +119,4 @@ Paginator.propTypes = {
     onClick: PropTypes.func.isRequired,
     showItemsPerPage: PropTypes.number.isRequired,
     totalResults: PropTypes.number.isRequired,
-};
-
-Paginator.defaultProps = {
 };

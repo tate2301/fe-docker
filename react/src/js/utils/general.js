@@ -162,3 +162,13 @@ export const getPageStartEnd = (currentPageNumber, pageCount, totalPages) => {
 
     return [start, end];
 };
+
+export const getStartNumber = (currentPageNumber, showItemsPerPage) => {
+    if (currentPageNumber === 1) return 1;
+    return (currentPageNumber * showItemsPerPage) - (showItemsPerPage - 1);
+};
+
+export const getEndNumber = (currentPageNumber, showItemsPerPage, totalResults) => {
+    const res = currentPageNumber * showItemsPerPage;
+    return res < totalResults ? res : totalResults;
+};
