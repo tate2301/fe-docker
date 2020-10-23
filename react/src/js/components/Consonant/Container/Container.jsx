@@ -611,6 +611,24 @@ const Container = (props) => {
      */
     const topPanelSortPopupLocation = filters.length > 0 && windowWidth < TABLET_MIN_WIDTH ? 'left' : 'right';
 
+    /**
+     * How Long Paginator Component Should Be
+     * @type {Int} - Location of Sort Popup in Top Filter Panel View
+     */
+    const paginatorCount = DESKTOP_SCREEN_SIZE ? PAGINATION_COUNT.DESKTOP : PAGINATION_COUNT.MOBILE;
+
+    /**
+     * Whether we are using the top filter panel or not
+     * @type {Boolean}
+     */
+    const isTopFilterPanel = filterPanelType === FILTER_PANEL.TOP;
+
+    /**
+     * Whether we are using the top filter panel or not
+     * @type {Boolean}
+     */
+    const isLeftFilterPanel = filterPanelType === FILTER_PANEL.LEFT;
+
     return (
         <ConfigContext.Provider value={config}>
             <ExpandableContext.Provider value={{ value: openDropdown, setValue: setOpenDropdown }} >
@@ -654,7 +672,7 @@ const Container = (props) => {
                         )}
                         <span>
                             {
-                                filterPanelType === FILTER_PANEL.TOP &&
+                                isTopFilterPanel &&
                                 <FiltersPanelTop
                                     filterPanelEnabled={filterPanelEnabled}
                                     filters={filters}
@@ -686,7 +704,7 @@ const Container = (props) => {
                                     )}
                                     onShowAllClick={handleShowAllTopFilters} />
                             }
-                            {filterPanelType === FILTER_PANEL.LEFT &&
+                            {isLeftFilterPanel &&
                                 <LeftInfo
                                     enabled={filterPanelEnabled}
                                     filtersQty={filters.length}
@@ -732,9 +750,7 @@ const Container = (props) => {
                                     )}
                                     {displayPaginator &&
                                         <Paginator
-                                            pageCount={DESKTOP_SCREEN_SIZE ?
-                                                PAGINATION_COUNT.DESKTOP : PAGINATION_COUNT.MOBILE
-                                            }
+                                            pageCount={paginatorCount}
                                             currentPageNumber={currentPage}
                                             totalPages={totalPages}
                                             showItemsPerPage={resultsPerPage}
