@@ -1,5 +1,5 @@
 
-import { filterPanel } from '../Mocks/consonant.json';
+import { filterPanel } from '../Mocks/config.json';
 
 const { clearFilterText, filters } = filterPanel;
 const [{

@@ -1,4 +1,4 @@
-import { bookmarks, collection } from '../Mocks/consonant.json';
+import { bookmarks, collection } from '../Mocks/config.json';
 
 import cardList from '../Mocks/cards.json';
 

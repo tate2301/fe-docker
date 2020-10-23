@@ -1,40 +1,22 @@
+import React from 'react';
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
 import {
     screen,
     waitFor,
     fireEvent,
-    getByText,
-    getByTestId,
-    queryAllByTestId,
     act,
-    logDOM,
     render,
 } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import { rest } from 'msw';
-import { setupServer } from 'msw/node';
-
 import Container from '../Container';
-
-import config from '../../Helpers/Testing/Mocks/consonant.json';
+import config from '../../Helpers/Testing/Mocks/config.json';
 import cards from '../../Helpers/Testing/Mocks/cards.json';
+import setupIntersectionObserverMock from '../../Helpers/Testing/Mocks/intersectionObserver';
 
-import makeInit from '../../Helpers/Testing/Utils/Init';
-import React from 'react';
+const { collection: { endpoint } } = config;
 
-// Different window sizes for different cases
-const MOBILE_WIDTH = 384;
-const DESKTOP_WIDTH = 1800;
-const TABLET_MIN_WIDTH = 768;
-const DESKTOP_MIN_WIDTH = 1200;
-
-const init = makeInit(Container, config);
-
-const { filterPanel: { filters }, collection: { endpoint } } = config;
-
-const filteredCards = cards.filter(({ appliesTo }) => Boolean(appliesTo));
-
-// Mock api to get card list
 const handlers = [
     rest.get(endpoint, (req, res, ctx) => res(
         ctx.status(200),
@@ -42,33 +24,22 @@ const handlers = [
     )),
 ];
 
-// const server = setupServer(...handlers);
-// beforeAll(() => server.listen());
-// afterEach(() => server.resetHandlers());
-// afterAll(() => server.close());
+setupIntersectionObserverMock();
 
-global.fetch = jest.fn(() =>
-    Promise.resolve({
-        json: () => Promise.resolve({ cards }),
-    }));
+const server = setupServer(...handlers);
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
 
-// Create more than 2 filter with different ids
-const multipleFilters = [...filters, ...filters]
-    .map((item, index) => ({ ...item, id: `${item}_${index}` }));
-
-window.scrollTo = () => { };
-jest.setTimeout(30000);
-
-describe('Consonant/FilterItem', () => {
-    beforeEach(async () => {
-        // const configToUse = config;
-        // await act(async () => render(<Container config={configToUse} />));
-    });
-
-    test('should save card to bookmarks', async () => {
+describe('Container With Bookmarked Cards', () => {
+    test('should be able to save a card to bookmarks', async () => {
         const { resultsPerPage } = config.collection;
         const configToUse = config;
         configToUse.collection.cardStyle = '3:2';
+
+        /**
+         * Render card
+         */
         await act(async () => render(<Container config={configToUse} />));
 
         // Need wait for api response and state updating
@@ -130,20 +101,35 @@ describe('Consonant/FilterItem', () => {
         expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(resultsPerPage);
     });
 
-    test('If a user does not have any saved cards, they should not see any cards when in that filter', async () => {
+    test('Should not show bookmarked cards if a user did not save any cards', async () => {
         const configToUse = config;
         configToUse.collection.cardStyle = '3:2';
-        await act(async () => render(<Container config={configToUse} />));
 
-        // Need wait for api response and state updating
+        await act(async () => render(<Container config={configToUse} />));
+        /**
+         * Wait for api response and state updating
+         */
         await waitFor(() => screen.getByTestId('consonant-collection'));
 
+        /**
+         * Get the badge that shows how many bookmarks are currently active
+         */
         const bookmarksItemsBadge = screen.getByTestId('bookmarks--item-badge');
-
-        // get first unbookmarkedButton from whole DOM tree
-        const [bookmarksFilter] = screen.queryAllByTestId('bookmarks');
         expect(bookmarksItemsBadge.innerHTML).toEqual('0');
+
+        /**
+         * Grab the bookmarks filter
+         */
+        const [bookmarksFilter] = screen.queryAllByTestId('bookmarks');
+
+        /**
+         * Click the bookmarks filter
+         */
         fireEvent.click(bookmarksFilter);
+
+        /**
+         * Since no cards are saved, we expect to see no cards
+         */
         expect(screen.queryAllByTestId('consonant-card')).toHaveLength(0);
     });
 });

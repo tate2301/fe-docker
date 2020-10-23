@@ -17,7 +17,7 @@ import { setupServer } from 'msw/node';
 
 import Container from '../Container';
 
-import config from '../../Helpers/Testing/Mocks/consonant.json';
+import config from '../../Helpers/Testing/Mocks/config.json';
 import cards from '../../Helpers/Testing/Mocks/cards.json';
 
 import makeInit from '../../Helpers/Testing/Utils/Init';

@@ -16,7 +16,7 @@ import { setupServer } from 'msw/node';
 
 import Container from '../Container';
 
-import config from '../../Helpers/Testing/Mocks/consonant.json';
+import config from '../../Helpers/Testing/Mocks/config.json';
 import cards from '../../Helpers/Testing/Mocks/cards.json';
 
 import makeInit from '../../Helpers/Testing/Utils/Init';
@@ -90,7 +90,7 @@ describe('Testing Results Per Page', () => {
          * if totalCardLimit > cards.length then we should render all cards
          */
         // -2 excludes one 1:1 card and one full-card
-        const totalCardLength = cards.length + config.featuredCards.length - 3; 
+        const totalCardLength = cards.length + config.featuredCards.length - 3;
         expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(totalCardLength);
     });
 });
