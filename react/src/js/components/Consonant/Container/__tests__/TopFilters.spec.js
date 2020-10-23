@@ -64,6 +64,9 @@ describe('Mobile/Consonant/FilterItemTwo', () => {
         // Need wait for api response and state updating
         await waitFor(() => screen.getByTestId('consonant-collection'));
 
+        const sortPopup = screen.getByTestId('select-button');
+        fireEvent.click(sortPopup);
+
         const optionsList = screen.queryByTestId('consonant-select--options');
 
         expect(optionsList).toHaveClass('consonant-select--options_left');
@@ -209,6 +212,9 @@ describe('Desktop/Consonant/FilterItemTwo', () => {
 
         // Need wait for api response and state updating
         await waitFor(() => screen.getByTestId('consonant-collection'));
+
+        const sortPopup = screen.getByTestId('select-button');
+        fireEvent.click(sortPopup);
 
         const optionsList = screen.queryByTestId('consonant-select--options');
 

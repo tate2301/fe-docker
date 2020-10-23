@@ -20,10 +20,9 @@ export { SelectedItem };
 
 SelectedItem.propTypes = {
     numItemsSelected: PropTypes.number,
-    handleClear: PropTypes.func,
+    handleClear: PropTypes.func.isRequired,
 };
 
 SelectedItem.defaultProps = {
-    numItemsSelected: 0,
-    handleClear: () => {},
+    numItemsSelected: 0
 };

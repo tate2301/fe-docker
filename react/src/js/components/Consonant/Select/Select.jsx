@@ -39,24 +39,26 @@ const Select = ({
                 tabIndex="0">
                 {val.label}
             </button>
-            <div
-                data-testid="consonant-select--options"
-                className={`consonant-select--options consonant-select--options_${optionsAlignment}`}>
-                {values.map(item => (
-                    <button
-                        data-testid="select-option"
-                        key={item.label}
-                        type="button"
-                        className={item.label === val.label ?
-                            'consonant-select--option consonant-select--option_selected' :
-                            'consonant-select--option'
-                        }
-                        onClick={e => handleOptionClick(e, item)}
-                        tabIndex={opened ? '0' : '-1'}>
-                        {item.label}
-                    </button>
-                ))}
-            </div>
+            { opened &&
+                <div
+                    data-testid="consonant-select--options"
+                    className={`consonant-select--options consonant-select--options_${optionsAlignment}`}>
+                    {values.map(item => (
+                        <button
+                            data-testid="select-option"
+                            key={item.label}
+                            type="button"
+                            className={item.label === val.label ?
+                                'consonant-select--option consonant-select--option_selected' :
+                                'consonant-select--option'
+                            }
+                            onClick={e => handleOptionClick(e, item)}
+                            tabIndex={0}>
+                            {item.label}
+                        </button>
+                    ))}
+                </div>
+            }
         </div>
     );
 };

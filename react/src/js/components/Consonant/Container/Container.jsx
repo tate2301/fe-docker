@@ -47,15 +47,33 @@ import Paginator from '../Pagination/Paginator';
 import Search from '../Search/Search';
 import Select from '../Select/Select';
 
-
+/**
+ * Conssonant Card Collection
+ * Config is implicitly populated by authors
+ *
+ * @component
+ * @example
+ * const config= {
+    collection: {},
+    featuredCards: [{}],
+    filterPanel: {},
+    sort: {},
+    pagination: {},
+    bookmarks: {},
+    search: {},
+    language: ''
+ * }
+ * return (
+ *   <Container config={config}/>
+ * )
+ */
 const Container = (props) => {
     const { config } = props;
-
-    const DESKTOP_SCREEN_SIZE = window.innerWidth >= DESKTOP_MIN_WIDTH;
     const getConfig = makeConfigGetter(config);
 
-    // Config
-
+    /**
+         **** Authored Configs ****
+     */
     const filterPanelEnabled = getConfig('filterPanel', 'enabled');
     const filterPanelType = getConfig('filterPanel', 'type');
     const paginationType = getConfig('pagination', 'type');
@@ -75,13 +93,23 @@ const Container = (props) => {
     const searchPlaceholderText = getConfig('search', 'i18n.filterInfo.searchPlaceholderText');
 
     /**
-     * @typedef {Boolean} OpenDropdownState
+     **** Constants ****
+     */
+    const DESKTOP_SCREEN_SIZE = window.innerWidth >= DESKTOP_MIN_WIDTH;
+    const isXorFilter = filterLogic.toLowerCase().trim() === FILTER_TYPES.XOR;
+
+    /**
+         **** Hooks ****
+     */
+
+    /**
+     * @typedef {Int} OpenDropdownState - Id of a selected dropdown
      * @description — Passed in Context Provider So All Nested Components can be in sync
      *
      * @typedef {Function} OpenDropdownStateSetter
      * @description
      *
-     * @type {[Boolean, Function]} OpenDropdown
+     * @type {[Int, Function]} OpenDropdown
      */
     const [openDropdown, setOpenDropdown] = useState(null);
 
@@ -206,51 +234,121 @@ const Container = (props) => {
      */
     const [isLoading, setLoading] = useState(false);
 
+    /**
+     **** Helper Methods ****
+     */
 
-    // callbacks
+    /**
+    * For a given group of filters, it will unselect all of them
+    * @param {Array} filterGroups - a group of filters
+    * @returns {Array} fitlerGroups - the updated group of filters
+    */
+    const getAllFiltersClearedState = filterGroups => filterGroups.map(filterGroup => ({
+        ...filterGroup,
+        items: filterGroup.items.map(filterItem => ({
+            ...filterItem,
+            selected: false,
+        })),
+    }));
 
+    /**
+    * For a given group of filters, it will unselect the one with a given id
+    * @param {Int} id - the id of an individual filter item
+    * @param {Array} filterGroups - a group of filters
+    * @returns {Array} fitlerGroups - the updated group of filters
+    */
+    const getFilterItemClearedState = (id, filterGroups) => filterGroups.map((filterGroup) => {
+        if (filterGroup.id !== id) {
+            return filterGroup;
+        }
+        return {
+            ...filterGroup,
+            items: filterGroup.items.map(filterItem => ({
+                ...filterItem,
+                selected: false,
+            })),
+        };
+    });
+
+    /**
+    * Will uncheck a filter with a given id
+    * @param {Int} id - the id of an individual filter item
+    * @returns {Void} - an updated state
+    */
+    const clearFilterItem = (id) => {
+        setFilters((prevFilters) => {
+            const filterClearedState = getFilterItemClearedState(id, prevFilters);
+            return filterClearedState;
+        });
+    };
+
+    /**
+    * Will uncheck all filter items
+    * @returns {Void} - an updated state
+    */
+    const clearAllFilters = () => {
+        setFilters((prevFilters) => {
+            const allFiltersClearedState = getAllFiltersClearedState(prevFilters);
+            return allFiltersClearedState;
+        });
+    };
+
+    /**
+    * Resets filters, and search to empty. Hides bookmark filter
+    * @returns {Void} - an updated state
+    */
+    const resetFiltersSearchAndBookmarks = () => {
+        clearAllFilters();
+        setSearchQuery('');
+        setShowBookmarks(false);
+    };
+
+    /**
+         **** EVENT HANDLERS ****
+     */
+
+    /**
+     * On Load More Button Click, Increment Page Cuonter By 1
+     *
+     * @param {ClickEvent} e
+     * @listens ClickEvent
+     */
     const onLoadMoreClick = () => {
         setCurrentPage(prevState => prevState + 1);
         window.scrollTo(0, window.pageYOffset);
     };
 
-    const clearFilterItems = (id) => {
-        setFilters(prevFilters => prevFilters.map((el) => {
-            if (el.id !== id) return el;
-            return {
-                ...el,
-                items: el.items.map(item => ({
-                    ...item,
-                    selected: false,
-                })),
-            };
-        }));
-    };
-
-    const clearFilters = () => {
-        setFilters(prevFilters => prevFilters.map(el => ({
-            ...el,
-            items: el.items.map(filter => ({ ...filter, selected: false })),
-        })));
-    };
-
-    const resetFiltersSearchAndBookmarks = () => {
-        clearFilters();
-        setSearchQuery('');
-        setShowBookmarks(false);
-    };
-
+    /**
+     * Takes sort user selects and sets it so cards are sorted
+     *
+     * @param {ClickEvent} e - The observable event.
+     * @listens ClickEvent
+     */
     const handleSortChange = (option) => {
         setSortOption(option);
         setSortOpened(false);
     };
 
+    /**
+     * Handles whenever the search box is clicked or input field
+     * changes
+     *
+     * @param {ClickEvent, ChangeEvent} e
+     * @listens ClickEvent, ChangeEvent
+     */
     const handleSearchInputChange = (val) => {
-        clearFilters();
+        clearAllFilters();
         setSearchQuery(val);
     };
 
-    const handleFilterItemClick = (filterId) => {
+    /**
+     * Handles when a group of filters is clicked. Behavior should be
+     * to toggle group open or closed
+     *
+     * @param {ClickEvent} e - The observable event.
+     * @listens ClickEvent
+     */
+    const handleFilterGroupClick = (filterId) => {
         setFilters((prevFilters) => {
             let opened;
             return prevFilters.map((el) => {
@@ -265,9 +363,17 @@ const Container = (props) => {
         });
     };
 
+    /**
+     * Handles what happens when a specific filter item (checkbox)
+     * is clicked
+     *
+     * @param {CheckboxClickEvent} e
+     * @listens CheckboxClickEvent
+     */
     const handleCheckBoxChange = (filterId, itemId, isChecked) => {
-        // If xor filterLogic set, we reset all filters;
-        if (filterLogic.toLowerCase().trim() === FILTER_TYPES.XOR && isChecked) clearFilters();
+        if (isXorFilter && isChecked) {
+            clearAllFilters();
+        }
 
         setFilters(prevFilters => prevFilters.map((filter) => {
             if (filter.id !== filterId) return filter;
@@ -282,8 +388,20 @@ const Container = (props) => {
         }));
     };
 
+    /**
+     * Shows/Hides Mobile Filter Panel
+     *
+     * @param {ClickEvent} e
+     * @listens ClickEvent
+     */
     const handleMobileFiltersToggle = () => setShowMobileFilters(prev => !prev);
 
+    /**
+     * When a card's bookmark icon is clicked, save the card
+     *
+     * @param {ClickEvent} e
+     * @listens ClickEvent
+     */
     const handleCardBookmarking = (id) => {
         // Update bookmarked IDs
         const cardIsBookmarked = bookmarkedCardIds.find(card => card === id);
@@ -295,21 +413,46 @@ const Container = (props) => {
         }
     };
 
-    const handleShowBookmarksClick = (e) => {
+    /**
+     * Will show  or hide all saved bookmarks when clicked
+     *
+     * @param {ClickEvent} e
+     * @listens ClickEvent
+     */
+    const handleShowBookmarksFilterClick = (e) => {
         e.stopPropagation();
         setShowBookmarks(prev => !prev);
         setCurrentPage(1);
     };
 
+    /**
+     * If top filter panel, toggle or hide more button
+     *
+     * @param {ClickEvent} e
+     * @listens ClickEvent
+     */
     const handleShowAllTopFilters = () => {
         setShowLimitedFiltersQty(prev => !prev);
     };
 
+    /**
+     * On window click, all dropdowns should hide
+     *
+     * @param {ClickEvent} e
+     * @listens ClickEvent
+     */
     const handleWindowClick = () => {
         setOpenDropdown(null);
     };
 
-    // Effects
+    /**
+         **** Effects ****
+     */
+
+    /**
+    * Sets authored filters as state
+    * @returns {Void} - an updated state
+    */
 
     useEffect(() => {
         setFilters(authoredFilters.map(filterGroup => ({
@@ -322,6 +465,10 @@ const Container = (props) => {
         })));
     }, []);
 
+    /**
+    * Fetches cards from authored API endpoint
+    * @returns {Void} - an updated state
+    */
     useEffect(() => {
         setLoading(true);
         window.fetch(collectionEndpoint)
@@ -340,31 +487,59 @@ const Container = (props) => {
             }).catch(() => setLoading(false));
     }, []);
 
-    // Update dimensions on resize
+    /**
+    * Handles debouncing on window resize
+    * @returns {Function} cleanup - on component unmount, attached event listener is removed
+    */
     useEffect(() => {
         const updateDimensions = debounce(() => setShowMobileFilters(false), 100);
         window.addEventListener('resize', updateDimensions);
         return () => window.removeEventListener('resize', updateDimensions);
     }, []);
 
+    /**
+    * Handles debouncing on window resize
+    * @returns {Void} - an updated state
+    */
     useEffect(() => {
         saveBookmarksToLocalStorage(bookmarkedCardIds);
         setCards(getUpdatedCardBookmarkData(cards, bookmarkedCardIds));
     }, [bookmarkedCardIds]);
 
+
+    /**
+    * Handles clearing state on showBookmarks
+    * @returns {Void} - an updated state
+    */
     useEffect(() => {
         if (showBookmarks) {
-            clearFilters();
+            clearAllFilters();
             setSearchQuery('');
         }
     }, [showBookmarks]);
 
-    // Derived state
+    /**
+         **** Derived State ****
+     */
 
+    /**
+     * Array of filters chosen by the user
+     * @type {Array}
+     */
     const activeFilterIds = getActiveFilterIds(filters);
 
+    /**
+     * Instance of CardFilterer class that handles returning subset of cards
+     * based off user interactions
+     *
+     * @type {Object}
+     */
     const cardFilterer = new CardFilterer(cards);
 
+    /**
+     * Filtered cards based off current state of page
+     * @type {Array}
+     */
     const { filteredCards } = cardFilterer
         .keepBookmarkedCardsOnly(onlyShowBookmarks, bookmarkedCardIds, showBookmarks)
         .filterCards(activeFilterIds, filterLogic, FILTER_TYPES)
@@ -373,25 +548,86 @@ const Container = (props) => {
         .truncateList(totalCardLimit)
         .searchCards(searchQuery, searchFields);
 
+    /**
+     * Subset of cards to show the user
+     * @type {Array}
+     */
     const collectionCards = filteredCards;
 
+    /**
+     * Total pages (used by Paginator Component)
+     * @type {Int}
+     */
     const totalPages = getTotalPages(resultsPerPage, collectionCards.length);
 
+    /**
+     * Number of cards to show (used by Load More component)
+     * @type {Int}
+     */
     const numCardsToShow = getNumCardsToShow(resultsPerPage, currentPage, collectionCards.length);
 
+    /**
+     * How many filters were selected - (used by Left Filter Panel)
+     * @type {Int}
+     */
     const selectedFiltersItemsQty = getNumSelectedFilterItems(filters);
 
+    /**
+     * Conditions to Display A Form Of Pagination
+     * @type {Boolean}
+     */
     const displayPagination = shouldDisplayPaginator(
         paginationIsEnabled,
         resultsPerPage,
         collectionCards.length,
     );
-
+    /**
+     * Conditions to display the Load More Button
+     * @type {Boolean}
+     */
     const displayLoadMore = displayPagination && paginationType === 'loadMore';
+
+    /**
+     * Conditions to display the Paginator Component
+     * @type {Boolean}
+     */
     const displayPaginator = displayPagination && paginationType === 'paginator';
+
+    /**
+     * Conditions to display the Left Filter Panel Component
+     * @type {Boolean}
+     */
     const displayLeftFilterPanel = filterPanelEnabled && filterPanelType === FILTER_PANEL.LEFT;
+
+    /**
+     * Whether at lease one card was returned by Card Filterer
+     * @type {Boolean}
+     */
     const atLeastOneCard = collectionCards.length > 0;
+
+    /**
+     * Where to place the Sort Popup (either left or right)
+     * @type {String} - Location of Sort Popup in Top Filter Panel View
+     */
     const topPanelSortPopupLocation = filters.length > 0 && windowWidth < TABLET_MIN_WIDTH ? 'left' : 'right';
+
+    /**
+     * How Long Paginator Component Should Be
+     * @type {Int} - Location of Sort Popup in Top Filter Panel View
+     */
+    const paginatorCount = DESKTOP_SCREEN_SIZE ? PAGINATION_COUNT.DESKTOP : PAGINATION_COUNT.MOBILE;
+
+    /**
+     * Whether we are using the top filter panel or not
+     * @type {Boolean}
+     */
+    const isTopFilterPanel = filterPanelType === FILTER_PANEL.TOP;
+
+    /**
+     * Whether we are using the top filter panel or not
+     * @type {Boolean}
+     */
+    const isLeftFilterPanel = filterPanelType === FILTER_PANEL.LEFT;
 
     return (
         <ConfigContext.Provider value={config}>
@@ -410,9 +646,9 @@ const Container = (props) => {
                                     filters={filters}
                                     selectedFiltersQty={selectedFiltersItemsQty}
                                     windowWidth={windowWidth}
-                                    onFilterClick={handleFilterItemClick}
+                                    onFilterClick={handleFilterGroupClick}
                                     onClearAllFilters={resetFiltersSearchAndBookmarks}
-                                    onClearFilterItems={clearFilterItems}
+                                    onClearFilterItems={clearFilterItem}
                                     onCheckboxClick={handleCheckBoxChange}
                                     onMobileFiltersToggleClick={handleMobileFiltersToggle}
                                     onSelectedFilterClick={handleCheckBoxChange}
@@ -421,7 +657,7 @@ const Container = (props) => {
                                     bookmarkComponent={(
                                         <Bookmarks
                                             showBookmarks={showBookmarks}
-                                            onClick={handleShowBookmarksClick}
+                                            onClick={handleShowBookmarksFilterClick}
                                             savedCardsCount={bookmarkedCardIds.length} />
                                     )}
                                     searchComponent={(
@@ -436,15 +672,15 @@ const Container = (props) => {
                         )}
                         <span>
                             {
-                                filterPanelType === FILTER_PANEL.TOP &&
+                                isTopFilterPanel &&
                                 <FiltersPanelTop
                                     filterPanelEnabled={filterPanelEnabled}
                                     filters={filters}
                                     windowWidth={windowWidth}
                                     resQty={collectionCards.length}
                                     onCheckboxClick={handleCheckBoxChange}
-                                    onFilterClick={handleFilterItemClick}
-                                    onClearFilterItems={clearFilterItems}
+                                    onFilterClick={handleFilterGroupClick}
+                                    onClearFilterItems={clearFilterItem}
                                     onClearAllFilters={resetFiltersSearchAndBookmarks}
                                     showLimitedFiltersQty={showLimitedFiltersQty}
                                     searchComponent={(
@@ -468,7 +704,7 @@ const Container = (props) => {
                                     )}
                                     onShowAllClick={handleShowAllTopFilters} />
                             }
-                            {filterPanelType === FILTER_PANEL.LEFT &&
+                            {isLeftFilterPanel &&
                                 <LeftInfo
                                     enabled={filterPanelEnabled}
                                     filtersQty={filters.length}
@@ -514,9 +750,7 @@ const Container = (props) => {
                                     )}
                                     {displayPaginator &&
                                         <Paginator
-                                            pageCount={DESKTOP_SCREEN_SIZE ?
-                                                PAGINATION_COUNT.DESKTOP : PAGINATION_COUNT.MOBILE
-                                            }
+                                            pageCount={paginatorCount}
                                             currentPageNumber={currentPage}
                                             totalPages={totalPages}
                                             showItemsPerPage={resultsPerPage}

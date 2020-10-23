@@ -37,17 +37,15 @@ export { GroupFooter };
 GroupFooter.propTypes = {
     mobileGroupTotalResultsText: PropTypes.string,
     numItemsSelected: PropTypes.number,
-    handleClear: PropTypes.func,
+    handleClear: PropTypes.func.isRequired,
     clearFilterText: PropTypes.string,
     ctaText: PropTypes.string,
-    handleClick: PropTypes.func,
+    handleClick: PropTypes.func.isRequired,
 };
 
 GroupFooter.defaultProps = {
     mobileGroupTotalResultsText: '',
     numItemsSelected: 0,
-    handleClear: () => {},
     clearFilterText: '',
-    handleClick: () => {},
     ctaText: '',
 };
