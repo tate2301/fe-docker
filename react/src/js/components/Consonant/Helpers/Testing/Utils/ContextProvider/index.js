@@ -5,10 +5,10 @@ import { ConfigContext, ExpandableContext } from '../../../../../../utils/contex
 import { contextPropTypes } from './types';
 
 const ContextProvider = ({ context, children }) => {
-    const [isOpen, toggle] = useState(false);
+    const [isOpen, toggle] = useState(null);
 
     const handleChangeVisibility = useCallback((value) => {
-        toggle(Boolean(value));
+        toggle(value);
     }, [toggle]);
 
     const expandableContext = useMemo(() => ({

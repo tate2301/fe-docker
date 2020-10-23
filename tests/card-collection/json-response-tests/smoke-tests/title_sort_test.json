@@ -1,0 +1,961 @@
+{
+	"cards": [
+		{
+			"id": "1",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {
+					"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg"
+				},
+				"label": {
+					"text": "Some Label"
+				},
+				"videoButton": {}
+			},
+			"tags": [
+				{
+					"id": "we-retail:apparrel/coat"
+				},
+				{
+					"id": "we-retail:apparrel/footwear"
+				},
+				{
+					"id": "we-retail:apparrel/glasses"
+				},
+				{
+					"id": "we-retail:apparrel/gloves"
+				},
+				{
+					"id": "we-retail:apparrel/hat"
+				},
+				{
+					"id": "we-retail:apparrel/helmet"
+				},
+				{
+					"id": "we-retail:apparrel/pancho"
+				},
+				{
+					"id": "we-retail:apparrel/pants"
+				},
+				{
+					"id": "we-retail:apparrel/scarf"
+				},
+				{
+					"id": "we-retail:apparrel/shirt"
+				},
+				{
+					"id": "we-retail:apparrel/shorts"
+				}
+			],
+			"contentArea": {
+				"detailText": "",
+				"title": "A",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+				{
+					"divider": true,
+					"left": [],
+					"center": [],
+					"right": [{
+						"type": "button",
+						"style": "call-to-action",
+						"text": "Read More",
+						"href": "https://www.google.com"
+					}]
+				}
+			],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+            },
+            "cardDate": "2020-10-01T20:00:00Z"
+		},
+		{
+			"id": "2",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {
+					"backgroundColor": "#EBC526",
+					"fontColor": "#002148",
+					"description": "Featured",
+					"icon": ""
+				},
+				"logo": {},
+				"label": {},
+				"videoButton": {}
+			},
+			"tags": [
+				{
+					"id": "we-retail:activity/biking"
+				},
+				{
+					"id": "we-retail:activity/hiking"
+				},
+				{
+					"id": "we-retail:activity/other"
+				},
+				{
+					"id": "we-retail:activity/running"
+				},
+				{
+					"id": "we-retail:activity/skiing"
+				},
+				{
+					"id": "we-retail:activity/surfing"
+				},
+				{
+					"id": "we-retail:activity/swimming"
+				}
+			],
+			"contentArea": {
+				"detailText": "Details",
+				"title": "B1",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+				{
+					"divider": true,
+					"left": [],
+					"center": [],
+					"right": [
+						{
+							"type": "link",
+							"href": "https://www.google.com",
+							"text": "Text link"
+						},
+						{
+							"type": "button",
+							"style": "call-to-action",
+							"text": "Read More"
+						}
+					]
+				}
+			],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+            },
+            "cardDate": "2020-10-02T20:00:00Z"
+		},
+		{
+			"id": "3",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {
+					"url": "https://www.youtube.com/watch?v=hY7m5jjJ9mM&ab_channel=TigerFunnyWorks"
+				}
+			},
+			"tags": [
+				{
+					"id": "we-retail:apparrel/coat"
+				},
+				{
+					"id": "we-retail:apparrel/footwear"
+				},
+				{
+					"id": "we-retail:apparrel/glasses"
+				},
+				{
+					"id": "we-retail:apparrel/gloves"
+				},
+				{
+					"id": "we-retail:apparrel/hat"
+				},
+				{
+					"id": "we-retail:apparrel/helmet"
+				},
+				{
+					"id": "we-retail:apparrel/pancho"
+				},
+				{
+					"id": "we-retail:apparrel/pants"
+				},
+				{
+					"id": "we-retail:apparrel/scarf"
+				},
+				{
+					"id": "we-retail:apparrel/shirt"
+				},
+				{
+					"id": "we-retail:apparrel/shorts"
+				}
+			],
+			"contentArea": {
+				"detailText": "Details",
+				"title": "B2",
+				"description": "The wizard quickly jinxed the gnomes before they vaporized. Zelda might fix the job growth plans very quickly on Monday.",
+				"dateDetailText": {}
+			},
+			"footer": [
+				{
+					"divider": true,
+					"left": [
+					],
+					"center": [],
+					"right": [
+						{
+							"type": "link",
+							"href": "https://www.google.com",
+							"text": "Text link"
+						},
+						{
+							"type": "button",
+							"style": "call-to-action",
+							"text": "Read More"
+						}
+					]
+				}
+			],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+            },
+            "cardDate": "2020-10-03T20:00:00Z"
+		},
+		{
+			"id": "4",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {
+					"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/looka.png",
+					"alt": "",
+					"backgroundColor": "#ffffff",
+					"borderColor": "#ffffff"
+				},
+				"label": {},
+				"videoButton": {}
+			},
+			"tags": [
+				{
+					"id": "we-retail:activity/biking"
+				},
+				{
+					"id": "we-retail:activity/hiking"
+				},
+				{
+					"id": "we-retail:activity/other"
+				},
+				{
+					"id": "we-retail:activity/running"
+				},
+				{
+					"id": "we-retail:activity/skiing"
+				},
+				{
+					"id": "we-retail:activity/surfing"
+				},
+				{
+					"id": "we-retail:activity/swimming"
+				}
+			],
+			"contentArea": {
+				"detailText": "Details",
+				"title": "D",
+				"description": "Author Name",
+				"dateDetailText": {}
+			},
+			"footer": [
+				{
+					"divider": true,
+					"left": [
+						{
+							"type": "icon-with-text",
+							"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/heart.svg",
+							"text": "4"
+						},
+						{
+							"type": "icon-with-text",
+							"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/upload.svg",
+							"text": "8"
+						},
+						{
+							"type": "icon",
+							"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg"
+						}
+					],
+					"center": [],
+					"right": [{
+						"type": "button",
+						"style": "call-to-action",
+						"text": "Read More"
+					}]
+				}
+			],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+            },
+            "cardDate": "2020-10-04T20:00:00Z"
+		},
+		{
+			"id": "5",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {}
+			},
+			"tags": [
+				{
+					"id": "we-retail:apparrel/coat"
+				},
+				{
+					"id": "we-retail:apparrel/footwear"
+				},
+				{
+					"id": "we-retail:apparrel/glasses"
+				},
+				{
+					"id": "we-retail:apparrel/gloves"
+				},
+				{
+					"id": "we-retail:apparrel/hat"
+				},
+				{
+					"id": "we-retail:apparrel/helmet"
+				},
+				{
+					"id": "we-retail:apparrel/pancho"
+				},
+				{
+					"id": "we-retail:apparrel/pants"
+				},
+				{
+					"id": "we-retail:apparrel/scarf"
+				},
+				{
+					"id": "we-retail:apparrel/shirt"
+				},
+				{
+					"id": "we-retail:apparrel/shorts"
+				}
+			],
+			"contentArea": {
+				"detailText": "Details",
+				"title": "E",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+				{
+					"divider": false,
+					"left": [{
+						"type": "progress-bar",
+						"label": "Progress",
+						"completionText": "6/10",
+						"percentage": "60%",
+						"color": "#1473E6"
+					}],
+					"center": [],
+					"right": []
+				},
+				{
+					"divider": true,
+					"left": [{
+						"type": "icon-with-text",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/bookmark.svg",
+						"text": "10 Tuts"
+					}],
+					"center": [{
+						"type": "icon-with-text",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg",
+						"text": "117 min"
+					}],
+					"right": [{
+						"type": "icon-with-text",
+						"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+						"text": "68k"
+					}]
+				}
+			],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+            },
+            "cardDate": "2020-10-05T20:00:00Z"
+		},
+		{
+			"id": "6",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "3:2",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {}
+			},
+			"tags": [
+				{
+					"id": "we-retail:activity/biking"
+				},
+				{
+					"id": "we-retail:activity/hiking"
+				},
+				{
+					"id": "we-retail:activity/other"
+				},
+				{
+					"id": "we-retail:activity/running"
+				},
+				{
+					"id": "we-retail:activity/skiing"
+				},
+				{
+					"id": "we-retail:activity/surfing"
+				},
+				{
+					"id": "we-retail:activity/swimming"
+				}
+			],
+			"contentArea": {
+				"detailText": "Details",
+				"title": "F",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [
+				{
+					"divider": true,
+					"left": [{
+						"type": "progress-bar",
+						"label": "Progress",
+						"completionText": "6/10",
+						"percentage": "60%",
+						"color": "#1473E6"
+					}],
+					"center": [],
+					"right": []
+				}
+			],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+            },
+            "cardDate": "2020-10-06T20:00:00Z"
+		},
+		{
+			"id": "7",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "1:1",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat-large.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {}
+			},
+			"tags": [
+				{
+					"id": "we-retail:apparrel/coat"
+				},
+				{
+					"id": "we-retail:apparrel/footwear"
+				},
+				{
+					"id": "we-retail:apparrel/glasses"
+				},
+				{
+					"id": "we-retail:apparrel/gloves"
+				},
+				{
+					"id": "we-retail:apparrel/hat"
+				},
+				{
+					"id": "we-retail:apparrel/helmet"
+				},
+				{
+					"id": "we-retail:apparrel/pancho"
+				},
+				{
+					"id": "we-retail:apparrel/pants"
+				},
+				{
+					"id": "we-retail:apparrel/scarf"
+				},
+				{
+					"id": "we-retail:apparrel/shirt"
+				},
+				{
+					"id": "we-retail:apparrel/shorts"
+				}
+			],
+			"contentArea": {
+				"detailText": "",
+				"title": "G",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+            },
+            "cardDate": "2020-10-07T20:00:00Z"
+		},
+		{
+			"id": "8",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "1:1",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat-large.png"
+			},
+			"overlays": {
+				"banner": {
+					"backgroundColor": "#EBC526",
+					"fontColor": "#002148",
+					"description": "Featured"
+				},
+				"logo": {},
+				"label": {},
+				"videoButton": {}
+			},
+			"tags": [
+				{
+					"id": "we-retail:activity/biking"
+				},
+				{
+					"id": "we-retail:activity/hiking"
+				},
+				{
+					"id": "we-retail:activity/other"
+				},
+				{
+					"id": "we-retail:activity/running"
+				},
+				{
+					"id": "we-retail:activity/skiing"
+				},
+				{
+					"id": "we-retail:activity/surfing"
+				},
+				{
+					"id": "we-retail:activity/swimming"
+				}
+			],
+			"contentArea": {
+				"detailText": "Details",
+				"title": "H",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+            },
+            "cardDate": "2020-10-08T20:00:00Z"
+		},
+		{
+			"id": "9",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "1:1",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat-large.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {
+					"url": "https://www.youtube.com/watch?v=hY7m5jjJ9mM&ab_channel=TigerFunnyWorks"
+				}
+			},
+			"tags": [
+				{
+					"id": "we-retail:apparrel/coat"
+				},
+				{
+					"id": "we-retail:apparrel/footwear"
+				},
+				{
+					"id": "we-retail:apparrel/glasses"
+				},
+				{
+					"id": "we-retail:apparrel/gloves"
+				},
+				{
+					"id": "we-retail:apparrel/hat"
+				},
+				{
+					"id": "we-retail:apparrel/helmet"
+				},
+				{
+					"id": "we-retail:apparrel/pancho"
+				},
+				{
+					"id": "we-retail:apparrel/pants"
+				},
+				{
+					"id": "we-retail:apparrel/scarf"
+				},
+				{
+					"id": "we-retail:apparrel/shirt"
+				},
+				{
+					"id": "we-retail:apparrel/shorts"
+				}
+			],
+			"contentArea": {
+				"detailText": "Details",
+				"title": "I",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+            },
+            "cardDate": "2020-10-09T20:00:00Z"
+		},
+		{
+			"id": "10",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "1:1",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat-large.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {
+					"src": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/looka.png",
+					"alt": "",
+					"backgroundColor": "#ffffff",
+					"borderColor": "#ffffff"
+				},
+				"label": {},
+				"videoButton": {
+					"url": "https://www.youtube.com/watch?v=hY7m5jjJ9mM&ab_channel=TigerFunnyWorks"
+				}
+			},
+			"tags": [
+				{
+					"id": "we-retail:activity/biking"
+				},
+				{
+					"id": "we-retail:activity/hiking"
+				},
+				{
+					"id": "we-retail:activity/other"
+				},
+				{
+					"id": "we-retail:activity/running"
+				},
+				{
+					"id": "we-retail:activity/skiing"
+				},
+				{
+					"id": "we-retail:activity/surfing"
+				},
+				{
+					"id": "we-retail:activity/swimming"
+				}
+			],
+			"contentArea": {
+				"detailText": "Details",
+				"title": "J",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+            },
+            "cardDate": "2020-10-10T20:00:00Z"
+		},
+		{
+			"id": "11",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "full-card",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat-large.png"
+			},
+			"overlays": {
+				"banner": {},
+				"logo": {},
+				"label": {},
+				"videoButton": {}
+			},
+			"tags": [
+				{
+					"id": "we-retail:apparrel/coat"
+				},
+				{
+					"id": "we-retail:apparrel/footwear"
+				},
+				{
+					"id": "we-retail:apparrel/glasses"
+				},
+				{
+					"id": "we-retail:apparrel/gloves"
+				},
+				{
+					"id": "we-retail:apparrel/hat"
+				},
+				{
+					"id": "we-retail:apparrel/helmet"
+				},
+				{
+					"id": "we-retail:apparrel/pancho"
+				},
+				{
+					"id": "we-retail:apparrel/pants"
+				},
+				{
+					"id": "we-retail:apparrel/scarf"
+				},
+				{
+					"id": "we-retail:apparrel/shirt"
+				},
+				{
+					"id": "we-retail:apparrel/shorts"
+				}
+			],
+			"contentArea": {
+				"detailText": "",
+				"title": "K",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+            },
+            "cardDate": "2020-10-11T20:00:00Z"
+		},
+		{
+			"id": "12",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "full-card",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat-large.png"
+			},
+			"overlays": {
+				"banner": {
+					"backgroundColor": "#EBC526",
+					"fontColor": "#002148",
+					"description": "Badge"
+				},
+				"logo": {},
+				"label": {},
+				"videoButton": {}
+			},
+			"tags": [
+				{
+					"id": "we-retail:activity/biking"
+				},
+				{
+					"id": "we-retail:activity/hiking"
+				},
+				{
+					"id": "we-retail:activity/other"
+				},
+				{
+					"id": "we-retail:activity/running"
+				},
+				{
+					"id": "we-retail:activity/skiing"
+				},
+				{
+					"id": "we-retail:activity/surfing"
+				},
+				{
+					"id": "we-retail:activity/swimming"
+				}
+			],
+			"contentArea": {
+				"detailText": "Details",
+				"title": "L",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+            },
+            "cardDate": "2020-10-12T20:00:00Z"
+		},
+		{
+			"id": "13",
+			"showCard": {
+				"from": "2020-10-01T20:00:00Z",
+				"until": "2025-10-31T21:45:00Z"
+			},
+			"styles": {
+				"typeOverride": "full-card",
+				"backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat-large.png"
+			},
+			"overlays": {
+				"banner": {
+					"backgroundColor": "#EBC526",
+					"fontColor": "#002148",
+					"description": "Featured"
+				},
+				"logo": {},
+				"label": {},
+				"videoButton": {
+					"url": "https://www.youtube.com/watch?v=hY7m5jjJ9mM&ab_channel=TigerFunnyWorks"
+				}
+			},
+			"tags": [
+				{
+					"id": "we-retail:apparrel/coat"
+				},
+				{
+					"id": "we-retail:apparrel/footwear"
+				},
+				{
+					"id": "we-retail:apparrel/glasses"
+				},
+				{
+					"id": "we-retail:apparrel/gloves"
+				},
+				{
+					"id": "we-retail:apparrel/hat"
+				},
+				{
+					"id": "we-retail:apparrel/helmet"
+				},
+				{
+					"id": "we-retail:apparrel/pancho"
+				},
+				{
+					"id": "we-retail:apparrel/pants"
+				},
+				{
+					"id": "we-retail:apparrel/scarf"
+				},
+				{
+					"id": "we-retail:apparrel/shirt"
+				},
+				{
+					"id": "we-retail:apparrel/shorts"
+				}
+			],
+			"contentArea": {
+				"detailText": "Details",
+				"title": "M",
+				"description": "",
+				"dateDetailText": {}
+			},
+			"footer": [],
+			"search": {
+				"meta": {
+					"author": "Sanjay Rai",
+					"description": "Some meta description",
+					"tags": "Analytics"
+				}
+            },
+            "cardDate": "2020-10-13T20:00:00Z"
+		}
+	]
+}
