@@ -234,9 +234,15 @@ const Container = (props) => {
      */
     const [isLoading, setLoading] = useState(false);
 
+    /**
+     **** Helper Methods ****
+     */
 
-    // callbacks
-
+    /**
+    * For a given group of filters, it will unselect all of them
+    * @param {Array} filterGroups - a group of filters
+    * @returns {Array} fitlerGroups - the updated group of filters
+    */
     const getAllFiltersClearedState = filterGroups => filterGroups.map(filterGroup => ({
         ...filterGroup,
         items: filterGroup.items.map(filterItem => ({
@@ -245,6 +251,12 @@ const Container = (props) => {
         })),
     }));
 
+    /**
+    * For a given group of filters, it will unselect the one with a given id
+    * @param {Int} id - the id of an individual filter item
+    * @param {Array} filterGroups - a group of filters
+    * @returns {Array} fitlerGroups - the updated group of filters
+    */
     const getFilterItemClearedState = (id, filterGroups) => filterGroups.map((filterGroup) => {
         if (filterGroup.id !== id) {
             return filterGroup;
@@ -258,6 +270,11 @@ const Container = (props) => {
         };
     });
 
+    /**
+    * Will uncheck a filter with a given id
+    * @param {Int} id - the id of an individual filter item
+    * @returns {Void} - an updated state
+    */
     const clearFilterItem = (id) => {
         setFilters((prevFilters) => {
             const filterClearedState = getFilterItemClearedState(id, prevFilters);
@@ -265,6 +282,10 @@ const Container = (props) => {
         });
     };
 
+    /**
+    * Will uncheck all filter items
+    * @returns {Void} - an updated state
+    */
     const clearAllFilters = () => {
         setFilters((prevFilters) => {
             const allFiltersClearedState = getAllFiltersClearedState(prevFilters);
@@ -272,6 +293,10 @@ const Container = (props) => {
         });
     };
 
+    /**
+    * Resets filters, and search to empty. Hides bookmark filter
+    * @returns {Void} - an updated state
+    */
     const resetFiltersSearchAndBookmarks = () => {
         clearAllFilters();
         setSearchQuery('');
@@ -424,6 +449,11 @@ const Container = (props) => {
          **** Effects ****
      */
 
+    /**
+    * Sets authored filters as state
+    * @returns {Void} - an updated state
+    */
+
     useEffect(() => {
         setFilters(authoredFilters.map(filterGroup => ({
             ...filterGroup,
@@ -435,6 +465,10 @@ const Container = (props) => {
         })));
     }, []);
 
+    /**
+    * Fetches cards from authored API endpoint
+    * @returns {Void} - an updated state
+    */
     useEffect(() => {
         setLoading(true);
         window.fetch(collectionEndpoint)
@@ -453,18 +487,30 @@ const Container = (props) => {
             }).catch(() => setLoading(false));
     }, []);
 
-    // Update dimensions on resize
+    /**
+    * Handles debouncing on window resize
+    * @returns {Function} cleanup - on component unmount, attached event listener is removed
+    */
     useEffect(() => {
         const updateDimensions = debounce(() => setShowMobileFilters(false), 100);
         window.addEventListener('resize', updateDimensions);
         return () => window.removeEventListener('resize', updateDimensions);
     }, []);
 
+    /**
+    * Handles debouncing on window resize
+    * @returns {Void} - an updated state
+    */
     useEffect(() => {
         saveBookmarksToLocalStorage(bookmarkedCardIds);
         setCards(getUpdatedCardBookmarkData(cards, bookmarkedCardIds));
     }, [bookmarkedCardIds]);
 
+
+    /**
+    * Handles clearing state on showBookmarks
+    * @returns {Void} - an updated state
+    */
     useEffect(() => {
         if (showBookmarks) {
             clearAllFilters();
@@ -476,10 +522,24 @@ const Container = (props) => {
          **** Derived State ****
      */
 
+    /**
+     * Array of filters chosen by the user
+     * @type {Array}
+     */
     const activeFilterIds = getActiveFilterIds(filters);
 
+    /**
+     * Instance of CardFilterer class that handles returning subset of cards
+     * based off user interactions
+     *
+     * @type {Object}
+     */
     const cardFilterer = new CardFilterer(cards);
 
+    /**
+     * Filtered cards based off current state of page
+     * @type {Array}
+     */
     const { filteredCards } = cardFilterer
         .keepBookmarkedCardsOnly(onlyShowBookmarks, bookmarkedCardIds, showBookmarks)
         .filterCards(activeFilterIds, filterLogic, FILTER_TYPES)
@@ -488,24 +548,67 @@ const Container = (props) => {
         .truncateList(totalCardLimit)
         .searchCards(searchQuery, searchFields);
 
+    /**
+     * Subset of cards to show the user
+     * @type {Array}
+     */
     const collectionCards = filteredCards;
 
+    /**
+     * Total pages (used by Paginator Component)
+     * @type {Int}
+     */
     const totalPages = getTotalPages(resultsPerPage, collectionCards.length);
 
+    /**
+     * Number of cards to show (used by Load More component)
+     * @type {Int}
+     */
     const numCardsToShow = getNumCardsToShow(resultsPerPage, currentPage, collectionCards.length);
 
+    /**
+     * How many filters were selected - (used by Left Filter Panel)
+     * @type {Int}
+     */
     const selectedFiltersItemsQty = getNumSelectedFilterItems(filters);
 
+    /**
+     * Conditions to Display A Form Of Pagination
+     * @type {Boolean}
+     */
     const displayPagination = shouldDisplayPaginator(
         paginationIsEnabled,
         resultsPerPage,
         collectionCards.length,
     );
-
+    /**
+     * Conditions to display the Load More Button
+     * @type {Boolean}
+     */
     const displayLoadMore = displayPagination && paginationType === 'loadMore';
+
+    /**
+     * Conditions to display the Paginator Component
+     * @type {Boolean}
+     */
     const displayPaginator = displayPagination && paginationType === 'paginator';
+
+    /**
+     * Conditions to display the Left Filter Panel Component
+     * @type {Boolean}
+     */
     const displayLeftFilterPanel = filterPanelEnabled && filterPanelType === FILTER_PANEL.LEFT;
+
+    /**
+     * Whether at lease one card was returned by Card Filterer
+     * @type {Boolean}
+     */
     const atLeastOneCard = collectionCards.length > 0;
+
+    /**
+     * Where to place the Sort Popup (either left or right)
+     * @type {String} - Location of Sort Popup in Top Filter Panel View
+     */
     const topPanelSortPopupLocation = filters.length > 0 && windowWidth < TABLET_MIN_WIDTH ? 'left' : 'right';
 
     return (
