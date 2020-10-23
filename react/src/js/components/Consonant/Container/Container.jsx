@@ -1,8 +1,29 @@
 import get from 'lodash/get';
 import debounce from 'lodash/debounce';
 import PropTypes from 'prop-types';
-import React, { Fragment, useEffect, useRef, useState } from 'react';
 import 'whatwg-fetch';
+import React, {
+    Fragment,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
+
+import CardFilterer from '../../../utils/CardFilterer';
+import JsonProcessor from '../../../utils/JsonProcessor';
+import Bookmarks from '../Bookmarks/Bookmarks';
+import Collection from '../Collection/Collection';
+import LeftFilterPanel from '../Filters/Left/Panel';
+import FiltersPanelTop from '../Filters/Top/Panel';
+import Loader from '../Loader/Loader';
+import LoadMore from '../Pagination/LoadMore';
+import Paginator from '../Pagination/Paginator';
+import Search from '../Search/Search';
+import Select from '../Select/Select';
+
+import { Info as LeftInfo } from '../Filters/Left/Info';
+import { useWindowDimensions } from '../../../utils/hooks';
+
 import {
     DESKTOP_MIN_WIDTH,
     FILTER_TYPES,
@@ -12,12 +33,18 @@ import {
     TABLET_MIN_WIDTH,
     TRUNCATE_TEXT_QTY,
 } from '../../../utils/constants';
-import { ConfigContext, ExpandableContext } from '../../../utils/contexts';
+
+import {
+    ConfigContext,
+    ExpandableContext,
+} from '../../../utils/contexts';
+
 import {
     getDefaultSortOption,
     getNumSelectedFilterItems,
     makeConfigGetter,
 } from '../../../utils/consonant';
+
 import {
     readBookmarksFromLocalStorage,
     saveBookmarksToLocalStorage,
@@ -30,22 +57,6 @@ import {
     getActiveFilterIds,
     getUpdatedCardBookmarkData,
 } from '../../../utils/Helpers';
-
-import CardFilterer from '../../../utils/CardFilterer';
-import JsonProcessor from '../../../utils/JsonProcessor';
-
-import { useWindowDimensions } from '../../../utils/hooks';
-
-import Bookmarks from '../Bookmarks/Bookmarks';
-import Collection from '../Collection/Collection';
-import { Info as LeftInfo } from '../Filters/Left/Info';
-import LeftFilterPanel from '../Filters/Left/Panel';
-import FiltersPanelTop from '../Filters/Top/Panel';
-import Loader from '../Loader/Loader';
-import LoadMore from '../Pagination/LoadMore';
-import Paginator from '../Pagination/Paginator';
-import Search from '../Search/Search';
-import Select from '../Select/Select';
 
 /**
  * Conssonant Card Collection
@@ -494,7 +505,9 @@ const Container = (props) => {
     useEffect(() => {
         const updateDimensions = debounce(() => setShowMobileFilters(false), 100);
         window.addEventListener('resize', updateDimensions);
-        return () => window.removeEventListener('resize', updateDimensions);
+        return function cleanup() {
+            window.removeEventListener('resize', updateDimensions);
+        };
     }, []);
 
     /**
@@ -632,7 +645,6 @@ const Container = (props) => {
     return (
         <ConfigContext.Provider value={config}>
             <ExpandableContext.Provider value={{ value: openDropdown, setValue: setOpenDropdown }} >
-
                 {/* eslint-disable-next-line max-len */}
                 {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions,jsx-a11y/click-events-have-key-events */}
                 <section
