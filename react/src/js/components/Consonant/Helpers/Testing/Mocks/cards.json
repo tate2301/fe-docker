@@ -1051,5 +1051,137 @@
         },
         "footer": [],
         "cardDate": "2020-10-19T05:42:36.871Z"
+    },
+    {
+        "id": "20",
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "1:1",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "No Footer Defined",
+            "description": "",
+            "dateDetailText": {}
+        },
+        "footer": [],
+        "cardDate": "2020-10-19T05:42:36.871Z"
+    },
+    {
+        "id": "21",
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": null,
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "No Footer Defined",
+            "description": "",
+            "dateDetailText": {}
+        },
+        "footer": [],
+        "cardDate": "2020-10-19T05:42:36.871Z"
+    },
+    {
+        "id": "22",
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "1:1",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "No Footer Defined",
+            "description": "",
+            "dateDetailText": {}
+        },
+        "footer": [],
+        "cardDate": "2020-10-19T05:42:36.871Z"
+    },
+    {
+        "id": "23",
+        "showCard": {
+            "from": "2020-10-01T20:00:00Z",
+            "until": "2025-10-31T21:45:00Z"
+        },
+        "styles": {
+            "typeOverride": "full-card",
+            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+        },
+        "overlays": {
+            "banner": {
+                "description": "Some Banner Description",
+                "backgroundColor": "#CB6F10",
+                "fontColor": "#FFFFFF",
+                "icon": "some-banner-icon"
+            },
+            "logo": {},
+            "label": {},
+            "videoButton": {
+                "url": "some-video-videoURL"
+            }
+        },
+        "tags": [],
+        "contentArea": {
+            "detailText": "",
+            "title": "No Footer Defined",
+            "description": "",
+            "dateDetailText": {}
+        },
+        "footer": [],
+        "cardDate": "2020-10-19T05:42:36.871Z"
     }
 ]

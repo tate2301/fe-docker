@@ -90,6 +90,7 @@ describe('Load More Button', () => {
 
         fireEvent.click(loadMoreButton);
 
-        expect(loadMoreText).toHaveTextContent(`${allCardsCount} ${allCardsCount}`);
+        // -2 to oexclude the 1:1 card and full-card
+        expect(loadMoreText).toHaveTextContent(`${cards.length - 2} ${allCardsCount}`);
     });
 });

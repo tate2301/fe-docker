@@ -78,7 +78,7 @@ describe('Consonant/FilterItem', () => {
         const [bookmarkButton] = screen.queryAllByTestId('bookmark-button');
 
         // Cards isn't filtered by bookmarks
-        expect(screen.queryAllByTestId('consonant-card')).toHaveLength(resultsPerPage);
+        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(resultsPerPage);
 
         // get first unbookmarkedButton from whole DOM tree
         const [saveBookmarkButton] = screen.queryAllByTestId('bookmark-button');
@@ -93,13 +93,13 @@ describe('Consonant/FilterItem', () => {
         fireEvent.click(bookmarkButton);
 
         // should render only bookmarked cards
-        expect(screen.queryAllByTestId('consonant-card')).toHaveLength(10);
+        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(10);
 
         // reset filter by bookmarks
         fireEvent.click(bookmarkButton);
 
         // should render card collection without bookmark filter
-        expect(screen.queryAllByTestId('consonant-card')).toHaveLength(resultsPerPage);
+        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(resultsPerPage);
 
         /**
              * If card is bookmarked
@@ -121,13 +121,13 @@ describe('Consonant/FilterItem', () => {
         fireEvent.click(bookmarkButton);
 
         // should render only bookmarked cards
-        expect(screen.queryAllByTestId('consonant-card')).toHaveLength(10);
+        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(10);
 
         // reset filter by bookmarks
         fireEvent.click(bookmarkButton);
 
         // should render card collection without bookmark filter
-        expect(screen.queryAllByTestId('consonant-card')).toHaveLength(resultsPerPage);
+        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(resultsPerPage);
     });
 
     test('If a user does not have any saved cards, they should not see any cards when in that filter', async () => {
