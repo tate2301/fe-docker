@@ -641,7 +641,7 @@ const Container = (props) => {
                     className="consonant-wrapper">
                     <div className="consonant-wrapper--inner">
                         {displayLeftFilterPanel && (
-                            <span>
+                            <div>
                                 <LeftFilterPanel
                                     filters={filters}
                                     selectedFiltersQty={selectedFiltersItemsQty}
@@ -668,9 +668,9 @@ const Container = (props) => {
                                             autofocus={false}
                                             onSearch={handleSearchInputChange} />
                                     )} />
-                            </span>
+                            </div>
                         )}
-                        <span>
+                        <div>
                             {
                                 isTopFilterPanel &&
                                 <FiltersPanelTop
@@ -766,7 +766,7 @@ const Container = (props) => {
                                     )
                                 )
                             }
-                        </span>
+                        </div>
                     </div>
                 </section>
             </ExpandableContext.Provider>
