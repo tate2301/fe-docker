@@ -156,7 +156,7 @@ describe('Consonant/FilterItem', () => {
 
         await waitFor(() => screen.getByTestId('consonant-collection'));
 
-        expect(screen.queryAllByTestId('consonant-card')).toHaveLength(1);
+        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(1);
 
         const [firstFilter] = screen.queryAllByTestId('filter-item');
 
@@ -181,7 +181,7 @@ describe('Consonant/FilterItem', () => {
 
         await waitFor(() => screen.getByTestId('consonant-collection'));
 
-        expect(screen.queryAllByTestId('consonant-card')).toHaveLength(1);
+        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(1);
     });
 
     test('should open any selected filter', async () => {

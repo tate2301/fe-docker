@@ -84,7 +84,7 @@ const AspectRatio3to2Card = ({
     return (
         <div
             className="consonant-aspect-ratio-3-2-card"
-            data-testid="consonant-card"
+            data-testid="consonant-card-3-2"
             id={id}>
             <div
                 data-testid="consonant-card--img"

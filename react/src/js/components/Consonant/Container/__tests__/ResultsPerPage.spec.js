@@ -64,7 +64,7 @@ describe('Testing Results Per Page', () => {
         /**
          * If resultsPerPage didn't present - we should render all cards
          */
-        expect(screen.queryAllByTestId('consonant-card')).toHaveLength(9);
+        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(9);
     });
 
     test('should render 1 cards by default if resultsPerPage === 1', async () => {
@@ -75,7 +75,7 @@ describe('Testing Results Per Page', () => {
         // Need wait for api response and state updating
         await waitFor(() => screen.getByTestId('consonant-collection'));
 
-        expect(screen.queryAllByTestId('consonant-card')).toHaveLength(1);
+        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(1);
     });
 
     test('should render all cards if limit > cards count', async () => {
@@ -89,7 +89,8 @@ describe('Testing Results Per Page', () => {
         /**
          * if totalCardLimit > cards.length then we should render all cards
          */
-        const totalCardLength = cards.length + config.featuredCards.length;
-        expect(screen.queryAllByTestId('consonant-card')).toHaveLength(totalCardLength);
+        // -2 excludes one 1:1 card and one full-card
+        const totalCardLength = cards.length + config.featuredCards.length - 3; 
+        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(totalCardLength);
     });
 });
