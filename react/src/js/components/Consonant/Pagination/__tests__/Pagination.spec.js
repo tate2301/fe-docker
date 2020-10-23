@@ -1,7 +1,7 @@
 import { screen, fireEvent, getNodeText } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import mockconfig from '../../Helpers/Testing/Mocks/consonant.json';
+import mockconfig from '../../Helpers/Testing/Mocks/config.json';
 
 import Paginator from '../Paginator';
 

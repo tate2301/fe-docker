@@ -1,5 +1,5 @@
 import React from 'react';
-import { filterPanel } from '../Mocks/consonant.json';
+import { filterPanel } from '../Mocks/config.json';
 
 const { enabled } = filterPanel;
 

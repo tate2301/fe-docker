@@ -1,14 +1,14 @@
 {
     "collection": {
         "resultsPerPage": 10,
-        "endpoint": "https://caas-chimera.s3-us-west-1.amazonaws.com/tests/card-collection/json-response-tests/features/infobits/all_infobits_from_xd_work.json",
+        "endpoint": "https://www.somedomain.com/some-test-api.json",
         "totalCardsToShow": 150,
         "cardStyle": "none",
         "showTotalResults": true,
         "i18n": {
             "prettyDateIntervalFormat": "{LLL} {dd} | {timeRange} {timeZone}",
-            "totalResultsText": "i18n.totalResultsText {total}",
-            "title": "i18n.title"
+            "totalResultsText": "{total} Results",
+            "title": "Your Top Picks"
         }
     },
     "featuredCards": [
@@ -20,19 +20,19 @@
             },
             "styles": {
                 "typeOverride": "3:2",
-                "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg"
+                "backgroundImage": "https://www.somedomain.com/some-image.jpg"
             },
             "overlays": {
                 "banner": {
-                    "description": "Some Banner Description",
+                    "description": "Live",
                     "backgroundColor": "#CB6F10",
                     "fontColor": "#FFFFFF",
-                    "icon": "some-banner-icon"
+                    "icon": "https://www.somedomain.com/some-live-banner-icon.svg"
                 },
                 "logo": {},
                 "label": {},
                 "videoButton": {
-                    "url": "some-video-videoURL"
+                    "url": "https://www.somedomain.com/some-video-url.mp4"
                 }
             },
             "tags": [ { "id": 1 } ],
@@ -47,7 +47,7 @@
             },
             "appliesTo": [
                 {
-                    "id": "we-retail:activity/biking"
+                    "id": "tag-namespace-1/tag2"
                 }
             ],
             "footer": [
@@ -56,8 +56,8 @@
                     "left": [
                         {
                             "type": "bookmark",
-                            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-                            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                            "saveCardIcon": "https://www.somedomain.com/some-save-card-icon.svg",
+                            "unsaveCardIcon": "https://www.somedomain.com/some-unsave-card-icon.svg",
                             "cardSaveText": "Save Card",
                             "cardUnsaveText": "Unsave Card"
                         },
@@ -72,7 +72,7 @@
                             "type": "button",
                             "style": "call-to-action",
                             "text": "Read More",
-                            "href": "https://www.google.com"
+                            "href": "https://www.somedomain.com/"
                         }
                     ]
                 }
@@ -87,25 +87,25 @@
             },
             "styles": {
                 "typeOverride": "3:2",
-                "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/sample.jpg"
+                "backgroundImage": "https://www.somedomain.com/some-card-background-image.jpeg"
             },
             "overlays": {
                 "banner": {
-                    "description": "Some Banner Description",
+                    "description": "Live",
                     "backgroundColor": "#CB6F10",
                     "fontColor": "#FFFFFF",
-                    "icon": "some-banner-icon"
+                    "icon": "https://www.somedomain.com/some-live-banner-icon.svg"
                 },
                 "logo": {},
                 "label": {},
                 "videoButton": {
-                    "url": "https://youtu.be/3OC2aPCuzjo"
+                    "url": "https://www.somedomain.com/some-video-url.mp4"
                 }
             },
             "tags": [],
             "contentArea": {
-                "detailText": "some unique details",
-                "title": "Featured Card",
+                "detailText": "Some Details Text",
+                "title": "Featured Tile",
                 "description": "Some Description",
                 "dateDetailText": {
                     "startTime": "2021-10-11T21:00:00.000Z",
@@ -114,7 +114,7 @@
             },
             "appliesTo": [
                 {
-                    "id": "we-retail:activity/running"
+                    "id": "tag-namespace-1/tag1"
                 }
             ],
             "footer": [
@@ -123,8 +123,8 @@
                     "left": [
                         {
                             "type": "bookmark",
-                            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-                            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                            "saveCardIcon": "https://www.somedomain.com/some-save-card-icon.svg",
+                            "unsaveCardIcon": "https://www.somedomain.com/some-unsave-card-icon.svg",
                             "cardSaveText": "Save Card",
                             "cardUnsaveText": "Unsave Card"
                         },
@@ -139,7 +139,7 @@
                             "type": "button",
                             "style": "call-to-action",
                             "text": "Read More",
-                            "href": "https://www.google.com"
+                            "href": "https://www.somedomain.com/some-group-icon.svg"
                         }
                     ]
                 }
@@ -156,101 +156,101 @@
         "filterLogic": "and",
         "filters": [
             {
-                "group": "Topic",
-                "id": "adobe-com-enterprise:topic",
-                "icon": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg",
+                "group": "First Tag Group Label",
+                "id": "tag-namespace-1",
+                "icon": "https://www.somedomain.com/some-group-icon.svg",
                 "openedOnLoad": true,
                 "items": [
                     {
-                        "label": "Business Continuity",
-                        "id": "we-retail:activity/hiking"
+                        "label": "Tag 1 Label",
+                        "id": "tag-namespace-1/tag1"
                     },
                     {
-                        "label": "Creativity and Design",
-                        "id": "we-retail:activity/biking"
+                        "label": "Tag 2 Label",
+                        "id": "tag-namespace-1/tag2"
                     },
                     {
-                        "label": "Customer Intelligence",
-                        "id": "adobe-com-enterprise:topic/customer-intelligence"
+                        "label": "Tag 3 Label",
+                        "id": "tag-namespace-1/tag3"
                     },
                     {
-                        "label": "Data Management Platform",
-                        "id": "adobe-com-enterprise:topic/data-management-platform"
+                        "label": "Tag 4 Label",
+                        "id": "tag-namespace-1/tag4"
                     },
                     {
-                        "label": "Digital Foundation",
-                        "id": "adobe-com-enterprise:topic/digital-foundation"
+                        "label": "Tag 5 Label",
+                        "id": "tag-namespace-1/tag5"
                     },
                     {
-                        "label": "Digital Trends",
-                        "id": "adobe-com-enterprise:topic/digital-trends"
+                        "label": "Tag 6 Label",
+                        "id": "tag-namespace-1/tag6"
                     },
                     {
-                        "label": "Document Management",
-                        "id": "adobe-com-enterprise:topic/document-management"
+                        "label": "Tag 7 Label",
+                        "id": "tag-namespace-1/tag7"
                     },
                     {
-                        "label": "Marketing Automation",
-                        "id": "adobe-com-enterprise:topic/marketing-automation"
+                        "label": "Tag 8 Label",
+                        "id": "tag-namespace-1/tag8"
                     },
                     {
-                        "label": "Personalization",
-                        "id": "adobe-com-enterprise:topic/personalization"
+                        "label": "Tag 9 Label",
+                        "id": "tag-namespace-1/tag9"
                     },
                     {
-                        "label": "Stock",
-                        "id": "adobe-com-enterprise:topic/Stock"
+                        "label": "Tag 10 Label",
+                        "id": "tag-namespace-1/tag10"
                     }
                 ]
             },
             {
-                "group": "Availability",
-                "id": "adobe-com-enterprise:availability",
-                "icon": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg",
+                "group": "Second Tag Group Label",
+                "id": "tag-namespace-2",
+                "icon": "https://www.somedomain.com/some-group-icon.svg",
                 "openedOnLoad": false,
                 "items": [
                     {
-                        "label": "On-Demand",
-                        "id": "adobe-com-enterprise:availability/on-demand"
+                        "label": "Tag 1 Label",
+                        "id": "tag-namespace-2/tag1"
                     },
                     {
-                        "label": "Upcoming",
-                        "id": "adobe-com-enterprise:availability/upcoming"
+                        "label": "Tag 2 Label",
+                        "id": "tag-namespace-2/tag2"
                     }
                 ]
             }
         ],
         "i18n": {
             "leftPanel": {
-                "header": "leftPanel.header",
-                "clearAllFiltersText": "leftPanel.clearAllFiltersText",
+                "header": "Filters",
+                "clearAllFiltersText": "Clear All",
                 "mobile": {
-                    "filtersBtnLabel": "leftPanel.mobile.filtersBtnLabel",
+                    "filtersBtnLabel": "Filters:",
                     "panel": {
-                        "header": "leftPanel.mobile.panel.header",
-                        "totalResultsText": "leftPanel.mobile.panel.totalResultsText {total}",
-                        "applyBtnText": "leftPanel.mobile.panel.applyBtnText",
-                        "clearFilterText": "leftPanel.mobile.panel.clearFilterText",
-                        "doneBtnText": "leftPanel.mobile.panel.doneBtnText"
+                        "header": "Filters",
+                        "totalResultsText": "{total Results}",
+                        "applyBtnText": "Apply",
+                        "clearFilterText": "Clear",
+                        "doneBtnText": "Done"
                     },
                     "group": {
-                        "totalResultsText": "leftPanel.mobile.group.totalResultsText{total}",
-                        "applyBtnText": "leftPanel.mobile.group.applyBtnText",
-                        "clearFilterText": "leftPanel.mobile.group.clearFilterText",
-                        "doneBtnText": "leftPanel.mobile.group.doneBtnText"
+                        "totalResultsText": "{total} Results",
+                        "applyBtnText": "Apply",
+                        "clearFilterText": "Clear",
+                        "doneBtnText": "Done"
                     }
                 }
             },
             "topPanel": {
-                "groupLabel": "i18n.topPanel.groupLabel",
-                "clearAllFiltersText": "i18n.topPanel.clearAllFiltersText",
-                "moreFiltersBtnText": "i18n.topPanel.moreFiltersBtnText",
+                "groupLabel": "Filters:",
+                "clearAllFiltersText": "Clear All",
+                "moreFiltersBtnText": "More +",
                 "mobile": {
                     "group": {
-                        "totalResultsText": "i18n.topPanel.mobile.group.totalResultsText {total}",
-                        "applyBtnText": "i18n.topPanel.mobile.group.applyBtnText",
-                        "clearFilterText": "i18n.topPanel.mobile.group.clearFilterText",
-                        "doneBtnText": "i18n.topPanel.mobile.group.doneBtnText"
+                        "totalResultsText": "Total {total}",
+                        "applyBtnText": "Apply",
+                        "clearFilterText": "Clear",
+                        "doneBtnText": "Done"
                     }
                 }
             }
@@ -287,13 +287,13 @@
         "type": "paginator",
         "i18n": {
             "loadMore": {
-                "btnText": "i18n.loadMore.btnText",
-                "resultsQuantityText": "i18n.loadMore.resultsQuantityText {start} {end}"
+                "btnText": "Load More",
+                "resultsQuantityText": "{start} {end}"
             },
             "paginator": {
-                "resultsQuantityText": "i18n.paginator.resultsQuantityText {start} {end} {total}",
-                "prevLabel": "i18n.paginator.prevLabel",
-                "nextLabel": "i18n.paginator.nextLabel"
+                "resultsQuantityText": "{start} {end} {total}",
+                "prevLabel": "Previous",
+                "nextLabel": "Next"
             }
         }
     },
@@ -301,30 +301,30 @@
         "leftFilterPanel": {
             "bookmarkOnlyCollection": false,
             "showBookmarksFilter": true,
-            "selectBookmarksIcon": "http://placehold.it/150x150",
-            "unselectBookmarksIcon": "http://placehold.it/150x150/red"
+            "selectBookmarksIcon": "https://www.somedomain.com/some-select-bookmark-icon.svg",
+            "unselectBookmarksIcon": "https://www.somedomain.com/some-unselect-bookmark-icon.svg"
         },
         "i18n": {
             "leftFilterPanel": {
-                "filterTitle": "i18n.leftFilterPanel.filterTitle"
+                "filterTitle": "Refine your results"
             }
         }
     },
     "search": {
         "enabled": true,
-        "searchFields": ["contentArea.title", "contentArea.description", "search.meta.author", "overlays.label.text", "foo.bar"],
+        "searchFields": ["contentArea.title","contentArea.description", "search.meta.author", "overlays.label.text"],
         "i18n": {
             "leftFilterPanel": {
-                "searchTitle": "i18n.leftFilterPanel.searchTitle",
-                "searchPlaceholderText": "i18n.leftFilterPanel.searchPlaceholderText"
+                "searchTitle": "Search",
+                "searchPlaceholderText": "Search here..."
             },
             "topFilterPanel": {
-                "searchPlaceholderText": "i18n.topFilterPanel.searchPlaceholderText"
+                "searchPlaceholderText": "Search here..."
             },
             "filterInfo": {
-                "searchPlaceholderText": "i18n.filterInfo.searchPlaceholderText"
+                "searchPlaceholderText": "Search here..."
             }
         }
     },
-    "language": "de"
+    "language": "en"
 }

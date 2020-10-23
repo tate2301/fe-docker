@@ -1,4 +1,4 @@
-import { bookmarks } from '../Mocks/consonant.json';
+import { bookmarks } from '../Mocks/config.json';
 
 export const COUNT_LIST = [0, 5, 10, 15, 20];
 export const DEFAULT_PROPS = {
