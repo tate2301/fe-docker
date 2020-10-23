@@ -21,25 +21,17 @@
         display: flex;
         flex-grow: 1;
         flex-direction: column;
-        padding: 20px 24px 8px;
+        padding: 20px 24px 24px;
         text-decoration: none;
     }
 
     .consonant-aspect-ratio-1-1-card--img {
         position: relative;
-
-        .position-absolute-0;
-
+        min-height: @consonant-card-l-1-img-height;
         background-color: @consonant-color-lightest-grey;
         background-position: 50% 50%;
         background-repeat: no-repeat;
         background-size: cover;
-
-        &:before {
-            content: '';
-            display: block;
-            padding-top: 100%;
-        }
     }
 
     .consonant-aspect-ratio-1-1-card--video-ico {
@@ -107,14 +99,14 @@
     .consonant-aspect-ratio-1-1-card--title {
         display: -webkit-box;
         -webkit-box-orient: vertical;
-        max-height: 1.375rem;
+        max-height: 1.375rem * 3;
         margin: 0;
 
         .font(1.125rem, 1.375rem, 700, @consonant-color-dark-grey-5);
 
         text-decoration: none;
         word-break: break-word;
-        -webkit-line-clamp: 1;
+        -webkit-line-clamp: 3;
         overflow: hidden;
     }
 
