@@ -24,5 +24,5 @@ SelectedItem.propTypes = {
 };
 
 SelectedItem.defaultProps = {
-    numItemsSelected: 0
+    numItemsSelected: 0,
 };
