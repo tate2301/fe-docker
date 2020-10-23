@@ -41,9 +41,5 @@ export { Items };
 
 Items.propTypes = {
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
-    handleCheck: PropTypes.func,
-};
-
-Items.defaultProps = {
-    handleCheck: () => {},
+    handleCheck: PropTypes.func.isRequired,
 };
