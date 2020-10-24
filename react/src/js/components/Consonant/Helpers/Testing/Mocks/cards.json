@@ -3,7 +3,7 @@
         "id": "3",
         "appliesTo": [
             {
-                "id": "we-retail:activity/biking"
+                "id": "namespace-1/tag1"
             }
         ],
         "showCard": {
@@ -12,14 +12,14 @@
         },
         "styles": {
             "typeOverride": "3:2",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {
                 "src": "somg.svg",
@@ -31,7 +31,7 @@
                 "description": "Some Badge Text"
             },
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
@@ -50,14 +50,14 @@
                 "left": [
                     {
                         "type": "bookmark",
-                        "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-                        "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+                        "saveCardIcon": "https://some-url.com/some-saved-bookmark-icon.svg",
+                        "unsaveCardIcon": "https://some-url.com/some-unsave-bookmark-icon.svg",
                         "cardSaveText": "Save Card",
                         "cardUnsaveText": "Unsave Card"
                     },
                     {
                         "type": "icon-with-text",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg",
+                        "src": "https://some-url.com/some-icon.svg",
                         "text": "117 min"
                     }
                 ],
@@ -78,7 +78,7 @@
         "id": "4",
         "appliesTo": [
             {
-                "id": "we-retail:activity/hiking"
+                "id": "namespace-1/tag2"
             }
         ],
         "showCard": {
@@ -87,19 +87,19 @@
         },
         "styles": {
             "typeOverride": "3:2",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
@@ -117,7 +117,7 @@
                 "left": [
                     {
                         "type": "icon",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/bookmark.svg"
+                        "src": "https://some-url.com/some-bookmark-icon.svg"
                     },
                     {
                         "type": "date",
@@ -127,7 +127,7 @@
                 "center": [
                     {
                         "type": "icon",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg"
+                        "src": "https://some-url.com/some-icon.svg"
                     },
                     {
                         "type": "text",
@@ -137,7 +137,7 @@
                 "right": [
                     {
                         "type": "icon-with-text",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+                        "src": "https://some-url.com/some-icon.svg",
                         "text": "68k"
                     }
                 ]
@@ -150,7 +150,7 @@
         "id": "5",
         "appliesTo": [
             {
-                "id": "we-retail:activity/running"
+                "id": "namespace-1/tag3"
             }
         ],
         "showCard": {
@@ -159,19 +159,19 @@
         },
         "styles": {
             "typeOverride": "3:2",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
@@ -190,17 +190,17 @@
                 "center": [
                     {
                         "type": "icon-with-text",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/heart.svg",
+                        "src": "https://some-url.com/some-icon.svg",
                         "text": "4"
                     },
                     {
                         "type": "icon-with-text",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/upload.svg",
+                        "src": "https://some-url.com/some-icon.svg",
                         "text": 8
                     },
                     {
                         "type": "icon",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg"
+                        "src": "https://some-url.com/some-saved-bookmark-icon.svg"
                     }
                 ],
                 "right": []
@@ -212,7 +212,7 @@
         "id": "6",
         "appliesTo": [
             {
-                "id": "we-retail:activity/skiing"
+                "id": "namespace-1/tag4"
             }
         ],
         "showCard": {
@@ -221,19 +221,19 @@
         },
         "styles": {
             "typeOverride": "3:2",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
@@ -263,7 +263,7 @@
         "id": "10",
         "appliesTo": [
             {
-                "id": "we-retail:activity/surfing"
+                "id": "namespace-1/tag5"
             }
         ],
         "showCard": {
@@ -272,26 +272,26 @@
         },
         "styles": {
             "typeOverride": "3:2",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description uniq",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
         "contentArea": {
             "detailText": "",
             "title": "10 - Infobit",
-            "description": "Some Description uniq",
+            "description": "Some Description",
             "dateDetailText": {}
         },
         "footer": [
@@ -300,11 +300,11 @@
                 "left": [
                     {
                         "type": "icon",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/desktop.svg"
+                        "src": "https://some-url.com/some-icon.svg"
                     },
                     {
                         "type": "icon",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/smartphone.svg"
+                        "src": "https://some-url.com/some-icon.svg"
                     }
                 ],
                 "center": [],
@@ -323,7 +323,7 @@
         "id": "12",
         "appliesTo": [
             {
-                "id": "we-retail:activity/skiing"
+                "id": "namespace-1/tag4"
             }
         ],
         "showCard": {
@@ -332,19 +332,19 @@
         },
         "styles": {
             "typeOverride": "3:2",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
@@ -360,11 +360,11 @@
                 "left": [
                     {
                         "type": "icon",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/pr_mnemonic.svg"
+                        "src": "https://some-url.com/some-icon.svg"
                     },
                     {
                         "type": "icon",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/lr_mnemonic.svg"
+                        "src": "https://some-url.com/some-icon.svg"
                     }
                 ],
                 "center": [],
@@ -383,7 +383,7 @@
         "id": "N",
         "appliesTo": [
             {
-                "id": "we-retail:activity/surfing"
+                "id": "namespace-1/tag5"
             }
         ],
         "showCard": {
@@ -392,25 +392,25 @@
         },
         "styles": {
             "typeOverride": "3:2",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
         "contentArea": {
             "detailText": "",
-            "title": "14 Infoobit",
+            "title": "14 Infobit",
             "description": "",
             "dateDetailText": {}
         },
@@ -441,7 +441,7 @@
         "id": "11",
         "appliesTo": [
             {
-                "id": "we-retail:activity/swimming"
+                "id": "namespace-1/tag6"
             }
         ],
         "showCard": {
@@ -450,19 +450,19 @@
         },
         "styles": {
             "typeOverride": "3:2",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
@@ -498,7 +498,7 @@
         "id": "7",
         "appliesTo": [
             {
-                "id": "we-retail:activity/others"
+                "id": "namespace-1/tag7"
             }
         ],
         "showCard": {
@@ -507,19 +507,19 @@
         },
         "styles": {
             "typeOverride": "3:2",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "contentArea": {
@@ -534,7 +534,7 @@
                 "center": [
                     {
                         "type": "link",
-                        "href": "https://www.google.com",
+                        "href": "https://www.some-url.com",
                         "text": "Click here"
                     }
                 ],
@@ -552,7 +552,7 @@
         "id": "13",
         "appliesTo": [
             {
-                "id": "we-retail:apparel/coat"
+                "id": "namespace2/tag8"
             }
         ],
         "showCard": {
@@ -561,19 +561,19 @@
         },
         "styles": {
             "typeOverride": "3:2",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
@@ -589,17 +589,17 @@
                 "left": [
                     {
                         "type": "icon",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/pr_mnemonic.svg"
+                        "src": "https://some-url.com/some-icon.svg"
                     },
                     {
                         "type": "icon",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/lr_mnemonic.svg"
+                        "src": "https://some-url.com/some-icon.svg"
                     }
                 ],
                 "center": [
                     {
                         "type": "icon-with-text",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/grey_star.svg",
+                        "src": "https://some-url.com/some-icon.svg",
                         "text": "3.7"
                     }
                 ],
@@ -622,19 +622,19 @@
         },
         "styles": {
             "typeOverride": "3:2",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
@@ -649,7 +649,7 @@
                 "left": [
                     {
                         "type": "icon-with-text",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+                        "src": "https://some-url.com/some-icon.svg",
                         "text": "68k"
                     }
                 ],
@@ -670,7 +670,7 @@
         "title": "Some Title 9",
         "appliesTo": [
             {
-                "id": "we-retail:apparel/footwear"
+                "id": "namespace2/tag10"
             }
         ],
         "showCard": {
@@ -679,19 +679,19 @@
         },
         "styles": {
             "typeOverride": "3:2",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
@@ -706,7 +706,7 @@
                 "left": [
                     {
                         "type": "icon-with-text",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+                        "src": "https://some-url.com/some-icon.svg",
                         "text": "68k"
                     }
                 ],
@@ -726,7 +726,7 @@
         "id": "9",
         "appliesTo": [
             {
-                "id": "we-retail:apparel/glasses"
+                "id": "namespace2/tag11"
             }
         ],
         "showCard": {
@@ -735,19 +735,19 @@
         },
         "styles": {
             "typeOverride": "3:2",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
@@ -762,14 +762,14 @@
                 "left": [
                     {
                         "type": "icon-with-text",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+                        "src": "https://some-url.com/some-icon.svg",
                         "text": "68k"
                     }
                 ],
                 "center": [
                     {
                         "type": "link",
-                        "href": "https://www.google.com",
+                        "href": "https://www.some-url.com",
                         "text": "Text link"
                     }
                 ],
@@ -792,19 +792,19 @@
         },
         "styles": {
             "typeOverride": "3:2",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
@@ -839,19 +839,19 @@
         },
         "styles": {
             "typeOverride": "3:2",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
@@ -880,7 +880,7 @@
                 "left": [
                     {
                         "type": "icon",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/bookmark.svg"
+                        "src": "https://some-url.com/some-bookmark-icon.svg"
                     },
                     {
                         "type": "text",
@@ -890,7 +890,7 @@
                 "center": [
                     {
                         "type": "icon",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/clock.svg"
+                        "src": "https://some-url.com/some-icon.svg"
                     },
                     {
                         "type": "text",
@@ -900,7 +900,7 @@
                 "right": [
                     {
                         "type": "icon-with-text",
-                        "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/eye.svg",
+                        "src": "https://some-url.com/some-icon.svg",
                         "text": "68k"
                     }
                 ]
@@ -916,19 +916,19 @@
         },
         "styles": {
             "typeOverride": "3:2",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
@@ -957,7 +957,7 @@
                 "center": [
                     {
                         "type": "link",
-                        "href": "https://www.google.com",
+                        "href": "https://www.some-url.com",
                         "text": "Text link"
                     }
                 ],
@@ -980,19 +980,19 @@
         },
         "styles": {
             "typeOverride": "3:2",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
@@ -1027,19 +1027,19 @@
         },
         "styles": {
             "typeOverride": "3:2",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
@@ -1060,19 +1060,19 @@
         },
         "styles": {
             "typeOverride": "1:1",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
@@ -1093,19 +1093,19 @@
         },
         "styles": {
             "typeOverride": null,
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
@@ -1126,19 +1126,19 @@
         },
         "styles": {
             "typeOverride": "1:1",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
@@ -1159,19 +1159,19 @@
         },
         "styles": {
             "typeOverride": "full-card",
-            "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            "backgroundImage": "https://some-url.com/some-background-image.png"
         },
         "overlays": {
             "banner": {
                 "description": "Some Banner Description",
                 "backgroundColor": "#CB6F10",
                 "fontColor": "#FFFFFF",
-                "icon": "some-banner-icon"
+                "icon": "https://some-url.com/some-icon.svg"
             },
             "logo": {},
             "label": {},
             "videoButton": {
-                "url": "some-video-videoURL"
+                "url": "https://some-url.com/some-video-url.mp4"
             }
         },
         "tags": [],
