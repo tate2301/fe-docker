@@ -8,6 +8,23 @@ import {
     getEndNumber,
 } from '../../../utils/general';
 
+/**
+ * Paginator - handles pa
+ *
+ * @component
+ * @example
+ * const props= {
+    pageCount: Int,
+    currentPageNumber: Int,
+    totalPages: Int,
+    onClick: Function,
+    showItemsPerPage: Boolean,
+    totalResults: Int,
+ * }
+ * return (
+ *   <Paginator {...props}/>
+ * )
+ */
 const Paginator = (props) => {
     const {
         pageCount,
@@ -20,17 +37,45 @@ const Paginator = (props) => {
 
     const getConfig = useConfig();
 
+    /**
+     * Authored Quantity Text
+     * @type {String}
+     */
     const quantityText = getConfig('pagination', 'i18n.paginator.resultsQuantityText');
+
+    /**
+     * Authored Previous Label
+     * @type {String}
+     */
     const prevLabel = getConfig('pagination', 'i18n.paginator.prevLabel');
+
+    /**
+     * Authored Next Label
+     * @type {String}
+     */
     const nextLabel = getConfig('pagination', 'i18n.paginator.nextLabel');
 
+    /**
+     * Start and end indexes of pages to build
+     * @type {Int, Int}
+     */
     const [pageStart, pageEnd] = getPageStartEnd(currentPageNumber, pageCount, totalPages);
+    /**
+     * Range of pages to build
+     * @type {Array}
+     */
     const pageRange = generateRange(pageStart, pageEnd);
 
     const BASE_10 = 10;
     const nextPageNotNegative = currentPageNumber - 1 > 0;
     const nextPageNotOutOfBounds = currentPageNumber + 1 < totalPages;
 
+    /**
+     * Handles click of prev, next or number button
+     *
+     * @param {ClickEvent} e
+     * @listens ClickEvent
+     */
     const handleClick = (clickEvt) => {
         const { target } = clickEvt;
 
@@ -45,13 +90,16 @@ const Paginator = (props) => {
         } else if (nextButtonClicked) {
             nextPage = nextPageNotOutOfBounds ? currentPageNumber + 1 : totalPages;
         } else {
-            /** numberButtonClicked was clicked * */
             nextPage = parseInt(target.firstChild.nodeValue, BASE_10);
         }
         onClick(nextPage);
     };
 
-    const resultsCount = quantityText
+    /**
+     * Summary Of Pagination Results
+     * @type {String}
+     */
+    const paginationSummary = quantityText
         .replace('{start}', getStartNumber(currentPageNumber, showItemsPerPage))
         .replace('{end}', getEndNumber(currentPageNumber, showItemsPerPage, totalResults))
         .replace('{total}', totalResults);
@@ -103,7 +151,7 @@ const Paginator = (props) => {
                 data-testid="pagination--summary"
                 className="consonant-pagination--summary">
                 <strong>
-                    {resultsCount}
+                    {paginationSummary}
                 </strong>
             </div>
         </div>
