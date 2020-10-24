@@ -5,9 +5,9 @@ import Card from '../1-1';
 
 import { DEFAULT_PROPS_1_1 } from '../../Helpers/Testing/Constants/Card';
 
-import makeSetup from '../../Helpers/Testing/Utils/Settings';
+import setup from '../../Helpers/Testing/Utils/Settings';
 
-const setup = makeSetup(Card, DEFAULT_PROPS_1_1);
+const renderCard = setup(Card, DEFAULT_PROPS_1_1);
 
 describe('Consonant/Card', () => {
     test('should renders banner correctly', () => {
@@ -22,7 +22,7 @@ describe('Consonant/Card', () => {
                     },
                 },
             },
-        } = setup();
+        } = renderCard();
 
         const bannerElement = screen.getByTestId('consonant-card--banner');
         const bannerIconElement = screen.getByTestId('consonant-card--banner-icon');
@@ -44,7 +44,7 @@ describe('Consonant/Card', () => {
                     },
                 },
             },
-        } = setup();
+        } = renderCard();
 
         const badgeElement = screen.queryByText(someBadgeText);
 
@@ -52,7 +52,7 @@ describe('Consonant/Card', () => {
     });
 
     test('should renders with label', () => {
-        setup({
+        renderCard({
             contentArea: {
                 dateDetailText: {
                     endTime: '2021-10-11T21:00:00.000Z',
@@ -67,7 +67,7 @@ describe('Consonant/Card', () => {
     });
 
     test('should renders with detail text in label ', () => {
-        setup({
+        renderCard({
             contentArea: {
                 detailText: 'datail label',
                 dateDetailText: {
@@ -82,7 +82,7 @@ describe('Consonant/Card', () => {
     });
 
     test('If No Detail Text or startTime is authored, then card label should not appear ', () => {
-        setup({
+        renderCard({
             contentArea: {
                 detailText: null,
                 dateDetailText: {

@@ -1,17 +1,16 @@
-import React from 'react';
-import { screen, logDOM } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import Card from '../3-2';
 
 import { DEFAULT_PROPS_3_2 } from '../../Helpers/Testing/Constants/Card';
 
-import makeSetup from '../../Helpers/Testing/Utils/Settings';
+import setup from '../../Helpers/Testing/Utils/Settings';
 
-const setup = makeSetup(Card, DEFAULT_PROPS_3_2);
+const renderCard = setup(Card, DEFAULT_PROPS_3_2);
 
-describe('Consonant/Card', () => {
-    test('should renders banner correctly', () => {
+describe('3:2 Card', () => {
+    test('should be able to render a banner overlay', () => {
         const {
             props: {
                 overlays: {
@@ -23,7 +22,7 @@ describe('Consonant/Card', () => {
                     },
                 },
             },
-        } = setup();
+        } = renderCard();
 
         const bannerElement = screen.getByTestId('consonant-card--banner');
         const bannerIconElement = screen.getByTestId('consonant-card--banner-icon');
@@ -35,7 +34,7 @@ describe('Consonant/Card', () => {
         expect(bannerElement).toHaveTextContent(bannerDescription);
         expect(bannerIconElement).toHaveAttribute('src', bannerIcon);
     });
-    test('should renders with badge', () => {
+    test('should be able to render a badge overlay', () => {
         const {
             props: {
                 overlays: {
@@ -44,15 +43,14 @@ describe('Consonant/Card', () => {
                     },
                 },
             },
-        } = setup();
+        } = renderCard();
 
         const badgeElement = screen.queryByText(someBadgeText);
-
         expect(badgeElement).not.toBeNull();
     });
 
-    test('should renders with label', () => {
-        setup({
+    test('should be able to render a label overlay', () => {
+        renderCard({
             contentArea: {
                 dateDetailText: {
                     endTime: '2021-10-11T21:00:00.000Z',
@@ -62,27 +60,25 @@ describe('Consonant/Card', () => {
         });
 
         const labelElement = screen.queryByTestId('3-2-card--label');
-
         expect(labelElement).not.toBeNull();
     });
 
-    test('should renders with detail text in label ', () => {
-        setup({
+    test('should be able to render a detail text', () => {
+        renderCard({
             contentArea: {
-                detailText: 'datail label',
+                detailText: 'detail label',
                 dateDetailText: {
                     startTime: undefined,
                 },
             },
         });
 
-        const labelElement = screen.queryByText('datail label');
-
+        const labelElement = screen.queryByText('detail label');
         expect(labelElement).not.toBeNull();
     });
 
-    test('A 3:2 card should be able to render a logo', () => {
-        setup();
+    test('should be able to render a logo', () => {
+        renderCard();
         const logoAltText = screen.getByAltText('logo-alt-text');
         expect(logoAltText).not.toBeNull();
     });

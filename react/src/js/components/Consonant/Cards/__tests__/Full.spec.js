@@ -5,12 +5,12 @@ import Card from '../Full';
 
 import { DEFAULT_PROPS_FULL } from '../../Helpers/Testing/Constants/Card';
 
-import makeSetup from '../../Helpers/Testing/Utils/Settings';
+import setup from '../../Helpers/Testing/Utils/Settings';
 
-const setup = makeSetup(Card, DEFAULT_PROPS_FULL);
+const renderCard = setup(Card, DEFAULT_PROPS_FULL);
 
-describe('Consonant/Card', () => {
-    test('should renders banner correctly', () => {
+describe('Full-Card', () => {
+    test('should be able to render a banner overlay', () => {
         const {
             props: {
                 overlays: {
@@ -22,7 +22,7 @@ describe('Consonant/Card', () => {
                     },
                 },
             },
-        } = setup();
+        } = renderCard();
 
         const bannerElement = screen.getByTestId('consonant-card--banner');
         const bannerIconElement = screen.getByTestId('consonant-card--banner-icon');
@@ -34,7 +34,7 @@ describe('Consonant/Card', () => {
         expect(bannerElement).toHaveTextContent(bannerDescription);
         expect(bannerIconElement).toHaveAttribute('src', bannerIcon);
     });
-    test('should renders with badge', () => {
+    test('should be able to render a badge overlay', () => {
         const {
             props: {
                 overlays: {
@@ -43,14 +43,13 @@ describe('Consonant/Card', () => {
                     },
                 },
             },
-        } = setup();
+        } = renderCard();
 
         const badgeElement = screen.queryByText(someBadgeText);
-
         expect(badgeElement).not.toBeNull();
     });
-    test('A full-card should be able to render a logo', () => {
-        setup();
+    test('should be able to render a logo overlay', () => {
+        renderCard();
         const logoAltText = screen.getByAltText('logo-alt-text');
         expect(logoAltText).not.toBeNull();
     });
