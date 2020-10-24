@@ -43,6 +43,7 @@
     "react-if": "2.2.2",
     "react-redux": "^5.1.2",
     "react-test-renderer": "^16.12.0",
+    "react-uuid": "^1.0.2",
     "redux": "^4.0.5",
     "shortid": "^2.2.15",
     "sluri": "^0.6.0",

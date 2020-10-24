@@ -20,6 +20,7 @@ import LoadMore from '../Pagination/LoadMore';
 import Paginator from '../Pagination/Paginator';
 import Search from '../Search/Search';
 import Popup from '../Sort/Popup';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 import { Info as LeftInfo } from '../Filters/Left/Info';
 import { useWindowDimensions } from '../Helpers/hooks';
@@ -102,6 +103,10 @@ const Container = (props) => {
     const leftPanelSearchPlaceholder = getConfig('search', 'i18n.leftFilterPanel.searchPlaceholderText');
     const topPanelSearchPlaceholder = getConfig('search', 'i18n.topFilterPanel.searchPlaceholderText');
     const searchPlaceholderText = getConfig('search', 'i18n.filterInfo.searchPlaceholderText');
+    const noResultsTitle = getConfig('search', 'i18n.noResultsTitle');
+    const noResultsDescription = getConfig('search', 'i18n.noResultsDescription');
+    const apiFailureTitle = getConfig('collection', 'i18n.onErrorTitle');
+    const apiFailureDescription = getConfig('collection', 'i18n.onErrorDescription');
 
     /**
      **** Constants ****
@@ -777,6 +782,14 @@ const Container = (props) => {
                                             absolute />
                                     )
                                 )
+                            }
+                            {!atLeastOneCard && !isLoading &&
+                                <ErrorMessage
+                                    title={searchQuery ? noResultsTitle : apiFailureTitle}
+                                    description={searchQuery ?
+                                        noResultsDescription : apiFailureDescription}
+                                    replaceValue={searchQuery}
+                                />
                             }
                         </div>
                     </div>

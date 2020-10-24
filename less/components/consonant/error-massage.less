@@ -1,0 +1,27 @@
+.error-message {
+    max-width: 86%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    padding: 24px;
+    overflow: hidden;
+}
+
+.error-message--title {
+    display: block;
+    margin-bottom: 20px;
+
+    .font(1.125rem, 1.6875rem, 400, @consonant-color-brown-grey, center);
+}
+
+.error-message--description {
+    text-align: center;
+
+    & * {
+        .font(0.875rem, 1.3125rem, 400, @consonant-color-brown-grey, center);
+    }
+
+    & strong {
+        font-weight: 700;
+    }
+}

@@ -60,6 +60,8 @@
                     prettyDateIntervalFormat: '{LLL} {dd} | {timeRange} {timeZone}',
                     totalResultsText: '{total} Results',
                     title: 'Your Favorite Cards',
+                    onErrorTitle: 'Error happened! :(',
+                    onErrorDescription: 'Try to reload your page.',
                 }
             },
             featuredCards: [{
@@ -280,6 +282,8 @@
                 enabled: 'true',
                 searchFields: '["contentArea.title","contentArea.description","search.meta.author","overlays.banner.description", "foo.bar"]',
                 i18n: {
+                    noResultsTitle: 'Test of title',
+                    noResultsDescription: 'Test of {query}{break} New line here',
                     leftFilterPanel: {
                         searchTitle: 'Search',
                         searchPlaceholderText: 'Search here...',

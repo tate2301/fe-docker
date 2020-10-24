@@ -101,6 +101,8 @@ export const DEFAULT_CONFIG = {
             prettyDateIntervalFormat: '{LLL} {dd} | {timeRange} {timeZone}',
             totalResultsText: '{total} results',
             title: '',
+            onErrorTitle: 'Something went wrong :(',
+            onErrorDescription: 'Please reload your page.',
         },
     },
     featuredCards: [],
@@ -149,6 +151,11 @@ export const DEFAULT_CONFIG = {
             'title',
             'description',
         ],
+        i18n: {
+            noResultsTitle: 'No results found',
+            noResultsDescription: `We couldn’t find any results for {query}.{break}
+            Check your spelling or try broadening your search.`,
+        },
     },
     language: 'en',
 };

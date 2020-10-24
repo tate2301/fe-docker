@@ -1,16 +1,26 @@
-/* eslint-disable */
 import React from 'react';
+import uuid from 'react-uuid';
 
-/* eslint-disable import/prefer-default-export  */
 export const highlightSearchField = (text, value) => {
     const parts = text.split(new RegExp(`(${value})`, 'gi'));
-    return parts.map((part, i) => (
-        // eslint-disable-next-line react/no-array-index-key
+    return parts.map(part => (
         part.toLowerCase() === value ? (
-            // eslint-disable-next-line
-            <span data-testid="consonant-search-result" className="consonant-search-result" key={i}>
+            <span data-testid="consonant-search-result" className="consonant-search-result" key={uuid()}>
                 {part}
             </span>
         ) : part
     ));
+};
+
+export const renderErrorMsg = (text, value) => {
+    const arr = text.split(new RegExp('({query}|{break})', 'gi'));
+    return arr.map((el) => {
+        switch (el) {
+            case '{query}':
+                return <strong key={uuid()}>{value}</strong>;
+            case '{break}':
+                return <br key={uuid()} />;
+            default: return <span key={uuid()}>{el}</span>;
+        }
+    });
 };
