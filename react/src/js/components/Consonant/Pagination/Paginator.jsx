@@ -9,7 +9,7 @@ import {
 } from '../Helpers/general';
 
 /**
- * Paginator - handles pa
+ * Paginator - handles navigating between pages 1 to n for users
  *
  * @component
  * @example

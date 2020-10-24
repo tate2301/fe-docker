@@ -2,16 +2,44 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useConfig } from '../Helpers/hooks';
 
+/**
+ * Load More - Button That Naviates Users To The Next Page
+ *
+ * @component
+ * @example
+ * const props= {
+    show: Int,
+    total: Int,
+    onClick: Function,
+ * }
+ * return (
+ *   <LoadMore {...props}/>
+ * )
+ */
 const LoadMore = ({
     onClick,
     show,
     total,
 }) => {
     const getConfig = useConfig();
+
+    /**
+     * Authored Button Text
+     * @type {String}
+     */
     const loadMoreButtonText = getConfig('pagination', 'i18n.loadMore.btnText');
+
+    /**
+     * Authored Summary Text
+     * @type {String}
+     */
     const loadMoreQuantityText = getConfig('pagination', 'i18n.loadMore.resultsQuantityText');
 
-    const loadMoreText = loadMoreQuantityText
+    /**
+     * Summary Of Load More Results To Show To Users
+     * @type {String}
+     */
+    const summaryText = loadMoreQuantityText
         .replace('{start}', show)
         .replace('{end}', total);
 
@@ -26,7 +54,7 @@ const LoadMore = ({
                 <p
                     data-testid="consonant-load-more--text"
                     className="consonant-load-more--text">
-                    {loadMoreText}
+                    {summaryText}
                 </p>
                 {shouldDisplayLoadMoreBtn &&
                     <button
@@ -51,5 +79,4 @@ LoadMore.propTypes = {
     onClick: PropTypes.func.isRequired,
 };
 
-LoadMore.defaultProps = {
-};
+LoadMore.defaultProps = {};
