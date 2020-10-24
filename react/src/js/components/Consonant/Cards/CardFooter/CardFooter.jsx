@@ -3,29 +3,87 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Group from '../../Infobit/Group';
 
+/**
+ * The footer that is displayed for 3:2 cards
+ *
+ * @component
+ * @example
+ * const props= {
+    divider: Boolean,
+    left: Array,
+    center: Array,
+    right: Array,
+    isFluid: Boolean,
+ * }
+ * return (
+ *   <CardFooter {...props}/>
+ * )
+ */
 const CardFooter = (props) => {
     const {
-        divider, left, center, right, isFluid,
+        divider,
+        left,
+        center,
+        right,
+        isFluid,
     } = props;
-    const className = classNames('consonant-card-footer', { 'consonant-card-footer_divider': divider });
-    const rowClassName = classNames('consonant-card-footer--row', { 'consonant-card-footer--row_fluid': isFluid });
-    let colsWithData = 0;
 
-    [left, center, right].forEach((el) => { colsWithData += el.length > 0 ? 1 : 0; });
+    const footerClassName = classNames({
+        'consonant-card-footer': true,
+        'consonant-card-footer_divider': divider,
+    });
+    const rowClassName = classNames({
+        'consonant-card-footer--row': true,
+        'consonant-card-footer--row_fluid': isFluid,
+    });
+
+    /**
+     * How many groups are displayed in the footer
+     * @type {Int}
+     */
+    let dataCells = 0;
+
+    [left, center, right].forEach((footerGroup) => {
+        if (footerGroup.length > 0) {
+            dataCells += 1;
+        }
+    });
+
+    /**
+     * Whether the left footer infobits should render
+     * @type {Boolean}
+     */
+    const shouldRenderLeft = left && left.length > 0;
+    /**
+     * Whether the center footer infobits should render
+     * @type {Boolean}
+     */
+    const shouldRenderCenter = center && center.length > 0;
+    /**
+     * Whether the center footer infobits should render
+     * @type {Boolean}
+     */
+    const shouldRenderRight = center && center.length > 0;
 
     return (
-        <div className={className}>
-            <div className={rowClassName} data-cells={colsWithData}>
-                {left && left.length > 0 &&
-                <div className="consonant-card-footer--cell consonant-card-footer--cell_left">
+        <div
+            className={footerClassName}>
+            <div
+                className={rowClassName}
+                data-cells={dataCells}>
+                {shouldRenderLeft &&
+                <div
+                    className="consonant-card-footer--cell consonant-card-footer--cell_left">
                     <Group renderList={left} />
                 </div>}
-                {center && center.length > 0 &&
-                <div className="consonant-card-footer--cell consonant-card-footer--cell_center">
+                {shouldRenderCenter &&
+                <div
+                    className="consonant-card-footer--cell consonant-card-footer--cell_center">
                     <Group renderList={center} />
                 </div>}
-                {right && right.length > 0 &&
-                <div className="consonant-card-footer--cell consonant-card-footer--cell_right">
+                {shouldRenderRight &&
+                <div
+                    className="consonant-card-footer--cell consonant-card-footer--cell_right">
                     <Group renderList={right} />
                 </div>}
             </div>
