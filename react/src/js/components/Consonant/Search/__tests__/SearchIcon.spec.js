@@ -15,7 +15,7 @@ describe('Consonant/SearchIco', () => {
         test('should call onClick', () => {
             const { props: { onClick } } = setup();
 
-            const iconElement = screen.getByText('Click to search');
+            const iconElement = screen.queryByTestId('search-icon');
 
             fireEvent.click(iconElement);
 

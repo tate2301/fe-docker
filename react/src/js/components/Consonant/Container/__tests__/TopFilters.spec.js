@@ -100,7 +100,7 @@ describe('Tablet/Consonant/FilterItemTwo', () => {
         configToUse.filterPanel.type = 'top';
         await act(async () => render(<Container config={configToUse} />));
 
-        const iconElement = screen.getByText('Click to search');
+        const iconElement = screen.queryByTestId('search-icon');
 
         // SearchIco should be exists after mount
         expect(iconElement).not.toBeNull();
@@ -115,7 +115,7 @@ describe('Tablet/Consonant/FilterItemTwo', () => {
         await waitFor(() => screen.getByTestId('filtersTopSearch'));
 
         // SearchIco should be exists after click on SearchIco
-        expect(screen.queryByText('Click to search')).not.toBeNull();
+        expect(screen.queryByTestId('search-icon')).not.toBeNull();
 
         // Search field should be exists after click on SearchIco
         expect(screen.queryByTestId('filtersTopSearch')).not.toBeNull();
@@ -124,10 +124,10 @@ describe('Tablet/Consonant/FilterItemTwo', () => {
         fireEvent.click(screen.getByTestId('select-button'));
         /**
          * After click on rendom element
-         * SearchIco should be exists
+         * SearchIcon should be exists
          * Search field shoudn't be exists
          */
-        expect(screen.queryByText('Click to search')).not.toBeNull();
+        expect(screen.queryByTestId('search-icon')).not.toBeNull();
         expect(screen.queryByTestId('filtersTopSearch')).toBeNull();
     });
 
@@ -137,9 +137,9 @@ describe('Tablet/Consonant/FilterItemTwo', () => {
         configToUse.filterPanel.type = 'top';
         await act(async () => render(<Container config={configToUse} />));
 
-        const iconElement = screen.getByText('Click to search');
+        const iconElement = screen.queryByTestId('search-icon');
 
-        // SearchIco should be exists after mount
+        // SearchIcon should be exists after mount
         expect(iconElement).not.toBeNull();
         // Search field should be exists after mount
         expect(screen.queryByTestId('filtersTopSearch')).toBeNull();
@@ -151,8 +151,8 @@ describe('Tablet/Consonant/FilterItemTwo', () => {
          */
         await waitFor(() => screen.getByTestId('filtersTopSearch'));
 
-        // SearchIco should exist after click on SearchIco
-        expect(screen.queryByText('Click to search')).not.toBeNull();
+        // SearchIcon should exist after click on SearchIco
+        expect(screen.queryByTestId('search-icon')).not.toBeNull();
 
         // Search field should be exists after click on SearchIco
         expect(screen.queryByTestId('filtersTopSearch')).not.toBeNull();
