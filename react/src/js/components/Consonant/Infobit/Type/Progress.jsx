@@ -30,12 +30,12 @@ const Progress = ({
     const BASE_10 = 10;
     /**
      * Percentage as int to be used in Aria Label
-     * 
+     *
      * This is different than Percentage prop @type {String} which is diplayed
      * to user
      * @type {Int}
      */
-    const percentageInt = parseInt(percentage, BASE_10)
+    const percentageInt = parseInt(percentage, BASE_10);
 
     return (
         <div
