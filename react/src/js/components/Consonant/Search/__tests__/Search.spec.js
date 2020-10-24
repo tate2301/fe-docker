@@ -37,7 +37,7 @@ describe('Consonant/Search', () => {
         test('should clear search value', () => {
             const { props: { onSearch } } = setup();
 
-            const buttonElement = screen.getByText('clear');
+            const buttonElement = screen.queryByTestId('clear-search-button');
 
             fireEvent.click(buttonElement);
 
