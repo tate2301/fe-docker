@@ -51,7 +51,7 @@ const Collection = (props) => {
     /**
      * Total pages to show (used if paginator component is set)
      * @type {Int}
-     */    
+     */
     const totalPages = resultsPerPage * pages;
 
     /**
@@ -63,7 +63,7 @@ const Collection = (props) => {
     /**
      * Current page (used if paginator component is set)
      * @type {Int}
-     */    
+     */
     const currentPage = resultsPerPage * (pages - 1);
 
     if (isPaginator) {
