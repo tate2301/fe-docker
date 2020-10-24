@@ -5,9 +5,9 @@ import Collection from '../Collection';
 
 import {
     DEFAULT_PROPS,
-} from '../../Helpers/Testing/Constants/Collection';
+} from '../../Testing/Constants/Collection';
 
-import setup from '../../Helpers/Testing/Utils/Settings';
+import setup from '../../Testing/Utils/Settings';
 
 const renderCollection = setup(Collection, DEFAULT_PROPS);
 

@@ -7,9 +7,9 @@ import {
     COUNT_LIST,
     DEFAULT_PROPS,
     WITHOUT_ICONS,
-} from '../../Helpers/Testing/Constants/Bookmarks';
+} from '../../Testing/Constants/Bookmarks';
 
-import makeSetup from '../../Helpers/Testing/Utils/Settings';
+import makeSetup from '../../Testing/Utils/Settings';
 
 const setup = makeSetup(Bookmarks, DEFAULT_PROPS);
 

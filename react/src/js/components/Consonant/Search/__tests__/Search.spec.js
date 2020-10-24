@@ -2,8 +2,8 @@ import { screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import Search from '../Search';
-import setup from '../../Helpers/Testing/Utils/Settings';
-import { DEFAULT_PROPS } from '../../Helpers/Testing/Constants/Search';
+import setup from '../../Testing/Utils/Settings';
+import { DEFAULT_PROPS } from '../../Testing/Constants/Search';
 
 const renderSearch = setup(Search, DEFAULT_PROPS);
 

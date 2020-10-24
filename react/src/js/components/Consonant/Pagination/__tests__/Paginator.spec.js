@@ -5,15 +5,15 @@ import {
     getNodeText,
 } from '@testing-library/react';
 
-import { getItemsRange } from '../../Helpers/Testing/Utils/Pagination';
-import config from '../../Helpers/Testing/Mocks/config.json';
+import { getItemsRange } from '../../Testing/Utils/Pagination';
+import config from '../../Testing/Mocks/config.json';
 import Paginator from '../Paginator';
-import setup from '../../Helpers/Testing/Utils/Settings';
+import setup from '../../Testing/Utils/Settings';
 
 import {
     PAGE_LIST,
     DEFAULT_PROPS,
-} from '../../Helpers/Testing/Constants/Pagination';
+} from '../../Testing/Constants/Pagination';
 
 const renderComponent = setup(Paginator, DEFAULT_PROPS);
 

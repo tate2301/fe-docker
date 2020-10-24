@@ -11,12 +11,12 @@ import {
     TABLET_MIN_WIDTH,
     selectedAllFilters,
     MOBILE_MIN_WIDTH,
-} from '../../../Helpers/Testing/Constants/FilterPanelTop';
+} from '../../../Testing/Constants/FilterPanelTop';
 
-import { DEFAULT_PROPS as SEARCH_DEFAULT_PROPS } from '../../../Helpers/Testing/Constants/Search';
-import { DEFAULT_PROPS as SELECT_DEFAULT_PROPS } from '../../../Helpers/Testing/Constants/Select';
+import { DEFAULT_PROPS as SEARCH_DEFAULT_PROPS } from '../../../Testing/Constants/Search';
+import { DEFAULT_PROPS as SELECT_DEFAULT_PROPS } from '../../../Testing/Constants/Select';
 
-import makeSetup from '../../../Helpers/Testing/Utils/Settings';
+import makeSetup from '../../../Testing/Utils/Settings';
 
 const setup = makeSetup(FilterPanelTop, DEFAULT_PROPS);
 

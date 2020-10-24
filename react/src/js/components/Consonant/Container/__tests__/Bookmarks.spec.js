@@ -11,9 +11,9 @@ import {
 import '@testing-library/jest-dom/extend-expect';
 
 import Container from '../Container';
-import config from '../../Helpers/Testing/Mocks/config.json';
-import cards from '../../Helpers/Testing/Mocks/cards.json';
-import setupIntersectionObserverMock from '../../Helpers/Testing/Mocks/intersectionObserver';
+import config from '../../Testing/Mocks/config.json';
+import cards from '../../Testing/Mocks/cards.json';
+import setupIntersectionObserverMock from '../../Testing/Mocks/intersectionObserver';
 
 const { collection: { endpoint } } = config;
 

@@ -9,11 +9,11 @@ import Popup from '../../../Sort/Popup';
 import {
     DEFAULT_PROPS,
     NON_DESKTOP_WIDTH,
-} from '../../../Helpers/Testing/Constants/FiltersInfo';
-import { DEFAULT_PROPS as SELECT_DEFAULT_PROPS } from '../../../Helpers/Testing/Constants/Select';
-import { DEFAULT_PROPS as SEARCH_DEFAULT_PROPS } from '../../../Helpers/Testing/Constants/Search';
+} from '../../../Testing/Constants/FiltersInfo';
+import { DEFAULT_PROPS as SELECT_DEFAULT_PROPS } from '../../../Testing/Constants/Select';
+import { DEFAULT_PROPS as SEARCH_DEFAULT_PROPS } from '../../../Testing/Constants/Search';
 
-import makeSetup, { createTree } from '../../../Helpers/Testing/Utils/Settings';
+import makeSetup, { createTree } from '../../../Testing/Utils/Settings';
 
 const setup = makeSetup(Info, DEFAULT_PROPS);
 

@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { act, render } from '@testing-library/react';
 import setupIntersectionObserverMock from '../Mocks/intersectionObserver';
-import Container from '../../../Container/Container';
+import Container from '../../Container/Container';
 
 setupIntersectionObserverMock();
 

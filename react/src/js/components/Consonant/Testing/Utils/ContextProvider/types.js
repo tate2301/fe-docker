@@ -1,6 +1,5 @@
 import { shape, number, string, bool, arrayOf } from 'prop-types';
 
-// TODO: need research and define required and optional props
 // eslint-disable-next-line import/prefer-default-export
 export const contextPropTypes = {
     collection: shape({

@@ -1,9 +1,9 @@
 import { screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import { DEFAULT_PROPS } from '../../Helpers/Testing/Constants/Select';
+import { DEFAULT_PROPS } from '../../Testing/Constants/Select';
 import Popup from '../Popup';
-import setup from '../../Helpers/Testing/Utils/Settings';
+import setup from '../../Testing/Utils/Settings';
 
 const renderSortPopup = setup(Popup, DEFAULT_PROPS);
 

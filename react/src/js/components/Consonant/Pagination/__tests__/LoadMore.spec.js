@@ -3,9 +3,9 @@ import '@testing-library/jest-dom/extend-expect';
 
 import LoadMore from '../LoadMore';
 
-import { DEFAULT_PROPS } from '../../Helpers/Testing/Constants/LoadMore';
+import { DEFAULT_PROPS } from '../../Testing/Constants/LoadMore';
 
-import makeSetup from '../../Helpers/Testing/Utils/Settings';
+import makeSetup from '../../Testing/Utils/Settings';
 
 const setup = makeSetup(LoadMore, DEFAULT_PROPS);
 

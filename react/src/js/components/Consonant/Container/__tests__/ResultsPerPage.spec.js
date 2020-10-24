@@ -16,10 +16,10 @@ import { setupServer } from 'msw/node';
 
 import Container from '../Container';
 
-import config from '../../Helpers/Testing/Mocks/config.json';
-import cards from '../../Helpers/Testing/Mocks/cards.json';
+import config from '../../Testing/Mocks/config.json';
+import cards from '../../Testing/Mocks/cards.json';
 
-import makeInit from '../../Helpers/Testing/Utils/Init';
+import makeInit from '../../Testing/Utils/Init';
 import React from 'react';
 
 // Different window sizes for different cases

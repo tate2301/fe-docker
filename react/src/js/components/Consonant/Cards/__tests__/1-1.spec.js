@@ -3,9 +3,9 @@ import '@testing-library/jest-dom/extend-expect';
 
 import Card from '../1-1';
 
-import { DEFAULT_PROPS_1_1 } from '../../Helpers/Testing/Constants/Card';
+import { DEFAULT_PROPS_1_1 } from '../../Testing/Constants/Card';
 
-import setup from '../../Helpers/Testing/Utils/Settings';
+import setup from '../../Testing/Utils/Settings';
 
 const renderCard = setup(Card, DEFAULT_PROPS_1_1);
 

@@ -6,9 +6,9 @@ import { Group as Item } from '../Group';
 import {
     DEFAULT_PROPS,
     selectedAllItems,
-} from '../../../Helpers/Testing/Constants/FilterItem';
+} from '../../../Testing/Constants/FilterItem';
 
-import makeSetup from '../../../Helpers/Testing/Utils/Settings';
+import makeSetup from '../../../Testing/Utils/Settings';
 
 const setup = makeSetup(Item, DEFAULT_PROPS);
 

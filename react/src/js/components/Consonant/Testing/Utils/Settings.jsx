@@ -6,7 +6,7 @@ import setupIntersectionObserverMock from '../Mocks/intersectionObserver';
 
 setupIntersectionObserverMock();
 
-import ContextProvider from './ContextProvider';
+import ContextProvider from './ContextProvider/index';
 
 export const createTree = component => renderer
     .create(component)

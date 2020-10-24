@@ -3,9 +3,9 @@ import '@testing-library/jest-dom/extend-expect';
 
 import ChosenItem from '../Desktop-Only/ChosenItem';
 
-import { DEFAULT_PROPS } from '../../../Helpers/Testing/Constants/SelectedFilter';
+import { DEFAULT_PROPS } from '../../../Testing/Constants/SelectedFilter';
 
-import makeSetup from '../../../Helpers/Testing/Utils/Settings';
+import makeSetup from '../../../Testing/Utils/Settings';
 
 const setup = makeSetup(ChosenItem, DEFAULT_PROPS);
 

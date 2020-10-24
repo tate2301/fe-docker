@@ -10,12 +10,12 @@ import {
     DEFAULT_PROPS,
     NON_DESKTOP_WIDTH,
     selectedAllFilters,
-} from '../../../Helpers/Testing/Constants/FilterPanelLeft';
+} from '../../../Testing/Constants/FilterPanelLeft';
 
-import { DEFAULT_PROPS as SEARCH_DEFAULT_PROPS } from '../../../Helpers/Testing/Constants/Search';
-import { DEFAULT_PROPS as BOOKMARKS_DEFAULT_PROPS } from '../../../Helpers/Testing/Constants/Bookmarks';
+import { DEFAULT_PROPS as SEARCH_DEFAULT_PROPS } from '../../../Testing/Constants/Search';
+import { DEFAULT_PROPS as BOOKMARKS_DEFAULT_PROPS } from '../../../Testing/Constants/Bookmarks';
 
-import makeSetup from '../../../Helpers/Testing/Utils/Settings';
+import makeSetup from '../../../Testing/Utils/Settings';
 
 const setup = makeSetup(Panel, DEFAULT_PROPS);
 

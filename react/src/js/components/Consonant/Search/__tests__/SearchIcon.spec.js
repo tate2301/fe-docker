@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect';
 
 import SearchIcon from '../SearchIcon';
 
-import makeSetup from '../../Helpers/Testing/Utils/Settings';
+import makeSetup from '../../Testing/Utils/Settings';
 
 const setup = makeSetup(SearchIcon, {
     onClick: jest.fn(),
