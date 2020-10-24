@@ -2,47 +2,43 @@ import { screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import Search from '../Search';
-
+import setup from '../../Helpers/Testing/Utils/Settings';
 import { DEFAULT_PROPS } from '../../Helpers/Testing/Constants/Search';
 
-import makeSetup from '../../Helpers/Testing/Utils/Settings';
+const renderSearch = setup(Search, DEFAULT_PROPS);
 
-const setup = makeSetup(Search, DEFAULT_PROPS);
+describe('Search Component', () => {
 
-describe('Consonant/Search', () => {
+    test('Should be able to handle focus and blur events', () => {
+        renderSearch({ onBlur: null });
 
-    describe('Interaction with UI', () => {
-        test('shouldn not throw error about onBlur is not a function', () => {
-            setup({ onBlur: null });
+        const inputElement = screen.getByTestId('search-input');
 
-            const inputElement = screen.getByTestId('search-input');
+        fireEvent.focus(inputElement);
+        fireEvent.blur(inputElement);
+    });
+    test('Should be able to handle searches', () => {
+        const { props: { onSearch } } = renderSearch({ value: 'First Search Query' });
 
-            fireEvent.focus(inputElement);
-            fireEvent.blur(inputElement);
-        });
-        test('should call onSearch', () => {
-            const { props: { onSearch } } = setup({ value: 'Search string' });
+        const inputElement = screen.getByTestId('search-input');
 
-            const inputElement = screen.getByTestId('search-input');
+        expect(inputElement.value).toBe('First Search Query');
 
-            expect(inputElement.value).toBe('Search string');
+        fireEvent.change(inputElement, { target: { value: 'Second Search Query' } });
 
-            fireEvent.change(inputElement, { target: { value: 'New search string' } });
+        expect(onSearch).toBeCalled();
+        expect(onSearch).toBeCalledWith('Second Search Query');
 
-            expect(onSearch).toBeCalled();
-            expect(onSearch).toBeCalledWith('New search string');
+        onSearch.mockClear();
+    });
+    test('Should be able to clear search values', () => {
+        const { props: { onSearch } } = renderSearch();
 
-            onSearch.mockClear();
-        });
-        test('should clear search value', () => {
-            const { props: { onSearch } } = setup();
+        const buttonElement = screen.queryByTestId('clear-search-button');
 
-            const buttonElement = screen.queryByTestId('clear-search-button');
+        fireEvent.click(buttonElement);
 
-            fireEvent.click(buttonElement);
-
-            expect(onSearch).toBeCalled();
-            expect(onSearch).toBeCalledWith('');
-        });
+        expect(onSearch).toBeCalled();
+        expect(onSearch).toBeCalledWith('');
     });
 });
