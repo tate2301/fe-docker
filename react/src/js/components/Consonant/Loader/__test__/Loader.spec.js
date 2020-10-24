@@ -3,16 +3,19 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import Loader from '../Loader';
+import { LOADER_SIZE } from '../../Helpers/constants';
 
-describe('Rating', () => {
-    test('If invalid loader size are authored, do not show any filled stars', async () => {
+describe('Consonant/Loader', () => {
+    test('Loader renders correctly', async () => {
         const props = {
-            size: 'INVALID_LOADER_SIZE',
+            size: LOADER_SIZE.BIG,
             hidden: false,
             absolute: false,
         };
         render(<Loader {...props} />);
 
-        expect(true).toBe(true);
+        const loader = screen.queryByTestId('consonant-loader');
+
+        expect(loader).not.toBeNull()
     });
 });
