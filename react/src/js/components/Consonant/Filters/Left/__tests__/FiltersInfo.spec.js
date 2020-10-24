@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 
 import { Info } from '../Info';
 import Search from '../../../Search/Search';
-import Select from '../../../Select/Select';
+import Popup from '../../../Sort/Popup';
 
 import {
     DEFAULT_PROPS,

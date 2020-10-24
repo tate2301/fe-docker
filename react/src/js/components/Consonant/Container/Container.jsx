@@ -19,7 +19,7 @@ import Loader from '../Loader/Loader';
 import LoadMore from '../Pagination/LoadMore';
 import Paginator from '../Pagination/Paginator';
 import Search from '../Search/Search';
-import Select from '../Select/Select';
+import Popup from '../Sort/Popup';
 
 import { Info as LeftInfo } from '../Filters/Left/Info';
 import { useWindowDimensions } from '../../../utils/hooks';
@@ -704,7 +704,7 @@ const Container = (props) => {
                                             onSearch={handleSearchInputChange} />
                                     )}
                                     sortComponent={(
-                                        <Select
+                                        <Popup
                                             opened={sortOpened}
                                             id="sort"
                                             val={sortOption}
@@ -734,7 +734,7 @@ const Container = (props) => {
                                             onSearch={handleSearchInputChange} />
                                     )}
                                     sortComponent={(
-                                        <Select
+                                        <Popup
                                             opened={sortOpened}
                                             id="sort"
                                             val={sortOption}

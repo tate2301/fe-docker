@@ -3,7 +3,7 @@ import { screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import FilterPanelTop from '../Panel';
-import Select from '../../../Select/Select';
+import Popup from '../../../Sort/Popup';
 import Search from '../../../Search/Search';
 
 import {
@@ -25,7 +25,7 @@ const multipleFilters = [...DEFAULT_PROPS.filters, ...DEFAULT_PROPS.filters]
 
 const CHILD_COMPONENTS = {
     search: <Search {...SEARCH_DEFAULT_PROPS} />,
-    select: <Select {...SELECT_DEFAULT_PROPS} />,
+    select: <Popup {...SELECT_DEFAULT_PROPS} />,
 };
 
 describe('Top Filter Panel', () => {

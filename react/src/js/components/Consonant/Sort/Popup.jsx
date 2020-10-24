@@ -2,8 +2,24 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { useExpandable } from '../../../utils/hooks';
-
-const Select = ({
+/**
+ * Sort popup
+ *
+ * @component
+ * @example
+ * const props= {
+    val: Object,
+    values: Array,
+    onSelect: Function,
+    autoWidth: Boolean,
+    optionsAlignment: String,
+    id: String,
+ * }
+ * return (
+ *   <Select {...props}/>
+ * )
+ */
+const Popup = ({
     val,
     values,
     onSelect,
@@ -11,9 +27,29 @@ const Select = ({
     optionsAlignment,
     id,
 }) => {
+    /**
+     * @typedef {String} OpenDropdownState - Id of a selected dropdown
+     * @description — Passed in Context Provider So All Nested Components can be in sync
+     *
+     * @typedef {Function} Handles toggling popup
+     * @description
+     *
+     * @type {[String, Function]} OpenDropdown
+     */
     const [openDropdown, handleToggle] = useExpandable(id);
+
+    /**
+     * Handles whether the sort dropdown is visible or not
+     * @type {Boolean}
+     */
     const opened = openDropdown === id;
 
+    /**
+     * Handles choosing of a sort option
+     *
+     * @param {ClickEvent} e
+     * @listens ClickEvent
+     */
     const handleOptionClick = (e, item) => {
         onSelect(item);
         handleToggle(e);
@@ -30,7 +66,8 @@ const Select = ({
     });
 
     return (
-        <div className={shouldAutoWidthSortClass}>
+        <div
+            className={shouldAutoWidthSortClass}>
             <button
                 data-testid="select-button"
                 type="button"
@@ -63,9 +100,9 @@ const Select = ({
     );
 };
 
-export default Select;
+export default Popup;
 
-Select.propTypes = {
+Popup.propTypes = {
     val: PropTypes.shape({
         label: PropTypes.string,
         sort: PropTypes.string,
@@ -77,7 +114,7 @@ Select.propTypes = {
     id: PropTypes.string.isRequired,
 };
 
-Select.defaultProps = {
+Popup.defaultProps = {
     autoWidth: false,
     optionsAlignment: 'right',
 };
