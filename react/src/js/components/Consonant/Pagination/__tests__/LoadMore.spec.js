@@ -5,31 +5,29 @@ import LoadMore from '../LoadMore';
 
 import { DEFAULT_PROPS } from '../../Testing/Constants/LoadMore';
 
-import makeSetup from '../../Testing/Utils/Settings';
+import setup from '../../Testing/Utils/Settings';
 
-const setup = makeSetup(LoadMore, DEFAULT_PROPS);
+const renderLoadMore = setup(LoadMore, DEFAULT_PROPS);
 
 describe('Consonant/LoadMore', () => {
-    test('shouldn`t render if total is 0', () => {
-        const { wrapper: { container } } = setup({ total: 0 });
+    test('If there are no results, load more should not render', () => {
+        const { wrapper: { container } } = renderLoadMore({ total: 0 });
 
         expect(container).toBeEmptyDOMElement();
     });
-    test('shouldn`t render if show is 0', () => {
-        const { wrapper: { container } } = setup({ show: 0 });
+    test('If there is nothing to show, load more should not render', () => {
+        const { wrapper: { container } } = renderLoadMore({ show: 0 });
 
         expect(container).toBeEmptyDOMElement();
     });
 
-    describe('Interaction with UI', () => {
-        test('should call onClick', () => {
-            const { props: { onClick } } = setup();
+    test('Click handler should work', () => {
+        const { props: { onClick } } = renderLoadMore();
 
-            const buttonElement = screen.getByTestId('load-more__button');
+        const buttonElement = screen.getByTestId('load-more__button');
 
-            fireEvent.click(buttonElement);
+        fireEvent.click(buttonElement);
 
-            expect(onClick).toBeCalled();
-        });
+        expect(onClick).toBeCalled();
     });
 });
