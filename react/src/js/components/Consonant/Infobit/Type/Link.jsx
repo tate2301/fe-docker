@@ -1,9 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Link({
-    href, openInNewTab, linkHint, text,
-}) {
+/**
+ * Link Infobit (shown in 3:2 Card Footer)
+ *
+ * @component
+ * @example
+ * const props= {
+    href: String,
+    openInNewTab: Boolean,
+    linkHint: String,
+    text: String,
+ * }
+ * return (
+ *   <LinkWithIcon {...props}/>
+ * )
+ */
+const Link = ({
+    href,
+    openInNewTab,
+    linkHint,
+    text,
+}) => {
     const target = openInNewTab ? '_blank' : '_self';
     return (
         <a
@@ -13,10 +31,11 @@ function Link({
             target={target}
             title={linkHint}
             rel="noreferrer"
-            tabIndex="0">{text}
+            tabIndex="0">
+            {text}
         </a>
     );
-}
+};
 
 Link.propTypes = {
     href: PropTypes.string.isRequired,
