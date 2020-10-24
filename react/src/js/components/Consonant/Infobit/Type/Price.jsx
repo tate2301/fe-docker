@@ -14,21 +14,19 @@ import PropTypes from 'prop-types';
  *   <Price {...props}/>
  * )
  */
-const Price = ({ price, term }) => {
-    return (
+const Price = ({ price, term }) => (
+    <span
+        className="consonant-price-infobit">
+        <strong
+            className="consonant-price-infobit--price">
+            {price}
+        </strong>
         <span
-            className="consonant-price-infobit">
-            <strong 
-                className="consonant-price-infobit--price">
-                {price}
-            </strong>
-            <span
-                className="consonant-price-infobit--term">
-                {term}
-            </span>
+            className="consonant-price-infobit--term">
+            {term}
         </span>
-    );
-}
+    </span>
+);
 
 Price.propTypes = {
     price: PropTypes.string.isRequired,

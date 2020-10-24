@@ -1,9 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function LinkWithIcon({
-    href, openInNewTab, linkHint, text, src, srcAltText,
-}) {
+/**
+ * LinkWithIcon Infobit (shown in 3:2 Card Footer)
+ *
+ * @component
+ * @example
+ * const props= {
+    href: String,
+    openInNewTab: Boolean,
+    linkHint: String, 
+    text: String,    
+    src: String,  
+    srcAltText: String,        
+ * }
+ * return (
+ *   <LinkWithIcon {...props}/>
+ * )
+ */
+const LinkWithIcon = ({
+    href,
+    openInNewTab,
+    linkHint,
+    text,
+    src,
+    srcAltText,
+}) => {
     return (
         <a
             href={href}
@@ -13,7 +35,9 @@ function LinkWithIcon({
             title={linkHint}
             rel="noreferrer"
             tabIndex="0">
-            {src && <img src={src} alt={srcAltText} loading="lazy" height="18" />}
+            {src && 
+                <img src={src} alt={srcAltText} loading="lazy" height="18" />
+            }
             <span>{text}</span>
         </a>
     );
