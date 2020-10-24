@@ -14,6 +14,7 @@ const AspectRatio1to1Card = (props) => {
         },
         contentArea: {
             title,
+            description,
             detailText: label,
             dateDetailText: {
                 startTime,
@@ -127,9 +128,18 @@ const AspectRatio1to1Card = (props) => {
                             {detailText}
                         </span>
                 }
-                <h2 className="consonant-aspect-ratio-1-1-card--title">
+                {
+                  title &&
+                  <h2 className="consonant-aspect-ratio-1-1-card--title">
                     {title}
-                </h2>
+                  </h2>
+                }
+                {
+                  description &&
+                  <p className="consonant-aspect-ratio-1-1-card--text">
+                    {description}
+                  </p>
+                }
             </a>
         </div>
     );
@@ -140,6 +150,7 @@ export default AspectRatio1to1Card;
 AspectRatio1to1Card.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string,
+    description: PropTypes.string,
     label: PropTypes.string,
     image: PropTypes.string,
     bannerDescription: PropTypes.string,
