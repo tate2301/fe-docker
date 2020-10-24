@@ -13,9 +13,9 @@ export const highlightSearchField = (text, value) => {
 };
 
 export const renderErrorMsg = (text, value) => {
-    const arr = text.split(new RegExp('({query}|{break})', 'gi'));
+    const arr = text.split(new RegExp('({query}|{break})', 'gi')).filter(el => el);
     return arr.map((el) => {
-        switch (el) {
+        switch (el.toLowerCase()) {
             case '{query}':
                 return <strong key={uuid()}>{value}</strong>;
             case '{break}':
@@ -23,4 +23,11 @@ export const renderErrorMsg = (text, value) => {
             default: return <span key={uuid()}>{el}</span>;
         }
     });
+};
+
+export const renderTotalResults = (text, value) => {
+    const arr = text.split(new RegExp('({total})', 'gi')).filter(el => el);
+    return arr.map(el => (el.toLowerCase() === '{total}' ?
+        <strong key={uuid()}>{value}</strong> :
+        <span key={uuid()}>{el}</span>));
 };

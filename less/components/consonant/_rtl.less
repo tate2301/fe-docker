@@ -25,6 +25,7 @@
         .consonant-filters-info--results {
             margin-left: 0;
             margin-right: auto;
+            padding-left: 0;
             text-align: right;
         }
     }
@@ -298,12 +299,13 @@
 
     /* Infobits */
     .consonant-card-footer--cell {
-        &.consonant-card-footer--cell_left:not(:only-child) > *:first-child,
-        &.consonant-card-footer--cell_left:not(:only-child) > *:last-child {
+        &.consonant-card-footer--cell_left > *:first-child,
+        &.consonant-card-footer--cell_left > *:last-child {
             margin-left: 16px;
         }
 
-        &.consonant-card-footer--cell_right > *:last-child {
+        &.consonant-card-footer--cell_left:last-child > *:last-child,
+        &.consonant-card-footer--cell_right:last-child > *:last-child {
             margin-left: 0;
         }
     }
@@ -478,6 +480,27 @@
             .consonant-top-filters--select-wrapper > div:first-child:after {
                 right: auto;
                 left: 12px;
+            }
+        }
+
+        /* Filters info */
+        .consonant-filters-info {
+            .consonant-filters-info--wrapper {
+                padding-right: 0;
+                padding-left: 32px;
+
+                &:after {
+                    right: auto;
+                    left: 16px;
+                }
+            }
+
+            .consonant-filters-info--search + .consonant-filters-info--wrapper:last-child {
+                padding-left: 0;
+            }
+
+            .consonant-filters-info--results {
+                text-align: left;
             }
         }
 

@@ -13,7 +13,7 @@
     .margin-auto;
 
     box-sizing: border-box;
-    padding: 14px 0 20px;
+    padding: 14px 0 16px;
     top: 0;
     left: 0;
     background-color: transparent;
@@ -83,6 +83,35 @@
         overflow: hidden;
     }
 
+    .consonant-filters-info--wrapper {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        padding-top: 14px;
+    }
+
+    .consonant-filters-info--title {
+        max-width: @consonant-filters-info-title-width;
+        margin: 0;
+
+        .font(1.125rem, 1.375rem, 700, @consonant-color-dark-grey-2);
+    }
+
+    .consonant-filters-info--results {
+        display: block;
+        margin-left: auto;
+        padding-left: 12px;
+
+        .font(0.875rem, 1.3125rem, 400, @consonant-color-brown-grey, right);
+    }
+
+    .consonant-filters-info--results strong {
+        font-weight: 700;
+    }
+
     @media @consonant-desktop-up {
         min-width: calc(83.333vw - @consonant-filters-1200-break-width ~ ' + 32px');
         max-width: calc(83.333vw - @consonant-filters-1200-break-width ~ ' + 32px');
@@ -92,31 +121,25 @@
             max-width: 83.333vw;
         }
 
+        flex-wrap: nowrap;
+        align-items: flex-start;
         min-height: @consonant-filters-info-1200-break-height;
         margin-left: auto;
         margin-right: auto;
         padding: 67px 0 28px;
 
         .consonant-filters-info--wrapper {
-            position: relative;
-            flex-grow: 1;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-right: 30px;
-
-            &:last-child {
-                padding-right: 0;
-            }
+            order: -1;
+            padding: 5px 32px 5px 0;
+            flex-wrap: nowrap;
 
             &:after {
                 content: '';
                 position: absolute;
                 width: 1px;
-                height: 100%;
+                height: 32px;
                 background-color: @consonant-color-lightest-grey-3;
                 top: 0;
-                bottom: 0;
                 right: 16px;
                 margin: auto;
             }
@@ -127,27 +150,17 @@
             }
         }
 
-        .consonant-filters-info--title {
-            max-width: @consonant-filters-info-title-width;
-            margin: 0;
+        .consonant-filters-info--search + .consonant-filters-info--wrapper:last-child {
+            padding-right: 0;
 
-            .font(1.25rem, 1.75rem, 700, @consonant-color-dark-grey-2);
-
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
+            &:after {
+                display: none;
+            }
         }
 
         .consonant-filters-info--results {
-            display: block;
+            min-width: 15%;
             max-width: 25%;
-            margin-left: auto;
-
-            .font(@weight: 700, @color: @consonant-color-brown-grey);
-
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
         }
 
         .consonant-filters-info--btn,
