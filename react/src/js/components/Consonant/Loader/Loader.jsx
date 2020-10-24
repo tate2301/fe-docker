@@ -3,6 +3,20 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { LOADER_SIZE } from '../Helpers/constants';
 
+/**
+ * Loading Spinner (Used when waiting for API call)
+ *
+ * @component
+ * @example
+ * const props= {
+    size: String,
+    hidden: Boolean,
+    absolute: Boolean,
+ * }
+ * return (
+ *   <Loader {...props}/>
+ * )
+ */
 const Loader = ({ size, hidden, absolute }) => {
     const className = classNames({
         'consonant-loader_medium': size === LOADER_SIZE.MEDIUM,
