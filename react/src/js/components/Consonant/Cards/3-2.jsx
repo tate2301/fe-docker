@@ -1,10 +1,10 @@
 /*eslint-disable */
 import React  from 'react';
 import PropTypes from 'prop-types';
-import { useConfig, useLazyLoading } from '../../../utils/hooks';
-import prettyFormatDate from '../../../utils/prettyFormat';
+import { useConfig, useLazyLoading } from '../Helpers/hooks';
+import prettyFormatDate from '../Helpers/prettyFormat';
 import CardFooter from './CardFooter/CardFooter';
-import { INFOBIT_TYPE } from '../../../utils/constants';
+import { INFOBIT_TYPE } from '../Helpers/constants';
 
 const AspectRatio3to2Card = ({
     id,

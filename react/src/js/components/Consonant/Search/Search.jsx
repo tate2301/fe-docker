@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef } from 'react';
-import { useConfig } from '../../../utils/hooks';
+import { useConfig } from '../Helpers/hooks';
 
 /**
  * Used as unique id for accessibility labels/attributes

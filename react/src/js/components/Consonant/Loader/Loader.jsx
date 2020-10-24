@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { LOADER_SIZE } from '../../../utils/constants';
+import { LOADER_SIZE } from '../Helpers/constants';
 
 const Loader = ({ size, hidden, absolute }) => {
     const className = classNames({

@@ -1,10 +1,10 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { useConfig, useExpandable } from '../../../../utils/hooks';
+import { useConfig, useExpandable } from '../../Helpers/hooks';
 import { Footer } from './Footer';
 import { Items } from './Items';
-import { stopPropagation } from '../../../../utils/general';
+import { stopPropagation } from '../../Helpers/general';
 
 const clipWrapperItemsCount = 9;
 const Group = ({

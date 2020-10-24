@@ -1,7 +1,7 @@
 /*eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useLazyLoading } from '../../../utils/hooks';
+import { useLazyLoading } from '../Helpers/hooks';
 
 const FullCard = (props) => {
     const {

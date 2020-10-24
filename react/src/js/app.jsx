@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM, { render } from 'react-dom';
 
 import { DOMRegistry } from 'react-dom-components';
-import { parseToPrimitive } from './utils/general';
+import { parseToPrimitive } from './components/Consonant/Helpers/general';
 // import SearchPageDOM from "./components/Page/SearchPageDOM";
 // import CollectionPageDOM from "./components/Page/CollectionPageDOM";
 // import ConsonantPageDOM from './components/Page/ConsonantPageDOM';

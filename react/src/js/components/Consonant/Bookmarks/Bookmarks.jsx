@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { useConfig } from '../../../utils/hooks';
+import { useConfig } from '../Helpers/hooks';
 
 const Bookmarks = (props) => {
     const {

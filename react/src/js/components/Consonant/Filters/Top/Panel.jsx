@@ -2,15 +2,15 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import sum from 'lodash/sum';
 import React from 'react';
-import { isAtleastOneFilterSelected } from '../../../../utils/general';
-import { useConfig, useExpandable } from '../../../../utils/hooks';
+import { isAtleastOneFilterSelected } from '../../Helpers/general';
+import { useConfig, useExpandable } from '../../Helpers/hooks';
 import SearchIcon from '../../Search/SearchIcon';
 import { Group as TopFilterItem } from './Group';
 import {
     TABLET_MIN_WIDTH,
     MAX_TRUNCATED_FILTERS,
     MIN_FILTERS_SHOW_BG,
-} from '../../../../utils/constants';
+} from '../../Helpers/constants';
 
 const FiltersPanelTop = ({
     filters,

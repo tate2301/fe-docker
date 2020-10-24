@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useConfig } from '../../../utils/hooks';
+import { useConfig } from '../Helpers/hooks';
 import {
     getPageStartEnd,
     generateRange,
     getStartNumber,
     getEndNumber,
-} from '../../../utils/general';
+} from '../Helpers/general';
 
 /**
  * Paginator - handles pa

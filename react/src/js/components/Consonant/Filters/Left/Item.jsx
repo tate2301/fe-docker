@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { useConfig } from '../../../../utils/hooks';
+import { useConfig } from '../../Helpers/hooks';
 import { GroupFooter } from './Mobile-Only/GroupFooter';
 import { SelectedItem as DesktopSelectedItem } from './Desktop-Only/SelectedItem';
 import { Items } from './Items';

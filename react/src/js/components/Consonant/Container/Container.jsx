@@ -9,8 +9,8 @@ import React, {
     useState,
 } from 'react';
 
-import CardFilterer from '../../../utils/CardFilterer';
-import JsonProcessor from '../../../utils/JsonProcessor';
+import CardFilterer from '../Helpers/CardFilterer';
+import JsonProcessor from '../Helpers/JsonProcessor';
 import Bookmarks from '../Bookmarks/Bookmarks';
 import Collection from '../Collection/Collection';
 import LeftFilterPanel from '../Filters/Left/Panel';
@@ -22,7 +22,7 @@ import Search from '../Search/Search';
 import Popup from '../Sort/Popup';
 
 import { Info as LeftInfo } from '../Filters/Left/Info';
-import { useWindowDimensions } from '../../../utils/hooks';
+import { useWindowDimensions } from '../Helpers/hooks';
 
 import {
     DESKTOP_MIN_WIDTH,
@@ -32,23 +32,23 @@ import {
     PAGINATION_COUNT,
     TABLET_MIN_WIDTH,
     TRUNCATE_TEXT_QTY,
-} from '../../../utils/constants';
+} from '../Helpers/constants';
 
 import {
     ConfigContext,
     ExpandableContext,
-} from '../../../utils/contexts';
+} from '../Helpers/contexts';
 
 import {
     getDefaultSortOption,
     getNumSelectedFilterItems,
     makeConfigGetter,
-} from '../../../utils/consonant';
+} from '../Helpers/consonant';
 
 import {
     readBookmarksFromLocalStorage,
     saveBookmarksToLocalStorage,
-} from '../../../utils/general';
+} from '../Helpers/general';
 
 import {
     shouldDisplayPaginator,
@@ -56,7 +56,7 @@ import {
     getTotalPages,
     getActiveFilterIds,
     getUpdatedCardBookmarkData,
-} from '../../../utils/Helpers';
+} from '../Helpers/Helpers';
 
 /**
  * Consonant Card Collection

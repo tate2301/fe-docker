@@ -1,14 +1,14 @@
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { useConfig } from '../../../utils/hooks';
+import { useConfig } from '../Helpers/hooks';
 import AspectRatio1to1Card from '../Cards/1-1';
 import AspectRatio3to2Card from '../Cards/3-2';
 import FullCard from '../Cards/Full';
 import {
     DEFAULT_SHOW_ITEMS_PER_PAGE,
     CARD_STYLES,
-} from '../../../utils/constants';
+} from '../Helpers/constants';
 
 /**
  * Contains a collection of cards (of different styles)

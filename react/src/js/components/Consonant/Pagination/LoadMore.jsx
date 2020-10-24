@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { useConfig } from '../../../utils/hooks';
+import { useConfig } from '../Helpers/hooks';
 
 const LoadMore = ({
     onClick,

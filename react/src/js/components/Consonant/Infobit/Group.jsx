@@ -12,8 +12,8 @@ import Progress from './Type/Progress';
 import Rating from './Type/Rating/Rating';
 import Text from './Type/Text';
 import DateInterval from './Type/DateInterval/DateInterval';
-import { parseToPrimitive } from '../../../utils/general';
-import { INFOBIT_TYPE } from '../../../utils/constants';
+import { parseToPrimitive } from '../Helpers/general';
+import { INFOBIT_TYPE } from '../Helpers/constants';
 
 function Group(props) {
     const { renderList } = props;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { useConfig } from '../../../../utils/hooks';
+import { useConfig } from '../../Helpers/hooks';
 import { Info as DesktopInfo } from './Desktop-Only/Info';
 import { Info as MobileInfo } from './Mobile-Only/Info';
 

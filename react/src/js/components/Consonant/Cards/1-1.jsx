@@ -1,8 +1,8 @@
 /*eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useConfig, useLazyLoading } from '../../../utils/hooks';
-import prettyFormatDate from '../../../utils/prettyFormat';
+import { useConfig, useLazyLoading } from '../Helpers/hooks';
+import prettyFormatDate from '../Helpers/prettyFormat';
 
 const AspectRatio1to1Card = (props) => {
     const {
