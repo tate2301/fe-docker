@@ -59,7 +59,7 @@ import {
 } from '../../../utils/Helpers';
 
 /**
- * Conssonant Card Collection
+ * Consonant Card Collection
  * Config is implicitly populated by authors
  *
  * @component

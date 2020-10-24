@@ -7,26 +7,28 @@ import {
     DEFAULT_PROPS,
 } from '../../Helpers/Testing/Constants/Collection';
 
-import makeSetup from '../../Helpers/Testing/Utils/Settings';
+import setup from '../../Helpers/Testing/Utils/Settings';
 
-const setup = makeSetup(Collection, DEFAULT_PROPS);
+const renderCollection = setup(Collection, DEFAULT_PROPS);
 
 describe('Consonant/Collection', () => {
-    test('should renders 1 card', () => {
-        setup({ page: 1 });
+    test('should render 1 card if on page 1 and 1 card rendered per page', () => {
+        renderCollection({ page: 1 });
 
         const cardElementList = screen.queryAllByTestId('consonant-card-3-2');
 
         expect(cardElementList).toHaveLength(1);
     });
-    test('should renders all card', () => {
+    test('should be able to render all cards', () => {
         const {
             props: { cards },
-        } = setup({ resultsPerPage: 100 }, { pagination: { type: 'loadMore' } });
+        } = renderCollection({ resultsPerPage: Number.MAX_SAFE_INTEGER }, { pagination: { type: 'loadMore' } });
 
-        const cardElementList = screen.queryAllByTestId('consonant-card-3-2');
-        
-        // -3 to exclude the 1:1 and full-card and invalid card style from test
-        expect(cardElementList).toHaveLength(cards.length - 3);
+        const threeByTwoCards = screen.queryAllByTestId('consonant-card-3-2');
+        const oneByOneCards = screen.queryAllByTestId('consonant-1-1-card');
+        const fullCards = screen.queryAllByTestId('consonant-full-card');
+
+        const totalCards = threeByTwoCards.length + oneByOneCards.length + fullCards.length;
+        expect(totalCards).toEqual(cards.length);
     });
 });

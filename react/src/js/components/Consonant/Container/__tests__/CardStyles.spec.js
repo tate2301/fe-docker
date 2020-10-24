@@ -76,10 +76,13 @@ describe('Container/CardStyles', () => {
         expect(oneByOneCards).not.toBeNull();
     });
 
-    test('can still show correct cards per page even if pagination is missing', async () => {
+    test('should show all cards in case invaild pagination type is authored', async () => {
         const configToUse = config;
         configToUse.pagination.type = 'not-valid';
+        config.collection.cardStyle = '3:2';
+        const { featuredCards } = config;
         await act(async () => render(<Container config={configToUse} />));
-        expect(screen.queryAllByTestId('consonant-card--img')).toHaveLength(configToUse.collection.resultsPerPage);
+        const totalCards = cards.length + featuredCards.length;
+        expect(screen.queryAllByTestId('consonant-card--img')).toHaveLength(totalCards);
     });
 });

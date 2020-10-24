@@ -154,6 +154,17 @@ export const DEFAULT_CONFIG = {
 };
 
 /**
+ * Collection Constants
+ */
+export const DEFAULT_SHOW_ITEMS_PER_PAGE = 8;
+
+export const CARD_STYLES = {
+    WIDE: '3:2',
+    SQUARE: '1:1',
+    FULL: 'full-card',
+};
+
+/**
  * Miscellanous Constants
  */
 export const LOADER_SIZE = {
