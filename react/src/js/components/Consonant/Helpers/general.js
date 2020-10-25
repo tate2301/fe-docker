@@ -1,11 +1,7 @@
 import forOwn from 'lodash/forOwn';
 
 export const saveBookmarksToLocalStorage = (bookmarksValue) => {
-    try {
-        localStorage.setItem('bookmarks', JSON.stringify(bookmarksValue, null, 2));
-    } catch (e) {
-        console.warn('We could not save your bookmarks, please try to reload this page.');
-    }
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarksValue, null, 2));
 };
 
 export const readBookmarksFromLocalStorage = () => {
@@ -82,8 +78,18 @@ export const mapObject = (object, func) => {
     return newObj;
 };
 
+/**
+ * Determines whether the passed in value is an object or not
+ * @param {Any} val - Start value in the range array;
+ * @return {Boolean} - Whether the passed in value is nullish or not
+ */
 export const isObject = val => !!val && (val.constructor === Object);
 
+/**
+ * Support method so HTL/Sightly can pass authored properties to React
+ * @param {Object} Value - Start value in the range array;
+ * @return {Object} - Authored config used by react component
+ */
 export const parseToPrimitive = (value) => {
     if (isObject(value)) {
         return mapObject(value, parseToPrimitive);
@@ -100,6 +106,11 @@ export const parseToPrimitive = (value) => {
     }
 };
 
+/**
+ * Determines whether the passed in value is nullish or not
+ * @param {Any} val - Start value in the range array;
+ * @return {Boolean} - Whether the passed in value is nullish or not
+ */
 export const isNullish = val => val === undefined || val === null || Number.isNaN(val);
 
 export const isAtleastOneFilterSelected =
@@ -108,11 +119,10 @@ export const isAtleastOneFilterSelected =
 export const stopPropagation = e => e.stopPropagation();
 
 /**
- * @function generateRange
+ * Return a range of numbers from [start, ... , end];
  * @param {number} start - Start value in the range array;
  * @param {number} end - End value in the range array;
  * @return {Array}
- * @description Return range  of numbers from [start, ... , end];
  */
 export const generateRange = (startVal, end) => {
     let start = startVal;
@@ -132,18 +142,16 @@ export const generateRange = (startVal, end) => {
 };
 
 /**
- * @function getPageStartEnd
+ * Gets what start and end numbers should be for a given page
  * @param {number} pageCount - Total pages to display
  * @param {number} currentPageNumber - Current page user is on
  * @param {number} totalPages - Total number of pages available
- * @return {Array}
- * @description Return what start and end numbers should be for a given page
+ * @return {Array} - The start and end page numbers
  */
 export const getPageStartEnd = (currentPageNumber, pageCount, totalPages) => {
     const halfPageCount = Math.floor(pageCount / 2);
     let start;
     let end;
-
 
     if (totalPages <= (pageCount + 1)) {
         // show all pages
@@ -163,11 +171,24 @@ export const getPageStartEnd = (currentPageNumber, pageCount, totalPages) => {
     return [start, end];
 };
 
+/**
+* Gets the start number for Paginator Component
+* @param {Int} currentPageNumber - Current page the user is on
+* @param {Int} showItemsPerPage - How many items to show per page
+* @returns {Int} - The start number for Paginator Component
+*/
 export const getStartNumber = (currentPageNumber, showItemsPerPage) => {
     if (currentPageNumber === 1) return 1;
     return (currentPageNumber * showItemsPerPage) - (showItemsPerPage - 1);
 };
 
+/**
+* Gets the end number for Paginator Component
+* @param {Int} currentPageNumber - Current page the user is on
+* @param {Int} showItemsPerPage - How many items to show per page
+* @param {Int} totalResults - Total count of cards in collection
+* @returns {Int} - The end number for Paginator Component
+*/
 export const getEndNumber = (currentPageNumber, showItemsPerPage, totalResults) => {
     const res = currentPageNumber * showItemsPerPage;
     return res < totalResults ? res : totalResults;
