@@ -69,12 +69,12 @@ const Collection = (props) => {
 
     if (isPaginator) {
         cardsToshow = cards.slice(currentPage, totalPages);
-    } 
+    }
 
     /**
      * Current page (used if load more button is authored)
      * @type {Int}
-     */    
+     */
     if (isLoadMore) {
         cardsToshow = cards.slice(0, resultsPerPage * pages);
     }
