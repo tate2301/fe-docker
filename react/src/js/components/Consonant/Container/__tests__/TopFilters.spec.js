@@ -1,3 +1,5 @@
+import React from 'react';
+import '@testing-library/jest-dom/extend-expect';
 import {
     screen,
     waitFor,
@@ -6,56 +8,39 @@ import {
     getByTestId,
     queryAllByTestId,
     act,
-    logDOM,
     render,
 } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
 
-import { rest } from 'msw';
-import { setupServer } from 'msw/node';
 
 import Container from '../Container';
-
+import setupIntersectionObserverMock from '../../Testing/Mocks/intersectionObserver';
 import config from '../../Testing/Mocks/config.json';
 import cards from '../../Testing/Mocks/cards.json';
 
-import makeInit from '../../Testing/Utils/Init';
-import React from 'react';
 
-// Different window sizes for different cases
+setupIntersectionObserverMock();
+
 const MOBILE_WIDTH = 384;
 const DESKTOP_WIDTH = 1800;
 const TABLET_MIN_WIDTH = 768;
-const DESKTOP_MIN_WIDTH = 1200;
 
-const init = makeInit(Container, config);
-
-const { filterPanel: { filters }, collection: { endpoint } } = config;
-
-const filteredCards = cards.filter(({ appliesTo }) => Boolean(appliesTo));
-
-// Mock api to get card list
-const handlers = [
-    rest.get(endpoint, (req, res, ctx) => res(
-        ctx.status(200),
-        ctx.json({ cards }),
-    )),
-];
-
-window.scrollTo = () => { };
-jest.setTimeout(30000);
+const { filterPanel: { filters } } = config;
 
 global.fetch = jest.fn(() =>
     Promise.resolve({
         json: () => Promise.resolve({ cards }),
     }));
 
-// Create more than 2 filter with different ids
+
+/**
+ * This method more than 2 filters with different ids
+  * @type {{id: string}[]}
+ */
 const multipleFilters = [...filters, ...filters]
     .map((item, index) => ({ ...item, id: `${item}_${index}` }));
 
-describe('Mobile/Consonant/FilterItemTwo', () => {
-    test('On Mobile: Should render Sort Pop up On The Left', async () => {
+describe('Consonant/Top Filters/Mobile', () => {
+    test('Should render Sort Pop up On The Left', async () => {
         global.innerWidth = MOBILE_WIDTH;
         const configToUse = config;
         configToUse.filterPanel.type = 'top';
@@ -72,7 +57,7 @@ describe('Mobile/Consonant/FilterItemTwo', () => {
         expect(optionsList).toHaveClass('consonant-select--options_left');
     });
 
-    test('should close filters on blur', async () => {
+    test('Should close filters on blur', async () => {
         global.innerWidth = MOBILE_WIDTH;
         const configToUse = config;
         configToUse.filterPanel.type = 'top';
@@ -93,45 +78,8 @@ describe('Mobile/Consonant/FilterItemTwo', () => {
     });
 });
 
-describe('Tablet/Consonant/FilterItemTwo', () => {
+describe('Consonant/Top Filters/Tablet', () => {
     test('should show search icon on blur', async () => {
-        global.innerWidth = TABLET_MIN_WIDTH;
-        const configToUse = config;
-        configToUse.filterPanel.type = 'top';
-        await act(async () => render(<Container config={configToUse} />));
-
-        const iconElement = screen.queryByTestId('search-icon');
-
-        // SearchIco should be exists after mount
-        expect(iconElement).not.toBeNull();
-        // Search field should be exists after mount
-        expect(screen.queryByTestId('filtersTopSearch')).toBeNull();
-
-        fireEvent.click(iconElement);
-        /**
-         * After click SearchIco - Search field shoudl be rendered
-         * Need wait for it
-         */
-        await waitFor(() => screen.getByTestId('filtersTopSearch'));
-
-        // SearchIco should be exists after click on SearchIco
-        expect(screen.queryByTestId('search-icon')).not.toBeNull();
-
-        // Search field should be exists after click on SearchIco
-        expect(screen.queryByTestId('filtersTopSearch')).not.toBeNull();
-
-        // We should click on random element, e.g. Select field
-        fireEvent.click(screen.getByTestId('select-button'));
-        /**
-         * After click on rendom element
-         * SearchIcon should be exists
-         * Search field shoudn't be exists
-         */
-        expect(screen.queryByTestId('search-icon')).not.toBeNull();
-        expect(screen.queryByTestId('filtersTopSearch')).toBeNull();
-    });
-
-    test('should show search input after click on search icon', async () => {
         global.innerWidth = TABLET_MIN_WIDTH;
         const configToUse = config;
         configToUse.filterPanel.type = 'top';
@@ -146,15 +94,51 @@ describe('Tablet/Consonant/FilterItemTwo', () => {
 
         fireEvent.click(iconElement);
         /**
-         * After click SearchIco - Search field should be rendered
+         * After we click the SearchIcon - The Search field should be rendered
+         */
+        await waitFor(() => screen.getByTestId('filtersTopSearch'));
+
+        // SearchIcon should be exists after we click on the SearchIcon
+        expect(screen.queryByTestId('search-icon')).not.toBeNull();
+
+        // Search field should be exists after we click on SearchIcon
+        expect(screen.queryByTestId('filtersTopSearch')).not.toBeNull();
+
+        // We should click on another element, e.g. Select field
+        fireEvent.click(screen.getByTestId('select-button'));
+        /**
+         * After click on a another element
+         * The SearchIcon should still exist
+         * The search field shouldn't exist, however
+         */
+        expect(screen.queryByTestId('search-icon')).not.toBeNull();
+        expect(screen.queryByTestId('filtersTopSearch')).toBeNull();
+    });
+
+    test('should show the search input after we click on the search icon', async () => {
+        global.innerWidth = TABLET_MIN_WIDTH;
+        const configToUse = config;
+        configToUse.filterPanel.type = 'top';
+        await act(async () => render(<Container config={configToUse} />));
+
+        const iconElement = screen.queryByTestId('search-icon');
+
+        // SearchIcon should still exist after mounting
+        expect(iconElement).not.toBeNull();
+        // Search field should still exist after mounting
+        expect(screen.queryByTestId('filtersTopSearch')).toBeNull();
+
+        fireEvent.click(iconElement);
+        /**
+         * After we click on the SearchIcon - The Search field should be rendered
          * Need wait for it
          */
         await waitFor(() => screen.getByTestId('filtersTopSearch'));
 
-        // SearchIcon should exist after click on SearchIco
+        // SearchIcon should still exist after we click on the SearchIcon
         expect(screen.queryByTestId('search-icon')).not.toBeNull();
 
-        // Search field should be exists after click on SearchIco
+        // Search field should still exist we after click on the SearchIcon
         expect(screen.queryByTestId('filtersTopSearch')).not.toBeNull();
     });
 
@@ -184,17 +168,17 @@ describe('Tablet/Consonant/FilterItemTwo', () => {
     });
 });
 
-describe('Desktop/Consonant/FilterItemTwo', () => {
-    test('should render with top filter', async () => {
+describe('Consonant/Top Filters/Desktop', () => {
+    test('should render with the top filter', async () => {
         global.innerWidth = DESKTOP_WIDTH;
         const configToUse = config;
         configToUse.filterPanel.type = 'top';
         await act(async () => render(<Container config={configToUse} />));
 
-        // search for FilterPanelTop in whole DOM tree
+        // search for FilterPanelTop in the whole DOM tree
         const filtersTopElement = screen.queryByTestId('consonant-filters__top');
 
-        // search for FilterPanelTop and FilterInfo in whole DOM tree
+        // search for FilterPanelTop and FilterInfo in the whole DOM tree
         const filtersLeftElement = screen.queryByTestId('consonant-filters__left');
         const filtersInfoElement = screen.queryByTestId('consonant-filters__info');
 
@@ -210,7 +194,7 @@ describe('Desktop/Consonant/FilterItemTwo', () => {
         configToUse.filterPanel.type = 'top';
         await act(async () => render(<Container config={configToUse} />));
 
-        // Need wait for api response and state updating
+        // Need to wait for the api response and state updating
         await waitFor(() => screen.getByTestId('consonant-collection'));
 
         const sortPopup = screen.getByTestId('select-button');
@@ -221,7 +205,7 @@ describe('Desktop/Consonant/FilterItemTwo', () => {
         expect(optionsList).toHaveClass('consonant-select--options_right');
     });
 
-    test('should filter cards withour sort select', async () => {
+    test('should filter cards without sort select', async () => {
         global.innerWidth = DESKTOP_WIDTH;
         const configToUse = config;
         configToUse.sort.options = undefined;
@@ -251,10 +235,9 @@ describe('Desktop/Consonant/FilterItemTwo', () => {
         fireEvent.click(firstFilterCheckbox);
 
         expect(firstFilterCheckbox.checked).toBeTruthy();
-        // expect(screen.queryAllByTestId('consonant-card')).toHaveLength(1);
     });
 
-    test('should open only selected filter', async () => {
+    test('should open only the selected filter', async () => {
         global.innerWidth = DESKTOP_WIDTH;
         const configToUse = config;
         configToUse.filterPanel.type = 'top';
@@ -304,7 +287,6 @@ describe('Desktop/Consonant/FilterItemTwo', () => {
     });
 
     test('should clear all selected checkboxes only in the first filter', async () => {
-
         global.innerWidth = DESKTOP_WIDTH;
         const configToUse = config;
         configToUse.filterPanel.type = 'top';
