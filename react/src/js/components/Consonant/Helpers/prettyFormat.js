@@ -26,7 +26,7 @@ function getMonth(startTimeUTC, someLocale) {
  * E.g. Oct 20 | 13:00 - 14:45 PDT
  * @type {string}
  */
-export default function prettyFormatDate(startDateUTC, endDateUTC, locale, i18nFormat) {
+export default function getPrettyDateInterval(startDateUTC, endDateUTC, locale, i18nFormat) {
     return i18nFormat
         .replace('{LLL}', getMonth(startDateUTC, locale))
         .replace('{dd}', getDay(startDateUTC, locale))
