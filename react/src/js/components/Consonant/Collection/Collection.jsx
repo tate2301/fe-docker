@@ -47,6 +47,7 @@ const Collection = (props) => {
      * @type {Boolean}
      */
     const isPaginator = paginationType === 'paginator';
+    const isLoadMore = paginationType === 'loadMore';
 
     /**
      * Total pages to show (used if paginator component is set)
@@ -61,13 +62,21 @@ const Collection = (props) => {
     let cardsToshow = cards;
 
     /**
-     * Current page (used if paginator component is set)
+     * Current page (used if paginator component is authored)
      * @type {Int}
      */
     const currentPage = resultsPerPage * (pages - 1);
 
     if (isPaginator) {
         cardsToshow = cards.slice(currentPage, totalPages);
+    } 
+
+    /**
+     * Current page (used if load more button is authored)
+     * @type {Int}
+     */    
+    if (isLoadMore) {
+        cardsToshow = cards.slice(0, resultsPerPage * pages);
     }
 
     return cardsToshow.length > 0 && (
