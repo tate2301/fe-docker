@@ -1,5 +1,4 @@
 import get from 'lodash/get';
-import debounce from 'lodash/debounce';
 import PropTypes from 'prop-types';
 import 'whatwg-fetch';
 import React, {
@@ -501,18 +500,6 @@ const Container = (props) => {
 
                 setCards(processedCards);
             }).catch(() => setLoading(false));
-    }, []);
-
-    /**
-    * Handles debouncing on window resize
-    * @returns {Function} cleanup - on component unmount, attached event listener is removed
-    */
-    useEffect(() => {
-        const updateDimensions = debounce(() => setShowMobileFilters(false), 100);
-        window.addEventListener('resize', updateDimensions);
-        return function cleanup() {
-            window.removeEventListener('resize', updateDimensions);
-        };
     }, []);
 
     /**
