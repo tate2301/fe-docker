@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import Rating from '../Rating/Rating';
+import Rating from '../Rating';
 
 describe('Rating', () => {
     test('If invalid ratings are authored, do not show any filled stars', async () => {

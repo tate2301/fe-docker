@@ -9,7 +9,7 @@ import TextLink from './Type/Link';
 import LinkWithIcon from './Type/LinkWithIcon';
 import Price from './Type/Price';
 import Progress from './Type/Progress';
-import Rating from './Type/Rating/Rating';
+import Rating from './Type/Rating';
 import Text from './Type/Text';
 import DateInterval from './Type/DateInterval/DateInterval';
 import { parseToPrimitive } from '../Helpers/general';
