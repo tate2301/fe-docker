@@ -1,10 +1,29 @@
-/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Tooltip from './Tooltip';
 
-function Bookmark({
+/**
+ * Bookmark Infobit (shown in 3:2 Card Footer)
+ * Used to save/unsave a card to local storage
+ *
+ * @component
+ * @example
+ * const props= {
+    cardId: String,
+    isBookmarked: String,
+    saveCardIcon: String,
+    unsaveCardIcon: String,
+    cardSaveText: String,
+    cardUnsaveText: String,
+    onClick: Function,
+    disableBookmarkIco: Boolean,
+ * }
+ * return (
+ *   <Bookmark {...props}/>
+ * )
+ */
+const Bookmark = ({
     cardId,
     isBookmarked,
     saveCardIcon,
@@ -13,29 +32,21 @@ function Bookmark({
     cardUnsaveText,
     onClick,
     disableBookmarkIco,
-}) {
-    const className = classNames(
-        'consonant-bookmark-infobit',
-        {
-            'consonant-bookmark-infobit_active': isBookmarked,
-            'consonant-bookmark-infobit_disabled': disableBookmarkIco,
-        },
-    );
+}) => {
+    const bookmarkInfobitClass = classNames({
+        'consonant-bookmark-infobit': true,
+        'consonant-bookmark-infobit_active': isBookmarked,
+        'consonant-bookmark-infobit_disabled': disableBookmarkIco,
+    });
 
-    const renderIcon = () => {
-        let src = '';
-
-        if (isBookmarked) {
-            src = saveCardIcon;
-        }
-        if (!isBookmarked) {
-            src = unsaveCardIcon;
-        }
-
-        return (<span
-            data-testid="bookmarks--ico"
-            className="consonant-bookmark-infobit--ico"
-            style={{ backgroundImage: src ? `url(${src})` : '' }} />);
+    const bookmarkIcon = () => {
+        const cardIcon = isBookmarked ? saveCardIcon : unsaveCardIcon;
+        return (
+            <span
+                data-testid="bookmarks--ico"
+                className="consonant-bookmark-infobit--ico"
+                style={{ backgroundImage: cardIcon ? `url(${cardIcon})` : '' }} />
+        );
     };
 
     const handleClick = (clickEvt) => {
@@ -43,23 +54,23 @@ function Bookmark({
         onClick(cardId);
     };
 
+    const tooltipText = isBookmarked ? cardUnsaveText : cardSaveText;
+
     return (
         <button
             data-testid="bookmark-button"
             data-tooltip-wrapper
             type="button"
-            className={className}
+            className={bookmarkInfobitClass}
             onClick={handleClick}
             tabIndex="0">
-            {renderIcon()}
+            {bookmarkIcon()}
             <Tooltip
                 data-testid="bookmark-tooltip"
-                text={
-                    isBookmarked ? cardUnsaveText : cardSaveText
-                } />
+                text={tooltipText} />
         </button>
     );
-}
+};
 
 Bookmark.propTypes = {
     isBookmarked: PropTypes.bool,
@@ -76,8 +87,8 @@ Bookmark.defaultProps = {
     saveCardIcon: '',
     unsaveCardIcon: '',
     isBookmarked: false,
-    cardSaveText: 'Save Card',
-    cardUnsaveText: 'Unsave Card',
+    cardSaveText: '',
+    cardUnsaveText: '',
 };
 
 export default Bookmark;
