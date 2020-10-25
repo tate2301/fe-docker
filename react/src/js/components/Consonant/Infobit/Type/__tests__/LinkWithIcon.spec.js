@@ -1,6 +1,9 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+import {
+    render,
+    screen
+} from '@testing-library/react';
 
 import LinkWithIcon from '../LinkWithIcon';
 
@@ -13,8 +16,8 @@ const props = {
     srcAltText: 'Some Src Alt Txt',
 };
 
-describe('Link With Icon', () => {
-    test('Loads with default propss', async () => {
+describe('Consoonant/Infobits/Link With Icon', () => {
+    test('Loads with default props', async () => {
         const propsToUse = props;
         const { getByText } = render(<LinkWithIcon {...propsToUse} />);
 

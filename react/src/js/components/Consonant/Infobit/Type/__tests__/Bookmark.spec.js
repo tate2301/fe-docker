@@ -1,7 +1,10 @@
 import React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import renderer from 'react-test-renderer';
+import {
+    render,
+    fireEvent,
+    screen
+} from '@testing-library/react';
 
 import Bookmark from '../Bookmark/Bookmark';
 
@@ -11,16 +14,14 @@ const props = {
     disableBookmarkIco: true,
 };
 
-describe('Consonant/Bookmarks', () => {
-    describe('Interaction with UI', () => {
-        test('should call onChange', () => {
-            render(<Bookmark {...props} />);
+describe('Consonant/Infobits/Bookmarks', () => {
+    test('When a bookmark icon is clicked, the appropriate event handler should be called', () => {
+        render(<Bookmark {...props} />);
 
-            const boorkmarksElement = screen.getByTestId('bookmark-button');
+        const boorkmarksElement = screen.getByTestId('bookmark-button');
 
-            fireEvent.click(boorkmarksElement);
+        fireEvent.click(boorkmarksElement);
 
-            expect(props.onClick).toBeCalled();
-        });
+        expect(props.onClick).toBeCalled();
     });
 });

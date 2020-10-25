@@ -1,18 +1,21 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+import {
+    render,
+    screen
+} from '@testing-library/react';
 
 import Button from '../Button';
 
-describe('Consonant/Bookmarks', () => {
-    test('should have cta classname', async () => {
+describe('Consonant/Infobits/Button', () => {
+    test('Buttons should be able to render when the cta style is authored', async () => {
         render(<Button {...{ style: 'call-to-action' }} />);
 
         const buttonElement = screen.getByTestId('consonant-btn-infobit');
 
         expect(buttonElement).toHaveClass('consonant-btn-infobit_cta');
     });
-    test('shouldn`t have cta classname', async () => {
+    test('If no style is authored, render with the cta style', async () => {
         render(<Button {...{ style: '' }} />);
 
         const buttonElement = screen.getByTestId('consonant-btn-infobit');

@@ -1,6 +1,9 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+import {
+    render,
+    screen
+} from '@testing-library/react';
 
 import Link from '../Link';
 
@@ -11,7 +14,7 @@ const props = {
     text: 'Click Here',
 };
 
-describe('Link Infobit', () => {
+describe('Consonant/Infobits/Link', () => {
     test('Loads with default props', async () => {
         const propsToUse = props;
         const { getByText } = render(<Link {...propsToUse} />);
