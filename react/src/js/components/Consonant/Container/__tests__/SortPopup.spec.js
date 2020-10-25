@@ -1,62 +1,29 @@
+import React from 'react';
+import '@testing-library/jest-dom/extend-expect';
 import {
     screen,
     waitFor,
     fireEvent,
     getByText,
-    getByTestId,
-    queryAllByTestId,
     act,
-    logDOM,
     render,
 } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
 
-import { rest } from 'msw';
-import { setupServer } from 'msw/node';
 
 import Container from '../Container';
-
+import setupIntersectionObserverMock from '../../Testing/Mocks/intersectionObserver';
 import config from '../../Testing/Mocks/config.json';
 import cards from '../../Testing/Mocks/cards.json';
-
-import makeInit from '../../Testing/Utils/Init';
-import React from 'react';
-
-// Different window sizes for different cases
-const MOBILE_WIDTH = 384;
-const DESKTOP_WIDTH = 1800;
-const TABLET_MIN_WIDTH = 768;
-const DESKTOP_MIN_WIDTH = 1200;
-
-const init = makeInit(Container, config);
-
-const { filterPanel: { filters }, collection: { endpoint } } = config;
-
-const filteredCards = cards.filter(({ appliesTo }) => Boolean(appliesTo));
-
-// Mock api to get card list
-const handlers = [
-    rest.get(endpoint, (req, res, ctx) => res(
-        ctx.status(200),
-        ctx.json({ cards }),
-    )),
-];
-
-window.scrollTo = () => { };
-jest.setTimeout(30000);
 
 global.fetch = jest.fn(() =>
     Promise.resolve({
         json: () => Promise.resolve({ cards }),
     }));
 
-// Create more than 2 filter with different ids
-const multipleFilters = [...filters, ...filters]
-    .map((item, index) => ({ ...item, id: `${item}_${index}` }));
+setupIntersectionObserverMock();
 
-
-describe('Sort Popup', () => {
-    test('should open select', async () => {
+describe('Consonant/Sort Popup', () => {
+    test('should be able to open the sort popup', async () => {
         const configToUse = config;
         await act(async () => render(<Container config={configToUse} />));
         await waitFor(() => screen.getByTestId('select-button'));
@@ -68,15 +35,14 @@ describe('Sort Popup', () => {
         expect(selectButton).toHaveClass('consonant-select--btn_active');
     });
 
-    test('should change to featured sort value', async () => {
-        // const { config: { sort: { options, defaultSort } } } = init();
+    test('should be able to feature sort cards', async () => {
         const configToUse = config;
         const { options } = config.sort;
         const { defaultSort } = config.sort;
 
         await act(async () => render(<Container config={configToUse} />));
 
-        // get labels by sort value
+        // get labels by sort values
         const {
             featured,
             defaultLabel,
@@ -101,34 +67,28 @@ describe('Sort Popup', () => {
             return accumulator;
         }, { defaultLabel: 'Please select' });
 
-        // Need wait for api response and state updating
+        // We need to wait for the api response and state updates
         await waitFor(() => screen.getByTestId('consonant-collection'));
 
-        // get Select input
+        // Gets Sort Popup input
         const selectButton = screen.getByTestId('select-button');
         fireEvent.click(selectButton);
 
-        // get needed options
+        // Gets needed sort options
         const selectOptions = screen.getByTestId('consonant-select--options');
 
         const featuredOption = getByText(selectOptions, featured);
 
-        // check if the defaultSort was selected
+        // Checks if the defaultSort was selected
         expect(selectButton).toHaveTextContent(defaultLabel);
-
-        /**
-         * open Select
-         * select featured option
-         */
 
         fireEvent.click(featuredOption);
 
-        // check if the featured was selected
+        // checks to see if featured sort was selected
         expect(selectButton).toHaveTextContent(featured);
     });
 
-    test('should change to date desc sort value', async () => {
-        // const { config: { sort: { options, defaultSort } } } = init();
+    test('should be able to use date desc sort', async () => {
         const configToUse = config;
         const { options } = config.sort;
         const { defaultSort } = config.sort;
@@ -160,35 +120,28 @@ describe('Sort Popup', () => {
             return accumulator;
         }, { defaultLabel: 'Please select' });
 
-        // Need wait for api response and state updating
+        // We need to wait for api response and state updates
         await waitFor(() => screen.getByTestId('consonant-collection'));
 
-        // get Select input
+        // Get The Sort Popup Input
         const selectButton = screen.getByTestId('select-button');
         fireEvent.click(selectButton);
 
-        // get needed options
+        // Gets all sort options
         const selectOptions = screen.getByTestId('consonant-select--options');
 
         const descOption = getByText(selectOptions, dateDesc);
 
-        // check if the defaultSort was selected
+        // Checks if the defaultSort was selected
         expect(selectButton).toHaveTextContent(defaultLabel);
-
-        /**
-         * open Select
-         * select featured option
-         */
 
         fireEvent.click(descOption);
 
-        // check if the featured was selected
+        // checks if the descending date option was selected
         expect(selectButton).toHaveTextContent(dateDesc);
-
     });
 
-    test('should change to dateAsc sort value', async () => {
-        // const { config: { sort: { options, defaultSort } } } = init();
+    test('should be able to sort by date ascending', async () => {
         const configToUse = config;
         const { options } = config.sort;
         const { defaultSort } = config.sort;
@@ -220,32 +173,27 @@ describe('Sort Popup', () => {
             return accumulator;
         }, { defaultLabel: 'Please select' });
 
-        // Need wait for api response and state updating
+        // We need to wait for the api response and state updates
         await waitFor(() => screen.getByTestId('consonant-collection'));
 
-        // get Select input
+        // Gets The Sort Popup input
         const selectButton = screen.getByTestId('select-button');
         fireEvent.click(selectButton);
 
-        // get needed options
+        // Gets the different sort options
         const selectOptions = screen.getByTestId('consonant-select--options');
         const dateAscEndingOption = getByText(selectOptions, dateAscEnding);
 
-        // check if the defaultSort was selected
+        // Checks if defaultSort was selected
         expect(selectButton).toHaveTextContent(defaultLabel);
-
-        /**
-         * open Select
-         * select featured option
-         */
 
         fireEvent.click(dateAscEndingOption);
 
-        // check if the featured was selected
+        // Checks if date ascending was selected
         expect(selectButton).toHaveTextContent(dateAscEnding);
     });
 
-    test('shouldn`t set value if defaultSort didn`t present in sort.options', async () => {
+    test('If invalid sort option authored, fallback to use featured sort', async () => {
         const configToUse = config;
         configToUse.sort.defaultSort = 'notPresentSortOption';
         await act(async () => render(<Container config={configToUse} />));
