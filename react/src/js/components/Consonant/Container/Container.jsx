@@ -775,8 +775,7 @@ const Container = (props) => {
                                     title={searchQuery ? noResultsTitle : apiFailureTitle}
                                     description={searchQuery ?
                                         noResultsDescription : apiFailureDescription}
-                                    replaceValue={searchQuery}
-                                />
+                                    replaceValue={searchQuery} />
                             }
                         </div>
                     </div>

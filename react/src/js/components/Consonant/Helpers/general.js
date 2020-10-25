@@ -1,19 +1,40 @@
 import forOwn from 'lodash/forOwn';
 
+/**
+ * Saves a card to local storage
+ * @param {Int} bookmarksValue - The id of the card to save
+ * @return {Void}
+ */
 export const saveBookmarksToLocalStorage = (bookmarksValue) => {
     localStorage.setItem('bookmarks', JSON.stringify(bookmarksValue, null, 2));
 };
 
+/**
+ * Returns all cards saved in local storage
+ * @return {Array} - All saved bookmarks
+ */
 export const readBookmarksFromLocalStorage = () => {
-    const data = JSON.parse(localStorage.getItem('bookmarks'));
-    return Array.isArray(data) ? data : [];
+    const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    return Array.isArray(bookmarks) ? bookmarks : [];
 };
 
+/**
+ * Helper method to truncate strings
+ * @param {String} str - The string to truncate
+ * @param {Int} num - How much to truncate
+ * @return {String} - The truncated string
+ */
 export const truncateString = (str, num) => {
     if (str.length <= num) return str;
     return `${str.slice(0, num)}...`;
 };
 
+/**
+ * Helper method to truncate a list of cards
+ * @param {Int} limit - How much to truncate by
+ * @param {Array} list - What to truncate
+ * @return {Array} - The truncated list
+ */
 export const truncateList = (limit, list) => {
     // No limit, return all;
     if (limit < 0) return list;
@@ -22,6 +43,12 @@ export const truncateList = (limit, list) => {
     return list.slice(0, limit);
 };
 
+/**
+ * Helper method to remove duplicate cards from list
+ * @param {Array} list - The list of cards
+ * @param {key} key - What key to search for duplicates for
+ * @return {Array} - A list of cards with no duplicates
+ */
 export const removeDuplicatesByKey = (list, key) => {
     const newList = [];
     const ids = new Set();
@@ -34,11 +61,26 @@ export const removeDuplicatesByKey = (list, key) => {
     return newList;
 };
 
-
+/**
+ * Helper method that chains lists together
+ * @param {Any} args - Any set of args
+ * @example chain(['A', 'B', 'C'], ['D', 'E', 'F']) --> ['A' 'B' 'C' 'D' 'E' 'F']
+ */
 export const chain = (...args) => args.reduce((a, b) => a.concat(b), []);
 
+/**
+ * Helper method that chains iterables together
+ * @param {Any} args - Any set of iterable arguments
+ * @example chainFromIterable(someIterable) --> ['A' 'B' 'C' 'D' 'E' 'F']
+ */
 export const chainFromIterable = args => chain(...args);
 
+/**
+ * Helper method to determine wheether set A is a superset of set B
+ * @param {Set} superset - The first set
+ * @param {Set} subset - The second set
+ * @return {Boolean} - Whether set A is a superset of set B
+ */
 export const isSuperset = (superset, subset) => {
     // eslint-disable-next-line no-restricted-syntax
     for (const elem of subset) {
@@ -49,6 +91,12 @@ export const isSuperset = (superset, subset) => {
     return true;
 };
 
+/**
+ * Helper method to do determine whether the two sets have an intersection
+ * @param {Set} setA - The first set
+ * @param {Set} setB - The second set
+ * @return {Boolean} - Whether there is an intersection of elements between the sets
+ */
 export const intersection = (setA, setB) => {
     const intersectionSet = new Set();
     // eslint-disable-next-line no-restricted-syntax
@@ -60,14 +108,30 @@ export const intersection = (setA, setB) => {
     return intersectionSet;
 };
 
+/**
+ * Helper method to sort by keys
+ * @param {Iterable} iterable - The iterable object
+ * @param {Function} keyFunc - The function to apply
+ */
 export const sortByKey = (iterable, keyFunc) => [...iterable].sort((a, b) => {
     if (keyFunc(a) < keyFunc(b)) return -1;
     if (keyFunc(a) > keyFunc(b)) return 1;
     return 0;
 });
 
+/**
+ * Returns cleaned up text
+ * @param {String} text - The text so sanitize
+ * @return {String} - The cleaned up text
+ */
 export const sanitizeText = text => text.toLowerCase().trim();
 
+/**
+ * For a given object, applies a function to key in that object
+ * @param {Object} object - The object to apply the function to
+ * @param {Function} func - The function to apply to the entries in the object
+ * @return {Object} - The new object
+ */
 export const mapObject = (object, func) => {
     const newObj = {};
 
@@ -87,7 +151,7 @@ export const isObject = val => !!val && (val.constructor === Object);
 
 /**
  * Support method so HTL/Sightly can pass authored properties to React
- * @param {Object} Value - Start value in the range array;
+ * @param {Object} value - Start value in the range array;
  * @return {Object} - Authored config used by react component
  */
 export const parseToPrimitive = (value) => {
@@ -116,11 +180,16 @@ export const isNullish = val => val === undefined || val === null || Number.isNa
 export const isAtleastOneFilterSelected =
         filters => chainFromIterable(filters.map(f => f.items)).some(item => item.selected);
 
+/**
+ * Helper method to stop propagation for events
+ * @param {Event} e - The event to stop propagation for
+ * @return {Void}
+ */
 export const stopPropagation = e => e.stopPropagation();
 
 /**
  * Return a range of numbers from [start, ... , end];
- * @param {number} start - Start value in the range array;
+ * @param {number} startVal - Start value in the range array;
  * @param {number} end - End value in the range array;
  * @return {Array}
  */
