@@ -1,9 +1,8 @@
-/* eslint-disable */
 import get from 'lodash/get';
 import set from 'lodash/set';
 import includes from 'lodash/includes';
-import produce from 'immer';
-import { enableES5 } from "immer"
+import produce, { enableES5 } from 'immer';
+
 import { highlightSearchField } from './rendering';
 import {
     chainFromIterable,
@@ -13,44 +12,108 @@ import {
     removeDuplicatesByKey,
 } from './general';
 
+/**
+ * Needs to be explicitly called by immer - Needed for IE 11 support
+ * @type {Function}
+ */
 enableES5();
 
-export const shouldDisplayPaginator = (enabled, resultsPerPage, totalResults) => {
-    const resultsPerPageNotZero = resultsPerPage > 0;
-    const cardLengthExceedsDisplayLimit = totalResults > resultsPerPage;
+/**
+* Determines whether paginator component should display
+* @param {Boolean} enabled - Authored flag whether component should display or not
+* @param {Int} totalCardLimit - Authored limit for how many cards should display
+* @param {Int} totalResults - Total cards in collection
+* @returns {Boolean} - Whether Paginator should display or not
+*/
+export const shouldDisplayPaginator = (enabled, totalCardLimit, totalResults) => {
+    const totalCardLimitNotZero = totalCardLimit > 0;
+    const cardLengthExceedsDisplayLimit = totalResults > totalCardLimit;
 
     return enabled &&
-        resultsPerPageNotZero &&
-        cardLengthExceedsDisplayLimit;
+        totalCardLimitNotZero &&
+        !cardLengthExceedsDisplayLimit;
 };
 
 
+/**
+* Determines how many cards to show
+* @param {Int} resultsPerPage - How many cards should show per page (Authored Field)
+* @param {Int} currentPage - Current page user is on
+* @param {Int} totalResults - Total cards in collection
+* @returns {Int} - Number of cards to show
+*/
 export const getNumCardsToShow = (resultsPerPage, currentPage, totalResults) =>
     Math.min(resultsPerPage * currentPage, totalResults);
 
+/**
+* Gets Total Page Count (For Paginator Component)
+* @param {Int} resultsPerPage - How many cards should show per page (Authored Field)
+* @param {Int} totalResults - Total cards in collection
+* @returns {Int} - Total number of pages
+*/
 export const getTotalPages = (resultsPerPage, totalResults) => {
     if (resultsPerPage === 0) return 0;
     return Math.ceil(totalResults / resultsPerPage);
 };
 
+/**
+* Determines whether to show collection cards or bookmarked cards only
+* (If author chooses bookmarks only collection)
+
+* @param {Boolean} showBookmarksOnly - Authored Flag to Force Card Collection To Only Show Bookmarks
+* @param {Array} bookmarkedCards - Bookmarked cards only
+* @param {Array} collectionCards - All cards
+* @returns {Array} - Which collection of cards to show
+*/
 export const getCollectionCards = (showBookmarksOnly, bookmarkedCards, collectionCards) => (
     showBookmarksOnly ? bookmarkedCards : collectionCards
 );
 
-export const getBookmarkedCards = (collectionCards) => collectionCards.filter(card => card.isBookmarked);
+/**
+* Filter to get all bookmarked cards
+* @param {Array} collectionCards - All cards
+* @returns {Array} - All bookmarked cards
+*/
+export const getBookmarkedCards =
+    collectionCards => collectionCards.filter(card => card.isBookmarked);
 
+/**
+* Gets all filters checked by a user
+* @param {Array} filters - All filters on page
+* @returns {Array} - All checked filters by user
+*/
 export const getActiveFilterIds = filters => chainFromIterable(filters.map(f => f.items))
     .filter(item => item.selected)
     .map(item => item.id);
 
+/**
+* Helper method to dermine whether author chose XOR or AND type filtering
+* @param {String} filterType - Filter used in collection
+* @param {Object} filterTypes - All possible filters
+* @returns {Boolean} - Whether collection is using a XOR or AND type filtering
+*/
 const getUsingXorAndFilter = (filterType, filterTypes) => (
     filterType === filterTypes.XOR || filterType === filterTypes.AND
 );
 
+/**
+* Helper method to dermine whether author chose OR type filtering
+* @param {String} filterType - Filter used in collection
+* @param {Object} filterTypes - All possible filters
+* @returns {Boolean} - Whether collection is using OR type filtering
+*/
 const getUsingOrFilter = (filterType, filterTypes) => (
     filterType === filterTypes.OR
 );
 
+/**
+* Will return all cards that match a set of filters
+* @param {Array} cards - All cards in the collection
+* @param {Array} activeFilters - All filters selected by user
+* @param {String} filterType - Filter used in collection
+* @param {Object} filterTypes - All possible filters
+* @returns {Array} - All cards that match filter options
+*/
 export const getFilteredCards = (cards, activeFilters, filterType, filterTypes) => {
     const activeFiltersSet = new Set(activeFilters);
 
@@ -75,15 +138,27 @@ export const getFilteredCards = (cards, activeFilters, filterType, filterTypes) 
     });
 };
 
-export const highlightCard = (baseCard, searchField, query) => {
-    return produce(baseCard, (draftCard) => {
-        const searchFieldValue = get(draftCard, searchField, null);
-        if (searchFieldValue === null) return;
-        const highlightedSearchFieldValue = highlightSearchField(searchFieldValue, query);
-        set(draftCard, searchField, highlightedSearchFieldValue);
-    })
-}
+/**
+* If a card matches a search query, this method will highlight it
+* @param {Array} baseCard - Card to highlight
+* @param {Array} searchField - Field that matches Query
+* @param {String} query - The users search query
+* @returns {Card} The highlighted caard
+*/
+export const highlightCard = (baseCard, searchField, query) => produce(baseCard, (draftCard) => {
+    const searchFieldValue = get(draftCard, searchField, null);
+    if (searchFieldValue === null) return;
+    const highlightedSearchFieldValue = highlightSearchField(searchFieldValue, query);
+    set(draftCard, searchField, highlightedSearchFieldValue);
+});
 
+/**
+* If a card matches a search query, this method will highlight it
+* @param {Array} searchField - Field that matches Query
+* @param {Array} card - Card to check
+* @param {String} query - The users search query
+* @returns {Boolean} If the card matches the user's search query
+*/
 const cardMatchesQuery = (searchField, card, searchQuery) => {
     const searchFieldValue = get(card, searchField, '');
     const cleanSearchFieldValue = sanitizeText(searchFieldValue);
@@ -91,22 +166,30 @@ const cardMatchesQuery = (searchField, card, searchQuery) => {
 };
 
 /**
+ * Helper to implement Set() data structure w/ Vanilla Arrays
  * Would've used new Set(), but polyfill has bug in IE11 converting Array.from(new Set())
- * 
- * @param {*} cards
- * @return {*} 
+ *
+ * @param {Array} cards
+ * @return {Array} - Unique Card Set from Cards (filtering based off unique card ids)
  */
 const getUniqueCardSet = (cards) => {
     const uniqueCardSet = [];
-    cards.forEach(card => {
-        var cardNotInSet = uniqueCardSet.findIndex(element => element.id == card.id) <= -1;
-        if(cardNotInSet){
+    cards.forEach((card) => {
+        const cardNotInSet = uniqueCardSet.findIndex(element => element.id === card.id) <= -1;
+        if (cardNotInSet) {
             uniqueCardSet.push(card);
-          }
-    })
+        }
+    });
     return uniqueCardSet;
-}
+};
 
+/**
+* Gets all cards that matches a users search query
+* @param {Array} cards - All cards in the card collection
+* @param {Array} searchFields - All authored search fields to check
+* @param {String} query - The users search query
+* @returns {Array} - All cards that match the user's query for a given set of search fields
+*/
 export const getCardsMatchingQuery = (cards, searchFields, query) => {
     const cardsMatchingQuery = [];
     cards.forEach((card) => {
@@ -119,47 +202,69 @@ export const getCardsMatchingQuery = (cards, searchFields, query) => {
     return getUniqueCardSet(cardsMatchingQuery);
 };
 
-export const getTitleAscSort = (cards) => {
-    return cards.sort((cardOne, cardTwo) => {
-        const cardOneTitle = get(cardOne, 'contentArea.title');
-        const cardTwoTitle = get(cardTwo, 'contentArea.title');
-        return cardOneTitle.localeCompare(cardTwoTitle);
-    });
-};
+/**
+* Returns all cards title sorted (A-Z)
+* @param {Array} cards - All cards in the card collection
+* @returns {Array} - All cards sorted by title
+*/
+export const getTitleAscSort = cards => cards.sort((cardOne, cardTwo) => {
+    const cardOneTitle = get(cardOne, 'contentArea.title');
+    const cardTwoTitle = get(cardTwo, 'contentArea.title');
+    return cardOneTitle.localeCompare(cardTwoTitle);
+});
 
-export const getTitleDescSort = (cards) => {
-    return getTitleAscSort(cards).reverse();
-};
+/**
+* Returns all cards title sorted (Z-A)
+* @param {Array} cards - All cards in the card collection
+* @returns {Array} - All cards sorted by title
+*/
+export const getTitleDescSort = cards => getTitleAscSort(cards).reverse();
 
-export const getFeaturedSort = (cards) => {
-    return getTitleAscSort(cards).sort((a, b) => {
-        if (a.isFeatured && b.isFeatured) {
-            return a.initialTitle < b.initialTitle ? -1 : 0;
-        } else if (a.isFeatured) {
-            return -1;
-        } else if (b.isFeatured) {
-            return 1;
-        }
-        return 0;
-    });
-};
+/**
+* Returns all cards Feature sorted
+* Feature sort is Title (A-Z) sort but with all Featured Cards Injected to Front
+* @param {Array} cards - All cards in the card collection
+* @returns {Array} - All cards sorted by title
+*/
+export const getFeaturedSort = cards => getTitleAscSort(cards).sort((a, b) => {
+    if (a.isFeatured && b.isFeatured) {
+        return a.initialTitle < b.initialTitle ? -1 : 0;
+    } else if (a.isFeatured) {
+        return -1;
+    } else if (b.isFeatured) {
+        return 1;
+    }
+    return 0;
+});
 
-export const getDateAscSort = (cards) => {
-    return cards.sort((cardOne, cardTwo) => {
-        const cardOneDate = get(cardOne, 'cardDate');
-        const cardTwoDate = get(cardTwo, 'cardDate');
-        if(cardOneDate && cardTwoDate){
-            return cardOneDate.localeCompare(cardTwoDate);
-        } else {
-            return 0;
-        }
-    });
-};
+/**
+* Returns all Cards Date Sorted (Old To New)
+* @param {Array} cards - All cards in the card collection
+* @returns {Array} - All cards sorted by Date
+*/
+export const getDateAscSort = cards => cards.sort((cardOne, cardTwo) => {
+    const cardOneDate = get(cardOne, 'cardDate');
+    const cardTwoDate = get(cardTwo, 'cardDate');
+    if (cardOneDate && cardTwoDate) {
+        return cardOneDate.localeCompare(cardTwoDate);
+    }
+    return 0;
+});
 
-export const getDateDescSort = (cards) => {
-    return getDateAscSort(cards).reverse();
-};
+/**
+* Returns all Cards Date Sorted (New To Old)
+* @param {Array} cards - All cards in the card collection
+* @returns {Array} - All cards sorted by Date
+*/
+export const getDateDescSort = cards => getDateAscSort(cards).reverse();
 
+/**
+* Gets all cards that matches a users search query
+* @param {String} query - The users search query
+* @param {Array} cards - All cards in the card collection
+* @param {Array} searchFields - All authored search fields to check
+* @returns {Array} - All cards that match the user's query for a given set of search fields
+*/
 export const getCardsMatchingSearch = (query, cards, searchFields) => {
     if (!query) {
         return cards;
@@ -169,17 +274,29 @@ export const getCardsMatchingSearch = (query, cards, searchFields) => {
     return cardsMatchingQuery;
 };
 
-const joinCardSets = (cardSetOne, cardSetTwo) => {
-    return cardSetOne.concat(cardSetTwo);
-}
+/**
+* Joins two sets of cards
+* @param {Array} cardSetOne - Set one of cards to join
+* @param {Array} cardSetTwo - Set two of cards to join
+* @returns {Array} - Cards sets one and two joined
+*/
+const joinCardSets = (cardSetOne, cardSetTwo) => cardSetOne.concat(cardSetTwo);
 
-export const processCards = (featuredCards, rawCards) => {
-    return removeDuplicatesByKey(joinCardSets(featuredCards, rawCards), 'id');
-}
+/**
+* Processes featured cards with raw cards received from API response
+* @param {Array} featuredCards - Authored Featured Cards
+* @param {Array} rawCards - Cards from API response
+* @returns {Array} - Set of cards processed
+*/
+export const processCards = (featuredCards, rawCards) => removeDuplicatesByKey(joinCardSets(featuredCards, rawCards), 'id');
 
-export const getUpdatedCardBookmarkData = (cards, bookmarkedCardIds) => {
-   return cards.map(card => ({
-        ...card,
-        isBookmarked: bookmarkedCardIds.some(i => i === card.id),
-    }));
-}
+/**
+* Helper method for effect that adds bookmark meta data to cards
+* @param {Array} cards - All cards in card collection
+* @param {Array} bookmarkedCardIds - All bookmarked card ids
+* @returns {Array} - Cards with bookmark meta data
+*/
+export const getUpdatedCardBookmarkData = (cards, bookmarkedCardIds) => cards.map(card => ({
+    ...card,
+    isBookmarked: bookmarkedCardIds.some(i => i === card.id),
+}));

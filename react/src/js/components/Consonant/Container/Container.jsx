@@ -583,7 +583,7 @@ const Container = (props) => {
      */
     const displayPagination = shouldDisplayPaginator(
         paginationIsEnabled,
-        resultsPerPage,
+        totalCardLimit,
         collectionCards.length,
     );
     /**
