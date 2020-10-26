@@ -1,39 +1,29 @@
-import React from 'react';
-import { screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+import {
+    screen,
+    fireEvent,
+} from '@testing-library/react';
 
 import Panel from '../Panel';
-import Search from '../../../Search/Search';
-import Bookmarks from '../../../Bookmarks/Bookmarks';
-
+import setup from '../../../Testing/Utils/Settings';
 import {
     DEFAULT_PROPS,
     NON_DESKTOP_WIDTH,
     selectedAllFilters,
 } from '../../../Testing/Constants/FilterPanelLeft';
 
-import { DEFAULT_PROPS as SEARCH_DEFAULT_PROPS } from '../../../Testing/Constants/Search';
-import { DEFAULT_PROPS as BOOKMARKS_DEFAULT_PROPS } from '../../../Testing/Constants/Bookmarks';
-
-import makeSetup from '../../../Testing/Utils/Settings';
-
-const setup = makeSetup(Panel, DEFAULT_PROPS);
-
-const CHILD_COMPONENTS = {
-    search: <Search {...SEARCH_DEFAULT_PROPS} />,
-    bookmarks: <Bookmarks {...BOOKMARKS_DEFAULT_PROPS} />,
-};
+const renderFilterPanel = setup(Panel, DEFAULT_PROPS);
 
 describe('Consonant/Left/Panel', () => {
-    test('should render all filters', () => {
-        const { props: { filters } } = setup();
+    test('should be able to render all filters', () => {
+        const { props: { filters } } = renderFilterPanel();
 
         const filterGroupElements = screen.queryAllByTestId('filter-group');
 
         expect(filterGroupElements).toHaveLength(filters.length);
     });
     test('should render total results', () => {
-        setup({
+        renderFilterPanel({
             showTotalResults: true,
             windowWidth: NON_DESKTOP_WIDTH,
         });
@@ -43,12 +33,12 @@ describe('Consonant/Left/Panel', () => {
         expect(footerTotalResElement).not.toBeNull();
     });
 
-    test('should render non-desktop elements when filters selected', () => {
+    test('should be able too render mobile/tablet elements when filters selected', () => {
         const {
             config: {
                 filterPanel: { i18n: { leftPanel: { mobile: { panel: { applyBtnText } } } } },
             },
-        } = setup({
+        } = renderFilterPanel({
             filters: selectedAllFilters,
             windowWidth: NON_DESKTOP_WIDTH,
         });
@@ -62,65 +52,63 @@ describe('Consonant/Left/Panel', () => {
         expect(mobileFooterBtnElement).toHaveTextContent(applyBtnText);
     });
 
-    describe('Interaction with UI', () => {
-        test('should call onFilterClick', () => {
-            const { props: { onFilterClick } } = setup();
+    test('Should be able to select a filter', () => {
+        const { props: { onFilterClick } } = renderFilterPanel();
 
-            const [filterItemElement] = screen.queryAllByTestId('filter-item-link');
+        const [filterItemElement] = screen.queryAllByTestId('filter-item-link');
 
-            expect(filterItemElement).toBeDefined();
+        expect(filterItemElement).toBeDefined();
 
-            fireEvent.click(filterItemElement);
+        fireEvent.click(filterItemElement);
 
-            expect(onFilterClick).toBeCalled();
+        expect(onFilterClick).toBeCalled();
+    });
+    test('Should be able to clear all filters', () => {
+        const { props: { onClearAllFilters } } = renderFilterPanel();
+
+        const clearButtonElement = screen.queryByTestId('left-filter-panel-clear-all-btn');
+
+        expect(clearButtonElement).not.toBeNull();
+
+        fireEvent.click(clearButtonElement);
+
+        expect(onClearAllFilters).toBeCalled();
+        onClearAllFilters.mockClear();
+    });
+    test('Should be able to clear all filters using a mobile footer', () => {
+        const { props: { onClearAllFilters } } = renderFilterPanel({
+            filters: selectedAllFilters,
+            windowWidth: NON_DESKTOP_WIDTH,
         });
-        test('should call onClearAllFilters', () => {
-            const { props: { onClearAllFilters } } = setup();
 
-            const clearButtonElement = screen.queryByTestId('left-filter-panel-clear-all-btn');
+        const mobileFooterClearElement = screen.queryByTestId('mobile-footer-clear');
 
-            expect(clearButtonElement).not.toBeNull();
+        expect(mobileFooterClearElement).not.toBeNull();
 
-            fireEvent.click(clearButtonElement);
+        fireEvent.click(mobileFooterClearElement);
 
-            expect(onClearAllFilters).toBeCalled();
-            onClearAllFilters.mockClear();
+        expect(onClearAllFilters).toBeCalled();
+        onClearAllFilters.mockClear();
+    });
+    test('should be able to toggle on mobile', () => {
+        const { props: { onMobileFiltersToggleClick } } = renderFilterPanel({
+            windowWidth: NON_DESKTOP_WIDTH,
         });
-        test('should call onClearAllFilters on mobile footer clear', () => {
-            const { props: { onClearAllFilters } } = setup({
-                filters: selectedAllFilters,
-                windowWidth: NON_DESKTOP_WIDTH,
-            });
 
-            const mobileFooterClearElement = screen.queryByTestId('mobile-footer-clear');
+        const mobileButtonBackElement = screen.queryByText('Back');
 
-            expect(mobileFooterClearElement).not.toBeNull();
+        expect(mobileButtonBackElement).not.toBeNull();
 
-            fireEvent.click(mobileFooterClearElement);
+        fireEvent.click(mobileButtonBackElement);
 
-            expect(onClearAllFilters).toBeCalled();
-            onClearAllFilters.mockClear();
-        });
-        test('should call onMobileFiltersToggleClick', () => {
-            const { props: { onMobileFiltersToggleClick } } = setup({
-                windowWidth: NON_DESKTOP_WIDTH,
-            });
+        expect(onMobileFiltersToggleClick).toHaveBeenCalledTimes(1);
 
-            const mobileButtonBackElement = screen.queryByText('Back');
+        const mobileFooterBtnElement = screen.queryByTestId('mobile-footer-btn');
 
-            expect(mobileButtonBackElement).not.toBeNull();
+        expect(mobileFooterBtnElement).not.toBeNull();
 
-            fireEvent.click(mobileButtonBackElement);
+        fireEvent.click(mobileFooterBtnElement);
 
-            expect(onMobileFiltersToggleClick).toHaveBeenCalledTimes(1);
-
-            const mobileFooterBtnElement = screen.queryByTestId('mobile-footer-btn');
-
-            expect(mobileFooterBtnElement).not.toBeNull();
-
-            fireEvent.click(mobileFooterBtnElement);
-
-            expect(onMobileFiltersToggleClick).toHaveBeenCalledTimes(2);
-        });
+        expect(onMobileFiltersToggleClick).toHaveBeenCalledTimes(2);
     });
 });
