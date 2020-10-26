@@ -54,8 +54,7 @@ const Button = ({
                 height="20"
                 className={iconClass}
                 alt={iconAlt}
-                loading="lazy"
-            />
+                loading="lazy" />
             }
             <span>{text}</span>
         </a>

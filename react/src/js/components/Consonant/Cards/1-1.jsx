@@ -1,4 +1,3 @@
-/*eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useConfig, useLazyLoading } from '../Helpers/hooks';
@@ -39,7 +38,7 @@ const AspectRatio1to1Card = (props) => {
             },
             label: {
                 description: badgeText,
-            }
+            },
         },
     } = props;
 
@@ -52,7 +51,7 @@ const AspectRatio1to1Card = (props) => {
     const detailText = prettyDate || label || '';
 
     const imageRef = React.useRef();
-    const [ lazyLoadedImage ] = useLazyLoading(imageRef, image);
+    const [lazyLoadedImage] = useLazyLoading(imageRef, image);
 
     return (
         <div
@@ -98,20 +97,21 @@ const AspectRatio1to1Card = (props) => {
                         rel="noreferrer"
                         className="consonant-aspect-ratio-1-1-card--video-ico"
                         tabIndex="0">
+                        {videoURL}
                     </a>
                 }
                 {logoSrc &&
-                    <div style={({
-                        backgroundColor: logoBg,
-                        borderColor: logoBorderBg,
-                    })}
+                    <div
+                        style={({
+                            backgroundColor: logoBg,
+                            borderColor: logoBorderBg,
+                        })}
                         className="consonant-aspect-ratio-1-1-card--logo">
                         <img
                             src={logoSrc}
                             alt={logoAlt}
                             loading="lazy"
-                            width="32"
-                        />
+                            width="32" />
                     </div>}
             </div>
             <a
@@ -125,20 +125,20 @@ const AspectRatio1to1Card = (props) => {
                     <span
                         data-testid="1-1-card--label"
                         className="consonant-aspect-ratio-1-1-card--label">
-                            {detailText}
-                        </span>
+                        {detailText}
+                    </span>
                 }
                 {
-                  title &&
-                  <h2 className="consonant-aspect-ratio-1-1-card--title">
-                    {title}
-                  </h2>
+                    title &&
+                    <h2 className="consonant-aspect-ratio-1-1-card--title">
+                        {title}
+                    </h2>
                 }
                 {
-                  description &&
-                  <p className="consonant-aspect-ratio-1-1-card--text">
-                    {description}
-                  </p>
+                    description &&
+                    <p className="consonant-aspect-ratio-1-1-card--text">
+                        {description}
+                    </p>
                 }
             </a>
         </div>
@@ -149,34 +149,44 @@ export default AspectRatio1to1Card;
 
 AspectRatio1to1Card.propTypes = {
     id: PropTypes.string.isRequired,
-    title: PropTypes.string,
-    description: PropTypes.string,
-    label: PropTypes.string,
-    image: PropTypes.string,
-    bannerDescription: PropTypes.string,
-    bannerFontColor: PropTypes.string,
-    bannerBackgroundColor: PropTypes.string,
-    bannerIcon: PropTypes.string,
-    badgeText: PropTypes.string,
     ctaLink: PropTypes.string,
-    videoURL: PropTypes.string,
-    logoSrc: PropTypes.string,
-    logoAlt: PropTypes.string,
-    logoBg: PropTypes.string,
-    logoBorderBg: PropTypes.string,
+    styles: PropTypes.shape({
+        backgroundImage: PropTypes.string,
+    }),
+    contentArea: PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.string,
+        detailText: PropTypes.string,
+        dateDetailText: PropTypes.shape({
+            startTime: PropTypes.string,
+            endTime: PropTypes.string,
+        }),
+    }),
+    overlays: PropTypes.shape({
+        banner: PropTypes.shape({
+            description: PropTypes.string,
+            fontColor: PropTypes.string,
+            backgroundColor: PropTypes.string,
+            icon: PropTypes.string,
+        }),
+        videoButton: PropTypes.shape({
+            url: PropTypes.string,
+        }),
+        logo: PropTypes.shape({
+            src: PropTypes.string,
+            alt: PropTypes.string,
+            backgroundColor: PropTypes.string,
+            borderColor: PropTypes.string,
+        }),
+        label: PropTypes.shape({
+            description: PropTypes.string,
+        }),
+    }),
 };
 
 AspectRatio1to1Card.defaultProps = {
-    bannerIcon: '',
-    bannerDescription: '',
-    bannerFontColor: '',
-    bannerBackgroundColor: '',
-    badgeText: '',
-    label: '',
     ctaLink: '',
-    videoURL: '',
-    logoSrc: '',
-    logoAlt: '',
-    logoBg: '',
-    logoBorderBg: '',
+    styles: {},
+    contentArea: {},
+    overlays: {},
 };

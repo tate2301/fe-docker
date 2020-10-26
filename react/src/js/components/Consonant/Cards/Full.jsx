@@ -1,4 +1,3 @@
-/*eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useLazyLoading } from '../Helpers/hooks';
@@ -6,6 +5,7 @@ import { useLazyLoading } from '../Helpers/hooks';
 const FullCard = (props) => {
     const {
         id,
+        ctaLink,
         styles: {
             backgroundImage: image,
         },
@@ -32,12 +32,12 @@ const FullCard = (props) => {
             },
             label: {
                 description: badgeText,
-            }
+            },
         },
     } = props;
 
     const imageRef = React.useRef();
-    const [ lazyLoadedImage ] = useLazyLoading(imageRef, image);
+    const [lazyLoadedImage] = useLazyLoading(imageRef, image);
 
     return (
         <div
@@ -86,7 +86,9 @@ const FullCard = (props) => {
                         target="_blank"
                         rel="noreferrer"
                         className="consonant-full-card--video-ico"
-                        tabIndex="0"/>
+                        tabIndex="0">
+                        {videoURL}
+                    </a>
                 }
                 {logoSrc &&
                     <div
@@ -99,12 +101,11 @@ const FullCard = (props) => {
                             src={logoSrc}
                             alt={logoAlt}
                             loading="lazy"
-                            width="32"
-                        />
+                            width="32" />
                     </div>}
             </div>
             <a
-                href="ctaLink"
+                href={ctaLink}
                 target="_blank"
                 rel="noreferrer"
                 title=""
@@ -128,34 +129,45 @@ const FullCard = (props) => {
 export default FullCard;
 
 FullCard.propTypes = {
-    id: PropTypes.string,
-    title: PropTypes.string,
-    label: PropTypes.string,
-    image: PropTypes.string,
-    bannerDescription: PropTypes.string,
-    bannerFontColor: PropTypes.string,
-    bannerBackgroundColor: PropTypes.string,
-    bannerIcon: PropTypes.string,
-    badgeText: PropTypes.string,
+    id: PropTypes.string.isRequired,
     ctaLink: PropTypes.string,
-    videoURL: PropTypes.string,
-    logoSrc: PropTypes.string,
-    logoAlt: PropTypes.string,
-    logoBg: PropTypes.string,
-    logoBorderBg: PropTypes.string,
+    styles: PropTypes.shape({
+        backgroundImage: PropTypes.string,
+    }),
+    contentArea: PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.string,
+        detailText: PropTypes.string,
+        dateDetailText: PropTypes.shape({
+            startTime: PropTypes.string,
+            endTime: PropTypes.string,
+        }),
+    }),
+    overlays: PropTypes.shape({
+        banner: PropTypes.shape({
+            description: PropTypes.string,
+            fontColor: PropTypes.string,
+            backgroundColor: PropTypes.string,
+            icon: PropTypes.string,
+        }),
+        videoButton: PropTypes.shape({
+            url: PropTypes.string,
+        }),
+        logo: PropTypes.shape({
+            src: PropTypes.string,
+            alt: PropTypes.string,
+            backgroundColor: PropTypes.string,
+            borderColor: PropTypes.string,
+        }),
+        label: PropTypes.shape({
+            description: PropTypes.string,
+        }),
+    }),
 };
 
 FullCard.defaultProps = {
-    bannerIcon: '',
-    bannerDescription: '',
-    bannerFontColor: '',
-    bannerBackgroundColor: '',
-    badgeText: '',
-    label: '',
     ctaLink: '',
-    videoURL: '',
-    logoSrc: '',
-    logoAlt: '',
-    logoBg: '',
-    logoBorderBg: '',
+    styles: {},
+    contentArea: {},
+    overlays: {},
 };

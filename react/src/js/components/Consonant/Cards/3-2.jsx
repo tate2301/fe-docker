@@ -1,54 +1,67 @@
-/*eslint-disable */
-import React  from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'react-uuid';
 import { useConfig, useLazyLoading } from '../Helpers/hooks';
 import prettyFormatDate from '../Helpers/prettyFormat';
 import CardFooter from './CardFooter/CardFooter';
 import { INFOBIT_TYPE } from '../Helpers/constants';
 
-const AspectRatio3to2Card = ({
-    id,
-    footer,
-    disableBookmarkIco,
-    isBookmarked,
-    onClick,
-    dateFormat,
-    styles: {
-        backgroundImage: image,
-    },
-    contentArea: {
-        title,
-        detailText: label,
-        description,
-        dateDetailText: {
-            startTime,
-            endTime,
+const AspectRatio3to2Card = (props) => {
+    const {
+        id,
+        footer,
+        disableBookmarkIco,
+        isBookmarked,
+        onClick,
+        dateFormat,
+        styles: {
+            backgroundImage: image,
         },
+        contentArea: {
+            title,
+            detailText: label,
+            description,
+            dateDetailText: {
+                startTime,
+                endTime,
+            },
 
-    },
-    overlays: {
-        banner: {
-            description: bannerDescription,
-            fontColor: bannerFontColor,
-            backgroundColor: bannerBackgroundColor,
-            icon: bannerIcon,
         },
-        videoButton: {
-            url: videoURL,
+        overlays: {
+            banner: {
+                description: bannerDescription,
+                fontColor: bannerFontColor,
+                backgroundColor: bannerBackgroundColor,
+                icon: bannerIcon,
+            },
+            videoButton: {
+                url: videoURL,
+            },
+            logo: {
+                src: logoSrc,
+                alt: logoAlt,
+                backgroundColor: logoBg,
+                borderColor: logoBorderBg,
+            },
+            label: {
+                description: badgeText,
+            },
         },
-        logo: {
-            src: logoSrc,
-            alt: logoAlt,
-            backgroundColor: logoBg,
-            borderColor: logoBorderBg,
-        },
-        label: {
-            description: badgeText,
-        }
-    },
-}) => {
+    } = props;
+
+    const imageRef = React.useRef();
+    const [lazyLoadedImage] = useLazyLoading(imageRef, image);
+
+    const getConfig = useConfig();
+
+    const i18nFormat = getConfig('collection', 'i18n.prettyDateIntervalFormat');
+    const locale = getConfig('language', '');
+
+    const prettyDate = startTime ? prettyFormatDate(startTime, endTime, locale, i18nFormat) : null;
+    const detailText = prettyDate || label || '';
+
     const extendFooterData = (data) => {
-        if (!data) return;
+        if (!data) return null;
 
         return data.map((el) => {
             if (el.type === INFOBIT_TYPE.BOOKMARK) {
@@ -69,17 +82,6 @@ const AspectRatio3to2Card = ({
             return el;
         });
     };
-
-    const imageRef = React.useRef();
-    const [ lazyLoadedImage ] = useLazyLoading(imageRef, image);
-
-    const getConfig = useConfig();
-
-    const i18nFormat = getConfig('collection', 'i18n.prettyDateIntervalFormat');
-    const locale = getConfig('language', '');
-
-    const prettyDate = startTime ? prettyFormatDate(startTime, endTime, locale, i18nFormat) : null;
-    const detailText = prettyDate || label || '';
 
     return (
         <div
@@ -123,20 +125,21 @@ const AspectRatio3to2Card = ({
                         target="_blank"
                         rel="noreferrer"
                         className="consonant-aspect-ratio-3-2-card--video-ico"
-                        tabIndex="0">Open video link
+                        tabIndex="0">
+                        {videoURL}
                     </a>}
                 {logoSrc &&
-                    <div style={({
-                        backgroundColor: logoBg,
-                        borderColor: logoBorderBg,
-                    })}
+                    <div
+                        style={({
+                            backgroundColor: logoBg,
+                            borderColor: logoBorderBg,
+                        })}
                         className="consonant-aspect-ratio-3-2-card--logo">
                         <img
                             src={logoSrc}
                             alt={logoAlt}
                             loading="lazy"
-                            width="32"
-                        />
+                            width="32" />
                     </div>}
             </div>
             <div className="consonant-aspect-ratio-3-2-card--inner">
@@ -149,18 +152,16 @@ const AspectRatio3to2Card = ({
                 </h2>
                 {
                     description &&
-                    <p
-                        className="consonant-aspect-ratio-3-2-card--text"
-                    >{description}</p>
+                    <p className="consonant-aspect-ratio-3-2-card--text">{description}</p>
                 }
-                {footer.map((f, index) => (
+                {footer.map(footerItem => (
                     <CardFooter
-                        divider={f.divider}
-                        isFluid={f.isFluid}
-                        key={index}
-                        left={extendFooterData(f.left)}
-                        center={extendFooterData(f.center)}
-                        right={extendFooterData(f.right)} />
+                        divider={footerItem.divider}
+                        isFluid={footerItem.isFluid}
+                        key={uuid()}
+                        left={extendFooterData(footerItem.left)}
+                        center={extendFooterData(footerItem.center)}
+                        right={extendFooterData(footerItem.right)} />
                 ))}
             </div>
         </div>
@@ -169,50 +170,52 @@ const AspectRatio3to2Card = ({
 
 export default AspectRatio3to2Card;
 
-const footerItemType = PropTypes.shape({
-    divider: PropTypes.bool,
-    left: PropTypes.arrayOf(PropTypes.shape({ type: PropTypes.string })),
-    center: PropTypes.arrayOf(PropTypes.shape({ type: PropTypes.string })),
-    right: PropTypes.arrayOf(PropTypes.shape({ type: PropTypes.string })),
-});
-
 AspectRatio3to2Card.propTypes = {
     id: PropTypes.string.isRequired,
-    title: PropTypes.string,
-    label: PropTypes.string,
-    description: PropTypes.string,
-    image: PropTypes.string,
-    bannerDescription: PropTypes.string,
-    bannerFontColor: PropTypes.string,
-    bannerBackgroundColor: PropTypes.string,
-    bannerIcon: PropTypes.string,
-    badgeText: PropTypes.string,
-    videoURL: PropTypes.string,
-    footer: PropTypes.arrayOf(footerItemType),
     disableBookmarkIco: PropTypes.bool,
-    isBookmarked: PropTypes.bool,
+    footer: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    isBookmarked: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired,
     dateFormat: PropTypes.string,
-    locale: PropTypes.string,
-    logoSrc: PropTypes.string,
-    logoAlt: PropTypes.string,
-    logoBg: PropTypes.string,
-    logoBorderBg: PropTypes.string,
+    styles: PropTypes.shape({
+        backgroundImage: PropTypes.string,
+    }),
+    contentArea: PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.string,
+        detailText: PropTypes.string,
+        dateDetailText: PropTypes.shape({
+            startTime: PropTypes.string,
+            endTime: PropTypes.string,
+        }),
+    }),
+    overlays: PropTypes.shape({
+        banner: PropTypes.shape({
+            description: PropTypes.string,
+            fontColor: PropTypes.string,
+            backgroundColor: PropTypes.string,
+            icon: PropTypes.string,
+        }),
+        videoButton: PropTypes.shape({
+            url: PropTypes.string,
+        }),
+        logo: PropTypes.shape({
+            src: PropTypes.string,
+            alt: PropTypes.string,
+            backgroundColor: PropTypes.string,
+            borderColor: PropTypes.string,
+        }),
+        label: PropTypes.shape({
+            description: PropTypes.string,
+        }),
+    }),
 };
 
 AspectRatio3to2Card.defaultProps = {
-    bannerIcon: '',
-    bannerDescription: '',
-    bannerFontColor: '',
-    bannerBackgroundColor: '',
-    badgeText: '',
-    label: '',
-    videoURL: '',
-    title: '',
-    footer: {},
     disableBookmarkIco: false,
-    logoSrc: '',
-    logoAlt: '',
-    logoBg: '',
-    logoBorderBg: '',
+    footer: [],
+    dateFormat: '',
+    styles: {},
+    contentArea: {},
+    overlays: {},
 };
