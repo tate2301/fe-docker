@@ -1,7 +1,10 @@
 import sum from 'lodash/sum';
 import get from 'lodash/get';
 import { DEFAULT_CONFIG } from './constants';
-import { chainFromIterable, isNullish } from './general';
+import {
+    chainFromIterable,
+    isNullish,
+} from './general';
 
 export const getNumSelectedFilterItems = (filters) => {
     const filterItems = chainFromIterable(filters.map(f => f.items));

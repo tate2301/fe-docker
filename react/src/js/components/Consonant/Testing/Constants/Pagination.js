@@ -1,12 +1,3 @@
-export const PAGES_PROPS = [
-    { pageCount: 0, totalPages: 1, currentPageNumber: 0 },
-    { pageCount: 0, totalPages: 0, currentPageNumber: 1 },
-    { pageCount: 1, totalPages: 0, currentPageNumber: 0 },
-    { pageCount: 1, totalPages: 0, currentPageNumber: 1 },
-    { pageCount: 0, totalPages: 1, currentPageNumber: 1 },
-    { pageCount: 1, totalPages: 1, currentPageNumber: 0 },
-];
-
 export const DEFAULT_PROPS = {
     pageCount: 4,
     totalPages: 10,

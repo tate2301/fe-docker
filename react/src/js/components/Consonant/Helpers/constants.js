@@ -20,7 +20,7 @@ export const PAGINATION_COUNT = {
 };
 
 /**
- * Fitler Constants
+ * Filter Constants
  */
 
 export const FILTER_TYPES = {

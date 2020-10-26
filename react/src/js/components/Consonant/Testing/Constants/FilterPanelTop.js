@@ -1,7 +1,11 @@
 import React from 'react';
 import { filterPanel } from '../Mocks/config.json';
 
-const { clearFilterText, clearAllFiltersText, filters } = filterPanel;
+const {
+    clearFilterText,
+    clearAllFiltersText,
+    filters,
+} = filterPanel;
 
 export const TABLET_MIN_WIDTH = 768;
 export const MOBILE_MIN_WIDTH = 384;

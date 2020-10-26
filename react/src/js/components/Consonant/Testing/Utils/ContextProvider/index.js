@@ -1,7 +1,10 @@
 import { shape, node } from 'prop-types';
 import React, { useState, useCallback, useMemo } from 'react';
-import { ConfigContext, ExpandableContext } from '../../../Helpers/contexts';
 
+import {
+    ConfigContext,
+    ExpandableContext,
+} from '../../../Helpers/contexts';
 import { contextPropTypes } from './types';
 
 const ContextProvider = ({ context, children }) => {

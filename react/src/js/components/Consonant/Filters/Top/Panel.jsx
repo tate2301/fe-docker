@@ -2,10 +2,14 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import sum from 'lodash/sum';
 import React from 'react';
+
 import { isAtleastOneFilterSelected } from '../../Helpers/general';
-import { useConfig, useExpandable } from '../../Helpers/hooks';
 import SearchIcon from '../../Search/SearchIcon';
 import { Group as TopFilterItem } from './Group';
+import {
+    useConfig,
+    useExpandable,
+} from '../../Helpers/hooks';
 import {
     TABLET_MIN_WIDTH,
     MAX_TRUNCATED_FILTERS,
