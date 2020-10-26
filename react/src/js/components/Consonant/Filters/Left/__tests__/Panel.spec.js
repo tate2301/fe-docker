@@ -88,7 +88,7 @@ describe('Consonant/Left/Panel', () => {
             windowWidth: NON_DESKTOP_WIDTH,
         });
 
-        const mobileButtonBackElement = screen.queryByText('Back');
+        const mobileButtonBackElement = screen.queryByTestId('mobile-back-btn');
         expect(mobileButtonBackElement).not.toBeNull();
 
         fireEvent.click(mobileButtonBackElement);

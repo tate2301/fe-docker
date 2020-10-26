@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
 import { useConfig } from '../../Helpers/hooks';
 import { Info as MobileInfo } from './Mobile-Only/Info';
 import { renderTotalResults } from '../../Helpers/rendering';
@@ -36,26 +37,30 @@ const Info = (props) => {
         'consonant-filters-info--wrapper_no-line': !sortEnabled || !sortOptions.length,
     });
 
-    const totalResultsHtml = renderTotalResults(showTotalResultsText, cardsQty);
+    const totalResultsText = renderTotalResults(showTotalResultsText, cardsQty);
     const mobileFilterBtnLabel = getConfig('filterPanel', 'i18n.leftPanel.mobile.filtersBtnLabel');
 
     const DESKTOP_MIN_WIDTH = 1200;
     const NOT_DESKTOP_SCREEN_SIZE = windowWidth < DESKTOP_MIN_WIDTH;
+
+    const shouldRenderSortPopup = sortEnabled && sortOptions.length > 0;
+    const shouldRenderSearch = searchEnabled && NOT_DESKTOP_SCREEN_SIZE;
+    const shouldRenderMobileInfo = NOT_DESKTOP_SCREEN_SIZE && filtersQty > 0 && enabled;
 
     return (
         <aside
             data-testid="consonant-filters__info"
             className={containerClassName}>
             <div className="consonant-filters-info--search">
-                {searchEnabled && NOT_DESKTOP_SCREEN_SIZE && searchComponent}
+                {shouldRenderSearch && searchComponent}
             </div>
-            {NOT_DESKTOP_SCREEN_SIZE && filtersQty > 0 && enabled &&
+            {shouldRenderMobileInfo &&
                 <MobileInfo
                     selectedFiltersQty={selectedFiltersQty}
                     mobileFilterBtnLabel={mobileFilterBtnLabel}
                     onMobileFiltersToggleClick={onMobileFiltersToggleClick} />
             }
-            {sortEnabled && sortOptions.length > 0 && sortComponent}
+            {shouldRenderSortPopup && sortComponent}
             <div className={wrapperClassName}>
                 {title &&
                     <h2
@@ -68,7 +73,7 @@ const Info = (props) => {
                     <div
                         data-testid="results"
                         className="consonant-filters-info--results">
-                        {totalResultsHtml}
+                        {totalResultsText}
                     </div>
                 }
             </div>

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import sum from 'lodash/sum';
 import React from 'react';
+
 import ChosenFilter from './Desktop-Only/ChosenItem';
 import { isAtleastOneFilterSelected } from '../../Helpers/general';
 import { useConfig } from '../../Helpers/hooks';
@@ -50,6 +51,10 @@ const LeftFilterPanel = ({
     const DESKTOP_SCREEN_SIZE = windowWidth >= DESKTOP_MIN_WIDTH;
     const NOT_DESKTOP_SCREEN_SIZE = windowWidth < DESKTOP_MIN_WIDTH;
 
+    const shouldRenderSearchComponent = windowWidth >= DESKTOP_MIN_WIDTH && searchEnabled;
+    const shouldRenderChosenFilters = windowWidth >= DESKTOP_MIN_WIDTH && selectedFiltersQty > 0;
+    const atleastOneFilter = filters.length > 0;
+
     return (
         <div
             data-testid="consonant-filters__left"
@@ -72,8 +77,8 @@ const LeftFilterPanel = ({
                         panelHeader={panelHeader} />
                 }
             </div>
-            {windowWidth >= DESKTOP_MIN_WIDTH && searchEnabled && searchComponent}
-            {windowWidth >= DESKTOP_MIN_WIDTH && selectedFiltersQty > 0 &&
+            {shouldRenderSearchComponent && searchComponent}
+            {shouldRenderChosenFilters &&
                 <div
                     className="consonant-left-filters--chosen-filters">
                     {filters.map(el => (
@@ -90,7 +95,7 @@ const LeftFilterPanel = ({
                 </div>
             }
             {bookmarksEnabled && bookmarkComponent}
-            {filters.length > 0 && (
+            {atleastOneFilter && (
                 <div className="consonant-left-filters--list">
                     {filters.map(filter => (
                         <Item

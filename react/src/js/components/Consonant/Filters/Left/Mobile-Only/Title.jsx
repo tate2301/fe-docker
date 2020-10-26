@@ -8,11 +8,10 @@ const Title = ({
     <div
         className="consonant-left-filters--mob-title">
         <button
+            data-testid="mobile-back-btn"
             type="button"
             onClick={onClick}
-            className="consonant-left-filters--mob-back">
-            Back
-        </button>
+            className="consonant-left-filters--mob-back" />
         <span>
             {leftPanelMobileHeader}
         </span>

@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+
 import { useConfig } from '../../Helpers/hooks';
 import { GroupFooter } from './Mobile-Only/GroupFooter';
 import { SelectedItem as DesktopSelectedItem } from './Desktop-Only/SelectedItem';
@@ -37,7 +38,7 @@ const Item = ({
 
     const applyBtnText = getConfig('filterPanel', 'i18n.leftPanel.mobile.group.applyBtnText');
     const doneBtnText = getConfig('filterPanel', 'i18n.leftPanel.mobile.group.doneBtnText');
-    const ctaText = numItemsSelected > 0 ? applyBtnText : doneBtnText;
+    const buttonText = numItemsSelected > 0 ? applyBtnText : doneBtnText;
 
     const leftFilterClassName = classNames({
         'consonant-left-filter': true,
@@ -45,6 +46,12 @@ const Item = ({
     });
 
     const dataQtyTxt = numItemsSelected > 0 ? `+${numItemsSelected}` : '';
+    const shouldRenderSelectedBadge = numItemsSelected > 0;
+    const selectedFilters = items.filter(item => item.selected);
+    const mobileTagsSelectedText = selectedFilters.map((item, index) => {
+        const lastItem = index === items.length - 1;
+        return (!lastItem ? `${item.label}, ` : item.label);
+    });
 
     return (
         <div
@@ -71,14 +78,12 @@ const Item = ({
                         <div
                             className="consonant-left-filter--selected-items-qty"
                             data-qty={dataQtyTxt}>
-                            {items.filter(i => i.selected).map((item, idx) =>
-                                (idx === items.length - 1 ? item.label : `${item.label}, `))
-                            }
+                            {mobileTagsSelectedText}
                         </div>
                     </button>
                 </h3>
                 {
-                    numItemsSelected > 0 &&
+                    shouldRenderSelectedBadge &&
                     <DesktopSelectedItem
                         handleClear={handleClear}
                         numItemsSelected={numItemsSelected} />
@@ -90,7 +95,7 @@ const Item = ({
                 }
                 {
                     <GroupFooter
-                        ctaText={ctaText}
+                        ctaText={buttonText}
                         handleClick={handleClick}
                         clearFilterText={clearFilterText}
                         handleClear={handleClear}

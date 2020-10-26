@@ -9,9 +9,11 @@ const Info = (props) => {
         selectedFiltersQty,
     } = props;
 
+    const atleastOneSelectedFilter = selectedFiltersQty > 0;
+
     const selectedFiltersQtyClassName = classNames({
         'consonant-filters-info--btn': true,
-        'consonant-filters-info--btn_with-filters': selectedFiltersQty > 0,
+        'consonant-filters-info--btn_with-filters': atleastOneSelectedFilter,
     });
 
     return (
@@ -30,7 +32,7 @@ const Info = (props) => {
                     {mobileFilterBtnLabel}
                 </span>
                 {
-                    selectedFiltersQty > 0 &&
+                    atleastOneSelectedFilter &&
                     <span
                         data-testid="btn-selected"
                         className="consonant-filters-info--btn-selected">

@@ -11,33 +11,36 @@ const PanelFooter = ({
     applyText,
     doneText,
     showTotalResultsText,
-}) => (
-    <div className="consonant-left-filters--mobile-footer">
-        {showTotalResults && (
-            <span
-                data-testid="mobile-footer-total-res"
-                className="consonant-left-filters--mobile-footer-total-res-qty">
-                {showTotalResultsText.replace('{total}', resQty)}
-            </span>
-        )}
-        {someFiltersAreSelected && (
+}) => {
+    const buttonText = someFiltersAreSelected ? applyText : doneText;
+    return (
+        <div className="consonant-left-filters--mobile-footer">
+            {showTotalResults && (
+                <span
+                    data-testid="mobile-footer-total-res"
+                    className="consonant-left-filters--mobile-footer-total-res-qty">
+                    {showTotalResultsText.replace('{total}', resQty)}
+                </span>
+            )}
+            {someFiltersAreSelected && (
+                <button
+                    type="button"
+                    data-testid="mobile-footer-clear"
+                    className="consonant-left-filters--mobile-footer-clear-btn"
+                    onClick={onClearAllFilters}>
+                    {clearAllFiltersText}
+                </button>
+            )}
             <button
                 type="button"
-                data-testid="mobile-footer-clear"
-                className="consonant-left-filters--mobile-footer-clear-btn"
-                onClick={onClearAllFilters}>
-                {clearAllFiltersText}
+                data-testid="mobile-footer-btn"
+                className="consonant-left-filters--mobile-footer-btn"
+                onClick={onMobileFiltersToggleClick}>
+                {buttonText}
             </button>
-        )}
-        <button
-            type="button"
-            data-testid="mobile-footer-btn"
-            className="consonant-left-filters--mobile-footer-btn"
-            onClick={onMobileFiltersToggleClick}>
-            {someFiltersAreSelected ? applyText : doneText}
-        </button>
-    </div>
-);
+        </div>
+    );
+};
 
 /* eslint-disable-next-line import/prefer-default-export */
 export { PanelFooter };
