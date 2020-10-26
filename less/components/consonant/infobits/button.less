@@ -1,5 +1,6 @@
 /* Available modifiers:
 - .consonant-btn-infobit_cta;
+- .consonant-btn-infobit--ico_last;
 */
 
 .consonant-btn-infobit {
@@ -73,6 +74,27 @@
 
         &:active span {
             color: @consonant-color-white;
+        }
+    }
+
+    .consonant-btn-infobit--ico {
+        width: auto;
+        height: auto;
+        max-width: @consonant-btn-infobit-ico-max-width;
+        max-height: @consonant-btn-infobit-ico-max-height;
+        margin-right: 8px;
+        overflow: hidden;
+        object-fit: cover;
+        user-select: none;
+
+        &.consonant-btn-infobit--ico_last {
+            order: 1;
+            margin-left: 8px;
+            margin-right: 0;
+        }
+
+        &:only-child {
+            margin: 0;
         }
     }
 }

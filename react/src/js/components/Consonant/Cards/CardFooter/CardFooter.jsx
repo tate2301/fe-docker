@@ -63,7 +63,7 @@ const CardFooter = (props) => {
      * Whether the center footer infobits should render
      * @type {Boolean}
      */
-    const shouldRenderRight = center && center.length > 0;
+    const shouldRenderRight = right && right.length > 0;
 
     return (
         <div
