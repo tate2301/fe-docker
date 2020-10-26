@@ -1,11 +1,16 @@
 import React from 'react';
-import { screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+import {
+    screen,
+    fireEvent,
+} from '@testing-library/react';
 
 import FilterPanelTop from '../Panel';
 import Popup from '../../../Sort/Popup';
 import Search from '../../../Search/Search';
-
+import setup from '../../../Testing/Utils/Settings';
+import { DEFAULT_PROPS as SEARCH_DEFAULT_PROPS } from '../../../Testing/Constants/Search';
+import { DEFAULT_PROPS as SELECT_DEFAULT_PROPS } from '../../../Testing/Constants/Select';
 import {
     DEFAULT_PROPS,
     TABLET_MIN_WIDTH,
@@ -13,12 +18,7 @@ import {
     MOBILE_MIN_WIDTH,
 } from '../../../Testing/Constants/FilterPanelTop';
 
-import { DEFAULT_PROPS as SEARCH_DEFAULT_PROPS } from '../../../Testing/Constants/Search';
-import { DEFAULT_PROPS as SELECT_DEFAULT_PROPS } from '../../../Testing/Constants/Select';
-
-import makeSetup from '../../../Testing/Utils/Settings';
-
-const setup = makeSetup(FilterPanelTop, DEFAULT_PROPS);
+const renderTopFilterPanel = setup(FilterPanelTop, DEFAULT_PROPS);
 
 const multipleFilters = [...DEFAULT_PROPS.filters, ...DEFAULT_PROPS.filters]
     .map((item, index) => ({ ...item, id: `${item}_${index}` }));
@@ -33,47 +33,45 @@ describe('Consonant/Filters/Top/Panel', () => {
         global.innerWidth = TABLET_MIN_WIDTH;
     });
 
-    test('Should render all groups of filters', () => {
-        const { props: { filters } } = setup({
+    test('Should be able to render all groups of filters', () => {
+        const { props: { filters } } = renderTopFilterPanel({
             filterPanelEnabled: true,
             filters: selectedAllFilters,
         });
 
         const filterGroupElements = screen.queryAllByTestId('filter-group');
-
         expect(filterGroupElements).toHaveLength(filters.length);
     });
-    test('Should display total results if authored', () => {
-        setup({ displayTotalResults: true });
+    test('Should be able to display total results if authored', () => {
+        renderTopFilterPanel({ displayTotalResults: true });
 
         const footerTotalResElement = screen.queryByTestId('filter-top-result-count');
-
         expect(footerTotalResElement).not.toBeNull();
     });
 
     test('Should be able to render a search box on mobile', () => {
-        setup({ windowWidth: MOBILE_MIN_WIDTH, searchComponent: CHILD_COMPONENTS.search });
+        renderTopFilterPanel({
+            windowWidth: MOBILE_MIN_WIDTH,
+            searchComponent: CHILD_COMPONENTS.search,
+        });
 
         const footerTotalResElement = screen.queryByTestId('top-filters__search-wrapper');
-
         expect(footerTotalResElement).not.toBeNull();
     });
-    test('Should renders correctly without search', () => {
-        setup({ searchComponent: CHILD_COMPONENTS.search });
+    test('Should be able to render correctly without search', () => {
+        renderTopFilterPanel({ searchComponent: CHILD_COMPONENTS.search });
 
         const footerTotalResElement = screen.queryByTestId('top-filters__search-wrapper');
-
         expect(footerTotalResElement).toBeNull();
     });
     test('Should be able to show the Sort Popup', () => {
-        setup({ sortComponent: CHILD_COMPONENTS.select });
+        renderTopFilterPanel({ sortComponent: CHILD_COMPONENTS.select });
 
         const footerTotalResElement = screen.queryByTestId('top-filters__sort-popup');
-
         expect(footerTotalResElement).not.toBeNull();
     });
 
-    test('should renders more button with correct text', () => {
+    test('Should be able to render the more button with correct text', () => {
         const {
             config: {
                 filterPanel: {
@@ -84,40 +82,52 @@ describe('Consonant/Filters/Top/Panel', () => {
                     },
                 },
             },
-        } = setup({
+        } = renderTopFilterPanel({
             filterPanelEnabled: true,
             filters: multipleFilters,
             showLimitedFiltersQty: true,
         });
 
         const footerTotalResElement = screen.queryByTestId('top-filter__more-button');
-
         expect(footerTotalResElement).toHaveTextContent(moreFiltersBtnText);
     });
-    test('should renders clear button wrapper without background', () => {
+    test('Should be able to render the clear button wrapper without a background', () => {
         const [firstSelectedFilter] = selectedAllFilters;
 
-        setup({
+        renderTopFilterPanel({
             filterPanelEnabled: true,
             showLimitedFiltersQty: true,
             filters: [firstSelectedFilter],
         });
 
         const clearButtonWrapperElement = screen.queryByTestId('top-filter__clear-button-wrapper');
-
         expect(clearButtonWrapperElement).toHaveClass('consonant-top-filters--clear-btn-wrapper_no-bg');
     });
 
-    test('Filter Group Button Should Exist', () => {
-        setup({ filterPanelEnabled: true });
+    test('Should be able to show the Filter Group Button', () => {
+        renderTopFilterPanel({ filterPanelEnabled: true });
 
         const [filterGroupBtn] = screen.queryAllByTestId('filter-group-btn');
-
         expect(filterGroupBtn).toBeDefined();
     });
 
-    test('should show clear all filters text', () => {
-        setup({
+    test('Should show the clear all filters text', () => {
+        renderTopFilterPanel({
+            filterPanelEnabled: true,
+            filters: selectedAllFilters,
+            showLimitedFiltersQty: true,
+        });
+
+        const clearButtonElement = screen.queryByTestId('top-filter__clear-button');
+        expect(clearButtonElement).not.toBeNull();
+    });
+
+    test('The clear all filters button should work', () => {
+        const {
+            props: {
+                onClearAllFilters,
+            },
+        } = renderTopFilterPanel({
             filterPanelEnabled: true,
             filters: selectedAllFilters,
             showLimitedFiltersQty: true,
@@ -125,26 +135,7 @@ describe('Consonant/Filters/Top/Panel', () => {
 
         const clearButtonElement = screen.queryByTestId('top-filter__clear-button');
 
-        expect(clearButtonElement).not.toBeNull();
-    });
-
-    describe('Testing UI Interactions', () => {
-        test('When "Clear All Filters" is clicked, the appropriate event handler should be called', () => {
-            const {
-                props: {
-                    onClearAllFilters,
-                },
-            } = setup({
-                filterPanelEnabled: true,
-                filters: selectedAllFilters,
-                showLimitedFiltersQty: true,
-            });
-
-            const clearButtonElement = screen.queryByTestId('top-filter__clear-button');
-
-            fireEvent.click(clearButtonElement);
-
-            expect(onClearAllFilters).toBeCalled();
-        });
+        fireEvent.click(clearButtonElement);
+        expect(onClearAllFilters).toBeCalled();
     });
 });
