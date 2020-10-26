@@ -89,4 +89,19 @@ describe('Consonant/Search', () => {
 
         expect(searchInput.value).toEqual('Search string');
     });
+    test('Should be able to search through cards', async () => {
+        const configToUse = config;
+        configToUse.filterPanel.filterLogic = 'xor';
+        await act(async () => render(<Container config={configToUse} />));
+
+        await waitFor(() => screen.getByTestId('consonant-collection'));
+
+        const searchInput = screen.getByTestId('search-input');
+
+        fireEvent.change(searchInput, { target: { value: 'Some Title 5' } });
+
+        await waitFor(() => screen.getByTestId('consonant-collection'));
+
+        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(1);
+    });
 });
