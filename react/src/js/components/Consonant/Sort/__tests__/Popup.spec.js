@@ -7,7 +7,7 @@ import setup from '../../Testing/Utils/Settings';
 
 const renderSortPopup = setup(Popup, DEFAULT_PROPS);
 
-describe('Sort Popup', () => {
+describe('Consonant/Sort/Popup', () => {
     test('Should show all sort options', async () => {
         const { props: { values } } = renderSortPopup();
         const sortPopup = screen.getByTestId('select-button');

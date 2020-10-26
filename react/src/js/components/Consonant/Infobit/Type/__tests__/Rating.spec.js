@@ -7,7 +7,7 @@ import {
 
 import Rating from '../Rating';
 
-describe('Consonant/Infobits/Rating', () => {
+describe('Consonant/Infobits/Type/Rating', () => {
     test('If invalid ratings are authored, do not show any filled stars', async () => {
         const props = {
             totalStars: -1,

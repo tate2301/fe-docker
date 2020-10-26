@@ -19,7 +19,7 @@ global.fetch = jest.fn(() =>
 
 setupIntersectionObserverMock();
 
-describe('Consonant/Results Per Page', () => {
+describe('Consonant/Container/Results Per Page', () => {
     test('should render default count of cards if incorrectly authored', async () => {
         const configToUse = config;
         configToUse.collection.resultsPerPage = null;

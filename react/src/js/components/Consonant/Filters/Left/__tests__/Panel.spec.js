@@ -24,7 +24,7 @@ const CHILD_COMPONENTS = {
     bookmarks: <Bookmarks {...BOOKMARKS_DEFAULT_PROPS} />,
 };
 
-describe('Consonant/FilterPanelLeft', () => {
+describe('Consonant/Left/Panel', () => {
     test('should render all filters', () => {
         const { props: { filters } } = setup();
 

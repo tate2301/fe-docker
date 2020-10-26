@@ -9,7 +9,7 @@ import setup from '../../Testing/Utils/Settings';
 
 const renderLoadMore = setup(LoadMore, DEFAULT_PROPS);
 
-describe('Consonant/LoadMore', () => {
+describe('Consonant/Pagination/Load More', () => {
     test('If there are no results, load more should not render', () => {
         const { wrapper: { container } } = renderLoadMore({ total: 0 });
 

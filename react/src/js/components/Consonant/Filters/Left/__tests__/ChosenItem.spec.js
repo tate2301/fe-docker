@@ -9,7 +9,7 @@ import makeSetup from '../../../Testing/Utils/Settings';
 
 const setup = makeSetup(ChosenItem, DEFAULT_PROPS);
 
-describe('Consonant/ChosenItem', () => {
+describe('Consonant/Filters/Left/Chosen Item', () => {
     describe('Interaction with UI', () => {
         test('should call onOpen', () => {
             const {

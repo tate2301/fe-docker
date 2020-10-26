@@ -16,7 +16,7 @@ const props = {
     srcAltText: 'Some Src Alt Txt',
 };
 
-describe('Consoonant/Infobits/Link With Icon', () => {
+describe('Consoonant/Infobits/Type/Link With Icon', () => {
     test('Loads with default props', async () => {
         const propsToUse = props;
         const { getByText } = render(<LinkWithIcon {...propsToUse} />);

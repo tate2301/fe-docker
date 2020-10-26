@@ -9,8 +9,7 @@ const setup = makeSetup(SearchIcon, {
     onClick: jest.fn(),
 });
 
-describe('Consonant/SearchIco', () => {
-
+describe('Consonant/SearchIcon', () => {
     describe('Interaction with UI', () => {
         test('should call onClick', () => {
             const { props: { onClick } } = setup();

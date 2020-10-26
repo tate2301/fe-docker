@@ -19,7 +19,7 @@ global.fetch = jest.fn(() =>
 
 setupIntersectionObserverMock();
 
-describe('Container/Different Card Styles', () => {
+describe('Consonant/Container/Card Styles', () => {
     test('can render the full-card style', async () => {
         const configToUse = config;
         configToUse.collection.cardStyle = 'full-card';

@@ -24,7 +24,7 @@ global.fetch = jest.fn(() =>
 
 setupIntersectionObserverMock();
 
-describe('Consonant/Load More Button', () => {
+describe('Consonant/Container/Load More Button', () => {
     test('should be able to render the load more button', async () => {
         const configToUse = config;
         config.pagination.type = 'loadMore';

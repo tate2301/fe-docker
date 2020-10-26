@@ -7,7 +7,7 @@ import {
 
 import Button from '../Button';
 
-describe('Consonant/Infobits/Button', () => {
+describe('Consonant/Infobits/Type/Button', () => {
     test('Buttons should be able to render when the cta style is authored', async () => {
         render(<Button {...{ style: 'call-to-action' }} />);
 

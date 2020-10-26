@@ -9,7 +9,7 @@ import setup from '../../Testing/Utils/Settings';
 
 const renderCard = setup(Card, DEFAULT_PROPS_1_1);
 
-describe('Consonant/Card', () => {
+describe('Consonant/Card/1:1', () => {
     test('should renders banner correctly', () => {
         const {
             props: {

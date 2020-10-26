@@ -19,7 +19,7 @@ const renderComponent = setup(Paginator, DEFAULT_PROPS);
 
 const { pagination: { i18n: { paginator: { resultsQuantityText } } } } = config;
 
-describe('Consonant/Pagination', () => {
+describe('Consonant/Pagination/Paginator', () => {
     test('Pagination summary should work for different page ranges', () => {
         PAGE_LIST.forEach((page) => {
             const { props: { showItemsPerPage, totalResults }, wrapper } =

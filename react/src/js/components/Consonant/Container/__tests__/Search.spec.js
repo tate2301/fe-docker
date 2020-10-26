@@ -22,7 +22,7 @@ global.fetch = jest.fn(() =>
     }));
 
 
-describe('Consonant/Search', () => {
+describe('Consonant/Container/Search', () => {
     test('Should be able to clear search box', async () => {
         const configToUse = config;
         configToUse.filterPanel.enabled = true;

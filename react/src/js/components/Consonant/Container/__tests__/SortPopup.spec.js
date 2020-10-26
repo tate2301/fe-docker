@@ -22,7 +22,7 @@ global.fetch = jest.fn(() =>
 
 setupIntersectionObserverMock();
 
-describe('Consonant/Sort Popup', () => {
+describe('Consonant/Container/Sort Popup', () => {
     test('should be able to open the sort popup', async () => {
         const configToUse = config;
         await act(async () => render(<Container config={configToUse} />));

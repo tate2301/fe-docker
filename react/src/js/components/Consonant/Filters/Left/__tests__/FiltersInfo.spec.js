@@ -17,7 +17,7 @@ import makeSetup, { createTree } from '../../../Testing/Utils/Settings';
 
 const setup = makeSetup(Info, DEFAULT_PROPS);
 
-describe('Consonant/FiltersInfo', () => {
+describe('Consonant/Filters/Left/Filters Info', () => {
     test('should render without title', () => {
         setup({}, { collection: { i18n: { title: '' } } });
 

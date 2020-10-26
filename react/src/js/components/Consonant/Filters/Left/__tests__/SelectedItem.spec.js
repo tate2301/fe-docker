@@ -5,8 +5,8 @@ import '@testing-library/jest-dom/extend-expect';
 import { SelectedItem } from '../Desktop-Only/SelectedItem';
 
 
-describe('Selected Filters', () => {
-    test('If no filterss are selected, filter count should not appear ', async () => {
+describe('Consonant/Left/Selected Filters', () => {
+    test('If no filters are selected, filter count should not appear ', async () => {
         const props = {
             numItemsSelected: 0,
             handleClear: () => {},

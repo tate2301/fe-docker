@@ -14,7 +14,7 @@ const props = {
     text: 'Click Here',
 };
 
-describe('Consonant/Infobits/Link', () => {
+describe('Consonant/Infobits/Type/Link', () => {
     test('Loads with default props', async () => {
         const propsToUse = props;
         const { getByText } = render(<Link {...propsToUse} />);

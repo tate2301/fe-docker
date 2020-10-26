@@ -9,7 +9,7 @@ import setup from '../../Testing/Utils/Settings';
 
 const renderCard = setup(Card, DEFAULT_PROPS_3_2);
 
-describe('3:2 Card', () => {
+describe('Consonant/Card/3:2', () => {
     test('should be able to render a banner overlay', () => {
         const {
             props: {

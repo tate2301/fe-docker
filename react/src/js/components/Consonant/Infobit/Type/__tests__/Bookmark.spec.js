@@ -14,7 +14,7 @@ const props = {
     disableBookmarkIco: true,
 };
 
-describe('Consonant/Infobits/Bookmarks', () => {
+describe('Consonant/Infobits/Types/Bookmarks', () => {
     test('When a bookmark icon is clicked, the appropriate event handler should be called', () => {
         render(<Bookmark {...props} />);
 

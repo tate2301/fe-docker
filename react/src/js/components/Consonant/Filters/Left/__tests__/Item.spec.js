@@ -12,7 +12,7 @@ import makeSetup from '../../../Testing/Utils/Settings';
 
 const setup = makeSetup(Item, DEFAULT_PROPS);
 
-describe('Consonant/FilterItem', () => {
+describe('Consonant/Filters/Left/Item', () => {
     test('should render without item count badge', () => {
         setup();
 

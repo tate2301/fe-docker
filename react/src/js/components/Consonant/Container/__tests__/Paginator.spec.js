@@ -23,7 +23,7 @@ global.fetch = jest.fn(() =>
     }));
 
 
-describe('Consonant/Paginator', () => {
+describe('Consonant/Container/Paginator', () => {
     test('should change pagination range', async () => {
         const configToUse = config;
         await act(async () => render(<Container config={configToUse} />));

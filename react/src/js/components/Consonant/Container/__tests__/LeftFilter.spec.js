@@ -29,7 +29,7 @@ jest.setTimeout(30000);
 
 setupIntersectionObserverMock();
 
-describe('Consonant/Left Filter', () => {
+describe('Consonant/Container/Left Filter', () => {
     test('Should be able to render the left filter', async () => {
         const configToUse = config;
         configToUse.filterPanel.type = 'left';

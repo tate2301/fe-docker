@@ -39,7 +39,7 @@ global.fetch = jest.fn(() =>
 const multipleFilters = [...filters, ...filters]
     .map((item, index) => ({ ...item, id: `${item}_${index}` }));
 
-describe('Consonant/Top Filters/Mobile', () => {
+describe('Consonant/Container/Top Filters/Mobile', () => {
     test('Should render Sort Pop up On The Left', async () => {
         global.innerWidth = MOBILE_WIDTH;
         const configToUse = config;
@@ -78,7 +78,7 @@ describe('Consonant/Top Filters/Mobile', () => {
     });
 });
 
-describe('Consonant/Top Filters/Tablet', () => {
+describe('Consonant/Container/Top Filters/Tablet', () => {
     test('should show search icon on blur', async () => {
         global.innerWidth = TABLET_MIN_WIDTH;
         const configToUse = config;

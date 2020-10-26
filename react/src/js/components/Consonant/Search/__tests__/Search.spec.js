@@ -7,8 +7,7 @@ import { DEFAULT_PROPS } from '../../Testing/Constants/Search';
 
 const renderSearch = setup(Search, DEFAULT_PROPS);
 
-describe('Search Component', () => {
-
+describe('Consonant/Search', () => {
     test('Should be able to handle focus and blur events', () => {
         renderSearch({ onBlur: null });
 

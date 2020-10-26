@@ -20,7 +20,7 @@ const server = setupServer(rest
         ctx.json({ cards: [] }),
     )));
 
-describe('On Api Failures', () => {
+describe('Consonant/Container/Api', () => {
     beforeAll(() => server.listen());
     afterEach(() => server.resetHandlers());
     afterAll(() => server.close());
@@ -41,9 +41,7 @@ describe('On Api Failures', () => {
 
     describe('400 Responses', () => {
         test('If 401 Response -- do not display a card collection', async () => {
-            server.use(rest.get(endpoint, (req, res, ctx) => res(
-                ctx.status(401),
-            )));
+            server.use(rest.get(endpoint, (req, res, ctx) => res(ctx.status(401))));
             const configToUse = config;
             await act(async () => render(<Container config={configToUse} />));
             await waitFor(() => screen.queryByTestId('consonant-collection'));

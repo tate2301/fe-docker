@@ -28,7 +28,7 @@ const CHILD_COMPONENTS = {
     select: <Popup {...SELECT_DEFAULT_PROPS} />,
 };
 
-describe('Top Filter Panel', () => {
+describe('Consonant/Filters/Top/Panel', () => {
     beforeEach(() => {
         global.innerWidth = TABLET_MIN_WIDTH;
     });
