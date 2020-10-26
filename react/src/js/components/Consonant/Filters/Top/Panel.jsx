@@ -6,6 +6,7 @@ import React from 'react';
 import { isAtleastOneFilterSelected } from '../../Helpers/general';
 import SearchIcon from '../../Search/SearchIcon';
 import { Group as TopFilterItem } from './Group';
+import { renderTotalResults } from '../../Helpers/rendering';
 import {
     useConfig,
     useExpandable,
@@ -41,12 +42,13 @@ const FiltersPanelTop = ({
     const sortOptions = getConfig('sort', 'options');
     const filterGroupLabel = getConfig('filterPanel', 'i18n.topPanel.groupLabel');
     const moreFiltersBtnText = getConfig('filterPanel', 'i18n.topPanel.moreFiltersBtnText');
+    const title = getConfig('collection', 'i18n.title');
 
     const searchId = 'top-search';
 
     const [openExpandable, handleExpandableToggle] = useExpandable(searchId);
 
-    const totalResultsText = showTotalResultsText.replace('{total}', resQty);
+    const totalResultsHtml = renderTotalResults(showTotalResultsText, resQty);
     const atleastOneFilterSelected = isAtleastOneFilterSelected(filters);
 
     const TABLET_OR_MOBILE_SCREEN_SIZE = windowWidth < TABLET_MIN_WIDTH;
@@ -57,7 +59,7 @@ const FiltersPanelTop = ({
     const shouldDisplayFilters = filters.length > 0 && filterPanelEnabled;
     const shouldDisplayMoreFiltersBtn =
         shouldHideSomeFilters && TABLET_OR_DESKTOP_SCREEN_SIZE && showLimitedFiltersQty;
-    const shouldShowTotalResults = TABLET_OR_DESKTOP_SCREEN_SIZE && showTotalResults;
+    const shouldDisplayCollectionInfo = title || showTotalResults;
     const shouldShowSearchBar = openExpandable === searchId;
     const shouldShowClearButtonWrapper = atleastOneFilterSelected
         || filters.length >= MIN_FILTERS_SHOW_BG;
@@ -142,15 +144,6 @@ const FiltersPanelTop = ({
                         }
                     </div>
                 }
-                {shouldShowTotalResults &&
-                    <span
-                        data-testid="filter-top-result-count"
-                        className="consonant-top-filters--res-qty">
-                        <strong>
-                            {totalResultsText}
-                        </strong>
-                    </span>
-                }
                 {searchEnabled && TABLET_OR_DESKTOP_SCREEN_SIZE && (
                     <div
                         data-testid="filter-top-ico-wrapper"
@@ -167,6 +160,24 @@ const FiltersPanelTop = ({
                         data-testid="top-filters__sort-popup"
                         className="consonant-top-filters--select-wrapper">
                         {sortComponent}
+                    </div>
+                }
+                {shouldDisplayCollectionInfo &&
+                    <div className="consonant-top-filters--info-wrapper">
+                        {title &&
+                            <h2
+                                data-testid="title"
+                                className="consonant-top-filters--collection-title">
+                                {title}
+                            </h2>
+                        }
+                        {resQty &&
+                            <div
+                                data-testid="results"
+                                className="consonant-top-filters--results">
+                                {totalResultsHtml}
+                            </div>
+                        }
                     </div>
                 }
             </div>
