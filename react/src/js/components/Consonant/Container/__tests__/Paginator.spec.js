@@ -1,63 +1,27 @@
+import React from 'react';
 import {
     screen,
     waitFor,
     fireEvent,
-    getByText,
-    getByTestId,
-    queryAllByTestId,
     act,
-    logDOM,
     render,
 } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-
-import { rest } from 'msw';
-import { setupServer } from 'msw/node';
-
 import Container from '../Container';
 
 import config from '../../Testing/Mocks/config.json';
 import cards from '../../Testing/Mocks/cards.json';
+import setupIntersectionObserverMock from '../../Testing/Mocks/intersectionObserver';
 
-import makeInit from '../../Testing/Utils/Init';
-import React from 'react';
-
-// Different window sizes for different cases
-const MOBILE_WIDTH = 384;
-const DESKTOP_WIDTH = 1800;
-const TABLET_MIN_WIDTH = 768;
-const DESKTOP_MIN_WIDTH = 1200;
-
-const init = makeInit(Container, config);
-
-const { filterPanel: { filters }, collection: { endpoint } } = config;
+setupIntersectionObserverMock();
 
 const filteredCards = cards.filter(({ appliesTo }) => Boolean(appliesTo));
-
-// Mock api to get card list
-const handlers = [
-    rest.get(endpoint, (req, res, ctx) => res(
-        ctx.status(200),
-        ctx.json({ cards }),
-    )),
-];
-
-// const server = setupServer(...handlers);
-// beforeAll(() => server.listen());
-// afterEach(() => server.resetHandlers());
-// afterAll(() => server.close());
 
 global.fetch = jest.fn(() =>
     Promise.resolve({
         json: () => Promise.resolve({ cards }),
     }));
 
-// Create more than 2 filter with different ids
-const multipleFilters = [...filters, ...filters]
-    .map((item, index) => ({ ...item, id: `${item}_${index}` }));
-
-window.scrollTo = () => { };
-jest.setTimeout(30000);
 
 describe('Consonant/Paginator', () => {
     test('should change pagination range', async () => {
