@@ -26,7 +26,7 @@ describe('Consonant/Container/Api', () => {
     afterAll(() => server.close());
 
     describe('200 Responses', () => {
-        test('If 200 Response -- but no cards returned from API, do not display a card collection', async () => {
+        test('If 200 Response -- but no cards returned from API, display no results view', async () => {
             server.use(rest.get(endpoint, (req, res, ctx) => res(
                 ctx.status(200),
                 ctx.json({ cards: [] }),
@@ -36,16 +36,68 @@ describe('Consonant/Container/Api', () => {
             await act(async () => render(<Container config={configToUse} />));
             await waitFor(() => screen.queryByTestId('consonant-collection'));
             expect(screen.queryByTestId('consonant-collection')).toBeNull();
+            expect(screen.queryByTestId('no-results-view')).not.toBeNull();
+        });
+    });
+
+    describe('300 Responses', () => {
+        test('If 301 Response -- display no results view', async () => {
+            server.use(rest.get(endpoint, (req, res, ctx) => res(ctx.status(301))));
+
+            const configToUse = config;
+            await act(async () => render(<Container config={configToUse} />));
+            await waitFor(() => screen.queryByTestId('consonant-collection'));
+            expect(screen.queryByTestId('consonant-collection')).toBeNull();
+            expect(screen.queryByTestId('no-results-view')).not.toBeNull();
         });
     });
 
     describe('400 Responses', () => {
-        test('If 401 Response -- do not display a card collection', async () => {
+        test('If 401 Response -- display no results view', async () => {
             server.use(rest.get(endpoint, (req, res, ctx) => res(ctx.status(401))));
             const configToUse = config;
             await act(async () => render(<Container config={configToUse} />));
             await waitFor(() => screen.queryByTestId('consonant-collection'));
             expect(screen.queryByTestId('consonant-collection')).toBeNull();
+            expect(screen.queryByTestId('no-results-view')).not.toBeNull();
+        });
+
+        test('If 404 Response -- display no results view', async () => {
+            server.use(rest.get(endpoint, (req, res, ctx) => res(ctx.status(404))));
+            const configToUse = config;
+            await act(async () => render(<Container config={configToUse} />));
+            await waitFor(() => screen.queryByTestId('consonant-collection'));
+            expect(screen.queryByTestId('consonant-collection')).toBeNull();
+            expect(screen.queryByTestId('no-results-view')).not.toBeNull();
+        });
+
+        test('If 410 Response -- display no results view', async () => {
+            server.use(rest.get(endpoint, (req, res, ctx) => res(ctx.status(410))));
+            const configToUse = config;
+            await act(async () => render(<Container config={configToUse} />));
+            await waitFor(() => screen.queryByTestId('consonant-collection'));
+            expect(screen.queryByTestId('consonant-collection')).toBeNull();
+            expect(screen.queryByTestId('no-results-view')).not.toBeNull();
+        });
+    });
+
+    describe('500 Responses', () => {
+        test('If 500 Response -- display no results view', async () => {
+            server.use(rest.get(endpoint, (req, res, ctx) => res(ctx.status(500))));
+            const configToUse = config;
+            await act(async () => render(<Container config={configToUse} />));
+            await waitFor(() => screen.queryByTestId('consonant-collection'));
+            expect(screen.queryByTestId('consonant-collection')).toBeNull();
+            expect(screen.queryByTestId('no-results-view')).not.toBeNull();
+        });
+
+        test('If 502 Response -- display no results view', async () => {
+            server.use(rest.get(endpoint, (req, res, ctx) => res(ctx.status(502))));
+            const configToUse = config;
+            await act(async () => render(<Container config={configToUse} />));
+            await waitFor(() => screen.queryByTestId('consonant-collection'));
+            expect(screen.queryByTestId('consonant-collection')).toBeNull();
+            expect(screen.queryByTestId('no-results-view')).not.toBeNull();
         });
     });
 });

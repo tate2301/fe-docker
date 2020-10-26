@@ -19,7 +19,7 @@ import LoadMore from '../Pagination/LoadMore';
 import Paginator from '../Pagination/Paginator';
 import Search from '../Search/Search';
 import Popup from '../Sort/Popup';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import NoResultsView from '../NoResults/View';
 
 import { Info as LeftInfo } from '../Filters/Left/Info';
 import { useWindowDimensions } from '../Helpers/hooks';
@@ -248,6 +248,17 @@ const Container = (props) => {
      * @type {[Boolean, Function]} Loading
      */
     const [isLoading, setLoading] = useState(false);
+
+    /**
+     * @typedef {Boolean} ApiFailureState — Can either be true or false
+     * @description When true an API error has occured
+     *
+     * @typedef {Function} ApiFailureStateSetter — Sets API failure flag true or falsse
+     * @description True when retrieved or api failure. False otherwise
+     *
+     * @type {[Boolean, Function]} ApiFailure
+     */
+    const [isApiFailure, setApiFailure] = useState(false);
 
     /**
      **** Helper Methods ****
@@ -499,7 +510,10 @@ const Container = (props) => {
                     .addCardMetaData(TRUNCATE_TEXT_QTY, onlyShowBookmarks, bookmarkedCardIds);
 
                 setCards(processedCards);
-            }).catch(() => setLoading(false));
+            }).catch(() => {
+                setLoading(false);
+                setApiFailure(true);
+            });
     }, []);
 
     /**
@@ -770,12 +784,17 @@ const Container = (props) => {
                                     )
                                 )
                             }
-                            {!atLeastOneCard && !isLoading &&
-                                <ErrorMessage
-                                    title={searchQuery ? noResultsTitle : apiFailureTitle}
-                                    description={searchQuery ?
-                                        noResultsDescription : apiFailureDescription}
+                            {!isApiFailure && !atLeastOneCard && !isLoading &&
+                                <NoResultsView
+                                    title={noResultsTitle}
+                                    description={noResultsDescription}
                                     replaceValue={searchQuery} />
+                            }
+                            {isApiFailure &&
+                                <NoResultsView
+                                    title={apiFailureTitle}
+                                    description={apiFailureDescription}
+                                    replaceValue="" />
                             }
                         </div>
                     </div>

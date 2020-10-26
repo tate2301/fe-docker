@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" dir="rtl">
+<html lang="en" dir="ltr">
 
 <head>
 
@@ -60,8 +60,8 @@
                     prettyDateIntervalFormat: '{LLL} {dd} | {timeRange} {timeZone}',
                     totalResultsText: '{total} Results',
                     title: 'Your Favorite Cards',
-                    onErrorTitle: 'Error happened! :(',
-                    onErrorDescription: 'Try to reload your page.',
+                    onErrorTitle: 'Sorry there was a system error.',
+                    onErrorDescription: 'Please try reloading the page or try coming back to the page another time.',
                 }
             },
             featuredCards: [{
@@ -256,7 +256,7 @@
                 i18n: {
                     loadMore: {
                         btnText: 'Load More',
-                        resultsQuantityText: 'Showing {start}-{end} results',
+                        resultsQuantityText: 'Showing {start} of {end} cards',
                     },
                     paginator: {
                         resultsQuantityText: '{start}-{end} of {total} results',
@@ -282,8 +282,8 @@
                 enabled: 'true',
                 searchFields: '["contentArea.title","contentArea.description","search.meta.author","overlays.banner.description", "foo.bar"]',
                 i18n: {
-                    noResultsTitle: 'Test of title',
-                    noResultsDescription: 'Test of {query}{break} New line here',
+                    noResultsTitle: 'No Results Found',
+                    noResultsDescription: 'We could not find any results. {break} Try checking your spelling or broadening your search.',
                     leftFilterPanel: {
                         searchTitle: 'Search',
                         searchPlaceholderText: 'Search here...',
@@ -291,9 +291,6 @@
                     topFilterPanel: {
                         searchPlaceholderText: 'i18n.topFilterPanel.searchPlaceholderText',
                     },
-                    // INFO: Added new config -- you might have missed this but
-                    //  search is used is 3 places: left, top, and filterInfo
-                    //  (which is the mobile version of both)
                     filterInfo: {
                         searchPlaceholderText: 'i18n.filterInfo.searchPlaceholderText',
                     }

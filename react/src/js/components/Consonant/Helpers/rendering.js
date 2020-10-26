@@ -28,7 +28,7 @@ export const highlightSearchField = (text, value) => {
 * @param {String} value - Values to modify
 * @returns {String []} - HTML to render users on page error
 */
-export const renderErrorMsg = (text, value) => {
+export const renderDisplayMsg = (text, value) => {
     const arr = text.split(new RegExp('({query}|{break})', 'gi')).filter(item => item);
     return arr.map((item) => {
         switch (item.toLowerCase()) {
