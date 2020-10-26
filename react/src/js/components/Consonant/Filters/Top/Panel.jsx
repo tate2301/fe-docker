@@ -43,10 +43,10 @@ const FiltersPanelTop = ({
     const moreFiltersBtnText = getConfig('filterPanel', 'i18n.topPanel.moreFiltersBtnText');
 
     const searchId = 'top-search';
+
     const [openExpandable, handleExpandableToggle] = useExpandable(searchId);
 
-    const showSearchbar = openExpandable === searchId;
-
+    const totalResultsText = showTotalResultsText.replace('{total}', resQty);
     const atleastOneFilterSelected = isAtleastOneFilterSelected(filters);
 
     const TABLET_OR_MOBILE_SCREEN_SIZE = windowWidth < TABLET_MIN_WIDTH;
@@ -58,13 +58,14 @@ const FiltersPanelTop = ({
     const shouldDisplayMoreFiltersBtn =
         shouldHideSomeFilters && TABLET_OR_DESKTOP_SCREEN_SIZE && showLimitedFiltersQty;
     const shouldShowTotalResults = TABLET_OR_DESKTOP_SCREEN_SIZE && showTotalResults;
+    const shouldShowSearchBar = openExpandable === searchId;
+    const shouldShowClearButtonWrapper = atleastOneFilterSelected
+        || filters.length >= MIN_FILTERS_SHOW_BG;
 
     const showLimitedFiltersQtyClass = classNames({
         'consonant-top-filters--filters': true,
         'consonant-top-filters--filters_truncated': showLimitedFiltersQty,
     });
-
-    const totalResultsText = showTotalResultsText.replace('{total}', resQty);
 
     const clearBtnWrapperClass = classNames({
         'consonant-top-filters--clear-btn-wrapper': true,
@@ -123,7 +124,7 @@ const FiltersPanelTop = ({
                             }
                         </div>
                         {
-                            (atleastOneFilterSelected || filters.length >= MIN_FILTERS_SHOW_BG) &&
+                            (shouldShowClearButtonWrapper) &&
                             <div
                                 data-testid="top-filter__clear-button-wrapper"
                                 className={clearBtnWrapperClass}>
@@ -154,7 +155,7 @@ const FiltersPanelTop = ({
                     <div
                         data-testid="filter-top-ico-wrapper"
                         className="consonant-top-filters--search-ico-wrapper">
-                        {showSearchbar && searchComponent}
+                        {shouldShowSearchBar && searchComponent}
                         {TABLET_OR_DESKTOP_SCREEN_SIZE && (
                             <SearchIcon
                                 onClick={handleExpandableToggle} />
