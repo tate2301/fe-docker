@@ -8,20 +8,21 @@ import {
     selectedAllItems,
 } from '../../../Testing/Constants/FilterItem';
 
-import makeSetup from '../../../Testing/Utils/Settings';
+import setup from '../../../Testing/Utils/Settings';
 
-const setup = makeSetup(Item, DEFAULT_PROPS);
+const renderItemComponent = setup(Item, DEFAULT_PROPS);
 
 describe('Consonant/Filters/Left/Item', () => {
-    test('should render without item count badge', () => {
-        setup();
+    test('should be able to render without an item count badge', () => {
+        renderItemComponent();
 
         const badgeElement = screen.queryByTestId('item-badge');
 
         expect(badgeElement).toBeNull();
     });
-    test('should render with item count badge', () => {
-        setup(selectedAllItems);
+
+    test('should be able to render with an item count badge', () => {
+        renderItemComponent(selectedAllItems);
 
         const badgeElement = screen.queryByTestId('item-badge');
 
@@ -29,47 +30,48 @@ describe('Consonant/Filters/Left/Item', () => {
 
         expect(badgeElement).toHaveTextContent(String(selectedAllItems.numItemsSelected));
     });
-    test('should render all list items', () => {
-        const { props: { items } } = setup();
+
+    test('should be able to render all list items', () => {
+        const { props: { items } } = renderItemComponent();
 
         const filterItemElement = screen.queryAllByTestId('filter-group-item');
 
         expect(filterItemElement).toHaveLength(items.length);
     });
 
-    describe('Interaction with UI', () => {
-        test('should call onCheck', () => {
-            const { props: { onCheck } } = setup();
+    test('Checking a checkbox for a filter item should work', () => {
+        const { props: { onCheck } } = renderItemComponent();
 
-            const [checkboxElement] = screen.queryAllByTestId('list-item-checkbox');
+        const [checkboxElement] = screen.queryAllByTestId('list-item-checkbox');
 
-            expect(checkboxElement).toBeDefined();
+        expect(checkboxElement).toBeDefined();
 
-            fireEvent.click(checkboxElement);
+        fireEvent.click(checkboxElement);
 
-            expect(onCheck).toBeCalled();
-        });
-        test('should call onClick', () => {
-            const { props: { onClick, name } } = setup();
+        expect(onCheck).toBeCalled();
+    });
 
-            const itemLinkElement = screen.getByText(name);
+    test('Clicking a filter item should work', () => {
+        const { props: { onClick, name } } = renderItemComponent();
 
-            expect(itemLinkElement).not.toBeNull();
+        const itemLinkElement = screen.getByText(name);
 
-            fireEvent.click(itemLinkElement);
+        expect(itemLinkElement).not.toBeNull();
 
-            expect(onClick).toBeCalled();
-        });
-        test('should call onClearAll', () => {
-            const { props: { onClearAll } } = setup(selectedAllItems);
+        fireEvent.click(itemLinkElement);
 
-            const badgeElement = screen.queryByTestId('item-badge');
+        expect(onClick).toBeCalled();
+    });
 
-            expect(badgeElement).not.toBeNull();
+    test('Should be able to clear all filters', () => {
+        const { props: { onClearAll } } = renderItemComponent(selectedAllItems);
 
-            fireEvent.click(badgeElement);
+        const badgeElement = screen.queryByTestId('item-badge');
 
-            expect(onClearAll).toBeCalled();
-        });
+        expect(badgeElement).not.toBeNull();
+
+        fireEvent.click(badgeElement);
+
+        expect(onClearAll).toBeCalled();
     });
 });

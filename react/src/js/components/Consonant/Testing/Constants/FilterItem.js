@@ -3,7 +3,10 @@ import { filterPanel } from '../Mocks/config.json';
 
 const { clearFilterText, filters } = filterPanel;
 const [{
-    id, group, icon, items,
+    id,
+    group,
+    icon,
+    items,
 }] = filters;
 
 export const DEFAULT_PROPS = {
