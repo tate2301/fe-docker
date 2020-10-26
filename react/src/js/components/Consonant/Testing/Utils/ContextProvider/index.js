@@ -1,11 +1,19 @@
-import { shape, node } from 'prop-types';
-import React, { useState, useCallback, useMemo } from 'react';
+import React, {
+    useState,
+    useCallback,
+    useMemo
+} from 'react';
 
+import {
+    shape,
+    node
+} from 'prop-types';
+
+import { contextPropTypes } from './types';
 import {
     ConfigContext,
     ExpandableContext,
 } from '../../../Helpers/contexts';
-import { contextPropTypes } from './types';
 
 const ContextProvider = ({ context, children }) => {
     const [isOpen, toggle] = useState(null);

@@ -6,7 +6,6 @@ import React, {
     useState,
 } from 'react';
 
-
 import { makeConfigGetter } from './consonant';
 import {
     ConfigContext,

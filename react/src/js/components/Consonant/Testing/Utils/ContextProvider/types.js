@@ -1,4 +1,10 @@
-import { shape, number, string, bool, arrayOf } from 'prop-types';
+import {
+    shape,
+    number,
+    string,
+    bool,
+    arrayOf
+} from 'prop-types';
 
 // eslint-disable-next-line import/prefer-default-export
 export const contextPropTypes = {
