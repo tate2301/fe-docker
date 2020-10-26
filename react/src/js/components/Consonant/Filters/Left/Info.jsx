@@ -37,7 +37,7 @@ const Info = (props) => {
         'consonant-filters-info--wrapper_no-line': !sortEnabled || !sortOptions.length,
     });
 
-    const totalResultsText = renderTotalResults(showTotalResultsText, cardsQty);
+    const totalResultsHtml = renderTotalResults(showTotalResultsText, cardsQty);
     const mobileFilterBtnLabel = getConfig('filterPanel', 'i18n.leftPanel.mobile.filtersBtnLabel');
 
     const DESKTOP_MIN_WIDTH = 1200;
@@ -73,7 +73,7 @@ const Info = (props) => {
                     <div
                         data-testid="results"
                         className="consonant-filters-info--results">
-                        {totalResultsText}
+                        {totalResultsHtml}
                     </div>
                 }
             </div>

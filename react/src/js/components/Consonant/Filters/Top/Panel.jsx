@@ -171,7 +171,7 @@ const FiltersPanelTop = ({
                                 {title}
                             </h2>
                         }
-                        {resQty &&
+                        {showTotalResults &&
                             <div
                                 data-testid="results"
                                 className="consonant-top-filters--results">
