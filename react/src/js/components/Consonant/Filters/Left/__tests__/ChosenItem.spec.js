@@ -2,10 +2,8 @@ import { screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import ChosenItem from '../Desktop-Only/ChosenItem';
-
-import { DEFAULT_PROPS } from '../../../Testing/Constants/SelectedFilter';
-
 import makeSetup from '../../../Testing/Utils/Settings';
+import { DEFAULT_PROPS } from '../../../Testing/Constants/SelectedFilter';
 
 const setup = makeSetup(ChosenItem, DEFAULT_PROPS);
 
