@@ -10,9 +10,11 @@ const Items = (props) => {
         clipWrapperItemsCount,
     } = props;
 
+    const shouldClipItems = items.length >= clipWrapperItemsCount;
+
     const clipFilterItemsClass = classNames({
         'consonant-top-filter--items': true,
-        'consonant-top-filter--items_clipped': items.length >= clipWrapperItemsCount,
+        'consonant-top-filter--items_clipped': shouldClipItems,
     });
 
     return (
