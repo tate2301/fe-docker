@@ -1,6 +1,9 @@
 /* eslint-disable react/no-array-index-key */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+
+import { INFOBIT_TYPE } from '../Helpers/constants';
+import { parseToPrimitive } from '../Helpers/general';
 import Bookmark from './Type/Bookmark/Bookmark';
 import Button from './Type/Button';
 import Icon from './Type/Icon';
@@ -12,61 +15,59 @@ import Progress from './Type/Progress';
 import Rating from './Type/Rating';
 import Text from './Type/Text';
 import DateInterval from './Type/DateInterval';
-import { parseToPrimitive } from '../Helpers/general';
-import { INFOBIT_TYPE } from '../Helpers/constants';
 
-function Group(props) {
+const Group = (props) => {
     const { renderList } = props;
 
     return (
         <Fragment>
-            {renderList.map((el, i) => {
-                switch (el.type) {
+            {renderList.map((infobit, index) => {
+                switch (infobit.type) {
                     case INFOBIT_TYPE.PRICE:
-                        return <Price {...el} key={i} />;
+                        return <Price {...infobit} key={index} />;
 
                     case INFOBIT_TYPE.BUTTON:
-                        return <Button {...el} key={i} />;
+                        return <Button {...infobit} key={index} />;
 
                     case INFOBIT_TYPE.ICON_TEXT:
-                        return <IconWithText {...el} key={i} />;
+                        return <IconWithText {...infobit} key={index} />;
 
                     case INFOBIT_TYPE.LINK_ICON:
-                        return <LinkWithIcon {...el} key={i} />;
+                        return <LinkWithIcon {...infobit} key={index} />;
 
                     case INFOBIT_TYPE.TEXT:
-                        return <Text {...el} key={i} />;
+                        return <Text {...infobit} key={index} />;
 
                     case INFOBIT_TYPE.ICON:
-                        return <Icon {...el} key={i} />;
+                        return <Icon {...infobit} key={index} />;
 
                     case INFOBIT_TYPE.LINK:
-                        return <TextLink {...el} key={i} />;
+                        return <TextLink {...infobit} key={index} />;
 
                     case INFOBIT_TYPE.PROGRESS:
-                        return <Progress {...el} key={i} />;
+                        return <Progress {...infobit} key={index} />;
 
                     case INFOBIT_TYPE.RATING:
                         return (
                             <Rating
-                                key={i}
-                                label={el.label}
-                                totalStars={parseToPrimitive(el.totalStars)}
-                                starsFilled={parseToPrimitive(el.starsFilled)} />
+                                key={index}
+                                label={infobit.label}
+                                totalStars={parseToPrimitive(infobit.totalStars)}
+                                starsFilled={parseToPrimitive(infobit.starsFilled)} />
                         );
 
                     case INFOBIT_TYPE.BOOKMARK:
-                        return <Bookmark {...el} key={i} />;
+                        return <Bookmark {...infobit} key={index} />;
 
                     case INFOBIT_TYPE.DATE:
-                        return <DateInterval {...el} key={i} />;
+                        return <DateInterval {...infobit} key={index} />;
 
                     default: return null;
                 }
             })}
         </Fragment>
     );
-}
+};
 
 Group.propTypes = {
     renderList: PropTypes.arrayOf(PropTypes.shape({
