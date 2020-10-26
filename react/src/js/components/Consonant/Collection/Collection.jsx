@@ -83,33 +83,35 @@ const Collection = (props) => {
         <div
             data-testid="consonant-collection"
             className="consonant-card-collection">
-            {cardsToshow.map((card) => {
-                const cardStyleOverride = get(card, 'styles.typeOverride');
-                const cardStyle = cardStyleOverride || collectionStyleOverride;
-                if (cardStyle === CARD_STYLES.FULL) {
+            <div className="consonant-card-collection--inner">
+                {cardsToshow.map((card) => {
+                    const cardStyleOverride = get(card, 'styles.typeOverride');
+                    const cardStyle = cardStyleOverride || collectionStyleOverride;
+                    if (cardStyle === CARD_STYLES.FULL) {
+                        return (
+                            <FullCard
+                                key={card.id}
+                                {...card} />
+                        );
+                    } else if (cardStyle === CARD_STYLES.SQUARE) {
+                        return (
+                            <AspectRatio1to1Card
+                                key={card.id}
+                                {...card} />
+                        );
+                    }
                     return (
-                        <FullCard
+                        <AspectRatio3to2Card
                             key={card.id}
-                            {...card} />
+                            {...card}
+                            onClick={onCardBookmark}
+                            dateFormat={dateFormat}
+                            locale={locale} />
                     );
-                } else if (cardStyle === CARD_STYLES.SQUARE) {
-                    return (
-                        <AspectRatio1to1Card
-                            key={card.id}
-                            {...card} />
-                    );
-                }
-                return (
-                    <AspectRatio3to2Card
-                        key={card.id}
-                        {...card}
-                        onClick={onCardBookmark}
-                        dateFormat={dateFormat}
-                        locale={locale} />
-                );
-            })}
-            <div className="consonant-card-collection--placeholder" />
-            <div className="consonant-card-collection--placeholder" />
+                })}
+                <div className="consonant-card-collection--placeholder" />
+                <div className="consonant-card-collection--placeholder" />
+            </div>
         </div>
     );
 };

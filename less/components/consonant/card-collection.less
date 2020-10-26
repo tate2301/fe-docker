@@ -1,8 +1,4 @@
 .consonant-card-collection {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
     min-width: 83.333vw;
     max-width: 83.333vw;
 
@@ -10,28 +6,15 @@
 
     background-color: transparent;
 
-    // Set margins logic;
-    & > div {
-        margin-left: 16px;
-        margin-right: 16px;
+    .consonant-card-collection--inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+        margin-right: -32px;
 
-        @media @consonant-min-2-cards {
-            margin-left: 0;
-            margin-right: @consonant-card-margin-right;
-
-            &:nth-of-type(even) {
-                margin-right: 0;
-            }
-        }
-
-        @media @consonant-min-3-cards {
-            &:nth-of-type(even) {
-                margin-right: @consonant-card-margin-right;
-            }
-
-            &:nth-of-type(3n) {
-                margin-right: 0;
-            }
+        & > div {
+            margin-right: 32px;
         }
     }
 
@@ -71,34 +54,10 @@
     @media @consonant-desktop-up {
         min-width: calc(83.333vw - @consonant-filters-1200-break-width ~ ' + 32px');
         max-width: calc(83.333vw - @consonant-filters-1200-break-width ~ ' + 32px');
-
-        & > div {
-            margin-left: 0;
-            margin-right: @consonant-card-margin-right;
-
-            &:nth-of-type(even),
-            &:nth-of-type(3n) {
-                margin-right: 0;
-            }
-
-            &:nth-of-type(odd) {
-                margin-right: @consonant-card-margin-right;
-            }
-        }
     }
 
     @media @consonant-big-desktop-up {
         min-width: calc(@consonant-width-desktop-min - @consonant-filters-1200-break-width ~ ' + 32px');
         max-width: calc(@consonant-width-desktop-min - @consonant-filters-1200-break-width ~ ' + 32px');
-
-        & > div {
-            &:nth-of-type(even) {
-                margin-right: @consonant-card-margin-right;
-            }
-
-            &:nth-of-type(3n) {
-                margin-right: 0;
-            }
-        }
     }
 }
