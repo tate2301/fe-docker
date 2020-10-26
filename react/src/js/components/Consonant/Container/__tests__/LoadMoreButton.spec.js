@@ -1,59 +1,31 @@
+import React from 'react';
+import '@testing-library/jest-dom/extend-expect';
 import {
     screen,
     waitFor,
     fireEvent,
     getByText,
     getByTestId,
-    queryAllByTestId,
     act,
-    logDOM,
     render,
 } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
-
-import { rest } from 'msw';
-import { setupServer } from 'msw/node';
 
 import Container from '../Container';
-
+import setupIntersectionObserverMock from '../../Testing/Mocks/intersectionObserver';
 import config from '../../Testing/Mocks/config.json';
 import cards from '../../Testing/Mocks/cards.json';
 
-import makeInit from '../../Testing/Utils/Init';
-import React from 'react';
-
-// Different window sizes for different cases
-const MOBILE_WIDTH = 384;
-const DESKTOP_WIDTH = 1800;
-const TABLET_MIN_WIDTH = 768;
-const DESKTOP_MIN_WIDTH = 1200;
-
-const init = makeInit(Container, config);
-
-const { filterPanel: { filters }, collection: { endpoint } } = config;
-
-const filteredCards = cards.filter(({ appliesTo }) => Boolean(appliesTo));
-
-// Mock api to get card list
-const handlers = [
-    rest.get(endpoint, (req, res, ctx) => res(
-        ctx.status(200),
-        ctx.json({ cards }),
-    )),
-];
-
 window.scrollTo = () => { };
-jest.setTimeout(30000);
 
 global.fetch = jest.fn(() =>
     Promise.resolve({
         json: () => Promise.resolve({ cards }),
     }));
 
-describe('Load More Button', () => {
+setupIntersectionObserverMock();
 
-    test('should render load more component', async () => {
-
+describe('Consonant/Load More Button', () => {
+    test('should be able to render the load more button', async () => {
         const configToUse = config;
         config.pagination.type = 'loadMore';
         await act(async () => render(<Container config={configToUse} />));
@@ -61,14 +33,13 @@ describe('Load More Button', () => {
         // Need wait for api response and state updating
         await waitFor(() => screen.getByTestId('consonant-collection'));
 
-        // find LoadMore in whole DOM tree
+        // find the LoadMore button
         const loadMoreElement = screen.queryByTestId('consonant-load-more');
 
         expect(loadMoreElement).not.toBeNull();
     });
 
-    test('should show more', async () => {
-
+    test('should be able to show all cards', async () => {
         const configToUse = config;
         config.pagination.type = 'loadMore';
         await act(async () => render(<Container config={configToUse} />));
@@ -89,8 +60,8 @@ describe('Load More Button', () => {
         expect(loadMoreText).toHaveTextContent(`${resultsPerPage} ${allCardsCount}`);
 
         fireEvent.click(loadMoreButton);
+        fireEvent.click(loadMoreButton);
 
-        // -2 to oexclude the 1:1 card and full-card
-        expect(loadMoreText).toHaveTextContent(`${cards.length - 2} ${allCardsCount}`);
+        expect(loadMoreText).toHaveTextContent(`${allCardsCount} ${allCardsCount}`);
     });
 });
