@@ -1,12 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { render } from '@testing-library/react';
-import mockconfig from '../Mocks/config.json';
+
 import setupIntersectionObserverMock from '../Mocks/intersectionObserver';
+import ContextProvider from './ContextProvider/index';
+import mockconfig from '../Mocks/config.json';
 
 setupIntersectionObserverMock();
-
-import ContextProvider from './ContextProvider/index';
 
 export const createTree = component => renderer
     .create(component)

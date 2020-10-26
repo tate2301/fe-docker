@@ -1,46 +1,43 @@
-import React from 'react';
-import { screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+import {
+    screen,
+    fireEvent,
+} from '@testing-library/react';
 
+import setup from '../../../Testing/Utils/Settings';
 import { Info } from '../Info';
-import Search from '../../../Search/Search';
-import Popup from '../../../Sort/Popup';
-
 import {
     DEFAULT_PROPS,
     NON_DESKTOP_WIDTH,
 } from '../../../Testing/Constants/FiltersInfo';
-import { DEFAULT_PROPS as SELECT_DEFAULT_PROPS } from '../../../Testing/Constants/Select';
-import { DEFAULT_PROPS as SEARCH_DEFAULT_PROPS } from '../../../Testing/Constants/Search';
 
-import makeSetup, { createTree } from '../../../Testing/Utils/Settings';
 
-const setup = makeSetup(Info, DEFAULT_PROPS);
+const renderFiltersInfo = setup(Info, DEFAULT_PROPS);
 
 describe('Consonant/Filters/Left/Filters Info', () => {
-    test('should render without title', () => {
-        setup({}, { collection: { i18n: { title: '' } } });
+    test('should be able to render without title', () => {
+        renderFiltersInfo({}, { collection: { i18n: { title: '' } } });
 
         const titleElement = screen.queryByTestId('title');
 
         expect(titleElement).toBeNull();
     });
     test('should render without total result', () => {
-        setup({}, { collection: { showTotalResults: false } });
+        renderFiltersInfo({}, { collection: { showTotalResults: false } });
 
         const resultsElement = screen.queryByTestId('results');
 
         expect(resultsElement).toBeNull();
     });
-    test('shouldn`t render list items', () => {
-        setup();
+    test('should not render selected filters', () => {
+        renderFiltersInfo();
 
         const selectedFiltersWrapper = screen.queryByTestId('selected-filters');
 
         expect(selectedFiltersWrapper).toBeNull();
     });
-    test('should render mobile button', () => {
-        setup({ windowWidth: NON_DESKTOP_WIDTH, selectedFiltersQty: 1, filtersQty: 1 });
+    test('should be able to render a mobile button', () => {
+        renderFiltersInfo({ windowWidth: NON_DESKTOP_WIDTH, selectedFiltersQty: 1, filtersQty: 1 });
 
         const btnWrapperElement = screen.queryByTestId('btn-wrapper');
 
@@ -52,28 +49,26 @@ describe('Consonant/Filters/Left/Filters Info', () => {
         expect(btnSelectedElement).toHaveTextContent('1');
     });
 
-    test('should render sort component', () => {
-        setup({ sortOptions: [{ sort: 'fatures' }] });
+    test('should be able to render the sort component', () => {
+        renderFiltersInfo({ sortOptions: [{ sort: 'featured' }] });
 
         const sortElement = screen.queryByTestId('filters-info__sort-component');
 
         expect(sortElement).not.toBeNull();
     });
 
-    describe('Interaction with UI', () => {
-        test('should call onMobileFiltersToggleClick', () => {
-            const { props: { onMobileFiltersToggleClick } } = setup({
-                filtersQty: 1,
-                windowWidth: NON_DESKTOP_WIDTH,
-            });
-
-            const buttonElement = screen.queryByTestId('info-btn');
-
-            expect(buttonElement).not.toBeNull();
-
-            fireEvent.click(buttonElement);
-
-            expect(onMobileFiltersToggleClick).toBeCalled();
+    test('should be able to toggle on mobile', () => {
+        const { props: { onMobileFiltersToggleClick } } = renderFiltersInfo({
+            filtersQty: 1,
+            windowWidth: NON_DESKTOP_WIDTH,
         });
+
+        const buttonElement = screen.queryByTestId('info-btn');
+
+        expect(buttonElement).not.toBeNull();
+
+        fireEvent.click(buttonElement);
+
+        expect(onMobileFiltersToggleClick).toBeCalled();
     });
 });
