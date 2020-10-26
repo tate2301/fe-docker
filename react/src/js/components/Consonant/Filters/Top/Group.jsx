@@ -44,8 +44,6 @@ const Group = ({
         'consonant-top-filter_selected': items.filter(i => i.selected).length > 0 && !isOpened,
     });
 
-    window.items = items;
-
     return (
         <div
             data-testid="filter-item"

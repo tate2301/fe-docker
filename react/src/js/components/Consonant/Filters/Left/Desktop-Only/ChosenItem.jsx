@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 
 const ChosenFilterItem = (props) => {
     const {
-        name, id, parentId, onClick,
+        name,
+        id,
+        parentId,
+        onClick,
     } = props;
 
     const handleClick = () => {
@@ -16,7 +19,8 @@ const ChosenFilterItem = (props) => {
             onClick={handleClick}
             data-testid="selected-filter"
             className="consonant-chosen-filter"
-            tabIndex="0">{name}
+            tabIndex="0">
+            {name}
         </button>
     );
 };

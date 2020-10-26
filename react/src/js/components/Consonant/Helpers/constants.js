@@ -3,8 +3,6 @@
  */
 export const DESKTOP_MIN_WIDTH = 1200;
 export const TABLET_MIN_WIDTH = 768;
-export const DESKTOP_SCREEN_SIZE = window.innerWidth >= DESKTOP_MIN_WIDTH;
-export const NOT_DESKTOP_SCREEN_SIZE = window.innerWidth < DESKTOP_MIN_WIDTH;
 
 /**
  * Limit Constants
@@ -39,32 +37,12 @@ export const FILTER_PANEL = {
  * Sorting Constants
  */
 
-export const CARD_SORT_FIELD = {
-    FEATURED: 'initialTitle',
-    DATEASC: 'cardDate',
-    DATEDESC: 'cardDate',
-    TITLEASC: 'initialTitle',
-    TITLEDESC: 'initialTitle',
-};
-
 export const SORT_TYPES = {
     DATEASC: 'dateasc',
     DATEDESC: 'datedesc',
     FEATURED: 'featured',
     TITLEASC: 'titleasc',
     TITLEDESC: 'titledesc',
-};
-
-/**
- * CSS Constants
- */
-
-export const CLASS_NAME = {
-    TOP_FILTER: 'consonant-top-filter',
-    TOP_FILTER_OPENED: 'consonant-top-filter consonant-top-filter_opened',
-    TOP_FILTER_SELECTED: 'consonant-top-filter consonant-top-filter_selected',
-    SEARCH: 'consonant-top-filters--search-ico-wrapper',
-    SELECT: 'consonant-select--btn',
 };
 
 /**
@@ -101,8 +79,8 @@ export const DEFAULT_CONFIG = {
             prettyDateIntervalFormat: '{LLL} {dd} | {timeRange} {timeZone}',
             totalResultsText: '{total} results',
             title: '',
-            onErrorTitle: 'Something went wrong :(',
-            onErrorDescription: 'Please reload your page.',
+            onErrorTitle: 'Sorry there was a system error.',
+            onErrorDescription: 'Please try reloading the page or try coming back to the page another time.',
         },
     },
     featuredCards: [],
@@ -153,7 +131,7 @@ export const DEFAULT_CONFIG = {
         ],
         i18n: {
             noResultsTitle: 'No results found',
-            noResultsDescription: `We couldn’t find any results for {query}.{break}
+            noResultsDescription: `We couldn’t find any results for your {query}.{break}
             Check your spelling or try broadening your search.`,
         },
     },

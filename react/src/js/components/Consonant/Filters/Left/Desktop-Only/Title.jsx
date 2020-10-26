@@ -4,7 +4,8 @@ import React from 'react';
 const Title = ({
     panelHeader,
 }) => (
-    <h3 className="consonant-left-filters--desk-title">
+    <h3
+        className="consonant-left-filters--desk-title">
         {panelHeader}
     </h3>
 );
