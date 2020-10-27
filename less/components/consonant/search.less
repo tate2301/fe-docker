@@ -52,7 +52,10 @@
 
         border: 1px solid @consonant-color-lightest-grey;
         border-radius: 5px;
-        transition: border-color @transition-time @transition-func;
+        background-color: transparent;
+        transition:
+            border-color @transition-time @transition-func
+            background-color @transition-time @transition-func;
         outline: 0;
         box-shadow: none;
 
@@ -80,6 +83,7 @@
         &:focus {
             padding-right: 32px;
             border-color: @consonant-color-blue-2;
+            background-color: @consonant-color-white;
 
             &::placeholder {
                 opacity: 0;
