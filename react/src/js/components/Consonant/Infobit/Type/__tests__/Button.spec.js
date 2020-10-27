@@ -22,4 +22,8 @@ describe('Consonant/Infobits/Type/Button', () => {
 
         expect(buttonElement).not.toHaveClass('consonant-btn-infobit_cta');
     });
+    test('If an icon src is authored, render ite', async () => {
+        render(<Button {...{ iconSrc: 'some-icon.svg' }} />);
+        expect(screen.queryByTestId('img-for-button-infobit')).not.toBeNull();
+    });
 });

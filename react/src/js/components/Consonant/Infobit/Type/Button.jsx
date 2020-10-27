@@ -49,6 +49,7 @@ const Button = ({
             href={href}>
             {iconSrc &&
             <img
+                data-testid="img-for-button-infobit"
                 src={iconSrc}
                 width="20"
                 height="20"
