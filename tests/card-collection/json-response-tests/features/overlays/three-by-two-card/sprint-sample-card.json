@@ -1,0 +1,66 @@
+{
+    "cards": [
+        {
+            "id": "3",
+            "showCard": {
+                "from": "2020-10-01T20:00:00Z",
+                "until": "2025-10-31T21:45:00Z"
+            },
+            "styles": {
+                "typeOverride": "3:2",
+                "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"
+            },
+            "overlays": {
+                "banner": {
+                    "backgroundColor": "#EBC526",
+                    "fontColor": "#002148",
+                    "description": "Featured"
+                },
+                "logo": {
+                    "src": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Sprint_Corporation_Logo.svg",
+                    "alt": "Sprint",
+                    "backgroundColor": "#fff",
+                    "borderColor": "#eaeaea"
+                },
+                "label": {
+                    "description": "Spectrum tag"
+                },
+                "videoButton": {
+                    "url": "https://www.youtube.com/watch?v=hY7m5jjJ9mM&ab_channel=TigerFunnyWorks"
+                }
+            },
+            "tags": [],
+            "contentArea": {
+                "detailText": "Telecom",
+                "title": "How Sprint increased their order conversion rate by 22%",
+                "description": "Analytics, Audience, Manager, Creative cloud",
+                "dateDetailText": {}
+            },
+            "footer": [
+                {
+                    "divider": true,
+                    "left": [],
+                    "center": [],
+                    "right": [
+                        {
+                            "type": "link-with-icon",
+                            "openInNewTab": "false",
+                            "linkHint": "Click to open google in new tab",
+                            "href": "https://google.com",
+                            "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/play-icon.png",
+                            "srcAltText": "Vide Icon",
+                            "text": "Watch the video"
+                        },
+                        {
+                            "type": "button",
+                            "style": "primary",
+                            "href": "https://yahoo.com",
+                            "text": "Learn more"
+                        }
+                    ]
+                }
+            ],
+            "search": {}
+        }
+    ]
+}
