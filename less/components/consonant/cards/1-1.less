@@ -48,14 +48,23 @@
         z-index: 1;
         cursor: pointer;
         transform-origin: 50% 50%;
-        transition: transform @transition-time @transition-func;
+        opacity: 0;
+        transition: opacity @transition-time @transition-func;
+        transition-delay: @transition-time * 2;
 
         &:hover,
         &:active {
+            opacity: 1;
             transform: scale(1.1);
+            transition: transform @transition-time @transition-func;
+            transition-delay: 0;
         }
 
         .focused;
+    }
+
+    &:hover .consonant-aspect-ratio-1-1-card--video-ico {
+        opacity: 1;
     }
 
     .consonant-aspect-ratio-1-1-card--logo {
