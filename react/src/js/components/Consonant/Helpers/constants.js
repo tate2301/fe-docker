@@ -95,6 +95,11 @@ export const DEFAULT_CONFIG = {
         clearFilterText: 'Clear',
         filterLogic: 'and',
         leftPanelHeader: 'Refine the results',
+        topPanel: {
+            mobile: {
+                blurFilters: true,
+            },
+        },
     },
     sort: {
         enabled: true,

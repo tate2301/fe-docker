@@ -36,6 +36,7 @@ const FiltersPanelTop = ({
     const searchEnabled = getConfig('search', 'enabled');
     const clearFilterText = getConfig('filterPanel', 'i18n.topPanel.mobile.group.clearFilterText');
     const clearAllFiltersText = getConfig('filterPanel', 'i18n.topPanel.clearAllFiltersText');
+    const blurMobileFilters = getConfig('filterPanel', 'topPanel.mobile.blurFilters');
     const showTotalResults = getConfig('collection', 'showTotalResults');
     const showTotalResultsText = getConfig('collection', 'i18n.totalResultsText');
     const sortEnabled = getConfig('sort', 'enabled');
@@ -72,6 +73,7 @@ const FiltersPanelTop = ({
     const clearBtnWrapperClass = classNames({
         'consonant-top-filters--clear-btn-wrapper': true,
         'consonant-top-filters--clear-btn-wrapper_no-bg': filters.length === 1,
+        'consonant-top-filters--clear-btn-wrapper_with-blur': blurMobileFilters,
     });
 
     return (

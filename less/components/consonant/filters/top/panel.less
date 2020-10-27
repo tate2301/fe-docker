@@ -1,6 +1,7 @@
 /* Available modifiers:
   - consonant-top-filters--filters_truncated;
   - consonant-top-filters--clear-btn-wrapper_no-bg;
+  - consonant-top-filters--clear-btn-wrapper_with-blur;
 */
 
 .consonant-top-filters {
@@ -117,7 +118,7 @@
             overflow: visible;
         }
 
-        &:after {
+        &.consonant-top-filters--clear-btn-wrapper_with-blur:after {
             content: '';
             position: absolute;
             width: @consonant-top-filters-filters-fade-width;
