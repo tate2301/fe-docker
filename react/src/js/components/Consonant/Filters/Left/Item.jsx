@@ -49,7 +49,7 @@ const Item = ({
     const shouldRenderSelectedBadge = numItemsSelected > 0;
     const selectedFilters = items.filter(item => item.selected);
     const mobileTagsSelectedText = selectedFilters.map((item, index) => {
-        const lastItem = index === items.length - 1;
+        const lastItem = index === selectedFilters.length - 1;
         return (!lastItem ? `${item.label}, ` : item.label);
     });
 
