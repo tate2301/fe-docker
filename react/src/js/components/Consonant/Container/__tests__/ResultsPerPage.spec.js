@@ -48,9 +48,7 @@ describe('Consonant/Container/Results Per Page', () => {
         await waitFor(() => screen.getByTestId('consonant-collection'));
 
         const allCards = cards.length;
-        const notThreeByTwoCard = cards.filter(card => card.styles.typeOverride === '1:1' || card.styles.typeOverride === 'full-card').length;
-        const allThreeByTwoCards = allCards - notThreeByTwoCard;
         const featuredCardsLength = config.featuredCards.length;
-        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(allThreeByTwoCards + featuredCardsLength);
+        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(allCards + featuredCardsLength);
     });
 });
