@@ -45,4 +45,17 @@ describe('Consonant/Container/Card Styles', () => {
         const totalCards = cards.length + featuredCards.length;
         expect(screen.queryAllByTestId('consonant-card--img')).toHaveLength(totalCards);
     });
+
+    test('can render a mixed card collection', async () => {
+        const configToUse = config;
+        configToUse.totalCardsToShow = Number.MAX_SAFE_INTEGER;
+
+        // this config render a mixed card collection
+        config.collection.cardStyle = ''; 
+        
+        const { featuredCards } = config;
+        await act(async () => render(<Container config={configToUse} />));
+        const totalCards = cards.length + featuredCards.length;
+        expect(screen.queryAllByTestId('consonant-card--img')).toHaveLength(totalCards);
+    });
 });
