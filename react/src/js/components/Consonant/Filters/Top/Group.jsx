@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Footer } from './Footer';
-import { Items } from './Items';
+import Items from './Items';
 import { stopPropagation } from '../../Helpers/general';
 import {
     useConfig,

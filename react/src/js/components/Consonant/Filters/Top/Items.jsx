@@ -2,6 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+/**
+ * Options of the top filter item
+ *
+ * @component
+ * @example
+ * const props= {
+    items: Array,
+    handleCheck: Function,
+    stopPropagation: Function,
+    clipWrapperItemsCount: Number,
+ * }
+ * return (
+ *   <Items {...props}/>
+ * )
+ */
 const Items = (props) => {
     const {
         items,
@@ -10,8 +25,21 @@ const Items = (props) => {
         clipWrapperItemsCount,
     } = props;
 
+    /**
+     **** Constants ****
+     */
+
+    /**
+     * Whether filter options should be blurred at the bottom of the parent container
+     * @type {Boolean}
+     */
     const shouldClipItems = items.length >= clipWrapperItemsCount;
 
+    /**
+     * Class name for the top filter's options wrapper:
+     * whether filter options should be blurred at the bottom of the parent container
+     * @type {String}
+     */
     const clipFilterItemsClass = classNames({
         'consonant-top-filter--items': true,
         'consonant-top-filter--items_clipped': shouldClipItems,
@@ -53,12 +81,11 @@ const Items = (props) => {
     );
 };
 
-/* eslint-disable-next-line import/prefer-default-export */
-export { Items };
-
 Items.propTypes = {
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
     handleCheck: PropTypes.func.isRequired,
     stopPropagation: PropTypes.func.isRequired,
     clipWrapperItemsCount: PropTypes.number.isRequired,
 };
+
+export default Items;
