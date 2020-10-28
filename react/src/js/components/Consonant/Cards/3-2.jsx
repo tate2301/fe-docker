@@ -61,9 +61,8 @@ const AspectRatio3to2Card = (props) => {
     const detailText = prettyDate || label || '';
 
     const extendFooterData = (data) => {
-        if (!data) return;
+        if (!data) return [];
 
-        /* eslint-disable-next-line consistent-return */
         return data.map((el) => {
             if (el.type === INFOBIT_TYPE.BOOKMARK) {
                 return {
