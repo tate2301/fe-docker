@@ -63,6 +63,7 @@ const AspectRatio3to2Card = (props) => {
     const extendFooterData = (data) => {
         if (!data) return;
 
+        /* eslint-disable-next-line consistent-return */
         return data.map((el) => {
             if (el.type === INFOBIT_TYPE.BOOKMARK) {
                 return {
