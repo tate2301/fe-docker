@@ -138,17 +138,17 @@ const sanitizeText = [
 
 const mapObject = [
     {
-        object: { id: 1, name: 'John', surname: 'Cena' },
+        object: { id: 1, name: 'Some Name', surname: 'Some Surname' },
         func: value => value,
-        expectedValue: { id: 1, name: 'John', surname: 'Cena' },
+        expectedValue: { id: 1, name: 'Some Name', surname: 'Some Surname' },
     },
     {
-        object: { id: 1, name: 'John', surname: 'Cena' },
+        object: { id: 1, name: 'Some Name', surname: 'Some Surname' },
         func: value => `${typeof value} ${value}`,
         expectedValue: {
             id: 'number 1',
-            name: 'string John',
-            surname: 'string Cena',
+            name: 'string Some Name',
+            surname: 'string Some Surname',
         },
     },
 ];

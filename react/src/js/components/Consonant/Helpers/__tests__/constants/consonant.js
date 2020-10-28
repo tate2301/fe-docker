@@ -12,16 +12,16 @@ const getNumSelectedFilterItems = [
 
 const makeConfigGetter = [
     {
-        config: { user: { name: 'John' } },
+        config: { user: { name: 'Some Name' } },
         object: 'user',
         key: 'name',
-        expectedValue: 'John',
+        expectedValue: 'Some Name',
     },
     {
-        config: { user: { name: 'John' } },
+        config: { user: { name: 'Some Name' } },
         object: 'user',
         key: null,
-        expectedValue: { name: 'John' },
+        expectedValue: { name: 'Some Name' },
     },
     {
         config: { user: { } },

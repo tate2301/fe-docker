@@ -9,7 +9,7 @@ import {
 describe('utils/cards', () => {
     describe('getNumSelectedFilterItems', () => {
         PROPS.getNumSelectedFilterItems.forEach(({ filters, expectedValue }) => {
-            test(`shouldn return ${expectedValue} value`, () => {
+            test(`shouldn't return ${expectedValue} value`, () => {
                 const value = getNumSelectedFilterItems(filters);
 
                 expect(value).toEqual(expectedValue);
