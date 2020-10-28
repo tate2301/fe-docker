@@ -174,15 +174,15 @@ AspectRatio3to2Card.propTypes = {
     id: PropTypes.string.isRequired,
     disableBookmarkIco: PropTypes.bool,
     footer: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-    isBookmarked: PropTypes.bool.isRequired,
+    isBookmarked: PropTypes.bool,
     onClick: PropTypes.func.isRequired,
     dateFormat: PropTypes.string,
     styles: PropTypes.shape({
         backgroundImage: PropTypes.string,
     }),
     contentArea: PropTypes.shape({
-        title: PropTypes.string,
-        description: PropTypes.string,
+        title: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+        description: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
         detailText: PropTypes.string,
         dateDetailText: PropTypes.shape({
             startTime: PropTypes.string,
@@ -218,4 +218,5 @@ AspectRatio3to2Card.defaultProps = {
     styles: {},
     contentArea: {},
     overlays: {},
+    isBookmarked: false,
 };
