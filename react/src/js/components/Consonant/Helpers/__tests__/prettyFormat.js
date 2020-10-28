@@ -1,0 +1,20 @@
+import PROPS from './constants/prettyFormat';
+
+import prettyFormat from '../prettyFormat';
+
+describe('utils/prettyFormat', () => {
+    PROPS.forEach(({
+        startDateUTC, endDateUTC, locale, i18nFormat, expectedValue,
+    }) => {
+        test(`shouldn return ${expectedValue} value`, () => {
+            const value = prettyFormat(
+                startDateUTC,
+                endDateUTC,
+                locale,
+                i18nFormat,
+            );
+
+            expect(value).toEqual(expectedValue);
+        });
+    });
+});
