@@ -318,5 +318,19 @@ describe('Consonant/Top Filters/Desktop', () => {
         expect(firstFilterCheckbox.checked).toBeFalsy();
         expect(secondFilterCheckbox.checked).toBeTruthy();
     });
+
+    test('No title authored but show total results authored should still show total results', async () => {
+        global.innerWidth = DESKTOP_WIDTH;
+        const configToUse = config;
+        configToUse.filterPanel.type = 'top';
+        configToUse.filterPanel.filterLogic = 'or';
+        configToUse.collection.i18n.title = '';
+        configToUse.collection.showTotalResults = true;
+
+        await act(async () => render(<Container config={configToUse} />));
+
+        expect(screen.queryByTestId('results')).not.toBeNull();
+
+    });
 });
 
