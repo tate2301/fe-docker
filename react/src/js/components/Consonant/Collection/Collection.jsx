@@ -86,7 +86,7 @@ const Collection = (props) => {
             <div className="consonant-card-collection--inner">
                 {cardsToshow.map((card) => {
                     const cardStyleOverride = get(card, 'styles.typeOverride');
-                    const cardStyle = cardStyleOverride || collectionStyleOverride;
+                    const cardStyle = collectionStyleOverride || cardStyleOverride;
                     if (cardStyle === CARD_STYLES.FULL) {
                         return (
                             <FullCard
