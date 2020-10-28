@@ -45,7 +45,7 @@ describe('Consonant/Filters/Top/Panel', () => {
     test('Should be able to display total results if authored', () => {
         renderTopFilterPanel({ displayTotalResults: true });
 
-        const footerTotalResElement = screen.queryByTestId('filter-top-result-count');
+        const footerTotalResElement = screen.queryByTestId('results');
         expect(footerTotalResElement).not.toBeNull();
     });
 
