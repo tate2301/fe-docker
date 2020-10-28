@@ -128,7 +128,7 @@ const FiltersPanelTop = (props) => {
     const shouldDisplayFilters = filters.length > 0 && filterPanelEnabled;
 
     /**
-     * Whether "Load more" button should be displayed
+     * Whether "Show all filters" button should be displayed
      * @type {Boolean}
      */
     const shouldDisplayMoreFiltersBtn =
