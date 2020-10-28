@@ -98,13 +98,13 @@ const FiltersPanelTop = (props) => {
     const atleastOneFilterSelected = isAtleastOneFilterSelected(filters);
 
     /**
-     * Whether current viewport width fits mobile devices or tablets
+     * Whether the current viewport width fits mobile devices or tablets
      * @type {Boolean}
      */
     const TABLET_OR_MOBILE_SCREEN_SIZE = windowWidth < TABLET_MIN_WIDTH;
 
     /**
-     * Whether current viewport width fits tablets or desktops/laptops
+     * Whether the current viewport width fits tablets or desktops/laptops
      * @type {Boolean}
      */
     const TABLET_OR_DESKTOP_SCREEN_SIZE = windowWidth >= TABLET_MIN_WIDTH;
@@ -116,45 +116,46 @@ const FiltersPanelTop = (props) => {
     const shouldHideSomeFilters = filters.length > MAX_TRUNCATED_FILTERS;
 
     /**
-     * Whether sort dropdown should be displayed
+     * Whether the sort dropdown should be displayed
      * @type {Boolean}
      */
     const shouldDisplaySortComponent = sortEnabled && sortOptions.length > 0;
 
     /**
-     * Whether filters should be displayed
+     * Whether the filters should be displayed
      * @type {Boolean}
      */
     const shouldDisplayFilters = filters.length > 0 && filterPanelEnabled;
 
     /**
-     * Whether "Show all filters" button should be displayed
+     * Whether the "Show all filters" button should be displayed
      * @type {Boolean}
      */
     const shouldDisplayMoreFiltersBtn =
         shouldHideSomeFilters && TABLET_OR_DESKTOP_SCREEN_SIZE && showLimitedFiltersQty;
 
     /**
-     * Whether title of collection and quantity of filtered cards should be displayed
+     * Whether the title of the collection and the quantity of the filtered cards
+     * should be displayed
      * @type {Boolean}
      */
     const shouldDisplayCollectionInfo = title || showTotalResults;
 
     /**
-     * Whether search bar should be displayed
+     * Whether the search bar should be displayed
      * @type {Boolean}
      */
     const shouldDisplaySearchBar = searchComponent && TABLET_OR_MOBILE_SCREEN_SIZE;
 
     /**
-     * Whether "Clear all filters" button should be displayed
+     * Whether the "Clear all filters" button should be displayed
      * @type {Boolean}
      */
     const shouldShowClearButtonWrapper = atleastOneFilterSelected
         || filters.length >= MIN_FILTERS_SHOW_BG;
 
     /**
-     * Class name for top filters:
+     * Class name for the top filters:
      * whether we should hide all filters after quantity defined in MAX_TRUNCATED_FILTERS constant
      * @type {String}
      */
@@ -164,8 +165,8 @@ const FiltersPanelTop = (props) => {
     });
 
     /**
-     * Class name for "Clear filters" button:
-     * whether blur effect should be applied to the container
+     * Class name for the "Clear filters" button:
+     * whether the blur effect should be applied to the container
      * @type {String}
      */
     const clearBtnWrapperClass = classNames({
@@ -178,19 +179,19 @@ const FiltersPanelTop = (props) => {
      */
 
     /**
-     * @typedef {String} openExpandableState - Id of <Search /> component
-     * @description — defined in searchId constant
+     * @typedef {String} openExpandableState - Id of the <Search /> component
+     * @description — defined in the searchId constant
      *
      * @typedef {Function} ExpandableToggleSetter - Handles toggling opened/closed state of
-     * <Search /> component
+     * the <Search /> component
      * @description
      *
-     * @type {[String, Function]} OpenDropdown
+     * @type {[String, Function]} openExpandable
      */
     const [openExpandable, handleExpandableToggle] = useExpandable(searchId);
 
     /**
-     * Whether search bar should be visible
+     * Whether the search bar should be visible
      * @type {Boolean}
      */
     const shouldShowSearchBar = openExpandable === searchId;
