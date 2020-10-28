@@ -47,7 +47,7 @@
                             "openInNewTab": "false",
                             "linkHint": "Click to open google in new tab",
                             "href": "https://google.com",
-                            "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/play-icon.png",
+                            "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/play-icon.svg",
                             "srcAltText": "Vide Icon",
                             "text": "Watch the video"
                         },
