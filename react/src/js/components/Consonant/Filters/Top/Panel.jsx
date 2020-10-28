@@ -1,38 +1,68 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import sum from 'lodash/sum';
-import React from 'react';
 
 import { isAtleastOneFilterSelected } from '../../Helpers/general';
 import SearchIcon from '../../Search/SearchIcon';
 import { Group as TopFilterItem } from './Group';
 import { renderTotalResults } from '../../Helpers/rendering';
+
 import {
     useConfig,
     useExpandable,
 } from '../../Helpers/hooks';
+
 import {
     TABLET_MIN_WIDTH,
     MAX_TRUNCATED_FILTERS,
     MIN_FILTERS_SHOW_BG,
 } from '../../Helpers/constants';
 
-const FiltersPanelTop = ({
-    filters,
-    resQty,
-    onCheckboxClick,
-    onFilterClick,
-    onClearAllFilters,
-    onClearFilterItems,
-    showLimitedFiltersQty,
-    onShowAllClick,
-    windowWidth,
-    searchComponent,
-    sortComponent,
-    filterPanelEnabled,
-}) => {
+/**
+ * Top filters panel
+ *
+ * @component
+ * @example
+ * const props= {
+    filters: Array,
+    resQty: Number,
+    onCheckboxClick: Function,
+    onFilterClick: Function,
+    onClearAllFilters: Function,
+    onClearFilterItems: Function,
+    showLimitedFiltersQty: Boolean,
+    onShowAllClick: Function,
+    windowWidth: Number,
+    searchComponent: Node,
+    sortComponent: Node,
+    filterPanelEnabled: Boolean,
+ * }
+ * return (
+ *   <FiltersPanelTop {...props}/>
+ * )
+ */
+const FiltersPanelTop = (props) => {
+    const {
+        filters,
+        resQty,
+        onCheckboxClick,
+        onFilterClick,
+        onClearAllFilters,
+        onClearFilterItems,
+        showLimitedFiltersQty,
+        onShowAllClick,
+        windowWidth,
+        searchComponent,
+        sortComponent,
+        filterPanelEnabled,
+    } = props;
+
     const getConfig = useConfig();
 
+    /**
+     **** Authored Configs ****
+     */
     const searchEnabled = getConfig('search', 'enabled');
     const clearFilterText = getConfig('filterPanel', 'i18n.topPanel.mobile.group.clearFilterText');
     const clearAllFiltersText = getConfig('filterPanel', 'i18n.topPanel.clearAllFiltersText');
@@ -45,48 +75,136 @@ const FiltersPanelTop = ({
     const moreFiltersBtnText = getConfig('filterPanel', 'i18n.topPanel.moreFiltersBtnText');
     const title = getConfig('collection', 'i18n.title');
 
+    /**
+     **** Constants ****
+     */
+
+    /**
+     * Top search bar identifier
+     * @type {String}
+     */
     const searchId = 'top-search';
 
-    const [openExpandable, handleExpandableToggle] = useExpandable(searchId);
-
+    /**
+     * Total results HTML
+     * @type {Array}
+     */
     const totalResultsHtml = renderTotalResults(showTotalResultsText, resQty);
+
+    /**
+     * Whether at least one filter is selected
+     * @type {Boolean}
+     */
     const atleastOneFilterSelected = isAtleastOneFilterSelected(filters);
 
+    /**
+     * Whether current viewport width fits mobile devices or tablets
+     * @type {Boolean}
+     */
     const TABLET_OR_MOBILE_SCREEN_SIZE = windowWidth < TABLET_MIN_WIDTH;
+
+    /**
+     * Whether current viewport width fits tablets or desktops/laptops
+     * @type {Boolean}
+     */
     const TABLET_OR_DESKTOP_SCREEN_SIZE = windowWidth >= TABLET_MIN_WIDTH;
 
+    /**
+     * Whether we should hide all filters after quantity defined in MAX_TRUNCATED_FILTERS constant
+     * @type {Boolean}
+     */
     const shouldHideSomeFilters = filters.length > MAX_TRUNCATED_FILTERS;
+
+    /**
+     * Whether sort dropdown should be displayed
+     * @type {Boolean}
+     */
     const shouldDisplaySortComponent = sortEnabled && sortOptions.length > 0;
+
+    /**
+     * Whether filters should be displayed
+     * @type {Boolean}
+     */
     const shouldDisplayFilters = filters.length > 0 && filterPanelEnabled;
+
+    /**
+     * Whether "Load more" button should be displayed
+     * @type {Boolean}
+     */
     const shouldDisplayMoreFiltersBtn =
         shouldHideSomeFilters && TABLET_OR_DESKTOP_SCREEN_SIZE && showLimitedFiltersQty;
+
+    /**
+     * Whether title of collection and quantity of filtered cards should be displayed
+     * @type {Boolean}
+     */
     const shouldDisplayCollectionInfo = title || showTotalResults;
+
+    /**
+     * Whether search bar should be displayed
+     * @type {Boolean}
+     */
+    const shouldDisplaySearchBar = searchComponent && TABLET_OR_MOBILE_SCREEN_SIZE;
+
+    /**
+     * Whether search bar should be visible
+     * @type {Boolean}
+     */
     const shouldShowSearchBar = openExpandable === searchId;
+
+    /**
+     * Whether "Clear all filters" button should be displayed
+     * @type {Boolean}
+     */
     const shouldShowClearButtonWrapper = atleastOneFilterSelected
         || filters.length >= MIN_FILTERS_SHOW_BG;
 
+    /**
+     * Class name for top filters:
+     * whether we should hide all filters after quantity defined in MAX_TRUNCATED_FILTERS constant
+     * @type {String}
+     */
     const showLimitedFiltersQtyClass = classNames({
         'consonant-top-filters--filters': true,
         'consonant-top-filters--filters_truncated': showLimitedFiltersQty,
     });
 
+    /**
+     * Class name for "Clear filters" button:
+     * whether blur effect should be applied to the container
+     * @type {String}
+     */
     const clearBtnWrapperClass = classNames({
         'consonant-top-filters--clear-btn-wrapper': true,
-        'consonant-top-filters--clear-btn-wrapper_no-bg': filters.length === 1,
-        'consonant-top-filters--clear-btn-wrapper_with-blur': blurMobileFilters,
+        'consonant-top-filters--clear-btn-wrapper_with-blur': blurMobileFilters && filters.length > 1,
     });
+
+    /**
+     **** Hooks ****
+     */
+
+    /**
+     * @typedef {String} openExpandableState - Id of <Search /> component
+     * @description — defined in searchId constant
+     *
+     * @typedef {Function} ExpandableToggleSetter - Handles toggling opened/closed state of <Search /> component
+     * @description
+     *
+     * @type {[String, Function]} OpenDropdown
+     */
+    const [openExpandable, handleExpandableToggle] = useExpandable(searchId);
 
     return (
         <div
             data-testid="consonant-filters__top"
             className="consonant-top-filters">
-            {searchComponent && TABLET_OR_MOBILE_SCREEN_SIZE && (
+            {shouldDisplaySearchBar &&
                 <div
                     data-testid="top-filters__search-wrapper"
                     className="consonant-top-filters--search-wrapper">
                     {searchComponent}
                 </div>
-            )}
+            }
             <div
                 className="consonant-top-filters--inner">
                 {shouldDisplayFilters &&
@@ -116,8 +234,7 @@ const FiltersPanelTop = ({
                                     clearFilterText={clearFilterText}
                                     isTopFilter />))
                             }
-                            {
-                                shouldDisplayMoreFiltersBtn &&
+                            {shouldDisplayMoreFiltersBtn &&
                                 <button
                                     type="button"
                                     data-testid="top-filter__more-button"
@@ -127,8 +244,7 @@ const FiltersPanelTop = ({
                                 </button>
                             }
                         </div>
-                        {
-                            (shouldShowClearButtonWrapper) &&
+                        {shouldShowClearButtonWrapper &&
                             <div
                                 data-testid="top-filter__clear-button-wrapper"
                                 className={clearBtnWrapperClass}>
@@ -146,17 +262,17 @@ const FiltersPanelTop = ({
                         }
                     </div>
                 }
-                {searchEnabled && TABLET_OR_DESKTOP_SCREEN_SIZE && (
+                {searchEnabled && TABLET_OR_DESKTOP_SCREEN_SIZE &&
                     <div
                         data-testid="filter-top-ico-wrapper"
                         className="consonant-top-filters--search-ico-wrapper">
                         {shouldShowSearchBar && searchComponent}
-                        {TABLET_OR_DESKTOP_SCREEN_SIZE && (
+                        {TABLET_OR_DESKTOP_SCREEN_SIZE &&
                             <SearchIcon
                                 onClick={handleExpandableToggle} />
-                        )}
+                        }
                     </div>
-                )}
+                }
                 {shouldDisplaySortComponent &&
                     <div
                         data-testid="top-filters__sort-popup"
@@ -187,8 +303,6 @@ const FiltersPanelTop = ({
     );
 };
 
-export default FiltersPanelTop;
-
 FiltersPanelTop.propTypes = {
     filters: PropTypes.arrayOf(PropTypes.object),
     resQty: PropTypes.number,
@@ -209,3 +323,5 @@ FiltersPanelTop.defaultProps = {
     resQty: 0,
     showLimitedFiltersQty: false,
 };
+
+export default FiltersPanelTop;
