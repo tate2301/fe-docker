@@ -1,6 +1,6 @@
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'react-uuid';
-import React, { Fragment } from 'react';
 
 import Bookmark from './Type/Bookmark/Bookmark';
 import Button from './Type/Button';
