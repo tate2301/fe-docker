@@ -118,13 +118,13 @@ const Container = (props) => {
      */
 
     /**
-     * @typedef {Int} OpenDropdownState - Id of a selected dropdown
+     * @typedef {Number} OpenDropdownState - Id of a selected dropdown
      * @description — Passed in Context Provider So All Nested Components can be in sync
      *
      * @typedef {Function} OpenDropdownStateSetter
      * @description
      *
-     * @type {[Int, Function]} OpenDropdown
+     * @type {[Number, Function]} OpenDropdown
      */
     const [openDropdown, setOpenDropdown] = useState(null);
 
@@ -138,12 +138,12 @@ const Container = (props) => {
     const [bookmarkedCardIds, setBookmarkedCardIds] = useState(readBookmarksFromLocalStorage());
 
     /**
-     * @typedef {Int} CurrentPageState — Initialized to the first page
+     * @typedef {Number} CurrentPageState — Initialized to the first page
      * @description Same page state for 'Load More' or 'Paginator'
      *
      * @typedef {Function} CurrentPageStateSetter — Sets page as user navigates through pages
      *
-     * @type {[Int, Function]} CurrentPage
+     * @type {[Number, Function]} CurrentPage
      */
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -253,7 +253,7 @@ const Container = (props) => {
      * @typedef {Boolean} ApiFailureState — Can either be true or false
      * @description When true an API error has occured
      *
-     * @typedef {Function} ApiFailureStateSetter — Sets API failure flag true or falsse
+     * @typedef {Function} ApiFailureStateSetter — Sets API failure flag true or false
      * @description True when retrieved or api failure. False otherwise
      *
      * @type {[Boolean, Function]} ApiFailure
@@ -279,7 +279,7 @@ const Container = (props) => {
 
     /**
     * For a given group of filters, it will unselect the one with a given id
-    * @param {Int} id - the id of an individual filter item
+    * @param {Number} id - the id of an individual filter item
     * @param {Array} filterGroups - a group of filters
     * @returns {Array} fitlerGroups - the updated group of filters
     */
@@ -298,7 +298,7 @@ const Container = (props) => {
 
     /**
     * Will uncheck a filter with a given id
-    * @param {Int} id - the id of an individual filter item
+    * @param {Number} id - the id of an individual filter item
     * @returns {Void} - an updated state
     */
     const clearFilterItem = (id) => {
@@ -575,19 +575,19 @@ const Container = (props) => {
 
     /**
      * Total pages (used by Paginator Component)
-     * @type {Int}
+     * @type {Number}
      */
     const totalPages = getTotalPages(resultsPerPage, collectionCards.length);
 
     /**
      * Number of cards to show (used by Load More component)
-     * @type {Int}
+     * @type {Number}
      */
     const numCardsToShow = getNumCardsToShow(resultsPerPage, currentPage, collectionCards.length);
 
     /**
      * How many filters were selected - (used by Left Filter Panel)
-     * @type {Int}
+     * @type {Number}
      */
     const selectedFiltersItemsQty = getNumSelectedFilterItems(filters);
 
@@ -632,7 +632,7 @@ const Container = (props) => {
 
     /**
      * How Long Paginator Component Should Be
-     * @type {Int} - Location of Sort Popup in Top Filter Panel View
+     * @type {Number} - Location of Sort Popup in Top Filter Panel View
      */
     const paginatorCount = DESKTOP_SCREEN_SIZE ? PAGINATION_COUNT.DESKTOP : PAGINATION_COUNT.MOBILE;
 

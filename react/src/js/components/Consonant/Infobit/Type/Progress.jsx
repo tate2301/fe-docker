@@ -33,7 +33,7 @@ const Progress = ({
      *
      * This is different than Percentage prop @type {String} which is diplayed
      * to user
-     * @type {Int}
+     * @type {Number}
      */
     const percentageInt = parseInt(percentage, BASE_10);
 

@@ -7,9 +7,9 @@ const maxAllowedStars = 5;
 
 /**
 * Will calculate the rating (percentage) that is shown
-* @param {Int} id - How many stars should be filled
-* @param {Int} id - Total amount of stars to display
-* @returns {Int} - Rating Percentage
+* @param {Number} id - How many stars should be filled
+* @param {Number} id - Total amount of stars to display
+* @returns {Number} - Rating Percentage
 */
 const getRating = (starsFilled, totalStars) => {
     const starsFilledNotValid = starsFilled < 0 || starsFilled > totalStars;

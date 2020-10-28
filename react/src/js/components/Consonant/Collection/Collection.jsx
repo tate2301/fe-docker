@@ -51,7 +51,7 @@ const Collection = (props) => {
 
     /**
      * Total pages to show (used if paginator component is set)
-     * @type {Int}
+     * @type {Number}
      */
     const totalPages = resultsPerPage * pages;
 
@@ -63,7 +63,7 @@ const Collection = (props) => {
 
     /**
      * Current page (used if paginator component is authored)
-     * @type {Int}
+     * @type {Number}
      */
     const currentPage = resultsPerPage * (pages - 1);
 
@@ -73,7 +73,7 @@ const Collection = (props) => {
 
     /**
      * Current page (used if load more button is authored)
-     * @type {Int}
+     * @type {Number}
      */
     if (isLoadMore) {
         cardsToshow = cards.slice(0, resultsPerPage * pages);

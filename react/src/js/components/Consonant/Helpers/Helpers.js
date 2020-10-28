@@ -21,8 +21,8 @@ enableES5();
 /**
 * Determines whether paginator component should display
 * @param {Boolean} enabled - Authored flag whether component should display or not
-* @param {Int} totalCardLimit - Authored limit for how many cards should display
-* @param {Int} totalResults - Total cards in collection
+* @param {Number} totalCardLimit - Authored limit for how many cards should display
+* @param {Number} totalResults - Total cards in collection
 * @returns {Boolean} - Whether Paginator should display or not
 */
 export const shouldDisplayPaginator = (enabled, totalCardLimit, totalResults) => {
@@ -37,19 +37,19 @@ export const shouldDisplayPaginator = (enabled, totalCardLimit, totalResults) =>
 
 /**
 * Determines how many cards to show
-* @param {Int} resultsPerPage - How many cards should show per page (Authored Field)
-* @param {Int} currentPage - Current page user is on
-* @param {Int} totalResults - Total cards in collection
-* @returns {Int} - Number of cards to show
+* @param {Number} resultsPerPage - How many cards should show per page (Authored Field)
+* @param {Number} currentPage - Current page user is on
+* @param {Number} totalResults - Total cards in collection
+* @returns {Number} - Number of cards to show
 */
 export const getNumCardsToShow = (resultsPerPage, currentPage, totalResults) =>
     Math.min(resultsPerPage * currentPage, totalResults);
 
 /**
 * Gets Total Page Count (For Paginator Component)
-* @param {Int} resultsPerPage - How many cards should show per page (Authored Field)
-* @param {Int} totalResults - Total cards in collection
-* @returns {Int} - Total number of pages
+* @param {Number} resultsPerPage - How many cards should show per page (Authored Field)
+* @param {Number} totalResults - Total cards in collection
+* @returns {Number} - Total number of pages
 */
 export const getTotalPages = (resultsPerPage, totalResults) => {
     if (resultsPerPage === 0) return 0;

@@ -2,7 +2,7 @@ import forOwn from 'lodash/forOwn';
 
 /**
  * Saves a card to local storage
- * @param {Int} bookmarksValue - The id of the card to save
+ * @param {Number} bookmarksValue - The id of the card to save
  * @return {Void}
  */
 export const saveBookmarksToLocalStorage = (bookmarksValue) => {
@@ -21,7 +21,7 @@ export const readBookmarksFromLocalStorage = () => {
 /**
  * Helper method to truncate strings
  * @param {String} str - The string to truncate
- * @param {Int} num - How much to truncate
+ * @param {Number} num - How much to truncate
  * @return {String} - The truncated string
  */
 export const truncateString = (str, num) => {
@@ -31,7 +31,7 @@ export const truncateString = (str, num) => {
 
 /**
  * Helper method to truncate a list of cards
- * @param {Int} limit - How much to truncate by
+ * @param {Number} limit - How much to truncate by
  * @param {Array} list - What to truncate
  * @return {Array} - The truncated list
  */
@@ -242,9 +242,9 @@ export const getPageStartEnd = (currentPageNumber, pageCount, totalPages) => {
 
 /**
 * Gets the start number for Paginator Component
-* @param {Int} currentPageNumber - Current page the user is on
-* @param {Int} showItemsPerPage - How many items to show per page
-* @returns {Int} - The start number for Paginator Component
+* @param {Number} currentPageNumber - Current page the user is on
+* @param {Number} showItemsPerPage - How many items to show per page
+* @returns {Number} - The start number for Paginator Component
 */
 export const getStartNumber = (currentPageNumber, showItemsPerPage) => {
     if (currentPageNumber === 1) return 1;
@@ -253,10 +253,10 @@ export const getStartNumber = (currentPageNumber, showItemsPerPage) => {
 
 /**
 * Gets the end number for Paginator Component
-* @param {Int} currentPageNumber - Current page the user is on
-* @param {Int} showItemsPerPage - How many items to show per page
-* @param {Int} totalResults - Total count of cards in collection
-* @returns {Int} - The end number for Paginator Component
+* @param {Number} currentPageNumber - Current page the user is on
+* @param {Number} showItemsPerPage - How many items to show per page
+* @param {Number} totalResults - Total count of cards in collection
+* @returns {Number} - The end number for Paginator Component
 */
 export const getEndNumber = (currentPageNumber, showItemsPerPage, totalResults) => {
     const res = currentPageNumber * showItemsPerPage;

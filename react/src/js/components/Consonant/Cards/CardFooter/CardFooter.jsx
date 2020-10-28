@@ -39,7 +39,7 @@ const CardFooter = (props) => {
 
     /**
      * How many groups are displayed in the footer
-     * @type {Int}
+     * @type {Number}
      */
     let dataCells = 0;
 

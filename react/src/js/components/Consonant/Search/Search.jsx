@@ -4,7 +4,7 @@ import { useConfig } from '../Helpers/hooks';
 
 /**
  * Used as unique id for accessibility labels/attributes
- * @type {Int}
+ * @type {Number}
  */
 const searchId = 'consonant-search';
 
