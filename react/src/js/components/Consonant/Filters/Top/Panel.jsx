@@ -147,12 +147,6 @@ const FiltersPanelTop = (props) => {
     const shouldDisplaySearchBar = searchComponent && TABLET_OR_MOBILE_SCREEN_SIZE;
 
     /**
-     * Whether search bar should be visible
-     * @type {Boolean}
-     */
-    const shouldShowSearchBar = openExpandable === searchId;
-
-    /**
      * Whether "Clear all filters" button should be displayed
      * @type {Boolean}
      */
@@ -187,12 +181,19 @@ const FiltersPanelTop = (props) => {
      * @typedef {String} openExpandableState - Id of <Search /> component
      * @description — defined in searchId constant
      *
-     * @typedef {Function} ExpandableToggleSetter - Handles toggling opened/closed state of <Search /> component
+     * @typedef {Function} ExpandableToggleSetter - Handles toggling opened/closed state of
+     * <Search /> component
      * @description
      *
      * @type {[String, Function]} OpenDropdown
      */
     const [openExpandable, handleExpandableToggle] = useExpandable(searchId);
+
+    /**
+     * Whether search bar should be visible
+     * @type {Boolean}
+     */
+    const shouldShowSearchBar = openExpandable === searchId;
 
     return (
         <div

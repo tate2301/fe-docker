@@ -91,18 +91,6 @@ describe('Consonant/Filters/Top/Panel', () => {
         const footerTotalResElement = screen.queryByTestId('top-filter__more-button');
         expect(footerTotalResElement).toHaveTextContent(moreFiltersBtnText);
     });
-    test('Should be able to render the clear button wrapper without a background', () => {
-        const [firstSelectedFilter] = selectedAllFilters;
-
-        renderTopFilterPanel({
-            filterPanelEnabled: true,
-            showLimitedFiltersQty: true,
-            filters: [firstSelectedFilter],
-        });
-
-        const clearButtonWrapperElement = screen.queryByTestId('top-filter__clear-button-wrapper');
-        expect(clearButtonWrapperElement).toHaveClass('consonant-top-filters--clear-btn-wrapper_no-bg');
-    });
 
     test('Should be able to show the Filter Group Button', () => {
         renderTopFilterPanel({ filterPanelEnabled: true });
