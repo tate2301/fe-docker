@@ -36,7 +36,7 @@ describe('utils/CardFilterer', () => {
     });
     describe('keepCardsWithinDateRange', () => {
         PROPS.keepCardsWithinDateRange.forEach(({ cards, expectedValue }) => {
-            test(`shouldn return ${expectedValue} value`, () => {
+            test(`shouldn't return ${expectedValue} value`, () => {
                 const cardFilterer = new CardFilterer(cards);
 
                 const { filteredCards } = cardFilterer.keepCardsWithinDateRange();
@@ -68,7 +68,7 @@ describe('utils/CardFilterer', () => {
     });
     describe('truncateList', () => {
         PROPS.truncateList.forEach(({ cards, totalCardLimit, expectedValue }) => {
-            test('should return trunkated array', () => {
+            test('should return truncated array', () => {
                 const cardFilterer = new CardFilterer(cards);
 
                 const { filteredCards } = cardFilterer.truncateList(totalCardLimit);

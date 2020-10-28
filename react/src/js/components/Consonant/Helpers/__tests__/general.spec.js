@@ -47,7 +47,7 @@ describe('utils/general', () => {
         });
         describe('readBookmarksFromLocalStorage', () => {
             PROPS.readBookmarksFromLocalStorage.forEach(({ value, expectedValue }) => {
-                test(`shouldn return ${expectedValue}`, () => {
+                test(`shouldn't return ${expectedValue}`, () => {
                     window.localStorage.setItem('bookmarks', value);
 
                     const bookmarksValue = readBookmarksFromLocalStorage();
@@ -60,7 +60,7 @@ describe('utils/general', () => {
 
     describe('truncateString', () => {
         PROPS.truncateString.forEach(({ str, num, expectedValue }) => {
-            test(`shouldn return ${expectedValue} value`, () => {
+            test(`shouldn't return ${expectedValue} value`, () => {
                 const value = truncateString(str, num);
 
                 expect(value).toEqual(expectedValue);
@@ -69,7 +69,7 @@ describe('utils/general', () => {
     });
     describe('truncateList', () => {
         PROPS.truncateList.forEach(({ limit, list, expectedValue }) => {
-            test(`shouldn return array length === ${expectedValue}`, () => {
+            test(`shouldn't return array length === ${expectedValue}`, () => {
                 const value = truncateList(limit, list);
 
                 expect(value).toHaveLength(expectedValue);
@@ -78,7 +78,7 @@ describe('utils/general', () => {
     });
     describe('removeDuplicatesByKey', () => {
         PROPS.removeDuplicatesByKey.forEach(({ list, key, expectedValue }) => {
-            test(`shouldn return array length === ${expectedValue}`, () => {
+            test(`shouldn't return array length === ${expectedValue}`, () => {
                 const value = removeDuplicatesByKey(list, key);
 
                 expect(value).toEqual(expectedValue);
@@ -86,14 +86,14 @@ describe('utils/general', () => {
         });
     });
     describe('chain', () => {
-        test('shouldn create new array from arguments', () => {
+        test('shouldn`t create new array from arguments', () => {
             const arrayFromArguments = chain(1, 'string', null, undefined);
 
             expect(arrayFromArguments).toEqual([1, 'string', null, undefined]);
         });
     });
     describe('chainFromIterable', () => {
-        test('shouldn clone array', () => {
+        test('shouldn`t clone array', () => {
             const clonedArray = chainFromIterable([1, 'string', null, undefined]);
 
             expect(clonedArray).toEqual([1, 'string', null, undefined]);
@@ -128,7 +128,7 @@ describe('utils/general', () => {
     });
     describe('sanitizeText', () => {
         PROPS.sanitizeText.forEach(({ text, expectedValue }) => {
-            test('should return sanitaized text', () => {
+            test('should return sanitized text', () => {
                 const value = sanitizeText(text);
 
                 expect(value).toEqual(expectedValue);
@@ -181,12 +181,12 @@ describe('utils/general', () => {
         });
     });
     describe('stopPropagation', () => {
-        test('should call stopPropaganation', () => {
-            const handleStopPropaganation = jest.fn();
+        test('should call stopPropagation', () => {
+            const handleStopPropagation = jest.fn();
 
-            stopPropagation({ stopPropagation: handleStopPropaganation });
+            stopPropagation({ stopPropagation: handleStopPropagation });
 
-            expect(handleStopPropaganation).toHaveBeenCalledTimes(1);
+            expect(handleStopPropagation).toHaveBeenCalledTimes(1);
         });
     });
     describe('generateRange', () => {

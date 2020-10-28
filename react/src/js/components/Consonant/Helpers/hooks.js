@@ -63,7 +63,7 @@ export const useExpandable = (dropdownId) => {
  * @typedef {Function} ConfigStateSetter
  * @description - Configs are grabbed from Authoring Dialog and passedd into React Component
  *
- * @type {[Int, Function]} Config
+ * @type {[Number, Function]} Config
  */
 export const useConfig = () => {
     const config = useContext(ConfigContext);
@@ -76,7 +76,7 @@ export const useConfig = () => {
  * @description - Flag to handle unmounting components when react re-renders
  * This is used to prevent memory leaks in the application when DOM is wiped by react
  *
- * @type {[Int, Function]} IsMounted
+ * @type {[Number, Function]} IsMounted
  */
 export const useIsMounted = () => {
     const isMounted = React.useRef(true);

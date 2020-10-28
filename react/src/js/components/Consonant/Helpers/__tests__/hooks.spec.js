@@ -124,7 +124,7 @@ describe('utils/hooks', () => {
 
             expect(result.current[0]).toBe('');
         });
-        test('shouldn`t return image url when ref.current wan`t exists', async () => {
+        test('shouldn`t return image url when ref.current doesn`t exists', async () => {
             jestMocks.intersectionObserver();
 
             const { result } = renderHook(() => useLazyLoading({}, imageUrl));

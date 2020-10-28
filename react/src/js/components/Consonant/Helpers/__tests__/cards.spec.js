@@ -8,7 +8,7 @@ import {
 describe('utils/cards', () => {
     describe('getCardDate', () => {
         PROPS.getCardDate.forEach(({ date, expectedValue }) => {
-            test(`shouldn return ${expectedValue} value`, () => {
+            test(`shouldn't return ${expectedValue} value`, () => {
                 const value = getCardDate(date);
 
                 expect(value).toEqual(expectedValue);
