@@ -190,7 +190,7 @@ const Container = (props) => {
      *
      * @typedef {Function} WindowWidthStateSetter — Updates window width
      *
-     * @type {[Int]} WindowWidth
+     * @type {[Number]} WindowWidth
      */
     const { width: windowWidth } = useWindowDimensions();
 
