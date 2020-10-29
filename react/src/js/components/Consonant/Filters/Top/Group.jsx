@@ -38,16 +38,18 @@ const clipWrapperItemsCount = 9;
  *   <Group {...props}/>
  * )
  */
-const Group = ({
-    name,
-    id,
-    items,
-    numItemsSelected,
-    onCheck,
-    onClearAll,
-    results,
-    clearFilterText,
-}) => {
+const Group = (props) => {
+    const {
+        name,
+        id,
+        items,
+        numItemsSelected,
+        onCheck,
+        onClearAll,
+        results,
+        clearFilterText,
+    } = props;
+
     const getConfig = useConfig();
 
     /**
@@ -92,7 +94,7 @@ const Group = ({
 
     /**
      * Text of the top filter footer button:
-     * whether the selected filter(s) text should be shown or not
+     * whether the "Apply changes" text should be shown or "Done"
      * @type {String}
      */
     const mobileFooterBtnText =
@@ -110,7 +112,7 @@ const Group = ({
     };
 
     /**
-     * Handles toggling selected/unselected state of the top filter option
+     * Handles toggling the selected/unselected state of the top filter option
      * when the filter option is checked/unchecked
      * @param {ChangeEvent} e
      * @listens ChangeEvent
