@@ -33,15 +33,10 @@ const ConfigContextProvider = ({ children }) => (
 );
 
 const resize = (width, height) => {
-    // const resizeEvent = document.createEvent('Event');
-
-    // resizeEvent.initEvent('resize', true, true);
-
     global.window.innerWidth = width;
     global.window.innerHeight = height;
 
     global.dispatchEvent(new Event('resize'));
-    // global.dispatchEvent(resizeEvent);
 };
 
 describe('utils/hooks', () => {
@@ -110,13 +105,6 @@ describe('utils/hooks', () => {
     describe('useLazyLoading', () => {
         const imageUrl = 'https://wikipedia.org/wiki.jpeg';
 
-        test('should return image loaded image url', async () => {
-            jestMocks.intersectionObserver();
-
-            const { result } = renderHook(() => useLazyLoading({ current: {} }, imageUrl));
-
-            expect(result.current[0]).toBe(imageUrl);
-        });
         test('shouldn`t return image url when element.intersectionRatio === 0', async () => {
             jestMocks.intersectionObserver({ intersectionRatio: 0 });
 
@@ -130,6 +118,33 @@ describe('utils/hooks', () => {
             const { result } = renderHook(() => useLazyLoading({}, imageUrl));
 
             expect(result.current[0]).toBe('');
+        });
+        test('shouldn`t return image url when ref.current doesn`t exists123', async () => {
+            const unobserve = jest.fn();
+
+            jestMocks.intersectionObserver({
+                unobserve,
+                observe: (callback) => {
+                    setTimeout(() => callback(), 100);
+                },
+            });
+            jestMocks.imageOnLoad({ delay: 500 });
+
+            const {
+                result, waitForNextUpdate, unmount,
+            } = renderHook(({ imageRef, url }) => useLazyLoading(imageRef, url), {
+                initialProps: { imageRef: { current: {} }, url: imageUrl },
+            });
+
+            await waitForNextUpdate();
+
+            expect(unobserve).toHaveBeenCalledTimes(0);
+            expect(result.current[0]).toBe(imageUrl);
+
+            unmount();
+
+            expect(unobserve).toHaveBeenCalledTimes(1);
+            expect(result.current[0]).toBe(imageUrl);
         });
     });
 });
