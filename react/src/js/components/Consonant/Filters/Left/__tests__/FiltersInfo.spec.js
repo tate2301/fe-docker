@@ -5,14 +5,14 @@ import {
 } from '@testing-library/react';
 
 import setup from '../../../Testing/Utils/Settings';
-import LeftInfo from '../Info';
+import { Info } from '../Info';
 import {
     DEFAULT_PROPS,
     NON_DESKTOP_WIDTH,
 } from '../../../Testing/Constants/FiltersInfo';
 
 
-const renderFiltersInfo = setup(LeftInfo, DEFAULT_PROPS);
+const renderFiltersInfo = setup(Info, DEFAULT_PROPS);
 
 describe('Consonant/Filters/Left/Filters Info', () => {
     test('should be able to render without title', () => {

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import Footer from './Footer';
-import Items from './Items';
+import { Footer } from './Footer';
+import { Items } from './Items';
 
 import { stopPropagation } from '../../Helpers/general';
 
@@ -11,7 +11,6 @@ import {
     useConfig,
     useExpandable,
 } from '../../Helpers/hooks';
-
 
 /**
  * Minimum quantity of the top filter options to apply blur on options' wrapper
@@ -236,4 +235,5 @@ Group.defaultProps = {
     clearFilterText: '',
 };
 
-export default Group;
+/* eslint-disable-next-line import/prefer-default-export */
+export { Group };

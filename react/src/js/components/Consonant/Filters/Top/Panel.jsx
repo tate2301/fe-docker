@@ -4,7 +4,8 @@ import classNames from 'classnames';
 import sum from 'lodash/sum';
 
 import SearchIcon from '../../Search/SearchIcon';
-import Group from './Group';
+
+import { Group as TopFilterItem } from './Group';
 
 import { isAtleastOneFilterSelected } from '../../Helpers/general';
 import { renderTotalResults } from '../../Helpers/rendering';
@@ -223,7 +224,7 @@ const FiltersPanelTop = (props) => {
                             data-testid="consonant-filters__top__filters"
                             className={showLimitedFiltersQtyClass}>
                             {filters.map(filter =>
-                                (<Group
+                                (<TopFilterItem
                                     key={filter.id}
                                     name={filter.group}
                                     items={filter.items}

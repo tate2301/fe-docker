@@ -24,10 +24,10 @@ import { useConfig } from '../../Helpers/hooks';
     windowWidth: Number,
  * }
  * return (
- *   <LeftInfo {...props}/>
+ *   <Info {...props}/>
  * )
  */
-const LeftInfo = (props) => {
+const Info = (props) => {
     const {
         enabled,
         filtersQty,
@@ -151,7 +151,7 @@ const LeftInfo = (props) => {
     );
 };
 
-LeftInfo.propTypes = {
+Info.propTypes = {
     enabled: PropTypes.bool.isRequired,
     filtersQty: PropTypes.number,
     cardsQty: PropTypes.number,
@@ -163,11 +163,12 @@ LeftInfo.propTypes = {
     windowWidth: PropTypes.number,
 };
 
-LeftInfo.defaultProps = {
+Info.defaultProps = {
     filtersQty: 0,
     cardsQty: 0,
     selectedFiltersQty: 0,
     windowWidth: window.innerWidth,
 };
 
-export default LeftInfo;
+/* eslint-disable-next-line import/prefer-default-export */
+export { Info };

@@ -88,4 +88,5 @@ Items.propTypes = {
     clipWrapperItemsCount: PropTypes.number.isRequired,
 };
 
-export default Items;
+/* eslint-disable-next-line import/prefer-default-export */
+export { Items };

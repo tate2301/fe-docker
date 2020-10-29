@@ -81,4 +81,5 @@ Footer.defaultProps = {
     mobileFooterBtnText: '',
 };
 
-export default Footer;
+/* eslint-disable-next-line import/prefer-default-export */
+export { Footer };
