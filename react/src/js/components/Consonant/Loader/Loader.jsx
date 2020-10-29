@@ -1,7 +1,20 @@
 import React from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import { string, bool } from 'prop-types';
+
 import { LOADER_SIZE } from '../Helpers/constants';
+
+const TLoader = {
+    size: string,
+    hidden: bool,
+    absolute: bool,
+};
+
+const defaultProps = {
+    hidden: false,
+    absolute: false,
+    size: LOADER_SIZE.BIG,
+};
 
 /**
  * Loading Spinner (Used when waiting for API call)
@@ -37,16 +50,8 @@ const Loader = ({ size, hidden, absolute }) => {
     );
 };
 
+Loader.propTypes = TLoader;
+Loader.defaultProps = defaultProps;
+
 export default Loader;
 
-Loader.propTypes = {
-    size: PropTypes.string,
-    hidden: PropTypes.bool,
-    absolute: PropTypes.bool,
-};
-
-Loader.defaultProps = {
-    size: LOADER_SIZE.BIG,
-    hidden: false,
-    absolute: false,
-};

@@ -1,5 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { oneOfType, string, bool } from 'prop-types';
+
+const TLink = {
+    linkHint: string,
+    href: string.isRequired,
+    text: string.isRequired,
+    openInNewTab: oneOfType([bool, string]),
+};
+
+const defaultProps = {
+    linkHint: '',
+    openInNewTab: true,
+};
 
 /**
  * Link Infobit (shown in 3:2 Card Footer)
@@ -37,16 +49,7 @@ const Link = ({
     );
 };
 
-Link.propTypes = {
-    href: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    openInNewTab: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    linkHint: PropTypes.string,
-};
-
-Link.defaultProps = {
-    openInNewTab: true,
-    linkHint: '',
-};
+Link.propTypes = TLink;
+Link.defaultProps = defaultProps;
 
 export default Link;

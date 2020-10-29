@@ -1,9 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { string, number } from 'prop-types';
 
-const defaultFilledStars = 0;
 const maxAllowedStars = 5;
+const defaultFilledStars = 0;
+
+const TRating = {
+    label: string,
+    totalStars: number,
+    starsFilled: number,
+};
+
+const defaultProps = {
+    label: '',
+    totalStars: maxAllowedStars,
+    starsFilled: defaultFilledStars,
+};
 
 /**
 * Will calculate the rating (percentage) that is shown
@@ -48,9 +60,9 @@ const getRating = (starsFilled, totalStars) => {
  * )
  */
 const Rating = ({
+    label,
     totalStars,
     starsFilled,
-    label,
 }) => {
     const className = classNames({
         'consonant-rating-infobit': true,
@@ -77,16 +89,7 @@ const Rating = ({
     );
 };
 
-Rating.propTypes = {
-    totalStars: PropTypes.number,
-    starsFilled: PropTypes.number,
-    label: PropTypes.string,
-};
-
-Rating.defaultProps = {
-    totalStars: maxAllowedStars,
-    starsFilled: defaultFilledStars,
-    label: '',
-};
+Rating.propTypes = TRating;
+Rating.defaultProps = defaultProps;
 
 export default Rating;

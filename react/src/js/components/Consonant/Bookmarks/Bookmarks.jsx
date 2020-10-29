@@ -1,12 +1,24 @@
 import React from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import { bool, func, number } from 'prop-types';
+
 import { useConfig } from '../Helpers/hooks';
+
+const TBookmarks = {
+    showBookmarks: bool,
+    savedCardsCount: number,
+    onClick: func.isRequired,
+};
+
+const defaultProps = {
+    showBookmarks: false,
+    savedCardsCount: 0,
+};
 
 const Bookmarks = (props) => {
     const {
-        showBookmarks,
         onClick,
+        showBookmarks,
         savedCardsCount,
     } = props;
 
@@ -53,15 +65,7 @@ const Bookmarks = (props) => {
     );
 };
 
+Bookmarks.propTypes = TBookmarks;
+Bookmarks.defaultProps = defaultProps;
+
 export default Bookmarks;
-
-Bookmarks.propTypes = {
-    showBookmarks: PropTypes.bool,
-    onClick: PropTypes.func.isRequired,
-    savedCardsCount: PropTypes.number,
-};
-
-Bookmarks.defaultProps = {
-    showBookmarks: false,
-    savedCardsCount: 0,
-};

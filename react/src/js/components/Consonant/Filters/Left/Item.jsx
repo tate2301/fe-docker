@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { number, bool, string, func, arrayOf, shape } from 'prop-types';
 import classNames from 'classnames';
 
 import { Items } from './Items';
@@ -7,6 +7,29 @@ import { GroupFooter } from './Mobile-Only/GroupFooter';
 import { SelectedItem as DesktopSelectedItem } from './Desktop-Only/SelectedItem';
 
 import { useConfig } from '../../Helpers/hooks';
+
+import { TFilterItem } from '../../types/config';
+
+const TItem = {
+    icon: string,
+    isOpened: bool,
+    id: string.isRequired,
+    clearFilterText: string,
+    name: string.isRequired,
+    onCheck: func.isRequired,
+    onClick: func.isRequired,
+    numItemsSelected: number,
+    results: number.isRequired,
+    onClearAll: func.isRequired,
+    items: arrayOf(shape(TFilterItem)).isRequired,
+};
+
+const defaultProps = {
+    icon: '',
+    isOpened: false,
+    numItemsSelected: 0,
+    clearFilterText: 'Clear',
+};
 
 /**
  * Left filter
@@ -187,25 +210,7 @@ const Item = (props) => {
     );
 };
 
-Item.propTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    icon: PropTypes.string,
-    onCheck: PropTypes.func.isRequired,
-    onClick: PropTypes.func.isRequired,
-    onClearAll: PropTypes.func.isRequired,
-    items: PropTypes.arrayOf(PropTypes.object).isRequired,
-    numItemsSelected: PropTypes.number,
-    isOpened: PropTypes.bool,
-    results: PropTypes.number.isRequired,
-    clearFilterText: PropTypes.string,
-};
-
-Item.defaultProps = {
-    icon: '',
-    isOpened: false,
-    numItemsSelected: 0,
-    clearFilterText: 'Clear',
-};
+Item.propTypes = TItem;
+Item.defaultProps = defaultProps;
 
 export default Item;

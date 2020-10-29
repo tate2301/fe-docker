@@ -1,13 +1,29 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import { string, number, func } from 'prop-types';
+
+const TGroupFooter = {
+    ctaText: string,
+    clearFilterText: string,
+    numItemsSelected: number,
+    handleClear: func.isRequired,
+    handleClick: func.isRequired,
+    mobileGroupTotalResultsText: string,
+};
+
+const defaultProps = {
+    ctaText: '',
+    numItemsSelected: 0,
+    clearFilterText: '',
+    mobileGroupTotalResultsText: '',
+};
 
 const GroupFooter = ({
-    mobileGroupTotalResultsText,
-    numItemsSelected,
-    handleClear,
-    clearFilterText,
-    handleClick,
     ctaText,
+    handleClear,
+    handleClick,
+    clearFilterText,
+    numItemsSelected,
+    mobileGroupTotalResultsText,
 }) => (
     <div className="consonant-left-filter--footer">
         <span
@@ -31,21 +47,8 @@ const GroupFooter = ({
     </div>
 );
 
+GroupFooter.propTypes = TGroupFooter;
+GroupFooter.defaultProps = defaultProps;
+
 /* eslint-disable-next-line import/prefer-default-export */
 export { GroupFooter };
-
-GroupFooter.propTypes = {
-    mobileGroupTotalResultsText: PropTypes.string,
-    numItemsSelected: PropTypes.number,
-    handleClear: PropTypes.func.isRequired,
-    clearFilterText: PropTypes.string,
-    ctaText: PropTypes.string,
-    handleClick: PropTypes.func.isRequired,
-};
-
-GroupFooter.defaultProps = {
-    mobileGroupTotalResultsText: '',
-    numItemsSelected: 0,
-    clearFilterText: '',
-    ctaText: '',
-};

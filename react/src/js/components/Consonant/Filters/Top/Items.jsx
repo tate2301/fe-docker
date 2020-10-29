@@ -1,6 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { arrayOf, shape, func, number } from 'prop-types';
+
+import { TFilterItem } from '../../types/config';
+
+const TItems = {
+    handleCheck: func.isRequired,
+    stopPropagation: func.isRequired,
+    clipWrapperItemsCount: number.isRequired,
+    items: arrayOf(shape(TFilterItem)).isRequired,
+};
 
 /**
  * Options of the top filter
@@ -81,12 +90,7 @@ const Items = (props) => {
     );
 };
 
-Items.propTypes = {
-    items: PropTypes.arrayOf(PropTypes.object).isRequired,
-    handleCheck: PropTypes.func.isRequired,
-    stopPropagation: PropTypes.func.isRequired,
-    clipWrapperItemsCount: PropTypes.number.isRequired,
-};
+Items.propTypes = TItems;
 
 /* eslint-disable-next-line import/prefer-default-export */
 export { Items };

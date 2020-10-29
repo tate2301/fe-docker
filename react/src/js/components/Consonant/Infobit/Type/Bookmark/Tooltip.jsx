@@ -1,5 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string } from 'prop-types';
+
+const TTooltip = { text: string };
+const defaultProps = { text: '' };
 
 /**
  * Tooltip (shown in 3:2 Card Footer -- primarily used with bookmark infobit)
@@ -21,12 +24,7 @@ const Tooltip = ({ text }) => (
     </span>
 );
 
-Tooltip.propTypes = {
-    text: PropTypes.string,
-};
-
-Tooltip.defaultProps = {
-    text: '',
-};
+Tooltip.propTypes = TTooltip;
+Tooltip.defaultProps = defaultProps;
 
 export default Tooltip;

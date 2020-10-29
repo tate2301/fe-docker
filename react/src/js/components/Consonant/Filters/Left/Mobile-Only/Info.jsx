@@ -1,14 +1,23 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { string, number, func } from 'prop-types';
 
-const Info = (props) => {
-    const {
-        onMobileFiltersToggleClick,
-        mobileFilterBtnLabel,
-        selectedFiltersQty,
-    } = props;
+const TInfo = {
+    selectedFiltersQty: number,
+    mobileFilterBtnLabel: string,
+    onMobileFiltersToggleClick: func.isRequired,
+};
 
+const defaultProps = {
+    selectedFiltersQty: 0,
+    mobileFilterBtnLabel: '',
+};
+
+const Info = ({
+    selectedFiltersQty,
+    mobileFilterBtnLabel,
+    onMobileFiltersToggleClick,
+}) => {
     const atleastOneSelectedFilter = selectedFiltersQty > 0;
 
     const selectedFiltersQtyClassName = classNames({
@@ -44,16 +53,8 @@ const Info = (props) => {
     );
 };
 
+Info.propTypes = TInfo;
+Info.defaultProps = defaultProps;
+
 /* eslint-disable-next-line import/prefer-default-export */
 export { Info };
-
-Info.propTypes = {
-    mobileFilterBtnLabel: PropTypes.string,
-    selectedFiltersQty: PropTypes.number,
-    onMobileFiltersToggleClick: PropTypes.func.isRequired,
-};
-
-Info.defaultProps = {
-    mobileFilterBtnLabel: '',
-    selectedFiltersQty: 0,
-};

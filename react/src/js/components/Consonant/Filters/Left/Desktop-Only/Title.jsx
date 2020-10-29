@@ -1,5 +1,13 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import { string } from 'prop-types';
+
+const TTitle = {
+    panelHeader: string,
+};
+
+const defaultProps = {
+    panelHeader: '',
+};
 
 const Title = ({
     panelHeader,
@@ -10,13 +18,8 @@ const Title = ({
     </h3>
 );
 
+Title.propTypes = TTitle;
+Title.defaultProps = defaultProps;
+
 /* eslint-disable-next-line import/prefer-default-export */
 export { Title };
-
-Title.propTypes = {
-    panelHeader: PropTypes.string,
-};
-
-Title.defaultProps = {
-    panelHeader: '',
-};

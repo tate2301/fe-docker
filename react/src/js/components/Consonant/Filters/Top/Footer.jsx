@@ -1,5 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string, number, func } from 'prop-types';
+
+const TFooter = {
+    clearFilterText: string,
+    numItemsSelected: number,
+    mobileFooterBtnText: string,
+    handleClear: func.isRequired,
+    handleToggle: func.isRequired,
+    mobileGroupTotalResultsText: string,
+};
+
+const defaultProps = {
+    numItemsSelected: 0,
+    clearFilterText: '',
+    mobileFooterBtnText: '',
+    mobileGroupTotalResultsText: '',
+};
 
 /**
  * Top filter footer
@@ -65,21 +81,8 @@ const Footer = (props) => {
     );
 };
 
-Footer.propTypes = {
-    mobileGroupTotalResultsText: PropTypes.string,
-    numItemsSelected: PropTypes.number,
-    handleClear: PropTypes.func.isRequired,
-    clearFilterText: PropTypes.string,
-    handleToggle: PropTypes.func.isRequired,
-    mobileFooterBtnText: PropTypes.string,
-};
-
-Footer.defaultProps = {
-    mobileGroupTotalResultsText: '',
-    numItemsSelected: 0,
-    clearFilterText: '',
-    mobileFooterBtnText: '',
-};
+Footer.propTypes = TFooter;
+Footer.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */
 export { Footer };

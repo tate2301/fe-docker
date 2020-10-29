@@ -1,5 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string } from 'prop-types';
+
+const TPrice = {
+    term: string,
+    price: string.isRequired,
+};
+
+const defaultProps = {
+    term: '',
+};
 
 /**
  * Price Infobit (shown in 3:2 Card Footer)
@@ -28,13 +37,7 @@ const Price = ({ price, term }) => (
     </span>
 );
 
-Price.propTypes = {
-    price: PropTypes.string.isRequired,
-    term: PropTypes.string,
-};
-
-Price.defaultProps = {
-    term: '',
-};
+Price.propTypes = TPrice;
+Price.defaultProps = defaultProps;
 
 export default Price;

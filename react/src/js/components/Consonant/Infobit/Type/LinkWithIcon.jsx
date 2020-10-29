@@ -1,5 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string, bool, oneOfType } from 'prop-types';
+
+const TLinkWithIcon = {
+    src: string,
+    href: string,
+    text: string,
+    linkHint: string,
+    srcAltText: string,
+    openInNewTab: oneOfType([string, bool]),
+};
+
+const defaultProps = {
+    src: '',
+    href: '',
+    text: '',
+    linkHint: '',
+    srcAltText: '',
+    openInNewTab: true,
+};
 
 /**
  * LinkWithIcon Infobit (shown in 3:2 Card Footer)
@@ -41,22 +59,7 @@ const LinkWithIcon = ({
     </a>
 );
 
-LinkWithIcon.propTypes = {
-    href: PropTypes.string,
-    text: PropTypes.string,
-    src: PropTypes.string,
-    openInNewTab: PropTypes.bool,
-    linkHint: PropTypes.string,
-    srcAltText: PropTypes.string,
-};
-
-LinkWithIcon.defaultProps = {
-    href: '',
-    text: '',
-    src: '',
-    openInNewTab: true,
-    linkHint: '',
-    srcAltText: '',
-};
+LinkWithIcon.propTypes = TLinkWithIcon;
+LinkWithIcon.defaultProps = defaultProps;
 
 export default LinkWithIcon;

@@ -1,11 +1,32 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { shape, arrayOf, bool, node, number, func } from 'prop-types';
 
 import { Info as MobileInfo } from './Mobile-Only/Info';
 import { renderTotalResults } from '../../Helpers/rendering';
 
 import { useConfig } from '../../Helpers/hooks';
+
+import { TSortOption } from '../../types/config';
+
+const TInfo = {
+    cardsQty: number,
+    filtersQty: number,
+    windowWidth: number,
+    enabled: bool.isRequired,
+    selectedFiltersQty: number,
+    sortComponent: node.isRequired,
+    searchComponent: node.isRequired,
+    onMobileFiltersToggleClick: func.isRequired,
+    sortOptions: arrayOf(shape(TSortOption)).isRequired,
+};
+
+const defaultProps = {
+    cardsQty: 0,
+    filtersQty: 0,
+    selectedFiltersQty: 0,
+    windowWidth: window.innerWidth,
+};
 
 /**
  * Left filter info panel
@@ -151,24 +172,8 @@ const Info = (props) => {
     );
 };
 
-Info.propTypes = {
-    enabled: PropTypes.bool.isRequired,
-    filtersQty: PropTypes.number,
-    cardsQty: PropTypes.number,
-    selectedFiltersQty: PropTypes.number,
-    onMobileFiltersToggleClick: PropTypes.func.isRequired,
-    searchComponent: PropTypes.node.isRequired,
-    sortComponent: PropTypes.node.isRequired,
-    sortOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
-    windowWidth: PropTypes.number,
-};
-
-Info.defaultProps = {
-    filtersQty: 0,
-    cardsQty: 0,
-    selectedFiltersQty: 0,
-    windowWidth: window.innerWidth,
-};
+Info.propTypes = TInfo;
+Info.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */
 export { Info };

@@ -1,6 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string } from 'prop-types';
+
 import { renderDisplayMsg } from '../Helpers/rendering';
+
+const TView = {
+    description: string,
+    replaceValue: string,
+    title: string.isRequired,
+};
+
+const defaultProps = {
+    description: '',
+    replaceValue: '',
+};
 
 /**
  * No results message that is shown when search returned 0 results;
@@ -43,15 +55,7 @@ const View = (props) => {
     );
 };
 
+View.propTypes = TView;
+View.defaultProps = defaultProps;
+
 export default View;
-
-View.propTypes = {
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string,
-    replaceValue: PropTypes.string,
-};
-
-View.defaultProps = {
-    description: '',
-    replaceValue: '',
-};

@@ -1,5 +1,14 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import { string, func } from 'prop-types';
+
+const TTitle = {
+    onClick: func.isRequired,
+    leftPanelMobileHeader: string,
+};
+
+const defaultProps = {
+    leftPanelMobileHeader: '',
+};
 
 const Title = ({
     onClick,
@@ -18,14 +27,8 @@ const Title = ({
     </div>
 );
 
+Title.propTypes = TTitle;
+Title.defaultProps = defaultProps;
+
 /* eslint-disable-next-line import/prefer-default-export */
 export { Title };
-
-Title.propTypes = {
-    onClick: PropTypes.func.isRequired,
-    leftPanelMobileHeader: PropTypes.string,
-};
-
-Title.defaultProps = {
-    leftPanelMobileHeader: '',
-};

@@ -1,16 +1,33 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string, func, number, arrayOf, shape } from 'prop-types';
 import classNames from 'classnames';
 
-import { Footer } from './Footer';
 import { Items } from './Items';
+import { Footer } from './Footer';
 
 import { stopPropagation } from '../../Helpers/general';
-
 import {
     useConfig,
     useExpandable,
 } from '../../Helpers/hooks';
+
+import { TFilterItem } from '../../types/config';
+
+const TGroup = {
+    id: string.isRequired,
+    name: string.isRequired,
+    clearFilterText: string,
+    numItemsSelected: number,
+    onCheck: func.isRequired,
+    results: number.isRequired,
+    onClearAll: func.isRequired,
+    items: arrayOf(shape(TFilterItem)).isRequired,
+};
+
+const defaultProps = {
+    numItemsSelected: 0,
+    clearFilterText: '',
+};
 
 /**
  * Minimum quantity of the top filter options to apply blur on options' wrapper
@@ -219,21 +236,8 @@ const Group = (props) => {
     );
 };
 
-Group.propTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    onCheck: PropTypes.func.isRequired,
-    onClearAll: PropTypes.func.isRequired,
-    items: PropTypes.arrayOf(PropTypes.object).isRequired,
-    numItemsSelected: PropTypes.number,
-    results: PropTypes.number.isRequired,
-    clearFilterText: PropTypes.string,
-};
-
-Group.defaultProps = {
-    numItemsSelected: 0,
-    clearFilterText: '',
-};
+Group.propTypes = TGroup;
+Group.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */
 export { Group };

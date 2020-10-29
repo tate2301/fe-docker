@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import { render } from '@testing-library/react';
 
 import setupIntersectionObserverMock from '../Mocks/intersectionObserver';
-import ContextProvider from './ContextProvider/index';
+import ContextProvider from './ContextProvider';
 import mockconfig from '../Mocks/config.json';
 
 setupIntersectionObserverMock();

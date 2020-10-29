@@ -1,14 +1,30 @@
-import get from 'lodash/get';
-import PropTypes from 'prop-types';
 import React from 'react';
-import { useConfig } from '../Helpers/hooks';
+import get from 'lodash/get';
+import { number, arrayOf, shape, func } from 'prop-types';
+
+import FullCard from '../Cards/Full';
 import AspectRatio1to1Card from '../Cards/1-1';
 import AspectRatio3to2Card from '../Cards/3-2';
-import FullCard from '../Cards/Full';
+
+import { TCard } from '../types/card';
+import { useConfig } from '../Helpers/hooks';
 import {
-    DEFAULT_SHOW_ITEMS_PER_PAGE,
     CARD_STYLES,
+    DEFAULT_SHOW_ITEMS_PER_PAGE,
 } from '../Helpers/constants';
+
+const TCollection = {
+    pages: number,
+    resultsPerPage: number,
+    cards: arrayOf(shape(TCard)),
+    onCardBookmark: func.isRequired,
+};
+
+const defaultProps = {
+    pages: 1,
+    cards: [],
+    resultsPerPage: DEFAULT_SHOW_ITEMS_PER_PAGE,
+};
 
 /**
  * Contains a collection of cards (of different styles)
@@ -116,17 +132,8 @@ const Collection = (props) => {
     );
 };
 
+Collection.propTypes = TCollection;
+Collection.defaultProps = defaultProps;
+
 export default Collection;
 
-Collection.propTypes = {
-    resultsPerPage: PropTypes.number,
-    pages: PropTypes.number,
-    cards: PropTypes.arrayOf(PropTypes.object),
-    onCardBookmark: PropTypes.func.isRequired,
-};
-
-Collection.defaultProps = {
-    resultsPerPage: DEFAULT_SHOW_ITEMS_PER_PAGE,
-    pages: 1,
-    cards: [],
-};

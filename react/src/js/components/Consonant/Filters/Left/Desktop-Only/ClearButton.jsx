@@ -1,5 +1,14 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import { func, string } from 'prop-types';
+
+const TClearButton = {
+    clearAllFiltersText: string,
+    onClearAllFilters: func.isRequired,
+};
+
+const defaultProps = {
+    clearAllFiltersText: '',
+};
 
 const ClearBtn = ({
     onClearAllFilters,
@@ -15,14 +24,8 @@ const ClearBtn = ({
     </button>
 );
 
+ClearBtn.propTypes = TClearButton;
+ClearBtn.defaultProps = defaultProps;
+
 /* eslint-disable-next-line import/prefer-default-export */
 export { ClearBtn };
-
-ClearBtn.propTypes = {
-    onClearAllFilters: PropTypes.func.isRequired,
-    clearAllFiltersText: PropTypes.string,
-};
-
-ClearBtn.defaultProps = {
-    clearAllFiltersText: '',
-};

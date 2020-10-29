@@ -1,7 +1,25 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { useConfig, useLazyLoading } from '../Helpers/hooks';
+import { string, shape } from 'prop-types';
+
 import prettyFormatDate from '../Helpers/prettyFormat';
+
+import { useConfig, useLazyLoading } from '../Helpers/hooks';
+import { TStyles, TContentArea, TOverlays } from '../types/card';
+
+const TAspectRatio1to1Card = {
+    ctaLink: string,
+    id: string.isRequired,
+    styles: shape(TStyles),
+    overlays: shape(TOverlays),
+    contentArea: shape(TContentArea),
+};
+
+const defaultProps = {
+    styles: {},
+    ctaLink: '',
+    overlays: {},
+    contentArea: {},
+};
 
 const AspectRatio1to1Card = (props) => {
     const {
@@ -145,48 +163,7 @@ const AspectRatio1to1Card = (props) => {
     );
 };
 
+AspectRatio1to1Card.propTypes = TAspectRatio1to1Card;
+AspectRatio1to1Card.defaultProps = defaultProps;
+
 export default AspectRatio1to1Card;
-
-AspectRatio1to1Card.propTypes = {
-    id: PropTypes.string.isRequired,
-    ctaLink: PropTypes.string,
-    styles: PropTypes.shape({
-        backgroundImage: PropTypes.string,
-    }),
-    contentArea: PropTypes.shape({
-        title: PropTypes.string,
-        description: PropTypes.string,
-        detailText: PropTypes.string,
-        dateDetailText: PropTypes.shape({
-            startTime: PropTypes.string,
-            endTime: PropTypes.string,
-        }),
-    }),
-    overlays: PropTypes.shape({
-        banner: PropTypes.shape({
-            description: PropTypes.string,
-            fontColor: PropTypes.string,
-            backgroundColor: PropTypes.string,
-            icon: PropTypes.string,
-        }),
-        videoButton: PropTypes.shape({
-            url: PropTypes.string,
-        }),
-        logo: PropTypes.shape({
-            src: PropTypes.string,
-            alt: PropTypes.string,
-            backgroundColor: PropTypes.string,
-            borderColor: PropTypes.string,
-        }),
-        label: PropTypes.shape({
-            description: PropTypes.string,
-        }),
-    }),
-};
-
-AspectRatio1to1Card.defaultProps = {
-    ctaLink: '',
-    styles: {},
-    contentArea: {},
-    overlays: {},
-};

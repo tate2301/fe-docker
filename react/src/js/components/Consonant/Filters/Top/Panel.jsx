@@ -1,14 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import sum from 'lodash/sum';
+import classNames from 'classnames';
+import { arrayOf, shape, number, bool, func, node } from 'prop-types';
 
 import SearchIcon from '../../Search/SearchIcon';
 
 import { Group as TopFilterItem } from './Group';
 
-import { isAtleastOneFilterSelected } from '../../Helpers/general';
 import { renderTotalResults } from '../../Helpers/rendering';
+import { isAtleastOneFilterSelected } from '../../Helpers/general';
 
 import {
     useConfig,
@@ -20,6 +20,29 @@ import {
     MAX_TRUNCATED_FILTERS,
     MIN_FILTERS_SHOW_BG,
 } from '../../Helpers/constants';
+
+import { TFilter } from '../../types/config';
+
+const TFiltersPanelTop = {
+    resQty: number,
+    showLimitedFiltersQty: bool,
+    sortComponent: node.isRequired,
+    windowWidth: number.isRequired,
+    onFilterClick: func.isRequired,
+    onShowAllClick: func.isRequired,
+    searchComponent: node.isRequired,
+    filters: arrayOf(shape(TFilter)),
+    onCheckboxClick: func.isRequired,
+    onClearAllFilters: func.isRequired,
+    onClearFilterItems: func.isRequired,
+    filterPanelEnabled: bool.isRequired,
+};
+
+const defaultProps = {
+    resQty: 0,
+    filters: [],
+    showLimitedFiltersQty: false,
+};
 
 /**
  * Top filters panel
@@ -307,25 +330,7 @@ const FiltersPanelTop = (props) => {
     );
 };
 
-FiltersPanelTop.propTypes = {
-    filters: PropTypes.arrayOf(PropTypes.object),
-    resQty: PropTypes.number,
-    onCheckboxClick: PropTypes.func.isRequired,
-    onFilterClick: PropTypes.func.isRequired,
-    onClearAllFilters: PropTypes.func.isRequired,
-    onClearFilterItems: PropTypes.func.isRequired,
-    showLimitedFiltersQty: PropTypes.bool,
-    onShowAllClick: PropTypes.func.isRequired,
-    windowWidth: PropTypes.number.isRequired,
-    searchComponent: PropTypes.node.isRequired,
-    filterPanelEnabled: PropTypes.bool.isRequired,
-    sortComponent: PropTypes.node.isRequired,
-};
-
-FiltersPanelTop.defaultProps = {
-    filters: [],
-    resQty: 0,
-    showLimitedFiltersQty: false,
-};
+FiltersPanelTop.propTypes = TFiltersPanelTop;
+FiltersPanelTop.defaultProps = defaultProps;
 
 export default FiltersPanelTop;

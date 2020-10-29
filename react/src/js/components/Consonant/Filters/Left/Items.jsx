@@ -1,5 +1,12 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import { arrayOf, shape, func } from 'prop-types';
+
+import { TFilterItem } from '../../types/config';
+
+const TItems = {
+    handleCheck: func.isRequired,
+    items: arrayOf(shape(TFilterItem)).isRequired,
+};
 
 /**
  * Options of the left filter item
@@ -53,10 +60,7 @@ const Items = (props) => {
     );
 };
 
-Items.propTypes = {
-    items: PropTypes.arrayOf(PropTypes.object).isRequired,
-    handleCheck: PropTypes.func.isRequired,
-};
+Items.propTypes = TItems;
 
 /* eslint-disable-next-line import/prefer-default-export */
 export { Items };

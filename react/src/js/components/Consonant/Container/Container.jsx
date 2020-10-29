@@ -1,5 +1,5 @@
 import get from 'lodash/get';
-import PropTypes from 'prop-types';
+import { shape } from 'prop-types';
 import 'whatwg-fetch';
 import React, {
     Fragment,
@@ -57,6 +57,8 @@ import {
     getActiveFilterIds,
     getUpdatedCardBookmarkData,
 } from '../Helpers/Helpers';
+
+import { TConfig } from '../types';
 
 /**
  * Consonant Card Collection
@@ -805,97 +807,7 @@ const Container = (props) => {
 };
 
 Container.propTypes = {
-    config: PropTypes.shape({
-        collection: PropTypes.shape({
-            resultsPerPage: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.number,
-            ]),
-            endpoint: PropTypes.string,
-            title: PropTypes.string,
-            totalCardLimit: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.number,
-            ]),
-            cardStyle: PropTypes.string,
-            displayTotalResults: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.bool,
-            ]),
-            totalResultsText: PropTypes.string,
-        }),
-        featuredCards: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.arrayOf(PropTypes.object),
-        ]),
-        header: PropTypes.shape({
-            enabled: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.bool,
-            ]),
-        }),
-        filterPanel: PropTypes.shape({
-            enabled: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.bool,
-            ]),
-            type: PropTypes.string,
-            filters: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.arrayOf(PropTypes.object),
-            ]),
-            clearAllFiltersText: PropTypes.string,
-            clearFilterText: PropTypes.string,
-            filterLogic: PropTypes.string,
-            leftPanelHeader: PropTypes.string,
-        }),
-        sort: PropTypes.shape({
-            enabled: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.bool,
-            ]),
-            options: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.arrayOf(PropTypes.object),
-            ]),
-        }),
-        pagination: PropTypes.shape({
-            enabled: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.bool,
-            ]),
-            type: PropTypes.string,
-            paginatorQuantityText: PropTypes.string,
-            paginatorPrevLabel: PropTypes.string,
-            paginatorNextLabel: PropTypes.string,
-            loadMoreButtonText: PropTypes.string,
-            loadMoreQuantityText: PropTypes.string,
-        }),
-        bookmarks: PropTypes.shape({
-            enabled: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.bool]),
-            cardSavedIcon: PropTypes.string,
-            cardUnsavedIcon: PropTypes.string,
-            saveCardText: PropTypes.string,
-            unsaveCardText: PropTypes.string,
-            selectBookmarksIcon: PropTypes.string,
-            unselectBookmarksIcon: PropTypes.string,
-            bookmarksFilterTitle: PropTypes.string,
-        }),
-        search: PropTypes.shape({
-            enabled: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.bool,
-            ]),
-            leftPanelTitle: PropTypes.string,
-            inputPlaceholderText: PropTypes.string,
-            searchFields: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.arrayOf(PropTypes.string),
-            ]),
-        }),
-    }),
+    config: shape(TConfig),
 };
 
 Container.defaultProps = {

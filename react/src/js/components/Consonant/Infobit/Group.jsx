@@ -1,21 +1,35 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 import uuid from 'react-uuid';
+import React, { Fragment } from 'react';
+import { oneOfType, arrayOf, shape } from 'prop-types';
 
-import Bookmark from './Type/Bookmark/Bookmark';
-import Button from './Type/Button';
 import Icon from './Type/Icon';
-import IconWithText from './Type/IconWithText';
-import TextLink from './Type/Link';
-import LinkWithIcon from './Type/LinkWithIcon';
-import Price from './Type/Price';
-import Progress from './Type/Progress';
-import Rating from './Type/Rating';
 import Text from './Type/Text';
+import Price from './Type/Price';
+import Button from './Type/Button';
+import TextLink from './Type/Link';
+import Rating from './Type/Rating';
+import Progress from './Type/Progress';
+import IconWithText from './Type/IconWithText';
+import LinkWithIcon from './Type/LinkWithIcon';
 import DateInterval from './Type/DateInterval';
+import Bookmark from './Type/Bookmark/Bookmark';
 
 import { INFOBIT_TYPE } from '../Helpers/constants';
 import { parseToPrimitive } from '../Helpers/general';
+
+import { TFooterLeft, TFooterCenter, TFooterRight } from '../types/card';
+
+const TGroup = {
+    renderList: arrayOf(oneOfType([
+        shape(TFooterLeft),
+        shape(TFooterRight),
+        shape(TFooterCenter),
+    ])),
+};
+
+const defaultProps = {
+    renderList: [],
+};
 
 /**
  * Group of Infobits (shown in 3:2 Card Footer)
@@ -124,14 +138,7 @@ const Group = (props) => {
     );
 };
 
-Group.propTypes = {
-    renderList: PropTypes.arrayOf(PropTypes.shape({
-        type: PropTypes.string,
-    })),
-};
-
-Group.defaultProps = {
-    renderList: [],
-};
+Group.propTypes = TGroup;
+Group.defaultProps = defaultProps;
 
 export default Group;

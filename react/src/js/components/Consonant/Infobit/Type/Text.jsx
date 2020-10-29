@@ -1,5 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string } from 'prop-types';
+
+const TText = {
+    text: string.isRequired,
+};
 
 /**
  * Text infobit (shown in 3:2 Card Footer)
@@ -15,8 +19,6 @@ import PropTypes from 'prop-types';
  */
 const Text = ({ text }) => <p className="consonant-text-infobit">{text}</p>;
 
-Text.propTypes = {
-    text: PropTypes.string.isRequired,
-};
+Text.propTypes = TText;
 
 export default Text;

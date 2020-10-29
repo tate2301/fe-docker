@@ -1,6 +1,22 @@
-import PropTypes from 'prop-types';
+import { string, bool, func } from 'prop-types';
 import React, { useEffect, useRef } from 'react';
+
 import { useConfig } from '../Helpers/hooks';
+
+const TSearch = {
+    name: string,
+    value: string,
+    autofocus: bool,
+    placeholderText: string,
+    onSearch: func.isRequired,
+};
+
+const defaultProps = {
+    name: '',
+    value: '',
+    autofocus: true,
+    placeholderText: '',
+};
 
 /**
  * Used as unique id for accessibility labels/attributes
@@ -123,19 +139,7 @@ const Search = ({
     );
 };
 
+Search.propTypes = TSearch;
+Search.defaultProps = defaultProps;
+
 export default Search;
-
-Search.propTypes = {
-    name: PropTypes.string,
-    onSearch: PropTypes.func.isRequired,
-    value: PropTypes.string,
-    autofocus: PropTypes.bool,
-    placeholderText: PropTypes.string,
-};
-
-Search.defaultProps = {
-    value: '',
-    name: '',
-    autofocus: true,
-    placeholderText: '',
-};

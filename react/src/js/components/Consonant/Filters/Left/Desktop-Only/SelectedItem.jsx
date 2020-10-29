@@ -1,9 +1,18 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import { number, func } from 'prop-types';
+
+const TSelectedItem = {
+    numItemsSelected: number,
+    handleClear: func.isRequired,
+};
+
+const defaultProps = {
+    numItemsSelected: 0,
+};
 
 const SelectedItem = ({
-    numItemsSelected,
     handleClear,
+    numItemsSelected,
 }) => {
     const displayNumItemsSelected = numItemsSelected > 0 ? numItemsSelected : '';
     return (
@@ -18,14 +27,8 @@ const SelectedItem = ({
     );
 };
 
+SelectedItem.propTypes = TSelectedItem;
+SelectedItem.defaultProps = defaultProps;
+
 /* eslint-disable-next-line import/prefer-default-export */
 export { SelectedItem };
-
-SelectedItem.propTypes = {
-    numItemsSelected: PropTypes.number,
-    handleClear: PropTypes.func.isRequired,
-};
-
-SelectedItem.defaultProps = {
-    numItemsSelected: 0,
-};

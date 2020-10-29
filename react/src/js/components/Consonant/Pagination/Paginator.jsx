@@ -1,12 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { number, func } from 'prop-types';
+
 import { useConfig } from '../Helpers/hooks';
 import {
-    getPageStartEnd,
+    getEndNumber,
     generateRange,
     getStartNumber,
-    getEndNumber,
+    getPageStartEnd,
 } from '../Helpers/general';
+
+const TPaginator = {
+    onClick: func.isRequired,
+    pageCount: number.isRequired,
+    totalPages: number.isRequired,
+    totalResults: number.isRequired,
+    showItemsPerPage: number.isRequired,
+    currentPageNumber: number.isRequired,
+};
 
 /**
  * Paginator - handles navigating between pages 1 to n for users
@@ -158,13 +168,6 @@ const Paginator = (props) => {
     );
 };
 
-export default Paginator;
+Paginator.propTypes = TPaginator;
 
-Paginator.propTypes = {
-    pageCount: PropTypes.number.isRequired,
-    currentPageNumber: PropTypes.number.isRequired,
-    totalPages: PropTypes.number.isRequired,
-    onClick: PropTypes.func.isRequired,
-    showItemsPerPage: PropTypes.number.isRequired,
-    totalResults: PropTypes.number.isRequired,
-};
+export default Paginator;
