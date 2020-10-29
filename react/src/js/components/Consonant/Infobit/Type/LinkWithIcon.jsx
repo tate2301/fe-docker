@@ -45,7 +45,7 @@ LinkWithIcon.propTypes = {
     href: PropTypes.string,
     text: PropTypes.string,
     src: PropTypes.string,
-    openInNewTab: PropTypes.bool,
+    openInNewTab: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     linkHint: PropTypes.string,
     srcAltText: PropTypes.string,
 };
