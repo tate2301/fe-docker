@@ -1,7 +1,12 @@
-export default ({ observe = callback => callback(), intersectionRatio = 1 } = {}) => {
+export default ({
+    unobserve = () => {},
+    intersectionRatio = 1,
+    observe = callback => callback(),
+} = {}) => {
     class IntersectionObserverMock {
         constructor(callback) {
             this.callback = callback;
+            this.unobserve = unobserve;
             this.observeElementsProps = [{ intersectionRatio }];
         }
 
