@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { useConfig } from '../../Helpers/hooks';
 import { GroupFooter } from './Mobile-Only/GroupFooter';
 import { SelectedItem as DesktopSelectedItem } from './Desktop-Only/SelectedItem';
-import { Items } from './Items';
+import Items from './Items';
 
 const Item = ({
     name,

@@ -1,6 +1,19 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+/**
+ * Options of the left filter item
+ *
+ * @component
+ * @example
+ * const props= {
+    items: Array,
+    handleCheck: Function,
+ * }
+ * return (
+ *   <Items {...props}/>
+ * )
+ */
 const Items = ({
     items,
     handleCheck,
@@ -36,10 +49,9 @@ const Items = ({
     </ul>
 );
 
-/* eslint-disable-next-line import/prefer-default-export */
-export { Items };
-
 Items.propTypes = {
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
     handleCheck: PropTypes.func.isRequired,
 };
+
+export default Items;
