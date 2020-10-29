@@ -172,7 +172,7 @@ export default AspectRatio3to2Card;
 
 AspectRatio3to2Card.propTypes = {
     id: PropTypes.string.isRequired,
-    disableBookmarkIco: PropTypes.bool,
+    disableBookmarkIco: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     footer: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     isBookmarked: PropTypes.bool,
     onClick: PropTypes.func.isRequired,
