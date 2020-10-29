@@ -21,7 +21,7 @@ import Search from '../Search/Search';
 import Popup from '../Sort/Popup';
 import NoResultsView from '../NoResults/View';
 
-import { Info as LeftInfo } from '../Filters/Left/Info';
+import LeftInfo from '../Filters/Left/Info';
 import { useWindowDimensions } from '../Helpers/hooks';
 
 import {
