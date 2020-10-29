@@ -1,6 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * Top filter footer
+ *
+ * @component
+ * @example
+ * const props= {
+    mobileGroupTotalResultsText: String,
+    numItemsSelected: Number,
+    handleClear: Function,
+    clearFilterText: String,
+    handleToggle: Function,
+    mobileFooterBtnText: String,
+ * }
+ * return (
+ *   <Footer {...props}/>
+ * )
+ */
 const Footer = (props) => {
     const {
         mobileGroupTotalResultsText,
@@ -11,12 +28,24 @@ const Footer = (props) => {
         mobileFooterBtnText,
     } = props;
 
+    /**
+     **** Constants ****
+     */
+
+    /**
+     * Whether the "Clear options" button should be displayed
+     * @type {Boolean}
+     */
+    const shouldShowClearButton = numItemsSelected > 0;
+
     return (
-        <div className="consonant-top-filter--footer">
-            <span className="consonant-top-filter--footer-res-qty">
+        <div
+            className="consonant-top-filter--footer">
+            <span
+                className="consonant-top-filter--footer-res-qty">
                 {mobileGroupTotalResultsText}
             </span>
-            {numItemsSelected > 0 &&
+            {shouldShowClearButton &&
             <button
                 data-testid="clear-btn"
                 type="button"
