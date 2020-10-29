@@ -36,9 +36,6 @@ const Footer = (props) => {
     );
 };
 
-/* eslint-disable-next-line import/prefer-default-export */
-export { Footer };
-
 Footer.propTypes = {
     mobileGroupTotalResultsText: PropTypes.string,
     numItemsSelected: PropTypes.number,
@@ -54,3 +51,5 @@ Footer.defaultProps = {
     clearFilterText: '',
     mobileFooterBtnText: '',
 };
+
+export default Footer;

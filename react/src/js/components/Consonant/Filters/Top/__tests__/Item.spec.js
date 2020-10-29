@@ -4,14 +4,14 @@ import {
     fireEvent,
 } from '@testing-library/react';
 
-import { Group as Item } from '../Group';
+import Group from '../Group';
 import setup from '../../../Testing/Utils/Settings';
 import {
     DEFAULT_PROPS,
     selectedAllItems,
 } from '../../../Testing/Constants/FilterItem';
 
-const renderTopFilterItem = setup(Item, DEFAULT_PROPS);
+const renderTopFilterItem = setup(Group, DEFAULT_PROPS);
 
 describe('Consonant/Filters/Top/Item', () => {
     test('Should be able to render without an item count badge', () => {

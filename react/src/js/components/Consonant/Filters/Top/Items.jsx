@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 /**
- * Options of the top filter item
+ * Options of the top filter
  *
  * @component
  * @example
@@ -30,14 +30,14 @@ const Items = (props) => {
      */
 
     /**
-     * Whether filter options should be blurred at the bottom of the parent container
+     * Whether the top filter options should be blurred at the bottom of the parent container
      * @type {Boolean}
      */
     const shouldClipItems = items.length >= clipWrapperItemsCount;
 
     /**
-     * Class name for the top filter's options wrapper:
-     * whether filter options should be blurred at the bottom of the parent container
+     * Class name for the top filter options wrapper:
+     * whether the top filter options should be blurred at the bottom of the parent container
      * @type {String}
      */
     const clipFilterItemsClass = classNames({

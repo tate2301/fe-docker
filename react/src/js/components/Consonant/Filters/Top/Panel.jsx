@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import sum from 'lodash/sum';
 
-import { isAtleastOneFilterSelected } from '../../Helpers/general';
 import SearchIcon from '../../Search/SearchIcon';
-import { Group as TopFilterItem } from './Group';
+import Group from './Group';
+
+import { isAtleastOneFilterSelected } from '../../Helpers/general';
 import { renderTotalResults } from '../../Helpers/rendering';
 
 import {
@@ -76,14 +77,30 @@ const FiltersPanelTop = (props) => {
     const title = getConfig('collection', 'i18n.title');
 
     /**
-     **** Constants ****
-     */
-
-    /**
      * Top search bar identifier
      * @type {String}
      */
     const searchId = 'top-search';
+
+    /**
+     **** Hooks ****
+     */
+
+    /**
+     * @typedef {String} openExpandableState - Id of the <Search /> component
+     * @description — defined in the searchId constant
+     *
+     * @typedef {Function} ExpandableToggleSetter - Handles toggling opened/closed state of
+     * the <Search /> component
+     * @description
+     *
+     * @type {[String, Function]} openExpandable
+     */
+    const [openExpandable, handleExpandableToggle] = useExpandable(searchId);
+
+    /**
+     **** Constants ****
+     */
 
     /**
      * Total results HTML
@@ -175,22 +192,6 @@ const FiltersPanelTop = (props) => {
     });
 
     /**
-     **** Hooks ****
-     */
-
-    /**
-     * @typedef {String} openExpandableState - Id of the <Search /> component
-     * @description — defined in the searchId constant
-     *
-     * @typedef {Function} ExpandableToggleSetter - Handles toggling opened/closed state of
-     * the <Search /> component
-     * @description
-     *
-     * @type {[String, Function]} openExpandable
-     */
-    const [openExpandable, handleExpandableToggle] = useExpandable(searchId);
-
-    /**
      * Whether the search bar should be visible
      * @type {Boolean}
      */
@@ -222,7 +223,7 @@ const FiltersPanelTop = (props) => {
                             data-testid="consonant-filters__top__filters"
                             className={showLimitedFiltersQtyClass}>
                             {filters.map(filter =>
-                                (<TopFilterItem
+                                (<Group
                                     key={filter.id}
                                     name={filter.group}
                                     items={filter.items}
