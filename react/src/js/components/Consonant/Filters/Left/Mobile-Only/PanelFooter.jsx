@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * Mobile footer of the left filters panel
+ * Footer of the left filters panel on the mobile and tablet breakpoints
  *
  * @component
  * @example

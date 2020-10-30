@@ -1,7 +1,22 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+/**
+ * Button with the quantity of the selected filters
+ * on the mobile and tablet breakpoints
+ *
+ * @component
+ * @example
+ * const props= {
+    onMobileFiltersToggleClick: Function,
+    mobileFilterBtnLabel: String,
+    selectedFiltersQty: Number,
+ * }
+ * return (
+ *   <Info {...props}/>
+ * )
+ */
 const Info = (props) => {
     const {
         onMobileFiltersToggleClick,
@@ -9,8 +24,21 @@ const Info = (props) => {
         selectedFiltersQty,
     } = props;
 
+    /**
+     **** Constants ****
+     */
+
+    /**
+     * Whether at least one filter is selected
+     * @type {Boolean}
+     */
     const atleastOneSelectedFilter = selectedFiltersQty > 0;
 
+    /**
+     * Class name for the button:
+     * whether the button should display quantity of the selected filters or not
+     * @type {String}
+     */
     const selectedFiltersQtyClassName = classNames({
         'consonant-filters-info--btn': true,
         'consonant-filters-info--btn_with-filters': atleastOneSelectedFilter,
@@ -31,8 +59,7 @@ const Info = (props) => {
                     className="consonant-filters-info--btn-text">
                     {mobileFilterBtnLabel}
                 </span>
-                {
-                    atleastOneSelectedFilter &&
+                {atleastOneSelectedFilter &&
                     <span
                         data-testid="btn-selected"
                         className="consonant-filters-info--btn-selected">
@@ -44,9 +71,6 @@ const Info = (props) => {
     );
 };
 
-/* eslint-disable-next-line import/prefer-default-export */
-export { Info };
-
 Info.propTypes = {
     mobileFilterBtnLabel: PropTypes.string,
     selectedFiltersQty: PropTypes.number,
@@ -57,3 +81,6 @@ Info.defaultProps = {
     mobileFilterBtnLabel: '',
     selectedFiltersQty: 0,
 };
+
+/* eslint-disable-next-line import/prefer-default-export */
+export { Info };

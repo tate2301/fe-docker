@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * Mobile title of the left filters panel
+ * Title of the left filters panel on the mobile and tablet breakpoints
  *
  * @component
  * @example
