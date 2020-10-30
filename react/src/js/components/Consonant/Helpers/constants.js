@@ -1,18 +1,40 @@
 /**
- * Screen Size Constants
+ * Minimal viewport width to fit desktops/laptops
+ * @type {Number}
  */
 export const DESKTOP_MIN_WIDTH = 1200;
+
+/**
+ * Minimal viewport width to fit tablets
+ * @type {Number}
+ */
 export const TABLET_MIN_WIDTH = 768;
 
 /**
- * Limit Constants
+ * Maximum allowed top filters displayed quantity
+ * before "Load more" button
+ * @type {Number}
  */
 export const MAX_TRUNCATED_FILTERS = 3;
+
+/**
+ * Minimum top filters quantity to display blurred effect
+ * on filters wrapper
+ * @type {Number}
+ */
 export const MIN_FILTERS_SHOW_BG = 3;
+
+/**
+ * Maximum allowed card description length
+ * after which a truncation will take place
+ * @type {Number}
+ */
 export const TRUNCATE_TEXT_QTY = 200;
 
 /**
- * Paginator Constants
+ * Quantity of the pagination items to display
+ * on the mobile and desktop breakpoints
+ * @type {Object}
  */
 export const PAGINATION_COUNT = {
     DESKTOP: 10,
@@ -20,23 +42,28 @@ export const PAGINATION_COUNT = {
 };
 
 /**
- * Filter Constants
+ * Available filtering types
+ * @type {Object}
  */
-
 export const FILTER_TYPES = {
     AND: 'and',
     OR: 'or',
     XOR: 'xor',
 };
+
+/**
+ * Available filter panel types
+ * @type {Object}
+ */
 export const FILTER_PANEL = {
     LEFT: 'left',
     TOP: 'top',
 };
 
 /**
- * Sorting Constants
+ * Available sorting types
+ * @type {Object}
  */
-
 export const SORT_TYPES = {
     DATEASC: 'dateasc',
     DATEDESC: 'datedesc',
@@ -46,9 +73,9 @@ export const SORT_TYPES = {
 };
 
 /**
- * Card Footer Constants
+ * Available infobit types
+ * @type {Object}
  */
-
 export const INFOBIT_TYPE = {
     PRICE: 'price',
     BUTTON: 'button',
@@ -64,7 +91,8 @@ export const INFOBIT_TYPE = {
 };
 
 /**
- * Default Authoring Constants
+ * Default authoring constants
+ * @type {Object}
  */
 export const DEFAULT_CONFIG = {
     collection: {
@@ -144,10 +172,15 @@ export const DEFAULT_CONFIG = {
 };
 
 /**
- * Collection Constants
+ * Default quantity of the cards to display on the page
+ * @type {Number}
  */
 export const DEFAULT_SHOW_ITEMS_PER_PAGE = 8;
 
+/**
+ * Available card types
+ * @type {Object}
+ */
 export const CARD_STYLES = {
     WIDE: '3:2',
     SQUARE: '1:1',
@@ -155,7 +188,8 @@ export const CARD_STYLES = {
 };
 
 /**
- * Miscellanous Constants
+ * Available loader sizes
+ * @type {Object}
  */
 export const LOADER_SIZE = {
     MEDIUM: 'medium',

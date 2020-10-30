@@ -18,11 +18,12 @@ export const getNumSelectedFilterItems = (filters) => {
 };
 
 /**
- * Returns the authored or default configurational value
- * @param {Object} config - main configurational object
- * @param {Object} object - object inside the main configurational object
+ * Returns the authored or default configuration value
+ * @param {Object} config - main configuration object
+ * @param {Object} object - configuration object nested
+ * inside the main configuration object
  * @param {String} key - an object key for which we need a value
- * @returns {} - authored or default configurational value
+ * @returns {} - authored or default configuration value
  */
 export const makeConfigGetter = config => (object, key) => {
     const objectPath = key ? `${object}.${key}` : object;
@@ -38,7 +39,7 @@ export const makeConfigGetter = config => (object, key) => {
 
 /**
  * Get the default sorting option
- * @param {Object} config - configurational object
+ * @param {Object} config - configuration object
  * @param {String} query - title of the sorting option
  * @returns {Object} - object with the default sorting option
  */
