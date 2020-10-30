@@ -1,28 +1,61 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const PanelFooter = ({
-    showTotalResults,
-    resQty,
-    onClearAllFilters,
-    clearAllFiltersText,
-    onMobileFiltersToggleClick,
-    someFiltersAreSelected,
-    applyText,
-    doneText,
-    showTotalResultsText,
-}) => {
+/**
+ * Mobile footer of the left filters panel
+ *
+ * @component
+ * @example
+ * const props= {
+    showTotalResults: Boolean,
+    resQty: Number,
+    onClearAllFilters: Function,
+    clearAllFiltersText: String,
+    onMobileFiltersToggleClick: Function,
+    someFiltersAreSelected: Boolean,
+    applyText: String,
+    doneText: String,
+    showTotalResultsText: String,
+ * }
+ * return (
+ *   <PanelFooter {...props}/>
+ * )
+ */
+const PanelFooter = (props) => {
+    const {
+        showTotalResults,
+        resQty,
+        onClearAllFilters,
+        clearAllFiltersText,
+        onMobileFiltersToggleClick,
+        someFiltersAreSelected,
+        applyText,
+        doneText,
+        showTotalResultsText,
+    } = props;
+
+    /**
+     **** Constants ****
+     */
+
+    /**
+     * Text of the left filters footer button on the mobile and tablet breakpoints:
+     * whether the "Apply changes" text should be shown or "Done"
+     * @type {String}
+     */
     const buttonText = someFiltersAreSelected ? applyText : doneText;
+
     return (
-        <div className="consonant-left-filters--mobile-footer">
-            {showTotalResults && (
+        <div
+            className="consonant-left-filters--mobile-footer">
+            {showTotalResults &&
                 <span
                     data-testid="mobile-footer-total-res"
                     className="consonant-left-filters--mobile-footer-total-res-qty">
                     {showTotalResultsText.replace('{total}', resQty)}
                 </span>
-            )}
-            {someFiltersAreSelected && (
+            }
+            {someFiltersAreSelected &&
                 <button
                     type="button"
                     data-testid="mobile-footer-clear"
@@ -30,7 +63,7 @@ const PanelFooter = ({
                     onClick={onClearAllFilters}>
                     {clearAllFiltersText}
                 </button>
-            )}
+            }
             <button
                 type="button"
                 data-testid="mobile-footer-btn"
@@ -41,9 +74,6 @@ const PanelFooter = ({
         </div>
     );
 };
-
-/* eslint-disable-next-line import/prefer-default-export */
-export { PanelFooter };
 
 PanelFooter.propTypes = {
     onClearAllFilters: PropTypes.func.isRequired,
@@ -66,3 +96,6 @@ PanelFooter.defaultProps = {
     someFiltersAreSelected: false,
     resQty: 0,
 };
+
+/* eslint-disable-next-line import/prefer-default-export */
+export { PanelFooter };
