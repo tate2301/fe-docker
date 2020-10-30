@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * Left filters button that clears all the chosen filters, the search query
- * and deselects "My bookmarks" feature if selected
+ * Left filters button on the desktop breakpoint that clears all the chosen filters,
+ * the search query and deselects "My bookmarks" feature if selected
  *
  * @component
  * @example

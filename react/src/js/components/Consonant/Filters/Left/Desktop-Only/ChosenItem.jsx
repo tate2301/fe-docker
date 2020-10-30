@@ -1,6 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * Left filter chosen option on the desktop breakpoint
+ *
+ * @component
+ * @example
+ * const props= {
+    name: String,
+    id: String,
+    parentId: String,
+    onClick: Function,
+ * }
+ * return (
+ *   <ChosenFilterItem {...props}/>
+ * )
+ */
 const ChosenFilterItem = (props) => {
     const {
         name,
@@ -9,6 +24,15 @@ const ChosenFilterItem = (props) => {
         onClick,
     } = props;
 
+    /**
+     **** Constants ****
+     */
+
+    /**
+     * Unselects the chosen filter option when the filter is clicked
+     * @param {ClickEvent} e
+     * @listens ClickEvent
+     */
     const handleClick = () => {
         onClick(parentId, id, false);
     };
@@ -25,11 +49,11 @@ const ChosenFilterItem = (props) => {
     );
 };
 
-export default ChosenFilterItem;
-
 ChosenFilterItem.propTypes = {
     id: PropTypes.string.isRequired,
     parentId: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
 };
+
+export default ChosenFilterItem;
