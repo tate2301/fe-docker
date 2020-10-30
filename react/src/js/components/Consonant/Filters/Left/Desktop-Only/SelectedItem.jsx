@@ -1,11 +1,36 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const SelectedItem = ({
-    numItemsSelected,
-    handleClear,
-}) => {
-    const displayNumItemsSelected = numItemsSelected > 0 ? numItemsSelected : '';
+/**
+ * Badge displaying the quantity of the selected left filter options
+ * on the desktop breakpoint
+ *
+ * @component
+ * @example
+ * const props= {
+    numItemsSelected: Number,
+    handleClear: Function,
+ * }
+ * return (
+ *   <SelectedItem {...props}/>
+ * )
+ */
+const SelectedItem = (props) => {
+    const {
+        numItemsSelected,
+        handleClear,
+    } = props;
+
+    /**
+     **** Constants ****
+     */
+
+    /**
+     * Text - quantity of selected left filter options
+     * @type {String}
+     */
+    const displayNumItemsSelected = numItemsSelected > 0 ? `${numItemsSelected}` : '';
+
     return (
         <button
             data-testid="item-badge"
@@ -18,9 +43,6 @@ const SelectedItem = ({
     );
 };
 
-/* eslint-disable-next-line import/prefer-default-export */
-export { SelectedItem };
-
 SelectedItem.propTypes = {
     numItemsSelected: PropTypes.number,
     handleClear: PropTypes.func.isRequired,
@@ -29,3 +51,6 @@ SelectedItem.propTypes = {
 SelectedItem.defaultProps = {
     numItemsSelected: 0,
 };
+
+/* eslint-disable-next-line import/prefer-default-export */
+export { SelectedItem };
