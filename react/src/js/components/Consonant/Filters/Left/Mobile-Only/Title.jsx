@@ -1,25 +1,39 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Title = ({
-    onClick,
-    leftPanelMobileHeader,
-}) => (
-    <div
-        className="consonant-left-filters--mob-title">
-        <button
-            data-testid="mobile-back-btn"
-            type="button"
-            onClick={onClick}
-            className="consonant-left-filters--mob-back" />
-        <span>
-            {leftPanelMobileHeader}
-        </span>
-    </div>
-);
+/**
+ * Mobile title of the left filters panel
+ *
+ * @component
+ * @example
+ * const props= {
+    onClick: Function,
+    leftPanelMobileHeader: String,
+ * }
+ * return (
+ *   <Title {...props}/>
+ * )
+ */
+const Title = (props) => {
+    const {
+        onClick,
+        leftPanelMobileHeader,
+    } = props;
 
-/* eslint-disable-next-line import/prefer-default-export */
-export { Title };
+    return (
+        <div
+            className="consonant-left-filters--mob-title">
+            <button
+                data-testid="mobile-back-btn"
+                type="button"
+                onClick={onClick}
+                className="consonant-left-filters--mob-back" />
+            <span>
+                {leftPanelMobileHeader}
+            </span>
+        </div>
+    );
+};
 
 Title.propTypes = {
     onClick: PropTypes.func.isRequired,
@@ -29,3 +43,6 @@ Title.propTypes = {
 Title.defaultProps = {
     leftPanelMobileHeader: '',
 };
+
+/* eslint-disable-next-line import/prefer-default-export */
+export { Title };
