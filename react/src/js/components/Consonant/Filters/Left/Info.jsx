@@ -170,5 +170,4 @@ Info.defaultProps = {
     windowWidth: window.innerWidth,
 };
 
-/* eslint-disable-next-line import/prefer-default-export */
 export { Info };
