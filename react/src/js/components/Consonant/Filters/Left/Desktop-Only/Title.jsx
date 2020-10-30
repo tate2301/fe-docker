@@ -1,17 +1,30 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Title = ({
-    panelHeader,
-}) => (
-    <h3
-        className="consonant-left-filters--desk-title">
-        {panelHeader}
-    </h3>
-);
+/**
+ * Title of the left filters panel on the desktop breakpoint
+ *
+ * @component
+ * @example
+ * const props= {
+    panelHeader: String,
+ * }
+ * return (
+ *   <Title {...props}/>
+ * )
+ */
+const Title = (props) => {
+    const {
+        panelHeader,
+    } = props;
 
-/* eslint-disable-next-line import/prefer-default-export */
-export { Title };
+    return (
+        <h3
+            className="consonant-left-filters--desk-title">
+            {panelHeader}
+        </h3>
+    );
+};
 
 Title.propTypes = {
     panelHeader: PropTypes.string,
@@ -20,3 +33,6 @@ Title.propTypes = {
 Title.defaultProps = {
     panelHeader: '',
 };
+
+/* eslint-disable-next-line import/prefer-default-export */
+export { Title };
