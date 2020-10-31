@@ -69,4 +69,5 @@ GroupFooter.defaultProps = {
     ctaText: '',
 };
 
+/* eslint-disable-next-line import/prefer-default-export */
 export { GroupFooter };

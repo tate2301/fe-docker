@@ -46,4 +46,5 @@ ClearBtn.defaultProps = {
     clearAllFiltersText: '',
 };
 
+/* eslint-disable-next-line import/prefer-default-export */
 export { ClearBtn };

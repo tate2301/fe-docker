@@ -235,4 +235,5 @@ Group.defaultProps = {
     clearFilterText: '',
 };
 
+/* eslint-disable-next-line import/prefer-default-export */
 export { Group };
