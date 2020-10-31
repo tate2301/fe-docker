@@ -11,14 +11,14 @@ export const DESKTOP_MIN_WIDTH = 1200;
 export const TABLET_MIN_WIDTH = 768;
 
 /**
- * Maximum allowed top filters displayed quantity
- * before "Load more" button
+ * Maximum allowed top filters displayed
+ * before "More Filters" button shows up
  * @type {Number}
  */
 export const MAX_TRUNCATED_FILTERS = 3;
 
 /**
- * Minimum top filters quantity to display blurred effect
+ * Minimum top filters needed to display blurred effect
  * on filters wrapper
  * @type {Number}
  */
@@ -33,7 +33,7 @@ export const TRUNCATE_TEXT_QTY = 200;
 
 /**
  * Quantity of the pagination items to display
- * on the mobile and desktop breakpoints
+ * for mobile and desktop breakpoints
  * @type {Object}
  */
 export const PAGINATION_COUNT = {
@@ -172,7 +172,7 @@ export const DEFAULT_CONFIG = {
 };
 
 /**
- * Default quantity of the cards to display on the page
+ * Default number of cards to display per page
  * @type {Number}
  */
 export const DEFAULT_SHOW_ITEMS_PER_PAGE = 8;

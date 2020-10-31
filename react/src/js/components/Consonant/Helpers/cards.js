@@ -1,7 +1,7 @@
 import get from 'lodash/get';
 
 /**
- * Converts date to the number of milliseconds
+ * Converts date to milliseconds
  * @param {String} date - date as a string
  * @returns {Number} - a number representing the milliseconds elapsed between
  * 1 January 1970 00:00:00 UTC and the given date
@@ -9,16 +9,14 @@ import get from 'lodash/get';
 export const getCardDate = date => new Date(date).getTime();
 
 /**
- * Filters cards by the date range set in the card
- * @param {Array} _cards - cards array
- * @returns {Array} - filtered cards array:
- * - cards with no date range set
- * - cards with date range that contains current date
+ * Removes cards that are outside the show card date window set in the card
+ * @param {Array} cards - cards array
+ * @returns {Array} - All cards that are inside the show card date window
  */
-export const filterCardsByDateRange = (_cards) => {
+export const filterCardsByDateRange = (cards) => {
     const currentDate = new Date().getTime();
 
-    return _cards.filter((card) => {
+    return cards.filter((card) => {
         const showCardFromField = get(card, 'showCard.from', '');
         const showCardUntilField = get(card, 'showCard.until', '');
 

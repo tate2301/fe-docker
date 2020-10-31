@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * Left filter chosen option on the desktop breakpoint
- *
+ * Component for what filter item was chosen
+ * (Only shows up for the Left Filter Panel - on desktop breakpoint)
+ * 
  * @component
  * @example
  * const props= {
@@ -23,10 +24,6 @@ const ChosenFilterItem = (props) => {
         parentId,
         onClick,
     } = props;
-
-    /**
-     **** Constants ****
-     */
 
     /**
      * Unselects the chosen filter option when the filter is clicked

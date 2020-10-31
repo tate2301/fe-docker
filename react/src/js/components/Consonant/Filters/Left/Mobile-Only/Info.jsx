@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 /**
- * Button with the quantity of the selected filters
- * on the mobile and tablet breakpoints
+ * Button with the count of selected filters
+ * for mobile and tablet breakpoints
  *
  * @component
  * @example
@@ -25,10 +25,6 @@ const Info = (props) => {
     } = props;
 
     /**
-     **** Constants ****
-     */
-
-    /**
      * Whether at least one filter is selected
      * @type {Boolean}
      */
@@ -36,7 +32,7 @@ const Info = (props) => {
 
     /**
      * Class name for the button:
-     * whether the button should display quantity of the selected filters or not
+     * whether the button should display the quantity of the selected filters or not
      * @type {String}
      */
     const selectedFiltersQtyClassName = classNames({

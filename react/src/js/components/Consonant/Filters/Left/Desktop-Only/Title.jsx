@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * Title of the left filters panel on the desktop breakpoint
+ * Title for the left filter panel for the desktop breakpoint
  *
  * @component
  * @example

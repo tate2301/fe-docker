@@ -1,21 +1,20 @@
 import React from 'react';
 
 /**
- * A funtion-placeholder, does nothing
+ * A funtion-placeholder, used to handle cleanups
+ * Defined explicitly so react doesn't re-create during re-renders
  * @returns {undefined} - returns undefined
  */
 export const noOp = () => {};
 
 /**
  * Creates context for expandable components
- * @param {Object} - default value
  * @returns {Object} - ExpandableContext context object
  */
 export const ExpandableContext = React.createContext({ value: null, setValue: noOp });
 
 /**
  * Creates configuration context
- * @param {Object} - default value
  * @returns {Object} - ConfigContext context object
  */
 export const ConfigContext = React.createContext({});

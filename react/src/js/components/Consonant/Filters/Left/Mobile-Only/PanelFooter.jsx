@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * Footer of the left filters panel on the mobile and tablet breakpoints
+ * Footer of the left filter panel for mobile and tablet breakpoints
  *
  * @component
  * @example
@@ -35,11 +35,7 @@ const PanelFooter = (props) => {
     } = props;
 
     /**
-     **** Constants ****
-     */
-
-    /**
-     * Text of the left filters footer button on the mobile and tablet breakpoints:
+     * Text of the left filters footer button for mobile and tablet breakpoints:
      * whether the "Apply changes" text should be shown or "Done"
      * @type {String}
      */

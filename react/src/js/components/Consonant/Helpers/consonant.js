@@ -8,9 +8,9 @@ import {
 } from './general';
 
 /**
- * Counts the quantity or the selected filters options
+ * Gets the number of selected filter items
  * @param {Array} filters - filters array
- * @returns {Number} - the quantity or the selected filters options
+ * @returns {Number} - the number of selected filter items
  */
 export const getNumSelectedFilterItems = (filters) => {
     const filterItems = chainFromIterable(filters.map(filter => filter.items));
@@ -20,10 +20,7 @@ export const getNumSelectedFilterItems = (filters) => {
 /**
  * Returns the authored or default configuration value
  * @param {Object} config - main configuration object
- * @param {Object} object - configuration object nested
- * inside the main configuration object
- * @param {String} key - an object key for which we need a value
- * @returns {} - authored or default configuration value
+ * @returns {Object} - authored or default configuration value
  */
 export const makeConfigGetter = config => (object, key) => {
     const objectPath = key ? `${object}.${key}` : object;
@@ -38,10 +35,10 @@ export const makeConfigGetter = config => (object, key) => {
 };
 
 /**
- * Get the default sorting option
+ * Gets the sorting option to use
  * @param {Object} config - configuration object
- * @param {String} query - title of the sorting option
- * @returns {Object} - object with the default sorting option
+ * @param {String} query - title of a sort option
+ * @returns {Object} - Sort Option or default if none is found
  */
 export function getDefaultSortOption(config, query) {
     const sortOptions = makeConfigGetter(config)('sort', 'options');

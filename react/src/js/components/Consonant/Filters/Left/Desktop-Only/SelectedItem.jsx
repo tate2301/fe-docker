@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * Badge displaying the quantity of the selected left filter options
- * on the desktop breakpoint
+ * Badge displaying how many filter options were selected
+ * (Only for Left Filter Panel - on desktop breakpoint)
  *
  * @component
  * @example
@@ -20,10 +20,6 @@ const SelectedItem = (props) => {
         numItemsSelected,
         handleClear,
     } = props;
-
-    /**
-     **** Constants ****
-     */
 
     /**
      * Text - quantity of selected left filter options
