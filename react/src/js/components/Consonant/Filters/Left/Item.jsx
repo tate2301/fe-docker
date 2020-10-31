@@ -33,7 +33,7 @@ const defaultProps = {
     icon: '',
     isOpened: false,
     numItemsSelected: 0,
-    clearFilterText: 'Clear',
+    clearFilterText: '',
 };
 
 /**
