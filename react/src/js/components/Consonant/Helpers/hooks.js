@@ -103,7 +103,6 @@ export const useLazyLoading = (imageRef, image) => {
     const [lazyLoadImage, setLazyLoadImage] = useState('');
     const [intersectionImage, setIntersectionImage] = useState('');
 
-
     const imageObserver = new IntersectionObserver((elements) => {
         if (elements[0].intersectionRatio !== 0) {
             setIntersectionImage(image);

@@ -1,8 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useConfig, useLazyLoading } from '../Helpers/hooks';
+
+import {
+    useConfig,
+    useLazyLoading 
+} from '../Helpers/hooks';
+
 import prettyFormatDate from '../Helpers/prettyFormat';
 
+/**
+ * 1:1 aspect ratio card
+ *
+ * @component
+ * @example
+ * const props= {
+    id: String,
+    ctaLink: String,
+    styles: Object,
+    contentArea: Object,
+    overlays: Object,
+ * }
+ * return (
+ *   <AspectRatio1to1Card {...props}/>
+ * )
+ */
 const AspectRatio1to1Card = (props) => {
     const {
         id,
@@ -44,14 +65,48 @@ const AspectRatio1to1Card = (props) => {
 
     const getConfig = useConfig();
 
+    /**
+     **** Authored Configs ****
+     */
     const i18nFormat = getConfig('collection', 'i18n.prettyDateIntervalFormat');
     const locale = getConfig('language', '');
+
+    /**
+     **** Hooks ****
+     */
+
+    /**
+     * Creates card image DOM reference 
+     * @returns {Object} - card image DOM reference
+     */
+    const imageRef = React.useRef();
+
+    /**
+     * @typedef {Image} LazyLoadedImageState
+     * @description — Has image as state after image is lazy loaded
+     *
+     * @typedef {Function} LazyLoadedImageStateSetter
+     * @description - Sets state once image is lazy loaded
+     *
+     * @type {[Image]} lazyLoadedImage
+     */
+    const [lazyLoadedImage] = useLazyLoading(imageRef, image);
+
+    /**
+     **** Constants ****
+     */
+
+    /**
+     * Formatted date string
+     * @type {String|null}
+     */
     const prettyDate = startTime ? prettyFormatDate(startTime, endTime, locale, i18nFormat) : null;
 
+    /**
+     * Detail text
+     * @type {String}
+     */
     const detailText = prettyDate || label || '';
-
-    const imageRef = React.useRef();
-    const [lazyLoadedImage] = useLazyLoading(imageRef, image);
 
     return (
         <div
@@ -73,7 +128,8 @@ const AspectRatio1to1Card = (props) => {
                         })}>
                         {
                             bannerIcon && (
-                                <div className="consonant-aspect-ratio-1-1-card--banner-icon-wrapper">
+                                <div
+                                    className="consonant-aspect-ratio-1-1-card--banner-icon-wrapper">
                                     <img
                                         alt=""
                                         loading="lazy"
@@ -86,7 +142,8 @@ const AspectRatio1to1Card = (props) => {
                     </span>
                 }
                 {badgeText &&
-                    <span className="consonant-aspect-ratio-1-1-card--badge">
+                    <span
+                        className="consonant-aspect-ratio-1-1-card--badge">
                         {badgeText}
                     </span>
                 }
@@ -130,13 +187,15 @@ const AspectRatio1to1Card = (props) => {
                 }
                 {
                     title &&
-                    <h2 className="consonant-aspect-ratio-1-1-card--title">
+                    <h2
+                        className="consonant-aspect-ratio-1-1-card--title">
                         {title}
                     </h2>
                 }
                 {
                     description &&
-                    <p className="consonant-aspect-ratio-1-1-card--text">
+                    <p
+                        className="consonant-aspect-ratio-1-1-card--text">
                         {description}
                     </p>
                 }
@@ -144,8 +203,6 @@ const AspectRatio1to1Card = (props) => {
         </div>
     );
 };
-
-export default AspectRatio1to1Card;
 
 AspectRatio1to1Card.propTypes = {
     id: PropTypes.string.isRequired,
@@ -190,3 +247,5 @@ AspectRatio1to1Card.defaultProps = {
     contentArea: {},
     overlays: {},
 };
+
+export default AspectRatio1to1Card;
