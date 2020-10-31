@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import {
     useConfig,
-    useLazyLoading 
+    useLazyLoading,
 } from '../Helpers/hooks';
 
 import prettyFormatDate from '../Helpers/prettyFormat';
@@ -76,7 +76,7 @@ const AspectRatio1to1Card = (props) => {
      */
 
     /**
-     * Creates card image DOM reference 
+     * Creates card image DOM reference
      * @returns {Object} - card image DOM reference
      */
     const imageRef = React.useRef();
@@ -126,17 +126,15 @@ const AspectRatio1to1Card = (props) => {
                             backgroundColor: bannerBackgroundColor,
                             color: bannerFontColor,
                         })}>
-                        {
-                            bannerIcon && (
-                                <div
-                                    className="consonant-aspect-ratio-1-1-card--banner-icon-wrapper">
-                                    <img
-                                        alt=""
-                                        loading="lazy"
-                                        src={bannerIcon}
-                                        data-testid="consonant-card--banner-icon" />
-                                </div>
-                            )
+                        {bannerIcon &&
+                            <div
+                                className="consonant-aspect-ratio-1-1-card--banner-icon-wrapper">
+                                <img
+                                    alt=""
+                                    loading="lazy"
+                                    src={bannerIcon}
+                                    data-testid="consonant-card--banner-icon" />
+                            </div>
                         }
                         <span>{bannerDescription}</span>
                     </span>
@@ -169,7 +167,8 @@ const AspectRatio1to1Card = (props) => {
                             alt={logoAlt}
                             loading="lazy"
                             width="32" />
-                    </div>}
+                    </div>
+                }
             </div>
             <a
                 href={ctaLink}

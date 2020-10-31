@@ -1,11 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'react-uuid';
-import { useConfig, useLazyLoading } from '../Helpers/hooks';
-import prettyFormatDate from '../Helpers/prettyFormat';
+
 import CardFooter from './CardFooter/CardFooter';
+
+import prettyFormatDate from '../Helpers/prettyFormat';
+
+import {
+    useConfig,
+    useLazyLoading,
+} from '../Helpers/hooks';
+
 import { INFOBIT_TYPE } from '../Helpers/constants';
 
+/**
+ * 3:2 aspect ratio card
+ *
+ * @component
+ * @example
+ * const props= {
+    id: String,
+    ctaLink: String,
+    styles: Object,
+    contentArea: Object,
+    overlays: Object,
+ * }
+ * return (
+ *   <AspectRatio3to2Card {...props}/>
+ * )
+ */
 const AspectRatio3to2Card = (props) => {
     const {
         id,
@@ -49,18 +72,57 @@ const AspectRatio3to2Card = (props) => {
         },
     } = props;
 
-    const imageRef = React.useRef();
-    const [lazyLoadedImage] = useLazyLoading(imageRef, image);
-
     const getConfig = useConfig();
 
+    /**
+     **** Authored Configs ****
+     */
     const i18nFormat = getConfig('collection', 'i18n.prettyDateIntervalFormat');
     const locale = getConfig('language', '');
 
+    /**
+     **** Hooks ****
+     */
+
+    /**
+     * Creates card image DOM reference
+     * @returns {Object} - card image DOM reference
+     */
+    const imageRef = React.useRef();
+
+    /**
+     * @typedef {Image} LazyLoadedImageState
+     * @description — Has image as state after image is lazy loaded
+     *
+     * @typedef {Function} LazyLoadedImageStateSetter
+     * @description - Sets state once image is lazy loaded
+     *
+     * @type {[Image]} lazyLoadedImage
+     */
+    const [lazyLoadedImage] = useLazyLoading(imageRef, image);
+
+    /**
+     **** Constants ****
+     */
+
+    /**
+     * Formatted date string
+     * @type {String|null}
+     */
     const prettyDate = startTime ? prettyFormatDate(startTime, endTime, locale, i18nFormat) : null;
+
+    /**
+     * Detail text
+     * @type {String}
+     */
     const detailText = prettyDate || label || '';
 
-    const extendFooterData = (data) => {
+    /**
+     * Extends infobits with the configuration data
+     * @param {Array} data - Array of the infobits
+     * @return {Array} - Array of the infobits with the configuration data added
+     */
+    function extendFooterData(data) {
         if (!data) return [];
 
         return data.map((el) => {
@@ -81,7 +143,7 @@ const AspectRatio3to2Card = (props) => {
             }
             return el;
         });
-    };
+    }
 
     return (
         <div
@@ -93,10 +155,7 @@ const AspectRatio3to2Card = (props) => {
                 className="consonant-aspect-ratio-3-2-card--img"
                 ref={imageRef}
                 style={{ backgroundImage: `url("${lazyLoadedImage}")` }}>
-                {
-                    bannerDescription &&
-                    bannerFontColor &&
-                    bannerBackgroundColor &&
+                {bannerDescription && bannerFontColor && bannerBackgroundColor &&
                     <span
                         data-testid="consonant-card--banner"
                         className="consonant-aspect-ratio-3-2-card--banner"
@@ -104,21 +163,25 @@ const AspectRatio3to2Card = (props) => {
                             backgroundColor: bannerBackgroundColor,
                             color: bannerFontColor,
                         })}>
-                        {
-                            bannerIcon && (
-                                <div className="consonant-aspect-ratio-3-2-card--banner-icon-wrapper">
-                                    <img
-                                        alt=""
-                                        loading="lazy"
-                                        src={bannerIcon}
-                                        data-testid="consonant-card--banner-icon" />
-                                </div>
-                            )
+                        {bannerIcon &&
+                            <div
+                                className="consonant-aspect-ratio-3-2-card--banner-icon-wrapper">
+                                <img
+                                    alt=""
+                                    loading="lazy"
+                                    src={bannerIcon}
+                                    data-testid="consonant-card--banner-icon" />
+                            </div>
                         }
                         <span>{bannerDescription}</span>
                     </span>
                 }
-                {badgeText && <span className="consonant-aspect-ratio-3-2-card--badge">{badgeText}</span>}
+                {badgeText &&
+                    <span
+                        className="consonant-aspect-ratio-3-2-card--badge">
+                        {badgeText}
+                    </span>
+                }
                 {videoURL &&
                     <a
                         href={videoURL}
@@ -127,7 +190,8 @@ const AspectRatio3to2Card = (props) => {
                         className="consonant-aspect-ratio-3-2-card--video-ico"
                         tabIndex="0">
                         {videoURL}
-                    </a>}
+                    </a>
+                }
                 {logoSrc &&
                     <div
                         style={({
@@ -140,19 +204,28 @@ const AspectRatio3to2Card = (props) => {
                             alt={logoAlt}
                             loading="lazy"
                             width="32" />
-                    </div>}
+                    </div>
+                }
             </div>
-            <div className="consonant-aspect-ratio-3-2-card--inner">
-                {detailText && (
-                    <span data-testid="3-2-card--label" className="consonant-aspect-ratio-3-2-card--label">{detailText}</span>
-                )}
+            <div
+                className="consonant-aspect-ratio-3-2-card--inner">
+                {detailText &&
+                    <span
+                        data-testid="3-2-card--label"
+                        className="consonant-aspect-ratio-3-2-card--label">
+                        {detailText}
+                    </span>
+                }
                 <h2
                     className="consonant-aspect-ratio-3-2-card--title">
                     {title}
                 </h2>
                 {
                     description &&
-                    <p className="consonant-aspect-ratio-3-2-card--text">{description}</p>
+                    <p
+                        className="consonant-aspect-ratio-3-2-card--text">
+                        {description}
+                    </p>
                 }
                 {footer.map(footerItem => (
                     <CardFooter
@@ -167,8 +240,6 @@ const AspectRatio3to2Card = (props) => {
         </div>
     );
 };
-
-export default AspectRatio3to2Card;
 
 AspectRatio3to2Card.propTypes = {
     id: PropTypes.string.isRequired,
@@ -220,3 +291,5 @@ AspectRatio3to2Card.defaultProps = {
     overlays: {},
     isBookmarked: false,
 };
+
+export default AspectRatio3to2Card;
