@@ -1,4 +1,4 @@
-import PROPS from './constants/cards';
+import PROPS from '../TestingConstants/cards';
 
 import {
     getCardDate,

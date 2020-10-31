@@ -1,6 +1,4 @@
 import React from 'react';
-import { rest } from 'msw';
-import { setupServer } from 'msw/node';
 import {
     screen,
     waitFor,
@@ -15,21 +13,12 @@ import config from '../../Testing/Mocks/config.json';
 import cards from '../../Testing/Mocks/cards.json';
 import setupIntersectionObserverMock from '../../Testing/Mocks/intersectionObserver';
 
-const { collection: { endpoint } } = config;
-
-const handlers = [
-    rest.get(endpoint, (req, res, ctx) => res(
-        ctx.status(200),
-        ctx.json({ cards }),
-    )),
-];
+global.fetch = jest.fn(() =>
+    Promise.resolve({
+        json: () => Promise.resolve({ cards }),
+    }));
 
 setupIntersectionObserverMock();
-
-const server = setupServer(...handlers);
-beforeAll(() => server.listen());
-afterEach(() => server.resetHandlers());
-afterAll(() => server.close());
 
 describe('Consonant/Container/Bookmarks', () => {
     test('should be able to save cards to bookmarks', async () => {

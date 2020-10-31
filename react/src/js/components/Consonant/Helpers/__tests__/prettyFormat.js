@@ -1,4 +1,4 @@
-import PROPS from './constants/prettyFormat';
+import PROPS from '../TestingConstants/prettyFormat';
 
 import prettyFormat from '../prettyFormat';
 
