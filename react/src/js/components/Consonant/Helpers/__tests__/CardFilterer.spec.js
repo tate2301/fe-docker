@@ -1,7 +1,7 @@
 import { render, queryByTestId } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import PROPS from './constants/CardFilterer';
+import PROPS from '../TestingConstants/CardFilterer';
 
 import CardFilterer from '../CardFilterer';
 

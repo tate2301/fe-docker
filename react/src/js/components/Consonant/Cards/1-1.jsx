@@ -30,6 +30,22 @@ const defaultProps = {
     contentArea: {},
 };
 
+/**
+ * 1:1 aspect ratio card
+ *
+ * @component
+ * @example
+ * const props= {
+    id: String,
+    ctaLink: String,
+    styles: Object,
+    contentArea: Object,
+    overlays: Object,
+ * }
+ * return (
+ *   <AspectRatio1to1Card {...props}/>
+ * )
+ */
 const AspectRatio1to1Card = (props) => {
     const {
         id,
@@ -71,14 +87,48 @@ const AspectRatio1to1Card = (props) => {
 
     const getConfig = useConfig();
 
+    /**
+     **** Authored Configs ****
+     */
     const i18nFormat = getConfig('collection', 'i18n.prettyDateIntervalFormat');
     const locale = getConfig('language', '');
+
+    /**
+     **** Hooks ****
+     */
+
+    /**
+     * Creates card image DOM reference
+     * @returns {Object} - card image DOM reference
+     */
+    const imageRef = React.useRef();
+
+    /**
+     * @typedef {Image} LazyLoadedImageState
+     * @description — Has image as state after image is lazy loaded
+     *
+     * @typedef {Function} LazyLoadedImageStateSetter
+     * @description - Sets state once image is lazy loaded
+     *
+     * @type {[Image]} lazyLoadedImage
+     */
+    const [lazyLoadedImage] = useLazyLoading(imageRef, image);
+
+    /**
+     **** Constants ****
+     */
+
+    /**
+     * Formatted date string
+     * @type {String|null}
+     */
     const prettyDate = startTime ? prettyFormatDate(startTime, endTime, locale, i18nFormat) : null;
 
+    /**
+     * Detail text
+     * @type {String}
+     */
     const detailText = prettyDate || label || '';
-
-    const imageRef = React.useRef();
-    const [lazyLoadedImage] = useLazyLoading(imageRef, image);
 
     return (
         <div
@@ -98,22 +148,22 @@ const AspectRatio1to1Card = (props) => {
                             backgroundColor: bannerBackgroundColor,
                             color: bannerFontColor,
                         })}>
-                        {
-                            bannerIcon && (
-                                <div className="consonant-aspect-ratio-1-1-card--banner-icon-wrapper">
-                                    <img
-                                        alt=""
-                                        loading="lazy"
-                                        src={bannerIcon}
-                                        data-testid="consonant-card--banner-icon" />
-                                </div>
-                            )
+                        {bannerIcon &&
+                            <div
+                                className="consonant-aspect-ratio-1-1-card--banner-icon-wrapper">
+                                <img
+                                    alt=""
+                                    loading="lazy"
+                                    src={bannerIcon}
+                                    data-testid="consonant-card--banner-icon" />
+                            </div>
                         }
                         <span>{bannerDescription}</span>
                     </span>
                 }
                 {badgeText &&
-                    <span className="consonant-aspect-ratio-1-1-card--badge">
+                    <span
+                        className="consonant-aspect-ratio-1-1-card--badge">
                         {badgeText}
                     </span>
                 }
@@ -139,7 +189,8 @@ const AspectRatio1to1Card = (props) => {
                             alt={logoAlt}
                             loading="lazy"
                             width="32" />
-                    </div>}
+                    </div>
+                }
             </div>
             <a
                 href={ctaLink}
@@ -157,13 +208,15 @@ const AspectRatio1to1Card = (props) => {
                 }
                 {
                     title &&
-                    <h2 className="consonant-aspect-ratio-1-1-card--title">
+                    <h2
+                        className="consonant-aspect-ratio-1-1-card--title">
                         {title}
                     </h2>
                 }
                 {
                     description &&
-                    <p className="consonant-aspect-ratio-1-1-card--text">
+                    <p
+                        className="consonant-aspect-ratio-1-1-card--text">
                         {description}
                     </p>
                 }

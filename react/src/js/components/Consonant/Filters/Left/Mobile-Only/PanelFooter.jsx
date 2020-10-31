@@ -28,28 +28,57 @@ const defaultProps = {
     someFiltersAreSelected: false,
 };
 
-const PanelFooter = ({
-    resQty,
-    doneText,
-    applyText,
-    showTotalResults,
-    onClearAllFilters,
-    clearAllFiltersText,
-    showTotalResultsText,
-    someFiltersAreSelected,
-    onMobileFiltersToggleClick,
-}) => {
+/**
+ * Footer of the left filter panel for mobile and tablet breakpoints
+ *
+ * @component
+ * @example
+ * const props= {
+    showTotalResults: Boolean,
+    resQty: Number,
+    onClearAllFilters: Function,
+    clearAllFiltersText: String,
+    onMobileFiltersToggleClick: Function,
+    someFiltersAreSelected: Boolean,
+    applyText: String,
+    doneText: String,
+    showTotalResultsText: String,
+ * }
+ * return (
+ *   <PanelFooter {...props}/>
+ * )
+ */
+const PanelFooter = (props) => {
+    const {
+        showTotalResults,
+        resQty,
+        onClearAllFilters,
+        clearAllFiltersText,
+        onMobileFiltersToggleClick,
+        someFiltersAreSelected,
+        applyText,
+        doneText,
+        showTotalResultsText,
+    } = props;
+
+    /**
+     * Text of the left filters footer button for mobile and tablet breakpoints:
+     * whether the "Apply changes" text should be shown or "Done"
+     * @type {String}
+     */
     const buttonText = someFiltersAreSelected ? applyText : doneText;
+
     return (
-        <div className="consonant-left-filters--mobile-footer">
-            {showTotalResults && (
+        <div
+            className="consonant-left-filters--mobile-footer">
+            {showTotalResults &&
                 <span
                     data-testid="mobile-footer-total-res"
                     className="consonant-left-filters--mobile-footer-total-res-qty">
                     {showTotalResultsText.replace('{total}', resQty)}
                 </span>
-            )}
-            {someFiltersAreSelected && (
+            }
+            {someFiltersAreSelected &&
                 <button
                     type="button"
                     data-testid="mobile-footer-clear"
@@ -57,7 +86,7 @@ const PanelFooter = ({
                     onClick={onClearAllFilters}>
                     {clearAllFiltersText}
                 </button>
-            )}
+            }
             <button
                 type="button"
                 data-testid="mobile-footer-btn"

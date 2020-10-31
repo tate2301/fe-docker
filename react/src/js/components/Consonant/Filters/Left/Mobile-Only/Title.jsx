@@ -13,22 +13,39 @@ const defaultProps = {
     leftPanelMobileHeader: '',
 };
 
-const Title = ({
-    onClick,
-    leftPanelMobileHeader,
-}) => (
-    <div
-        className="consonant-left-filters--mob-title">
-        <button
-            data-testid="mobile-back-btn"
-            type="button"
-            onClick={onClick}
-            className="consonant-left-filters--mob-back" />
-        <span>
-            {leftPanelMobileHeader}
-        </span>
-    </div>
-);
+/**
+ * Title of the left filters panel for mobile and tablet breakpoints
+ *
+ * @component
+ * @example
+ * const props= {
+    onClick: Function,
+    leftPanelMobileHeader: String,
+ * }
+ * return (
+ *   <Title {...props}/>
+ * )
+ */
+const Title = (props) => {
+    const {
+        onClick,
+        leftPanelMobileHeader,
+    } = props;
+
+    return (
+        <div
+            className="consonant-left-filters--mob-title">
+            <button
+                data-testid="mobile-back-btn"
+                type="button"
+                onClick={onClick}
+                className="consonant-left-filters--mob-back" />
+            <span>
+                {leftPanelMobileHeader}
+            </span>
+        </div>
+    );
+};
 
 Title.propTypes = TitleType;
 Title.defaultProps = defaultProps;

@@ -24,6 +24,11 @@ const Info = ({
 }) => {
     const atleastOneSelectedFilter = selectedFiltersQty > 0;
 
+    /**
+     * Class name for the button:
+     * whether the button should display the quantity of the selected filters or not
+     * @type {String}
+     */
     const selectedFiltersQtyClassName = classNames({
         'consonant-filters-info--btn': true,
         'consonant-filters-info--btn_with-filters': atleastOneSelectedFilter,
@@ -44,8 +49,7 @@ const Info = ({
                     className="consonant-filters-info--btn-text">
                     {mobileFilterBtnLabel}
                 </span>
-                {
-                    atleastOneSelectedFilter &&
+                {atleastOneSelectedFilter &&
                     <span
                         data-testid="btn-selected"
                         className="consonant-filters-info--btn-selected">

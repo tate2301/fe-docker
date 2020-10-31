@@ -1,4 +1,4 @@
-import PROPS from './constants/general';
+import PROPS from '../TestingConstants/general';
 import jestMocks from '../../Testing/Utils/JestMocks';
 
 import {

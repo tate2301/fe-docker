@@ -1,4 +1,4 @@
-import PROPS from './constants/JsonProcessor';
+import PROPS from '../TestingConstants/JsonProcessor';
 
 import JsonProcessor from '../JsonProcessor';
 

@@ -19,6 +19,20 @@ const defaultProps = {
     savedCardsCount: 0,
 };
 
+/**
+ * Bookmarks button with the icon and quanity of the bookmarked cards
+ *
+ * @component
+ * @example
+ * const props= {
+    showBookmarks: Boolean,
+    onClick: Function,
+    savedCardsCount: Number,
+ * }
+ * return (
+ *   <Bookmarks {...props}/>
+ * )
+ */
 const Bookmarks = (props) => {
     const {
         onClick,
@@ -27,16 +41,37 @@ const Bookmarks = (props) => {
     } = props;
 
     const getConfig = useConfig();
+
+    /**
+     **** Authored Configs ****
+     */
     const bookmarkTitle = getConfig('bookmarks', 'i18n.leftFilterPanel.filterTitle');
     const bookmarkSelectedIcon = getConfig('bookmarks', 'leftFilterPanel.selectBookmarksIcon');
     const bookmarkUnselectedIcon = getConfig('bookmarks', 'leftFilterPanel.unselectBookmarksIcon');
 
+    /**
+     **** Constants ****
+     */
+
+    /**
+     * Whether the bookmarks icon should be selected or not
+     * @type {String}
+     */
     const bookmarkIcon = showBookmarks ? bookmarkSelectedIcon : bookmarkUnselectedIcon;
 
+    /**
+     * Background image CSS styles of the bookmarks icon
+     * @type {Object}
+     */
     const iconStyles = {
         backgroundImage: bookmarkIcon ? `url(${bookmarkIcon})` : '',
     };
 
+    /**
+     * Class name for the bookmarks button:
+     * whether the bookmarks icon should be selected or not
+     * @type {String}
+     */
     const bookmarkClass = classNames({
         bookmarks: true,
         bookmarks_selected: showBookmarks,
