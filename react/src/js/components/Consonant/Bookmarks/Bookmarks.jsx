@@ -1,8 +1,23 @@
 import React from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+
 import { useConfig } from '../Helpers/hooks';
 
+/**
+ * Bookmarks button with the icon and quanity of the bookmarked cards
+ *
+ * @component
+ * @example
+ * const props= {
+    showBookmarks: Boolean,
+    onClick: Function,
+    savedCardsCount: Number,
+ * }
+ * return (
+ *   <Bookmarks {...props}/>
+ * )
+ */
 const Bookmarks = (props) => {
     const {
         showBookmarks,
@@ -11,16 +26,37 @@ const Bookmarks = (props) => {
     } = props;
 
     const getConfig = useConfig();
+
+    /**
+     **** Authored Configs ****
+     */
     const bookmarkTitle = getConfig('bookmarks', 'i18n.leftFilterPanel.filterTitle');
     const bookmarkSelectedIcon = getConfig('bookmarks', 'leftFilterPanel.selectBookmarksIcon');
     const bookmarkUnselectedIcon = getConfig('bookmarks', 'leftFilterPanel.unselectBookmarksIcon');
 
+    /**
+     **** Constants ****
+     */
+
+    /**
+     * Whether the bookmarks icon should be selected or not
+     * @type {String}
+     */
     const bookmarkIcon = showBookmarks ? bookmarkSelectedIcon : bookmarkUnselectedIcon;
 
+    /**
+     * Background image CSS styles of the bookmarks icon
+     * @type {Object}
+     */
     const iconStyles = {
         backgroundImage: bookmarkIcon ? `url(${bookmarkIcon})` : '',
     };
 
+    /**
+     * Class name for the bookmarks button:
+     * whether the bookmarks icon should be selected or not
+     * @type {String}
+     */
     const bookmarkClass = classNames({
         bookmarks: true,
         bookmarks_selected: showBookmarks,
@@ -53,8 +89,6 @@ const Bookmarks = (props) => {
     );
 };
 
-export default Bookmarks;
-
 Bookmarks.propTypes = {
     showBookmarks: PropTypes.bool,
     onClick: PropTypes.func.isRequired,
@@ -65,3 +99,5 @@ Bookmarks.defaultProps = {
     showBookmarks: false,
     savedCardsCount: 0,
 };
+
+export default Bookmarks;
