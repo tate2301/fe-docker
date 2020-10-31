@@ -1,16 +1,21 @@
 import React from 'react';
-import { number, bool, string, func, arrayOf, shape } from 'prop-types';
 import classNames from 'classnames';
+import {
+    number,
+    bool,
+    string,
+    func,
+    arrayOf,
+    shape,
+} from 'prop-types';
 
 import { Items } from './Items';
+import { useConfig } from '../../Helpers/hooks';
+import { FilterItemType } from '../../types/config';
 import { GroupFooter } from './Mobile-Only/GroupFooter';
 import { SelectedItem as DesktopSelectedItem } from './Desktop-Only/SelectedItem';
 
-import { useConfig } from '../../Helpers/hooks';
-
-import { TFilterItem } from '../../types/config';
-
-const TItem = {
+const ItemType = {
     icon: string,
     isOpened: bool,
     id: string.isRequired,
@@ -21,7 +26,7 @@ const TItem = {
     numItemsSelected: number,
     results: number.isRequired,
     onClearAll: func.isRequired,
-    items: arrayOf(shape(TFilterItem)).isRequired,
+    items: arrayOf(shape(FilterItemType)).isRequired,
 };
 
 const defaultProps = {
@@ -210,7 +215,7 @@ const Item = (props) => {
     );
 };
 
-Item.propTypes = TItem;
+Item.propTypes = ItemType;
 Item.defaultProps = defaultProps;
 
 export default Item;

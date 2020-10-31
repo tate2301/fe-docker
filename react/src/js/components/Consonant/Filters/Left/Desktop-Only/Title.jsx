@@ -1,7 +1,7 @@
 import React from 'react';
 import { string } from 'prop-types';
 
-const TTitle = {
+const TitleType = {
     panelHeader: string,
 };
 
@@ -18,7 +18,7 @@ const Title = ({
     </h3>
 );
 
-Title.propTypes = TTitle;
+Title.propTypes = TitleType;
 Title.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */

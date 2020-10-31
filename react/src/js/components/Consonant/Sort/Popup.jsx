@@ -1,12 +1,17 @@
 import React from 'react';
 import classNames from 'classnames';
-import { shape, func, arrayOf, bool, string } from 'prop-types';
+import {
+    shape,
+    func,
+    arrayOf,
+    bool,
+    string,
+} from 'prop-types';
 
 import { useExpandable } from '../Helpers/hooks';
+import { SortOptionType } from '../types/config';
 
-import { TSortOption } from '../types/config';
-
-const TPopup = {
+const PopupType = {
     autoWidth: bool,
     id: string.isRequired,
     optionsAlignment: string,
@@ -15,7 +20,7 @@ const TPopup = {
         label: string,
         sort: string,
     }).isRequired,
-    values: arrayOf(shape(TSortOption)).isRequired,
+    values: arrayOf(shape(SortOptionType)).isRequired,
 };
 
 const defaultProps = {
@@ -121,7 +126,7 @@ const Popup = ({
     );
 };
 
-Popup.propTypes = TPopup;
+Popup.propTypes = PopupType;
 Popup.defaultProps = defaultProps;
 
 export default Popup;

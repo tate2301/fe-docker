@@ -1,20 +1,28 @@
-import { string, oneOfType, arrayOf, shape, number, bool, array } from 'prop-types';
+import {
+    string,
+    oneOfType,
+    arrayOf,
+    shape,
+    number,
+    bool,
+    array,
+} from 'prop-types';
 
-const TAppliesTo = {
+const AppliesToType = {
     id: string,
 };
 
-const TShowCard = {
+const ShowCardType = {
     from: string,
     until: string,
 };
 
-const TTags = {
+const TagsType = {
     id: oneOfType([string, number]),
 };
-const TSearch = {};
+const SearchType = {};
 
-export const TFooterLeft = {
+export const FooterLeftType = {
     src: string,
     type: string,
     term: string,
@@ -35,14 +43,14 @@ export const TFooterLeft = {
     completionText: string,
 };
 
-export const TFooterCenter = {
+export const FooterCenterType = {
     src: string,
     type: string,
     href: string,
     text: oneOfType([string, number]),
 };
 
-export const TFooterRight = {
+export const FooterRightType = {
     src: string,
     type: string,
     style: string,
@@ -51,34 +59,34 @@ export const TFooterRight = {
     text: oneOfType([string, number]),
 };
 
-const TOverlaysBanner = {
+const OverlaysBannerType = {
     icon: string,
     fontColor: string,
     description: string,
     backgroundColor: string,
 };
 
-const TOverlaysLogo = {
+const OverlaysLogoType = {
     src: string,
     alt: string,
     borderColor: string,
     backgroundColor: string,
 };
 
-const TOverlaysLabel = {
+const OverlaysLabelType = {
     description: string,
 };
 
-const TOverlaysVideoButton = {
+const OverlaysVideoButtonType = {
     url: string,
 };
 
-export const TStyles = {
+export const StylesType = {
     typeOverride: string,
     backgroundImage: string,
 };
 
-export const TContentArea = {
+export const ContentAreaType = {
     detailText: string,
     title: oneOfType([string, array]),
     description: oneOfType([string, array]),
@@ -88,31 +96,31 @@ export const TContentArea = {
     }),
 };
 
-export const TOverlays = {
-    logo: shape(TOverlaysLogo),
-    label: shape(TOverlaysLabel),
-    banner: shape(TOverlaysBanner),
-    videoButton: shape(TOverlaysVideoButton),
+export const OverlaysType = {
+    logo: shape(OverlaysLogoType),
+    label: shape(OverlaysLabelType),
+    banner: shape(OverlaysBannerType),
+    videoButton: shape(OverlaysVideoButtonType),
 };
 
-export const TFooter = {
+export const FooterType = {
     divider: bool,
     isFluid: bool,
-    left: arrayOf(shape(TFooterLeft)),
-    right: arrayOf(shape(TFooterRight)),
-    center: arrayOf(shape(TFooterCenter)),
+    left: arrayOf(shape(FooterLeftType)),
+    right: arrayOf(shape(FooterRightType)),
+    center: arrayOf(shape(FooterCenterType)),
 };
 
-export const TCard = {
+export const CardType = {
     id: string,
     title: string,
     cardDate: string,
-    styles: shape(TStyles),
-    search: shape(TSearch),
-    showCard: shape(TShowCard),
-    overlays: shape(TOverlays),
-    tags: arrayOf(shape(TTags)),
-    footer: arrayOf(shape(TFooter)),
-    contentArea: shape(TContentArea),
-    appliesTo: arrayOf(shape(TAppliesTo)),
+    styles: shape(StylesType),
+    search: shape(SearchType),
+    showCard: shape(ShowCardType),
+    overlays: shape(OverlaysType),
+    tags: arrayOf(shape(TagsType)),
+    footer: arrayOf(shape(FooterType)),
+    contentArea: shape(ContentAreaType),
+    appliesTo: arrayOf(shape(AppliesToType)),
 };

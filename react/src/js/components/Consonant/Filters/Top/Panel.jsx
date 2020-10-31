@@ -1,29 +1,32 @@
 import React from 'react';
 import sum from 'lodash/sum';
 import classNames from 'classnames';
-import { arrayOf, shape, number, bool, func, node } from 'prop-types';
+import {
+    arrayOf,
+    shape,
+    number,
+    bool,
+    func,
+    node,
+} from 'prop-types';
 
+import { FilterType } from '../../types/config';
 import SearchIcon from '../../Search/SearchIcon';
-
 import { Group as TopFilterItem } from './Group';
-
 import { renderTotalResults } from '../../Helpers/rendering';
 import { isAtleastOneFilterSelected } from '../../Helpers/general';
-
 import {
     useConfig,
     useExpandable,
 } from '../../Helpers/hooks';
-
 import {
     TABLET_MIN_WIDTH,
-    MAX_TRUNCATED_FILTERS,
     MIN_FILTERS_SHOW_BG,
+    MAX_TRUNCATED_FILTERS,
 } from '../../Helpers/constants';
 
-import { TFilter } from '../../types/config';
 
-const TFiltersPanelTop = {
+const FiltersPanelTopType = {
     resQty: number,
     showLimitedFiltersQty: bool,
     sortComponent: node.isRequired,
@@ -31,7 +34,7 @@ const TFiltersPanelTop = {
     onFilterClick: func.isRequired,
     onShowAllClick: func.isRequired,
     searchComponent: node.isRequired,
-    filters: arrayOf(shape(TFilter)),
+    filters: arrayOf(shape(FilterType)),
     onCheckboxClick: func.isRequired,
     onClearAllFilters: func.isRequired,
     onClearFilterItems: func.isRequired,
@@ -330,7 +333,7 @@ const FiltersPanelTop = (props) => {
     );
 };
 
-FiltersPanelTop.propTypes = TFiltersPanelTop;
+FiltersPanelTop.propTypes = FiltersPanelTopType;
 FiltersPanelTop.defaultProps = defaultProps;
 
 export default FiltersPanelTop;

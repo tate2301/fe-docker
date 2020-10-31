@@ -2,8 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import Group from '../../Infobit/Group';
-
-import { TFooter } from '../../types/card';
+import { FooterType } from '../../types/card';
 
 const defaultProps = {
     left: [],
@@ -101,7 +100,7 @@ const CardFooter = (props) => {
     );
 };
 
-CardFooter.propTypes = TFooter;
+CardFooter.propTypes = FooterType;
 CardFooter.defaultProps = defaultProps;
 
 export default CardFooter;

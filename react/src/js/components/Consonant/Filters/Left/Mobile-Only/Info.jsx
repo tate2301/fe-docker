@@ -1,8 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
-import { string, number, func } from 'prop-types';
+import {
+    string,
+    number,
+    func,
+} from 'prop-types';
 
-const TInfo = {
+const InfoType = {
     selectedFiltersQty: number,
     mobileFilterBtnLabel: string,
     onMobileFiltersToggleClick: func.isRequired,
@@ -53,7 +57,7 @@ const Info = ({
     );
 };
 
-Info.propTypes = TInfo;
+Info.propTypes = InfoType;
 Info.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */

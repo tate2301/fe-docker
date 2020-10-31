@@ -1,15 +1,20 @@
 import React from 'react';
 import classNames from 'classnames';
-import { shape, arrayOf, bool, node, number, func } from 'prop-types';
+import {
+    shape,
+    arrayOf,
+    bool,
+    node,
+    number,
+    func,
+} from 'prop-types';
 
+import { useConfig } from '../../Helpers/hooks';
+import { SortOptionType } from '../../types/config';
 import { Info as MobileInfo } from './Mobile-Only/Info';
 import { renderTotalResults } from '../../Helpers/rendering';
 
-import { useConfig } from '../../Helpers/hooks';
-
-import { TSortOption } from '../../types/config';
-
-const TInfo = {
+const InfoType = {
     cardsQty: number,
     filtersQty: number,
     windowWidth: number,
@@ -18,7 +23,7 @@ const TInfo = {
     sortComponent: node.isRequired,
     searchComponent: node.isRequired,
     onMobileFiltersToggleClick: func.isRequired,
-    sortOptions: arrayOf(shape(TSortOption)).isRequired,
+    sortOptions: arrayOf(shape(SortOptionType)).isRequired,
 };
 
 const defaultProps = {
@@ -172,7 +177,7 @@ const Info = (props) => {
     );
 };
 
-Info.propTypes = TInfo;
+Info.propTypes = InfoType;
 Info.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */

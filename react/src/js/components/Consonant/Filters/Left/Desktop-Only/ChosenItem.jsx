@@ -1,7 +1,10 @@
 import React from 'react';
-import { string, func } from 'prop-types';
+import {
+    string,
+    func,
+} from 'prop-types';
 
-const TChosenFilterItem = {
+const ChosenFilterItemType = {
     id: string.isRequired,
     name: string.isRequired,
     onClick: func.isRequired,
@@ -32,6 +35,6 @@ const ChosenFilterItem = (props) => {
     );
 };
 
-ChosenFilterItem.propTypes = TChosenFilterItem;
+ChosenFilterItem.propTypes = ChosenFilterItemType;
 
 export default ChosenFilterItem;

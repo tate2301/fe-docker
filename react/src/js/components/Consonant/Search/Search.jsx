@@ -1,9 +1,16 @@
-import { string, bool, func } from 'prop-types';
-import React, { useEffect, useRef } from 'react';
+import React, {
+    useEffect,
+    useRef,
+} from 'react';
+import {
+    string,
+    bool,
+    func,
+} from 'prop-types';
 
 import { useConfig } from '../Helpers/hooks';
 
-const TSearch = {
+const SearchType = {
     name: string,
     value: string,
     autofocus: bool,
@@ -139,7 +146,7 @@ const Search = ({
     );
 };
 
-Search.propTypes = TSearch;
+Search.propTypes = SearchType;
 Search.defaultProps = defaultProps;
 
 export default Search;

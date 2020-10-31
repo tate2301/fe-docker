@@ -1,9 +1,18 @@
-import { node, shape } from 'prop-types';
-import React, { useMemo, useState, useCallback } from 'react';
+import React, {
+    useMemo,
+    useState,
+    useCallback,
+} from 'react';
+import {
+    node,
+    shape,
+} from 'prop-types';
 
-import { ConfigContext, ExpandableContext } from '../../Helpers/contexts';
-
-import { TConfig } from '../../types/config';
+import { ConfigType } from '../../types/config';
+import {
+    ConfigContext,
+    ExpandableContext,
+} from '../../Helpers/contexts';
 
 const ContextProvider = ({ context, children }) => {
     const [isOpen, toggle] = useState(null);
@@ -33,7 +42,7 @@ const ContextProvider = ({ context, children }) => {
 };
 
 ContextProvider.propTypes = {
-    context: shape(TConfig),
+    context: shape(ConfigType),
     children: node.isRequired,
 };
 

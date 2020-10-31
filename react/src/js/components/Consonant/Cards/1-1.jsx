@@ -1,17 +1,26 @@
 import React from 'react';
-import { string, shape } from 'prop-types';
+import {
+    string,
+    shape,
+} from 'prop-types';
 
 import prettyFormatDate from '../Helpers/prettyFormat';
+import {
+    useConfig,
+    useLazyLoading,
+} from '../Helpers/hooks';
+import {
+    StylesType,
+    ContentAreaType,
+    OverlaysType,
+} from '../types/card';
 
-import { useConfig, useLazyLoading } from '../Helpers/hooks';
-import { TStyles, TContentArea, TOverlays } from '../types/card';
-
-const TAspectRatio1to1Card = {
+const AspectRatio1to1CardType = {
     ctaLink: string,
     id: string.isRequired,
-    styles: shape(TStyles),
-    overlays: shape(TOverlays),
-    contentArea: shape(TContentArea),
+    styles: shape(StylesType),
+    overlays: shape(OverlaysType),
+    contentArea: shape(ContentAreaType),
 };
 
 const defaultProps = {
@@ -163,7 +172,7 @@ const AspectRatio1to1Card = (props) => {
     );
 };
 
-AspectRatio1to1Card.propTypes = TAspectRatio1to1Card;
+AspectRatio1to1Card.propTypes = AspectRatio1to1CardType;
 AspectRatio1to1Card.defaultProps = defaultProps;
 
 export default AspectRatio1to1Card;

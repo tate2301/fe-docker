@@ -1,7 +1,12 @@
 import React from 'react';
-import { string, number, func, bool } from 'prop-types';
+import {
+    string,
+    number,
+    func,
+    bool,
+} from 'prop-types';
 
-const TPanelFooter = {
+const PanelFooterType = {
     resQty: number,
     doneText: string,
     applyText: string,
@@ -64,7 +69,7 @@ const PanelFooter = ({
     );
 };
 
-PanelFooter.propTypes = TPanelFooter;
+PanelFooter.propTypes = PanelFooterType;
 PanelFooter.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */

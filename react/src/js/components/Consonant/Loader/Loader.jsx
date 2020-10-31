@@ -1,10 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
-import { string, bool } from 'prop-types';
+import {
+    string,
+    bool,
+} from 'prop-types';
 
 import { LOADER_SIZE } from '../Helpers/constants';
 
-const TLoader = {
+const LoaderType = {
     size: string,
     hidden: bool,
     absolute: bool,
@@ -50,7 +53,7 @@ const Loader = ({ size, hidden, absolute }) => {
     );
 };
 
-Loader.propTypes = TLoader;
+Loader.propTypes = LoaderType;
 Loader.defaultProps = defaultProps;
 
 export default Loader;

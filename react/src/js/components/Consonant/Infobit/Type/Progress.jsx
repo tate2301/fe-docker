@@ -1,7 +1,7 @@
 import React from 'react';
 import { string } from 'prop-types';
 
-const TProgress = {
+const ProgressType = {
     label: string,
     color: string,
     percentage: string,
@@ -83,7 +83,7 @@ const Progress = ({
     );
 };
 
-Progress.propTypes = TProgress;
+Progress.propTypes = ProgressType;
 Progress.defaultProps = defaultProps;
 
 export default Progress;

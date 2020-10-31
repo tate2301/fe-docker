@@ -1,9 +1,14 @@
 import React from 'react';
-import { bool, string, func } from 'prop-types';
 import classNames from 'classnames';
+import {
+    bool,
+    string,
+    func,
+} from 'prop-types';
+
 import Tooltip from './Tooltip';
 
-const TBookmark = {
+const BookmarkType = {
     isBookmarked: bool,
     saveCardIcon: string,
     cardSaveText: string,
@@ -91,7 +96,7 @@ const Bookmark = ({
     );
 };
 
-Bookmark.propTypes = TBookmark;
+Bookmark.propTypes = BookmarkType;
 Bookmark.defaultProps = defaultProps;
 
 export default Bookmark;

@@ -1,24 +1,37 @@
 import React from 'react';
 import uuid from 'react-uuid';
-import { string, shape, bool, func, arrayOf } from 'prop-types';
+import {
+    string,
+    shape,
+    bool,
+    func,
+    arrayOf,
+} from 'prop-types';
 
 import CardFooter from './CardFooter/CardFooter';
 import prettyFormatDate from '../Helpers/prettyFormat';
-
 import { INFOBIT_TYPE } from '../Helpers/constants';
-import { useConfig, useLazyLoading } from '../Helpers/hooks';
-import { TStyles, TContentArea, TOverlays, TFooter } from '../types/card';
+import {
+    useConfig,
+    useLazyLoading,
+} from '../Helpers/hooks';
+import {
+    StylesType,
+    ContentAreaType,
+    OverlaysType,
+    FooterType,
+} from '../types/card';
 
-const TAspectRatio3to2Card = {
+const AspectRatio3to2CardType = {
     isBookmarked: bool,
     dateFormat: string,
     id: string.isRequired,
-    styles: shape(TStyles),
+    styles: shape(StylesType),
     disableBookmarkIco: bool,
     onClick: func.isRequired,
-    overlays: shape(TOverlays),
-    footer: arrayOf(shape(TFooter)),
-    contentArea: shape(TContentArea),
+    overlays: shape(OverlaysType),
+    footer: arrayOf(shape(FooterType)),
+    contentArea: shape(ContentAreaType),
 };
 
 const defaultProps = {
@@ -193,7 +206,7 @@ const AspectRatio3to2Card = (props) => {
     );
 };
 
-AspectRatio3to2Card.propTypes = TAspectRatio3to2Card;
+AspectRatio3to2Card.propTypes = AspectRatio3to2CardType;
 AspectRatio3to2Card.defaultProps = defaultProps;
 
 export default AspectRatio3to2Card;

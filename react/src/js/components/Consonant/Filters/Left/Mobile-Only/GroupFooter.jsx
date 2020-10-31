@@ -1,7 +1,11 @@
 import React from 'react';
-import { string, number, func } from 'prop-types';
+import {
+    string,
+    number,
+    func,
+} from 'prop-types';
 
-const TGroupFooter = {
+const GroupFooterType = {
     ctaText: string,
     clearFilterText: string,
     numItemsSelected: number,
@@ -47,7 +51,7 @@ const GroupFooter = ({
     </div>
 );
 
-GroupFooter.propTypes = TGroupFooter;
+GroupFooter.propTypes = GroupFooterType;
 GroupFooter.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */

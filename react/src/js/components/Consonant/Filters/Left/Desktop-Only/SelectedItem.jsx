@@ -1,7 +1,10 @@
 import React from 'react';
-import { number, func } from 'prop-types';
+import {
+    number,
+    func,
+} from 'prop-types';
 
-const TSelectedItem = {
+const SelectedItemType = {
     numItemsSelected: number,
     handleClear: func.isRequired,
 };
@@ -27,7 +30,7 @@ const SelectedItem = ({
     );
 };
 
-SelectedItem.propTypes = TSelectedItem;
+SelectedItem.propTypes = SelectedItemType;
 SelectedItem.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */

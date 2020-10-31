@@ -1,10 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
-import { bool, func, number } from 'prop-types';
+import {
+    bool,
+    func,
+    number,
+} from 'prop-types';
 
 import { useConfig } from '../Helpers/hooks';
 
-const TBookmarks = {
+const BookmarksType = {
     showBookmarks: bool,
     savedCardsCount: number,
     onClick: func.isRequired,
@@ -65,7 +69,7 @@ const Bookmarks = (props) => {
     );
 };
 
-Bookmarks.propTypes = TBookmarks;
+Bookmarks.propTypes = BookmarksType;
 Bookmarks.defaultProps = defaultProps;
 
 export default Bookmarks;

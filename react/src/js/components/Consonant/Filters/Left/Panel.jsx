@@ -1,28 +1,34 @@
 import React from 'react';
 import sum from 'lodash/sum';
 import classNames from 'classnames';
-import { arrayOf, shape, number, bool, func, node } from 'prop-types';
+import {
+    arrayOf,
+    shape,
+    number,
+    bool,
+    func,
+    node,
+} from 'prop-types';
+
 
 import Item from './Item';
+import { useConfig } from '../../Helpers/hooks';
+import { FilterType } from '../../types/config';
 import ChosenFilter from './Desktop-Only/ChosenItem';
-
 import { Title as MobileTitle } from './Mobile-Only/Title';
 import { Title as DesktopTitle } from './Desktop-Only/Title';
+import { isAtleastOneFilterSelected } from '../../Helpers/general';
 import { PanelFooter as MobileFooter } from './Mobile-Only/PanelFooter';
 import { ClearBtn as DesktopClearBtn } from './Desktop-Only/ClearButton';
 
-import { useConfig } from '../../Helpers/hooks';
-import { isAtleastOneFilterSelected } from '../../Helpers/general';
 
-import { TFilter } from '../../types/config';
-
-const TLeftFilterPanel = {
+const LeftFilterPanelType = {
     resQty: number,
     windowWidth: number,
     showMobileFilters: bool,
     selectedFiltersQty: number,
     onFilterClick: func.isRequired,
-    filters: arrayOf(shape(TFilter)),
+    filters: arrayOf(shape(FilterType)),
     onCheckboxClick: func.isRequired,
     searchComponent: node.isRequired,
     bookmarkComponent: node.isRequired,
@@ -226,7 +232,7 @@ const LeftFilterPanel = ({
     );
 };
 
-LeftFilterPanel.propTypes = TLeftFilterPanel;
+LeftFilterPanel.propTypes = LeftFilterPanelType;
 LeftFilterPanel.defaultProps = defaultProps;
 
 export default LeftFilterPanel;

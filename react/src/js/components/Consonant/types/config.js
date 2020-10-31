@@ -1,125 +1,132 @@
-import { string, arrayOf, shape, number, bool, oneOfType } from 'prop-types';
+import {
+    string,
+    arrayOf,
+    shape,
+    number,
+    bool,
+    oneOfType,
+} from 'prop-types';
 
-import { TCard } from './card';
+import { CardType } from './card';
 
-const TCollectionResultPerPage = [
+const CollectionResultPerPageType = [
     string,
     number,
 ];
 
-const TCollectionTotalCardLimit = [
+const CollectionTotalCardLimitType = [
     string,
     number,
 ];
 
-const TCollectionDisplayTotalResults = [
+const CollectionDisplayTotalResultsType = [
     bool,
     string,
 ];
 
-const TCollection = {
+const CollectionType = {
     title: string,
     endpoint: string,
     cardStyle: string,
     totalResultsText: string,
-    resultsPerPage: oneOfType(TCollectionResultPerPage),
-    totalCardLimit: oneOfType(TCollectionTotalCardLimit),
-    displayTotalResults: oneOfType(TCollectionDisplayTotalResults),
+    resultsPerPage: oneOfType(CollectionResultPerPageType),
+    totalCardLimit: oneOfType(CollectionTotalCardLimitType),
+    displayTotalResults: oneOfType(CollectionDisplayTotalResultsType),
 };
 
-const TFeaturedCards = [
+const FeaturedCardsType = [
     string,
-    arrayOf(shape(TCard)),
+    arrayOf(shape(CardType)),
 ];
 
-const TEnabled = [
+const EnabledType = [
     bool,
     string,
 ];
 
-const THeader = {
-    enabled: oneOfType(TEnabled),
+const HeaderType = {
+    enabled: oneOfType(EnabledType),
 };
 
-export const TFilterItem = {
+export const FilterItemType = {
     id: string,
     label: oneOfType([string, number]),
 };
 
-export const TFilter = {
+export const FilterType = {
     id: string,
     group: string,
-    items: arrayOf(shape(TFilterItem)),
+    items: arrayOf(shape(FilterItemType)),
 };
 
-const TFilters = [
+const FiltersType = [
     string,
-    arrayOf(shape(TFilter)),
+    arrayOf(shape(FilterType)),
 ];
 
-const TFilterPanel = {
+const FilterPanelType = {
     type: string,
     filterLogic: string,
     clearFilterText: string,
     leftPanelHeader: string,
     clearAllFiltersText: string,
-    enabled: oneOfType(TEnabled),
-    filters: oneOfType(TFilters),
+    enabled: oneOfType(EnabledType),
+    filters: oneOfType(FiltersType),
 };
 
-const TPagination = {
+const PaginationType = {
     type: string,
     paginatorPrevLabel: string,
     paginatorNextLabel: string,
     loadMoreButtonText: string,
-    enabled: oneOfType(TEnabled),
+    enabled: oneOfType(EnabledType),
     loadMoreQuantityText: string,
     paginatorQuantityText: string,
 };
 
-const TBookmarks = {
+const BookmarksType = {
     saveCardText: string,
     cardSavedIcon: string,
     unsaveCardText: string,
     cardUnsavedIcon: string,
     selectBookmarksIcon: string,
-    enabled: oneOfType(TEnabled),
+    enabled: oneOfType(EnabledType),
     bookmarksFilterTitle: string,
     unselectBookmarksIcon: string,
 };
 
-const TSearchField = [
+const SearchFieldType = [
     string,
     arrayOf(string),
 ];
 
-const TSearch = {
+const SearchType = {
     leftPanelTitle: string,
     inputPlaceholderText: string,
-    enabled: oneOfType(TEnabled),
-    searchFields: oneOfType(TSearchField),
+    enabled: oneOfType(EnabledType),
+    searchFields: oneOfType(SearchFieldType),
 };
 
-export const TSortOption = {
+export const SortOptionType = {
     sort: string,
     label: string,
 };
 
-const TSort = {
-    enabled: oneOfType(TEnabled),
+const SortType = {
+    enabled: oneOfType(EnabledType),
     options: oneOfType([
         string,
-        arrayOf(shape(TSortOption)),
+        arrayOf(shape(SortOptionType)),
     ]),
 };
 
-export const TConfig = {
-    sort: shape(TSort),
-    search: shape(TSearch),
-    header: shape(THeader),
-    bookmarks: shape(TBookmarks),
-    collection: shape(TCollection),
-    pagination: shape(TPagination),
-    filterPanel: shape(TFilterPanel),
-    featuredCards: oneOfType(TFeaturedCards),
+export const ConfigType = {
+    sort: shape(SortType),
+    search: shape(SearchType),
+    header: shape(HeaderType),
+    bookmarks: shape(BookmarksType),
+    collection: shape(CollectionType),
+    pagination: shape(PaginationType),
+    filterPanel: shape(FilterPanelType),
+    featuredCards: oneOfType(FeaturedCardsType),
 };

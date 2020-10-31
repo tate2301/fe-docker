@@ -1,8 +1,9 @@
 import React from 'react';
 import { string } from 'prop-types';
+
 import getPrettyDateInterval from '../../Helpers/prettyFormat';
 
-const TDateInterval = {
+const DateIntervalType = {
     locale: string.isRequired,
     endTime: string.isRequired,
     startTime: string.isRequired,
@@ -40,6 +41,6 @@ const DateInterval = ({
     );
 };
 
-DateInterval.propTypes = TDateInterval;
+DateInterval.propTypes = DateIntervalType;
 
 export default DateInterval;

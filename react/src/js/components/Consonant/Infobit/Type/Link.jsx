@@ -1,7 +1,11 @@
 import React from 'react';
-import { oneOfType, string, bool } from 'prop-types';
+import {
+    oneOfType,
+    string,
+    bool,
+} from 'prop-types';
 
-const TLink = {
+const LinkType = {
     linkHint: string,
     href: string.isRequired,
     text: string.isRequired,
@@ -49,7 +53,7 @@ const Link = ({
     );
 };
 
-Link.propTypes = TLink;
+Link.propTypes = LinkType;
 Link.defaultProps = defaultProps;
 
 export default Link;

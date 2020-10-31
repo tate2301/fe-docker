@@ -1,7 +1,7 @@
 import React from 'react';
 import { string } from 'prop-types';
 
-const TIcon = {
+const IconType = {
     alt: string,
     src: string.isRequired,
 };
@@ -35,7 +35,7 @@ const Icon = ({
         alt={alt}
         loading="lazy" />);
 
-Icon.propTypes = TIcon;
+Icon.propTypes = IconType;
 Icon.defaultProps = defaultProps;
 
 export default Icon;

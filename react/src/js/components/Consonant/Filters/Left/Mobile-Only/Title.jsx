@@ -1,7 +1,10 @@
 import React from 'react';
-import { string, func } from 'prop-types';
+import {
+    string,
+    func,
+} from 'prop-types';
 
-const TTitle = {
+const TitleType = {
     onClick: func.isRequired,
     leftPanelMobileHeader: string,
 };
@@ -27,7 +30,7 @@ const Title = ({
     </div>
 );
 
-Title.propTypes = TTitle;
+Title.propTypes = TitleType;
 Title.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */

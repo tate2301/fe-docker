@@ -1,11 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
-import { string, number } from 'prop-types';
+import {
+    string,
+    number,
+} from 'prop-types';
 
 const maxAllowedStars = 5;
 const defaultFilledStars = 0;
 
-const TRating = {
+const RatingType = {
     label: string,
     totalStars: number,
     starsFilled: number,
@@ -89,7 +92,7 @@ const Rating = ({
     );
 };
 
-Rating.propTypes = TRating;
+Rating.propTypes = RatingType;
 Rating.defaultProps = defaultProps;
 
 export default Rating;

@@ -1,19 +1,23 @@
 import React from 'react';
-import { string, func, number, arrayOf, shape } from 'prop-types';
 import classNames from 'classnames';
+import {
+    string,
+    func,
+    number,
+    arrayOf,
+    shape,
+} from 'prop-types';
 
 import { Items } from './Items';
 import { Footer } from './Footer';
-
+import { FilterItemType } from '../../types/config';
 import { stopPropagation } from '../../Helpers/general';
 import {
     useConfig,
     useExpandable,
 } from '../../Helpers/hooks';
 
-import { TFilterItem } from '../../types/config';
-
-const TGroup = {
+const GroupType = {
     id: string.isRequired,
     name: string.isRequired,
     clearFilterText: string,
@@ -21,7 +25,7 @@ const TGroup = {
     onCheck: func.isRequired,
     results: number.isRequired,
     onClearAll: func.isRequired,
-    items: arrayOf(shape(TFilterItem)).isRequired,
+    items: arrayOf(shape(FilterItemType)).isRequired,
 };
 
 const defaultProps = {
@@ -236,7 +240,7 @@ const Group = (props) => {
     );
 };
 
-Group.propTypes = TGroup;
+Group.propTypes = GroupType;
 Group.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */

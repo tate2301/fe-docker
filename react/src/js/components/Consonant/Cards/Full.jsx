@@ -1,15 +1,22 @@
 import React from 'react';
-import { string, shape } from 'prop-types';
+import {
+    string,
+    shape,
+} from 'prop-types';
 
 import { useLazyLoading } from '../Helpers/hooks';
-import { TStyles, TContentArea, TOverlays } from '../types/card';
+import {
+    StylesType,
+    ContentAreaType,
+    OverlaysType,
+} from '../types/card';
 
-const TFullCard = {
+const FullCardType = {
     ctaLink: string,
     id: string.isRequired,
-    styles: shape(TStyles),
-    overlays: shape(TOverlays),
-    contentArea: shape(TContentArea),
+    styles: shape(StylesType),
+    overlays: shape(OverlaysType),
+    contentArea: shape(ContentAreaType),
 };
 
 const defaultProps = {
@@ -143,7 +150,7 @@ const FullCard = (props) => {
     );
 };
 
-FullCard.propTypes = TFullCard;
+FullCard.propTypes = FullCardType;
 FullCard.defaultProps = defaultProps;
 
 export default FullCard;

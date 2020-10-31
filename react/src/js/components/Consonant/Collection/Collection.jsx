@@ -1,22 +1,27 @@
 import React from 'react';
 import get from 'lodash/get';
-import { number, arrayOf, shape, func } from 'prop-types';
+import {
+    number,
+    arrayOf,
+    shape,
+    func,
+} from 'prop-types';
 
 import FullCard from '../Cards/Full';
+import { CardType } from '../types/card';
+import { useConfig } from '../Helpers/hooks';
 import AspectRatio1to1Card from '../Cards/1-1';
 import AspectRatio3to2Card from '../Cards/3-2';
-
-import { TCard } from '../types/card';
-import { useConfig } from '../Helpers/hooks';
 import {
     CARD_STYLES,
     DEFAULT_SHOW_ITEMS_PER_PAGE,
 } from '../Helpers/constants';
 
-const TCollection = {
+
+const CollectionType = {
     pages: number,
     resultsPerPage: number,
-    cards: arrayOf(shape(TCard)),
+    cards: arrayOf(shape(CardType)),
     onCardBookmark: func.isRequired,
 };
 
@@ -132,7 +137,7 @@ const Collection = (props) => {
     );
 };
 
-Collection.propTypes = TCollection;
+Collection.propTypes = CollectionType;
 Collection.defaultProps = defaultProps;
 
 export default Collection;

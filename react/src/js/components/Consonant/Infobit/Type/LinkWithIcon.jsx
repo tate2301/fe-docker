@@ -1,7 +1,11 @@
 import React from 'react';
-import { string, bool, oneOfType } from 'prop-types';
+import {
+    string,
+    bool,
+    oneOfType,
+} from 'prop-types';
 
-const TLinkWithIcon = {
+const LinkWithIconType = {
     src: string,
     href: string,
     text: string,
@@ -59,7 +63,7 @@ const LinkWithIcon = ({
     </a>
 );
 
-LinkWithIcon.propTypes = TLinkWithIcon;
+LinkWithIcon.propTypes = LinkWithIconType;
 LinkWithIcon.defaultProps = defaultProps;
 
 export default LinkWithIcon;

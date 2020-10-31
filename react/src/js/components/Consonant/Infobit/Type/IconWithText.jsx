@@ -1,7 +1,11 @@
 import React from 'react';
-import { oneOfType, string, number } from 'prop-types';
+import {
+    oneOfType,
+    string,
+    number,
+} from 'prop-types';
 
-const TIconWithText = {
+const IconWithTextType = {
     src: string,
     srcAltText: string,
     text: oneOfType([
@@ -51,7 +55,7 @@ const IconWithText = ({
     </div>
 );
 
-IconWithText.propTypes = TIconWithText;
+IconWithText.propTypes = IconWithTextType;
 IconWithText.defaultProps = defaultProps;
 
 export default IconWithText;

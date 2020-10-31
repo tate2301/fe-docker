@@ -1,6 +1,10 @@
 import uuid from 'react-uuid';
 import React, { Fragment } from 'react';
-import { oneOfType, arrayOf, shape } from 'prop-types';
+import {
+    oneOfType,
+    arrayOf,
+    shape,
+} from 'prop-types';
 
 import Icon from './Type/Icon';
 import Text from './Type/Text';
@@ -13,17 +17,19 @@ import IconWithText from './Type/IconWithText';
 import LinkWithIcon from './Type/LinkWithIcon';
 import DateInterval from './Type/DateInterval';
 import Bookmark from './Type/Bookmark/Bookmark';
-
 import { INFOBIT_TYPE } from '../Helpers/constants';
 import { parseToPrimitive } from '../Helpers/general';
+import {
+    FooterLeftType,
+    FooterCenterType,
+    FooterRightType,
+} from '../types/card';
 
-import { TFooterLeft, TFooterCenter, TFooterRight } from '../types/card';
-
-const TGroup = {
+const GroupType = {
     renderList: arrayOf(oneOfType([
-        shape(TFooterLeft),
-        shape(TFooterRight),
-        shape(TFooterCenter),
+        shape(FooterLeftType),
+        shape(FooterRightType),
+        shape(FooterCenterType),
     ])),
 };
 
@@ -138,7 +144,7 @@ const Group = (props) => {
     );
 };
 
-Group.propTypes = TGroup;
+Group.propTypes = GroupType;
 Group.defaultProps = defaultProps;
 
 export default Group;

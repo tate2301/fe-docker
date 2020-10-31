@@ -1,11 +1,15 @@
 import React from 'react';
-import { arrayOf, shape, func } from 'prop-types';
+import {
+    arrayOf,
+    shape,
+    func,
+} from 'prop-types';
 
-import { TFilterItem } from '../../types/config';
+import { FilterItemType } from '../../types/config';
 
-const TItems = {
+const ItemsType = {
     handleCheck: func.isRequired,
-    items: arrayOf(shape(TFilterItem)).isRequired,
+    items: arrayOf(shape(FilterItemType)).isRequired,
 };
 
 /**
@@ -60,7 +64,7 @@ const Items = (props) => {
     );
 };
 
-Items.propTypes = TItems;
+Items.propTypes = ItemsType;
 
 /* eslint-disable-next-line import/prefer-default-export */
 export { Items };

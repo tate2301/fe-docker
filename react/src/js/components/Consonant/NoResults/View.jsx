@@ -3,7 +3,7 @@ import { string } from 'prop-types';
 
 import { renderDisplayMsg } from '../Helpers/rendering';
 
-const TView = {
+const ViewType = {
     description: string,
     replaceValue: string,
     title: string.isRequired,
@@ -55,7 +55,7 @@ const View = (props) => {
     );
 };
 
-View.propTypes = TView;
+View.propTypes = ViewType;
 View.defaultProps = defaultProps;
 
 export default View;

@@ -1,7 +1,11 @@
 import React from 'react';
-import { string, number, func } from 'prop-types';
+import {
+    string,
+    number,
+    func,
+} from 'prop-types';
 
-const TFooter = {
+const FooterType = {
     clearFilterText: string,
     numItemsSelected: number,
     mobileFooterBtnText: string,
@@ -81,7 +85,7 @@ const Footer = (props) => {
     );
 };
 
-Footer.propTypes = TFooter;
+Footer.propTypes = FooterType;
 Footer.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */

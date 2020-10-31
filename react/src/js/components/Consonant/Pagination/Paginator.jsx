@@ -1,5 +1,8 @@
 import React from 'react';
-import { number, func } from 'prop-types';
+import {
+    number,
+    func,
+} from 'prop-types';
 
 import { useConfig } from '../Helpers/hooks';
 import {
@@ -9,7 +12,7 @@ import {
     getPageStartEnd,
 } from '../Helpers/general';
 
-const TPaginator = {
+const PaginatorType = {
     onClick: func.isRequired,
     pageCount: number.isRequired,
     totalPages: number.isRequired,
@@ -168,6 +171,6 @@ const Paginator = (props) => {
     );
 };
 
-Paginator.propTypes = TPaginator;
+Paginator.propTypes = PaginatorType;
 
 export default Paginator;

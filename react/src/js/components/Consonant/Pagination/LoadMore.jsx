@@ -1,9 +1,12 @@
 import React from 'react';
-import { number, func } from 'prop-types';
+import {
+    number,
+    func,
+} from 'prop-types';
 
 import { useConfig } from '../Helpers/hooks';
 
-const TLoadMore = {
+const LoadMoreType = {
     show: number.isRequired,
     total: number.isRequired,
     onClick: func.isRequired,
@@ -78,6 +81,6 @@ const LoadMore = ({
         : null;
 };
 
-LoadMore.propTypes = TLoadMore;
+LoadMore.propTypes = LoadMoreType;
 
 export default LoadMore;
