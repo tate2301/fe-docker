@@ -1,7 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { useLazyLoading } from '../Helpers/hooks';
 
+/**
+ * Full card
+ *
+ * @component
+ * @example
+ * const props= {
+    id: String,
+    ctaLink: String,
+    styles: Object,
+    contentArea: Object,
+    overlays: Object,
+ * }
+ * return (
+ *   <FullCard {...props}/>
+ * )
+ */
 const FullCard = (props) => {
     const {
         id,
@@ -36,7 +53,25 @@ const FullCard = (props) => {
         },
     } = props;
 
+    /**
+     **** Hooks ****
+     */
+
+    /**
+     * Creates card image DOM reference
+     * @returns {Object} - card image DOM reference
+     */
     const imageRef = React.useRef();
+
+    /**
+     * @typedef {Image} LazyLoadedImageState
+     * @description — Has image as state after image is lazy loaded
+     *
+     * @typedef {Function} LazyLoadedImageStateSetter
+     * @description - Sets state once image is lazy loaded
+     *
+     * @type {[Image]} lazyLoadedImage
+     */
     const [lazyLoadedImage] = useLazyLoading(imageRef, image);
 
     return (
@@ -57,21 +92,17 @@ const FullCard = (props) => {
                             backgroundColor: bannerBackgroundColor,
                             color: bannerFontColor,
                         })}>
-                        {
-                            bannerIcon && (
-                                <div
-                                    className="consonant-full-card--banner-icon-wrapper">
-                                    <img
-                                        alt=""
-                                        loading="lazy"
-                                        src={bannerIcon}
-                                        data-testid="consonant-card--banner-icon" />
-                                </div>
-                            )
+                        {bannerIcon &&
+                            <div
+                                className="consonant-full-card--banner-icon-wrapper">
+                                <img
+                                    alt=""
+                                    loading="lazy"
+                                    src={bannerIcon}
+                                    data-testid="consonant-card--banner-icon" />
+                            </div>
                         }
-                        <span>
-                            {bannerDescription}
-                        </span>
+                        <span>{bannerDescription}</span>
                     </span>
                 }
                 {badgeText &&
@@ -102,7 +133,8 @@ const FullCard = (props) => {
                             alt={logoAlt}
                             loading="lazy"
                             width="32" />
-                    </div>}
+                    </div>
+                }
             </div>
             <a
                 href={ctaLink}
@@ -125,8 +157,6 @@ const FullCard = (props) => {
         </div>
     );
 };
-
-export default FullCard;
 
 FullCard.propTypes = {
     id: PropTypes.string.isRequired,
@@ -171,3 +201,5 @@ FullCard.defaultProps = {
     contentArea: {},
     overlays: {},
 };
+
+export default FullCard;
