@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 /**
  * Component for what filter item was chosen
  * (Only shows up for the Left Filter Panel - on desktop breakpoint)
- * 
+ *
  * @component
  * @example
  * const props= {
