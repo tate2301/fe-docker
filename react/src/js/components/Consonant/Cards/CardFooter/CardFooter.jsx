@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
 import Group from '../../Infobit/Group';
 
 /**
@@ -28,10 +29,21 @@ const CardFooter = (props) => {
         isFluid,
     } = props;
 
+    /**
+     * Class name for the card footer:
+     * whether the card footer should have a horizontal divider
+     * @type {Number}
+     */
     const footerClassName = classNames({
         'consonant-card-footer': true,
         'consonant-card-footer_divider': divider,
     });
+
+    /**
+     * Class name for the card footer row:
+     * whether the the card footer row should be fluid or of fixed width
+     * @type {Number}
+     */
     const rowClassName = classNames({
         'consonant-card-footer--row': true,
         'consonant-card-footer--row_fluid': isFluid,
@@ -54,11 +66,13 @@ const CardFooter = (props) => {
      * @type {Boolean}
      */
     const shouldRenderLeft = left && left.length > 0;
+
     /**
      * Whether the center footer infobits should render
      * @type {Boolean}
      */
     const shouldRenderCenter = center && center.length > 0;
+
     /**
      * Whether the center footer infobits should render
      * @type {Boolean}
@@ -72,26 +86,27 @@ const CardFooter = (props) => {
                 className={rowClassName}
                 data-cells={dataCells}>
                 {shouldRenderLeft &&
-                <div
-                    className="consonant-card-footer--cell consonant-card-footer--cell_left">
-                    <Group renderList={left} />
-                </div>}
+                    <div
+                        className="consonant-card-footer--cell consonant-card-footer--cell_left">
+                        <Group renderList={left} />
+                    </div>
+                }
                 {shouldRenderCenter &&
-                <div
-                    className="consonant-card-footer--cell consonant-card-footer--cell_center">
-                    <Group renderList={center} />
-                </div>}
+                    <div
+                        className="consonant-card-footer--cell consonant-card-footer--cell_center">
+                        <Group renderList={center} />
+                    </div>
+                }
                 {shouldRenderRight &&
-                <div
-                    className="consonant-card-footer--cell consonant-card-footer--cell_right">
-                    <Group renderList={right} />
-                </div>}
+                    <div
+                        className="consonant-card-footer--cell consonant-card-footer--cell_right">
+                        <Group renderList={right} />
+                    </div>
+                }
             </div>
         </div>
     );
 };
-
-export default CardFooter;
 
 CardFooter.propTypes = {
     left: PropTypes.arrayOf(PropTypes.shape({ type: PropTypes.string })),
@@ -108,3 +123,5 @@ CardFooter.defaultProps = {
     divider: false,
     isFluid: false,
 };
+
+export default CardFooter;
