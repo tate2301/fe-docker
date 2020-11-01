@@ -17,6 +17,21 @@ const defaultProps = {
     mobileFilterBtnLabel: '',
 };
 
+/**
+ * Button with the count of selected filters
+ * for mobile and tablet breakpoints
+ *
+ * @component
+ * @example
+ * const props= {
+    onMobileFiltersToggleClick: Function,
+    mobileFilterBtnLabel: String,
+    selectedFiltersQty: Number,
+ * }
+ * return (
+ *   <Info {...props}/>
+ * )
+ */
 const Info = ({
     selectedFiltersQty,
     mobileFilterBtnLabel,
