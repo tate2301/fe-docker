@@ -1,29 +1,28 @@
-import get from 'lodash/get';
-import PropTypes from 'prop-types';
-import 'whatwg-fetch';
 import React, {
     Fragment,
     useEffect,
     useRef,
     useState,
 } from 'react';
+import 'whatwg-fetch';
+import get from 'lodash/get';
+import { shape } from 'prop-types';
 
-import CardFilterer from '../Helpers/CardFilterer';
-import JsonProcessor from '../Helpers/JsonProcessor';
-import Bookmarks from '../Bookmarks/Bookmarks';
-import Collection from '../Collection/Collection';
-import LeftFilterPanel from '../Filters/Left/Panel';
-import FiltersPanelTop from '../Filters/Top/Panel';
-import Loader from '../Loader/Loader';
-import LoadMore from '../Pagination/LoadMore';
-import Paginator from '../Pagination/Paginator';
-import Search from '../Search/Search';
 import Popup from '../Sort/Popup';
+import Search from '../Search/Search';
+import Loader from '../Loader/Loader';
+import { ConfigType } from '../types/config';
 import NoResultsView from '../NoResults/View';
-
-import { Info as LeftInfo } from '../Filters/Left/Info';
+import LoadMore from '../Pagination/LoadMore';
+import Bookmarks from '../Bookmarks/Bookmarks';
+import Paginator from '../Pagination/Paginator';
+import Collection from '../Collection/Collection';
+import CardFilterer from '../Helpers/CardFilterer';
+import FiltersPanelTop from '../Filters/Top/Panel';
+import LeftFilterPanel from '../Filters/Left/Panel';
+import JsonProcessor from '../Helpers/JsonProcessor';
 import { useWindowDimensions } from '../Helpers/hooks';
-
+import { Info as LeftInfo } from '../Filters/Left/Info';
 import {
     DESKTOP_MIN_WIDTH,
     FILTER_TYPES,
@@ -33,23 +32,19 @@ import {
     TABLET_MIN_WIDTH,
     TRUNCATE_TEXT_QTY,
 } from '../Helpers/constants';
-
 import {
     ConfigContext,
     ExpandableContext,
 } from '../Helpers/contexts';
-
 import {
     getDefaultSortOption,
     getNumSelectedFilterItems,
     makeConfigGetter,
 } from '../Helpers/consonant';
-
 import {
     readBookmarksFromLocalStorage,
     saveBookmarksToLocalStorage,
 } from '../Helpers/general';
-
 import {
     shouldDisplayPaginator,
     getNumCardsToShow,
@@ -805,97 +800,7 @@ const Container = (props) => {
 };
 
 Container.propTypes = {
-    config: PropTypes.shape({
-        collection: PropTypes.shape({
-            resultsPerPage: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.number,
-            ]),
-            endpoint: PropTypes.string,
-            title: PropTypes.string,
-            totalCardLimit: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.number,
-            ]),
-            cardStyle: PropTypes.string,
-            displayTotalResults: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.bool,
-            ]),
-            totalResultsText: PropTypes.string,
-        }),
-        featuredCards: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.arrayOf(PropTypes.object),
-        ]),
-        header: PropTypes.shape({
-            enabled: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.bool,
-            ]),
-        }),
-        filterPanel: PropTypes.shape({
-            enabled: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.bool,
-            ]),
-            type: PropTypes.string,
-            filters: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.arrayOf(PropTypes.object),
-            ]),
-            clearAllFiltersText: PropTypes.string,
-            clearFilterText: PropTypes.string,
-            filterLogic: PropTypes.string,
-            leftPanelHeader: PropTypes.string,
-        }),
-        sort: PropTypes.shape({
-            enabled: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.bool,
-            ]),
-            options: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.arrayOf(PropTypes.object),
-            ]),
-        }),
-        pagination: PropTypes.shape({
-            enabled: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.bool,
-            ]),
-            type: PropTypes.string,
-            paginatorQuantityText: PropTypes.string,
-            paginatorPrevLabel: PropTypes.string,
-            paginatorNextLabel: PropTypes.string,
-            loadMoreButtonText: PropTypes.string,
-            loadMoreQuantityText: PropTypes.string,
-        }),
-        bookmarks: PropTypes.shape({
-            enabled: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.bool]),
-            cardSavedIcon: PropTypes.string,
-            cardUnsavedIcon: PropTypes.string,
-            saveCardText: PropTypes.string,
-            unsaveCardText: PropTypes.string,
-            selectBookmarksIcon: PropTypes.string,
-            unselectBookmarksIcon: PropTypes.string,
-            bookmarksFilterTitle: PropTypes.string,
-        }),
-        search: PropTypes.shape({
-            enabled: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.bool,
-            ]),
-            leftPanelTitle: PropTypes.string,
-            inputPlaceholderText: PropTypes.string,
-            searchFields: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.arrayOf(PropTypes.string),
-            ]),
-        }),
-    }),
+    config: shape(ConfigType),
 };
 
 Container.defaultProps = {

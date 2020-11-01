@@ -1,5 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {
+    number,
+    func,
+} from 'prop-types';
+
+const SelectedItemType = {
+    numItemsSelected: number,
+    handleClear: func.isRequired,
+};
+
+const defaultProps = {
+    numItemsSelected: 0,
+};
 
 /**
  * Badge displaying how many filter options were selected
@@ -39,14 +51,8 @@ const SelectedItem = (props) => {
     );
 };
 
-SelectedItem.propTypes = {
-    numItemsSelected: PropTypes.number,
-    handleClear: PropTypes.func.isRequired,
-};
-
-SelectedItem.defaultProps = {
-    numItemsSelected: 0,
-};
+SelectedItem.propTypes = SelectedItemType;
+SelectedItem.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */
 export { SelectedItem };

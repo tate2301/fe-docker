@@ -1,10 +1,28 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import className from 'classnames';
+import { string } from 'prop-types';
 
 const BUTTON_STYLE = {
-    CTA: 'call-to-action',
     PRIMARY: 'primary',
+    CTA: 'call-to-action',
+};
+
+const ButtonType = {
+    text: string,
+    href: string,
+    style: string,
+    iconSrc: string,
+    iconAlt: string,
+    iconPos: string,
+};
+
+const defaultProps = {
+    href: '',
+    text: '',
+    iconSrc: '',
+    iconAlt: '',
+    iconPos: '',
+    style: BUTTON_STYLE.CTA,
 };
 
 /**
@@ -62,22 +80,7 @@ const Button = ({
     );
 };
 
-Button.propTypes = {
-    style: PropTypes.string,
-    text: PropTypes.string,
-    href: PropTypes.string,
-    iconSrc: PropTypes.string,
-    iconAlt: PropTypes.string,
-    iconPos: PropTypes.string,
-};
-
-Button.defaultProps = {
-    style: BUTTON_STYLE.CTA,
-    href: '',
-    text: '',
-    iconSrc: '',
-    iconAlt: '',
-    iconPos: '',
-};
+Button.propTypes = ButtonType;
+Button.defaultProps = defaultProps;
 
 export default Button;

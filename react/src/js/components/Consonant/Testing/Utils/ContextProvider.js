@@ -1,32 +1,36 @@
 import React, {
+    useMemo,
     useState,
     useCallback,
-    useMemo
 } from 'react';
-
 import {
+    node,
     shape,
-    node
 } from 'prop-types';
 
-import { contextPropTypes } from './types';
+import { ConfigType } from '../../types/config';
 import {
     ConfigContext,
     ExpandableContext,
-} from '../../../Helpers/contexts';
+} from '../../Helpers/contexts';
 
 const ContextProvider = ({ context, children }) => {
     const [isOpen, toggle] = useState(null);
 
-    const handleChangeVisibility = useCallback((value) => {
-        toggle(value);
-    }, [toggle]);
+    const handleChangeVisibility = useCallback(
+        (value) => {
+            toggle(value);
+        },
+        [toggle],
+    );
 
-    const expandableContext = useMemo(() => ({
-        value: isOpen,
-        setValue: handleChangeVisibility,
-    }), [isOpen, handleChangeVisibility]);
-
+    const expandableContext = useMemo(
+        () => ({
+            value: isOpen,
+            setValue: handleChangeVisibility,
+        }),
+        [isOpen, handleChangeVisibility],
+    );
 
     return (
         <ExpandableContext.Provider value={expandableContext}>
@@ -38,8 +42,8 @@ const ContextProvider = ({ context, children }) => {
 };
 
 ContextProvider.propTypes = {
+    context: shape(ConfigType),
     children: node.isRequired,
-    context: shape(contextPropTypes),
 };
 
 ContextProvider.defaultProps = {

@@ -1,7 +1,30 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {
+    string,
+    shape,
+} from 'prop-types';
 
 import { useLazyLoading } from '../Helpers/hooks';
+import {
+    StylesType,
+    ContentAreaType,
+    OverlaysType,
+} from '../types/card';
+
+const FullCardType = {
+    ctaLink: string,
+    id: string.isRequired,
+    styles: shape(StylesType),
+    overlays: shape(OverlaysType),
+    contentArea: shape(ContentAreaType),
+};
+
+const defaultProps = {
+    styles: {},
+    ctaLink: '',
+    overlays: {},
+    contentArea: {},
+};
 
 /**
  * Full card
@@ -154,48 +177,7 @@ const FullCard = (props) => {
     );
 };
 
-FullCard.propTypes = {
-    id: PropTypes.string.isRequired,
-    ctaLink: PropTypes.string,
-    styles: PropTypes.shape({
-        backgroundImage: PropTypes.string,
-    }),
-    contentArea: PropTypes.shape({
-        title: PropTypes.string,
-        description: PropTypes.string,
-        detailText: PropTypes.string,
-        dateDetailText: PropTypes.shape({
-            startTime: PropTypes.string,
-            endTime: PropTypes.string,
-        }),
-    }),
-    overlays: PropTypes.shape({
-        banner: PropTypes.shape({
-            description: PropTypes.string,
-            fontColor: PropTypes.string,
-            backgroundColor: PropTypes.string,
-            icon: PropTypes.string,
-        }),
-        videoButton: PropTypes.shape({
-            url: PropTypes.string,
-        }),
-        logo: PropTypes.shape({
-            src: PropTypes.string,
-            alt: PropTypes.string,
-            backgroundColor: PropTypes.string,
-            borderColor: PropTypes.string,
-        }),
-        label: PropTypes.shape({
-            description: PropTypes.string,
-        }),
-    }),
-};
-
-FullCard.defaultProps = {
-    ctaLink: '',
-    styles: {},
-    contentArea: {},
-    overlays: {},
-};
+FullCard.propTypes = FullCardType;
+FullCard.defaultProps = defaultProps;
 
 export default FullCard;

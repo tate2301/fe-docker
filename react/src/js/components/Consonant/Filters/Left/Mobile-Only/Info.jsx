@@ -1,33 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import {
+    string,
+    number,
+    func,
+} from 'prop-types';
 
-/**
- * Button with the count of selected filters
- * for mobile and tablet breakpoints
- *
- * @component
- * @example
- * const props= {
-    onMobileFiltersToggleClick: Function,
-    mobileFilterBtnLabel: String,
-    selectedFiltersQty: Number,
- * }
- * return (
- *   <Info {...props}/>
- * )
- */
-const Info = (props) => {
-    const {
-        onMobileFiltersToggleClick,
-        mobileFilterBtnLabel,
-        selectedFiltersQty,
-    } = props;
+const InfoType = {
+    selectedFiltersQty: number,
+    mobileFilterBtnLabel: string,
+    onMobileFiltersToggleClick: func.isRequired,
+};
 
-    /**
-     * Whether at least one filter is selected
-     * @type {Boolean}
-     */
+const defaultProps = {
+    selectedFiltersQty: 0,
+    mobileFilterBtnLabel: '',
+};
+
+const Info = ({
+    selectedFiltersQty,
+    mobileFilterBtnLabel,
+    onMobileFiltersToggleClick,
+}) => {
     const atleastOneSelectedFilter = selectedFiltersQty > 0;
 
     /**
@@ -67,16 +61,8 @@ const Info = (props) => {
     );
 };
 
-Info.propTypes = {
-    mobileFilterBtnLabel: PropTypes.string,
-    selectedFiltersQty: PropTypes.number,
-    onMobileFiltersToggleClick: PropTypes.func.isRequired,
-};
-
-Info.defaultProps = {
-    mobileFilterBtnLabel: '',
-    selectedFiltersQty: 0,
-};
+Info.propTypes = InfoType;
+Info.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */
 export { Info };

@@ -1,8 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import {
+    bool,
+    func,
+    number,
+} from 'prop-types';
 
 import { useConfig } from '../Helpers/hooks';
+
+const BookmarksType = {
+    showBookmarks: bool,
+    savedCardsCount: number,
+    onClick: func.isRequired,
+};
+
+const defaultProps = {
+    showBookmarks: false,
+    savedCardsCount: 0,
+};
 
 /**
  * Bookmarks button with the icon and quanity of the bookmarked cards
@@ -20,8 +35,8 @@ import { useConfig } from '../Helpers/hooks';
  */
 const Bookmarks = (props) => {
     const {
-        showBookmarks,
         onClick,
+        showBookmarks,
         savedCardsCount,
     } = props;
 
@@ -85,15 +100,7 @@ const Bookmarks = (props) => {
     );
 };
 
-Bookmarks.propTypes = {
-    showBookmarks: PropTypes.bool,
-    onClick: PropTypes.func.isRequired,
-    savedCardsCount: PropTypes.number,
-};
-
-Bookmarks.defaultProps = {
-    showBookmarks: false,
-    savedCardsCount: 0,
-};
+Bookmarks.propTypes = BookmarksType;
+Bookmarks.defaultProps = defaultProps;
 
 export default Bookmarks;

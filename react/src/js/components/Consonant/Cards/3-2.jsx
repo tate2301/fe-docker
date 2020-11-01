@@ -1,17 +1,48 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import uuid from 'react-uuid';
+import {
+    string,
+    shape,
+    bool,
+    func,
+    arrayOf,
+} from 'prop-types';
 
 import CardFooter from './CardFooter/CardFooter';
-
 import prettyFormatDate from '../Helpers/prettyFormat';
-
+import { INFOBIT_TYPE } from '../Helpers/constants';
 import {
     useConfig,
     useLazyLoading,
 } from '../Helpers/hooks';
+import {
+    StylesType,
+    ContentAreaType,
+    OverlaysType,
+    FooterType,
+} from '../types/card';
 
-import { INFOBIT_TYPE } from '../Helpers/constants';
+const AspectRatio3to2CardType = {
+    isBookmarked: bool,
+    dateFormat: string,
+    id: string.isRequired,
+    styles: shape(StylesType),
+    disableBookmarkIco: bool,
+    onClick: func.isRequired,
+    overlays: shape(OverlaysType),
+    footer: arrayOf(shape(FooterType)),
+    contentArea: shape(ContentAreaType),
+};
+
+const defaultProps = {
+    footer: [],
+    styles: {},
+    overlays: {},
+    dateFormat: '',
+    contentArea: {},
+    isBookmarked: false,
+    disableBookmarkIco: false,
+};
 
 /**
  * 3:2 aspect ratio card
@@ -233,55 +264,7 @@ const AspectRatio3to2Card = (props) => {
     );
 };
 
-AspectRatio3to2Card.propTypes = {
-    id: PropTypes.string.isRequired,
-    disableBookmarkIco: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    footer: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-    isBookmarked: PropTypes.bool,
-    onClick: PropTypes.func.isRequired,
-    dateFormat: PropTypes.string,
-    styles: PropTypes.shape({
-        backgroundImage: PropTypes.string,
-    }),
-    contentArea: PropTypes.shape({
-        title: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-        description: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-        detailText: PropTypes.string,
-        dateDetailText: PropTypes.shape({
-            startTime: PropTypes.string,
-            endTime: PropTypes.string,
-        }),
-    }),
-    overlays: PropTypes.shape({
-        banner: PropTypes.shape({
-            description: PropTypes.string,
-            fontColor: PropTypes.string,
-            backgroundColor: PropTypes.string,
-            icon: PropTypes.string,
-        }),
-        videoButton: PropTypes.shape({
-            url: PropTypes.string,
-        }),
-        logo: PropTypes.shape({
-            src: PropTypes.string,
-            alt: PropTypes.string,
-            backgroundColor: PropTypes.string,
-            borderColor: PropTypes.string,
-        }),
-        label: PropTypes.shape({
-            description: PropTypes.string,
-        }),
-    }),
-};
-
-AspectRatio3to2Card.defaultProps = {
-    disableBookmarkIco: false,
-    footer: [],
-    dateFormat: '',
-    styles: {},
-    contentArea: {},
-    overlays: {},
-    isBookmarked: false,
-};
+AspectRatio3to2Card.propTypes = AspectRatio3to2CardType;
+AspectRatio3to2Card.defaultProps = defaultProps;
 
 export default AspectRatio3to2Card;

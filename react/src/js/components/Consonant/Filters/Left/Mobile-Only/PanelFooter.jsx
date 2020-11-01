@@ -1,5 +1,32 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {
+    string,
+    number,
+    func,
+    bool,
+} from 'prop-types';
+
+const PanelFooterType = {
+    resQty: number,
+    doneText: string,
+    applyText: string,
+    showTotalResults: bool,
+    clearAllFiltersText: string,
+    someFiltersAreSelected: bool,
+    showTotalResultsText: string,
+    onClearAllFilters: func.isRequired,
+    onMobileFiltersToggleClick: func.isRequired,
+};
+
+const defaultProps = {
+    resQty: 0,
+    doneText: '',
+    applyText: '',
+    showTotalResults: false,
+    clearAllFiltersText: '',
+    showTotalResultsText: '',
+    someFiltersAreSelected: false,
+};
 
 /**
  * Footer of the left filter panel for mobile and tablet breakpoints
@@ -71,27 +98,8 @@ const PanelFooter = (props) => {
     );
 };
 
-PanelFooter.propTypes = {
-    onClearAllFilters: PropTypes.func.isRequired,
-    onMobileFiltersToggleClick: PropTypes.func.isRequired,
-    doneText: PropTypes.string,
-    applyText: PropTypes.string,
-    clearAllFiltersText: PropTypes.string,
-    showTotalResults: PropTypes.bool,
-    someFiltersAreSelected: PropTypes.bool,
-    showTotalResultsText: PropTypes.string,
-    resQty: PropTypes.number,
-};
-
-PanelFooter.defaultProps = {
-    doneText: '',
-    applyText: '',
-    clearAllFiltersText: '',
-    showTotalResultsText: '',
-    showTotalResults: false,
-    someFiltersAreSelected: false,
-    resQty: 0,
-};
+PanelFooter.propTypes = PanelFooterType;
+PanelFooter.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */
 export { PanelFooter };

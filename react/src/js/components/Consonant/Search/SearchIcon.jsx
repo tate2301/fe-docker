@@ -1,5 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { func } from 'prop-types';
+
+const SearchIconType = {
+    onClick: func.isRequired,
+};
 
 /**
  * Search Icon (Used in Top Filter View Only)
@@ -30,8 +34,6 @@ const SearchIcon = (props) => {
     );
 };
 
-export default SearchIcon;
+SearchIcon.propTypes = SearchIconType;
 
-SearchIcon.propTypes = {
-    onClick: PropTypes.func.isRequired,
-};
+export default SearchIcon;

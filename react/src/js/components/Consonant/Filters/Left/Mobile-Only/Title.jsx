@@ -1,5 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {
+    string,
+    func,
+} from 'prop-types';
+
+const TitleType = {
+    onClick: func.isRequired,
+    leftPanelMobileHeader: string,
+};
+
+const defaultProps = {
+    leftPanelMobileHeader: '',
+};
 
 /**
  * Title of the left filters panel for mobile and tablet breakpoints
@@ -35,14 +47,8 @@ const Title = (props) => {
     );
 };
 
-Title.propTypes = {
-    onClick: PropTypes.func.isRequired,
-    leftPanelMobileHeader: PropTypes.string,
-};
-
-Title.defaultProps = {
-    leftPanelMobileHeader: '',
-};
+Title.propTypes = TitleType;
+Title.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */
 export { Title };

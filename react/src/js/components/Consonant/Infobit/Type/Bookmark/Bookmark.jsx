@@ -1,7 +1,31 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import {
+    bool,
+    string,
+    func,
+} from 'prop-types';
+
 import Tooltip from './Tooltip';
+
+const BookmarkType = {
+    isBookmarked: bool,
+    saveCardIcon: string,
+    cardSaveText: string,
+    unsaveCardIcon: string,
+    cardUnsaveText: string,
+    onClick: func.isRequired,
+    cardId: string.isRequired,
+    disableBookmarkIco: bool.isRequired,
+};
+
+const defaultProps = {
+    saveCardIcon: '',
+    cardSaveText: '',
+    unsaveCardIcon: '',
+    cardUnsaveText: '',
+    isBookmarked: false,
+};
 
 /**
  * Bookmark Infobit (shown in 3:2 Card Footer)
@@ -72,23 +96,7 @@ const Bookmark = ({
     );
 };
 
-Bookmark.propTypes = {
-    isBookmarked: PropTypes.bool,
-    cardId: PropTypes.string.isRequired,
-    saveCardIcon: PropTypes.string,
-    unsaveCardIcon: PropTypes.string,
-    cardSaveText: PropTypes.string,
-    cardUnsaveText: PropTypes.string,
-    onClick: PropTypes.func.isRequired,
-    disableBookmarkIco: PropTypes.bool.isRequired,
-};
-
-Bookmark.defaultProps = {
-    saveCardIcon: '',
-    unsaveCardIcon: '',
-    isBookmarked: false,
-    cardSaveText: '',
-    cardUnsaveText: '',
-};
+Bookmark.propTypes = BookmarkType;
+Bookmark.defaultProps = defaultProps;
 
 export default Bookmark;

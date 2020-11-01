@@ -1,5 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string } from 'prop-types';
+
+const ProgressType = {
+    label: string,
+    color: string,
+    percentage: string,
+    completionText: string,
+};
+
+const defaultProps = {
+    label: '',
+    percentage: '0',
+    color: '#1473E6',
+    completionText: '',
+};
 
 /**
  * Progress Bar infobit (shown in 3:2 Card Footer)
@@ -69,18 +83,7 @@ const Progress = ({
     );
 };
 
-Progress.propTypes = {
-    label: PropTypes.string,
-    completionText: PropTypes.string,
-    percentage: PropTypes.string,
-    color: PropTypes.string,
-};
-
-Progress.defaultProps = {
-    label: '',
-    completionText: '',
-    percentage: '0',
-    color: '#1473E6',
-};
+Progress.propTypes = ProgressType;
+Progress.defaultProps = defaultProps;
 
 export default Progress;

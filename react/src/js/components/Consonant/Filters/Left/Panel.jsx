@@ -1,18 +1,50 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import sum from 'lodash/sum';
+import classNames from 'classnames';
+import {
+    arrayOf,
+    shape,
+    number,
+    bool,
+    func,
+    node,
+} from 'prop-types';
 
-import ChosenFilter from './Desktop-Only/ChosenItem';
+
 import Item from './Item';
-
+import { useConfig } from '../../Helpers/hooks';
+import { FilterType } from '../../types/config';
+import ChosenFilter from './Desktop-Only/ChosenItem';
 import { Title as MobileTitle } from './Mobile-Only/Title';
-import { PanelFooter as MobileFooter } from './Mobile-Only/PanelFooter';
 import { Title as DesktopTitle } from './Desktop-Only/Title';
+import { isAtleastOneFilterSelected } from '../../Helpers/general';
+import { PanelFooter as MobileFooter } from './Mobile-Only/PanelFooter';
 import { ClearBtn as DesktopClearBtn } from './Desktop-Only/ClearButton';
 
-import { isAtleastOneFilterSelected } from '../../Helpers/general';
-import { useConfig } from '../../Helpers/hooks';
+
+const LeftFilterPanelType = {
+    resQty: number,
+    windowWidth: number,
+    showMobileFilters: bool,
+    selectedFiltersQty: number,
+    onFilterClick: func.isRequired,
+    filters: arrayOf(shape(FilterType)),
+    onCheckboxClick: func.isRequired,
+    searchComponent: node.isRequired,
+    bookmarkComponent: node.isRequired,
+    onClearAllFilters: func.isRequired,
+    onClearFilterItems: func.isRequired,
+    onSelectedFilterClick: func.isRequired,
+    onMobileFiltersToggleClick: func.isRequired,
+};
+
+const defaultProps = {
+    resQty: 0,
+    filters: [],
+    selectedFiltersQty: 0,
+    showMobileFilters: false,
+    windowWidth: window.innerWidth,
+};
 
 /**
  * Left filters panel
@@ -200,28 +232,7 @@ const LeftFilterPanel = ({
     );
 };
 
-LeftFilterPanel.propTypes = {
-    filters: PropTypes.arrayOf(PropTypes.object),
-    selectedFiltersQty: PropTypes.number,
-    showMobileFilters: PropTypes.bool,
-    onFilterClick: PropTypes.func.isRequired,
-    onClearAllFilters: PropTypes.func.isRequired,
-    onClearFilterItems: PropTypes.func.isRequired,
-    onCheckboxClick: PropTypes.func.isRequired,
-    onMobileFiltersToggleClick: PropTypes.func.isRequired,
-    onSelectedFilterClick: PropTypes.func.isRequired,
-    resQty: PropTypes.number,
-    searchComponent: PropTypes.node.isRequired,
-    bookmarkComponent: PropTypes.node.isRequired,
-    windowWidth: PropTypes.number,
-};
-
-LeftFilterPanel.defaultProps = {
-    filters: [],
-    selectedFiltersQty: 0,
-    showMobileFilters: false,
-    resQty: 0,
-    windowWidth: window.innerWidth,
-};
+LeftFilterPanel.propTypes = LeftFilterPanelType;
+LeftFilterPanel.defaultProps = defaultProps;
 
 export default LeftFilterPanel;

@@ -1,5 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {
+    string,
+    func,
+} from 'prop-types';
+
+const ChosenFilterItemType = {
+    id: string.isRequired,
+    name: string.isRequired,
+    onClick: func.isRequired,
+    parentId: string.isRequired,
+};
 
 /**
  * Component for what filter item was chosen
@@ -46,11 +56,6 @@ const ChosenFilterItem = (props) => {
     );
 };
 
-ChosenFilterItem.propTypes = {
-    id: PropTypes.string.isRequired,
-    parentId: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
-};
+ChosenFilterItem.propTypes = ChosenFilterItemType;
 
 export default ChosenFilterItem;

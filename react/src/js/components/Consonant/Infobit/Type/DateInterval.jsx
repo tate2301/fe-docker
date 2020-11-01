@@ -1,6 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string } from 'prop-types';
+
 import getPrettyDateInterval from '../../Helpers/prettyFormat';
+
+const DateIntervalType = {
+    locale: string.isRequired,
+    endTime: string.isRequired,
+    startTime: string.isRequired,
+    dateFormat: string.isRequired,
+};
 
 /**
  * Date Interval Infobit (shown in 3:2 Card Footer)
@@ -33,11 +41,6 @@ const DateInterval = ({
     );
 };
 
-DateInterval.propTypes = {
-    startTime: PropTypes.string.isRequired,
-    endTime: PropTypes.string.isRequired,
-    locale: PropTypes.string.isRequired,
-    dateFormat: PropTypes.string.isRequired,
-};
+DateInterval.propTypes = DateIntervalType;
 
 export default DateInterval;

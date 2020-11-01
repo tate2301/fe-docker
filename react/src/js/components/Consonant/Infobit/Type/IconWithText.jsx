@@ -1,5 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {
+    oneOfType,
+    string,
+    number,
+} from 'prop-types';
+
+const IconWithTextType = {
+    src: string,
+    srcAltText: string,
+    text: oneOfType([
+        string,
+        number,
+    ]),
+};
+
+const defaultProps = {
+    src: '',
+    text: '',
+    srcAltText: '',
+};
 
 /**
  * Icon With Text Infobit (shown in 3:2 Card Footer)
@@ -36,19 +55,7 @@ const IconWithText = ({
     </div>
 );
 
-IconWithText.propTypes = {
-    src: PropTypes.string,
-    srcAltText: PropTypes.string,
-    text: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-    ]),
-};
-
-IconWithText.defaultProps = {
-    src: '',
-    srcAltText: '',
-    text: '',
-};
+IconWithText.propTypes = IconWithTextType;
+IconWithText.defaultProps = defaultProps;
 
 export default IconWithText;

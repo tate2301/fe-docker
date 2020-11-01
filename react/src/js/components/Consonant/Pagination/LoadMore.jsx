@@ -1,6 +1,16 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import {
+    number,
+    func,
+} from 'prop-types';
+
 import { useConfig } from '../Helpers/hooks';
+
+const LoadMoreType = {
+    show: number.isRequired,
+    total: number.isRequired,
+    onClick: func.isRequired,
+};
 
 /**
  * Load More - Button That Naviates Users To The Next Page
@@ -17,9 +27,9 @@ import { useConfig } from '../Helpers/hooks';
  * )
  */
 const LoadMore = ({
-    onClick,
     show,
     total,
+    onClick,
 }) => {
     const getConfig = useConfig();
 
@@ -71,12 +81,6 @@ const LoadMore = ({
         : null;
 };
 
+LoadMore.propTypes = LoadMoreType;
+
 export default LoadMore;
-
-LoadMore.propTypes = {
-    show: PropTypes.number.isRequired,
-    total: PropTypes.number.isRequired,
-    onClick: PropTypes.func.isRequired,
-};
-
-LoadMore.defaultProps = {};
