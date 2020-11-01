@@ -74,7 +74,7 @@ export const useConfig = () => {
 
 
 /**
- * @typedef {Function} IsMountedtateSetter
+ * @typedef {Function} IsMountedStateSetter
  * @description - Flag to handle unmounting components when react re-renders
  * This is used to prevent memory leaks in the application when DOM is wiped by react
  *

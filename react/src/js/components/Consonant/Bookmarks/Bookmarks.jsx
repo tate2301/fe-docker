@@ -35,17 +35,13 @@ const Bookmarks = (props) => {
     const bookmarkUnselectedIcon = getConfig('bookmarks', 'leftFilterPanel.unselectBookmarksIcon');
 
     /**
-     **** Constants ****
-     */
-
-    /**
      * Whether the bookmarks icon should be selected or not
      * @type {String}
      */
     const bookmarkIcon = showBookmarks ? bookmarkSelectedIcon : bookmarkUnselectedIcon;
 
     /**
-     * Background image CSS styles of the bookmarks icon
+     * Background image CSS styles for the bookmarks icon
      * @type {Object}
      */
     const iconStyles = {
@@ -54,7 +50,7 @@ const Bookmarks = (props) => {
 
     /**
      * Class name for the bookmarks button:
-     * whether the bookmarks icon should be selected or not
+     * CSS that handles whether the bookmarks icon is selected or not
      * @type {String}
      */
     const bookmarkClass = classNames({

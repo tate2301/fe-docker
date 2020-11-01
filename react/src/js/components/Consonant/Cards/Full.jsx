@@ -54,11 +54,7 @@ const FullCard = (props) => {
     } = props;
 
     /**
-     **** Hooks ****
-     */
-
-    /**
-     * Creates card image DOM reference
+     * Creates a card image DOM reference
      * @returns {Object} - card image DOM reference
      */
     const imageRef = React.useRef();

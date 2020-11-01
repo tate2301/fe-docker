@@ -81,11 +81,7 @@ const AspectRatio3to2Card = (props) => {
     const locale = getConfig('language', '');
 
     /**
-     **** Hooks ****
-     */
-
-    /**
-     * Creates card image DOM reference
+     * Creates a card image DOM reference
      * @returns {Object} - card image DOM reference
      */
     const imageRef = React.useRef();
@@ -100,10 +96,6 @@ const AspectRatio3to2Card = (props) => {
      * @type {[Image]} lazyLoadedImage
      */
     const [lazyLoadedImage] = useLazyLoading(imageRef, image);
-
-    /**
-     **** Constants ****
-     */
 
     /**
      * Formatted date string
@@ -125,23 +117,23 @@ const AspectRatio3to2Card = (props) => {
     function extendFooterData(data) {
         if (!data) return [];
 
-        return data.map((el) => {
-            if (el.type === INFOBIT_TYPE.BOOKMARK) {
+        return data.map((infobit) => {
+            if (infobit.type === INFOBIT_TYPE.BOOKMARK) {
                 return {
-                    ...el,
+                    ...infobit,
                     cardId: id,
                     disableBookmarkIco,
                     isBookmarked,
                     onClick,
                 };
-            } else if (el.type === INFOBIT_TYPE.DATE) {
+            } else if (infobit.type === INFOBIT_TYPE.DATE) {
                 return {
-                    ...el,
+                    ...infobit,
                     dateFormat,
                     locale,
                 };
             }
-            return el;
+            return infobit;
         });
     }
 

@@ -72,11 +72,7 @@ const AspectRatio1to1Card = (props) => {
     const locale = getConfig('language', '');
 
     /**
-     **** Hooks ****
-     */
-
-    /**
-     * Creates card image DOM reference
+     * Creates a card image DOM reference
      * @returns {Object} - card image DOM reference
      */
     const imageRef = React.useRef();
@@ -91,10 +87,6 @@ const AspectRatio1to1Card = (props) => {
      * @type {[Image]} lazyLoadedImage
      */
     const [lazyLoadedImage] = useLazyLoading(imageRef, image);
-
-    /**
-     **** Constants ****
-     */
 
     /**
      * Formatted date string
