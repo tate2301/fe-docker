@@ -7,6 +7,7 @@ import {
 } from 'prop-types';
 
 import Tooltip from './Tooltip';
+import { trackCardSave } from '../../../Analytics/Analytics';
 
 const BookmarkType = {
     isBookmarked: bool,
@@ -76,6 +77,7 @@ const Bookmark = ({
     const handleClick = (clickEvt) => {
         clickEvt.stopPropagation();
         onClick(cardId);
+        trackCardSave(cardId, !isBookmarked);
     };
 
     const tooltipText = isBookmarked ? cardUnsaveText : cardSaveText;

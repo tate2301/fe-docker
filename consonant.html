@@ -51,8 +51,8 @@
     <script type="text/javascript">
         var config = {
             collection: {
-                resultsPerPage: '300',
-                endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/tests/card-collection/json-response-tests/features/overlays/three-by-two-card/sprint-sample-card.json",
+                resultsPerPage: '3',
+                endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/tests/card-collection/json-response-tests/smoke-tests/webinars.json",
                 totalCardsToShow: '100',
                 //cardStyle: "3:2", // could also be "3:2" or "full-card"
                 showTotalResults: 'true',
@@ -329,7 +329,11 @@
                     }
                 }
             },
-            language: 'de'
+            language: 'de',
+            analytics: {
+                trackImpressions: 'true',
+                collectionIdentifier: 'Some Identifier',
+            }
         };
         const consonantCardCollection = new ConsonantCardCollection(config, document.getElementById("someDivId"));
     </script>

@@ -52,6 +52,15 @@ import {
     getActiveFilterIds,
     getUpdatedCardBookmarkData,
 } from '../Helpers/Helpers';
+import {
+    trackClearAllClicked,
+    trackAllCardsLoaded,
+    trackFilterClicked,
+    trackFavoritesSelected,
+    trackPageChange,
+    trackSortChange,
+    trackSearchInputChange,
+} from '../Analytics/Analytics';
 
 /**
  * Consonant Card Collection
@@ -101,6 +110,8 @@ const Container = (props) => {
     const noResultsDescription = getConfig('search', 'i18n.noResultsDescription');
     const apiFailureTitle = getConfig('collection', 'i18n.onErrorTitle');
     const apiFailureDescription = getConfig('collection', 'i18n.onErrorDescription');
+    const trackImpressions = getConfig('analytics', 'trackImpressions');
+    const collectionIdentifier = getConfig('analytics', 'collectionIdentifier');
 
     /**
      **** Constants ****
@@ -319,6 +330,7 @@ const Container = (props) => {
     * @returns {Void} - an updated state
     */
     const resetFiltersSearchAndBookmarks = () => {
+        trackClearAllClicked();
         clearAllFilters();
         setSearchQuery('');
         setShowBookmarks(false);
@@ -337,6 +349,7 @@ const Container = (props) => {
     const onLoadMoreClick = () => {
         setCurrentPage(prevState => prevState + 1);
         window.scrollTo(0, window.pageYOffset);
+        trackPageChange(currentPage);
     };
 
     /**
@@ -348,6 +361,7 @@ const Container = (props) => {
     const handleSortChange = (option) => {
         setSortOption(option);
         setSortOpened(false);
+        trackSortChange(option);
     };
 
     /**
@@ -360,6 +374,7 @@ const Container = (props) => {
     const handleSearchInputChange = (val) => {
         clearAllFilters();
         setSearchQuery(val);
+        trackSearchInputChange(val);
     };
 
     /**
@@ -392,6 +407,7 @@ const Container = (props) => {
      * @listens CheckboxClickEvent
      */
     const handleCheckBoxChange = (filterId, itemId, isChecked) => {
+        trackFilterClicked(isChecked, itemId, filters);
         if (isXorFilter && isChecked) {
             clearAllFilters();
         }
@@ -442,6 +458,7 @@ const Container = (props) => {
      */
     const handleShowBookmarksFilterClick = (e) => {
         e.stopPropagation();
+        trackFavoritesSelected(showBookmarks);
         setShowBookmarks(prev => !prev);
         setCurrentPage(1);
     };
@@ -505,6 +522,7 @@ const Container = (props) => {
                     .addCardMetaData(TRUNCATE_TEXT_QTY, onlyShowBookmarks, bookmarkedCardIds);
 
                 setCards(processedCards);
+                trackAllCardsLoaded(processedCards);
             }).catch(() => {
                 setLoading(false);
                 setApiFailure(true);
@@ -650,6 +668,8 @@ const Container = (props) => {
                 {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions,jsx-a11y/click-events-have-key-events */}
                 <section
                     role="group"
+                    daa-lh={collectionIdentifier}
+                    daa-im={String(trackImpressions)}
                     onClick={handleWindowClick}
                     className="consonant-wrapper">
                     <div className="consonant-wrapper--inner">

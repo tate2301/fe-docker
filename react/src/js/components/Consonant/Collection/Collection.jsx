@@ -105,24 +105,27 @@ const Collection = (props) => {
             data-testid="consonant-collection"
             className="consonant-card-collection">
             <div className="consonant-card-collection--inner">
-                {cardsToshow.map((card) => {
+                {cardsToshow.map((card, index) => {
                     const cardStyleOverride = get(card, 'styles.typeOverride');
                     const cardStyle = collectionStyleOverride || cardStyleOverride;
                     if (cardStyle === CARD_STYLES.FULL) {
                         return (
                             <FullCard
+                                lh={`Card ${index} | ${card.contentArea.title}`}
                                 key={card.id}
                                 {...card} />
                         );
                     } else if (cardStyle === CARD_STYLES.SQUARE) {
                         return (
                             <AspectRatio1to1Card
+                                lh={`Card ${index} | ${card.contentArea.title}`}
                                 key={card.id}
                                 {...card} />
                         );
                     }
                     return (
                         <AspectRatio3to2Card
+                            lh={`Card ${index} | ${card.contentArea.title}`}
                             key={card.id}
                             {...card}
                             onClick={onCardBookmark}

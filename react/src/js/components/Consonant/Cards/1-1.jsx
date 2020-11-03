@@ -18,6 +18,7 @@ import {
 const AspectRatio1to1CardType = {
     ctaLink: string,
     id: string.isRequired,
+    lh: string,
     styles: shape(StylesType),
     overlays: shape(OverlaysType),
     contentArea: shape(ContentAreaType),
@@ -28,6 +29,7 @@ const defaultProps = {
     ctaLink: '',
     overlays: {},
     contentArea: {},
+    lh: '',
 };
 
 /**
@@ -50,7 +52,7 @@ const AspectRatio1to1Card = (props) => {
     const {
         id,
         ctaLink,
-
+        lh,
         styles: {
             backgroundImage: image,
         },
@@ -124,6 +126,7 @@ const AspectRatio1to1Card = (props) => {
 
     return (
         <div
+            daa-lh={lh}
             className="consonant-aspect-ratio-1-1-card"
             data-testid="consonant-1-1-card"
             id={id}>

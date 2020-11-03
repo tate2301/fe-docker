@@ -26,6 +26,7 @@ const AspectRatio3to2CardType = {
     isBookmarked: bool,
     dateFormat: string,
     id: string.isRequired,
+    lh: string,
     styles: shape(StylesType),
     disableBookmarkIco: bool,
     onClick: func.isRequired,
@@ -40,6 +41,7 @@ const defaultProps = {
     overlays: {},
     dateFormat: '',
     contentArea: {},
+    lh: '',
     isBookmarked: false,
     disableBookmarkIco: false,
 };
@@ -64,6 +66,7 @@ const AspectRatio3to2Card = (props) => {
     const {
         id,
         footer,
+        lh,
         disableBookmarkIco,
         isBookmarked,
         onClick,
@@ -170,6 +173,7 @@ const AspectRatio3to2Card = (props) => {
 
     return (
         <div
+            daa-lh={lh}
             className="consonant-aspect-ratio-3-2-card"
             data-testid="consonant-card-3-2"
             id={id}>
