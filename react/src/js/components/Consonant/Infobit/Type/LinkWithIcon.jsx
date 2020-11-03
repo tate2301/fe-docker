@@ -54,7 +54,7 @@ const LinkWithIcon = ({
         target={openInNewTab ? '_blank' : '_self'}
         className="consonant-link-with-ico-infobit"
         title={linkHint}
-        rel="noreferrer"
+        rel="noopener noreferrer"
         tabIndex="0">
         {src &&
         <img src={src} alt={srcAltText} loading="lazy" height="18" />
