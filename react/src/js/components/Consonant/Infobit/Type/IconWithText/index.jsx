@@ -1,18 +1,7 @@
 import React from 'react';
-import {
-    oneOfType,
-    string,
-    number,
-} from 'prop-types';
 
-const IconWithTextType = {
-    src: string,
-    srcAltText: string,
-    text: oneOfType([
-        string,
-        number,
-    ]),
-};
+import { If } from '../../../Common';
+import { IconWithTextType } from './types';
 
 const defaultProps = {
     src: '',
@@ -36,18 +25,19 @@ const defaultProps = {
  */
 const IconWithText = ({
     src,
-    srcAltText,
     text,
+    srcAltText,
 }) => (
     <div
         className="consonant-icon-with-text-infobit">
-        {src &&
-        <img
-            src={src}
-            height="22"
-            alt={srcAltText}
-            loading="lazy" />
-        }
+        <If condition={Boolean(src)}>
+            <img
+                src={src}
+                height="22"
+                alt={srcAltText}
+                loading="lazy" />
+
+        </If>
         <span
             className="consonant-icon-with-text-infobit--text">
             {text}
