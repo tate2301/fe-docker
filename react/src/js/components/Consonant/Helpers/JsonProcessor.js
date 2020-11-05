@@ -1,9 +1,9 @@
-import get from 'lodash/get';
-
 import {
-    removeDuplicatesByKey,
+    get,
     truncateString,
+    removeDuplicatesByKey,
 } from './general';
+
 
 /**
  * Class that handles parsing raw JSON data and returning a set of processed cards
