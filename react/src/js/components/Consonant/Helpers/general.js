@@ -358,7 +358,6 @@ export const set = (object, path, value) => {
  * @return {Obect} merge object
  */
 export const mergeDeep = (target, ...sources) => {
-    console.log({ target, sources });
     if (!sources.length) return target;
     const source = sources.shift();
 
