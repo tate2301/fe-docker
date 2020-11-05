@@ -1,7 +1,7 @@
 import { screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import Bookmarks from '../Bookmarks';
+import Bookmarks from '../index';
 
 import {
     COUNT_LIST,
@@ -18,7 +18,7 @@ describe('Consonant/Bookmarks', () => {
         COUNT_LIST.forEach((count) => {
             const { wrapper } = setup({ savedCardsCount: count });
 
-            const badgeElement = screen.getByTestId('bookmarks--item-badge');
+            const badgeElement = screen.getByTestId('bookmarks__badge');
 
             expect(badgeElement).toHaveTextContent(count);
             wrapper.unmount();
@@ -36,7 +36,7 @@ describe('Consonant/Bookmarks', () => {
             },
         } = setup();
 
-        const iconElement = screen.getByTestId('bookmarks--ico');
+        const iconElement = screen.getByTestId('bookmarks--icon');
 
         expect(iconElement).toHaveStyle(`background-image: url(${unselectBookmarksIcon})`);
     });
@@ -51,21 +51,21 @@ describe('Consonant/Bookmarks', () => {
             },
         } = setup({ showBookmarks: true });
 
-        const iconElement = screen.getByTestId('bookmarks--ico');
+        const iconElement = screen.getByTestId('bookmarks--icon');
 
         expect(iconElement).toHaveStyle(`background-image: url(${selectBookmarksIcon})`);
     });
     test('shouldn`t have style object when selected === true && selectedIco didnt exists', async () => {
         setup({ selected: true }, { bookmarks: WITHOUT_ICONS });
 
-        const iconElement = await waitFor(() => screen.getByTestId('bookmarks--ico'));
+        const iconElement = await waitFor(() => screen.getByTestId('bookmarks--icon'));
 
         expect(iconElement).not.toHaveStyle({ backgroundImage: "url('')" });
     });
     test('shouldn`t have style object when selected === false && unselectedIco didnt exists', async () => {
         setup({}, { bookmarks: WITHOUT_ICONS });
 
-        const iconElement = await waitFor(() => screen.getByTestId('bookmarks--ico'));
+        const iconElement = await waitFor(() => screen.getByTestId('bookmarks--icon'));
 
         expect(iconElement).not.toHaveStyle({ backgroundImage: "url('')" });
     });
