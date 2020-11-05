@@ -10,27 +10,6 @@ const getNumSelectedFilterItems = [
     },
 ];
 
-const makeConfigGetter = [
-    {
-        config: { user: { name: 'Some Name' } },
-        object: 'user',
-        key: 'name',
-        expectedValue: 'Some Name',
-    },
-    {
-        config: { user: { name: 'Some Name' } },
-        object: 'user',
-        key: null,
-        expectedValue: { name: 'Some Name' },
-    },
-    {
-        config: { user: { } },
-        object: 'language',
-        key: null,
-        expectedValue: 'en',
-    },
-];
-
 const getDefaultSortOption = [
     {
         config: { sort: { options: [{ sort: 'date' }] } },
@@ -45,7 +24,6 @@ const getDefaultSortOption = [
 ];
 
 export default {
-    makeConfigGetter,
     getDefaultSortOption,
     getNumSelectedFilterItems,
 };
