@@ -389,31 +389,15 @@
         }
     }
 
-    @media @consonant-min-2-cards {
-        /* Card collection */
-        .consonant-card-collection > div {
-            margin-left: @consonant-card-margin-right;
-            margin-right: 0;
-
-            &:nth-of-type(even) {
-                margin-left: 0;
-                margin-right: 0;
-            }
-        }
+    /* Card collection */
+    .consonant-card-collection .consonant-card-collection--inner {
+        margin-left: @consonant-card-margin-right * -1;
+        margin-right: 0;
     }
 
-    @media @consonant-min-3-cards {
-        /* Card collection */
-        .consonant-card-collection > div {
-            &:nth-of-type(even) {
-                margin-left: @consonant-card-margin-right;
-            }
-
-            &:nth-of-type(3n) {
-                margin-left: 0;
-                margin-right: 0;
-            }
-        }
+    .consonant-card-collection .consonant-card-collection--inner > div {
+        margin-left: @consonant-card-margin-right;
+        margin-right: 0;
     }
 
     @media @consonant-tablet-up {
@@ -571,36 +555,9 @@
             }
         }
 
-        /* Card collection */
-        * + * > .consonant-card-collection > div {
-            &:nth-of-type(even),
-            &:nth-of-type(3n) {
-                margin-left: 0;
-                margin-right: 0;
-            }
-
-            &:nth-of-type(odd) {
-                margin-left: @consonant-card-margin-right;
-                margin-right: 0;
-            }
-        }
-
         /* Bookmarks */
         .bookmarks .bookmarks--item-badge {
             left: 30px;
-        }
-    }
-
-    @media @consonant-big-desktop-up {
-        /* Card collection */
-        * + * > .consonant-card-collection > div {
-            &:nth-of-type(even) {
-                margin-left: @consonant-card-margin-right;
-            }
-
-            &:nth-of-type(3n) {
-                margin-left: 0;
-            }
         }
     }
 }
