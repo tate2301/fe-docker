@@ -8,7 +8,7 @@ import { parseToPrimitive } from './components/Consonant/Helpers/general';
 // import SearchPageDOM from "./components/Page/SearchPageDOM";
 // import CollectionPageDOM from "./components/Page/CollectionPageDOM";
 // import ConsonantPageDOM from './components/Page/ConsonantPageDOM';
-import Container from './components/Consonant/Container/Container';
+import Container from './components/Consonant/Container';
 import consonantPageRDC from './components/Page/ConsonantPageDOM';
 
 // // const searchPage = new SearchPageDOM();

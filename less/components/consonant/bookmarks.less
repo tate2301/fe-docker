@@ -16,7 +16,7 @@
         margin-top: 0;
     }
 
-    .bookmarks--item-badge {
+    .bookmarks__badge {
         display: block;
         position: absolute;
         min-width: @consonant-filters-item-badge-min-width;
@@ -44,7 +44,7 @@
         overflow: hidden;
     }
 
-    .bookmarks--ico-wrapper {
+    .bookmarks__icon-wrapper {
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -54,7 +54,7 @@
         .no-border-no-outline;
     }
 
-    .bookmarks--ico-wrapper .bookmarks--ico {
+    .bookmarks__icon-wrapper .bookmarks--icon {
         display: block;
         min-width: @bookmarks-ico-wrapper-max-size;
         min-height: @bookmarks-ico-wrapper-max-size;
@@ -64,7 +64,7 @@
         background-size: contain;
     }
 
-    .bookmarks--title {
+    .bookmarks__label {
         display: block;
         padding-right: 55px;
         padding-bottom: 1px;
@@ -75,7 +75,7 @@
     }
 
     &.bookmarks_selected {
-        .bookmarks--ico {
+        .bookmarks--icon {
             background-image: url(@consonant-filters-heart-filled-data);
         }
     }
@@ -104,7 +104,7 @@
             z-index: 1;
         }
 
-        .bookmarks--item-badge {
+        .bookmarks__badge {
             right: 30px;
             font-size: 0.875rem;
             line-height: 0.875rem;
@@ -115,7 +115,7 @@
             }
         }
 
-        .bookmarks--title:hover {
+        .bookmarks__label:hover {
             color: @consonant-color-dark-grey-3;
         }
     }
