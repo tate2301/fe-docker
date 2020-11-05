@@ -1,20 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import {
-    arrayOf,
-    shape,
-    func,
-    number,
-} from 'prop-types';
 
-import { FilterItemType } from '../../types/config';
-
-const ItemsType = {
-    handleCheck: func.isRequired,
-    stopPropagation: func.isRequired,
-    clipWrapperItemsCount: number.isRequired,
-    items: arrayOf(shape(FilterItemType)).isRequired,
-};
+import { ItemsType } from './types';
 
 /**
  * Options of the top filter
@@ -31,14 +18,12 @@ const ItemsType = {
  *   <Items {...props}/>
  * )
  */
-const Items = (props) => {
-    const {
-        items,
-        handleCheck,
-        stopPropagation,
-        clipWrapperItemsCount,
-    } = props;
-
+const Items = ({
+    items,
+    handleCheck,
+    stopPropagation,
+    clipWrapperItemsCount,
+}) => {
     /**
      **** Constants ****
      */
@@ -72,15 +57,15 @@ const Items = (props) => {
                     {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
                     <label
                         htmlFor={item.id}
-                        className="consonant-top-filter--items-item-label"
-                        onClick={stopPropagation}>
+                        onClick={stopPropagation}
+                        className="consonant-top-filter--items-item-label">
                         <input
-                            data-testid="list-item-checkbox"
                             id={item.id}
                             value={item.id}
                             type="checkbox"
                             onChange={handleCheck}
                             checked={item.selected}
+                            data-testid="list-item-checkbox"
                             tabIndex="0" />
                         <span
                             className="consonant-top-filter--items-item-checkmark" />
