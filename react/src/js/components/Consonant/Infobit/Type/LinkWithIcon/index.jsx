@@ -1,18 +1,7 @@
 import React from 'react';
-import {
-    string,
-    bool,
-    oneOfType,
-} from 'prop-types';
 
-const LinkWithIconType = {
-    src: string,
-    href: string,
-    text: string,
-    linkHint: string,
-    srcAltText: string,
-    openInNewTab: oneOfType([string, bool]),
-};
+import { If } from '../../../Common';
+import { LinkWithIconType } from './types';
 
 const defaultProps = {
     src: '',
@@ -56,9 +45,9 @@ const LinkWithIcon = ({
         title={linkHint}
         rel="noopener noreferrer"
         tabIndex="0">
-        {src &&
-        <img src={src} alt={srcAltText} loading="lazy" height="18" />
-        }
+        <If condition={Boolean(src)}>
+            <img src={src} alt={srcAltText} loading="lazy" height="18" />
+        </If>
         <span>{text}</span>
     </a>
 );
