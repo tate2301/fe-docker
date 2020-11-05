@@ -12,7 +12,7 @@ import {
 } from '@testing-library/react';
 
 
-import Container from '../Container';
+import Container from '../index';
 import setupIntersectionObserverMock from '../../Testing/Mocks/intersectionObserver';
 import config from '../../Testing/Mocks/config.json';
 import cards from '../../Testing/Mocks/cards.json';
@@ -222,7 +222,7 @@ describe('Consonant/Top Filters/Desktop', () => {
     test('should search cards without filters', async () => {
         global.innerWidth = DESKTOP_WIDTH;
         const configToUse = config;
-        configToUse.sort = null;
+        configToUse.sort = undefined;
         configToUse.filterPanel.type = 'top';
         await act(async () => render(<Container config={configToUse} />));
 
@@ -330,7 +330,6 @@ describe('Consonant/Top Filters/Desktop', () => {
         await act(async () => render(<Container config={configToUse} />));
 
         expect(screen.queryByTestId('results')).not.toBeNull();
-
     });
 });
 

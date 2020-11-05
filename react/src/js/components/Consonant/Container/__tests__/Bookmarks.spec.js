@@ -8,7 +8,7 @@ import {
 } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import Container from '../Container';
+import Container from '../index';
 import config from '../../Testing/Mocks/config.json';
 import cards from '../../Testing/Mocks/cards.json';
 import setupIntersectionObserverMock from '../../Testing/Mocks/intersectionObserver';
@@ -67,7 +67,7 @@ describe('Consonant/Container/Bookmarks', () => {
         await act(async () => render(<Container config={configToUse} />));
         await waitFor(() => screen.getByTestId('consonant-collection'));
 
-        const bookmarksItemsBadge = screen.getByTestId('bookmarks--item-badge');
+        const bookmarksItemsBadge = screen.getByTestId('bookmarks__badge');
         expect(bookmarksItemsBadge.innerHTML).toEqual('0');
 
         const [bookmarksFilter] = screen.queryAllByTestId('bookmarks');

@@ -7,7 +7,7 @@ import {
     render,
 } from '@testing-library/react';
 
-import Container from '../Container';
+import Container from '../index';
 import setupIntersectionObserverMock from '../../Testing/Mocks/intersectionObserver';
 import config from '../../Testing/Mocks/config.json';
 import cards from '../../Testing/Mocks/cards.json';
@@ -22,7 +22,7 @@ setupIntersectionObserverMock();
 describe('Consonant/Container/Results Per Page', () => {
     test('should render default count of cards if incorrectly authored', async () => {
         const configToUse = config;
-        configToUse.collection.resultsPerPage = null;
+        configToUse.collection.resultsPerPage = undefined;
 
         await act(async () => render(<Container config={configToUse} />));
         await waitFor(() => screen.getByTestId('consonant-collection'));
