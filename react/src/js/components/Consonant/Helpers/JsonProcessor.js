@@ -1,8 +1,7 @@
-import get from 'lodash/get';
-
 import {
-    removeDuplicatesByKey,
+    getByPath,
     truncateString,
+    removeDuplicatesByKey,
 } from './general';
 
 /**
@@ -65,15 +64,15 @@ export default class JsonProcessor {
     addCardMetaData(truncateTextQty, onlyShowBookmarks, bookmarkedCardIds) {
         this.processedCards = this.processedCards.map(card => ({
             ...card,
-            description: truncateString(get(card, 'contentArea.description', ''), truncateTextQty),
+            description: truncateString(getByPath(card, 'contentArea.description', ''), truncateTextQty),
             isBookmarked: bookmarkedCardIds.some(i => i === card.id),
             disableBookmarkIco: onlyShowBookmarks,
             initial: {
-                title: get(card, 'contentArea.title', ''),
-                description: get(card, 'contentArea.description', ''),
-                bannerText: get(card, 'overlays.banner.description', ''),
-                dateDetailText: get(card, 'contentArea.dateTetailText', ''),
-                detailText: get(card, 'contentArea.detailText', ''),
+                title: getByPath(card, 'contentArea.title', ''),
+                description: getByPath(card, 'contentArea.description', ''),
+                bannerText: getByPath(card, 'overlays.banner.description', ''),
+                dateDetailText: getByPath(card, 'contentArea.dateTetailText', ''),
+                detailText: getByPath(card, 'contentArea.detailText', ''),
             },
         }));
         return this;

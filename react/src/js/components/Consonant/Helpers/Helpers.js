@@ -1,14 +1,14 @@
-import get from 'lodash/get';
-import set from 'lodash/set';
-import includes from 'lodash/includes';
+
 import produce, { enableES5 } from 'immer';
 
 import { highlightSearchField } from './rendering';
 import {
-    chainFromIterable,
-    intersection,
+    getByPath,
+    setByPath,
     isSuperset,
+    intersection,
     sanitizeText,
+    chainFromIterable,
     removeDuplicatesByKey,
 } from './general';
 
@@ -146,10 +146,10 @@ export const getFilteredCards = (cards, activeFilters, filterType, filterTypes) 
 * @returns {Card} The highlighted caard
 */
 export const highlightCard = (baseCard, searchField, query) => produce(baseCard, (draftCard) => {
-    const searchFieldValue = get(draftCard, searchField, null);
+    const searchFieldValue = getByPath(draftCard, searchField, null);
     if (searchFieldValue === null) return;
     const highlightedSearchFieldValue = highlightSearchField(searchFieldValue, query);
-    set(draftCard, searchField, highlightedSearchFieldValue);
+    setByPath(draftCard, searchField, highlightedSearchFieldValue);
 });
 
 /**
@@ -160,9 +160,9 @@ export const highlightCard = (baseCard, searchField, query) => produce(baseCard,
 * @returns {Boolean} If the card matches the user's search query
 */
 const cardMatchesQuery = (searchField, card, searchQuery) => {
-    const searchFieldValue = get(card, searchField, '');
+    const searchFieldValue = getByPath(card, searchField, '');
     const cleanSearchFieldValue = sanitizeText(searchFieldValue);
-    return includes(cleanSearchFieldValue, searchQuery);
+    return cleanSearchFieldValue.includes(searchQuery);
 };
 
 /**
@@ -208,8 +208,8 @@ export const getCardsMatchingQuery = (cards, searchFields, query) => {
 * @returns {Array} - All cards sorted by title
 */
 export const getTitleAscSort = cards => cards.sort((cardOne, cardTwo) => {
-    const cardOneTitle = get(cardOne, 'contentArea.title');
-    const cardTwoTitle = get(cardTwo, 'contentArea.title');
+    const cardOneTitle = getByPath(cardOne, 'contentArea.title');
+    const cardTwoTitle = getByPath(cardTwo, 'contentArea.title');
     return cardOneTitle.localeCompare(cardTwoTitle);
 });
 
@@ -243,8 +243,8 @@ export const getFeaturedSort = cards => getTitleAscSort(cards).sort((a, b) => {
 * @returns {Array} - All cards sorted by Date
 */
 export const getDateAscSort = cards => cards.sort((cardOne, cardTwo) => {
-    const cardOneDate = get(cardOne, 'cardDate');
-    const cardTwoDate = get(cardTwo, 'cardDate');
+    const cardOneDate = getByPath(cardOne, 'cardDate');
+    const cardTwoDate = getByPath(cardTwo, 'cardDate');
     if (cardOneDate && cardTwoDate) {
         return cardOneDate.localeCompare(cardTwoDate);
     }

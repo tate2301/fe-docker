@@ -1,4 +1,3 @@
-import includes from 'lodash/includes';
 import {
     getFilteredCards,
     getCardsMatchingSearch,
@@ -137,10 +136,8 @@ export default class CardFilterer {
      */
     keepBookmarkedCardsOnly(onlyShowBookmarks, bookmarkedCardIds, showBookmarks) {
         if (onlyShowBookmarks || showBookmarks) {
-            this.filteredCards = this.filteredCards.filter(card => includes(
-                bookmarkedCardIds,
-                card.id,
-            ));
+            this.filteredCards = this.filteredCards
+                .filter(card => bookmarkedCardIds.includes(card.id));
         }
         return this;
     }

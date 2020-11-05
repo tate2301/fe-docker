@@ -1,11 +1,12 @@
-import sum from 'lodash/sum';
-import get from 'lodash/get';
+import {
+    getByPath,
+    isNullish,
+    chainFromIterable,
+    getSelectedItemsCount,
+} from './general';
 
 import { DEFAULT_CONFIG } from './constants';
-import {
-    chainFromIterable,
-    isNullish,
-} from './general';
+
 
 /**
  * Gets the number of selected filter items
@@ -14,7 +15,7 @@ import {
  */
 export const getNumSelectedFilterItems = (filters) => {
     const filterItems = chainFromIterable(filters.map(filter => filter.items));
-    return sum(filterItems.map(item => item.selected));
+    return getSelectedItemsCount(filterItems);
 };
 
 /**
@@ -24,9 +25,9 @@ export const getNumSelectedFilterItems = (filters) => {
  */
 export const makeConfigGetter = config => (object, key) => {
     const objectPath = key ? `${object}.${key}` : object;
-    const defaultValue = get(DEFAULT_CONFIG, objectPath);
+    const defaultValue = getByPath(DEFAULT_CONFIG, objectPath);
 
-    const value = get(config, objectPath);
+    const value = getByPath(config, objectPath);
 
     if (isNullish(value)) {
         return defaultValue;
