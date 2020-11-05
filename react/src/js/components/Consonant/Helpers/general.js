@@ -1,5 +1,3 @@
-import forOwn from 'lodash/forOwn';
-
 /**
  * Saves a card to local storage
  * @param {Number} bookmarksValue - The id of the card to save
@@ -113,11 +111,12 @@ export const intersection = (setA, setB) => {
  * @param {Iterable} iterable - The iterable object
  * @param {Function} keyFunc - The function to apply
  */
-export const sortByKey = (iterable, keyFunc) => [...iterable].sort((a, b) => {
-    if (keyFunc(a) < keyFunc(b)) return -1;
-    if (keyFunc(a) > keyFunc(b)) return 1;
-    return 0;
-});
+export const sortByKey = (iterable, keyFunc) =>
+    [...iterable].sort((a, b) => {
+        if (keyFunc(a) < keyFunc(b)) return -1;
+        if (keyFunc(a) > keyFunc(b)) return 1;
+        return 0;
+    });
 
 /**
  * Returns cleaned up text
@@ -134,9 +133,10 @@ export const sanitizeText = text => text.toLowerCase().trim();
  */
 export const mapObject = (object, func) => {
     const newObj = {};
+    const keys = Object.keys(object);
 
-    forOwn(object, (value, key) => {
-        newObj[key] = func(value);
+    keys.forEach((key) => {
+        newObj[key] = func(object[key]);
     });
 
     return newObj;
@@ -147,7 +147,7 @@ export const mapObject = (object, func) => {
  * @param {Any} val - Start value in the range array;
  * @return {Boolean} - Whether the passed in value is nullish or not
  */
-export const isObject = val => !!val && (val.constructor === Object);
+export const isObject = val => !!val && val.constructor === Object;
 
 /**
  * Support method so HTL/Sightly can pass authored properties to React
@@ -175,10 +175,11 @@ export const parseToPrimitive = (value) => {
  * @param {Any} val - Start value in the range array;
  * @return {Boolean} - Whether the passed in value is nullish or not
  */
-export const isNullish = val => val === undefined || val === null || Number.isNaN(val);
+export const isNullish = val =>
+    val === undefined || val === null || Number.isNaN(val);
 
-export const isAtleastOneFilterSelected =
-        filters => chainFromIterable(filters.map(f => f.items)).some(item => item.selected);
+export const isAtleastOneFilterSelected = filters =>
+    chainFromIterable(filters.map(f => f.items)).some(item => item.selected);
 
 /**
  * Helper method to stop propagation for events
@@ -222,8 +223,8 @@ export const getPageStartEnd = (currentPageNumber, pageCount, totalPages) => {
     let start;
     let end;
 
-    if (totalPages <= (pageCount + 1)) {
-        // show all pages
+    if (totalPages <= pageCount + 1) {
+    // show all pages
         start = 1;
         end = totalPages;
     } else {
@@ -241,24 +242,138 @@ export const getPageStartEnd = (currentPageNumber, pageCount, totalPages) => {
 };
 
 /**
-* Gets the start number for Paginator Component
-* @param {Number} currentPageNumber - Current page the user is on
-* @param {Number} showItemsPerPage - How many items to show per page
-* @returns {Number} - The start number for Paginator Component
-*/
+ * Gets the start number for Paginator Component
+ * @param {Number} currentPageNumber - Current page the user is on
+ * @param {Number} showItemsPerPage - How many items to show per page
+ * @returns {Number} - The start number for Paginator Component
+ */
 export const getStartNumber = (currentPageNumber, showItemsPerPage) => {
     if (currentPageNumber === 1) return 1;
     return (currentPageNumber * showItemsPerPage) - (showItemsPerPage - 1);
 };
 
 /**
-* Gets the end number for Paginator Component
-* @param {Number} currentPageNumber - Current page the user is on
-* @param {Number} showItemsPerPage - How many items to show per page
-* @param {Number} totalResults - Total count of cards in collection
-* @returns {Number} - The end number for Paginator Component
-*/
-export const getEndNumber = (currentPageNumber, showItemsPerPage, totalResults) => {
+ * Gets the end number for Paginator Component
+ * @param {Number} currentPageNumber - Current page the user is on
+ * @param {Number} showItemsPerPage - How many items to show per page
+ * @param {Number} totalResults - Total count of cards in collection
+ * @returns {Number} - The end number for Paginator Component
+ */
+export const getEndNumber = (
+    currentPageNumber,
+    showItemsPerPage,
+    totalResults,
+) => {
     const res = currentPageNumber * showItemsPerPage;
     return res < totalResults ? res : totalResults;
+};
+
+/**
+ * Gets the end number for Paginator Component
+ * @param {string} text - template string like a '{name} {surname}'
+ * @param {object} props - object with props to replace part of text in brackets
+ * @returns {string} - ('{name}', { name: 'John' }) => 'John'
+ */
+export const template = (text, props) =>
+    text && text.replace(/{([A-z]*)}/gi, (_, key) => props[key]);
+
+/**
+ * Gets the object/path/defaultValue and return object value by this path
+ * @param {Object} object - object to get value
+ * @param {String} path - path to searched value
+ * @param {any} defaultValue - will return when no value was found
+ * @returns {any} - searched value
+ */
+export const get = (object, path, defaultValue) => {
+    if (!object || !path) return defaultValue;
+
+    let result = object;
+    const chunks = path.split('.');
+
+    for (let index = 0; index < chunks.length; index += 1) {
+        const chunk = chunks[index];
+
+        if (result[chunk]) {
+            result = result[chunk];
+        } else {
+            result = defaultValue;
+            break;
+        }
+    }
+
+    return result;
+};
+
+/**
+ * Return sum of the selected filters
+ * @param {items} array - filter items
+ * @returns {number} - selected items count
+ */
+export const getSelectedItemsCount = items =>
+    items.filter(({ selected }) => Boolean(selected)).length;
+
+/**
+ * Func to make debounced functions
+ * @param {Function} func - target function
+ * @param {number} timeout - debounce delay
+ * @returns {func} - debounced function
+ */
+export const debounce = (func, timeout = 0) => {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            func(...args);
+        }, timeout);
+    };
+};
+
+/**
+ * Set object value by path
+ * @param {Object} object - target object
+ * @param {string} path - destination path
+ * @param {any} value - value which should be assign
+ */
+export const set = (object, path, value) => {
+    if (!object || !path) return;
+
+    const chunks = path.split('.');
+    const withoutLast = chunks.slice(0, -1);
+    const lastChunk = chunks[chunks.length - 1];
+
+    const target = withoutLast.reduce((accumulator, chunk) => {
+        if (Object(accumulator[chunk]) !== accumulator[chunk]) {
+            accumulator[chunk] = {};
+        }
+        return accumulator[chunk];
+    }, object);
+
+    target[lastChunk] = value;
+};
+
+/**
+ * Deep merge objects without nullish values
+ * @param {Object} target - target object
+ * @param {...Object} sources - objects to merge
+ * @return {Obect} merge object
+ */
+export const mergeDeep = (target, ...sources) => {
+    console.log({ target, sources });
+    if (!sources.length) return target;
+    const source = sources.shift();
+
+    if (isObject(target) && isObject(source)) {
+        const keys = Object.keys(source);
+        keys.forEach((key) => {
+            if (isObject(source[key])) {
+                if (!target[key]) Object.assign(target, { [key]: {} });
+
+                mergeDeep(target[key], source[key]);
+            } else if (source[key]) {
+                Object.assign(target, { [key]: source[key] });
+            }
+        });
+    }
+
+    return mergeDeep(target, ...sources);
 };
