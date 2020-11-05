@@ -1,26 +1,24 @@
 import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import Card from '../Full';
+import Card from '../FullCard';
 
 import { DEFAULT_PROPS_FULL } from '../../Testing/Constants/Card';
 
 import setup from '../../Testing/Utils/Settings';
 
-const renderCard = setup(Card, DEFAULT_PROPS_FULL);
+import { getFlatternProps } from '../../Collection/utils';
 
-describe('Consonant/Card/Full-Card', () => {
+const renderCard = setup(Card, DEFAULT_PROPS_FULL, getFlatternProps);
+
+describe('Consonant/Card/FullCard', () => {
     test('should be able to render a banner overlay', () => {
         const {
             props: {
-                overlays: {
-                    banner: {
-                        description: bannerDescription,
-                        fontColor: bannerFontColor,
-                        backgroundColor: bannerBackgroundColor,
-                        icon: bannerIcon,
-                    },
-                },
+                bannerIcon,
+                bannerFontColor,
+                bannerDescription,
+                bannerBackgroundColor,
             },
         } = renderCard();
 
@@ -36,16 +34,10 @@ describe('Consonant/Card/Full-Card', () => {
     });
     test('should be able to render a badge overlay', () => {
         const {
-            props: {
-                overlays: {
-                    label: {
-                        description: someBadgeText,
-                    },
-                },
-            },
+            props: { badgeText },
         } = renderCard();
 
-        const badgeElement = screen.queryByText(someBadgeText);
+        const badgeElement = screen.queryByText(badgeText);
         expect(badgeElement).not.toBeNull();
     });
     test('should be able to render a logo overlay', () => {
