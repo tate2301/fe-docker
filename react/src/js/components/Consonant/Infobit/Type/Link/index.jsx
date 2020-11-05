@@ -1,16 +1,6 @@
 import React from 'react';
-import {
-    oneOfType,
-    string,
-    bool,
-} from 'prop-types';
 
-const LinkType = {
-    linkHint: string,
-    href: string.isRequired,
-    text: string.isRequired,
-    openInNewTab: oneOfType([bool, string]),
-};
+import { LinkType } from './types';
 
 const defaultProps = {
     linkHint: '',
