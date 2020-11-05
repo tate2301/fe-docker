@@ -1,30 +1,17 @@
-import React from 'react';
-import { string } from 'prop-types';
+import React, { useMemo } from 'react';
 
-const ProgressType = {
-    label: string,
-    color: string,
-    percentage: string,
-    completionText: string,
-};
-
-const defaultProps = {
-    label: '',
-    percentage: '0',
-    color: '#1473E6',
-    completionText: '',
-};
+import { ProgressType } from './types';
+import { BASE_10, defaultProps } from './constants';
 
 /**
  * Progress Bar infobit (shown in 3:2 Card Footer)
  *
  * @component
  * @example
- * const props= {
-    label: String,
-    completionText: String,
-    percentage: String,
+ * const props= { label: String,
     color: String
+    percentage: String,
+    completionText: String,
  * }
  * return (
  *   <Progress {...props}/>
@@ -32,16 +19,10 @@ const defaultProps = {
  */
 const Progress = ({
     label,
-    completionText,
-    percentage,
     color,
+    percentage,
+    completionText,
 }) => {
-    const valueStyles = {
-        width: `calc(${percentage} + 2px)`,
-        backgroundColor: color,
-    };
-
-    const BASE_10 = 10;
     /**
      * Percentage as int to be used in Aria Label
      *
@@ -51,31 +32,36 @@ const Progress = ({
      */
     const percentageInt = parseInt(percentage, BASE_10);
 
+    const valueStyles = useMemo(() => ({
+        backgroundColor: color,
+        width: `calc(${percentage} + 2px)`,
+    }), [color, percentage]);
+
     return (
         <div
             className="consonant-progress-infobit">
             <div
                 className="consonant-progress-infobit--wrapper">
                 <span
-                    className="consonant-progress-infobit--text"
-                    title={label}>
+                    title={label}
+                    className="consonant-progress-infobit--text">
                     {label}
                 </span>
                 <span
-                    className="consonant-progress-infobit--text consonant-progress-infobit--text_italic"
-                    title={completionText}>
+                    title={completionText}
+                    className="consonant-progress-infobit--text consonant-progress-infobit--text_italic">
                     {completionText}
                 </span>
             </div>
             <div
                 className="consonant-progress-infobit--el">
                 <span
-                    className="consonant-progress-infobit--val"
-                    style={valueStyles}
-                    role="progressbar"
-                    aria-valuenow={percentageInt}
                     aria-valuemin="0"
-                    aria-valuemax="100">
+                    role="progressbar"
+                    aria-valuemax="100"
+                    style={valueStyles}
+                    aria-valuenow={percentageInt}
+                    className="consonant-progress-infobit--val">
                     {percentage}
                 </span>
             </div>
