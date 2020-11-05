@@ -9,6 +9,8 @@ import {
 } from 'prop-types';
 
 import { ConfigType } from '../../types/config';
+import { mergeDeep } from '../../Helpers/general';
+import { DEFAULT_CONFIG } from '../../Helpers/constants';
 import {
     ConfigContext,
     ExpandableContext,
@@ -16,6 +18,8 @@ import {
 
 const ContextProvider = ({ context, children }) => {
     const [isOpen, toggle] = useState(null);
+
+    const fullConfig = mergeDeep(DEFAULT_CONFIG, context);
 
     const handleChangeVisibility = useCallback(
         (value) => {
@@ -34,7 +38,7 @@ const ContextProvider = ({ context, children }) => {
 
     return (
         <ExpandableContext.Provider value={expandableContext}>
-            <ConfigContext.Provider value={context}>
+            <ConfigContext.Provider value={fullConfig}>
                 {children}
             </ConfigContext.Provider>
         </ExpandableContext.Provider>

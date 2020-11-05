@@ -12,8 +12,8 @@ export const createTree = component => renderer
     .create(component)
     .toJSON();
 
-export default (Component, defaultProps) => (passedProps, passedConfig) => {
-    const props = {
+export default (Component, defaultProps, propsCast) => (passedProps, passedConfig) => {
+    let props = {
         ...defaultProps,
         ...passedProps,
     };
@@ -21,6 +21,10 @@ export default (Component, defaultProps) => (passedProps, passedConfig) => {
         ...mockconfig,
         ...passedConfig,
     };
+
+    if (propsCast) {
+        props = propsCast(props);
+    }
 
     const WrapperComponent = () => (
         <ContextProvider context={config}>
