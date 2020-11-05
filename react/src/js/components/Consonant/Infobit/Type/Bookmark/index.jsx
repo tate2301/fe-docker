@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import classNames from 'classnames';
 import {
     bool,
-    string,
     func,
+    string,
 } from 'prop-types';
 
 import Tooltip from './Tooltip';
+import { CLASS_PREFIX, STATE } from './constants';
 
 const BookmarkType = {
+    onClick: func,
     isBookmarked: bool,
     saveCardIcon: string,
     cardSaveText: string,
     unsaveCardIcon: string,
     cardUnsaveText: string,
-    onClick: func.isRequired,
     cardId: string.isRequired,
     disableBookmarkIco: bool.isRequired,
 };
@@ -24,6 +25,7 @@ const defaultProps = {
     cardSaveText: '',
     unsaveCardIcon: '',
     cardUnsaveText: '',
+    onClick: undefined,
     isBookmarked: false,
 };
 
@@ -49,49 +51,47 @@ const defaultProps = {
  */
 const Bookmark = ({
     cardId,
-    isBookmarked,
-    saveCardIcon,
-    unsaveCardIcon,
-    cardSaveText,
-    cardUnsaveText,
     onClick,
+    saveCardIcon,
+    cardSaveText,
+    isBookmarked,
+    unsaveCardIcon,
+    cardUnsaveText,
     disableBookmarkIco,
 }) => {
-    const bookmarkInfobitClass = classNames({
-        'consonant-bookmark-infobit': true,
-        'consonant-bookmark-infobit_active': isBookmarked,
-        'consonant-bookmark-infobit_disabled': disableBookmarkIco,
+    const icon = isBookmarked ? saveCardIcon : unsaveCardIcon;
+    const tooltipText = isBookmarked ? cardSaveText : cardUnsaveText;
+
+    const className = classNames({
+        CLASS_PREFIX: true,
+        [`${CLASS_PREFIX}_${STATE.active}`]: isBookmarked,
+        [`${CLASS_PREFIX}_${STATE.disabled}`]: disableBookmarkIco,
     });
 
-    const bookmarkIcon = () => {
-        const cardIcon = isBookmarked ? saveCardIcon : unsaveCardIcon;
-        return (
-            <span
-                data-testid="bookmarks--ico"
-                className="consonant-bookmark-infobit--ico"
-                style={{ backgroundImage: cardIcon ? `url(${cardIcon})` : '' }} />
-        );
-    };
+    const handleClick = useCallback(
+        (event) => {
+            event.stopPropagation();
 
-    const handleClick = (clickEvt) => {
-        clickEvt.stopPropagation();
-        onClick(cardId);
-    };
+            if (onClick) onClick(cardId);
+        },
+        [onClick, cardId],
+    );
 
-    const tooltipText = isBookmarked ? cardUnsaveText : cardSaveText;
+    const iconStyles = useMemo(() => ({ backgroundImage: `url(${icon})` }), [icon]);
 
     return (
         <button
-            data-testid="bookmark-button"
-            data-tooltip-wrapper
+            tabIndex="0"
             type="button"
-            className={bookmarkInfobitClass}
+            data-tooltip-wrapper
+            className={className}
             onClick={handleClick}
-            tabIndex="0">
-            {bookmarkIcon()}
-            <Tooltip
-                data-testid="bookmark-tooltip"
-                text={tooltipText} />
+            data-testid="bookmark-button">
+            <span
+                style={iconStyles}
+                data-testid="bookmarks--ico"
+                className="consonant-bookmark-infobit--ico" />
+            <Tooltip text={tooltipText} />
         </button>
     );
 };
