@@ -1,16 +1,16 @@
-import debounce from 'lodash/debounce';
 import React, {
-    useCallback,
-    useContext,
-    useEffect,
+    useMemo,
     useState,
+    useEffect,
+    useContext,
+    useCallback,
 } from 'react';
 
-import { makeConfigGetter } from './consonant';
 import {
     ConfigContext,
     ExpandableContext,
 } from './contexts';
+import { debounce } from './general';
 
 // const noop = () => {};
 
@@ -65,13 +65,15 @@ export const useExpandable = (dropdownId) => {
  * @typedef {Function} ConfigStateSetter
  * @description - Configs are grabbed from Authoring Dialog and passedd into React Component
  *
- * @type {[Number, Function]} Config
+ * @type {[Int, Function]} Config
  */
-export const useConfig = () => {
+export const useConfigSelector = (selector) => {
     const config = useContext(ConfigContext);
-    return useCallback(makeConfigGetter(config), [config]);
-};
 
+    const props = useMemo(() => selector(config), [selector, config]);
+
+    return props;
+};
 
 /**
  * @typedef {Function} IsMountedStateSetter
