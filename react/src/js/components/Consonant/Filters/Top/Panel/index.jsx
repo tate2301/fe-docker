@@ -1,51 +1,26 @@
 import React from 'react';
-import sum from 'lodash/sum';
 import classNames from 'classnames';
-import {
-    arrayOf,
-    shape,
-    number,
-    bool,
-    func,
-    node,
-} from 'prop-types';
 
-import { FilterType } from '../../types/config';
-import SearchIcon from '../../Search/SearchIcon';
-import { Group as TopFilterItem } from './Group';
-import { renderTotalResults } from '../../Helpers/rendering';
-import { isAtleastOneFilterSelected } from '../../Helpers/general';
+import { selector } from './utils';
+import { If } from '../../../Common';
+import { FiltersPanelTopType } from './types';
+import { Group as TopFilterItem } from '../Group';
+import SearchIcon from '../../../Search/SearchIcon';
+import { renderTotalResults } from '../../../Helpers/rendering';
+import { isAtleastOneFilterSelected, getSelectedItemsCount } from '../../../Helpers/general';
 import {
-    useConfig,
+    searchId,
+    defaultProps,
+} from './constants';
+import {
     useExpandable,
-} from '../../Helpers/hooks';
+    useConfigSelector,
+} from '../../../Helpers/hooks';
 import {
     TABLET_MIN_WIDTH,
     MIN_FILTERS_SHOW_BG,
     MAX_TRUNCATED_FILTERS,
-} from '../../Helpers/constants';
-
-
-const FiltersPanelTopType = {
-    resQty: number,
-    showLimitedFiltersQty: bool,
-    sortComponent: node.isRequired,
-    windowWidth: number.isRequired,
-    onFilterClick: func.isRequired,
-    onShowAllClick: func.isRequired,
-    searchComponent: node.isRequired,
-    filters: arrayOf(shape(FilterType)),
-    onCheckboxClick: func.isRequired,
-    onClearAllFilters: func.isRequired,
-    onClearFilterItems: func.isRequired,
-    filterPanelEnabled: bool.isRequired,
-};
-
-const defaultProps = {
-    resQty: 0,
-    filters: [],
-    showLimitedFiltersQty: false,
-};
+} from '../../../Helpers/constants';
 
 /**
  * Top filters panel
@@ -70,44 +45,33 @@ const defaultProps = {
  *   <FiltersPanelTop {...props}/>
  * )
  */
-const FiltersPanelTop = (props) => {
+const FiltersPanelTop = ({
+    resQty,
+    filters,
+    windowWidth,
+    onFilterClick,
+    sortComponent,
+    onShowAllClick,
+    onCheckboxClick,
+    searchComponent,
+    onClearAllFilters,
+    onClearFilterItems,
+    filterPanelEnabled,
+    showLimitedFiltersQty,
+}) => {
     const {
-        filters,
-        resQty,
-        onCheckboxClick,
-        onFilterClick,
-        onClearAllFilters,
-        onClearFilterItems,
-        showLimitedFiltersQty,
-        onShowAllClick,
-        windowWidth,
-        searchComponent,
-        sortComponent,
-        filterPanelEnabled,
-    } = props;
-
-    const getConfig = useConfig();
-
-    /**
-     **** Authored Configs ****
-     */
-    const searchEnabled = getConfig('search', 'enabled');
-    const clearFilterText = getConfig('filterPanel', 'i18n.topPanel.mobile.group.clearFilterText');
-    const clearAllFiltersText = getConfig('filterPanel', 'i18n.topPanel.clearAllFiltersText');
-    const blurMobileFilters = getConfig('filterPanel', 'topPanel.mobile.blurFilters');
-    const showTotalResults = getConfig('collection', 'showTotalResults');
-    const showTotalResultsText = getConfig('collection', 'i18n.totalResultsText');
-    const sortEnabled = getConfig('sort', 'enabled');
-    const sortOptions = getConfig('sort', 'options');
-    const filterGroupLabel = getConfig('filterPanel', 'i18n.topPanel.groupLabel');
-    const moreFiltersBtnText = getConfig('filterPanel', 'i18n.topPanel.moreFiltersBtnText');
-    const title = getConfig('collection', 'i18n.title');
-
-    /**
-     * Top search bar identifier
-     * @type {String}
-     */
-    const searchId = 'top-search';
+        title,
+        sortEnabled,
+        sortOptions,
+        blurFilters,
+        searchEnabled,
+        clearFilterText,
+        showTotalResults,
+        totalResultsText,
+        filterGroupLabel,
+        moreFiltersBtnText,
+        clearAllFiltersText,
+    } = useConfigSelector(selector);
 
     /**
      **** Hooks ****
@@ -133,7 +97,7 @@ const FiltersPanelTop = (props) => {
      * Total results HTML
      * @type {Array}
      */
-    const totalResultsHtml = renderTotalResults(showTotalResultsText, resQty);
+    const totalResultsHtml = renderTotalResults(totalResultsText, resQty);
 
     /**
      * Whether at least one filter is selected
@@ -215,7 +179,7 @@ const FiltersPanelTop = (props) => {
      */
     const clearBtnWrapperClass = classNames({
         'consonant-top-filters--clear-btn-wrapper': true,
-        'consonant-top-filters--clear-btn-wrapper_with-blur': blurMobileFilters && filters.length > 1,
+        'consonant-top-filters--clear-btn-wrapper_with-blur': blurFilters && filters.length > 1,
     });
 
     /**
@@ -228,106 +192,111 @@ const FiltersPanelTop = (props) => {
         <div
             data-testid="consonant-filters__top"
             className="consonant-top-filters">
-            {shouldDisplaySearchBar &&
+            <If condition={Boolean(shouldDisplaySearchBar)}>
                 <div
                     data-testid="top-filters__search-wrapper"
                     className="consonant-top-filters--search-wrapper">
                     {searchComponent}
                 </div>
-            }
+            </If>
             <div
                 className="consonant-top-filters--inner">
-                {shouldDisplayFilters &&
+                <If condition={Boolean(shouldDisplayFilters)}>
                     <div
                         className="consonant-top-filters--filters-wrapper">
-                        {TABLET_OR_DESKTOP_SCREEN_SIZE &&
+                        <If condition={Boolean(TABLET_OR_DESKTOP_SCREEN_SIZE)}>
                             <strong
                                 className="consonant-top-filters--title">
                                 {filterGroupLabel}
                             </strong>
-                        }
+                        </If>
                         <div
                             data-testid="consonant-filters__top__filters"
                             className={showLimitedFiltersQtyClass}>
-                            {filters.map(filter =>
+                            {filters.map(({
+                                id, group, items, opened,
+                            }) =>
                                 (<TopFilterItem
-                                    key={filter.id}
-                                    name={filter.group}
-                                    items={filter.items}
-                                    numItemsSelected={sum(filter.items.map(i => i.selected))}
+                                    isTopFilter
+                                    id={id}
+                                    key={id}
+                                    name={group}
+                                    items={items}
                                     results={resQty}
-                                    id={filter.id}
-                                    isOpened={filter.opened}
-                                    onCheck={onCheckboxClick}
+                                    isOpened={opened}
                                     onClick={onFilterClick}
+                                    onCheck={onCheckboxClick}
                                     onClearAll={onClearFilterItems}
                                     clearFilterText={clearFilterText}
-                                    isTopFilter />))
+                                    numItemsSelected={getSelectedItemsCount(items)} />))
                             }
-                            {shouldDisplayMoreFiltersBtn &&
+                            <If condition={Boolean(shouldDisplayMoreFiltersBtn)}>
                                 <button
                                     type="button"
+                                    onClick={onShowAllClick}
                                     data-testid="top-filter__more-button"
-                                    className="consonant-top-filters--more-btn"
-                                    onClick={onShowAllClick}>
+                                    className="consonant-top-filters--more-btn">
                                     {moreFiltersBtnText}
                                 </button>
-                            }
+                            </If>
                         </div>
-                        {shouldShowClearButtonWrapper &&
+
+                        <If condition={Boolean(shouldShowClearButtonWrapper)}>
                             <div
                                 data-testid="top-filter__clear-button-wrapper"
                                 className={clearBtnWrapperClass}>
-                                {atleastOneFilterSelected &&
+                                <If condition={Boolean(shouldShowClearButtonWrapper)}>
                                     <button
+                                        tabIndex="0"
                                         type="button"
-                                        data-testid="top-filter__clear-button"
-                                        className="consonant-top-filters--clear-btn"
                                         onClick={onClearAllFilters}
-                                        tabIndex="0">
+                                        data-testid="top-filter__clear-button"
+                                        className="consonant-top-filters--clear-btn">
                                         {clearAllFiltersText}
                                     </button>
-                                }
+                                </If>
                             </div>
-                        }
+                        </If>
                     </div>
-                }
-                {searchEnabled && TABLET_OR_DESKTOP_SCREEN_SIZE &&
+                </If>
+                <If condition={searchEnabled && TABLET_OR_DESKTOP_SCREEN_SIZE}>
                     <div
                         data-testid="filter-top-ico-wrapper"
                         className="consonant-top-filters--search-ico-wrapper">
-                        {shouldShowSearchBar && searchComponent}
-                        {TABLET_OR_DESKTOP_SCREEN_SIZE &&
-                            <SearchIcon
-                                onClick={handleExpandableToggle} />
-                        }
+                        <If condition={Boolean(shouldShowSearchBar)}>
+                            {searchComponent}
+                        </If>
+                        <If condition={Boolean(TABLET_OR_DESKTOP_SCREEN_SIZE)}>
+                            <SearchIcon onClick={handleExpandableToggle} />
+                        </If>
                     </div>
-                }
-                {shouldDisplaySortComponent &&
+                </If>
+
+                <If condition={Boolean(shouldDisplaySortComponent)}>
                     <div
                         data-testid="top-filters__sort-popup"
                         className="consonant-top-filters--select-wrapper">
                         {sortComponent}
                     </div>
-                }
-                {shouldDisplayCollectionInfo &&
+                </If>
+                <If condition={Boolean(shouldDisplayCollectionInfo)}>
                     <div className="consonant-top-filters--info-wrapper">
-                        {title &&
+                        <If condition={Boolean(title)}>
                             <h2
                                 data-testid="title"
                                 className="consonant-top-filters--collection-title">
                                 {title}
                             </h2>
-                        }
-                        {showTotalResults &&
+                        </If>
+                        <If condition={Boolean(showTotalResults)}>
                             <div
                                 data-testid="results"
                                 className="consonant-top-filters--results">
                                 {totalResultsHtml}
                             </div>
-                        }
+                        </If>
                     </div>
-                }
+                </If>
             </div>
         </div>
     );
