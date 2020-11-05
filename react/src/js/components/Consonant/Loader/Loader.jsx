@@ -1,17 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
-import {
-    string,
-    bool,
-} from 'prop-types';
 
+import { LoaderType } from './types';
 import { LOADER_SIZE } from '../Helpers/constants';
-
-const LoaderType = {
-    size: string,
-    hidden: bool,
-    absolute: bool,
-};
 
 const defaultProps = {
     hidden: false,
@@ -35,10 +26,10 @@ const defaultProps = {
  */
 const Loader = ({ size, hidden, absolute }) => {
     const className = classNames({
-        'consonant-loader_medium': size === LOADER_SIZE.MEDIUM,
-        'consonant-loader_big': size === LOADER_SIZE.BIG,
         'consonant-loader': true,
         'consonant-loader_absolute': absolute,
+        'consonant-loader_big': size === LOADER_SIZE.BIG,
+        'consonant-loader_medium': size === LOADER_SIZE.MEDIUM,
     });
 
     return !hidden && (

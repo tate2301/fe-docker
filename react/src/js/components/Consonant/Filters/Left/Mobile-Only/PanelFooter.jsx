@@ -1,10 +1,13 @@
 import React from 'react';
 import {
-    string,
-    number,
     func,
     bool,
+    string,
+    number,
 } from 'prop-types';
+
+import { If } from '../../../Common';
+import { template } from '../../../Helpers/general';
 
 const PanelFooterType = {
     resQty: number,
@@ -40,16 +43,18 @@ const PanelFooter = ({
     onMobileFiltersToggleClick,
 }) => {
     const buttonText = someFiltersAreSelected ? applyText : doneText;
+    const resultText = template(showTotalResultsText, { total: resQty });
+
     return (
         <div className="consonant-left-filters--mobile-footer">
-            {showTotalResults && (
+            <If condition={Boolean(showTotalResults)}>
                 <span
                     data-testid="mobile-footer-total-res"
                     className="consonant-left-filters--mobile-footer-total-res-qty">
-                    {showTotalResultsText.replace('{total}', resQty)}
+                    {resultText}
                 </span>
-            )}
-            {someFiltersAreSelected && (
+            </If>
+            <If condition={Boolean(someFiltersAreSelected)}>
                 <button
                     type="button"
                     data-testid="mobile-footer-clear"
@@ -57,7 +62,7 @@ const PanelFooter = ({
                     onClick={onClearAllFilters}>
                     {clearAllFiltersText}
                 </button>
-            )}
+            </If>
             <button
                 type="button"
                 data-testid="mobile-footer-btn"

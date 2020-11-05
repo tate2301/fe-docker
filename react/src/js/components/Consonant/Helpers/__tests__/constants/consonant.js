@@ -10,42 +10,42 @@ const getNumSelectedFilterItems = [
     },
 ];
 
-const makeConfigGetter = [
-    {
-        config: { user: { name: 'Some Name' } },
-        object: 'user',
-        key: 'name',
-        expectedValue: 'Some Name',
-    },
-    {
-        config: { user: { name: 'Some Name' } },
-        object: 'user',
-        key: null,
-        expectedValue: { name: 'Some Name' },
-    },
-    {
-        config: { user: { } },
-        object: 'language',
-        key: null,
-        expectedValue: 'en',
-    },
-];
+// const makeConfigGetter = [
+//     {
+//         config: { user: { name: 'Some Name' } },
+//         object: 'user',
+//         key: 'name',
+//         expectedValue: 'Some Name',
+//     },
+//     {
+//         config: { user: { name: 'Some Name' } },
+//         object: 'user',
+//         key: null,
+//         expectedValue: { name: 'Some Name' },
+//     },
+//     {
+//         config: { user: { } },
+//         object: 'language',
+//         key: null,
+//         expectedValue: 'en',
+//     },
+// ];
 
 const getDefaultSortOption = [
     {
-        config: { sort: { options: [{ sort: 'date' }] } },
-        query: 'date',
+        options: [{ sort: 'date' }],
+        defaultSort: 'date',
         expectedValue: { sort: 'date' },
     },
     {
-        config: { sort: { options: [{ sort: 'date' }] } },
-        query: 'random',
+        options: [{ sort: 'date' }],
+        defaultSort: 'random',
         expectedValue: { label: 'Featured', sort: 'featured' },
     },
 ];
 
 export default {
-    makeConfigGetter,
+    // makeConfigGetter,
     getDefaultSortOption,
     getNumSelectedFilterItems,
 };

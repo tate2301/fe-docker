@@ -21,7 +21,7 @@ const cardsToSort = {
         isFeatured: true,
         initialTitle: 'c title',
         contentArea: { title: 'c title' },
-        cardDate: null,
+        cardDate: undefined,
     },
     4: {
         isFeatured: true,
@@ -51,7 +51,7 @@ const cardsToSort = {
         isFeatured: false,
         initialTitle: 'c title',
         contentArea: { title: 'b title' },
-        cardDate: null,
+        cardDate: undefined,
     },
     9: {
         isFeatured: false,
@@ -81,7 +81,7 @@ const cardsToSort = {
         isFeatured: false,
         initialTitle: 'a title',
         contentArea: { title: 'a title' },
-        cardDate: null,
+        cardDate: undefined,
     },
     14: {
         isFeatured: false,
@@ -111,7 +111,7 @@ const cardsToSort = {
         isFeatured: false,
         initialTitle: 'b title',
         contentArea: { title: 'c title' },
-        cardDate: null,
+        cardDate: undefined,
     },
 };
 
@@ -149,7 +149,7 @@ const sortCards = [
     },
     {
         cards: [...cardsWithoutSorting],
-        sortOption: null,
+        sortOption: undefined,
         expectedValue: [...cardsWithoutSorting],
     },
 ];

@@ -1,3 +1,4 @@
+import merge from 'lodash/merge';
 import React, {
     useMemo,
     useState,
@@ -9,6 +10,7 @@ import {
 } from 'prop-types';
 
 import { ConfigType } from '../../types/config';
+import { DEFAULT_CONFIG } from '../../Helpers/constants';
 import {
     ConfigContext,
     ExpandableContext,
@@ -16,6 +18,9 @@ import {
 
 const ContextProvider = ({ context, children }) => {
     const [isOpen, toggle] = useState(null);
+
+
+    const fullConfig = merge(DEFAULT_CONFIG, context);
 
     const handleChangeVisibility = useCallback(
         (value) => {
@@ -34,7 +39,7 @@ const ContextProvider = ({ context, children }) => {
 
     return (
         <ExpandableContext.Provider value={expandableContext}>
-            <ConfigContext.Provider value={context}>
+            <ConfigContext.Provider value={fullConfig}>
                 {children}
             </ConfigContext.Provider>
         </ExpandableContext.Provider>

@@ -2,11 +2,11 @@ import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import {
     render,
+    screen,
     fireEvent,
-    screen
 } from '@testing-library/react';
 
-import Bookmark from '../Bookmark/Bookmark';
+import Bookmark from '../Bookmark';
 
 const props = {
     cardId: '1',

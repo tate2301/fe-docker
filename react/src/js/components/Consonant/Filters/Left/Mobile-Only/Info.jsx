@@ -1,10 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
 import {
+    func,
     string,
     number,
-    func,
 } from 'prop-types';
+
+import { If } from '../../../Common';
 
 const InfoType = {
     selectedFiltersQty: number,
@@ -23,7 +25,6 @@ const Info = ({
     onMobileFiltersToggleClick,
 }) => {
     const atleastOneSelectedFilter = selectedFiltersQty > 0;
-
     const selectedFiltersQtyClassName = classNames({
         'consonant-filters-info--btn': true,
         'consonant-filters-info--btn_with-filters': atleastOneSelectedFilter,
@@ -36,22 +37,21 @@ const Info = ({
             <button
                 type="button"
                 data-testid="info-btn"
-                className={selectedFiltersQtyClassName}
-                onClick={onMobileFiltersToggleClick}>
+                onClick={onMobileFiltersToggleClick}
+                className={selectedFiltersQtyClassName}>
                 <span
                     className="consonant-filters-info--btn-ico" />
                 <span
                     className="consonant-filters-info--btn-text">
                     {mobileFilterBtnLabel}
                 </span>
-                {
-                    atleastOneSelectedFilter &&
+                <If condition={Boolean(atleastOneSelectedFilter)}>
                     <span
                         data-testid="btn-selected"
                         className="consonant-filters-info--btn-selected">
                         {selectedFiltersQty}
                     </span>
-                }
+                </If>
             </button>
         </div>
     );

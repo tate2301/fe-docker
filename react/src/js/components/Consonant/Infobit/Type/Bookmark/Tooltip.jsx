@@ -18,8 +18,7 @@ const defaultProps = { text: '' };
  * )
  */
 const Tooltip = ({ text }) => (
-    <span
-        className="consonant-tooltip">
+    <span data-testid="bookmark-tooltip" className="consonant-tooltip">
         {text}
     </span>
 );

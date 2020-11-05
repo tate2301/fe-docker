@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
-    string,
     func,
+    string,
 } from 'prop-types';
 
 const ChosenFilterItemType = {
@@ -11,25 +11,23 @@ const ChosenFilterItemType = {
     parentId: string.isRequired,
 };
 
-const ChosenFilterItem = (props) => {
-    const {
-        name,
-        id,
-        parentId,
-        onClick,
-    } = props;
-
-    const handleClick = () => {
+const ChosenFilterItem = ({
+    id,
+    name,
+    onClick,
+    parentId,
+}) => {
+    const handleClick = useCallback(() => {
         onClick(parentId, id, false);
-    };
+    }, [id, parentId]);
 
     return (
         <button
+            tabIndex="0"
             type="button"
             onClick={handleClick}
             data-testid="selected-filter"
-            className="consonant-chosen-filter"
-            tabIndex="0">
+            className="consonant-chosen-filter">
             {name}
         </button>
     );

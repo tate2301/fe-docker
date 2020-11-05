@@ -6,7 +6,7 @@ import {
     render,
 } from '@testing-library/react';
 
-import Container from '../Container';
+import Container from '../index';
 import setupIntersectionObserverMock from '../../Testing/Mocks/intersectionObserver';
 import config from '../../Testing/Mocks/config.json';
 import cards from '../../Testing/Mocks/cards.json';
@@ -51,8 +51,8 @@ describe('Consonant/Container/Card Styles', () => {
         configToUse.totalCardsToShow = Number.MAX_SAFE_INTEGER;
 
         // this config render a mixed card collection
-        config.collection.cardStyle = ''; 
-        
+        config.collection.cardStyle = '';
+
         const { featuredCards } = config;
         await act(async () => render(<Container config={configToUse} />));
         const totalCards = cards.length + featuredCards.length;

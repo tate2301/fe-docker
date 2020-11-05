@@ -10,7 +10,7 @@ import {
 } from '@testing-library/react';
 
 
-import Container from '../Container';
+import Container from '../index';
 import setupIntersectionObserverMock from '../../Testing/Mocks/intersectionObserver';
 import config from '../../Testing/Mocks/config.json';
 import cards from '../../Testing/Mocks/cards.json';

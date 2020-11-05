@@ -19,10 +19,10 @@ const ClearBtn = ({
 }) => (
     <button
         type="button"
-        data-testid="left-filter-panel-clear-all-btn"
-        className="consonant-left-filters--clear-link"
+        tabIndex="0"
         onClick={onClearAllFilters}
-        tabIndex="0">
+        data-testid="left-filter-panel-clear-all-btn"
+        className="consonant-left-filters--clear-link">
         {clearAllFiltersText}
     </button>
 );

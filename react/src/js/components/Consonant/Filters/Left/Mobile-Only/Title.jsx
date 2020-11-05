@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-    string,
     func,
+    string,
 } from 'prop-types';
 
 const TitleType = {
@@ -20,9 +20,9 @@ const Title = ({
     <div
         className="consonant-left-filters--mob-title">
         <button
-            data-testid="mobile-back-btn"
             type="button"
             onClick={onClick}
+            data-testid="mobile-back-btn"
             className="consonant-left-filters--mob-back" />
         <span>
             {leftPanelMobileHeader}

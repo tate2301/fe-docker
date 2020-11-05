@@ -262,3 +262,12 @@ export const getEndNumber = (currentPageNumber, showItemsPerPage, totalResults) 
     const res = currentPageNumber * showItemsPerPage;
     return res < totalResults ? res : totalResults;
 };
+
+/**
+* Gets the end number for Paginator Component
+* @param {string} text - template string like a '{name} {surname}'
+* @param {object} props - object with props to replace part of text in brackets
+* @returns {string} - ('{name}', { name: 'John' }) => 'John'
+*/
+export const template = (text, props) => text && text
+    .replace(/{([A-z]*)}/gi, (_, key) => props[key]);

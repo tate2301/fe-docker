@@ -18,13 +18,14 @@ const SelectedItem = ({
     numItemsSelected,
 }) => {
     const displayNumItemsSelected = numItemsSelected > 0 ? numItemsSelected : '';
+
     return (
         <button
-            data-testid="item-badge"
             type="button"
-            className="consonant-left-filter--item-badge"
+            tabIndex="0"
+            data-testid="item-badge"
             onClick={handleClear}
-            tabIndex="0">
+            className="consonant-left-filter--item-badge">
             {displayNumItemsSelected}
         </button>
     );

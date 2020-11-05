@@ -5,6 +5,8 @@ import {
     func,
 } from 'prop-types';
 
+import { If } from '../../../Common';
+
 const GroupFooterType = {
     ctaText: string,
     clearFilterText: string,
@@ -34,14 +36,14 @@ const GroupFooter = ({
             className="consonant-left-filter--footer-res-qty">
             {mobileGroupTotalResultsText}
         </span>
-        {numItemsSelected > 0 &&
+        <If condition={numItemsSelected > 0}>
             <button
                 type="button"
                 onClick={handleClear}
                 className="consonant-left-filter--footer-clear-btn">
                 {clearFilterText}
             </button>
-        }
+        </If>
         <button
             type="button"
             onClick={handleClick}

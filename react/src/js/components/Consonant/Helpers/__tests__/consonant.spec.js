@@ -1,7 +1,7 @@
 import PROPS from './constants/consonant';
 
 import {
-    makeConfigGetter,
+    // makeConfigGetter,
     getDefaultSortOption,
     getNumSelectedFilterItems,
 } from '../consonant';
@@ -16,23 +16,23 @@ describe('utils/cards', () => {
             });
         });
     });
-    describe('makeConfigGetter', () => {
-        PROPS.makeConfigGetter.forEach(({
-            config, object, key, expectedValue,
-        }) => {
-            test('should return config value by path', () => {
-                const value = makeConfigGetter(config)(object, key);
+    // describe('makeConfigGetter', () => {
+    //     PROPS.makeConfigGetter.forEach(({
+    //         config, object, key, expectedValue,
+    //     }) => {
+    //         test('should return config value by path', () => {
+    //             const value = makeConfigGetter(config)(object, key);
 
-                expect(value).toEqual(expectedValue);
-            });
-        });
-    });
+    //             expect(value).toEqual(expectedValue);
+    //         });
+    //     });
+    // });
     describe('getDefaultSortOption', () => {
         PROPS.getDefaultSortOption.forEach(({
-            config, query, expectedValue,
+            options, defaultSort, expectedValue,
         }) => {
             test('should return config value by path', () => {
-                const value = getDefaultSortOption(config, query);
+                const value = getDefaultSortOption(options, defaultSort);
 
                 expect(value).toEqual(expectedValue);
             });

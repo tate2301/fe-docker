@@ -1,27 +1,10 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import classNames from 'classnames';
-import {
-    shape,
-    func,
-    arrayOf,
-    bool,
-    string,
-} from 'prop-types';
 
+import Option from './Option';
+import { If } from '../Common';
+import { PopupType } from './types';
 import { useExpandable } from '../Helpers/hooks';
-import { SortOptionType } from '../types/config';
-
-const PopupType = {
-    autoWidth: bool,
-    id: string.isRequired,
-    optionsAlignment: string,
-    onSelect: func.isRequired,
-    val: shape({
-        label: string,
-        sort: string,
-    }).isRequired,
-    values: arrayOf(shape(SortOptionType)).isRequired,
-};
 
 const defaultProps = {
     autoWidth: false,
@@ -46,12 +29,12 @@ const defaultProps = {
  * )
  */
 const Popup = ({
+    id,
     val,
     values,
     onSelect,
     autoWidth,
     optionsAlignment,
-    id,
 }) => {
     /**
      * @typedef {String} OpenDropdownState - Id of a selected dropdown
@@ -73,13 +56,13 @@ const Popup = ({
     /**
      * Handles choosing of a sort option
      *
-     * @param {ClickEvent} e
+     * @param {ClickEvent} event
      * @listens ClickEvent
      */
-    const handleOptionClick = (e, item) => {
+    const handleOptionClick = useCallback((event, item) => {
         onSelect(item);
-        handleToggle(e);
-    };
+        handleToggle(event);
+    }, []);
 
     const shouldAutoWidthSortClass = classNames({
         'consonant-select': true,
@@ -95,33 +78,26 @@ const Popup = ({
         <div
             className={shouldAutoWidthSortClass}>
             <button
-                data-testid="select-button"
+                tabIndex="0"
                 type="button"
                 onClick={handleToggle}
-                className={openButtonClass}
-                tabIndex="0">
+                data-testid="select-button"
+                className={openButtonClass}>
                 {val.label}
             </button>
-            { opened &&
+            <If condition={Boolean(opened)}>
                 <div
                     data-testid="consonant-select--options"
                     className={`consonant-select--options consonant-select--options_${optionsAlignment}`}>
-                    {values.map(item => (
-                        <button
-                            data-testid="select-option"
-                            key={item.label}
-                            type="button"
-                            className={item.label === val.label ?
-                                'consonant-select--option consonant-select--option_selected' :
-                                'consonant-select--option'
-                            }
-                            onClick={e => handleOptionClick(e, item)}
-                            tabIndex={0}>
-                            {item.label}
-                        </button>
+                    {values.map(option => (
+                        <Option
+                            option={option}
+                            key={option.label}
+                            selectedOption={val}
+                            onClick={handleOptionClick} />
                     ))}
                 </div>
-            }
+            </If>
         </div>
     );
 };

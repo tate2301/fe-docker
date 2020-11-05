@@ -4,12 +4,12 @@ import { renderHook, act } from '@testing-library/react-hooks';
 import '@testing-library/jest-dom/extend-expect';
 import {
     useExpandable,
-    useConfig,
+    // useConfig,
     useIsMounted,
     useWindowDimensions,
     useLazyLoading,
 } from '../hooks';
-import { ConfigContext, ExpandableContext } from '../contexts';
+import { ExpandableContext } from '../contexts';
 
 import jestMocks from '../../Testing/Utils/JestMocks';
 
@@ -25,12 +25,12 @@ const ExpandableContextProvider = ({ children }) => {
     );
 };
 
-// eslint-disable-next-line react/prop-types
-const ConfigContextProvider = ({ children }) => (
-    <ConfigContext.Provider value={{ info: { name: 'name' } }}>
-        {children}
-    </ConfigContext.Provider>
-);
+// // eslint-disable-next-line react/prop-types
+// const ConfigContextProvider = ({ children }) => (
+//     <ConfigContext.Provider value={{ info: { name: 'name' } }}>
+//         {children}
+//     </ConfigContext.Provider>
+// );
 
 const resize = (width, height) => {
     // const resizeEvent = document.createEvent('Event');
@@ -66,17 +66,17 @@ describe('utils/hooks', () => {
             expect(result.current[0]).toBe(null);
         });
     });
-    describe('useConfig', () => {
-        test('should get correct context value', () => {
-            const { result } = renderHook(() => useConfig(), {
-                wrapper: ConfigContextProvider,
-            });
+    // describe('useConfig', () => {
+    //     test('should get correct context value', () => {
+    //         const { result } = renderHook(() => useConfig(), {
+    //             wrapper: ConfigContextProvider,
+    //         });
 
-            const name = result.current('info', 'name');
+    //         const name = result.current('info', 'name');
 
-            expect(name).toBe('name');
-        });
-    });
+    //         expect(name).toBe('name');
+    //     });
+    // });
     describe('useIsMounted', () => {
         test('should return false if unmounted', () => {
             const { result, unmount } = renderHook(() => useIsMounted());

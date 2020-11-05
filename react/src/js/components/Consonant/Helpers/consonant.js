@@ -1,33 +1,18 @@
 import sum from 'lodash/sum';
-import get from 'lodash/get';
 
-import { DEFAULT_CONFIG } from './constants';
-import {
-    chainFromIterable,
-    isNullish,
-} from './general';
+import { chainFromIterable } from './general';
+
+const defaultSortValue = {
+    sort: 'featured',
+    label: 'Featured',
+};
 
 export const getNumSelectedFilterItems = (filters) => {
-    const filterItems = chainFromIterable(filters.map(filter => filter.items));
-    return sum(filterItems.map(item => item.selected));
+    const filterItems = chainFromIterable(filters.map(({ items }) => items));
+
+    return sum(filterItems.map(({ selected }) => selected));
 };
 
-export const makeConfigGetter = config => (object, key) => {
-    const objectPath = key ? `${object}.${key}` : object;
-    const defaultValue = get(DEFAULT_CONFIG, objectPath);
-
-    const value = get(config, objectPath);
-
-    if (isNullish(value)) {
-        return defaultValue;
-    }
-    return value;
-};
-
-export function getDefaultSortOption(config, query) {
-    const sortOptions = makeConfigGetter(config)('sort', 'options');
-    return sortOptions.find(option => option.sort === query) || {
-        label: 'Featured',
-        sort: 'featured',
-    };
+export function getDefaultSortOption(options, defaultSort) {
+    return (options || []).find(({ sort }) => sort === defaultSort) || defaultSortValue;
 }
