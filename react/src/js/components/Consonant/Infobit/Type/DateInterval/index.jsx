@@ -1,13 +1,11 @@
 import React from 'react';
-import { string } from 'prop-types';
 
-import getPrettyDateInterval from '../../Helpers/prettyFormat';
+import { DateIntervalType } from './types';
+import getPrettyDateInterval from '../../../Helpers/prettyFormat';
 
-const DateIntervalType = {
-    locale: string.isRequired,
-    endTime: string.isRequired,
-    startTime: string.isRequired,
-    dateFormat: string.isRequired,
+const defaultProps = {
+    locale: '',
+    dateFormat: '',
 };
 
 /**
@@ -16,9 +14,9 @@ const DateIntervalType = {
  * @component
  * @example
  * const props= {
-    startTime: String,
-    endTime: String,
     locale: String,
+    endTime: String,
+    startTime: String,
     dateFormat: String,
  * }
  * return (
@@ -26,12 +24,13 @@ const DateIntervalType = {
  * )
  */
 const DateInterval = ({
-    startTime,
-    endTime,
     locale,
+    endTime,
+    startTime,
     dateFormat,
 }) => {
     const prettyDateInterval = getPrettyDateInterval(startTime, endTime, locale, dateFormat);
+
     return (
         <span
             title={prettyDateInterval}
@@ -42,5 +41,6 @@ const DateInterval = ({
 };
 
 DateInterval.propTypes = DateIntervalType;
+DateInterval.defaultProps = defaultProps;
 
 export default DateInterval;
