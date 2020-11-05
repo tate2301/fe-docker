@@ -1,15 +1,11 @@
 import React from 'react';
-import { string } from 'prop-types';
 
+import { If } from '../Common';
+import { ViewType } from './types';
 import { renderDisplayMsg } from '../Helpers/rendering';
 
-const ViewType = {
-    description: string,
-    replaceValue: string,
-    title: string.isRequired,
-};
-
 const defaultProps = {
+    title: '',
     description: '',
     replaceValue: '',
 };
@@ -28,13 +24,11 @@ const defaultProps = {
  *   <NoResultsView {...props}/>
  * )
  */
-const View = (props) => {
-    const {
-        title,
-        description,
-        replaceValue,
-    } = props;
-
+const View = ({
+    title,
+    description,
+    replaceValue,
+}) => {
     const displayMsg = renderDisplayMsg(description, replaceValue);
 
     return (
@@ -45,12 +39,12 @@ const View = (props) => {
                 className="consonant-no-results-view--title">
                 {title}
             </strong>
-            {description &&
+            <If condition={Boolean(description)}>
                 <div
                     className="consonant-no-results-view--description">
                     {displayMsg}
                 </div>
-            }
+            </If>
         </div>
     );
 };
