@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const trackClearAllClicked = function(){
     console.log('Clear All Clicked');
 }
