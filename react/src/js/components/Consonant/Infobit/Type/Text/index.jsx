@@ -1,9 +1,6 @@
 import React from 'react';
-import { string } from 'prop-types';
 
-const TextType = {
-    text: string.isRequired,
-};
+import { TextType } from './types';
 
 /**
  * Text infobit (shown in 3:2 Card Footer)
