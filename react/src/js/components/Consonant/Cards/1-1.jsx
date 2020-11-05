@@ -163,7 +163,7 @@ const AspectRatio1to1Card = (props) => {
                     <a
                         href={videoURL}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         className="consonant-aspect-ratio-1-1-card--video-ico"
                         tabIndex="0">
                         {videoURL}
@@ -187,7 +187,7 @@ const AspectRatio1to1Card = (props) => {
             <a
                 href={ctaLink}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 title="Click to open in a new tab"
                 className="consonant-aspect-ratio-1-1-card--inner"
                 tabIndex="0">

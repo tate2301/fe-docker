@@ -62,7 +62,7 @@ const Button = ({
             className={buttonClass}
             data-testid="consonant-btn-infobit"
             tabIndex="0"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             target="_blank"
             href={href}>
             {iconSrc &&

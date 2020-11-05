@@ -209,7 +209,7 @@ const AspectRatio3to2Card = (props) => {
                     <a
                         href={videoURL}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         className="consonant-aspect-ratio-3-2-card--video-ico"
                         tabIndex="0">
                         {videoURL}

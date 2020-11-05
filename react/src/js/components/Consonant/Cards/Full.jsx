@@ -134,7 +134,7 @@ const FullCard = (props) => {
                     <a
                         href={videoURL}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         className="consonant-full-card--video-ico"
                         tabIndex="0">
                         {videoURL}
@@ -158,7 +158,7 @@ const FullCard = (props) => {
             <a
                 href={ctaLink}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 title=""
                 className="consonant-full-card--inner"
                 tabIndex="0">
