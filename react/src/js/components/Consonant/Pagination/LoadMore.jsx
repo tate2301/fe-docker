@@ -1,16 +1,10 @@
 import React from 'react';
-import {
-    number,
-    func,
-} from 'prop-types';
 
-import { useConfig } from '../Helpers/hooks';
-
-const LoadMoreType = {
-    show: number.isRequired,
-    total: number.isRequired,
-    onClick: func.isRequired,
-};
+import { If } from '../Common';
+import { LoadMoreType } from './types';
+import { loadMoreSelector } from './utils';
+import { template } from '../Helpers/general';
+import { useConfigSelector } from '../Helpers/hooks';
 
 /**
  * Load More - Button That Naviates Users To The Next Page
@@ -18,8 +12,8 @@ const LoadMoreType = {
  * @component
  * @example
  * const props= {
-    show: Int,
-    total: Int,
+    show: Number,
+    total: Number,
     onClick: Function,
  * }
  * return (
@@ -31,54 +25,46 @@ const LoadMore = ({
     total,
     onClick,
 }) => {
-    const getConfig = useConfig();
-
-    /**
-     * Authored Button Text
-     * @type {String}
-     */
-    const loadMoreButtonText = getConfig('pagination', 'i18n.loadMore.btnText');
-
-    /**
-     * Authored Summary Text
-     * @type {String}
-     */
-    const loadMoreQuantityText = getConfig('pagination', 'i18n.loadMore.resultsQuantityText');
+    const {
+        loadMoreButtonText,
+        loadMoreQuantityText,
+    } = useConfigSelector(loadMoreSelector);
 
     /**
      * Summary Of Load More Results To Show To Users
      * @type {String}
      */
-    const summaryText = loadMoreQuantityText
-        .replace('{start}', show)
-        .replace('{end}', total);
+    const summaryText = template(loadMoreQuantityText, { start: show, end: total });
 
+    const shouldDisplayLoadMoreButton = show < total;
     const shouldDisplayLoadMore = show > 0 && total > 0;
-    const shouldDisplayLoadMoreBtn = show < total;
 
-    return (shouldDisplayLoadMore) ? (
-        <div
-            data-testid="consonant-load-more"
-            className="consonant-load-more">
-            <div className="consonant-load-more--inner">
-                <p
-                    data-testid="consonant-load-more--text"
-                    className="consonant-load-more--text">
-                    {summaryText}
-                </p>
-                {shouldDisplayLoadMoreBtn &&
-                    <button
-                        type="button"
-                        data-testid="load-more__button"
-                        className="consonant-load-more--btn"
-                        onClick={onClick}
-                        tabIndex="0">
-                        {loadMoreButtonText}
-                    </button>
-                }
+    return (
+        <If condition={Boolean(shouldDisplayLoadMore)}>
+            <div
+                className="consonant-load-more"
+                data-testid="consonant-load-more">
+                <div className="consonant-load-more--inner">
+                    <p
+                        className="consonant-load-more--text"
+                        data-testid="consonant-load-more--text">
+                        {summaryText}
+                    </p>
+                    <If condition={Boolean(shouldDisplayLoadMoreButton)}>
+                        <button
+                            tabIndex="0"
+                            type="button"
+                            onClick={onClick}
+                            data-testid="load-more__button"
+                            className="consonant-load-more--btn">
+                            {loadMoreButtonText}
+                        </button>
+                    </If>
+                </div>
             </div>
-        </div>)
-        : null;
+        </If>
+
+    );
 };
 
 LoadMore.propTypes = LoadMoreType;
