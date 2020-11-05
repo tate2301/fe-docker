@@ -1,16 +1,17 @@
-import get from 'lodash/get';
-import set from 'lodash/set';
-import includes from 'lodash/includes';
 import produce, { enableES5 } from 'immer';
 
-import { highlightSearchField } from './rendering';
 import {
-    chainFromIterable,
-    intersection,
+    get,
+    set,
     isSuperset,
+    intersection,
     sanitizeText,
+    chainFromIterable,
     removeDuplicatesByKey,
 } from './general';
+
+import { highlightSearchField } from './rendering';
+
 
 /**
  * Needs to be explicitly called by immer - Needed for IE 11 support
@@ -162,7 +163,7 @@ export const highlightCard = (baseCard, searchField, query) => produce(baseCard,
 const cardMatchesQuery = (searchField, card, searchQuery) => {
     const searchFieldValue = get(card, searchField, '');
     const cleanSearchFieldValue = sanitizeText(searchFieldValue);
-    return includes(cleanSearchFieldValue, searchQuery);
+    return cleanSearchFieldValue.includes(searchQuery);
 };
 
 /**

@@ -1,4 +1,4 @@
-import get from 'lodash/get';
+import { get } from './general';
 
 /**
  * Converts date to milliseconds

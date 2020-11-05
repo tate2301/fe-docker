@@ -5,6 +5,32 @@ import { FullCardType } from '../types';
 import { FullCardDefaultProps } from '../constants';
 import { useLazyLoading } from '../../Helpers/hooks';
 
+/**
+ * Full card
+ *
+ * @component
+ * @example
+ * const props= {
+    id: Number,
+    title: String,
+    label: String,
+    ctaLink: String,
+    logoAlt: String,
+    logoSrc: String,
+    videoURL: String,
+    badgeText: String,
+    cardImage: String,
+    bannerIcon: String,
+    logoBorderColor: String,
+    bannerFontColor: String,
+    bannerDescription: String,
+    logoBackgroundColor: String,
+    bannerBackgroundColor: String,
+ * }
+ * return (
+ *   <FullCard {...props}/>
+ * )
+ */
 const FullCard = ({
     id,
     title,
@@ -22,7 +48,21 @@ const FullCard = ({
     logoBackgroundColor,
     bannerBackgroundColor,
 }) => {
+    /**
+     * Creates a card image DOM reference
+     * @returns {Object} - card image DOM reference
+     */
     const imageRef = React.useRef();
+
+    /**
+     * @typedef {Image} LazyLoadedImageState
+     * @description — Has image as state after image is lazy loaded
+     *
+     * @typedef {Function} LazyLoadedImageStateSetter
+     * @description - Sets state once image is lazy loaded
+     *
+     * @type {[Image]} lazyLoadedImage
+     */
     const [lazyLoadedImage] = useLazyLoading(imageRef, cardImage);
 
     const cardStyles = useMemo(

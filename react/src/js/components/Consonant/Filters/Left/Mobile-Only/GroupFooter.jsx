@@ -1,24 +1,8 @@
 import React from 'react';
-import {
-    func,
-    string,
-    number,
-} from 'prop-types';
 
 import { If } from '../../../Common';
-
-const GroupFooterType = {
-    clearFilterText: string,
-    numItemsSelected: number,
-    handleClear: func.isRequired,
-    mobileGroupTotalResultsText: string,
-};
-
-const defaultProps = {
-    numItemsSelected: 0,
-    clearFilterText: '',
-    mobileGroupTotalResultsText: '',
-};
+import { GroupFooterType } from './types';
+import { groupFooterDefaultProps } from './constants';
 
 /**
  * Footer for the left filter for mobile and tablet breakpoints
@@ -37,7 +21,8 @@ const defaultProps = {
  *   <GroupFooter {...props}/>
  * )
  */
-const GroupFooter = ({
+/* eslint-disable-next-line import/prefer-default-export */
+export const GroupFooter = ({
     handleClear,
     clearFilterText,
     numItemsSelected,
@@ -60,7 +45,4 @@ const GroupFooter = ({
 );
 
 GroupFooter.propTypes = GroupFooterType;
-GroupFooter.defaultProps = defaultProps;
-
-/* eslint-disable-next-line import/prefer-default-export */
-export { GroupFooter };
+GroupFooter.defaultProps = groupFooterDefaultProps;

@@ -1,9 +1,9 @@
 import React, { memo, useMemo } from 'react';
-import merge from 'lodash/merge';
 import { shape } from 'prop-types';
 
 import Container from './Container';
 import { ConfigType } from '../types/config';
+import { mergeDeep } from '../Helpers/general';
 import { ConfigContext } from '../Helpers/contexts';
 import { DEFAULT_CONFIG } from '../Helpers/constants';
 
@@ -28,7 +28,11 @@ import { DEFAULT_CONFIG } from '../Helpers/constants';
  * )
  */
 const ProvidedContainer = ({ config }) => {
-    const fullConfig = useMemo(() => merge(DEFAULT_CONFIG, config), [config]);
+    // console.log('DEFAULT_CONFIG', DEFAULT_CONFIG);
+    // console.log('config', config);
+
+    const fullConfig = useMemo(() => mergeDeep(DEFAULT_CONFIG, config), [config]);
+    // console.log('fullConfig', fullConfig);
 
     return (
         <ConfigContext.Provider value={fullConfig}>

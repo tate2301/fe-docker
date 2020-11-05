@@ -1,5 +1,4 @@
 import React from 'react';
-import sum from 'lodash/sum';
 import classNames from 'classnames';
 
 import { selector } from './utils';
@@ -8,7 +7,7 @@ import { FiltersPanelTopType } from './types';
 import { Group as TopFilterItem } from '../Group';
 import SearchIcon from '../../../Search/SearchIcon';
 import { renderTotalResults } from '../../../Helpers/rendering';
-import { isAtleastOneFilterSelected } from '../../../Helpers/general';
+import { isAtleastOneFilterSelected, getSelectedItemsCount } from '../../../Helpers/general';
 import {
     searchId,
     defaultProps,
@@ -214,20 +213,22 @@ const FiltersPanelTop = ({
                         <div
                             data-testid="consonant-filters__top__filters"
                             className={showLimitedFiltersQtyClass}>
-                            {filters.map(filter =>
+                            {filters.map(({
+                                id, group, items, opened,
+                            }) =>
                                 (<TopFilterItem
                                     isTopFilter
-                                    id={filter.id}
-                                    key={filter.id}
+                                    id={id}
+                                    key={id}
+                                    name={group}
+                                    items={items}
                                     results={resQty}
-                                    name={filter.group}
-                                    items={filter.items}
+                                    isOpened={opened}
                                     onClick={onFilterClick}
-                                    isOpened={filter.opened}
                                     onCheck={onCheckboxClick}
                                     onClearAll={onClearFilterItems}
                                     clearFilterText={clearFilterText}
-                                    numItemsSelected={sum(filter.items.map(i => i.selected))} />))
+                                    numItemsSelected={getSelectedItemsCount(items)} />))
                             }
                             <If condition={Boolean(shouldDisplayMoreFiltersBtn)}>
                                 <button

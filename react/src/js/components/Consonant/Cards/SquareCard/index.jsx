@@ -10,6 +10,35 @@ import {
     useConfigSelector,
 } from '../../Helpers/hooks';
 
+/**
+ * 1:1 aspect ratio card
+ *
+ * @component
+ * @example
+ * const props= {
+    id: Number,
+    title: String,
+    label: String,
+    ctaLink: String,
+    endTime: String,
+    logoAlt: String,
+    logoSrc: String,
+    videoURL: String,
+    badgeText: String,
+    startTime: String,
+    cardImage: String,
+    bannerIcon: String,
+    description: String,
+    logoBorderColor: String,
+    bannerFontColor: String,
+    bannerDescription: String,
+    logoBackgroundColor: String,
+    bannerBackgroundColor: String,
+ * }
+ * return (
+ *   <SquareCard {...props}/>
+ * )
+ */
 const SquareCard = ({
     id,
     title,
@@ -31,8 +60,21 @@ const SquareCard = ({
     bannerBackgroundColor,
 }) => {
     const { locale, dateTemlate } = useConfigSelector(selector);
-
+    /**
+     * Creates a card image DOM reference
+     * @returns {Object} - card image DOM reference
+     */
     const imageRef = React.useRef();
+
+    /**
+     * @typedef {Image} LazyLoadedImageState
+     * @description — Has image as state after image is lazy loaded
+     *
+     * @typedef {Function} LazyLoadedImageStateSetter
+     * @description - Sets state once image is lazy loaded
+     *
+     * @type {[Image]} lazyLoadedImage
+     */
     const [lazyLoadedImage] = useLazyLoading(imageRef, cardImage);
 
     const cardStyles = useMemo(
@@ -49,6 +91,10 @@ const SquareCard = ({
         backgroundColor: logoBackgroundColor,
     }), [logoBackgroundColor, logoBorderColor]);
 
+    /**
+     * Formatted Detail text
+     * @type {String|null}
+     */
     const detailText = useMemo(
         () => (!startTime ? label : prettyFormatDate(startTime, endTime, locale, dateTemlate))
         , [label, startTime, endTime],

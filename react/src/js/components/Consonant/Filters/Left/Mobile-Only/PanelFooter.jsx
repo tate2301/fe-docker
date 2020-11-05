@@ -1,35 +1,9 @@
 import React from 'react';
-import {
-    func,
-    bool,
-    string,
-    number,
-} from 'prop-types';
 
 import { If } from '../../../Common';
+import { PanelFooterType } from './types';
 import { template } from '../../../Helpers/general';
-
-const PanelFooterType = {
-    resQty: number,
-    doneText: string,
-    applyText: string,
-    showTotalResults: bool,
-    clearAllFiltersText: string,
-    someFiltersAreSelected: bool,
-    showTotalResultsText: string,
-    onClearAllFilters: func.isRequired,
-    onMobileFiltersToggleClick: func.isRequired,
-};
-
-const defaultProps = {
-    resQty: 0,
-    doneText: '',
-    applyText: '',
-    showTotalResults: false,
-    clearAllFiltersText: '',
-    showTotalResultsText: '',
-    someFiltersAreSelected: false,
-};
+import { panelFooterDefaultProps } from './constants';
 
 /**
  * Footer of the left filter panel for mobile and tablet breakpoints
@@ -51,7 +25,8 @@ const defaultProps = {
  *   <PanelFooter {...props}/>
  * )
  */
-const PanelFooter = ({
+/* eslint-disable-next-line import/prefer-default-export */
+export const PanelFooter = ({
     resQty,
     doneText,
     applyText,
@@ -100,7 +75,4 @@ const PanelFooter = ({
 };
 
 PanelFooter.propTypes = PanelFooterType;
-PanelFooter.defaultProps = defaultProps;
-
-/* eslint-disable-next-line import/prefer-default-export */
-export { PanelFooter };
+PanelFooter.defaultProps = panelFooterDefaultProps;

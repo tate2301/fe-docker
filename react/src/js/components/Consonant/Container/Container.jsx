@@ -5,7 +5,6 @@ import React, {
     useEffect,
 } from 'react';
 import 'whatwg-fetch';
-import get from 'lodash/get';
 
 import { If } from '../Common';
 import Popup from '../Sort/Popup';
@@ -32,6 +31,7 @@ import {
     getNumSelectedFilterItems,
 } from '../Helpers/consonant';
 import {
+    get,
     saveBookmarksToLocalStorage,
     readBookmarksFromLocalStorage,
 } from '../Helpers/general';
@@ -640,20 +640,20 @@ const Container = () => {
                 onClick={handleWindowClick}
                 className="consonant-wrapper">
                 <div className="consonant-wrapper--inner">
-                    {displayLeftFilterPanel && (
+                    <If condition={displayLeftFilterPanel}>
                         <div>
                             <LeftFilterPanel
                                 filters={filters}
-                                selectedFiltersQty={selectedFiltersItemsQty}
                                 windowWidth={windowWidth}
-                                onFilterClick={handleFilterGroupClick}
-                                onClearAllFilters={resetFiltersSearchAndBookmarks}
-                                onClearFilterItems={clearFilterItem}
-                                onCheckboxClick={handleCheckBoxChange}
-                                onMobileFiltersToggleClick={handleMobileFiltersToggle}
-                                onSelectedFilterClick={handleCheckBoxChange}
-                                showMobileFilters={showMobileFilters}
                                 resQty={collectionCards.length}
+                                onClearFilterItems={clearFilterItem}
+                                showMobileFilters={showMobileFilters}
+                                onCheckboxClick={handleCheckBoxChange}
+                                onFilterClick={handleFilterGroupClick}
+                                selectedFiltersQty={selectedFiltersItemsQty}
+                                onSelectedFilterClick={handleCheckBoxChange}
+                                onClearAllFilters={resetFiltersSearchAndBookmarks}
+                                onMobileFiltersToggleClick={handleMobileFiltersToggle}
                                 bookmarkComponent={(
                                     <Bookmarks
                                         showBookmarks={showBookmarks}
@@ -662,122 +662,120 @@ const Container = () => {
                                 )}
                                 searchComponent={(
                                     <Search
-                                        placeholderText={leftPanelSearchPlaceholder}
-                                        name="filtersSideSearch"
-                                        value={searchQuery}
                                         autofocus={false}
-                                        onSearch={handleSearchInputChange} />
+                                        value={searchQuery}
+                                        name="filtersSideSearch"
+                                        onSearch={handleSearchInputChange}
+                                        placeholderText={leftPanelSearchPlaceholder} />
                                 )} />
                         </div>
-                    )}
+                    </If>
                     <div>
-                        {
-                            isTopFilterPanel &&
-                                <FiltersPanelTop
-                                    filterPanelEnabled={filterPanelEnabled}
-                                    filters={filters}
-                                    windowWidth={windowWidth}
-                                    resQty={collectionCards.length}
-                                    onCheckboxClick={handleCheckBoxChange}
-                                    onFilterClick={handleFilterGroupClick}
-                                    onClearFilterItems={clearFilterItem}
-                                    onClearAllFilters={resetFiltersSearchAndBookmarks}
-                                    showLimitedFiltersQty={showLimitedFiltersQty}
-                                    searchComponent={(
-                                        <Search
-                                            placeholderText={topPanelSearchPlaceholder}
-                                            name="filtersTopSearch"
-                                            value={searchQuery}
-                                            autofocus={DESKTOP_SCREEN_SIZE}
-                                            onSearch={handleSearchInputChange} />
-                                    )}
-                                    sortComponent={(
-                                        <Popup
-                                            opened={sortOpened}
-                                            id="sort"
-                                            val={sortOption}
-                                            values={sortOptions}
-                                            onSelect={handleSortChange}
-                                            name="filtersTopSelect"
-                                            autoWidth
-                                            optionsAlignment={topPanelSortPopupLocation} />
-                                    )}
-                                    onShowAllClick={handleShowAllTopFilters} />
-                        }
-                        {isLeftFilterPanel &&
-                        <LeftInfo
-                            enabled={filterPanelEnabled}
-                            filtersQty={filters.length}
-                            filters={filters}
-                            cardsQty={collectionCards.length}
-                            selectedFiltersQty={selectedFiltersItemsQty}
-                            windowWidth={windowWidth}
-                            onMobileFiltersToggleClick={handleMobileFiltersToggle}
-                            searchComponent={(
-                                <Search
-                                    placeholderText={searchPlaceholderText}
-                                    name="searchFiltersInfo"
-                                    value={searchQuery}
-                                    autofocus={false}
-                                    onSearch={handleSearchInputChange} />
-                            )}
-                            sortComponent={(
-                                <Popup
-                                    opened={sortOpened}
-                                    id="sort"
-                                    val={sortOption}
-                                    values={sortOptions}
-                                    onSelect={handleSortChange}
-                                    autoWidth={false}
-                                    optionsAlignment="right" />
-                            )}
-                            sortOptions={sortOptions} />
-                        }
-                        {atLeastOneCard ?
+                        <If condition={isTopFilterPanel}>
+                            <FiltersPanelTop
+                                filters={filters}
+                                windowWidth={windowWidth}
+                                resQty={collectionCards.length}
+                                onClearFilterItems={clearFilterItem}
+                                onCheckboxClick={handleCheckBoxChange}
+                                onFilterClick={handleFilterGroupClick}
+                                filterPanelEnabled={filterPanelEnabled}
+                                showLimitedFiltersQty={showLimitedFiltersQty}
+                                onClearAllFilters={resetFiltersSearchAndBookmarks}
+                                searchComponent={(
+                                    <Search
+                                        value={searchQuery}
+                                        name="filtersTopSearch"
+                                        autofocus={DESKTOP_SCREEN_SIZE}
+                                        onSearch={handleSearchInputChange}
+                                        placeholderText={topPanelSearchPlaceholder} />
+                                )}
+                                sortComponent={(
+                                    <Popup
+                                        id="sort"
+                                        autoWidth
+                                        val={sortOption}
+                                        opened={sortOpened}
+                                        values={sortOptions}
+                                        name="filtersTopSelect"
+                                        onSelect={handleSortChange}
+                                        optionsAlignment={topPanelSortPopupLocation} />
+                                )}
+                                onShowAllClick={handleShowAllTopFilters} />
+                        </If>
+                        <If condition={isLeftFilterPanel}>
+                            <LeftInfo
+                                filters={filters}
+                                windowWidth={windowWidth}
+                                filtersQty={filters.length}
+                                enabled={filterPanelEnabled}
+                                cardsQty={collectionCards.length}
+                                selectedFiltersQty={selectedFiltersItemsQty}
+                                onMobileFiltersToggleClick={handleMobileFiltersToggle}
+                                searchComponent={(
+                                    <Search
+                                        autofocus={false}
+                                        value={searchQuery}
+                                        name="searchFiltersInfo"
+                                        onSearch={handleSearchInputChange}
+                                        placeholderText={searchPlaceholderText} />
+                                )}
+                                sortComponent={(
+                                    <Popup
+                                        id="sort"
+                                        val={sortOption}
+                                        autoWidth={false}
+                                        opened={sortOpened}
+                                        values={sortOptions}
+                                        optionsAlignment="right"
+                                        onSelect={handleSortChange} />
+                                )}
+                                sortOptions={sortOptions} />
+                        </If>
+                        <If condition={atLeastOneCard}>
                             <Fragment>
                                 <Collection
-                                    resultsPerPage={resultsPerPage}
                                     pages={currentPage}
                                     cards={collectionCards}
+                                    resultsPerPage={resultsPerPage}
                                     onCardBookmark={handleCardBookmarking} />
-                                {displayLoadMore && (
+                                <If condition={displayLoadMore}>
                                     <div ref={page}>
                                         <LoadMore
-                                            onClick={onLoadMoreClick}
                                             show={numCardsToShow}
+                                            onClick={onLoadMoreClick}
                                             total={collectionCards.length} />
                                     </div>
-                                )}
-                                {displayPaginator &&
-                                <Paginator
-                                    pageCount={paginatorCount}
-                                    currentPageNumber={currentPage}
-                                    totalPages={totalPages}
-                                    showItemsPerPage={resultsPerPage}
-                                    totalResults={collectionCards.length}
-                                    onClick={setCurrentPage} />
-                                }
-                            </Fragment> : (
-                                isLoading && (
-                                    <Loader
-                                        size={LOADER_SIZE.BIG}
-                                        hidden={!totalCardLimit}
-                                        absolute />
-                                )
-                            )
-                        }
-                        {!isApiFailure && !atLeastOneCard && !isLoading &&
-                        <NoResultsView
-                            title={noResultsTitle}
-                            description={noResultsDescription}
-                            replaceValue={searchQuery} />
-                        }
-                        {isApiFailure &&
-                        <NoResultsView
-                            title={apiFailureTitle}
-                            description={apiFailureDescription}
-                            replaceValue="" />
-                        }
+                                </If>
+                                <If condition={displayPaginator}>
+                                    <Paginator
+                                        totalPages={totalPages}
+                                        onClick={setCurrentPage}
+                                        pageCount={paginatorCount}
+                                        currentPageNumber={currentPage}
+                                        showItemsPerPage={resultsPerPage}
+                                        totalResults={collectionCards.length} />
+                                </If>
+                            </Fragment>
+                        </If>
+                        <If condition={!atLeastOneCard && isLoading}>
+                            <Loader
+                                absolute
+                                size={LOADER_SIZE.BIG}
+                                hidden={!totalCardLimit} />
+                        </If>
+                        <If condition={!isApiFailure && !atLeastOneCard && !isLoading}>
+                            <NoResultsView
+                                title={noResultsTitle}
+                                replaceValue={searchQuery}
+                                description={noResultsDescription} />
+                        </If>
+                        <If condition={isApiFailure}>
+                            <NoResultsView
+                                replaceValue=""
+                                title={apiFailureTitle}
+                                description={apiFailureDescription} />
+                        </If>
                     </div>
                 </div>
             </section>

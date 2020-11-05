@@ -1,8 +1,8 @@
 import React from 'react';
-import sum from 'lodash/sum';
 
 import Item from '../Item';
 import { FilterListType } from './types';
+import { getSelectedItemsCount } from '../../../Helpers/general';
 
 const FilterList = ({
     filters, resQty, onFilterClick, onCheckboxClick, clearFilterText, onClearFilterItems,
@@ -23,7 +23,7 @@ const FilterList = ({
                 onCheck={onCheckboxClick}
                 onClearAll={onClearFilterItems}
                 clearFilterText={clearFilterText}
-                numItemsSelected={sum(items.map(({ selected }) => selected))} />
+                numItemsSelected={getSelectedItemsCount(items)} />
         ))}
     </div>
 );

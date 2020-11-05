@@ -1,17 +1,16 @@
-import includes from 'lodash/includes';
+import { SORT_TYPES } from './constants';
+import { truncateList } from './general';
+import { filterCardsByDateRange } from './cards';
 import {
-    getFilteredCards,
-    getCardsMatchingSearch,
     highlightCard,
     getDateAscSort,
     getDateDescSort,
     getFeaturedSort,
     getTitleAscSort,
     getTitleDescSort,
+    getFilteredCards,
+    getCardsMatchingSearch,
 } from './Helpers';
-import { SORT_TYPES } from './constants';
-import { filterCardsByDateRange } from './cards';
-import { truncateList } from './general';
 
 /**
  * Class that will constrain result set based on current state of the component
@@ -137,10 +136,8 @@ export default class CardFilterer {
      */
     keepBookmarkedCardsOnly(onlyShowBookmarks, bookmarkedCardIds, showBookmarks) {
         if (onlyShowBookmarks || showBookmarks) {
-            this.filteredCards = this.filteredCards.filter(card => includes(
-                bookmarkedCardIds,
-                card.id,
-            ));
+            this.filteredCards = this.filteredCards
+                .filter(card => bookmarkedCardIds.includes(card.id));
         }
         return this;
     }

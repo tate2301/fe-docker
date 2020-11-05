@@ -15,7 +15,8 @@ import { ItemsType } from './types';
  *   <Items {...props}/>
  * )
  */
-const Items = ({
+/* eslint-disable-next-line import/prefer-default-export */
+export const Items = ({
     items,
     handleCheck,
 }) => (
@@ -51,6 +52,3 @@ const Items = ({
 );
 
 Items.propTypes = ItemsType;
-
-/* eslint-disable-next-line import/prefer-default-export */
-export { Items };

@@ -1,17 +1,7 @@
 import React from 'react';
-import {
-    func,
-    string,
-} from 'prop-types';
 
-const ClearButtonType = {
-    clearAllFiltersText: string,
-    onClearAllFilters: func.isRequired,
-};
-
-const defaultProps = {
-    clearAllFiltersText: '',
-};
+import { ClearButtonType } from './types';
+import { clearButtonDefaultProps } from './constants';
 
 /**
  * This button
@@ -31,7 +21,8 @@ const defaultProps = {
  *   <ClearBtn {...props}/>
  * )
  */
-const ClearBtn = ({
+/* eslint-disable-next-line import/prefer-default-export */
+export const ClearBtn = ({
     onClearAllFilters,
     clearAllFiltersText,
 }) => (
@@ -46,7 +37,4 @@ const ClearBtn = ({
 );
 
 ClearBtn.propTypes = ClearButtonType;
-ClearBtn.defaultProps = defaultProps;
-
-/* eslint-disable-next-line import/prefer-default-export */
-export { ClearBtn };
+ClearBtn.defaultProps = clearButtonDefaultProps;

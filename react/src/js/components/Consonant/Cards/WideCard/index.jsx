@@ -16,6 +16,38 @@ import {
     useConfigSelector,
 } from '../../Helpers/hooks';
 
+/**
+ * 3:2 aspect ratio card
+ *
+ * @component
+ * @example
+ * const props= {
+    id: Number,
+    title: String,
+    label: String,
+    footer: Array,
+    onClick: Function,
+    endTime: : String,
+    logoAlt: String,
+    logoSrc: String,
+    videoURL: String,
+    badgeText: String,
+    startTime: String,
+    cardImage: String,
+    bannerIcon: String,
+    description: String,
+    isBookmarked: Boolean,
+    logoBorderColor: String,
+    bannerFontColor: String,
+    bannerDescription: String,
+    disableBookmarkIco: String,
+    logoBackgroundColor: String,
+    bannerBackgroundColor: String,
+ * }
+ * return (
+ *   <WideCard {...props}/>
+ * )
+ */
 const WideCard = ({
     id,
     title,
@@ -39,7 +71,21 @@ const WideCard = ({
     logoBackgroundColor,
     bannerBackgroundColor,
 }) => {
+    /**
+     * Creates a card image DOM reference
+     * @returns {Object} - card image DOM reference
+     */
     const imageRef = React.useRef();
+
+    /**
+     * @typedef {Image} LazyLoadedImageState
+     * @description — Has image as state after image is lazy loaded
+     *
+     * @typedef {Function} LazyLoadedImageStateSetter
+     * @description - Sets state once image is lazy loaded
+     *
+     * @type {[Image]} lazyLoadedImage
+     */
     const [lazyLoadedImage] = useLazyLoading(imageRef, cardImage);
 
     const { locale, dateTemlate } = useConfigSelector(selector);
@@ -58,6 +104,10 @@ const WideCard = ({
         backgroundColor: logoBackgroundColor,
     }), [logoBackgroundColor, logoBorderColor]);
 
+    /**
+     * Formatted detail text
+     * @type {String|null}
+     */
     const detailText = useMemo(
         () => (!startTime ? label : prettyFormatDate(startTime, endTime, locale, dateTemlate))
         , [label, startTime, endTime],

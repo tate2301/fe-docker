@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import classNames from 'classnames';
 
-import { selector } from './selectors';
+import { selector } from './utils';
 import { BookmarksType } from './types';
 import { useConfigSelector } from '../Helpers/hooks';
 

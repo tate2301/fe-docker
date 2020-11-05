@@ -1,23 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
-import {
-    func,
-    string,
-    number,
-} from 'prop-types';
 
+import { InfoType } from './types';
 import { If } from '../../../Common';
-
-const InfoType = {
-    selectedFiltersQty: number,
-    mobileFilterBtnLabel: string,
-    onMobileFiltersToggleClick: func.isRequired,
-};
-
-const defaultProps = {
-    selectedFiltersQty: 0,
-    mobileFilterBtnLabel: '',
-};
+import { infoDefaultProps } from './constants';
 
 /**
  * Button with the count of selected filters
@@ -34,7 +20,8 @@ const defaultProps = {
  *   <Info {...props}/>
  * )
  */
-const Info = ({
+/* eslint-disable-next-line import/prefer-default-export */
+export const Info = ({
     selectedFiltersQty,
     mobileFilterBtnLabel,
     onMobileFiltersToggleClick,
@@ -79,7 +66,4 @@ const Info = ({
 };
 
 Info.propTypes = InfoType;
-Info.defaultProps = defaultProps;
-
-/* eslint-disable-next-line import/prefer-default-export */
-export { Info };
+Info.defaultProps = infoDefaultProps;

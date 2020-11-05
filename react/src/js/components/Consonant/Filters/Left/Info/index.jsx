@@ -29,7 +29,8 @@ import { renderTotalResults } from '../../../Helpers/rendering';
  *   <Info {...props}/>
  * )
  */
-const Info = ({
+/* eslint-disable-next-line import/prefer-default-export */
+export const Info = ({
     enabled,
     cardsQty,
     filtersQty,
@@ -152,6 +153,3 @@ const Info = ({
 
 Info.propTypes = InfoType;
 Info.defaultProps = defaultProps;
-
-/* eslint-disable-next-line import/prefer-default-export */
-export { Info };

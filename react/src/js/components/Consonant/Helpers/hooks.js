@@ -1,4 +1,3 @@
-import debounce from 'lodash/debounce';
 import React, {
     useMemo,
     useState,
@@ -11,8 +10,7 @@ import {
     ConfigContext,
     ExpandableContext,
 } from './contexts';
-
-// const noop = () => {};
+import { debounce } from './general';
 
 /**
  * @typedef {function(): {Int, Int}} WindowDimensionsState - Current Window Dimensions

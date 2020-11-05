@@ -61,17 +61,6 @@ describe('utils/hooks', () => {
             expect(result.current[0]).toBe(null);
         });
     });
-    // describe('useConfig', () => {
-    //     test('should get correct context value', () => {
-    //         const { result } = renderHook(() => useConfig(), {
-    //             wrapper: ConfigContextProvider,
-    //         });
-
-    //         const name = result.current('info', 'name');
-
-    //         expect(name).toBe('name');
-    //     });
-    // });
     describe('useIsMounted', () => {
         test('should return false if unmounted', () => {
             const { result, unmount } = renderHook(() => useIsMounted());
@@ -113,38 +102,31 @@ describe('utils/hooks', () => {
             expect(result.current[0]).toBe('');
         });
         test('shouldn`t return image url when ref.current doesn`t exists', async () => {
-            jestMocks.intersectionObserver();
+            const unobserve = jest.fn();
 
-            const { result } = renderHook(() => useLazyLoading({}, imageUrl));
+            jestMocks.intersectionObserver({
+                unobserve,
+                observe: (callback) => {
+                    setTimeout(() => callback(), 100);
+                },
+            });
+            jestMocks.imageOnLoad({ delay: 500 });
 
-            expect(result.current[0]).toBe('');
+            const {
+                result, waitForNextUpdate, unmount,
+            } = renderHook(({ imageRef, url }) => useLazyLoading(imageRef, url), {
+                initialProps: { imageRef: { current: {} }, url: imageUrl },
+            });
+
+            await waitForNextUpdate();
+
+            expect(unobserve).toHaveBeenCalledTimes(0);
+            expect(result.current[0]).toBe(imageUrl);
+
+            unmount();
+
+            expect(unobserve).toHaveBeenCalledTimes(1);
+            expect(result.current[0]).toBe(imageUrl);
         });
-        // test('shouldn`t return image url when ref.current doesn`t exists', async () => {
-        //     const unobserve = jest.fn();
-
-        //     jestMocks.intersectionObserver({
-        //         unobserve,
-        //         observe: (callback) => {
-        //             setTimeout(() => callback(), 100);
-        //         },
-        //     });
-        //     jestMocks.imageOnLoad({ delay: 500 });
-
-        //     const {
-        //         result, waitForNextUpdate, unmount,
-        //     } = renderHook(({ imageRef, url }) => useLazyLoading(imageRef, url), {
-        //         initialProps: { imageRef: { current: {} }, url: imageUrl },
-        //     });
-
-        //     await waitForNextUpdate();
-
-        //     expect(unobserve).toHaveBeenCalledTimes(0);
-        //     expect(result.current[0]).toBe(imageUrl);
-
-        //     unmount();
-
-        //     expect(unobserve).toHaveBeenCalledTimes(1);
-        //     expect(result.current[0]).toBe(imageUrl);
-        // });
     });
 });

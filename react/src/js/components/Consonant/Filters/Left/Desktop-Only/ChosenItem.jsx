@@ -1,15 +1,6 @@
 import React, { useCallback } from 'react';
-import {
-    func,
-    string,
-} from 'prop-types';
 
-const ChosenFilterItemType = {
-    id: string.isRequired,
-    name: string.isRequired,
-    onClick: func.isRequired,
-    parentId: string.isRequired,
-};
+import { ChosenFilterItemType } from './types';
 
 /**
  * Component for what filter item was chosen
@@ -35,8 +26,6 @@ const ChosenFilterItem = ({
 }) => {
     /**
      * Unselects the chosen filter option when the filter is clicked
-     * @param {ClickEvent} e
-     * @listens ClickEvent
      */
     const handleClick = useCallback(() => {
         onClick(parentId, id, false);

@@ -1,6 +1,7 @@
-import sum from 'lodash/sum';
-
-import { chainFromIterable } from './general';
+import {
+    chainFromIterable,
+    getSelectedItemsCount,
+} from './general';
 
 const defaultSortValue = {
     sort: 'featured',
@@ -14,7 +15,8 @@ const defaultSortValue = {
  */
 export const getNumSelectedFilterItems = (filters) => {
     const filterItems = chainFromIterable(filters.map(filter => filter.items));
-    return sum(filterItems.map(item => item.selected));
+
+    return getSelectedItemsCount(filterItems);
 };
 
 /**

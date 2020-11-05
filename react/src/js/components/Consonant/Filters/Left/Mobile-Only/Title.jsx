@@ -1,17 +1,7 @@
 import React from 'react';
-import {
-    func,
-    string,
-} from 'prop-types';
 
-const TitleType = {
-    onClick: func.isRequired,
-    leftPanelMobileHeader: string,
-};
-
-const defaultProps = {
-    leftPanelMobileHeader: '',
-};
+import { TitleType } from './types';
+import { titleDefaultProps } from './constants';
 
 /**
  * Title of the left filters panel for mobile and tablet breakpoints
@@ -26,7 +16,8 @@ const defaultProps = {
  *   <Title {...props}/>
  * )
  */
-const Title = ({
+/* eslint-disable-next-line import/prefer-default-export */
+export const Title = ({
     onClick,
     leftPanelMobileHeader,
 }) => (
@@ -44,7 +35,4 @@ const Title = ({
 );
 
 Title.propTypes = TitleType;
-Title.defaultProps = defaultProps;
-
-/* eslint-disable-next-line import/prefer-default-export */
-export { Title };
+Title.defaultProps = titleDefaultProps;
