@@ -1,43 +1,27 @@
-import React from 'react';
+import React, {
+    useMemo,
+    useCallback,
+} from 'react';
 import classNames from 'classnames';
-import {
-    string,
-    func,
-    number,
-    arrayOf,
-    shape,
-} from 'prop-types';
 
-import { Items } from './Items';
-import { Footer } from './Footer';
-import { FilterItemType } from '../../types/config';
-import { stopPropagation } from '../../Helpers/general';
+import { Items } from '../Items';
+import { Footer } from '../Footer';
+import { selector } from './utils';
+import { GroupType } from './types';
+import { If } from '../../../Common';
 import {
-    useConfig,
+    defaultProps,
+    clipWrapperItemsCount,
+} from './constants';
+import {
+    template,
+    stopPropagation,
+} from '../../../Helpers/general';
+import {
     useExpandable,
-} from '../../Helpers/hooks';
+    useConfigSelector,
+} from '../../../Helpers/hooks';
 
-const GroupType = {
-    id: string.isRequired,
-    name: string.isRequired,
-    clearFilterText: string,
-    numItemsSelected: number,
-    onCheck: func.isRequired,
-    results: number.isRequired,
-    onClearAll: func.isRequired,
-    items: arrayOf(shape(FilterItemType)).isRequired,
-};
-
-const defaultProps = {
-    numItemsSelected: 0,
-    clearFilterText: '',
-};
-
-/**
- * Minimum quantity of the top filter options to apply blur on options' wrapper
- * @type {Number}
- */
-const clipWrapperItemsCount = 9;
 
 /**
  * Top filter
@@ -58,27 +42,26 @@ const clipWrapperItemsCount = 9;
  *   <Group {...props}/>
  * )
  */
-const Group = (props) => {
-    const {
-        name,
-        id,
-        items,
-        numItemsSelected,
-        onCheck,
-        onClearAll,
-        results,
-        clearFilterText,
-    } = props;
-
-    const getConfig = useConfig();
-
+const Group = ({
+    id,
+    name,
+    items,
+    onCheck,
+    results,
+    onClearAll,
+    clearFilterText,
+    numItemsSelected,
+}) => {
     /**
      **** Authored Configs ****
      */
-    const mobileGroupTotalResultsText =
-        getConfig('filterPanel', 'i18n.topPanel.mobile.group.totalResultsText').replace('{total}', results);
-    const mobileGroupApplyBtnText = getConfig('filterPanel', 'i18n.topPanel.mobile.group.applyBtnText');
-    const mobileGroupDoneBtnText = getConfig('filterPanel', 'i18n.topPanel.mobile.group.doneBtnText');
+    const {
+        doneButtonText,
+        applyButtonText,
+        totalResultTextTemplate,
+    } = useConfigSelector(selector);
+
+    const totalResultText = template(totalResultTextTemplate, { total: results });
 
     /**
      **** Hooks ****
@@ -118,7 +101,7 @@ const Group = (props) => {
      * @type {String}
      */
     const mobileFooterBtnText =
-        atleastOneItemSelected ? mobileGroupApplyBtnText : mobileGroupDoneBtnText;
+        atleastOneItemSelected ? applyButtonText : doneButtonText;
 
     /**
      * Handles unselection of the top filter options
@@ -126,10 +109,10 @@ const Group = (props) => {
      * @param {ClickEvent} e
      * @listens ClickEvent
      */
-    const handleClear = (e) => {
-        e.stopPropagation();
+    const handleClear = useCallback((event) => {
+        event.stopPropagation();
         onClearAll(id);
-    };
+    }, [id, onClearAll]);
 
     /**
      * Handles toggling the selected/unselected state of the top filter option
@@ -137,16 +120,19 @@ const Group = (props) => {
      * @param {ChangeEvent} e
      * @listens ChangeEvent
      */
-    const handleCheck = (e) => {
-        e.stopPropagation();
-        onCheck(id, e.target.value, e.target.checked);
-    };
+    const handleCheck = useCallback((event) => {
+        const { target: { value, checked } } = event;
+
+        event.stopPropagation();
+
+        onCheck(id, value, checked);
+    }, [id, onCheck]);
 
     /**
      * Array of the top filter selected options
      * @type {Array}
      */
-    const selectedFilters = items.filter(item => item.selected);
+    const selectedFilters = useMemo(() => items.filter(item => item.selected), [items]);
 
     /**
      * Whether at least one top filter option is selected
@@ -199,11 +185,11 @@ const Group = (props) => {
                 <h3
                     className="consonant-top-filter--name">
                     <button
+                        tabIndex="0"
                         type="button"
-                        className="consonant-top-filter--link"
-                        data-testid="filter-group-btn"
                         onClick={handleToggle}
-                        tabIndex="0">
+                        data-testid="filter-group-btn"
+                        className="consonant-top-filter--link">
                         {name}
                         <span
                             className="consonant-top-filter--selcted-items-qty">
@@ -215,24 +201,22 @@ const Group = (props) => {
                     className="consonant-top-filter--selcted-items">
                     <div
                         className="consonant-top-filter--absolute-wrapper">
-                        {<Items
-                            clipWrapperItemsCount={clipWrapperItemsCount}
+                        <Items
+                            items={items}
                             handleCheck={handleCheck}
                             stopPropagation={stopPropagation}
-                            items={items} />
-                        }
-                        {shouldClipFilters &&
+                            clipWrapperItemsCount={clipWrapperItemsCount} />
+                        <If condition={Boolean(shouldClipFilters)}>
                             <aside
                                 className="consonant-top-filter--bg" />
-                        }
-                        {<Footer
-                            mobileFooterBtnText={mobileFooterBtnText}
+                        </If>
+                        <Footer
+                            handleClear={handleClear}
                             handleToggle={handleToggle}
                             clearFilterText={clearFilterText}
-                            handleClear={handleClear}
                             numItemsSelected={numItemsSelected}
-                            mobileGroupTotalResultsText={mobileGroupTotalResultsText} />
-                        }
+                            mobileFooterBtnText={mobileFooterBtnText}
+                            mobileGroupTotalResultsText={totalResultText} />
                     </div>
                 </div>
             </div>
