@@ -1,15 +1,6 @@
-import React from 'react';
-import {
-    string,
-    func,
-} from 'prop-types';
+import React, { useCallback } from 'react';
 
-const ChosenFilterItemType = {
-    id: string.isRequired,
-    name: string.isRequired,
-    onClick: func.isRequired,
-    parentId: string.isRequired,
-};
+import { ChosenFilterItemType } from './types';
 
 /**
  * Component for what filter item was chosen
@@ -27,30 +18,26 @@ const ChosenFilterItemType = {
  *   <ChosenFilterItem {...props}/>
  * )
  */
-const ChosenFilterItem = (props) => {
-    const {
-        name,
-        id,
-        parentId,
-        onClick,
-    } = props;
-
+const ChosenFilterItem = ({
+    id,
+    name,
+    onClick,
+    parentId,
+}) => {
     /**
      * Unselects the chosen filter option when the filter is clicked
-     * @param {ClickEvent} e
-     * @listens ClickEvent
      */
-    const handleClick = () => {
+    const handleClick = useCallback(() => {
         onClick(parentId, id, false);
-    };
+    }, [id, parentId]);
 
     return (
         <button
+            tabIndex="0"
             type="button"
             onClick={handleClick}
             data-testid="selected-filter"
-            className="consonant-chosen-filter"
-            tabIndex="0">
+            className="consonant-chosen-filter">
             {name}
         </button>
     );
