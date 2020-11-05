@@ -1,14 +1,14 @@
 import React from 'react';
-import get from 'lodash/get';
 import {
+    func,
+    shape,
     number,
     arrayOf,
-    shape,
-    func,
 } from 'prop-types';
 
 import FullCard from '../Cards/Full';
 import { CardType } from '../types/card';
+import { getByPath } from '../Helpers/general';
 import { useConfig } from '../Helpers/hooks';
 import AspectRatio1to1Card from '../Cards/1-1';
 import AspectRatio3to2Card from '../Cards/3-2';
@@ -106,8 +106,9 @@ const Collection = (props) => {
             className="consonant-card-collection">
             <div className="consonant-card-collection--inner">
                 {cardsToshow.map((card, index) => {
-                    const cardStyleOverride = get(card, 'styles.typeOverride');
+                    const cardStyleOverride = getByPath(card, 'styles.typeOverride');
                     const cardStyle = collectionStyleOverride || cardStyleOverride;
+
                     if (cardStyle === CARD_STYLES.FULL) {
                         return (
                             <FullCard

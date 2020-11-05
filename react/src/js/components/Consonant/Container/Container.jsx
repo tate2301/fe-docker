@@ -5,12 +5,16 @@ import React, {
     useState,
 } from 'react';
 import 'whatwg-fetch';
-import get from 'lodash/get';
 import { shape } from 'prop-types';
 
 import Popup from '../Sort/Popup';
 import Search from '../Search/Search';
 import Loader from '../Loader/Loader';
+import {
+    getByPath,
+    saveBookmarksToLocalStorage,
+    readBookmarksFromLocalStorage,
+} from '../Helpers/general';
 import { ConfigType } from '../types/config';
 import NoResultsView from '../NoResults/View';
 import LoadMore from '../Pagination/LoadMore';
@@ -41,10 +45,7 @@ import {
     getNumSelectedFilterItems,
     makeConfigGetter,
 } from '../Helpers/consonant';
-import {
-    readBookmarksFromLocalStorage,
-    saveBookmarksToLocalStorage,
-} from '../Helpers/general';
+
 import {
     shouldDisplayPaginator,
     getNumCardsToShow,
@@ -513,7 +514,7 @@ const Container = (props) => {
             .then(resp => resp.json())
             .then((payload) => {
                 setLoading(false);
-                if (!get(payload, 'cards.length')) return;
+                if (!getByPath(payload, 'cards.length')) return;
 
                 const jsonProcessor = new JsonProcessor(payload.cards);
                 const { processedCards } = jsonProcessor

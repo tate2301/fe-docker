@@ -1,5 +1,4 @@
 import React from 'react';
-import sum from 'lodash/sum';
 import classNames from 'classnames';
 import {
     arrayOf,
@@ -14,7 +13,10 @@ import { FilterType } from '../../types/config';
 import SearchIcon from '../../Search/SearchIcon';
 import { Group as TopFilterItem } from './Group';
 import { renderTotalResults } from '../../Helpers/rendering';
-import { isAtleastOneFilterSelected } from '../../Helpers/general';
+import {
+    getSelectedItemsCount,
+    isAtleastOneFilterSelected,
+} from '../../Helpers/general';
 import {
     useConfig,
     useExpandable,
@@ -254,7 +256,7 @@ const FiltersPanelTop = (props) => {
                                     key={filter.id}
                                     name={filter.group}
                                     items={filter.items}
-                                    numItemsSelected={sum(filter.items.map(i => i.selected))}
+                                    numItemsSelected={getSelectedItemsCount(filter.items)}
                                     results={resQty}
                                     id={filter.id}
                                     isOpened={filter.opened}

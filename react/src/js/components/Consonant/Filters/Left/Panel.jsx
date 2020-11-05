@@ -1,5 +1,4 @@
 import React from 'react';
-import sum from 'lodash/sum';
 import classNames from 'classnames';
 import {
     arrayOf,
@@ -17,9 +16,12 @@ import { FilterType } from '../../types/config';
 import ChosenFilter from './Desktop-Only/ChosenItem';
 import { Title as MobileTitle } from './Mobile-Only/Title';
 import { Title as DesktopTitle } from './Desktop-Only/Title';
-import { isAtleastOneFilterSelected } from '../../Helpers/general';
 import { PanelFooter as MobileFooter } from './Mobile-Only/PanelFooter';
 import { ClearBtn as DesktopClearBtn } from './Desktop-Only/ClearButton';
+import {
+    getSelectedItemsCount,
+    isAtleastOneFilterSelected,
+} from '../../Helpers/general';
 
 
 const LeftFilterPanelType = {
@@ -28,11 +30,11 @@ const LeftFilterPanelType = {
     showMobileFilters: bool,
     selectedFiltersQty: number,
     onFilterClick: func.isRequired,
-    filters: arrayOf(shape(FilterType)),
     onCheckboxClick: func.isRequired,
     searchComponent: node.isRequired,
     bookmarkComponent: node.isRequired,
     onClearAllFilters: func.isRequired,
+    filters: arrayOf(shape(FilterType)),
     onClearFilterItems: func.isRequired,
     onSelectedFilterClick: func.isRequired,
     onMobileFiltersToggleClick: func.isRequired,
@@ -205,7 +207,7 @@ const LeftFilterPanel = ({
                             name={filter.group}
                             icon={filter.icon}
                             items={filter.items}
-                            numItemsSelected={sum(filter.items.map(i => i.selected))}
+                            numItemsSelected={getSelectedItemsCount(filter.items)}
                             results={resQty}
                             id={filter.id}
                             isOpened={filter.opened}

@@ -1,4 +1,3 @@
-import debounce from 'lodash/debounce';
 import React, {
     useCallback,
     useContext,
@@ -6,6 +5,7 @@ import React, {
     useState,
 } from 'react';
 
+import { debounce } from './general';
 import { makeConfigGetter } from './consonant';
 import {
     ConfigContext,

@@ -1,4 +1,4 @@
-import get from 'lodash/get';
+import { getByPath } from './general';
 
 /**
  * Converts date to milliseconds
@@ -17,8 +17,8 @@ export const filterCardsByDateRange = (cards) => {
     const currentDate = new Date().getTime();
 
     return cards.filter((card) => {
-        const showCardFromField = get(card, 'showCard.from', '');
-        const showCardUntilField = get(card, 'showCard.until', '');
+        const showCardFromField = getByPath(card, 'showCard.from', '');
+        const showCardUntilField = getByPath(card, 'showCard.until', '');
 
         if (!showCardFromField || !showCardUntilField) return true;
 
