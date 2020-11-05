@@ -1,18 +1,7 @@
 import React from 'react';
-import {
-    string,
-    number,
-    func,
-} from 'prop-types';
 
-const FooterType = {
-    clearFilterText: string,
-    numItemsSelected: number,
-    mobileFooterBtnText: string,
-    handleClear: func.isRequired,
-    handleToggle: func.isRequired,
-    mobileGroupTotalResultsText: string,
-};
+import { FooterType } from './types';
+import { If } from '../../../Common';
 
 const defaultProps = {
     numItemsSelected: 0,
@@ -38,16 +27,14 @@ const defaultProps = {
  *   <Footer {...props}/>
  * )
  */
-const Footer = (props) => {
-    const {
-        mobileGroupTotalResultsText,
-        numItemsSelected,
-        handleClear,
-        clearFilterText,
-        handleToggle,
-        mobileFooterBtnText,
-    } = props;
-
+const Footer = ({
+    handleClear,
+    handleToggle,
+    clearFilterText,
+    numItemsSelected,
+    mobileFooterBtnText,
+    mobileGroupTotalResultsText,
+}) => {
     /**
      **** Constants ****
      */
@@ -65,20 +52,21 @@ const Footer = (props) => {
                 className="consonant-top-filter--footer-res-qty">
                 {mobileGroupTotalResultsText}
             </span>
-            {shouldShowClearButton &&
+            <If condition={Boolean(shouldShowClearButton)}>
+                <button
+                    tabIndex="0"
+                    type="button"
+                    onClick={handleClear}
+                    data-testid="clear-btn"
+                    className="consonant-top-filter--footer-clear-btn">
+                    {clearFilterText}
+                </button>
+            </If>
             <button
-                data-testid="clear-btn"
-                type="button"
-                onClick={handleClear}
-                className="consonant-top-filter--footer-clear-btn"
-                tabIndex="0">
-                {clearFilterText}
-            </button>}
-            <button
+                tabIndex="0"
                 type="button"
                 onClick={handleToggle}
-                className="consonant-top-filter--footer-btn"
-                tabIndex="0">
+                className="consonant-top-filter--footer-btn">
                 {mobileFooterBtnText}
             </button>
         </div>
