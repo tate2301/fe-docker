@@ -1,26 +1,24 @@
 import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import Card from '../1-1';
+import Card from '../SquareCard';
 
 import { DEFAULT_PROPS_1_1 } from '../../Testing/Constants/Card';
 
 import setup from '../../Testing/Utils/Settings';
 
-const renderCard = setup(Card, DEFAULT_PROPS_1_1);
+import { getFlatternProps } from '../../Collection/utils';
 
-describe('Consonant/Card/1:1', () => {
+const renderCard = setup(Card, DEFAULT_PROPS_1_1, getFlatternProps);
+
+describe('Consonant/Card/Square', () => {
     test('should renders banner correctly', () => {
         const {
             props: {
-                overlays: {
-                    banner: {
-                        description: bannerDescription,
-                        fontColor: bannerFontColor,
-                        backgroundColor: bannerBackgroundColor,
-                        icon: bannerIcon,
-                    },
-                },
+                bannerIcon,
+                bannerFontColor,
+                bannerDescription,
+                bannerBackgroundColor,
             },
         } = renderCard();
 
@@ -37,16 +35,10 @@ describe('Consonant/Card/1:1', () => {
 
     test('should renders with badge', () => {
         const {
-            props: {
-                overlays: {
-                    label: {
-                        description: someBadgeText,
-                    },
-                },
-            },
+            props: { badgeText },
         } = renderCard();
 
-        const badgeElement = screen.queryByText(someBadgeText);
+        const badgeElement = screen.queryByText(badgeText);
 
         expect(badgeElement).not.toBeNull();
     });
@@ -84,9 +76,9 @@ describe('Consonant/Card/1:1', () => {
     test('If No Detail Text or startTime is authored, then card label should not appear ', () => {
         renderCard({
             contentArea: {
-                detailText: null,
+                detailText: undefined,
                 dateDetailText: {
-                    startTime: null,
+                    startTime: undefined,
                 },
             },
         });
