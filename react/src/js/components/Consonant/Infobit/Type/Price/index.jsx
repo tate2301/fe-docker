@@ -1,10 +1,6 @@
 import React from 'react';
-import { string } from 'prop-types';
 
-const PriceType = {
-    term: string,
-    price: string.isRequired,
-};
+import { PriceType } from './types';
 
 const defaultProps = {
     term: '',
