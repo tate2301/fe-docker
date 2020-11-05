@@ -1,10 +1,6 @@
 import React from 'react';
-import { string } from 'prop-types';
 
-const IconType = {
-    alt: string,
-    src: string.isRequired,
-};
+import { IconType } from './types';
 
 const defaultProps = {
     alt: '',
@@ -29,11 +25,11 @@ const Icon = ({
     alt,
 }) => (
     <img
-        className="consonant-icon-infobit"
-        width="28"
         src={src}
         alt={alt}
-        loading="lazy" />);
+        width="28"
+        loading="lazy"
+        className="consonant-icon-infobit" />);
 
 Icon.propTypes = IconType;
 Icon.defaultProps = defaultProps;
