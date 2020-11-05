@@ -14,6 +14,7 @@ import {
 const FullCardType = {
     ctaLink: string,
     id: string.isRequired,
+    lh: string,
     styles: shape(StylesType),
     overlays: shape(OverlaysType),
     contentArea: shape(ContentAreaType),
@@ -21,6 +22,7 @@ const FullCardType = {
 
 const defaultProps = {
     styles: {},
+    lh: '',
     ctaLink: '',
     overlays: {},
     contentArea: {},
@@ -45,6 +47,7 @@ const defaultProps = {
 const FullCard = (props) => {
     const {
         id,
+        lh,
         ctaLink,
         styles: {
             backgroundImage: image,
@@ -95,6 +98,7 @@ const FullCard = (props) => {
 
     return (
         <div
+            daa-lh={lh}
             className="consonant-full-card"
             data-testid="consonant-full-card"
             id={id}>

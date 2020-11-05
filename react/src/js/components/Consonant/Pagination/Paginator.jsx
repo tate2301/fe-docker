@@ -11,6 +11,7 @@ import {
     getStartNumber,
     getPageStartEnd,
 } from '../Helpers/general';
+import { trackPageChange } from '../Analytics/Analytics';
 
 const PaginatorType = {
     onClick: func.isRequired,
@@ -105,6 +106,7 @@ const Paginator = (props) => {
         } else {
             nextPage = parseInt(target.firstChild.nodeValue, BASE_10);
         }
+        trackPageChange(nextPage);
         onClick(nextPage);
     };
 

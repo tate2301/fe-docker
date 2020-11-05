@@ -1,7 +1,7 @@
-const {
+import {
     DateTime,
     Interval,
-} = require('luxon');
+} from 'luxon';
 
 /**
 * Gets the Localized Local Time Zone
