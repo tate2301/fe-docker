@@ -1,4 +1,4 @@
-import PROPS from './constants/consonant';
+import PROPS from '../TestingConstants/consonant';
 
 import {
     // makeConfigGetter,

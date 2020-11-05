@@ -19,12 +19,33 @@ const defaultProps = {
     mobileFilterBtnLabel: '',
 };
 
+/**
+ * Button with the count of selected filters
+ * for mobile and tablet breakpoints
+ *
+ * @component
+ * @example
+ * const props= {
+    onMobileFiltersToggleClick: Function,
+    mobileFilterBtnLabel: String,
+    selectedFiltersQty: Number,
+ * }
+ * return (
+ *   <Info {...props}/>
+ * )
+ */
 const Info = ({
     selectedFiltersQty,
     mobileFilterBtnLabel,
     onMobileFiltersToggleClick,
 }) => {
     const atleastOneSelectedFilter = selectedFiltersQty > 0;
+
+    /**
+     * Class name for the button:
+     * whether the button should display the quantity of the selected filters or not
+     * @type {String}
+     */
     const selectedFiltersQtyClassName = classNames({
         'consonant-filters-info--btn': true,
         'consonant-filters-info--btn_with-filters': atleastOneSelectedFilter,

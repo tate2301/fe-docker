@@ -31,6 +31,26 @@ const defaultProps = {
     someFiltersAreSelected: false,
 };
 
+/**
+ * Footer of the left filter panel for mobile and tablet breakpoints
+ *
+ * @component
+ * @example
+ * const props= {
+    showTotalResults: Boolean,
+    resQty: Number,
+    onClearAllFilters: Function,
+    clearAllFiltersText: String,
+    onMobileFiltersToggleClick: Function,
+    someFiltersAreSelected: Boolean,
+    applyText: String,
+    doneText: String,
+    showTotalResultsText: String,
+ * }
+ * return (
+ *   <PanelFooter {...props}/>
+ * )
+ */
 const PanelFooter = ({
     resQty,
     doneText,
@@ -42,6 +62,11 @@ const PanelFooter = ({
     someFiltersAreSelected,
     onMobileFiltersToggleClick,
 }) => {
+    /**
+     * Text of the left filters footer button for mobile and tablet breakpoints:
+     * whether the "Apply changes" text should be shown or "Done"
+     * @type {String}
+     */
     const buttonText = someFiltersAreSelected ? applyText : doneText;
     const resultText = template(showTotalResultsText, { total: resQty });
 
@@ -57,17 +82,17 @@ const PanelFooter = ({
             <If condition={Boolean(someFiltersAreSelected)}>
                 <button
                     type="button"
+                    onClick={onClearAllFilters}
                     data-testid="mobile-footer-clear"
-                    className="consonant-left-filters--mobile-footer-clear-btn"
-                    onClick={onClearAllFilters}>
+                    className="consonant-left-filters--mobile-footer-clear-btn">
                     {clearAllFiltersText}
                 </button>
             </If>
             <button
                 type="button"
                 data-testid="mobile-footer-btn"
-                className="consonant-left-filters--mobile-footer-btn"
-                onClick={onMobileFiltersToggleClick}>
+                onClick={onMobileFiltersToggleClick}
+                className="consonant-left-filters--mobile-footer-btn">
                 {buttonText}
             </button>
         </div>

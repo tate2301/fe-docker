@@ -1,6 +1,6 @@
 import HELPERS_PROPS from './Helpers';
 import CARDS_PROPS from './cards';
-import { SORT_TYPES } from '../../constants';
+import { SORT_TYPES } from '../constants';
 
 const filterCards = HELPERS_PROPS.getFilteredCards;
 

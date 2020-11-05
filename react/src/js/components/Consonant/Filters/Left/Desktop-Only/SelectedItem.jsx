@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-    number,
     func,
+    number,
 } from 'prop-types';
 
 const SelectedItemType = {
@@ -13,10 +13,28 @@ const defaultProps = {
     numItemsSelected: 0,
 };
 
+/**
+ * Badge displaying how many filter options were selected
+ * (Only for Left Filter Panel - on desktop breakpoint)
+ *
+ * @component
+ * @example
+ * const props= {
+    numItemsSelected: Number,
+    handleClear: Function,
+ * }
+ * return (
+ *   <SelectedItem {...props}/>
+ * )
+ */
 const SelectedItem = ({
     handleClear,
     numItemsSelected,
 }) => {
+    /**
+     * Text - quantity of selected left filter options
+     * @type {String}
+     */
     const displayNumItemsSelected = numItemsSelected > 0 ? numItemsSelected : '';
 
     return (

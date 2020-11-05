@@ -13,6 +13,19 @@ const defaultProps = {
     leftPanelMobileHeader: '',
 };
 
+/**
+ * Title of the left filters panel for mobile and tablet breakpoints
+ *
+ * @component
+ * @example
+ * const props= {
+    onClick: Function,
+    leftPanelMobileHeader: String,
+ * }
+ * return (
+ *   <Title {...props}/>
+ * )
+ */
 const Title = ({
     onClick,
     leftPanelMobileHeader,

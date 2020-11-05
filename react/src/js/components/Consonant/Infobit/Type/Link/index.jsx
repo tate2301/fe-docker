@@ -36,7 +36,7 @@ const Link = ({
             href={href}
             target={target}
             title={linkHint}
-            rel="noreferrer"
+            rel="noopener noreferrer"
             tabIndex="0">
             {text}
         </a>

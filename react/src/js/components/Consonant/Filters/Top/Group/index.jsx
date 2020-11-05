@@ -142,9 +142,9 @@ const Group = ({
 
     /**
      * Text indicating the quantity of the selected top filter options
-     * @type {Number || String}
+     * @type {String}
      */
-    const selectedItemQtyText = selectedFilters.length || '';
+    const selectedItemQtyText = selectedFilters.length > 0 ? `${selectedFilters.length}` : '';
 
     /**
      * Whether the top filter is opened

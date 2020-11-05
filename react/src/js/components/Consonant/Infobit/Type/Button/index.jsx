@@ -41,8 +41,8 @@ const Button = ({
             href={href}
             tabIndex="0"
             target="_blank"
-            rel="noreferrer"
             className={buttonClass}
+            rel="noopener noreferrer"
             data-testid="consonant-btn-infobit">
             <If condition={Boolean(iconSrc)}>
                 <img

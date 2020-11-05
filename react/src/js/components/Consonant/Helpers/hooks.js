@@ -12,6 +12,8 @@ import {
     ExpandableContext,
 } from './contexts';
 
+// const noop = () => {};
+
 /**
  * @typedef {function(): {Int, Int}} WindowDimensionsState - Current Window Dimensions
  * @description — Handles debouncing when window is re-sized
@@ -74,7 +76,7 @@ export const useConfigSelector = (selector) => {
 };
 
 /**
- * @typedef {Function} IsMountedtateSetter
+ * @typedef {Function} IsMountedStateSetter
  * @description - Flag to handle unmounting components when react re-renders
  * This is used to prevent memory leaks in the application when DOM is wiped by react
  *
@@ -101,29 +103,38 @@ export const useIsMounted = () => {
  */
 export const useLazyLoading = (imageRef, image) => {
     const [lazyLoadImage, setLazyLoadImage] = useState('');
-    const isMounted = useIsMounted();
+    const [intersectionImage, setIntersectionImage] = useState('');
+
     const imageObserver = new IntersectionObserver((elements) => {
-        if (elements[0].intersectionRatio !== 0 && isMounted.current) {
-            setLazyLoadImage(image);
+        if (elements[0].intersectionRatio !== 0) {
+            setIntersectionImage(image);
         }
     });
 
     useEffect(() => {
-        if (lazyLoadImage) {
-            const img = new Image();
-            img.src = lazyLoadImage;
+        let img;
+        if (intersectionImage) {
+            img = new Image();
+
+            img.src = intersectionImage;
             img.onload = () => {
-                if (isMounted.current) {
-                    setLazyLoadImage(lazyLoadImage);
-                }
+                setLazyLoadImage(intersectionImage);
             };
         }
-    }, [lazyLoadImage]);
+        return () => {
+            if (img) {
+                img.onload = () => {};
+            }
+        };
+    }, [intersectionImage]);
 
     useEffect(() => {
         if (imageRef.current) {
             imageObserver.observe(imageRef.current);
         }
+        return () => {
+            imageObserver.unobserve(imageRef.current);
+        };
     }, [imageRef]);
 
     return [lazyLoadImage];
