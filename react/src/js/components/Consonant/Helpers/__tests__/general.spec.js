@@ -23,7 +23,15 @@ import {
     isAtleastOneFilterSelected,
     saveBookmarksToLocalStorage,
     readBookmarksFromLocalStorage,
+    getByPath,
+    setByPath,
+    getSelectedItemsCount,
+    debounce,
+    mergeDeep,
+    template,
 } from '../general';
+
+jest.useFakeTimers();
 
 describe('utils/general', () => {
     jestMocks.localStorage();
@@ -240,6 +248,85 @@ describe('utils/general', () => {
 
                 expect(value).toEqual(expectedValue);
             });
+        });
+    });
+    describe('getByPath', () => {
+        PROPS.getByPath.forEach(({
+            object, path, defaultValue, expectedValue,
+        }) => {
+            test('should return correct value', () => {
+                const value = getByPath(
+                    object,
+                    path,
+                    defaultValue,
+                );
+
+                expect(value).toEqual(expectedValue);
+            });
+        });
+    });
+    describe('getSelectedItemsCount', () => {
+        PROPS.getSelectedItemsCount.forEach(({
+            items, expectedValue,
+        }) => {
+            test('should return correct count', () => {
+                const count = getSelectedItemsCount(items);
+
+                expect(count).toEqual(expectedValue);
+            });
+        });
+    });
+    describe('setByPath', () => {
+        PROPS.setByPath.forEach(({
+            object, path, value, expectedValue,
+        }) => {
+            test('should return correct value', () => {
+                setByPath(
+                    object,
+                    path,
+                    value,
+                );
+
+                expect(object).toEqual(expectedValue);
+            });
+        });
+    });
+    describe('mergeDeep', () => {
+        PROPS.mergeDeep.forEach(({
+            firstObj, secondObj, expectedValue,
+        }) => {
+            test('should return correct value', () => {
+                const target = mergeDeep(firstObj, secondObj);
+
+                expect(target).toEqual(expectedValue);
+            });
+        });
+    });
+    describe('template', () => {
+        PROPS.template.forEach(({
+            text, props, expectedValue,
+        }) => {
+            test('should return correct value', () => {
+                const templatedText = template(text, props);
+
+                expect(templatedText).toEqual(expectedValue);
+            });
+        });
+    });
+    describe('debounce', () => {
+        test('should return correct value', () => {
+            const func = jest.fn();
+
+            const debouncedFunc = debounce(func);
+
+            debouncedFunc();
+            debouncedFunc();
+            debouncedFunc();
+            debouncedFunc();
+
+            jest.runAllTimers();
+
+            expect(func).toHaveBeenCalledTimes(1);
         });
     });
 });
