@@ -274,8 +274,14 @@ export const getEndNumber = (
  * @param {object} props - object with props to replace part of text in brackets
  * @returns {string} - ('{placeholderKey}', { placeholderKey: 'placeholderValue' }) => 'placeholderValue'
  */
-export const template = (text, props) =>
-    text && text.replace(/{([A-z]*)}/gi, (_, key) => props[key]);
+export const template = (text = '', props) => {
+    if (!props) return text;
+
+    const regExp = /{([A-z]*)}/gi;
+    const replacer = (fullMatch, key) => props[key] || fullMatch;
+
+    return text.replace(regExp, replacer);
+};
 
 /**
  * Gets the object/path/defaultValue and return object value by this path
@@ -354,7 +360,7 @@ export const setByPath = (object, path, value) => {
 };
 
 /**
- * Deep merge objects without nullish values
+ * Deep merge objects without undefined values
  * @param {Object} target - target object
  * @param {...Object} sources - objects to merge
  * @return {Obect} merge object
@@ -369,10 +375,10 @@ export const mergeDeep = (target, ...sources) => {
 
         keys.forEach((key) => {
             if (isObject(source[key])) {
-                if (!target[key]) Object.assign(target, { [key]: {} });
+                if (!target[key]) target[key] = {};
 
                 mergeDeep(target[key], source[key]);
-            } else if (source[key]) {
+            } else if (source[key] !== undefined) {
                 Object.assign(target, { [key]: source[key] });
             }
         });

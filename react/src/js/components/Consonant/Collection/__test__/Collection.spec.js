@@ -3,9 +3,7 @@ import '@testing-library/jest-dom/extend-expect';
 
 import Collection from '../Collection';
 
-import {
-    DEFAULT_PROPS,
-} from '../../Testing/Constants/Collection';
+import { DEFAULT_PROPS } from '../../Testing/Constants/Collection';
 
 import setup from '../../Testing/Utils/Settings';
 

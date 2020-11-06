@@ -416,22 +416,151 @@ const getEndNumber = [
     },
 ];
 
+const template = [
+    {
+        text: '{first} {second}',
+        props: { first: 1, second: 2 },
+        expectedValue: '1 2',
+    },
+    {
+        text: '{first} {second}',
+        props: { first: 1 },
+        expectedValue: '1 {second}',
+    },
+    {
+        text: '{first} {second}',
+        props: { third: 1 },
+        expectedValue: '{first} {second}',
+    },
+    {
+        text: '{} {}',
+        props: {},
+        expectedValue: '{} {}',
+    },
+    {
+        text: undefined,
+        props: { first: 1 },
+        expectedValue: '',
+    },
+    {
+        text: '{first}',
+        props: undefined,
+        expectedValue: '{first}',
+    },
+];
+
+const getByPath = [
+    {
+        object: { a: { b: { c: 123 } } },
+        path: 'a.b.c',
+        expectedValue: 123,
+    },
+    {
+        object: { a: { b: { c: 123 } } },
+        path: 'a.b.c.d',
+        defaultValue: 'defaultValue',
+        expectedValue: 'defaultValue',
+    },
+    {
+        object: { a: { b: { c: 123 } } },
+        defaultValue: 'defaultValue',
+        expectedValue: 'defaultValue',
+    },
+    {
+        path: 'a.b.c,d',
+        defaultValue: 'defaultValue',
+        expectedValue: 'defaultValue',
+    },
+];
+
+const getSelectedItemsCount = [
+    {
+        items: [{ selected: true }, { selected: true }, { selected: false }],
+        expectedValue: 2,
+    },
+];
+
+const setByPath = [
+    {
+        object: { a: { b: { c: 'aaa' } } },
+        path: 'a.b.c',
+        value: 'bbb',
+        expectedValue: { a: { b: { c: 'bbb' } } },
+    },
+    {
+        object: { a: 1 },
+        path: 'a.b.c',
+        value: 'bbb',
+        expectedValue: { a: { b: { c: 'bbb' } } },
+    },
+    {
+        object: { a: 1 },
+        path: undefined,
+        value: 'bbb',
+        expectedValue: { a: 1 },
+    },
+    {
+        object: undefined,
+        path: 'a.b.c',
+        value: 'bbb',
+        expectedValue: undefined,
+    },
+];
+
+const mergeDeep = [
+    {
+        firstObj: { a: { b: 123 }, c: undefined },
+        secondObj: { a: undefined, c: 100 },
+        expectedValue: { a: { b: 123 }, c: 100 },
+    },
+    {
+        firstObj: { a: 1 },
+        secondObj: { randomKey: { key: 'asd' } },
+        expectedValue: { a: 1, randomKey: { key: 'asd' } },
+    },
+    {
+        firstObj: { a: { b: 1 } },
+        secondObj: { randomKey: { key: 'asd' } },
+        expectedValue: { a: { b: 1 }, randomKey: { key: 'asd' } },
+    },
+    {
+        firstObj: { a: { b: 1 } },
+        secondObj: { a: { c: 1 } },
+        expectedValue: { a: { b: 1, c: 1 } },
+    },
+    {
+        firstObj: 123,
+        secondObj: { randomKey: { key: 'asd' } },
+        expectedValue: 123,
+    },
+    {
+        firstObj: { a: 1 },
+        secondObj: 123,
+        expectedValue: { a: 1 },
+    },
+];
+
 export default {
     isObject,
-    generateRange,
-    getPageStartEnd,
-    getStartNumber,
-    getEndNumber,
+    template,
+    getByPath,
+    setByPath,
     sortByKey,
     mapObject,
     isNullish,
+    mergeDeep,
     isSuperset,
     intersection,
     sanitizeText,
     truncateList,
+    getEndNumber,
+    generateRange,
+    getStartNumber,
     truncateString,
+    getPageStartEnd,
     parseToPrimitive,
     removeDuplicatesByKey,
+    getSelectedItemsCount,
     isAtleastOneFilterSelected,
     readBookmarksFromLocalStorage,
 };
