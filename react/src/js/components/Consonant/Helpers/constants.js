@@ -100,7 +100,7 @@ export const DEFAULT_CONFIG = {
         endpoint: '',
         title: '',
         totalCardLimit: -1,
-        cardStyle: 'none',
+        cardStyle: '',
         displayTotalResults: true,
         totalResultsText: '{} results',
         i18n: {
