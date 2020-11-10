@@ -1,17 +1,7 @@
 import React from 'react';
-import {
-    number,
-    func,
-} from 'prop-types';
 
-const SelectedItemType = {
-    numItemsSelected: number,
-    handleClear: func.isRequired,
-};
-
-const defaultProps = {
-    numItemsSelected: 0,
-};
+import { SelectedItemType } from './types';
+import { selectedItemsDefaultProps } from './constants';
 
 /**
  * Badge displaying how many filter options were selected
@@ -27,32 +17,28 @@ const defaultProps = {
  *   <SelectedItem {...props}/>
  * )
  */
-const SelectedItem = (props) => {
-    const {
-        numItemsSelected,
-        handleClear,
-    } = props;
-
+/* eslint-disable-next-line import/prefer-default-export */
+export const SelectedItem = ({
+    handleClear,
+    numItemsSelected,
+}) => {
     /**
      * Text - quantity of selected left filter options
      * @type {String}
      */
-    const displayNumItemsSelected = numItemsSelected > 0 ? `${numItemsSelected}` : '';
+    const displayNumItemsSelected = numItemsSelected > 0 ? numItemsSelected : '';
 
     return (
         <button
-            data-testid="item-badge"
             type="button"
-            className="consonant-left-filter--item-badge"
+            tabIndex="0"
+            data-testid="item-badge"
             onClick={handleClear}
-            tabIndex="0">
+            className="consonant-left-filter--item-badge">
             {displayNumItemsSelected}
         </button>
     );
 };
 
 SelectedItem.propTypes = SelectedItemType;
-SelectedItem.defaultProps = defaultProps;
-
-/* eslint-disable-next-line import/prefer-default-export */
-export { SelectedItem };
+SelectedItem.defaultProps = selectedItemsDefaultProps;

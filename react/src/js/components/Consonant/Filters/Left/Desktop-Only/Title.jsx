@@ -1,13 +1,7 @@
 import React from 'react';
-import { string } from 'prop-types';
 
-const TitleType = {
-    panelHeader: string,
-};
-
-const defaultProps = {
-    panelHeader: '',
-};
+import { TitleType } from './types';
+import { titleDefaultProps } from './constants';
 
 /**
  * Title for the left filter panel for the desktop breakpoint
@@ -21,21 +15,13 @@ const defaultProps = {
  *   <Title {...props}/>
  * )
  */
-const Title = (props) => {
-    const {
-        panelHeader,
-    } = props;
-
-    return (
-        <h3
-            className="consonant-left-filters--desk-title">
-            {panelHeader}
-        </h3>
-    );
-};
+/* eslint-disable-next-line import/prefer-default-export */
+export const Title = ({ panelHeader }) => (
+    <h3
+        className="consonant-left-filters--desk-title">
+        {panelHeader}
+    </h3>
+);
 
 Title.propTypes = TitleType;
-Title.defaultProps = defaultProps;
-
-/* eslint-disable-next-line import/prefer-default-export */
-export { Title };
+Title.defaultProps = titleDefaultProps;
