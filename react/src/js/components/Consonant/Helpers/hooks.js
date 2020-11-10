@@ -1,8 +1,9 @@
 import React, {
-    useCallback,
-    useContext,
-    useEffect,
+    useMemo,
     useState,
+    useEffect,
+    useContext,
+    useCallback,
 } from 'react';
 
 import { debounce } from './general';
@@ -11,8 +12,6 @@ import {
     ConfigContext,
     ExpandableContext,
 } from './contexts';
-
-// const noop = () => {};
 
 /**
  * @typedef {function(): {Int, Int}} WindowDimensionsState - Current Window Dimensions
@@ -72,6 +71,19 @@ export const useConfig = () => {
     return useCallback(makeConfigGetter(config), [config]);
 };
 
+/**
+ * @typedef {Function} ConfigStateSetter
+ * @description - Configs are grabbed from Authoring Dialog and passedd into React Component
+ *
+ * @type {[Int, Function]} Config
+ */
+export const useConfigSelector = (selector) => {
+    const config = useContext(ConfigContext);
+
+    const props = useMemo(() => selector(config), [selector, config]);
+
+    return props;
+};
 
 /**
  * @typedef {Function} IsMountedStateSetter
