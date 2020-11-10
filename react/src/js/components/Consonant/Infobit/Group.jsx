@@ -13,10 +13,10 @@ import Button from './Type/Button';
 import TextLink from './Type/Link';
 import Rating from './Type/Rating';
 import Progress from './Type/Progress';
+import Bookmark from './Type/Bookmark';
 import IconWithText from './Type/IconWithText';
 import LinkWithIcon from './Type/LinkWithIcon';
 import DateInterval from './Type/DateInterval';
-import Bookmark from './Type/Bookmark/Bookmark';
 import { INFOBIT_TYPE } from '../Helpers/constants';
 import { parseToPrimitive } from '../Helpers/general';
 import {
