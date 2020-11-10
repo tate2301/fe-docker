@@ -41,7 +41,7 @@ import {
     ExpandableContext,
 } from '../Helpers/contexts';
 import {
-    getDefaultSortOption,
+    getDefaultSortOptionLegacy,
     getNumSelectedFilterItems,
     makeConfigGetter,
 } from '../Helpers/consonant';
@@ -102,7 +102,7 @@ const Container = (props) => {
     const totalCardLimit = getConfig('collection', 'totalCardsToShow');
     const searchFields = getConfig('search', 'searchFields');
     const sortOptions = getConfig('sort', 'options');
-    const defaultSortOption = getDefaultSortOption(config, getConfig('sort', 'defaultSort'));
+    const defaultSortOption = getDefaultSortOptionLegacy(config, getConfig('sort', 'defaultSort'));
     const featuredCards = getConfig('featuredCards', '');
     const leftPanelSearchPlaceholder = getConfig('search', 'i18n.leftFilterPanel.searchPlaceholderText');
     const topPanelSearchPlaceholder = getConfig('search', 'i18n.topFilterPanel.searchPlaceholderText');

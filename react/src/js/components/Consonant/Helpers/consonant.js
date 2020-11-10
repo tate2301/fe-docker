@@ -7,6 +7,10 @@ import {
 
 import { DEFAULT_CONFIG } from './constants';
 
+const defaultSortValue = {
+    sort: 'featured',
+    label: 'Featured',
+};
 
 /**
  * Gets the number of selected filter items
@@ -15,6 +19,7 @@ import { DEFAULT_CONFIG } from './constants';
  */
 export const getNumSelectedFilterItems = (filters) => {
     const filterItems = chainFromIterable(filters.map(filter => filter.items));
+
     return getSelectedItemsCount(filterItems);
 };
 
@@ -37,14 +42,25 @@ export const makeConfigGetter = config => (object, key) => {
 
 /**
  * Gets the sorting option to use
+ * @param {Array} options - options list
+ * @param {String} query - title of a sort option
+ * @returns {Object} - Sort Option or default if none is found
+ */
+export function getDefaultSortOption(options = [], defaultSort) {
+    return options.find(({ sort }) => sort === defaultSort) || defaultSortValue;
+}
+
+/**
+ * Gets the sorting option to use
  * @param {Object} config - configuration object
  * @param {String} query - title of a sort option
  * @returns {Object} - Sort Option or default if none is found
  */
-export function getDefaultSortOption(config, query) {
+export function getDefaultSortOptionLegacy(config, query) {
     const sortOptions = makeConfigGetter(config)('sort', 'options');
     return sortOptions.find(option => option.sort === query) || {
         label: 'Featured',
         sort: 'featured',
     };
 }
+

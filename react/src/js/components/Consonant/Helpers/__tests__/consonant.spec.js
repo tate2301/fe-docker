@@ -4,6 +4,7 @@ import {
     makeConfigGetter,
     getDefaultSortOption,
     getNumSelectedFilterItems,
+    getDefaultSortOptionLegacy,
 } from '../consonant';
 
 describe('utils/cards', () => {
@@ -27,12 +28,23 @@ describe('utils/cards', () => {
             });
         });
     });
-    describe('getDefaultSortOption', () => {
-        PROPS.getDefaultSortOption.forEach(({
+    describe('getDefaultSortOptionLegacy', () => {
+        PROPS.getDefaultSortOptionLegacy.forEach(({
             config, query, expectedValue,
         }) => {
             test('should return config value by path', () => {
-                const value = getDefaultSortOption(config, query);
+                const value = getDefaultSortOptionLegacy(config, query);
+
+                expect(value).toEqual(expectedValue);
+            });
+        });
+    });
+    describe('getDefaultSortOption', () => {
+        PROPS.getDefaultSortOption.forEach(({
+            options, defaultSort, expectedValue,
+        }) => {
+            test('should return config value by path', () => {
+                const value = getDefaultSortOption(options, defaultSort);
 
                 expect(value).toEqual(expectedValue);
             });

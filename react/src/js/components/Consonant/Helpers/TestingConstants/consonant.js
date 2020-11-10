@@ -31,7 +31,7 @@ const makeConfigGetter = [
     },
 ];
 
-const getDefaultSortOption = [
+const getDefaultSortOptionLegacy = [
     {
         config: { sort: { options: [{ sort: 'date' }] } },
         query: 'date',
@@ -44,8 +44,28 @@ const getDefaultSortOption = [
     },
 ];
 
+const getDefaultSortOption = [
+    {
+        options: [{ sort: 'date' }],
+        defaultSort: 'date',
+        expectedValue: { sort: 'date' },
+    },
+    {
+        options: [{ sort: 'date' }],
+        defaultSort: 'random',
+        expectedValue: { label: 'Featured', sort: 'featured' },
+    },
+    {
+        options: undefined,
+        defaultSort: 'random',
+        expectedValue: { label: 'Featured', sort: 'featured' },
+    },
+];
+
+
 export default {
     makeConfigGetter,
     getDefaultSortOption,
     getNumSelectedFilterItems,
+    getDefaultSortOptionLegacy,
 };
