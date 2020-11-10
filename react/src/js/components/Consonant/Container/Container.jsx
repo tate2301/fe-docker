@@ -15,10 +15,10 @@ import {
     saveBookmarksToLocalStorage,
     readBookmarksFromLocalStorage,
 } from '../Helpers/general';
+import Bookmarks from '../Bookmarks';
 import { ConfigType } from '../types/config';
 import NoResultsView from '../NoResults/View';
 import LoadMore from '../Pagination/LoadMore';
-import Bookmarks from '../Bookmarks/Bookmarks';
 import Paginator from '../Pagination/Paginator';
 import Collection from '../Collection/Collection';
 import CardFilterer from '../Helpers/CardFilterer';
