@@ -9,7 +9,7 @@ import {
 } from '@testing-library/react';
 
 
-import Container from '../Container';
+import Container from '../index';
 import setupIntersectionObserverMock from '../../Testing/Mocks/intersectionObserver';
 import config from '../../Testing/Mocks/config.json';
 import cards from '../../Testing/Mocks/cards.json';
@@ -58,7 +58,7 @@ describe('Consonant/Container/Search', () => {
     });
     test('Should be able to change search values without sorting', async () => {
         const configToUse = config;
-        configToUse.sort = null;
+        configToUse.sort = undefined;
         await act(async () => render(<Container config={configToUse} />));
 
         await waitFor(() => screen.getByTestId('search-input'));

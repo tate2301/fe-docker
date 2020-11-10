@@ -9,7 +9,7 @@ import {
     render,
 } from '@testing-library/react';
 
-import Container from '../Container';
+import Container from '../index';
 import config from '../../Testing/Mocks/config.json';
 
 const { collection: { endpoint } } = config;

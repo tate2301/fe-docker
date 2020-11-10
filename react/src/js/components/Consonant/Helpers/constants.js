@@ -95,6 +95,7 @@ export const INFOBIT_TYPE = {
  * @type {Object}
  */
 export const DEFAULT_CONFIG = {
+    analytics: {},
     collection: {
         resultsPerPage: 9,
         endpoint: '',
