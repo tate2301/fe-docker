@@ -1,36 +1,18 @@
 import React, {
-    useEffect,
     useRef,
+    useEffect,
+    useCallback,
 } from 'react';
-import {
-    string,
-    bool,
-    func,
-} from 'prop-types';
 
-import { useConfig } from '../Helpers/hooks';
+import { selector } from './utils';
+import { SearchType } from './types';
+import { useConfigSelector } from '../Helpers/hooks';
 import { trackClearSearchInput } from '../Analytics/Analytics';
+import {
+    searchInputId,
+    SearchInputDefaultProps,
+} from './constants';
 
-const SearchType = {
-    name: string,
-    value: string,
-    autofocus: bool,
-    placeholderText: string,
-    onSearch: func.isRequired,
-};
-
-const defaultProps = {
-    name: '',
-    value: '',
-    autofocus: true,
-    placeholderText: '',
-};
-
-/**
- * Used as unique id for accessibility labels/attributes
- * @type {Number}
- */
-const searchId = 'consonant-search';
 
 /**
  * Search Component (Used in both Top And Left Filter Views)
@@ -49,19 +31,17 @@ const searchId = 'consonant-search';
  * )
  */
 const Search = ({
+    name,
     value,
     onSearch,
-    name,
     autofocus,
     placeholderText,
 }) => {
-    const getConfig = useConfig();
-
     /**
      * Authored Search Title
      * @type {String}
      */
-    const leftPanelTitle = getConfig('search', 'i18n.leftFilterPanel.searchTitle');
+    const { leftPanelTitle } = useConfigSelector(selector);
 
     /**
      * Refernce to input element
@@ -73,34 +53,39 @@ const Search = ({
      * Handles search box input changes
      * is clicked
      *
-     * @param {InputChangeEvent} e
+     * @param {InputChangeEvent} event
      * @listens InputChangeEvent
      */
-    const handleSearch = (e) => {
-        onSearch(e.target.value);
-    };
+    const handleSearch = useCallback(({ target: { value: searchValue } }) => {
+        onSearch(searchValue);
+    }, [onSearch]);
+
+    /**
+     * Halder for click on input
+     * only call stopPropagation
+     *
+     * @param {InputClickEvent} event
+     * @listens InputClickEvent
+     */
+    const handleClick = useCallback((event) => {
+        event.stopPropagation();
+    }, []);
 
     /**
      * Handles focus events for text input
-     *
-     * @param {ClickEvent} e
-     * @listens ClickEvent
      */
-    const focusTextInput = () => {
+    const focusTextInput = useCallback(() => {
         textInput.current.focus();
-    };
+    }, [textInput]);
 
     /**
      * Handles clearing user's search query
-     *
-     * @param {ClickEvent} e
-     * @listens ClickEvent
      */
-    const clearSearch = () => {
+    const clearSearch = useCallback(() => {
         onSearch('');
         focusTextInput();
         trackClearSearchInput();
-    };
+    }, [onSearch, focusTextInput]);
 
     /**
     * Handles focus for search box
@@ -117,7 +102,7 @@ const Search = ({
             data-testid={name}
             className="consonant-search">
             <label
-                htmlFor={searchId}>
+                htmlFor={searchInputId}>
                 <span
                     className="consonant-search--input-title">
                     {leftPanelTitle}
@@ -125,23 +110,23 @@ const Search = ({
                 <span
                     className="consonant-search--input-wrapper">
                     <input
-                        id={searchId}
-                        data-testid="search-input"
+                        required
                         type="search"
-                        placeholder={placeholderText}
-                        onClick={e => e.stopPropagation()}
                         value={value}
-                        onChange={handleSearch}
                         ref={textInput}
-                        className="consonant-search--input"
-                        required />
+                        id={searchInputId}
+                        onClick={handleClick}
+                        onChange={handleSearch}
+                        data-testid="search-input"
+                        placeholder={placeholderText}
+                        className="consonant-search--input" />
                     <button
-                        data-testid="clear-search-button"
-                        type="button"
                         title=""
-                        className="consonant-search--input-clear"
+                        tabIndex="0"
+                        type="button"
                         onClick={clearSearch}
-                        tabIndex="0" />
+                        data-testid="clear-search-button"
+                        className="consonant-search--input-clear" />
                 </span>
             </label>
         </div>
@@ -149,6 +134,6 @@ const Search = ({
 };
 
 Search.propTypes = SearchType;
-Search.defaultProps = defaultProps;
+Search.defaultProps = SearchInputDefaultProps;
 
 export default Search;
