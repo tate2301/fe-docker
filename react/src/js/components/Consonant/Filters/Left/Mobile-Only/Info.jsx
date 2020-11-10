@@ -1,21 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
-import {
-    string,
-    number,
-    func,
-} from 'prop-types';
 
-const InfoType = {
-    selectedFiltersQty: number,
-    mobileFilterBtnLabel: string,
-    onMobileFiltersToggleClick: func.isRequired,
-};
-
-const defaultProps = {
-    selectedFiltersQty: 0,
-    mobileFilterBtnLabel: '',
-};
+import { InfoType } from './types';
+import { If } from '../../../Common';
+import { infoDefaultProps } from './constants';
 
 /**
  * Button with the count of selected filters
@@ -32,7 +20,8 @@ const defaultProps = {
  *   <Info {...props}/>
  * )
  */
-const Info = ({
+/* eslint-disable-next-line import/prefer-default-export */
+export const Info = ({
     selectedFiltersQty,
     mobileFilterBtnLabel,
     onMobileFiltersToggleClick,
@@ -56,28 +45,25 @@ const Info = ({
             <button
                 type="button"
                 data-testid="info-btn"
-                className={selectedFiltersQtyClassName}
-                onClick={onMobileFiltersToggleClick}>
+                onClick={onMobileFiltersToggleClick}
+                className={selectedFiltersQtyClassName}>
                 <span
                     className="consonant-filters-info--btn-ico" />
                 <span
                     className="consonant-filters-info--btn-text">
                     {mobileFilterBtnLabel}
                 </span>
-                {atleastOneSelectedFilter &&
+                <If condition={Boolean(atleastOneSelectedFilter)}>
                     <span
                         data-testid="btn-selected"
                         className="consonant-filters-info--btn-selected">
                         {selectedFiltersQty}
                     </span>
-                }
+                </If>
             </button>
         </div>
     );
 };
 
 Info.propTypes = InfoType;
-Info.defaultProps = defaultProps;
-
-/* eslint-disable-next-line import/prefer-default-export */
-export { Info };
+Info.defaultProps = infoDefaultProps;

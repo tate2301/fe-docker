@@ -1,25 +1,8 @@
 import React from 'react';
-import {
-    string,
-    number,
-    func,
-} from 'prop-types';
 
-const GroupFooterType = {
-    ctaText: string,
-    clearFilterText: string,
-    numItemsSelected: number,
-    handleClear: func.isRequired,
-    handleClick: func.isRequired,
-    mobileGroupTotalResultsText: string,
-};
-
-const defaultProps = {
-    ctaText: '',
-    numItemsSelected: 0,
-    clearFilterText: '',
-    mobileGroupTotalResultsText: '',
-};
+import { If } from '../../../Common';
+import { GroupFooterType } from './types';
+import { groupFooterDefaultProps } from './constants';
 
 /**
  * Footer for the left filter for mobile and tablet breakpoints
@@ -38,43 +21,28 @@ const defaultProps = {
  *   <GroupFooter {...props}/>
  * )
  */
-const GroupFooter = (props) => {
-    const {
-        mobileGroupTotalResultsText,
-        numItemsSelected,
-        handleClear,
-        clearFilterText,
-        handleClick,
-        ctaText,
-    } = props;
-
-    return (
-        <div
-            className="consonant-left-filter--footer">
-            <span
-                className="consonant-left-filter--footer-res-qty">
-                {mobileGroupTotalResultsText}
-            </span>
-            {numItemsSelected > 0 &&
-                <button
-                    type="button"
-                    onClick={handleClear}
-                    className="consonant-left-filter--footer-clear-btn">
-                    {clearFilterText}
-                </button>
-            }
+/* eslint-disable-next-line import/prefer-default-export */
+export const GroupFooter = ({
+    handleClear,
+    clearFilterText,
+    numItemsSelected,
+    mobileGroupTotalResultsText,
+}) => (
+    <div className="consonant-left-filter--footer">
+        <span
+            className="consonant-left-filter--footer-res-qty">
+            {mobileGroupTotalResultsText}
+        </span>
+        <If condition={numItemsSelected > 0}>
             <button
                 type="button"
-                onClick={handleClick}
+                onClick={handleClear}
                 className="consonant-left-filter--footer-btn">
-                {ctaText}
+                {clearFilterText}
             </button>
-        </div>
-    );
-};
+        </If>
+    </div>
+);
 
 GroupFooter.propTypes = GroupFooterType;
-GroupFooter.defaultProps = defaultProps;
-
-/* eslint-disable-next-line import/prefer-default-export */
-export { GroupFooter };
+GroupFooter.defaultProps = groupFooterDefaultProps;
