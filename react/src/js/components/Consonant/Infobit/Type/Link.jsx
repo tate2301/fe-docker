@@ -5,7 +5,7 @@ import {
     bool,
 } from 'prop-types';
 
-const LinkType = {
+const linkType = {
     linkHint: string,
     href: string.isRequired,
     text: string.isRequired,
@@ -53,7 +53,7 @@ const Link = ({
     );
 };
 
-Link.propTypes = LinkType;
+Link.propTypes = linkType;
 Link.defaultProps = defaultProps;
 
 export default Link;

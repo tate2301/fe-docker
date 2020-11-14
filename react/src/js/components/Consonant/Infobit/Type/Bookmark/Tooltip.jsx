@@ -1,7 +1,7 @@
 import React from 'react';
 import { string } from 'prop-types';
 
-const TooltipType = { text: string };
+const tooltipType = { text: string };
 const defaultProps = { text: '' };
 
 /**
@@ -24,7 +24,7 @@ const Tooltip = ({ text }) => (
     </span>
 );
 
-Tooltip.propTypes = TooltipType;
+Tooltip.propTypes = tooltipType;
 Tooltip.defaultProps = defaultProps;
 
 export default Tooltip;

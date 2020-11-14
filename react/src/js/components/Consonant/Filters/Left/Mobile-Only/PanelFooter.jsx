@@ -6,7 +6,7 @@ import {
     bool,
 } from 'prop-types';
 
-const PanelFooterType = {
+const panelFooterType = {
     resQty: number,
     doneText: string,
     applyText: string,
@@ -98,7 +98,7 @@ const PanelFooter = (props) => {
     );
 };
 
-PanelFooter.propTypes = PanelFooterType;
+PanelFooter.propTypes = panelFooterType;
 PanelFooter.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */

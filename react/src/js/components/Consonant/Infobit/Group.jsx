@@ -20,16 +20,16 @@ import Bookmark from './Type/Bookmark/Bookmark';
 import { INFOBIT_TYPE } from '../Helpers/constants';
 import { parseToPrimitive } from '../Helpers/general';
 import {
-    FooterLeftType,
-    FooterCenterType,
-    FooterRightType,
+    footerLeftType,
+    footerCenterType,
+    footerRightType,
 } from '../types/card';
 
-const GroupType = {
+const groupType = {
     renderList: arrayOf(oneOfType([
-        shape(FooterLeftType),
-        shape(FooterRightType),
-        shape(FooterCenterType),
+        shape(footerLeftType),
+        shape(footerRightType),
+        shape(footerCenterType),
     ])),
 };
 
@@ -144,7 +144,7 @@ const Group = (props) => {
     );
 };
 
-Group.propTypes = GroupType;
+Group.propTypes = groupType;
 Group.defaultProps = defaultProps;
 
 export default Group;

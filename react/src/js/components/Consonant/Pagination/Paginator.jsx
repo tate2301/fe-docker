@@ -13,7 +13,7 @@ import {
 } from '../Helpers/general';
 import { trackPageChange } from '../Analytics/Analytics';
 
-const PaginatorType = {
+const paginatorType = {
     onClick: func.isRequired,
     pageCount: number.isRequired,
     totalPages: number.isRequired,
@@ -173,6 +173,6 @@ const Paginator = (props) => {
     );
 };
 
-Paginator.propTypes = PaginatorType;
+Paginator.propTypes = paginatorType;
 
 export default Paginator;

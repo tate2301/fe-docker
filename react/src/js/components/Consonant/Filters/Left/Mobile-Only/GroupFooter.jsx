@@ -5,7 +5,7 @@ import {
     func,
 } from 'prop-types';
 
-const GroupFooterType = {
+const groupFooterType = {
     ctaText: string,
     clearFilterText: string,
     numItemsSelected: number,
@@ -73,7 +73,7 @@ const GroupFooter = (props) => {
     );
 };
 
-GroupFooter.propTypes = GroupFooterType;
+GroupFooter.propTypes = groupFooterType;
 GroupFooter.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */

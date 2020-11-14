@@ -11,7 +11,7 @@ import {
 import { useConfig } from '../Helpers/hooks';
 import { trackClearSearchInput } from '../Analytics/Analytics';
 
-const SearchType = {
+const searchType = {
     name: string,
     value: string,
     autofocus: bool,
@@ -148,7 +148,7 @@ const Search = ({
     );
 };
 
-Search.propTypes = SearchType;
+Search.propTypes = searchType;
 Search.defaultProps = defaultProps;
 
 export default Search;

@@ -4,7 +4,7 @@ import {
     func,
 } from 'prop-types';
 
-const TitleType = {
+const titleType = {
     onClick: func.isRequired,
     leftPanelMobileHeader: string,
 };
@@ -47,7 +47,7 @@ const Title = (props) => {
     );
 };
 
-Title.propTypes = TitleType;
+Title.propTypes = titleType;
 Title.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */

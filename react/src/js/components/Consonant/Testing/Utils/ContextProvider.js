@@ -8,7 +8,7 @@ import {
     shape,
 } from 'prop-types';
 
-import { ConfigType } from '../../types/config';
+import { configType } from '../../types/config';
 import {
     ConfigContext,
     ExpandableContext,
@@ -42,7 +42,7 @@ const ContextProvider = ({ context, children }) => {
 };
 
 ContextProvider.propTypes = {
-    context: shape(ConfigType),
+    context: shape(configType),
     children: node.isRequired,
 };
 

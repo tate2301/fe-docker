@@ -10,18 +10,18 @@ import {
     useLazyLoading,
 } from '../Helpers/hooks';
 import {
-    StylesType,
-    ContentAreaType,
-    OverlaysType,
+    stylesType,
+    contentAreaType,
+    overlaysType,
 } from '../types/card';
 
-const AspectRatio1to1CardType = {
+const aspectRatio1to1CardType = {
     ctaLink: string,
     id: string.isRequired,
     lh: string,
-    styles: shape(StylesType),
-    overlays: shape(OverlaysType),
-    contentArea: shape(ContentAreaType),
+    styles: shape(stylesType),
+    overlays: shape(overlaysType),
+    contentArea: shape(contentAreaType),
 };
 
 const defaultProps = {
@@ -220,7 +220,7 @@ const AspectRatio1to1Card = (props) => {
     );
 };
 
-AspectRatio1to1Card.propTypes = AspectRatio1to1CardType;
+AspectRatio1to1Card.propTypes = aspectRatio1to1CardType;
 AspectRatio1to1Card.defaultProps = defaultProps;
 
 export default AspectRatio1to1Card;

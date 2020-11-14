@@ -9,7 +9,7 @@ import {
     node,
 } from 'prop-types';
 
-import { FilterType } from '../../types/config';
+import { filterType } from '../../types/config';
 import SearchIcon from '../../Search/SearchIcon';
 import { Group as TopFilterItem } from './Group';
 import { RenderTotalResults } from '../../Helpers/rendering';
@@ -28,7 +28,7 @@ import {
 } from '../../Helpers/constants';
 
 
-const FiltersPanelTopType = {
+const filtersPanelTopType = {
     resQty: number,
     showLimitedFiltersQty: bool,
     sortComponent: node.isRequired,
@@ -36,7 +36,7 @@ const FiltersPanelTopType = {
     onFilterClick: func.isRequired,
     onShowAllClick: func.isRequired,
     searchComponent: node.isRequired,
-    filters: arrayOf(shape(FilterType)),
+    filters: arrayOf(shape(filterType)),
     onCheckboxClick: func.isRequired,
     onClearAllFilters: func.isRequired,
     onClearFilterItems: func.isRequired,
@@ -335,7 +335,7 @@ const FiltersPanelTop = (props) => {
     );
 };
 
-FiltersPanelTop.propTypes = FiltersPanelTopType;
+FiltersPanelTop.propTypes = filtersPanelTopType;
 FiltersPanelTop.defaultProps = defaultProps;
 
 export default FiltersPanelTop;

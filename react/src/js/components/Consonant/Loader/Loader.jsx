@@ -7,7 +7,7 @@ import {
 
 import { LOADER_SIZE } from '../Helpers/constants';
 
-const LoaderType = {
+const loaderType = {
     size: string,
     hidden: bool,
     absolute: bool,
@@ -53,7 +53,7 @@ const Loader = ({ size, hidden, absolute }) => {
     );
 };
 
-Loader.propTypes = LoaderType;
+Loader.propTypes = loaderType;
 Loader.defaultProps = defaultProps;
 
 export default Loader;

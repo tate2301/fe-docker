@@ -6,7 +6,7 @@ import {
 
 import { useConfig } from '../Helpers/hooks';
 
-const LoadMoreType = {
+const loadMoreType = {
     show: number.isRequired,
     total: number.isRequired,
     onClick: func.isRequired,
@@ -81,6 +81,6 @@ const LoadMore = ({
         : null;
 };
 
-LoadMore.propTypes = LoadMoreType;
+LoadMore.propTypes = loadMoreType;
 
 export default LoadMore;

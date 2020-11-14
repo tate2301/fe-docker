@@ -9,7 +9,7 @@ import {
 import Tooltip from './Tooltip';
 import { trackCardSave } from '../../../Analytics/Analytics';
 
-const BookmarkType = {
+const bookmarkType = {
     isBookmarked: bool,
     saveCardIcon: string,
     cardSaveText: string,
@@ -98,7 +98,7 @@ const Bookmark = ({
     );
 };
 
-Bookmark.propTypes = BookmarkType;
+Bookmark.propTypes = bookmarkType;
 Bookmark.defaultProps = defaultProps;
 
 export default Bookmark;

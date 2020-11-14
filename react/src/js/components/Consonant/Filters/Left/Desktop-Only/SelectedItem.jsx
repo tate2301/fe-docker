@@ -4,7 +4,7 @@ import {
     func,
 } from 'prop-types';
 
-const SelectedItemType = {
+const selectedItemType = {
     numItemsSelected: number,
     handleClear: func.isRequired,
 };
@@ -51,7 +51,7 @@ const SelectedItem = (props) => {
     );
 };
 
-SelectedItem.propTypes = SelectedItemType;
+SelectedItem.propTypes = selectedItemType;
 SelectedItem.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */

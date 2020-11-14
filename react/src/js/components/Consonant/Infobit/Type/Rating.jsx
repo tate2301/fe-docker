@@ -8,7 +8,7 @@ import {
 const maxAllowedStars = 5;
 const defaultFilledStars = 0;
 
-const RatingType = {
+const ratingType = {
     label: string,
     totalStars: number,
     starsFilled: number,
@@ -92,7 +92,7 @@ const Rating = ({
     );
 };
 
-Rating.propTypes = RatingType;
+Rating.propTypes = ratingType;
 Rating.defaultProps = defaultProps;
 
 export default Rating;

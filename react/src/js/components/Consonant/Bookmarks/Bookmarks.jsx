@@ -8,7 +8,7 @@ import {
 
 import { useConfig } from '../Helpers/hooks';
 
-const BookmarksType = {
+const bookmarksType = {
     showBookmarks: bool,
     savedCardsCount: number,
     onClick: func.isRequired,
@@ -100,7 +100,7 @@ const Bookmarks = (props) => {
     );
 };
 
-Bookmarks.propTypes = BookmarksType;
+Bookmarks.propTypes = bookmarksType;
 Bookmarks.defaultProps = defaultProps;
 
 export default Bookmarks;

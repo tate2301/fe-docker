@@ -1,7 +1,7 @@
 import React from 'react';
 import { string } from 'prop-types';
 
-const PriceType = {
+const priceType = {
     term: string,
     price: string.isRequired,
 };
@@ -37,7 +37,7 @@ const Price = ({ price, term }) => (
     </span>
 );
 
-Price.propTypes = PriceType;
+Price.propTypes = priceType;
 Price.defaultProps = defaultProps;
 
 export default Price;

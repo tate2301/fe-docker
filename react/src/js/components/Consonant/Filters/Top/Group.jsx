@@ -10,14 +10,14 @@ import {
 
 import { Items } from './Items';
 import { Footer } from './Footer';
-import { FilterItemType } from '../../types/config';
+import { filterItemType } from '../../types/config';
 import { stopPropagation } from '../../Helpers/general';
 import {
     useConfig,
     useExpandable,
 } from '../../Helpers/hooks';
 
-const GroupType = {
+const groupType = {
     id: string.isRequired,
     name: string.isRequired,
     clearFilterText: string,
@@ -25,7 +25,7 @@ const GroupType = {
     onCheck: func.isRequired,
     results: number.isRequired,
     onClearAll: func.isRequired,
-    items: arrayOf(shape(FilterItemType)).isRequired,
+    items: arrayOf(shape(filterItemType)).isRequired,
 };
 
 const defaultProps = {
@@ -240,7 +240,7 @@ const Group = (props) => {
     );
 };
 
-Group.propTypes = GroupType;
+Group.propTypes = groupType;
 Group.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */

@@ -7,7 +7,7 @@ import {
     oneOfType,
 } from 'prop-types';
 
-import { CardType } from './card';
+import { cardType } from './card';
 
 const CollectionResultPerPageType = [
     string,
@@ -36,7 +36,7 @@ const CollectionType = {
 
 const FeaturedCardsType = [
     string,
-    arrayOf(shape(CardType)),
+    arrayOf(shape(cardType)),
 ];
 
 const EnabledType = [
@@ -48,20 +48,20 @@ const HeaderType = {
     enabled: oneOfType(EnabledType),
 };
 
-export const FilterItemType = {
+export const filterItemType = {
     id: string,
     label: oneOfType([string, number]),
 };
 
-export const FilterType = {
+export const filterType = {
     id: string,
     group: string,
-    items: arrayOf(shape(FilterItemType)),
+    items: arrayOf(shape(filterItemType)),
 };
 
 const FiltersType = [
     string,
-    arrayOf(shape(FilterType)),
+    arrayOf(shape(filterType)),
 ];
 
 const FilterPanelType = {
@@ -107,7 +107,7 @@ const SearchType = {
     searchFields: oneOfType(SearchFieldType),
 };
 
-export const SortOptionType = {
+export const sortOptionType = {
     sort: string,
     label: string,
 };
@@ -116,11 +116,11 @@ const SortType = {
     enabled: oneOfType(EnabledType),
     options: oneOfType([
         string,
-        arrayOf(shape(SortOptionType)),
+        arrayOf(shape(sortOptionType)),
     ]),
 };
 
-export const ConfigType = {
+export const configType = {
     sort: shape(SortType),
     search: shape(SearchType),
     header: shape(HeaderType),

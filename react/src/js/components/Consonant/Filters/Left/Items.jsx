@@ -5,11 +5,11 @@ import {
     func,
 } from 'prop-types';
 
-import { FilterItemType } from '../../types/config';
+import { filterItemType } from '../../types/config';
 
 const ItemsType = {
     handleCheck: func.isRequired,
-    items: arrayOf(shape(FilterItemType)).isRequired,
+    items: arrayOf(shape(filterItemType)).isRequired,
 };
 
 /**

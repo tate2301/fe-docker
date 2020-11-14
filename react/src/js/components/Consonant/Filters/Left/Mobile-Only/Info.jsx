@@ -6,7 +6,7 @@ import {
     func,
 } from 'prop-types';
 
-const InfoType = {
+const infoType = {
     selectedFiltersQty: number,
     mobileFilterBtnLabel: string,
     onMobileFiltersToggleClick: func.isRequired,
@@ -76,7 +76,7 @@ const Info = ({
     );
 };
 
-Info.propTypes = InfoType;
+Info.propTypes = infoType;
 Info.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */

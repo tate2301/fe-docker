@@ -4,7 +4,7 @@ import {
     string,
 } from 'prop-types';
 
-const ClearButtonType = {
+const clearButtonType = {
     clearAllFiltersText: string,
     onClearAllFilters: func.isRequired,
 };
@@ -49,7 +49,7 @@ const ClearBtn = (props) => {
     );
 };
 
-ClearBtn.propTypes = ClearButtonType;
+ClearBtn.propTypes = clearButtonType;
 ClearBtn.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */

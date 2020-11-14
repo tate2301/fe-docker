@@ -12,7 +12,7 @@ import {
 
 import Item from './Item';
 import { useConfig } from '../../Helpers/hooks';
-import { FilterType } from '../../types/config';
+import { filterType } from '../../types/config';
 import ChosenFilter from './Desktop-Only/ChosenItem';
 import { Title as MobileTitle } from './Mobile-Only/Title';
 import { Title as DesktopTitle } from './Desktop-Only/Title';
@@ -24,7 +24,7 @@ import {
 } from '../../Helpers/general';
 
 
-const LeftFilterPanelType = {
+const leftFilterPanelType = {
     resQty: number,
     windowWidth: number,
     showMobileFilters: bool,
@@ -34,7 +34,7 @@ const LeftFilterPanelType = {
     searchComponent: node.isRequired,
     bookmarkComponent: node.isRequired,
     onClearAllFilters: func.isRequired,
-    filters: arrayOf(shape(FilterType)),
+    filters: arrayOf(shape(filterType)),
     onClearFilterItems: func.isRequired,
     onSelectedFilterClick: func.isRequired,
     onMobileFiltersToggleClick: func.isRequired,
@@ -234,7 +234,7 @@ const LeftFilterPanel = ({
     );
 };
 
-LeftFilterPanel.propTypes = LeftFilterPanelType;
+LeftFilterPanel.propTypes = leftFilterPanelType;
 LeftFilterPanel.defaultProps = defaultProps;
 
 export default LeftFilterPanel;

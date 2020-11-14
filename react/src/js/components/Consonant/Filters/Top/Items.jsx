@@ -7,13 +7,13 @@ import {
     number,
 } from 'prop-types';
 
-import { FilterItemType } from '../../types/config';
+import { filterItemType } from '../../types/config';
 
-const ItemsType = {
+const itemsType = {
     handleCheck: func.isRequired,
     stopPropagation: func.isRequired,
     clipWrapperItemsCount: number.isRequired,
-    items: arrayOf(shape(FilterItemType)).isRequired,
+    items: arrayOf(shape(filterItemType)).isRequired,
 };
 
 /**
@@ -95,7 +95,7 @@ const Items = (props) => {
     );
 };
 
-Items.propTypes = ItemsType;
+Items.propTypes = itemsType;
 
 /* eslint-disable-next-line import/prefer-default-export */
 export { Items };

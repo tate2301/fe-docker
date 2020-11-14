@@ -14,7 +14,7 @@ import {
     saveBookmarksToLocalStorage,
     readBookmarksFromLocalStorage,
 } from '../Helpers/general';
-import { ConfigType } from '../types/config';
+import { configType } from '../types/config';
 import NoResultsView from '../NoResults/View';
 import LoadMore from '../Pagination/LoadMore';
 import Bookmarks from '../Bookmarks/Bookmarks';
@@ -819,7 +819,7 @@ const Container = (props) => {
 };
 
 Container.propTypes = {
-    config: shape(ConfigType),
+    config: shape(configType),
 };
 
 Container.defaultProps = {

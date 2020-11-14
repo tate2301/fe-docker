@@ -9,9 +9,9 @@ import {
 } from 'prop-types';
 
 import { useExpandable } from '../Helpers/hooks';
-import { SortOptionType } from '../types/config';
+import { sortOptionType } from '../types/config';
 
-const PopupType = {
+const popupType = {
     autoWidth: bool,
     id: string.isRequired,
     optionsAlignment: string,
@@ -20,7 +20,7 @@ const PopupType = {
         label: string,
         sort: string,
     }).isRequired,
-    values: arrayOf(shape(SortOptionType)).isRequired,
+    values: arrayOf(shape(sortOptionType)).isRequired,
 };
 
 const defaultProps = {
@@ -126,7 +126,7 @@ const Popup = ({
     );
 };
 
-Popup.propTypes = PopupType;
+Popup.propTypes = popupType;
 Popup.defaultProps = defaultProps;
 
 export default Popup;

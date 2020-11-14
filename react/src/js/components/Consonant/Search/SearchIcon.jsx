@@ -1,7 +1,7 @@
 import React from 'react';
 import { func } from 'prop-types';
 
-const SearchIconType = {
+const searchIconType = {
     onClick: func.isRequired,
 };
 
@@ -34,6 +34,6 @@ const SearchIcon = (props) => {
     );
 };
 
-SearchIcon.propTypes = SearchIconType;
+SearchIcon.propTypes = searchIconType;
 
 export default SearchIcon;

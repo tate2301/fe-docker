@@ -7,7 +7,7 @@ import {
 } from 'prop-types';
 
 import FullCard from '../Cards/Full';
-import { CardType } from '../types/card';
+import { cardType } from '../types/card';
 import { getByPath } from '../Helpers/general';
 import { useConfig } from '../Helpers/hooks';
 import AspectRatio1to1Card from '../Cards/1-1';
@@ -18,10 +18,10 @@ import {
 } from '../Helpers/constants';
 
 
-const CollectionType = {
+const collectionType = {
     pages: number,
     resultsPerPage: number,
-    cards: arrayOf(shape(CardType)),
+    cards: arrayOf(shape(cardType)),
     onCardBookmark: func.isRequired,
 };
 
@@ -141,7 +141,7 @@ const Collection = (props) => {
     );
 };
 
-Collection.propTypes = CollectionType;
+Collection.propTypes = collectionType;
 Collection.defaultProps = defaultProps;
 
 export default Collection;

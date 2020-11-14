@@ -4,7 +4,7 @@ import {
     func,
 } from 'prop-types';
 
-const ChosenFilterItemType = {
+const chosenFilterItemType = {
     id: string.isRequired,
     name: string.isRequired,
     onClick: func.isRequired,
@@ -56,6 +56,6 @@ const ChosenFilterItem = (props) => {
     );
 };
 
-ChosenFilterItem.propTypes = ChosenFilterItemType;
+ChosenFilterItem.propTypes = chosenFilterItemType;
 
 export default ChosenFilterItem;

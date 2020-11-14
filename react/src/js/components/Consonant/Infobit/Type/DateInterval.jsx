@@ -3,7 +3,7 @@ import { string } from 'prop-types';
 
 import getPrettyDateInterval from '../../Helpers/prettyFormat';
 
-const DateIntervalType = {
+const dateIntervalType = {
     locale: string.isRequired,
     endTime: string.isRequired,
     startTime: string.isRequired,
@@ -41,6 +41,6 @@ const DateInterval = ({
     );
 };
 
-DateInterval.propTypes = DateIntervalType;
+DateInterval.propTypes = dateIntervalType;
 
 export default DateInterval;

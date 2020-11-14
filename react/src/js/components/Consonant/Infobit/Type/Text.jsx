@@ -1,7 +1,7 @@
 import React from 'react';
 import { string } from 'prop-types';
 
-const TextType = {
+const textType = {
     text: string.isRequired,
 };
 
@@ -19,6 +19,6 @@ const TextType = {
  */
 const Text = ({ text }) => <p className="consonant-text-infobit">{text}</p>;
 
-Text.propTypes = TextType;
+Text.propTypes = textType;
 
 export default Text;

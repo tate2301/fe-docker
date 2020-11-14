@@ -10,7 +10,7 @@ import {
 } from 'prop-types';
 
 import { useConfig } from '../../Helpers/hooks';
-import { SortOptionType } from '../../types/config';
+import { sortOptionType } from '../../types/config';
 import { Info as MobileInfo } from './Mobile-Only/Info';
 import { RenderTotalResults } from '../../Helpers/rendering';
 
@@ -23,7 +23,7 @@ const InfoType = {
     sortComponent: node.isRequired,
     searchComponent: node.isRequired,
     onMobileFiltersToggleClick: func.isRequired,
-    sortOptions: arrayOf(shape(SortOptionType)).isRequired,
+    sortOptions: arrayOf(shape(sortOptionType)).isRequired,
 };
 
 const defaultProps = {

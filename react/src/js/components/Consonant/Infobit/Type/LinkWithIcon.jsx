@@ -5,7 +5,7 @@ import {
     oneOfType,
 } from 'prop-types';
 
-const LinkWithIconType = {
+const linkWithIconType = {
     src: string,
     href: string,
     text: string,
@@ -63,7 +63,7 @@ const LinkWithIcon = ({
     </a>
 );
 
-LinkWithIcon.propTypes = LinkWithIconType;
+LinkWithIcon.propTypes = linkWithIconType;
 LinkWithIcon.defaultProps = defaultProps;
 
 export default LinkWithIcon;

@@ -5,7 +5,7 @@ import {
     func,
 } from 'prop-types';
 
-const FooterType = {
+const footerType = {
     clearFilterText: string,
     numItemsSelected: number,
     mobileFooterBtnText: string,
@@ -85,7 +85,7 @@ const Footer = (props) => {
     );
 };
 
-Footer.propTypes = FooterType;
+Footer.propTypes = footerType;
 Footer.defaultProps = defaultProps;
 
 /* eslint-disable-next-line import/prefer-default-export */

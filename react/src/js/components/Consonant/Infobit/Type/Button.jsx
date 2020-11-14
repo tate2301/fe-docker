@@ -7,7 +7,7 @@ const BUTTON_STYLE = {
     CTA: 'call-to-action',
 };
 
-const ButtonType = {
+const buttonType = {
     text: string,
     href: string,
     style: string,
@@ -80,7 +80,7 @@ const Button = ({
     );
 };
 
-Button.propTypes = ButtonType;
+Button.propTypes = buttonType;
 Button.defaultProps = defaultProps;
 
 export default Button;

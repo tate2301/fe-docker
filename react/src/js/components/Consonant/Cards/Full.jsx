@@ -6,18 +6,18 @@ import {
 
 import { useLazyLoading } from '../Helpers/hooks';
 import {
-    StylesType,
-    ContentAreaType,
-    OverlaysType,
+    stylesType,
+    contentAreaType,
+    overlaysType,
 } from '../types/card';
 
-const FullCardType = {
+const fullCardType = {
     ctaLink: string,
     id: string.isRequired,
     lh: string,
-    styles: shape(StylesType),
-    overlays: shape(OverlaysType),
-    contentArea: shape(ContentAreaType),
+    styles: shape(stylesType),
+    overlays: shape(overlaysType),
+    contentArea: shape(contentAreaType),
 };
 
 const defaultProps = {
@@ -181,7 +181,7 @@ const FullCard = (props) => {
     );
 };
 
-FullCard.propTypes = FullCardType;
+FullCard.propTypes = fullCardType;
 FullCard.defaultProps = defaultProps;
 
 export default FullCard;

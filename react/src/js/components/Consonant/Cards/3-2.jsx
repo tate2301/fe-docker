@@ -16,23 +16,23 @@ import {
     useLazyLoading,
 } from '../Helpers/hooks';
 import {
-    StylesType,
-    ContentAreaType,
-    OverlaysType,
-    FooterType,
+    stylesType,
+    contentAreaType,
+    overlaysType,
+    footerType,
 } from '../types/card';
 
-const AspectRatio3to2CardType = {
+const aspectRatio3to2CardType = {
     isBookmarked: bool,
     dateFormat: string,
     id: string.isRequired,
     lh: string,
-    styles: shape(StylesType),
+    styles: shape(stylesType),
     disableBookmarkIco: bool,
     onClick: func.isRequired,
-    overlays: shape(OverlaysType),
-    footer: arrayOf(shape(FooterType)),
-    contentArea: shape(ContentAreaType),
+    overlays: shape(overlaysType),
+    footer: arrayOf(shape(footerType)),
+    contentArea: shape(contentAreaType),
 };
 
 const defaultProps = {
@@ -268,7 +268,7 @@ const AspectRatio3to2Card = (props) => {
     );
 };
 
-AspectRatio3to2Card.propTypes = AspectRatio3to2CardType;
+AspectRatio3to2Card.propTypes = aspectRatio3to2CardType;
 AspectRatio3to2Card.defaultProps = defaultProps;
 
 export default AspectRatio3to2Card;

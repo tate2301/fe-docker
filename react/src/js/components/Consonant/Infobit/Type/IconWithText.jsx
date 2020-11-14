@@ -5,7 +5,7 @@ import {
     number,
 } from 'prop-types';
 
-const IconWithTextType = {
+const iconWithTextType = {
     src: string,
     srcAltText: string,
     text: oneOfType([
@@ -55,7 +55,7 @@ const IconWithText = ({
     </div>
 );
 
-IconWithText.propTypes = IconWithTextType;
+IconWithText.propTypes = iconWithTextType;
 IconWithText.defaultProps = defaultProps;
 
 export default IconWithText;

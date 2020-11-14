@@ -11,11 +11,11 @@ import {
 
 import { Items } from './Items';
 import { useConfig } from '../../Helpers/hooks';
-import { FilterItemType } from '../../types/config';
+import { filterItemType } from '../../types/config';
 import { GroupFooter } from './Mobile-Only/GroupFooter';
 import { SelectedItem as DesktopSelectedItem } from './Desktop-Only/SelectedItem';
 
-const ItemType = {
+const itemType = {
     icon: string,
     isOpened: bool,
     id: string.isRequired,
@@ -26,7 +26,7 @@ const ItemType = {
     numItemsSelected: number,
     results: number.isRequired,
     onClearAll: func.isRequired,
-    items: arrayOf(shape(FilterItemType)).isRequired,
+    items: arrayOf(shape(filterItemType)).isRequired,
 };
 
 const defaultProps = {
@@ -215,7 +215,7 @@ const Item = (props) => {
     );
 };
 
-Item.propTypes = ItemType;
+Item.propTypes = itemType;
 Item.defaultProps = defaultProps;
 
 export default Item;
