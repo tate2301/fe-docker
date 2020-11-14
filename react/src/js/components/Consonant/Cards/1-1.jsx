@@ -114,15 +114,15 @@ const AspectRatio1to1Card = (props) => {
 
     /**
      * Formatted date string
-     * @type {String|null}
+     * @type {String}
      */
-    const prettyDate = startTime ? prettyFormatDate(startTime, endTime, locale, i18nFormat) : null;
+    const prettyDate = startTime ? prettyFormatDate(startTime, endTime, locale, i18nFormat) : '';
 
     /**
      * Detail text
      * @type {String}
      */
-    const detailText = prettyDate || label || '';
+    const detailText = prettyDate || label;
 
     return (
         <div

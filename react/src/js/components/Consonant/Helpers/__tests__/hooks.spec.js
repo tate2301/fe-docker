@@ -5,7 +5,6 @@ import '@testing-library/jest-dom/extend-expect';
 import {
     useExpandable,
     useConfig,
-    useIsMounted,
     useWindowDimensions,
     useLazyLoading,
 } from '../hooks';
@@ -70,19 +69,6 @@ describe('utils/hooks', () => {
             const name = result.current('info', 'name');
 
             expect(name).toBe('name');
-        });
-    });
-    describe('useIsMounted', () => {
-        test('should return false if unmounted', () => {
-            const { result, unmount } = renderHook(() => useIsMounted());
-
-            expect(result.current.current).toBe(true);
-
-            act(() => {
-                unmount();
-            });
-
-            expect(result.current.current).toBe(false);
         });
     });
     describe('useWindowDimensions', () => {

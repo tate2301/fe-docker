@@ -25,6 +25,7 @@
     "classnames": "^2.2.6",
     "core-js": "^2.6.11",
     "cors": "^2.8.5",
+    "cuid": "^2.1.8",
     "elasticsearch": "^16.7.1",
     "element-closest": "2.0.2",
     "enzyme": "^3.11.0",

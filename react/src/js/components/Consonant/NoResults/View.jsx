@@ -1,7 +1,7 @@
 import React from 'react';
 import { string } from 'prop-types';
 
-import { renderDisplayMsg } from '../Helpers/rendering';
+import { RenderDisplayMsg } from '../Helpers/rendering';
 
 const ViewType = {
     description: string,
@@ -35,7 +35,7 @@ const View = (props) => {
         replaceValue,
     } = props;
 
-    const displayMsg = renderDisplayMsg(description, replaceValue);
+    const displayMsg = RenderDisplayMsg(description, replaceValue);
 
     return (
         <div

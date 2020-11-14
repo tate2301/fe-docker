@@ -12,7 +12,7 @@ import {
 import { useConfig } from '../../Helpers/hooks';
 import { SortOptionType } from '../../types/config';
 import { Info as MobileInfo } from './Mobile-Only/Info';
-import { renderTotalResults } from '../../Helpers/rendering';
+import { RenderTotalResults } from '../../Helpers/rendering';
 
 const InfoType = {
     cardsQty: number,
@@ -87,7 +87,7 @@ const Info = (props) => {
      * Total results HTML
      * @type {Array}
      */
-    const totalResultsHtml = renderTotalResults(showTotalResultsText, cardsQty);
+    const totalResultsHtml = RenderTotalResults(showTotalResultsText, cardsQty);
 
     /**
      * Minimal viewport width to fit desktops/laptops

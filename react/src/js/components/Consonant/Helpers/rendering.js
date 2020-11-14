@@ -1,5 +1,5 @@
 import React from 'react';
-import uuid from 'react-uuid';
+import cuid from 'cuid';
 
 /**
 * Handles highlighting search results on search
@@ -7,7 +7,7 @@ import uuid from 'react-uuid';
 * @param {String} value - Values to highlight
 * @returns {String []} - HTML with text highlighting
 */
-export const highlightSearchField = (text, value) => {
+export const HighlightSearchField = (text, value) => {
     const parts = text.split(new RegExp(`(${value})`, 'gi'));
     return parts.map(part => (
         part.toLowerCase() === value ?
@@ -15,7 +15,7 @@ export const highlightSearchField = (text, value) => {
                 <span
                     data-testid="consonant-search-result"
                     className="consonant-search-result"
-                    key={uuid()}>
+                    key={cuid()}>
                     {part}
                 </span>
             ) : part
@@ -28,25 +28,25 @@ export const highlightSearchField = (text, value) => {
 * @param {String} value - Values to modify
 * @returns {String []} - HTML to render users on page error
 */
-export const renderDisplayMsg = (text, value) => {
+export const RenderDisplayMsg = (text, value) => {
     const arr = text.split(new RegExp('({query}|{break})', 'gi')).filter(item => item);
     return arr.map((item) => {
         switch (item.toLowerCase()) {
             case '{query}':
                 return (
                     <strong
-                        key={uuid()}>
+                        key={cuid()}>
                         {value}
                     </strong>
                 );
             case '{break}':
                 return (
                     <br
-                        key={uuid()} />
+                        key={cuid()} />
                 );
             default: return (
                 <span
-                    key={uuid()}>
+                    key={cuid()}>
                     {item}
                 </span>
             );
@@ -60,7 +60,7 @@ export const renderDisplayMsg = (text, value) => {
 * @param {String} value - Values to modify
 * @returns {String []} - HTML to render total results text
 */
-export const renderTotalResults = (text, value) => {
+export const RenderTotalResults = (text, value) => {
     const arr = text.split(new RegExp('({total})', 'gi')).filter(item => item);
-    return arr.map(item => (item.toLowerCase() === '{total}' ? <strong key={uuid()}>{value}</strong> : <span key={uuid()}>{item}</span>));
+    return arr.map(item => (item.toLowerCase() === '{total}' ? <strong key={cuid()}>{value}</strong> : <span key={cuid()}>{item}</span>));
 };

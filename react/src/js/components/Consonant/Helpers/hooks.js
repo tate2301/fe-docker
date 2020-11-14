@@ -1,4 +1,4 @@
-import React, {
+import {
     useCallback,
     useContext,
     useEffect,
@@ -63,31 +63,13 @@ export const useExpandable = (dropdownId) => {
 
 /**
  * @typedef {Function} ConfigStateSetter
- * @description - Configs are grabbed from Authoring Dialog and passedd into React Component
+ * @description - Configs are grabbed from Authoring Dialog and passed into React Component
  *
  * @type {[Number, Function]} Config
  */
 export const useConfig = () => {
     const config = useContext(ConfigContext);
     return useCallback(makeConfigGetter(config), [config]);
-};
-
-
-/**
- * @typedef {Function} IsMountedStateSetter
- * @description - Flag to handle unmounting components when react re-renders
- * This is used to prevent memory leaks in the application when DOM is wiped by react
- *
- * @type {[Number, Function]} IsMounted
- */
-export const useIsMounted = () => {
-    const isMounted = React.useRef(true);
-
-    React.useEffect(() => () => {
-        isMounted.current = false;
-    }, []);
-
-    return isMounted;
 };
 
 /**

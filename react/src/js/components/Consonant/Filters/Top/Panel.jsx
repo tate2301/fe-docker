@@ -12,7 +12,7 @@ import {
 import { FilterType } from '../../types/config';
 import SearchIcon from '../../Search/SearchIcon';
 import { Group as TopFilterItem } from './Group';
-import { renderTotalResults } from '../../Helpers/rendering';
+import { RenderTotalResults } from '../../Helpers/rendering';
 import {
     getSelectedItemsCount,
     isAtleastOneFilterSelected,
@@ -135,7 +135,7 @@ const FiltersPanelTop = (props) => {
      * Total results HTML
      * @type {Array}
      */
-    const totalResultsHtml = renderTotalResults(showTotalResultsText, resQty);
+    const totalResultsHtml = RenderTotalResults(showTotalResultsText, resQty);
 
     /**
      * Whether at least one filter is selected

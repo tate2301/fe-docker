@@ -272,7 +272,8 @@ export const getEndNumber = (
  * Gets the end number for Paginator Component
  * @param {string} text - template string like a '{0} {1}'
  * @param {object} props - object with props to replace part of text in brackets
- * @returns {string} - ('{placeholderKey}', { placeholderKey: 'placeholderValue' }) => 'placeholderValue'
+ * @returns {string} - ('{placeholderKey}', { placeholderKey: 'placeholderValue' })
+ *  => 'placeholderValue'
  */
 export const template = (text = '', props) => {
     if (!props) return text;

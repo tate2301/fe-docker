@@ -1,4 +1,4 @@
-import uuid from 'react-uuid';
+import cuid from 'cuid';
 import React, { Fragment } from 'react';
 import {
     oneOfType,
@@ -62,62 +62,62 @@ const Group = (props) => {
                         return (
                             <Price
                                 {...infobit}
-                                key={uuid()} />
+                                key={cuid()} />
                         );
 
                     case INFOBIT_TYPE.BUTTON:
                         return (
                             <Button
                                 {...infobit}
-                                key={uuid()} />
+                                key={cuid()} />
                         );
 
                     case INFOBIT_TYPE.ICON_TEXT:
                         return (
                             <IconWithText
                                 {...infobit}
-                                key={uuid()} />
+                                key={cuid()} />
                         );
 
                     case INFOBIT_TYPE.LINK_ICON:
                         return (
                             <LinkWithIcon
                                 {...infobit}
-                                key={uuid()} />
+                                key={cuid()} />
                         );
 
                     case INFOBIT_TYPE.TEXT:
                         return (
                             <Text
                                 {...infobit}
-                                key={uuid()} />
+                                key={cuid()} />
                         );
 
                     case INFOBIT_TYPE.ICON:
                         return (
                             <Icon
                                 {...infobit}
-                                key={uuid()} />
+                                key={cuid()} />
                         );
 
                     case INFOBIT_TYPE.LINK:
                         return (
                             <TextLink
                                 {...infobit}
-                                key={uuid()} />
+                                key={cuid()} />
                         );
 
                     case INFOBIT_TYPE.PROGRESS:
                         return (
                             <Progress
                                 {...infobit}
-                                key={uuid()} />
+                                key={cuid()} />
                         );
 
                     case INFOBIT_TYPE.RATING:
                         return (
                             <Rating
-                                key={uuid()}
+                                key={cuid()}
                                 label={infobit.label}
                                 totalStars={parseToPrimitive(infobit.totalStars)}
                                 starsFilled={parseToPrimitive(infobit.starsFilled)} />
@@ -127,14 +127,14 @@ const Group = (props) => {
                         return (
                             <Bookmark
                                 {...infobit}
-                                key={uuid()} />
+                                key={cuid()} />
                         );
 
                     case INFOBIT_TYPE.DATE:
                         return (
                             <DateInterval
                                 {...infobit}
-                                key={uuid()} />
+                                key={cuid()} />
                         );
 
                     default: return null;

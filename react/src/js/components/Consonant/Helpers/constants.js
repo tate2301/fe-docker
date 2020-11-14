@@ -73,6 +73,15 @@ export const SORT_TYPES = {
 };
 
 /**
+ * Possible Locations of the Sort Popup
+ * @type {String}
+ */
+export const SORT_POPUP_LOCATION = {
+    LEFT: 'left',
+    RIGHT: 'right',
+};
+
+/**
  * Available infobit types
  * @type {Object}
  */

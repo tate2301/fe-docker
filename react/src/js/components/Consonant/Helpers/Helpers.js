@@ -1,7 +1,7 @@
 
 import produce, { enableES5 } from 'immer';
 
-import { highlightSearchField } from './rendering';
+import { HighlightSearchField } from './rendering';
 import {
     getByPath,
     setByPath,
@@ -148,7 +148,7 @@ export const getFilteredCards = (cards, activeFilters, filterType, filterTypes) 
 export const highlightCard = (baseCard, searchField, query) => produce(baseCard, (draftCard) => {
     const searchFieldValue = getByPath(draftCard, searchField, null);
     if (searchFieldValue === null) return;
-    const highlightedSearchFieldValue = highlightSearchField(searchFieldValue, query);
+    const highlightedSearchFieldValue = HighlightSearchField(searchFieldValue, query);
     setByPath(draftCard, searchField, highlightedSearchFieldValue);
 });
 

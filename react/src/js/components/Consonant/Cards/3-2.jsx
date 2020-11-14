@@ -1,5 +1,5 @@
 import React from 'react';
-import uuid from 'react-uuid';
+import cuid from 'cuid';
 import {
     string,
     shape,
@@ -133,15 +133,15 @@ const AspectRatio3to2Card = (props) => {
 
     /**
      * Formatted date string
-     * @type {String|null}
+     * @type {String}
      */
-    const prettyDate = startTime ? prettyFormatDate(startTime, endTime, locale, i18nFormat) : null;
+    const prettyDate = startTime ? prettyFormatDate(startTime, endTime, locale, i18nFormat) : '';
 
     /**
      * Detail text
      * @type {String}
      */
-    const detailText = prettyDate || label || '';
+    const detailText = prettyDate || label;
 
     /**
      * Extends infobits with the configuration data
@@ -258,7 +258,7 @@ const AspectRatio3to2Card = (props) => {
                     <CardFooter
                         divider={footerItem.divider}
                         isFluid={footerItem.isFluid}
-                        key={uuid()}
+                        key={cuid()}
                         left={extendFooterData(footerItem.left)}
                         center={extendFooterData(footerItem.center)}
                         right={extendFooterData(footerItem.right)} />

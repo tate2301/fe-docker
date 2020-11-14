@@ -1,7 +1,6 @@
 import React, {
     Fragment,
     useEffect,
-    useRef,
     useState,
 } from 'react';
 import 'whatwg-fetch';
@@ -35,6 +34,7 @@ import {
     PAGINATION_COUNT,
     TABLET_MIN_WIDTH,
     TRUNCATE_TEXT_QTY,
+    SORT_POPUP_LOCATION,
 } from '../Helpers/constants';
 import {
     ConfigContext,
@@ -163,7 +163,6 @@ const Container = (props) => {
      * @type {[Array, Function]} Filters
      */
     const [filters, setFilters] = useState([]);
-    const page = useRef();
 
     /**
      * @typedef {String} SearchQueryState — Will be used to search through cards
@@ -531,7 +530,7 @@ const Container = (props) => {
     }, []);
 
     /**
-    * Handles debouncing on window resize
+    * Saves cards to local storage and updates card w/ bookmarked data
     * @returns {Void} - an updated state
     */
     useEffect(() => {
@@ -642,7 +641,8 @@ const Container = (props) => {
      * Where to place the Sort Popup (either left or right)
      * @type {String} - Location of Sort Popup in Top Filter Panel View
      */
-    const topPanelSortPopupLocation = filters.length > 0 && windowWidth < TABLET_MIN_WIDTH ? 'left' : 'right';
+    const topPanelSortPopupLocation = filters.length > 0 && windowWidth < TABLET_MIN_WIDTH ?
+        SORT_POPUP_LOCATION.LEFT : SORT_POPUP_LOCATION.RIGHT;
 
     /**
      * How Long Paginator Component Should Be
@@ -775,12 +775,10 @@ const Container = (props) => {
                                         cards={collectionCards}
                                         onCardBookmark={handleCardBookmarking} />
                                     {displayLoadMore && (
-                                        <div ref={page}>
-                                            <LoadMore
-                                                onClick={onLoadMoreClick}
-                                                show={numCardsToShow}
-                                                total={collectionCards.length} />
-                                        </div>
+                                        <LoadMore
+                                            onClick={onLoadMoreClick}
+                                            show={numCardsToShow}
+                                            total={collectionCards.length} />
                                     )}
                                     {displayPaginator &&
                                         <Paginator
