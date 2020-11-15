@@ -61,7 +61,7 @@ describe('Consonant/Card/1:1', () => {
             },
         });
 
-        const labelElement = screen.queryByTestId('1-1-card--label');
+        const labelElement = screen.queryByTestId('card--label');
 
         expect(labelElement).not.toBeNull();
     });

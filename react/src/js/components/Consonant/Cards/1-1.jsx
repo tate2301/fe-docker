@@ -4,16 +4,15 @@ import {
     shape,
 } from 'prop-types';
 
+import BaseCard from './Base';
 import prettyFormatDate from '../Helpers/prettyFormat';
-import {
-    useConfig,
-    useLazyLoading,
-} from '../Helpers/hooks';
+import { useConfig } from '../Helpers/hooks';
 import {
     stylesType,
     contentAreaType,
     overlaysType,
 } from '../types/card';
+import { CARD_STYLES } from '../Helpers/constants';
 
 const aspectRatio1to1CardType = {
     ctaLink: string,
@@ -40,6 +39,7 @@ const defaultProps = {
  * const props= {
     id: String,
     ctaLink: String,
+    lh: String,
     styles: Object,
     contentArea: Object,
     overlays: Object,
@@ -53,38 +53,9 @@ const AspectRatio1to1Card = (props) => {
         id,
         ctaLink,
         lh,
-        styles: {
-            backgroundImage: image,
-        },
-        contentArea: {
-            title,
-            description,
-            detailText: label,
-            dateDetailText: {
-                startTime,
-                endTime,
-            },
-        },
-        overlays: {
-            banner: {
-                description: bannerDescription,
-                fontColor: bannerFontColor,
-                backgroundColor: bannerBackgroundColor,
-                icon: bannerIcon,
-            },
-            videoButton: {
-                url: videoURL,
-            },
-            logo: {
-                src: logoSrc,
-                alt: logoAlt,
-                backgroundColor: logoBg,
-                borderColor: logoBorderBg,
-            },
-            label: {
-                description: badgeText,
-            },
-        },
+        styles,
+        contentArea,
+        overlays,
     } = props;
 
     const getConfig = useConfig();
@@ -96,21 +67,16 @@ const AspectRatio1to1Card = (props) => {
     const locale = getConfig('language', '');
 
     /**
-     * Creates a card image DOM reference
-     * @returns {Object} - card image DOM reference
+     * Start date and time
+     * @type {String}
      */
-    const imageRef = React.useRef();
+    const { startTime } = contentArea.dateDetailText;
 
     /**
-     * @typedef {Image} LazyLoadedImageState
-     * @description — Has image as state after image is lazy loaded
-     *
-     * @typedef {Function} LazyLoadedImageStateSetter
-     * @description - Sets state once image is lazy loaded
-     *
-     * @type {[Image]} lazyLoadedImage
+     * End date and time
+     * @type {String}
      */
-    const [lazyLoadedImage] = useLazyLoading(imageRef, image);
+    const { endTime } = contentArea.dateDetailText;
 
     /**
      * Formatted date string
@@ -119,104 +85,40 @@ const AspectRatio1to1Card = (props) => {
     const prettyDate = startTime ? prettyFormatDate(startTime, endTime, locale, i18nFormat) : '';
 
     /**
+     * Label of the card to be shown incase no card date provided
+     * @type {String}
+     */
+    const label = contentArea.detailText;
+
+    /**
      * Detail text
      * @type {String}
      */
     const detailText = prettyDate || label;
 
+    /**
+     * Card description
+     * @type {String}
+     */
+    const { description } = contentArea;
+
     return (
-        <div
-            daa-lh={lh}
-            className="consonant-aspect-ratio-1-1-card"
-            data-testid="consonant-1-1-card"
-            id={id}>
-            <div
-                data-testid="consonant-card--img"
-                className="consonant-aspect-ratio-1-1-card--img"
-                ref={imageRef}
-                style={{ backgroundImage: `url("${lazyLoadedImage}")` }}>
-                {bannerDescription && bannerFontColor && bannerBackgroundColor &&
-                    <span
-                        data-testid="consonant-card--banner"
-                        className="consonant-aspect-ratio-1-1-card--banner"
-                        style={({
-                            backgroundColor: bannerBackgroundColor,
-                            color: bannerFontColor,
-                        })}>
-                        {bannerIcon &&
-                            <div
-                                className="consonant-aspect-ratio-1-1-card--banner-icon-wrapper">
-                                <img
-                                    alt=""
-                                    loading="lazy"
-                                    src={bannerIcon}
-                                    data-testid="consonant-card--banner-icon" />
-                            </div>
-                        }
-                        <span>{bannerDescription}</span>
-                    </span>
-                }
-                {badgeText &&
-                    <span
-                        className="consonant-aspect-ratio-1-1-card--badge">
-                        {badgeText}
-                    </span>
-                }
-                {videoURL &&
-                    <a
-                        href={videoURL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="consonant-aspect-ratio-1-1-card--video-ico"
-                        tabIndex="0">
-                        {videoURL}
-                    </a>
-                }
-                {logoSrc &&
-                    <div
-                        style={({
-                            backgroundColor: logoBg,
-                            borderColor: logoBorderBg,
-                        })}
-                        className="consonant-aspect-ratio-1-1-card--logo">
-                        <img
-                            src={logoSrc}
-                            alt={logoAlt}
-                            loading="lazy"
-                            width="32" />
-                    </div>
-                }
-            </div>
-            <a
-                href={ctaLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Click to open in a new tab"
-                className="consonant-aspect-ratio-1-1-card--inner"
-                tabIndex="0">
-                {detailText &&
-                    <span
-                        data-testid="1-1-card--label"
-                        className="consonant-aspect-ratio-1-1-card--label">
-                        {detailText}
-                    </span>
-                }
-                {
-                    title &&
-                    <h2
-                        className="consonant-aspect-ratio-1-1-card--title">
-                        {title}
-                    </h2>
-                }
-                {
-                    description &&
-                    <p
-                        className="consonant-aspect-ratio-1-1-card--text">
-                        {description}
-                    </p>
-                }
-            </a>
-        </div>
+        <BaseCard
+            id={id}
+            lh={lh}
+            type={CARD_STYLES.SQUARE}
+            styles={styles}
+            overlays={overlays}
+            ctaLink={ctaLink}
+            contentArea={{ ...contentArea, detailText }}>
+            {
+                description &&
+                <p
+                    className="consonant-aspect-ratio-1-1-card--text">
+                    {description}
+                </p>
+            }
+        </BaseCard>
     );
 };
 

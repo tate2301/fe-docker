@@ -8,13 +8,14 @@ import {
     arrayOf,
 } from 'prop-types';
 
+import BaseCard from './Base';
 import CardFooter from './CardFooter/CardFooter';
 import prettyFormatDate from '../Helpers/prettyFormat';
-import { INFOBIT_TYPE } from '../Helpers/constants';
 import {
-    useConfig,
-    useLazyLoading,
-} from '../Helpers/hooks';
+    CARD_STYLES,
+    INFOBIT_TYPE,
+} from '../Helpers/constants';
+import { useConfig } from '../Helpers/hooks';
 import {
     stylesType,
     contentAreaType,
@@ -52,11 +53,16 @@ const defaultProps = {
  * @component
  * @example
  * const props= {
+    isBookmarked: Boolean,
+    dateFormat: String,
     id: String,
-    ctaLink: String,
+    lh: String,
     styles: Object,
-    contentArea: Object,
+    disableBookmarkIco: Boolean,
+    onClick: Function,
     overlays: Object,
+    footer: Array,
+    contentArea: Object,
  * }
  * return (
  *   <AspectRatio3to2Card {...props}/>
@@ -71,39 +77,9 @@ const AspectRatio3to2Card = (props) => {
         isBookmarked,
         onClick,
         dateFormat,
-        styles: {
-            backgroundImage: image,
-        },
-        contentArea: {
-            title,
-            detailText: label,
-            description,
-            dateDetailText: {
-                startTime,
-                endTime,
-            },
-
-        },
-        overlays: {
-            banner: {
-                description: bannerDescription,
-                fontColor: bannerFontColor,
-                backgroundColor: bannerBackgroundColor,
-                icon: bannerIcon,
-            },
-            videoButton: {
-                url: videoURL,
-            },
-            logo: {
-                src: logoSrc,
-                alt: logoAlt,
-                backgroundColor: logoBg,
-                borderColor: logoBorderBg,
-            },
-            label: {
-                description: badgeText,
-            },
-        },
+        styles,
+        contentArea,
+        overlays,
     } = props;
 
     const getConfig = useConfig();
@@ -115,21 +91,16 @@ const AspectRatio3to2Card = (props) => {
     const locale = getConfig('language', '');
 
     /**
-     * Creates a card image DOM reference
-     * @returns {Object} - card image DOM reference
+     * Start date and time
+     * @type {String}
      */
-    const imageRef = React.useRef();
+    const { startTime } = contentArea.dateDetailText;
 
     /**
-     * @typedef {Image} LazyLoadedImageState
-     * @description — Has image as state after image is lazy loaded
-     *
-     * @typedef {Function} LazyLoadedImageStateSetter
-     * @description - Sets state once image is lazy loaded
-     *
-     * @type {[Image]} lazyLoadedImage
+     * End date and time
+     * @type {String}
      */
-    const [lazyLoadedImage] = useLazyLoading(imageRef, image);
+    const { endTime } = contentArea.dateDetailText;
 
     /**
      * Formatted date string
@@ -138,10 +109,22 @@ const AspectRatio3to2Card = (props) => {
     const prettyDate = startTime ? prettyFormatDate(startTime, endTime, locale, i18nFormat) : '';
 
     /**
+     * Label of the card to be shown incase no card date provided
+     * @type {String}
+     */
+    const label = contentArea.detailText;
+
+    /**
      * Detail text
      * @type {String}
      */
     const detailText = prettyDate || label;
+
+    /**
+     * Card description
+     * @type {String}
+     */
+    const { description } = contentArea;
 
     /**
      * Extends infobits with the configuration data
@@ -172,99 +155,30 @@ const AspectRatio3to2Card = (props) => {
     }
 
     return (
-        <div
-            daa-lh={lh}
-            className="consonant-aspect-ratio-3-2-card"
-            data-testid="consonant-card-3-2"
-            id={id}>
-            <div
-                data-testid="consonant-card--img"
-                className="consonant-aspect-ratio-3-2-card--img"
-                ref={imageRef}
-                style={{ backgroundImage: `url("${lazyLoadedImage}")` }}>
-                {bannerDescription && bannerFontColor && bannerBackgroundColor &&
-                    <span
-                        data-testid="consonant-card--banner"
-                        className="consonant-aspect-ratio-3-2-card--banner"
-                        style={({
-                            backgroundColor: bannerBackgroundColor,
-                            color: bannerFontColor,
-                        })}>
-                        {bannerIcon &&
-                            <div
-                                className="consonant-aspect-ratio-3-2-card--banner-icon-wrapper">
-                                <img
-                                    alt=""
-                                    loading="lazy"
-                                    src={bannerIcon}
-                                    data-testid="consonant-card--banner-icon" />
-                            </div>
-                        }
-                        <span>{bannerDescription}</span>
-                    </span>
-                }
-                {badgeText &&
-                    <span
-                        className="consonant-aspect-ratio-3-2-card--badge">
-                        {badgeText}
-                    </span>
-                }
-                {videoURL &&
-                    <a
-                        href={videoURL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="consonant-aspect-ratio-3-2-card--video-ico"
-                        tabIndex="0">
-                        {videoURL}
-                    </a>
-                }
-                {logoSrc &&
-                    <div
-                        style={({
-                            backgroundColor: logoBg,
-                            borderColor: logoBorderBg,
-                        })}
-                        className="consonant-aspect-ratio-3-2-card--logo">
-                        <img
-                            src={logoSrc}
-                            alt={logoAlt}
-                            loading="lazy"
-                            width="32" />
-                    </div>
-                }
-            </div>
-            <div
-                className="consonant-aspect-ratio-3-2-card--inner">
-                {detailText &&
-                    <span
-                        data-testid="3-2-card--label"
-                        className="consonant-aspect-ratio-3-2-card--label">
-                        {detailText}
-                    </span>
-                }
-                <h2
-                    className="consonant-aspect-ratio-3-2-card--title">
-                    {title}
-                </h2>
-                {
-                    description &&
-                    <p
-                        className="consonant-aspect-ratio-3-2-card--text">
-                        {description}
-                    </p>
-                }
-                {footer.map(footerItem => (
-                    <CardFooter
-                        divider={footerItem.divider}
-                        isFluid={footerItem.isFluid}
-                        key={cuid()}
-                        left={extendFooterData(footerItem.left)}
-                        center={extendFooterData(footerItem.center)}
-                        right={extendFooterData(footerItem.right)} />
-                ))}
-            </div>
-        </div>
+        <BaseCard
+            id={id}
+            lh={lh}
+            type={CARD_STYLES.WIDE}
+            styles={styles}
+            overlays={overlays}
+            contentArea={{ ...contentArea, detailText }}>
+            {
+                description &&
+                <p
+                    className="consonant-aspect-ratio-3-2-card--text">
+                    {description}
+                </p>
+            }
+            {footer.map(footerItem => (
+                <CardFooter
+                    divider={footerItem.divider}
+                    isFluid={footerItem.isFluid}
+                    key={cuid()}
+                    left={extendFooterData(footerItem.left)}
+                    center={extendFooterData(footerItem.center)}
+                    right={extendFooterData(footerItem.right)} />
+            ))}
+        </BaseCard>
     );
 };
 
