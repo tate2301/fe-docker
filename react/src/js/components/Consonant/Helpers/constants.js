@@ -204,3 +204,10 @@ export const LOADER_SIZE = {
     MEDIUM: 'medium',
     BIG: 'big',
 };
+
+/**
+ * Used for lazy-loading - lets the lazy load of the image
+ * start before it is scrolled into the viewport.
+ * @type {String}
+ */
+export const ROOT_MARGIN_DEFAULT = '500px';

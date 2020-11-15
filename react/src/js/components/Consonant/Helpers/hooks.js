@@ -3,7 +3,6 @@ import {
     useContext,
     useEffect,
     useState,
-    useMemo,
 } from 'react';
 
 import { debounce } from './general';
@@ -12,6 +11,7 @@ import {
     ConfigContext,
     ExpandableContext,
 } from './contexts';
+import { ROOT_MARGIN_DEFAULT } from './constants';
 
 // const noop = () => {};
 
@@ -83,10 +83,9 @@ export const useConfig = () => {
  * @type {[Image]} LazyLoadedImage
  */
 export const useLazyLoading = (imageRef, image) => {
-    const options = useMemo(() => ({
-        rootMargin: '0px 0px 500px 0px',
-        root: document.querySelector('.consonant-wrapper'),
-    }));
+    const options = {
+        rootMargin: ROOT_MARGIN_DEFAULT,
+    };
     const [lazyLoadImage, setLazyLoadImage] = useState('');
     const [intersectionImage, setIntersectionImage] = useState('');
 
