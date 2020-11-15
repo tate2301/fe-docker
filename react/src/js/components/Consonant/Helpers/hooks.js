@@ -3,6 +3,7 @@ import {
     useContext,
     useEffect,
     useState,
+    useMemo,
 } from 'react';
 
 import { debounce } from './general';
@@ -82,6 +83,10 @@ export const useConfig = () => {
  * @type {[Image]} LazyLoadedImage
  */
 export const useLazyLoading = (imageRef, image) => {
+    const options = useMemo(() => ({
+        rootMargin: '0px 0px 500px 0px',
+        root: document.querySelector('.consonant-wrapper'),
+    }));
     const [lazyLoadImage, setLazyLoadImage] = useState('');
     const [intersectionImage, setIntersectionImage] = useState('');
 
@@ -89,7 +94,7 @@ export const useLazyLoading = (imageRef, image) => {
         if (elements[0].intersectionRatio !== 0) {
             setIntersectionImage(image);
         }
-    });
+    }, options);
 
     useEffect(() => {
         let img;
