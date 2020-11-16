@@ -300,7 +300,7 @@ export const getByPath = (object, path, defaultValue) => {
     for (let index = 0; index < chunks.length; index += 1) {
         const chunk = chunks[index];
 
-        if (result[chunk]) {
+        if (result != null && result.hasOwnProperty(chunk)) {
             result = result[chunk];
         } else {
             result = defaultValue;

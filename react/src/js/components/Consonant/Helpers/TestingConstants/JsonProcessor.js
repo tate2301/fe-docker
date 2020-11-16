@@ -33,12 +33,12 @@ const addCardMetaData = [
             },
             {
                 id: 2,
-                overlays: { banner: { description: undefined } },
+                overlays: { banner: { description: '' } },
                 contentArea: {
-                    title: undefined,
-                    description: undefined,
-                    detailText: undefined,
-                    dateDetailText: undefined,
+                    title: '',
+                    description: '',
+                    detailText: '',
+                    dateDetailText: '',
                 },
             },
             {
@@ -78,12 +78,12 @@ const addCardMetaData = [
             },
             {
                 id: 2,
-                overlays: { banner: { description: undefined } },
+                overlays: { banner: { description: '' } },
                 contentArea: {
-                    title: undefined,
-                    description: undefined,
-                    detailText: undefined,
-                    dateDetailText: undefined,
+                    title: '',
+                    description: '',
+                    detailText: '',
+                    dateDetailText: '',
                 },
                 description: '',
                 isBookmarked: false,
