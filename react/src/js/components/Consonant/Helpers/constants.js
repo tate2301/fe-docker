@@ -193,6 +193,7 @@ export const DEFAULT_SHOW_ITEMS_PER_PAGE = 8;
 export const CARD_STYLES = {
     WIDE: '3:2',
     SQUARE: '1:1',
+    CUSTOM: 'custom',
     FULL: 'full-card',
 };
 

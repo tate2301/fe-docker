@@ -19,7 +19,7 @@ import NoResultsView from '../NoResults/View';
 import LoadMore from '../Pagination/LoadMore';
 import Bookmarks from '../Bookmarks/Bookmarks';
 import Paginator from '../Pagination/Paginator';
-import Collection from '../Collection/Collection';
+import Collection from './Collection';
 import CardFilterer from '../Helpers/CardFilterer';
 import FiltersPanelTop from '../Filters/Top/Panel';
 import LeftFilterPanel from '../Filters/Left/Panel';
