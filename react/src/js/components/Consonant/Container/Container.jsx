@@ -672,10 +672,10 @@ const Container = (props) => {
                     daa-lh={collectionIdentifier}
                     daa-im={String(trackImpressions)}
                     onClick={handleWindowClick}
-                    className="consonant-wrapper">
-                    <div className="consonant-wrapper--inner">
+                    className="Wrapper">
+                    <div className="Wrapper-inner">
                         {displayLeftFilterPanel && (
-                            <div className="consonant-wrapper--left-filter-wrapper">
+                            <div className="Wrapper-leftFilterWrapper">
                                 <LeftFilterPanel
                                     filters={filters}
                                     selectedFiltersQty={selectedFiltersItemsQty}

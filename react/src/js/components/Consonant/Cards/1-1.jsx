@@ -127,30 +127,30 @@ const AspectRatio1to1Card = (props) => {
     return (
         <div
             daa-lh={lh}
-            className="consonant-aspect-ratio-1-1-card"
-            data-testid="consonant-1-1-card"
+            className="OneByOneCard"
+            data-testid="OneByOneCard"
             id={id}>
             <div
-                data-testid="consonant-card--img"
-                className="consonant-aspect-ratio-1-1-card--img"
+                data-testid="OneByOneCard-img"
+                className="OneByOneCard-img"
                 ref={imageRef}
                 style={{ backgroundImage: `url("${lazyLoadedImage}")` }}>
                 {bannerDescription && bannerFontColor && bannerBackgroundColor &&
                     <span
-                        data-testid="consonant-card--banner"
-                        className="consonant-aspect-ratio-1-1-card--banner"
+                        data-testid="OneByOneCard-banner"
+                        className="OneByOneCard-banner"
                         style={({
                             backgroundColor: bannerBackgroundColor,
                             color: bannerFontColor,
                         })}>
                         {bannerIcon &&
                             <div
-                                className="consonant-aspect-ratio-1-1-card--banner-icon-wrapper">
+                                className="OneByOneCard-bannerIconWrapper">
                                 <img
                                     alt=""
                                     loading="lazy"
                                     src={bannerIcon}
-                                    data-testid="consonant-card--banner-icon" />
+                                    data-testid="OneByOneCard-bannerIcon" />
                             </div>
                         }
                         <span>{bannerDescription}</span>
@@ -158,7 +158,7 @@ const AspectRatio1to1Card = (props) => {
                 }
                 {badgeText &&
                     <span
-                        className="consonant-aspect-ratio-1-1-card--badge">
+                        className="OneByOneCard-badge">
                         {badgeText}
                     </span>
                 }
@@ -167,7 +167,7 @@ const AspectRatio1to1Card = (props) => {
                         href={videoURL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="consonant-aspect-ratio-1-1-card--video-ico"
+                        className="OneByOneCard-videoIco"
                         tabIndex="0">
                         {videoURL}
                     </a>
@@ -178,7 +178,7 @@ const AspectRatio1to1Card = (props) => {
                             backgroundColor: logoBg,
                             borderColor: logoBorderBg,
                         })}
-                        className="consonant-aspect-ratio-1-1-card--logo">
+                        className="OneByOneCard-logo">
                         <img
                             src={logoSrc}
                             alt={logoAlt}
@@ -192,26 +192,26 @@ const AspectRatio1to1Card = (props) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Click to open in a new tab"
-                className="consonant-aspect-ratio-1-1-card--inner"
+                className="OneByOneCard-inner"
                 tabIndex="0">
                 {detailText &&
                     <span
-                        data-testid="1-1-card--label"
-                        className="consonant-aspect-ratio-1-1-card--label">
+                        data-testid="OneByOneCard-label"
+                        className="OneByOneCard-label">
                         {detailText}
                     </span>
                 }
                 {
                     title &&
                     <h2
-                        className="consonant-aspect-ratio-1-1-card--title">
+                        className="OneByOneCard-title">
                         {title}
                     </h2>
                 }
                 {
                     description &&
                     <p
-                        className="consonant-aspect-ratio-1-1-card--text">
+                        className="OneByOneCard-text">
                         {description}
                     </p>
                 }

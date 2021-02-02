@@ -25,13 +25,13 @@ const defaultProps = {
  */
 const Price = ({ price, term }) => (
     <span
-        className="consonant-price-infobit">
+        className="PriceInfobit">
         <strong
-            className="consonant-price-infobit--price">
+            className="PriceInfobit-price">
             {price}
         </strong>
         <span
-            className="consonant-price-infobit--term">
+            className="PriceInfobit-term">
             {term}
         </span>
     </span>

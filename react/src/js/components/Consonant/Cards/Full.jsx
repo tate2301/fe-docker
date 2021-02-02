@@ -99,30 +99,30 @@ const FullCard = (props) => {
     return (
         <div
             daa-lh={lh}
-            className="consonant-full-card"
-            data-testid="consonant-full-card"
+            className="FullCard"
+            data-testid="FullCard"
             id={id}>
             <div
-                data-testid="consonant-card--img"
-                className="consonant-full-card--img"
+                data-testid="FullCard-img"
+                className="FullCard-img"
                 ref={imageRef}
                 style={{ backgroundImage: `url("${lazyLoadedImage}")` }}>
                 {bannerDescription && bannerFontColor && bannerBackgroundColor &&
                     <span
-                        data-testid="consonant-card--banner"
-                        className="consonant-full-card--banner"
+                        data-testid="FullCard-banner"
+                        className="FullCard-banner"
                         style={({
                             backgroundColor: bannerBackgroundColor,
                             color: bannerFontColor,
                         })}>
                         {bannerIcon &&
                             <div
-                                className="consonant-full-card--banner-icon-wrapper">
+                                className="FullCard-bannerIconWrapper">
                                 <img
                                     alt=""
                                     loading="lazy"
                                     src={bannerIcon}
-                                    data-testid="consonant-card--banner-icon" />
+                                    data-testid="FullCard-bannerIcon" />
                             </div>
                         }
                         <span>{bannerDescription}</span>
@@ -130,7 +130,7 @@ const FullCard = (props) => {
                 }
                 {badgeText &&
                     <span
-                        className="consonant-full-card--badge">
+                        className="FullCard-badge">
                         {badgeText}
                     </span>
                 }
@@ -139,7 +139,7 @@ const FullCard = (props) => {
                         href={videoURL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="consonant-full-card--video-ico"
+                        className="FullCard-videoIco"
                         tabIndex="0">
                         {videoURL}
                     </a>
@@ -150,7 +150,7 @@ const FullCard = (props) => {
                             backgroundColor: logoBg,
                             borderColor: logoBorderBg,
                         })}
-                        className="consonant-full-card--logo">
+                        className="FullCard-logo">
                         <img
                             src={logoSrc}
                             alt={logoAlt}
@@ -164,16 +164,16 @@ const FullCard = (props) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 title=""
-                className="consonant-full-card--inner"
+                className="FullCard-inner"
                 tabIndex="0">
                 {label &&
                     <span
-                        className="consonant-full-card--label">
+                        className="FullCard-label">
                         {label}
                     </span>
                 }
                 <h2
-                    className="consonant-full-card--title">
+                    className="FullCard-title">
                     {title}
                 </h2>
             </a>

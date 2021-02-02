@@ -174,30 +174,30 @@ const AspectRatio3to2Card = (props) => {
     return (
         <div
             daa-lh={lh}
-            className="consonant-aspect-ratio-3-2-card"
-            data-testid="consonant-card-3-2"
+            className="ThreeByTwoCard"
+            data-testid="ThreeByTwoCard"
             id={id}>
             <div
-                data-testid="consonant-card--img"
-                className="consonant-aspect-ratio-3-2-card--img"
+                data-testid="ThreeByTwoCard-img"
+                className="ThreeByTwoCard-img"
                 ref={imageRef}
                 style={{ backgroundImage: `url("${lazyLoadedImage}")` }}>
                 {bannerDescription && bannerFontColor && bannerBackgroundColor &&
                     <span
-                        data-testid="consonant-card--banner"
-                        className="consonant-aspect-ratio-3-2-card--banner"
+                        data-testid="ThreeByTwoCard-banner"
+                        className="ThreeByTwoCard-banner"
                         style={({
                             backgroundColor: bannerBackgroundColor,
                             color: bannerFontColor,
                         })}>
                         {bannerIcon &&
                             <div
-                                className="consonant-aspect-ratio-3-2-card--banner-icon-wrapper">
+                                className="ThreeByTwoCard-bannerIconWrapper">
                                 <img
                                     alt=""
                                     loading="lazy"
                                     src={bannerIcon}
-                                    data-testid="consonant-card--banner-icon" />
+                                    data-testid="ThreeByTwoCard-icon" />
                             </div>
                         }
                         <span>{bannerDescription}</span>
@@ -205,7 +205,7 @@ const AspectRatio3to2Card = (props) => {
                 }
                 {badgeText &&
                     <span
-                        className="consonant-aspect-ratio-3-2-card--badge">
+                        className="ThreeByTwoCard-badge">
                         {badgeText}
                     </span>
                 }
@@ -214,7 +214,7 @@ const AspectRatio3to2Card = (props) => {
                         href={videoURL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="consonant-aspect-ratio-3-2-card--video-ico"
+                        className="ThreeByTwoCard-videoIco"
                         tabIndex="0">
                         {videoURL}
                     </a>
@@ -225,7 +225,7 @@ const AspectRatio3to2Card = (props) => {
                             backgroundColor: logoBg,
                             borderColor: logoBorderBg,
                         })}
-                        className="consonant-aspect-ratio-3-2-card--logo">
+                        className="ThreeByTwoCard-logo">
                         <img
                             src={logoSrc}
                             alt={logoAlt}
@@ -235,22 +235,22 @@ const AspectRatio3to2Card = (props) => {
                 }
             </div>
             <div
-                className="consonant-aspect-ratio-3-2-card--inner">
+                className="ThreeByTwoCard-inner">
                 {detailText &&
                     <span
-                        data-testid="3-2-card--label"
-                        className="consonant-aspect-ratio-3-2-card--label">
+                        data-testid="ThreeByTwoCard-label"
+                        className="ThreeByTwoCard-label">
                         {detailText}
                     </span>
                 }
                 <h2
-                    className="consonant-aspect-ratio-3-2-card--title">
+                    className="ThreeByTwoCard-title">
                     {title}
                 </h2>
                 {
                     description &&
                     <p
-                        className="consonant-aspect-ratio-3-2-card--text">
+                        className="ThreeByTwoCard-text">
                         {description}
                     </p>
                 }

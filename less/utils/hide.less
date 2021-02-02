@@ -1,4 +1,4 @@
-.hide-all {
+.u-hideAll {
     display: none;
 }
 
@@ -7,7 +7,7 @@
 * whose pixels need to be measured
 * even if they are not visible.
 */
-.hide-overflow {
+.u-hideOverflow {
     height: 0;
     overflow: hidden;
     // To ensure the hiding of the element WITHOUT removing
@@ -17,7 +17,7 @@
     visibility: hidden;
 }
 
-.visually-hidden {
+.u-visuallyHidden {
     position: absolute;
     overflow: hidden;
     clip: rect(0 0 0 0);
@@ -29,25 +29,25 @@
 }
 
 @media @for-tablet-portrait-up {
-    .hide-all {
+    .u-hideAll {
         display: none;
     }
 
-    .hide-tablet-up {
+    .u-hideTabletUp {
         display: none;
     }
 }
 
 @media @for-desktop-up {
-    .hide-all {
+    .u-hideAll {
         display: none;
     }
 
-    .hide-tablet-up {
+    .u-hideTabletUp {
         display: none;
     }
 
-    .hide-desktop-up {
+    .u-hideDesktopUp {
         display: none;
     }
 }

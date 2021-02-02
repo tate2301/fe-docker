@@ -155,16 +155,16 @@ const LeftFilterPanel = ({
      * @type {String}
      */
     const filtersClass = classNames({
-        'consonant-left-filters': true,
-        'consonant-left-filters_opened': showMobileFilters,
+        'LeftFilter': true,
+        'LeftFilter is-opened': showMobileFilters,
     });
 
     return (
         <div
-            data-testid="consonant-filters__left"
+            data-testid="LeftFilter"
             className={filtersClass}>
             <div
-                className="consonant-left-filters--header">
+                className="LeftFilter-header">
                 {NOT_DESKTOP_SCREEN_SIZE &&
                     <MobileTitle
                         onClick={onMobileFiltersToggleClick}
@@ -184,7 +184,7 @@ const LeftFilterPanel = ({
             {shouldRenderSearchComponent && searchComponent}
             {shouldRenderChosenFilters &&
                 <div
-                    className="consonant-left-filters--chosen-filters">
+                    className="LeftFilter-chosenFilters">
                     {filters.map(el => (
                         el.items.map(filter => (
                             filter.selected &&
@@ -200,7 +200,7 @@ const LeftFilterPanel = ({
             }
             {bookmarksEnabled && bookmarkComponent}
             {atleastOneFilter &&
-                <div className="consonant-left-filters--list">
+                <div className="LeftFilter-list">
                     {filters.map(filter => (
                         <Item
                             key={filter.id}

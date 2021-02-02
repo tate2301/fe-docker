@@ -185,36 +185,36 @@ const Group = (props) => {
      * @type {String}
      */
     const containerClassname = classNames({
-        'consonant-top-filter': true,
-        'consonant-top-filter_opened': filterGroupOpened,
-        'consonant-top-filter_selected': atleastOneFilterSelected && filterGroupNotOpened,
+        'TopFilter': true,
+        'TopFilter is-opened': filterGroupOpened,
+        'TopFilter is-selected': atleastOneFilterSelected && filterGroupNotOpened,
     });
 
     return (
         <div
-            data-testid="filter-item"
+            data-testid="TopFilter"
             className={containerClassname}>
             <div
-                className="consonant-top-filter--inner">
+                className="TopFilter-inner">
                 <h3
-                    className="consonant-top-filter--name">
+                    className="TopFilter-name">
                     <button
                         type="button"
-                        className="consonant-top-filter--link"
+                        className="TopFilter-link"
                         data-testid="filter-group-btn"
                         onClick={handleToggle}
                         tabIndex="0">
                         {name}
                         <span
-                            className="consonant-top-filter--selcted-items-qty">
+                            className="TopFilter-selctedItemsQty">
                             {selectedItemQtyText}
                         </span>
                     </button>
                 </h3>
                 <div
-                    className="consonant-top-filter--selcted-items">
+                    className="TopFilter-selctedItems">
                     <div
-                        className="consonant-top-filter--absolute-wrapper">
+                        className="TopFilter-absoluteWrapper">
                         {<Items
                             clipWrapperItemsCount={clipWrapperItemsCount}
                             handleCheck={handleCheck}
@@ -223,7 +223,7 @@ const Group = (props) => {
                         }
                         {shouldClipFilters &&
                             <aside
-                                className="consonant-top-filter--bg" />
+                                className="TopFilter-bg" />
                         }
                         {<Footer
                             mobileFooterBtnText={mobileFooterBtnText}

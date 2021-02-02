@@ -43,8 +43,8 @@ const CardFooter = (props) => {
      * @type {Number}
      */
     const footerClassName = classNames({
-        'consonant-card-footer': true,
-        'consonant-card-footer_divider': divider,
+        'CardFooter': true,
+        'CardFooter-divider': divider,
     });
 
     /**
@@ -53,8 +53,8 @@ const CardFooter = (props) => {
      * @type {Number}
      */
     const rowClassName = classNames({
-        'consonant-card-footer--row': true,
-        'consonant-card-footer--row_fluid': isFluid,
+        'CardFooter-row': true,
+        'CardFooter-row--fluid': isFluid,
     });
 
     /**
@@ -95,19 +95,19 @@ const CardFooter = (props) => {
                 data-cells={dataCells}>
                 {shouldRenderLeft &&
                     <div
-                        className="consonant-card-footer--cell consonant-card-footer--cell_left">
+                        className="CardFooter-cell CardFooter-cellLeft">
                         <Group renderList={left} />
                     </div>
                 }
                 {shouldRenderCenter &&
                     <div
-                        className="consonant-card-footer--cell consonant-card-footer--cell_center">
+                        className="CardFooter-cell CardFooter-cellCenter">
                         <Group renderList={center} />
                     </div>
                 }
                 {shouldRenderRight &&
                     <div
-                        className="consonant-card-footer--cell consonant-card-footer--cell_right">
+                        className="CardFooter-cell CardFooter-cellRight">
                         <Group renderList={right} />
                     </div>
                 }

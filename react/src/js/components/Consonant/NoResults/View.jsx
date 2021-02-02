@@ -39,15 +39,15 @@ const View = (props) => {
 
     return (
         <div
-            data-testid="no-results-view"
-            className="consonant-no-results-view">
+            data-testid="NoResultsView"
+            className="NoResultsView">
             <strong
-                className="consonant-no-results-view--title">
+                className="NoResultsView-title">
                 {title}
             </strong>
             {description &&
                 <div
-                    className="consonant-no-results-view--description">
+                    className="NoResultsView-description">
                     {displayMsg}
                 </div>
             }

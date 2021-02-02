@@ -41,8 +41,8 @@ const Link = ({
     const target = openInNewTab ? '_blank' : '_self';
     return (
         <a
-            className="consonant-link-infobit"
-            data-testid="link-infobit"
+            className="LinkInfobit"
+            data-testid="LinkInfobit"
             href={href}
             target={target}
             title={linkHint}

@@ -96,8 +96,8 @@ const Paginator = (props) => {
         clickEvt.preventDefault();
 
         let nextPage = null;
-        const previousButtonClicked = target.classList.contains('consonant-pagination--btn_prev');
-        const nextButtonClicked = target.classList.contains('consonant-pagination--btn_next');
+        const previousButtonClicked = target.classList.contains('Pagination-btnPrev');
+        const nextButtonClicked = target.classList.contains('Pagination-btnNext');
 
         if (previousButtonClicked) {
             nextPage = nextPageNotNegative ? currentPageNumber - 1 : 1;
@@ -121,32 +121,32 @@ const Paginator = (props) => {
 
     return (
         <div
-            className="consonant-pagination">
+            className="Pagination">
             <div
-                className="consonant-pagination--paginator">
+                className="Pagination-paginator">
                 <button
-                    data-testid="btn_prev"
+                    data-testid="Pagination-btnPrev"
                     onClick={handleClick}
                     type="button"
-                    className="consonant-pagination--btn consonant-pagination--btn_prev"
+                    className="Pagination-btn Pagination-btnPrev"
                     tabIndex="0">
                     {prevLabel}
                 </button>
                 <ul
-                    className="consonant-pagination--items">
+                    className="Pagination-items">
                     {pageRange.map(item => (
                         <li
                             key={item}
                             className={
                                 currentPageNumber === item ?
-                                    'consonant-pagination--item consonant-pagination--item_active' :
-                                    'consonant-pagination--item'
+                                    'Pagination-item is-active' :
+                                    'Pagination-item'
                             }>
                             <button
-                                data-testid="btn_page"
+                                data-testid="Pagination-itemBtn"
                                 onClick={handleClick}
                                 type="button"
-                                className="consonant-pagination--item-btn"
+                                className="Pagination-itemBtn"
                                 tabIndex="0">
                                 {item}
                             </button>
@@ -154,17 +154,17 @@ const Paginator = (props) => {
                     ))}
                 </ul>
                 <button
-                    data-testid="btn_next"
+                    data-testid="Pagination-btnNext"
                     onClick={handleClick}
                     type="button"
-                    className="consonant-pagination--btn consonant-pagination--btn_next"
+                    className="Pagination-btn Pagination-btnNext"
                     tabIndex="0">
                     {nextLabel}
                 </button>
             </div>
             <div
-                data-testid="pagination--summary"
-                className="consonant-pagination--summary">
+                data-testid="Pagination-summary"
+                className="Pagination-summary">
                 <strong>
                     {paginationSummary}
                 </strong>

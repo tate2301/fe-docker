@@ -53,24 +53,24 @@ const Progress = ({
 
     return (
         <div
-            className="consonant-progress-infobit">
+            className="ProgressInfobit">
             <div
-                className="consonant-progress-infobit--wrapper">
+                className="ProgressInfobit-wrapper">
                 <span
-                    className="consonant-progress-infobit--text"
+                    className="ProgressInfobit-text"
                     title={label}>
                     {label}
                 </span>
                 <span
-                    className="consonant-progress-infobit--text consonant-progress-infobit--text_italic"
+                    className="ProgressInfobit-text is-italic"
                     title={completionText}>
                     {completionText}
                 </span>
             </div>
             <div
-                className="consonant-progress-infobit--el">
+                className="ProgressInfobit-el">
                 <span
-                    className="consonant-progress-infobit--val"
+                    className="ProgressInfobit-val"
                     style={valueStyles}
                     role="progressbar"
                     aria-valuenow={percentageInt}

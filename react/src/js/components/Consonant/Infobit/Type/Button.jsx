@@ -49,25 +49,25 @@ const Button = ({
 }) => {
     const isCtaButton = style === BUTTON_STYLE.CTA;
     const buttonClass = className({
-        'consonant-btn-infobit': true,
-        'consonant-btn-infobit_cta': isCtaButton,
+        'BtnInfobit': true,
+        'BtnInfobit-cta': isCtaButton,
     });
     const iconClass = className({
-        'consonant-btn-infobit--ico': true,
-        'consonant-btn-infobit--ico_last': iconPos.toLowerCase() === 'aftertext',
+        'BtnInfobit-ico': true,
+        'BtnInfobit-icoLast': iconPos.toLowerCase() === 'aftertext',
     });
 
     return (
         <a
             className={buttonClass}
-            data-testid="consonant-btn-infobit"
+            data-testid="BtnInfobit"
             tabIndex="0"
             rel="noopener noreferrer"
             target="_blank"
             href={href}>
             {iconSrc &&
             <img
-                data-testid="img-for-button-infobit"
+                data-testid="BtnInfobit-img"
                 src={iconSrc}
                 width="20"
                 height="20"

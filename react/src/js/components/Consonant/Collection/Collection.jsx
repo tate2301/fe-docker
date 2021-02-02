@@ -102,9 +102,9 @@ const Collection = (props) => {
 
     return cardsToshow.length > 0 && (
         <div
-            data-testid="consonant-collection"
-            className="consonant-card-collection">
-            <div className="consonant-card-collection--inner">
+            data-testid="Collection"
+            className="Collection">
+            <div className="Collection-inner">
                 {cardsToshow.map((card, index) => {
                     const cardStyleOverride = getByPath(card, 'styles.typeOverride');
                     const cardStyle = collectionStyleOverride || cardStyleOverride;
@@ -134,8 +134,8 @@ const Collection = (props) => {
                             locale={locale} />
                     );
                 })}
-                <div className="consonant-card-collection--placeholder" />
-                <div className="consonant-card-collection--placeholder" />
+                <div className="Collection-placeholder" />
+                <div className="Collection-placeholder" />
             </div>
         </div>
     );

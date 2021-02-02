@@ -35,15 +35,15 @@ const defaultProps = {
  */
 const Loader = ({ size, hidden, absolute }) => {
     const className = classNames({
-        'consonant-loader_medium': size === LOADER_SIZE.MEDIUM,
-        'consonant-loader_big': size === LOADER_SIZE.BIG,
-        'consonant-loader': true,
-        'consonant-loader_absolute': absolute,
+        'Loader--medium': size === LOADER_SIZE.MEDIUM,
+        'Loader--big': size === LOADER_SIZE.BIG,
+        'Loader': true,
+        'Loader--absolute': absolute,
     });
 
     return !hidden && (
         <div
-            data-testid="consonant-loader"
+            data-testid="Loader"
             className={className}>
             <div />
             <div />

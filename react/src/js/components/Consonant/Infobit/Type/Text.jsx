@@ -17,7 +17,7 @@ const textType = {
  *   <Text {...props}/>
  * )
  */
-const Text = ({ text }) => <p className="consonant-text-infobit">{text}</p>;
+const Text = ({ text }) => <p className="TextInfobit">{text}</p>;
 
 Text.propTypes = textType;
 

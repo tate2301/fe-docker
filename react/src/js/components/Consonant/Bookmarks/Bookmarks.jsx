@@ -69,31 +69,31 @@ const Bookmarks = (props) => {
      * @type {String}
      */
     const bookmarkClass = classNames({
-        bookmarks: true,
-        bookmarks_selected: showBookmarks,
+        'Bookmarks': true,
+        'Bookmarks is-selected': showBookmarks,
     });
 
     return (
         <button
-            data-testid="bookmarks"
+            data-testid="Bookmarks"
             type="button"
             onClick={onClick}
             className={bookmarkClass}
             tabIndex="0">
             <span
-                className="bookmarks--ico-wrapper">
+                className="Bookmarks-icoWrapper">
                 <span
                     style={iconStyles}
-                    className="bookmarks--ico"
-                    data-testid="bookmarks--ico" />
+                    className="Bookmarks-ico"
+                    data-testid="Bookmarks-ico" />
                 <span
-                    className="bookmarks--title">
+                    className="Bookmarks-title">
                     {bookmarkTitle}
                 </span>
             </span>
             <span
-                data-testid="bookmarks--item-badge"
-                className="bookmarks--item-badge">
+                data-testid="Bookmarks-itemBadge"
+                className="Bookmarks-itemBadge">
                 {savedCardsCount}
             </span>
         </button>
