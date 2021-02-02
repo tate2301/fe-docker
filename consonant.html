@@ -30,9 +30,7 @@
                                 <section id="create-app" class="create-app consonant">
                                     <div class="collection-Container  create-card-collection">
                                         <div class="container create-card-collection__outer-wrapper">
-                                            <div id="someDivId"></div>
-                                            <div id="someDivIdTwo"></div>
-                                            <!-- <consonant-page-hook></consonant-page-hook> -->
+                                             <consonant-page-hook></consonant-page-hook>
                                         </div>
                                     </div>
                                 </section>
@@ -49,293 +47,293 @@
     <script type="text/javascript" src="./dist/main.js"></script>
 
     <script type="text/javascript">
-        var config = {
-            collection: {
-                resultsPerPage: '3',
-                endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/tests/card-collection/json-response-tests/smoke-tests/all-art-board-15-cards-show.json",
-                totalCardsToShow: '100',
-                //cardStyle: "3:2", // could also be "3:2" or "full-card"
-                showTotalResults: 'true',
-                i18n: {
-                    prettyDateIntervalFormat: '{LLL} {dd} | {timeRange} {timeZone}',
-                    totalResultsText: '{total} Results',
-                    title: 'Your Favorite Cards',
-                    onErrorTitle: 'Sorry there was a system error.',
-                    onErrorDescription: 'Please try reloading the page or try coming back to the page another time.',
-                }
-            },
-            featuredCards: [{
-                "id": "n",
-                "showCard": {
-                    "from": "2020-10-01T20:00:00Z",
-                    "until": "2020-10-31T21:45:00Z"
-                },
-                "tags": [
-                    {
-                        "id": "adobe-com-enterprise:content-type/webinar"
-                    },
-                    {
-                        "id": "adobe-com-enterprise:availability/upcoming"
-                    },
-                    {
-                        "id": "adobe-com-enterprise:topic/digital-trends"
-                    }
-                ],
-                "overlays": {
-                    "banner": {
-                        "backgroundColor": "#CB6F10",
-                        "fontColor": "#FFFFFF",
-                        "description": "Upcoming",
-                        "icon": ""
-                    },
-                    "logo": {
-
-                    },
-                    "label": {
-
-                    },
-                    "videoButton": {
-
-                    }
-                },
-                "contentArea": {
-                    "detailText": "",
-                    "title": "n",
-                    "description": "This month and next will be devoted exclusively to you — making you a true expert in creating agile, creative, and consistent experiences. The kinds of experiences your customers demand (and will love). Over the next few months, we’re going to focus on modernizing the nuts and bolts of your operation.",
-                    "dateDetailText": {
-
-                    }
-                },
-                "styles": {
-                    "typeOverride": "",
-                    "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/104643%20Adobe_Digital-Bites-web-graphics_marquee%201600x600.jpg"
-                },
-                "footer": [
-                    {
-                        "divider": true,
-                        "left": [
-                            {
-                                "type": "bookmark",
-                                "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
-                                "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
-                                "cardSaveText": "Save Card",
-                                "cardUnsaveText": "Unsave Card"
-                            },
-                            {
-                                "type": "date-interval",
-                                "startTime": "2020-10-20T20:00:00Z",
-                                "endTime": "2020-10-27T21:45:00Z"
-                            }
-                        ],
-                        "center": [
-
-                        ],
-                        "right": [
-                            {
-                                "type": "button",
-                                "style": "call-to-action",
-                                "text": "Read More",
-                                "href": "https://www.google.com"
-                            }
-                        ]
-                    }
-                ],
-                "cardDate": "2020-07-02T09:41:35.933Z"
-            }],
-            filterPanel: {
-                enabled: 'true',
-                type: 'left',
-                filters: [
-                    {
-                        "group": "Topic",
-                        "id": "adobe-com-enterprise:topic",
-                        "items": [
-                            {
-                                "label": "Business Continuity",
-                                "id": "adobe-com-enterprise:topic/business-continuity"
-                            },
-                            {
-                                "label": "Creativity and Design",
-                                "id": "adobe-com-enterprise:topic/creativity-design"
-                            },
-                            {
-                                "label": "Customer Intelligence",
-                                "id": "adobe-com-enterprise:topic/customer-intelligence"
-                            },
-                            {
-                                "label": "Data Management Platform",
-                                "id": "adobe-com-enterprise:topic/data-management-platform"
-                            },
-                            {
-                                "label": "Digital Foundation",
-                                "id": "adobe-com-enterprise:topic/digital-foundation"
-                            },
-                            {
-                                "label": "Digital Trends",
-                                "id": "adobe-com-enterprise:topic/digital-trends"
-                            },
-                            {
-                                "label": "Document Management",
-                                "id": "adobe-com-enterprise:topic/document-management"
-                            },
-                            {
-                                "label": "Marketing Automation",
-                                "id": "adobe-com-enterprise:topic/marketing-automation"
-                            },
-                            {
-                                "label": "Personalization",
-                                "id": "adobe-com-enterprise:topic/personalization"
-                            },
-                            {
-                                "label": "Stock",
-                                "id": "adobe-com-enterprise:topic/Stock"
-                            }
-                        ]
-                    },
-                    {
-                        "group": "Availability",
-                        "id": "adobe-com-enterprise:availability",
-                        "items": [
-                            {
-                                "label": "On-Demand",
-                                "id": "adobe-com-enterprise:availability/on-demand"
-                            },
-                            {
-                                "label": "Upcoming",
-                                "id": "adobe-com-enterprise:availability/upcoming"
-                            }
-                        ]
-                    },
-                    {
-                        "group": "Duration",
-                        "id": "adobe-com-enterprise:duration",
-                        "items": [
-                            {
-                                "label": "Long",
-                                "id": "adobe-com-enterprise:duration/long"
-                            },
-                            {
-                                "label": "Short",
-                                "id": "adobe-com-enterprise:duration/short"
-                            }
-                        ]
-                    },
-                    {
-                        "group": "Rating",
-                        "id": "adobe-com-enterprise:rating",
-                        "items": [
-                            {
-                                "label": "5",
-                                "id": "adobe-com-enterprise:rating/5"
-                            },
-                            {
-                                "label": "4",
-                                "id": "adobe-com-enterprise:rating/4"
-                            }
-                        ]
-                    }
-                ],
-                filterLogic: 'or',
-                topPanel: {
-                    mobile: {
-                        blurFilters: true,
-                    }
-                },
-                i18n: {
-                    leftPanel: {
-                        header: 'My Favorites',
-                        // searchBoxTitle: 'Search',
-                        clearAllFiltersText: 'Clear All',
-                        mobile: {
-                            filtersBtnLabel: 'Filters:',
-                            panel: {
-                                header: 'Filters',
-                                totalResultsText: '{total} Results',
-                                applyBtnText: 'Apply',
-                                clearFilterText: 'Clear',
-                                doneBtnText: 'Done',
-                            },
-                            group: {
-                                totalResultsText: '{total} Results',
-                                applyBtnText: 'Apply',
-                                clearFilterText: 'Clear Left',
-                                doneBtnText: 'Done',
-                            }
-                        }
-                    },
-                    topPanel: {
-                        groupLabel: 'Filters',
-                        clearAllFiltersText: 'Clear All Top',
-                        moreFiltersBtnText: 'More Filters: +',
-                        mobile: {
-                            group: {
-                                totalResultsText: '{total} esults',
-                                applyBtnText: 'Apply',
-                                clearFilterText: 'Clear Top',
-                                doneBtnText: 'Done',
-                            }
-                        }
-                    }
-                }
-            },
-            sort: {
-                enabled: 'true',
-                defaultSort: 'featured',
-                options: '[{"label":"Featured","sort":"featured"},{"label":"Title: (A-Z)","sort":"titleAsc"},{"label":"Title: (Z-A)","sort":"titleDesc"},{"label":"Date: (Oldest to newest)","sort":"dateAsc"},{"label":"Date: (Newest to oldest)","sort":"dateDesc"}]',
-            },
-            pagination: {
-                enabled: 'true',
-                type: 'paginator',
-                i18n: {
-                    loadMore: {
-                        btnText: 'Load More',
-                        resultsQuantityText: 'Showing {start} of {end} cards',
-                    },
-                    paginator: {
-                        resultsQuantityText: '{start}-{end} of {total} results',
-                        prevLabel: 'Prev',
-                        nextLabel: 'Next',
-                    }
-                }
-            },
-            bookmarks: {
-                leftFilterPanel: {
-                    bookmarkOnlyCollection: 'false',
-                    showBookmarksFilter: 'true',
-                    selectBookmarksIcon: '',
-                    unselectBookmarksIcon: '',
-                },
-                i18n: {
-                    leftFilterPanel: {
-                        filterTitle: 'My Favorites',
-                    }
-                }
-            },
-            search: {
-                enabled: 'true',
-                searchFields: '["contentArea.title","contentArea.description","search.meta.author","overlays.banner.description", "foo.bar"]',
-                i18n: {
-                    noResultsTitle: 'No Results Found',
-                    noResultsDescription: 'We could not find any results. {break} Try checking your spelling or broadening your search.',
-                    leftFilterPanel: {
-                        searchTitle: 'Search',
-                        searchPlaceholderText: 'Search here...',
-                    },
-                    topFilterPanel: {
-                        searchPlaceholderText: 'i18n.topFilterPanel.searchPlaceholderText',
-                    },
-                    filterInfo: {
-                        searchPlaceholderText: 'i18n.filterInfo.searchPlaceholderText',
-                    }
-                }
-            },
-            language: 'de',
-            analytics: {
-                trackImpressions: 'true',
-                collectionIdentifier: 'Some Identifier',
-            }
-        };
-        const consonantCardCollection = new ConsonantCardCollection(config, document.getElementById("someDivId"));
+        // var config = {
+        //     collection: {
+        //         resultsPerPage: '3',
+        //         endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/tests/card-collection/json-response-tests/smoke-tests/all-art-board-15-cards-show.json",
+        //         totalCardsToShow: '100',
+        //         //cardStyle: "3:2", // could also be "3:2" or "full-card"
+        //         showTotalResults: 'true',
+        //         i18n: {
+        //             prettyDateIntervalFormat: '{LLL} {dd} | {timeRange} {timeZone}',
+        //             totalResultsText: '{total} Results',
+        //             title: 'Your Favorite Cards',
+        //             onErrorTitle: 'Sorry there was a system error.',
+        //             onErrorDescription: 'Please try reloading the page or try coming back to the page another time.',
+        //         }
+        //     },
+        //     featuredCards: [{
+        //         "id": "n",
+        //         "showCard": {
+        //             "from": "2020-10-01T20:00:00Z",
+        //             "until": "2020-10-31T21:45:00Z"
+        //         },
+        //         "tags": [
+        //             {
+        //                 "id": "adobe-com-enterprise:content-type/webinar"
+        //             },
+        //             {
+        //                 "id": "adobe-com-enterprise:availability/upcoming"
+        //             },
+        //             {
+        //                 "id": "adobe-com-enterprise:topic/digital-trends"
+        //             }
+        //         ],
+        //         "overlays": {
+        //             "banner": {
+        //                 "backgroundColor": "#CB6F10",
+        //                 "fontColor": "#FFFFFF",
+        //                 "description": "Upcoming",
+        //                 "icon": ""
+        //             },
+        //             "logo": {
+        //
+        //             },
+        //             "label": {
+        //
+        //             },
+        //             "videoButton": {
+        //
+        //             }
+        //         },
+        //         "contentArea": {
+        //             "detailText": "",
+        //             "title": "n",
+        //             "description": "This month and next will be devoted exclusively to you — making you a true expert in creating agile, creative, and consistent experiences. The kinds of experiences your customers demand (and will love). Over the next few months, we’re going to focus on modernizing the nuts and bolts of your operation.",
+        //             "dateDetailText": {
+        //
+        //             }
+        //         },
+        //         "styles": {
+        //             "typeOverride": "",
+        //             "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/104643%20Adobe_Digital-Bites-web-graphics_marquee%201600x600.jpg"
+        //         },
+        //         "footer": [
+        //             {
+        //                 "divider": true,
+        //                 "left": [
+        //                     {
+        //                         "type": "bookmark",
+        //                         "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+        //                         "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+        //                         "cardSaveText": "Save Card",
+        //                         "cardUnsaveText": "Unsave Card"
+        //                     },
+        //                     {
+        //                         "type": "date-interval",
+        //                         "startTime": "2020-10-20T20:00:00Z",
+        //                         "endTime": "2020-10-27T21:45:00Z"
+        //                     }
+        //                 ],
+        //                 "center": [
+        //
+        //                 ],
+        //                 "right": [
+        //                     {
+        //                         "type": "button",
+        //                         "style": "call-to-action",
+        //                         "text": "Read More",
+        //                         "href": "https://www.google.com"
+        //                     }
+        //                 ]
+        //             }
+        //         ],
+        //         "cardDate": "2020-07-02T09:41:35.933Z"
+        //     }],
+        //     filterPanel: {
+        //         enabled: 'true',
+        //         type: 'left',
+        //         filters: [
+        //             {
+        //                 "group": "Topic",
+        //                 "id": "adobe-com-enterprise:topic",
+        //                 "items": [
+        //                     {
+        //                         "label": "Business Continuity",
+        //                         "id": "adobe-com-enterprise:topic/business-continuity"
+        //                     },
+        //                     {
+        //                         "label": "Creativity and Design",
+        //                         "id": "adobe-com-enterprise:topic/creativity-design"
+        //                     },
+        //                     {
+        //                         "label": "Customer Intelligence",
+        //                         "id": "adobe-com-enterprise:topic/customer-intelligence"
+        //                     },
+        //                     {
+        //                         "label": "Data Management Platform",
+        //                         "id": "adobe-com-enterprise:topic/data-management-platform"
+        //                     },
+        //                     {
+        //                         "label": "Digital Foundation",
+        //                         "id": "adobe-com-enterprise:topic/digital-foundation"
+        //                     },
+        //                     {
+        //                         "label": "Digital Trends",
+        //                         "id": "adobe-com-enterprise:topic/digital-trends"
+        //                     },
+        //                     {
+        //                         "label": "Document Management",
+        //                         "id": "adobe-com-enterprise:topic/document-management"
+        //                     },
+        //                     {
+        //                         "label": "Marketing Automation",
+        //                         "id": "adobe-com-enterprise:topic/marketing-automation"
+        //                     },
+        //                     {
+        //                         "label": "Personalization",
+        //                         "id": "adobe-com-enterprise:topic/personalization"
+        //                     },
+        //                     {
+        //                         "label": "Stock",
+        //                         "id": "adobe-com-enterprise:topic/Stock"
+        //                     }
+        //                 ]
+        //             },
+        //             {
+        //                 "group": "Availability",
+        //                 "id": "adobe-com-enterprise:availability",
+        //                 "items": [
+        //                     {
+        //                         "label": "On-Demand",
+        //                         "id": "adobe-com-enterprise:availability/on-demand"
+        //                     },
+        //                     {
+        //                         "label": "Upcoming",
+        //                         "id": "adobe-com-enterprise:availability/upcoming"
+        //                     }
+        //                 ]
+        //             },
+        //             {
+        //                 "group": "Duration",
+        //                 "id": "adobe-com-enterprise:duration",
+        //                 "items": [
+        //                     {
+        //                         "label": "Long",
+        //                         "id": "adobe-com-enterprise:duration/long"
+        //                     },
+        //                     {
+        //                         "label": "Short",
+        //                         "id": "adobe-com-enterprise:duration/short"
+        //                     }
+        //                 ]
+        //             },
+        //             {
+        //                 "group": "Rating",
+        //                 "id": "adobe-com-enterprise:rating",
+        //                 "items": [
+        //                     {
+        //                         "label": "5",
+        //                         "id": "adobe-com-enterprise:rating/5"
+        //                     },
+        //                     {
+        //                         "label": "4",
+        //                         "id": "adobe-com-enterprise:rating/4"
+        //                     }
+        //                 ]
+        //             }
+        //         ],
+        //         filterLogic: 'or',
+        //         topPanel: {
+        //             mobile: {
+        //                 blurFilters: true,
+        //             }
+        //         },
+        //         i18n: {
+        //             leftPanel: {
+        //                 header: 'My Favorites',
+        //                 // searchBoxTitle: 'Search',
+        //                 clearAllFiltersText: 'Clear All',
+        //                 mobile: {
+        //                     filtersBtnLabel: 'Filters:',
+        //                     panel: {
+        //                         header: 'Filters',
+        //                         totalResultsText: '{total} Results',
+        //                         applyBtnText: 'Apply',
+        //                         clearFilterText: 'Clear',
+        //                         doneBtnText: 'Done',
+        //                     },
+        //                     group: {
+        //                         totalResultsText: '{total} Results',
+        //                         applyBtnText: 'Apply',
+        //                         clearFilterText: 'Clear Left',
+        //                         doneBtnText: 'Done',
+        //                     }
+        //                 }
+        //             },
+        //             topPanel: {
+        //                 groupLabel: 'Filters',
+        //                 clearAllFiltersText: 'Clear All Top',
+        //                 moreFiltersBtnText: 'More Filters: +',
+        //                 mobile: {
+        //                     group: {
+        //                         totalResultsText: '{total} esults',
+        //                         applyBtnText: 'Apply',
+        //                         clearFilterText: 'Clear Top',
+        //                         doneBtnText: 'Done',
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     },
+        //     sort: {
+        //         enabled: 'true',
+        //         defaultSort: 'featured',
+        //         options: '[{"label":"Featured","sort":"featured"},{"label":"Title: (A-Z)","sort":"titleAsc"},{"label":"Title: (Z-A)","sort":"titleDesc"},{"label":"Date: (Oldest to newest)","sort":"dateAsc"},{"label":"Date: (Newest to oldest)","sort":"dateDesc"}]',
+        //     },
+        //     pagination: {
+        //         enabled: 'true',
+        //         type: 'paginator',
+        //         i18n: {
+        //             loadMore: {
+        //                 btnText: 'Load More',
+        //                 resultsQuantityText: 'Showing {start} of {end} cards',
+        //             },
+        //             paginator: {
+        //                 resultsQuantityText: '{start}-{end} of {total} results',
+        //                 prevLabel: 'Prev',
+        //                 nextLabel: 'Next',
+        //             }
+        //         }
+        //     },
+        //     bookmarks: {
+        //         leftFilterPanel: {
+        //             bookmarkOnlyCollection: 'false',
+        //             showBookmarksFilter: 'true',
+        //             selectBookmarksIcon: '',
+        //             unselectBookmarksIcon: '',
+        //         },
+        //         i18n: {
+        //             leftFilterPanel: {
+        //                 filterTitle: 'My Favorites',
+        //             }
+        //         }
+        //     },
+        //     search: {
+        //         enabled: 'true',
+        //         searchFields: '["contentArea.title","contentArea.description","search.meta.author","overlays.banner.description", "foo.bar"]',
+        //         i18n: {
+        //             noResultsTitle: 'No Results Found',
+        //             noResultsDescription: 'We could not find any results. {break} Try checking your spelling or broadening your search.',
+        //             leftFilterPanel: {
+        //                 searchTitle: 'Search',
+        //                 searchPlaceholderText: 'Search here...',
+        //             },
+        //             topFilterPanel: {
+        //                 searchPlaceholderText: 'i18n.topFilterPanel.searchPlaceholderText',
+        //             },
+        //             filterInfo: {
+        //                 searchPlaceholderText: 'i18n.filterInfo.searchPlaceholderText',
+        //             }
+        //         }
+        //     },
+        //     language: 'de',
+        //     analytics: {
+        //         trackImpressions: 'true',
+        //         collectionIdentifier: 'Some Identifier',
+        //     }
+        // };
+        // const consonantCardCollection = new ConsonantCardCollection(config, document.getElementById("someDivId"));
     </script>
 </body>
 

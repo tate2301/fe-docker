@@ -21,16 +21,16 @@ domRegistry.register({
 });
 
 
-class ConsonantCardCollection {
-    constructor(config, element) {
-        ReactDOM.render((
-            <React.Fragment>
-                <Container config={parseToPrimitive(config)} />
-            </React.Fragment>), element);
-    }
-}
+// class ConsonantCardCollection {
+//     constructor(config, element) {
+//         ReactDOM.render((
+//             <React.Fragment>
+//                 <Container config={parseToPrimitive(config)} />
+//             </React.Fragment>), element);
+//     }
+// }
 
-window.ConsonantCardCollection = ConsonantCardCollection;
+// window.ConsonantCardCollection = ConsonantCardCollection;
 
 const initReact = (element) => {
     domRegistry.init(element);
