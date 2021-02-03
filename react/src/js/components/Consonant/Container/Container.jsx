@@ -11,6 +11,7 @@ import Search from '../Search/Search';
 import Loader from '../Loader/Loader';
 import {
     getByPath,
+    parseToPrimitive,
     saveBookmarksToLocalStorage,
     readBookmarksFromLocalStorage,
 } from '../Helpers/general';
@@ -87,7 +88,7 @@ import {
 /* eslint-disable */
 
 const Container = (props) => {
-    const config = {
+    const rawConfig = {
         collection: {
             resultsPerPage: '3',
             endpoint: 'https://caas-chimera.s3-us-west-1.amazonaws.com/tests/card-collection/json-response-tests/smoke-tests/all-art-board-15-cards-show.json',
@@ -373,6 +374,8 @@ const Container = (props) => {
             collectionIdentifier: 'Some Identifier',
         },
     };
+
+    const config = parseToPrimitive(rawConfig);
 
     const getConfig = makeConfigGetter(config);
 
