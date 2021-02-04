@@ -55,27 +55,27 @@ const Items = (props) => {
      * @type {String}
      */
     const clipFilterItemsClass = classNames({
-        'consonant-top-filter--items': true,
-        'consonant-top-filter--items_clipped': shouldClipItems,
+        'con-TopFilter-items': true,
+        'con-TopFilter-items--clipped': shouldClipItems,
     });
 
     return (
         <ul
-            data-testid="filter-group"
+            data-testid="con-TopFilter-items"
             className={clipFilterItemsClass}>
             {items.map(item => (
                 <li
                     key={item.id}
-                    data-testid="filter-group-item"
-                    className="consonant-top-filter--items-item">
+                    data-testid="con-TopFilter-item"
+                    className="con-TopFilter-item">
                     {/* eslint-disable-next-line max-len */}
                     {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
                     <label
                         htmlFor={item.id}
-                        className="consonant-top-filter--items-item-label"
+                        className="con-TopFilter-itemLabel"
                         onClick={stopPropagation}>
                         <input
-                            data-testid="list-item-checkbox"
+                            data-testid="con-TopFilter-itemCheckbox"
                             id={item.id}
                             value={item.id}
                             type="checkbox"
@@ -83,9 +83,9 @@ const Items = (props) => {
                             checked={item.selected}
                             tabIndex="0" />
                         <span
-                            className="consonant-top-filter--items-item-checkmark" />
+                            className="con-TopFilter-itemCheckmark" />
                         <span
-                            className="consonant-top-filter--items-item-name">
+                            className="con-TopFilter-itemName">
                             {item.label}
                         </span>
                     </label>

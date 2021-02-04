@@ -1,333 +1,335 @@
 /* Available modifiers:
-  - consonant-top-filters--filters_truncated;
-  - consonant-top-filters--clear-btn-wrapper_with-blur;
+  - con-TopFilters-filters--truncated;
+  - con-TopFilters-clearBtnWrapper--withBlur;
 */
 
-.consonant-top-filters {
-    display: block;
-    min-width: 83.333vw;
-    max-width: 83.333vw;
-    margin: 0 auto;
-    padding: 14px 0 16px;
-
-    .consonant-top-filters--inner {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: flex-start;
-        max-width: 100%;
-    }
-
-    .consonant-top-filters--filters:last-child > div:last-child {
-        margin-right: 0;
-    }
-
-    .consonant-top-filters--inner > *:not(.consonant-top-filters--filters-wrapper):first-child {
-        margin-left: auto;
-    }
-
-    .consonant-top-filters--search-wrapper {
+.con {
+    &-TopFilters {
         display: block;
-        order: -2;
-    }
+        min-width: 83.333vw;
+        max-width: 83.333vw;
+        margin: 0 auto;
+        padding: 14px 0 16px;
 
-    .consonant-top-filters--filters-wrapper {
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-start;
-        flex-grow: 1;
-        max-width: calc(~ '100% - ' @consonant-select-width * 0.85 ~ ' - 8px');
-
-        &:only-child {
+        &-inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
             max-width: 100%;
-            justify-content: flex-start;
         }
 
-        @media @consonant-IE11-only {
-            flex-basis: 100%;
-        }
-    }
-
-    .consonant-top-filters--filters-wrapper + * {
-        margin-left: auto;
-    }
-
-    .consonant-top-filters--filters {
-        display: flex;
-        justify-content: flex-start;
-        align-items: stretch;
-        margin-right: 16px;
-        overflow-y: auto;
-
-        &:last-child {
+        &-filters:last-child > div:last-child {
             margin-right: 0;
         }
-    }
 
-    .consonant-top-filters--filters > div h3 button {
-        white-space: nowrap;
-    }
+        &-inner > *:not(&-filtersWrapper):first-child {
+            margin-left: auto;
+        }
 
-    .consonant-top-filters--filters.consonant-top-filters--filters_truncated {
-        // Make each filter white-space nowrap;
-        & > div h3 button {
+        &-searchWrapper {
+            display: block;
+            order: -2;
+        }
+
+        &-filtersWrapper {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            flex-grow: 1;
+            max-width: calc(~ '100% - ' @consonant-select-width * 0.85 ~ ' - 8px');
+
+            &:only-child {
+                max-width: 100%;
+                justify-content: flex-start;
+            }
+
+            @media @consonant-IE11-only {
+                flex-basis: 100%;
+            }
+        }
+
+        &-filtersWrapper + * {
+            margin-left: auto;
+        }
+
+        &-filters {
+            display: flex;
+            justify-content: flex-start;
+            align-items: stretch;
+            margin-right: 16px;
+            overflow-y: auto;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        &-filters > div h3 button {
             white-space: nowrap;
         }
-    }
 
-    .consonant-top-filters--more-btn {
-        display: none;
-        margin-bottom: 8px;
-        padding: 5px 12px 6px;
-
-        .font(0.875rem, 1.1875rem, 700, @consonant-color-brown-grey, center);
-
-        text-transform: capitalize;
-        background-color: transparent;
-        border: 1px solid @consonant-color-lightest-grey;
-        border-radius: 16px;
-        outline: 0;
-        user-select: none;
-    }
-
-    .consonant-top-filters--title {
-        display: none;
-        margin-right: 12px;
-        min-width: 55px;
-        max-width: 20%;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        user-select: none;
-
-        .font(1rem, 2rem, 600, @consonant-color-dark-grey-2);
-    }
-
-    .consonant-top-filters--clear-btn-wrapper {
-        position: sticky;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        right: 0;
-        min-height: 32px;
-        max-width: 40%;
-
-        &:empty {
-            margin-left: -16px;
-            overflow: visible;
+        &-filters&-filters--truncated {
+            // Make each filter white-space nowrap;
+            & > div h3 button {
+                white-space: nowrap;
+            }
         }
 
-        &.consonant-top-filters--clear-btn-wrapper_with-blur:after {
-            content: '';
-            position: absolute;
-            width: @consonant-top-filters-filters-fade-width;
-            height: 100%;
-            background:
-                transparent
-                linear-gradient(
-                    270deg,
-                    rgba(255, 255, 255, 1) 0%,
-                    rgba(255, 255, 255, 0) 100%
-                ) 0% 0% no-repeat padding-box;
-            top: 0;
-            bottom: 0;
-            right: 100%;
-            margin: auto;
-            z-index: 2;
-            pointer-events: none;
-        }
-    }
+        &-moreBtn {
+            display: none;
+            margin-bottom: 8px;
+            padding: 5px 12px 6px;
 
-    .consonant-top-filters--clear-btn {
-        padding: 0;
-        max-width: 100%;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+            .font(0.875rem, 1.1875rem, 700, @consonant-color-brown-grey, center);
 
-        .font(0.875rem, 2rem, 700, @consonant-color-blue, right);
-
-        background-color: transparent;
-
-        .focused;
-    }
-
-    .consonant-top-filters--select-wrapper {
-        display: block;
-        min-width: @consonant-select-width * 0.85;
-        max-width: @consonant-select-width * 0.85;
-        margin-right: 8px;
-        order: -1;
-        overflow: visible;
-
-        &:only-child {
-            margin-left: auto;
-            margin-right: 0;
-        }
-    }
-
-    .consonant-top-filters--search-ico-wrapper {
-        display: none;
-    }
-
-    .consonant-top-filters--info-wrapper {
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: flex-start;
-        width: 100%;
-        padding-top: 16px;
-    }
-
-    .consonant-top-filters--collection-title {
-        margin: 0;
-
-        .font(1.125rem, 1.375rem, 700, @consonant-color-dark-grey-2);
-    }
-
-    .consonant-top-filters--results {
-        display: block;
-        margin-left: auto;
-        padding-left: 12px;
-
-        .font(0.875rem, 1.3125rem, 400, @consonant-color-brown-grey, right);
-    }
-
-    .consonant-top-filters--results strong {
-        font-weight: 700;
-    }
-
-    @media @consonant-tablet-up {
-        padding-bottom: 32px;
-
-        .consonant-top-filters--filters-wrapper {
-            max-width: 60%;
-            justify-content: flex-start;
-            margin-right: 16px;
+            text-transform: capitalize;
+            background-color: transparent;
+            border: 1px solid @consonant-color-lightest-grey;
+            border-radius: 16px;
+            outline: 0;
+            user-select: none;
         }
 
-        .consonant-top-filters--title {
-            display: block;
-        }
-
-        .consonant-top-filters--filters {
-            align-items: flex-start;
-            flex-wrap: wrap;
+        &-title {
+            display: none;
+            margin-right: 12px;
+            min-width: 55px;
+            max-width: 20%;
+            white-space: nowrap;
+            text-overflow: ellipsis;
             overflow: hidden;
+            user-select: none;
 
-            &.consonant-top-filters--filters_truncated {
+            .font(1rem, 2rem, 600, @consonant-color-dark-grey-2);
+        }
+
+        &-clearBtnWrapper {
+            position: sticky;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            right: 0;
+            min-height: 32px;
+            max-width: 40%;
+
+            &:empty {
+                margin-left: -16px;
+                overflow: visible;
+            }
+
+            &--withBlur:after {
+                content: '';
+                position: absolute;
+                width: @consonant-top-filters-filters-fade-width;
+                height: 100%;
+                background:
+                    transparent
+                    linear-gradient(
+                        270deg,
+                        rgba(255, 255, 255, 1) 0%,
+                        rgba(255, 255, 255, 0) 100%
+                    ) 0% 0% no-repeat padding-box;
+                top: 0;
+                bottom: 0;
+                right: 100%;
+                margin: auto;
+                z-index: 2;
+                pointer-events: none;
+            }
+        }
+
+        &-clearBtn {
+            padding: 0;
+            max-width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            .font(0.875rem, 2rem, 700, @consonant-color-blue, right);
+
+            background-color: transparent;
+
+            .focused;
+        }
+
+        &-selectWrapper {
+            display: block;
+            min-width: @consonant-select-width * 0.85;
+            max-width: @consonant-select-width * 0.85;
+            margin-right: 8px;
+            order: -1;
+            overflow: visible;
+
+            &:only-child {
+                margin-left: auto;
+                margin-right: 0;
+            }
+        }
+
+        &-searchIcoWrapper {
+            display: none;
+        }
+
+        &-infoWrapper {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            padding-top: 16px;
+        }
+
+        &-collectionTitle {
+            margin: 0;
+
+            .font(1.125rem, 1.375rem, 700, @consonant-color-dark-grey-2);
+        }
+
+        &-results {
+            display: block;
+            margin-left: auto;
+            padding-left: 12px;
+
+            .font(0.875rem, 1.3125rem, 400, @consonant-color-brown-grey, right);
+        }
+
+        &-results strong {
+            font-weight: 700;
+        }
+
+        @media @consonant-tablet-up {
+            padding-bottom: 32px;
+
+            &-filtersWrapper {
+                max-width: 60%;
                 justify-content: flex-start;
-                flex-wrap: nowrap;
-                overflow-x: auto;
+                margin-right: 16px;
+            }
 
-                .consonant-top-filters--more-btn {
+            &-title {
+                display: block;
+            }
+
+            &-filters {
+                align-items: flex-start;
+                flex-wrap: wrap;
+                overflow: hidden;
+
+                &--truncated {
+                    justify-content: flex-start;
+                    flex-wrap: nowrap;
+                    overflow-x: auto;
+                }
+
+                &--truncated &-moreBtn {
                     display: block;
                     min-width: 120px;
                     margin-right: 24px;
                 }
 
-                & > div:nth-child(n+4) {
+                &--truncated > div:nth-child(n+4) {
                     display: none;
+                }
+            }
+
+            &-filters > div h3 button {
+                white-space: normal;
+            }
+
+            &-clearBtnWrapper:after {
+                display: none;
+            }
+
+            &-moreBtn {
+                display: block;
+                min-width: auto;
+            }
+
+            &-selectWrapper {
+                max-width: @consonant-select-width;
+                order: 0;
+            }
+
+            &-searchIcoWrapper {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-width: calc(@consonant-search-ico-size ~ ' + 40px');
+                min-height: 32px;
+                height: 32px;
+
+                & > div {
+                    position: absolute;
+                    width: @consonant-top-filters-search-width;
+                    top: 0;
+                    right: 20px;
+                    z-index: 3;
+                }
+
+                &:only-child > div {
+                    right: 0;
+                }
+
+                & > div + button {
+                    display: none;
+                    margin: 0;
+                    padding: 0;
                 }
             }
         }
 
-        .consonant-top-filters--filters > div h3 button {
-            white-space: normal;
-        }
-
-        .consonant-top-filters--clear-btn-wrapper:after {
-            display: none;
-        }
-
-        .consonant-top-filters--more-btn {
-            display: block;
-            min-width: auto;
-        }
-
-        .consonant-top-filters--select-wrapper {
-            max-width: @consonant-select-width;
-            order: 0;
-        }
-
-        .consonant-top-filters--search-ico-wrapper {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-width: calc(@consonant-search-ico-size ~ ' + 40px');
-            min-height: 32px;
-            height: 32px;
-        }
-
-        .consonant-top-filters--search-ico-wrapper > div {
-            position: absolute;
-            width: @consonant-top-filters-search-width;
-            top: 0;
-            right: 20px;
-            z-index: 3;
-        }
-
-        .consonant-top-filters--search-ico-wrapper:only-child > div {
-            right: 0;
-        }
-
-        .consonant-top-filters--search-ico-wrapper > div + button {
-            display: none;
-            margin: 0;
-            padding: 0;
-        }
-    }
-
-    @media @consonant-desktop-up {
-        /* Hide search input label; */
-        .consonant-top-filters--search-ico-wrapper label > span:first-child {
-            display: none;
-        }
-
-        .consonant-top-filters--select-wrapper {
-            min-width: 160px;
-            max-width: 160px;
-            margin-right: 0;
-            margin-left: 0;
-        }
-
-        /* Add paddings for sort select; */
-        .consonant-top-filters--select-wrapper > div:first-child {
-            &:after {
-                right: 12px;
+        @media @consonant-desktop-up {
+            /* Hide search input label; */
+            &-searchIcoWrapper label > span:first-child {
+                display: none;
             }
-        }
 
-        .consonant-top-filters--select-wrapper > div:first-child > button {
-            padding-left: 12px;
-            padding-right: 12px;
-            border: 1px solid @consonant-color-lightest-grey;
-            border-radius: 4px;
-        }
-
-        .consonant-top-filters--filters {
-            overflow: visible;
-        }
-
-        .consonant-top-filters--filters.consonant-top-filters--filters_truncated {
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            overflow: visible;
-
-            & > div:last-child {
+            &-selectWrapper {
+                min-width: 160px;
+                max-width: 160px;
                 margin-right: 0;
+                margin-left: 0;
+
+                & > div:first-child > button {
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    border: 1px solid @consonant-color-lightest-grey;
+                    border-radius: 4px;
+                }
+
+                /* Add paddings for sort select; */
+                & > div:first-child {
+                    &:after {
+                        right: 12px;
+                    }
+                }
+            }
+
+            &-filters {
+                overflow: visible;
+            }
+
+            &-filters&-filters--truncated {
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                overflow: visible;
+
+                & > div:last-child {
+                    margin-right: 0;
+                }
+            }
+
+            .is-opened {
+                margin-bottom: 8px;
             }
         }
 
-        &.consonant-top-filter_opened {
-            margin-bottom: 8px;
+        @media @consonant-big-desktop-up {
+            min-width: @consonant-width-desktop-min;
+            max-width: @consonant-width-desktop-min;
         }
-    }
-
-    @media @consonant-big-desktop-up {
-        min-width: @consonant-width-desktop-min;
-        max-width: @consonant-width-desktop-min;
     }
 }

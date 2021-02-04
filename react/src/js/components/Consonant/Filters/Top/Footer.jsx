@@ -60,24 +60,24 @@ const Footer = (props) => {
 
     return (
         <div
-            className="consonant-top-filter--footer">
+            className="con-TopFilter-footer">
             <span
-                className="consonant-top-filter--footer-res-qty">
+                className="con-TopFilter-footerResQty">
                 {mobileGroupTotalResultsText}
             </span>
             {shouldShowClearButton &&
             <button
-                data-testid="clear-btn"
+                data-testid="con-TopFilter-footerClearBtn"
                 type="button"
                 onClick={handleClear}
-                className="consonant-top-filter--footer-clear-btn"
+                className="con-TopFilter-footerClearBtn"
                 tabIndex="0">
                 {clearFilterText}
             </button>}
             <button
                 type="button"
                 onClick={handleToggle}
-                className="consonant-top-filter--footer-btn"
+                className="con-TopFilter-footerBtn"
                 tabIndex="0">
                 {mobileFooterBtnText}
             </button>
