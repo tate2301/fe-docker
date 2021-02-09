@@ -388,3 +388,32 @@ export const mergeDeep = (target, ...sources) => {
 
     return mergeDeep(target, ...sources);
 };
+
+const parseQuerySting = (str) => {
+    if (!str) return {};
+
+    const queryString = str[0] === '?' ? str.slice(1) : str;
+
+    return queryString.split('&').reduce((accumulator, item) => {
+        const [key, value] = item.split('=');
+
+        accumulator[key] = value.split(',').map(decodeURI);
+
+        return accumulator;
+    }, {});
+};
+
+const stringifyQueryObject = (obj) => {
+    const queryList = Object.entries(obj).reduce((accumulator, [key, value]) => {
+        accumulator.push(`${key}=${value}`);
+
+        return accumulator;
+    }, []);
+
+    return queryList.join('&');
+};
+
+export const queryString = {
+    parse: parseQuerySting,
+    stringify: stringifyQueryObject,
+};

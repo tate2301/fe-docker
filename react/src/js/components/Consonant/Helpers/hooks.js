@@ -5,15 +5,13 @@ import {
     useState,
 } from 'react';
 
-import { debounce } from './general';
+import { debounce, queryString } from './general';
 import { makeConfigGetter } from './consonant';
 import {
     ConfigContext,
     ExpandableContext,
 } from './contexts';
 import { ROOT_MARGIN_DEFAULT } from './constants';
-
-// const noop = () => {};
 
 /**
  * @typedef {function(): {Int, Int}} WindowDimensionsState - Current Window Dimensions
@@ -122,4 +120,45 @@ export const useLazyLoading = (imageRef, image) => {
     }, [imageRef]);
 
     return [lazyLoadImage];
+};
+
+/**
+ * Create a state that is sync with url search param.
+ *
+ * @type {Object, Function, Function]} urlState, handleSetQuery, handleClearQuery
+ */
+export const useURLState = () => {
+    const {
+        location: { search, pathname },
+        history: { replaceState },
+    } = window;
+
+    const handleReplaceState = replaceState.bind(window.history, {}, '');
+
+    const [urlState, setUrlState] = useState(queryString.parse(search));
+
+    const handleSetQuery = useCallback((key, value) => {
+        setUrlState((origin) => {
+            if (!value || (Array.isArray(value) && !value.length)) {
+                const cloneOrigin = { ...origin };
+                delete cloneOrigin[key];
+
+                return cloneOrigin;
+            }
+
+            return { ...origin, [key]: value };
+        });
+    }, []);
+
+    const handleClearQuery = useCallback(() => {
+        setUrlState({});
+    }, []);
+
+    useEffect(() => {
+        const searchString = queryString.stringify(urlState);
+
+        handleReplaceState(`${pathname}${searchString ? '?' : ''}${searchString}`);
+    }, [urlState]);
+
+    return [urlState, handleSetQuery, handleClearQuery];
 };
