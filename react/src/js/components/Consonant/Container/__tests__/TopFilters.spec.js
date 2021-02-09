@@ -39,6 +39,9 @@ global.fetch = jest.fn(() =>
 const multipleFilters = [...filters, ...filters]
     .map((item, index) => ({ ...item, id: `${item}_${index}` }));
 
+beforeEach(() => {
+    window.history.replaceState(null, '', window.location.pathname);
+});
 describe('Consonant/Container/Top Filters/Mobile', () => {
     test('Should render Sort Pop up On The Left', async () => {
         global.innerWidth = MOBILE_WIDTH;
@@ -330,7 +333,6 @@ describe('Consonant/Top Filters/Desktop', () => {
         await act(async () => render(<Container config={configToUse} />));
 
         expect(screen.queryByTestId('results')).not.toBeNull();
-
     });
 });
 
