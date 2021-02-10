@@ -35,18 +35,12 @@ const VideoModal = ({
 
 
 VideoModal.propTypes = {
-    name: string,
-    videoURL: string,
-    videoPolicy: string,
+    name: string.isRequired,
+    videoURL: string.isRequired,
+    videoPolicy: string.isRequired,
     innerRef: oneOfType([
         shape({ current: instanceOf(Element) }),
     ]).isRequired,
-};
-
-VideoModal.defaultProps = {
-    videoPolicy: 'autoplay; fullscreen',
-    name: 'the-home-depot-case-studyckkymf340003q4a6hhnq1z1p8',
-    videoURL: 'https://www.youtube.com/embed/hY7m5jjJ9mM?autoplay=1&amp;rel=0',
 };
 
 export default VideoModal;

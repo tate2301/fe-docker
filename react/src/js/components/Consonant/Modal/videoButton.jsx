@@ -55,10 +55,15 @@ const VideoButton = ({
 };
 
 VideoButton.propTypes = {
-    name: string.isRequired,
+    name: string,
+    videoPolicy: string,
     videoURL: string.isRequired,
     className: string.isRequired,
-    videoPolicy: string.isRequired,
+};
+
+VideoButton.defaultProps = {
+    name: 'video-modal',
+    videoPolicy: 'autoplay; fullscreen',
 };
 
 export default memo(VideoButton);
