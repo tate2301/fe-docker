@@ -3,7 +3,7 @@ import { string, oneOfType, shape, instanceOf } from 'prop-types';
 
 const VideoModal = ({
     name,
-    videoURL,
+    // videoURL,
     innerRef,
     videoPolicy,
 }) => (
@@ -38,7 +38,7 @@ const VideoModal = ({
 
 VideoModal.propTypes = {
     name: string.isRequired,
-    videoURL: string.isRequired,
+    // videoURL: string.isRequired,
     videoPolicy: string.isRequired,
     innerRef: oneOfType([
         shape({ current: instanceOf(Element) }),
