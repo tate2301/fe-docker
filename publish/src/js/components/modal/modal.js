@@ -1,7 +1,7 @@
 /* global history */
 import Video from '../video/video';
 import Iframe from '../iframe/iframe';
-import findBackgroundVideos from '../video/backgroundVideo';
+// import findBackgroundVideos from '../video/backgroundVideo';
 
 const DATA_REMEMBER_CLOSE_ACTION = 'data-remember-close-action';
 const IS_OPEN = 'is-Open';
@@ -136,29 +136,29 @@ export default class Modal {
         }
         this.element.parentElement.classList.add(IS_OPEN);
         this.element.classList.add(IS_OPEN);
-        this.getVideos();
-        this.videos.forEach((video) => {
-            video.setSrc();
-        });
-        this.getIframes();
-        const disablePageScroll = () => {
-            if (this.isOpen && this.disablePageScroll) {
-                document.body.classList.add(NO_SCROLL);
-            }
-        };
-        this.iframes.forEach((iframe) => {
-            iframe.element.onload = disablePageScroll;
-            iframe.setSrc();
-        });
-        if (this.iframes.length === 0) {
-            disablePageScroll();
-        }
-        findBackgroundVideos(this.element, false);
-        // saving the focused element before open
-        this.focusedElBeforeOpen = document.activeElement;
-        if (this.firstFocusableEl && !this.firstFocusableEl.isEqualNode(this.lastFocusableEl)) {
-            this.firstFocusableEl.focus();
-        }
+        // this.getVideos();
+        // this.videos.forEach((video) => {
+        //     video.setSrc();
+        // });
+        // this.getIframes();
+        // const disablePageScroll = () => {
+        //     if (this.isOpen && this.disablePageScroll) {
+        //         document.body.classList.add(NO_SCROLL);
+        //     }
+        // };
+        // this.iframes.forEach((iframe) => {
+        //     iframe.element.onload = disablePageScroll;
+        //     iframe.setSrc();
+        // });
+        // if (this.iframes.length === 0) {
+        //     disablePageScroll();
+        // }
+        // // findBackgroundVideos(this.element, false);
+        // // saving the focused element before open
+        // this.focusedElBeforeOpen = document.activeElement;
+        // if (this.firstFocusableEl && !this.firstFocusableEl.isEqualNode(this.lastFocusableEl)) {
+        //     this.firstFocusableEl.focus();
+        // }
     }
 
     getVideos() {
