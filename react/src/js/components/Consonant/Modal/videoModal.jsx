@@ -1,55 +1,52 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string, oneOfType, shape, instanceOf } from 'prop-types';
 
-/** Class representing the UI for the Spectrum Accordion. */
-
-export default class videoModal extends React.Component {
-    constructor(props) {
-        super(props);
-        this.name = this.props.name;
-        this.videoUrl = this.props.videoUrl;
-        this.videoPolicy = this.props.videoPolicy;
-    }
-
-    render() {
-        return (
-            <div className="modal">
-                <div className="dexter-Modal_overlay mobile-place-center mobile-place-middle closePlacement-outsideTopRight" data-conf-display="onHashChange">
-                    <div className="dexter-Modal mobile-width-100 mobile-height-auto tablet-width-640 desktop-width-1024" id={`video-${this.name}`}>
-                        <h6 id={`video-${this.name}-modalTitle`} className="hide-all">Language Navigation</h6>
-                        <p id={`video-${this.name}-modalDescription`} className="hide-all">Language Navigation</p>
-                        <a href="#" className="dexter-CloseButton">
-                            <i className="dexter-CloseButton_icon spectrum-close-circle-dark" />
-                        </a>
-                        <div className="aem-Grid aem-Grid--12 aem-Grid--default--12">
-                            <div className="video aem-GridColumn aem-GridColumn--default--12">
-                                <div className="videoContainer" data-in-modal>
-                                    <iframe
-                                        title="Featured Video"
-                                        data-video-src={this.videoUrl}
-                                        allow={this.videoPolicy}
-                                        frameBorder="0"
-                                        webkitallowfullscreen="true"
-                                        mozallowfullscreen="true"
-                                        allowFullScreen="true" />
-                                </div>
-                            </div>
-                        </div>
+const VideoModal = ({
+    name,
+    videoURL,
+    innerRef,
+    videoPolicy,
+}) => (
+    <div ref={innerRef} className="modal" id="ckkymf1in00004a6h0hfeo8h1-video">
+        <div className="dexter-Modal_overlay mobile-place-center mobile-place-middle closePlacement-outsideTopRight is-Open" data-conf-display="onHashChange">
+            <div className="dexter-Modal mobile-width-100 mobile-height-auto tablet-width-640 desktop-width-1024 is-Open" id={`video-${name}`}>
+                <h6 id={`video-${name}-modalTitle`} className="hide-all">video modal</h6>
+                <p id={`video-${name}-modalDescription`} className="hide-all">video modal</p>
+                <button className="dexter-CloseButton">
+                    <i className="dexter-CloseButton_icon spectrum-close-circle-dark" />
+                </button>
+                <div className="video aem-Grid aem-Grid--12 aem-Grid--default--12">
+                    <div className="videoContainer" data-in-modal="true">
+                        <iframe
+                            title="Featured Video"
+                            data-video-src={videoURL}
+                            allow={videoPolicy}
+                            frameBorder="0"
+                            webkitallowfullscreen="true"
+                            mozallowfullscreen="true"
+                            allowFullScreen=""
+                            src={videoURL} />
                     </div>
                 </div>
             </div>
-        );
-    }
-}
+        </div>
+    </div>
+);
 
-videoModal.propTypes = {
-    name: PropTypes.string,
-    videoUrl: PropTypes.string.isRequired,
-    videoPolicy: PropTypes.string,
+
+VideoModal.propTypes = {
+    name: string,
+    videoURL: string,
+    videoPolicy: string,
+    innerRef: oneOfType([
+        shape({ current: instanceOf(Element) }),
+    ]).isRequired,
 };
 
-
-videoModal.defaultProps = {
-    name: 'name',
-    videoPolicy: 'allow-all',
+VideoModal.defaultProps = {
+    videoPolicy: 'autoplay; fullscreen',
+    name: 'the-home-depot-case-studyckkymf340003q4a6hhnq1z1p8',
+    videoURL: 'https://www.youtube.com/embed/hY7m5jjJ9mM?autoplay=1&amp;rel=0',
 };
+
+export default VideoModal;
