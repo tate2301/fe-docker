@@ -19,13 +19,15 @@ const VideoModal = ({
                     <div className="videoContainer" data-in-modal="true">
                         <iframe
                             title="Featured Video"
-                            data-video-src={videoURL}
+                            // data-video-src={videoURL}
+                            data-video-src="https://www.youtube.com/embed/hY7m5jjJ9mM?autoplay=1&amp;rel=0"
                             allow={videoPolicy}
                             frameBorder="0"
                             webkitallowfullscreen="true"
                             mozallowfullscreen="true"
                             allowFullScreen=""
-                            src={videoURL} />
+                            // src={videoURL}
+                            src="https://www.youtube.com/embed/hY7m5jjJ9mM?autoplay=1&amp;rel=0" />
                     </div>
                 </div>
             </div>
