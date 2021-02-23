@@ -30,7 +30,117 @@
                                 <section id="create-app" class="create-app consonant">
                                     <div class="collection-Container  create-card-collection">
                                         <div class="container create-card-collection__outer-wrapper">
-                                             <consonant-page-hook></consonant-page-hook>
+                                             <consonant-page-hook data-config='{
+                                                                    "collection": {
+                                                                        "resultsPerPage":"6", 
+                                                                        "endpoint ": "https://caas-chimera.s3-us-west-1.amazonaws.com/tests/card-collection/json-response-tests/smoke-tests/all-art-board-15-cards-show.json?contentSource=properties:style&contentTypeTags=forum:topic/answered&collectionTags=we-retail:activity&excludeContentWithTags=facebook:&language=de&country=DE",
+                                                                        "totalCardsToShow": "150",
+                                                                        "cardStyle": "3:2",
+                                                                        "i18n": {
+                                                                            "prettyDateIntervalFormat": "{LLL} {dd} | {timeRange} {timeZone}",
+                                                                            "totalResultsText": "{total} Results",
+                                                                            "title": "Some custom title",
+                                                                            "onErrorTitle": "Some custom error title",
+                                                                            "onErrorDescription": "Some custom error description {break} try again"
+                                                                        }
+                                                                    },
+                                                                    "featuredCards": [     {         "id": "1",         "showCard": {             "from": "2020-10-01T20:00:00Z",             "until": "2025-10-31T21:45:00Z"         },         "styles": {             "typeOverride": "3:2",             "backgroundImage": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/cat.png"         },         "overlays": {             "banner": {                 "backgroundColor": "#CB6F10",                 "fontColor": "#FFFFFF",                 "description": "Upcoming",                 "icon": ""             },             "logo": {                 "src": "https://caas-chimera.s3-us-west-1.amazonaws.com/img/looka.png",                 "alt": "logoAlt",                 "backgroundColor": "#ffffff",                 "borderColor": "#ffffff"             },             "label": {                 "description": "Some Label"             },             "videoButton": {                 "url": "https://www.youtube.com/watch?v=hcr7cszxINk&ab_channel=knytrix"             }         },         "tags": [],         "contentArea": {             "detailText": "",             "title": "",             "description": "",             "dateDetailText": {}         },         "footer": [             {                 "divider": false,                 "left": [],                 "center": [],                 "right": []             }         ]     } ],
+                                                                    "filterPanel": {
+                                                                        "enabled": "true",
+                                                                        "type": "left",
+                                                                        "filters": [{"openedOnLoad":true,"icon":"/content/dam/wknd-spa-react/board.svg","id":"we-retail:activity","items":[{"label":"Biking","id":"we-retail:activity/biking"},{"label":"Hiking","id":"we-retail:activity/hiking"},{"label":"Other","id":"we-retail:activity/others"},{"label":"Running","id":"we-retail:activity/running"},{"label":"Skiing","id":"we-retail:activity/skiing"},{"label":"Surfing","id":"we-retail:activity/surfing"},{"label":"Swimming","id":"we-retail:activity/swimming"}],"group":"Activity"}],
+                                                                        "filterLogic": "or",
+                                                                        "i18n": {
+                                                                            "leftPanel": {
+                                                                                "header": "Refine Your Results 2",
+                                                                                "clearAllFiltersText": "Alle löschen",
+                                                                                "mobile": {
+                                                                                    "filtersBtnLabel": "asdsa",
+                                                                                    "panel": {
+                                                                                        "header": "aweadas",
+                                                                                        "totalResultsText": "{total} Results",
+                                                                                        "applyBtnText": "Übernehmen",
+                                                                                        "clearFilterText": "Clear - D",
+                                                                                        "doneBtnText": "Fertig"
+                                                                                    },
+                                                                                    "group": {
+                                                                                        "totalResultsText": "{total} Results",
+                                                                                        "applyBtnText": "Übernehmen",
+                                                                                        "clearFilterText": "Clear - D",
+                                                                                        "doneBtnText": "Fertig"
+                                                                                    }
+                                                                                }
+                                                                            },
+                                                                            "topPanel": {
+                                                                                "groupLabel": "Filter:",
+                                                                                "clearAllFiltersText": "Alle löschen",
+                                                                                "moreFiltersBtnText": "More Filters +",
+                                                                                "mobile": {
+                                                                                    "group": {
+                                                                                        "totalResultsText": "{total} Results",
+                                                                                        "applyBtnText": "Übernehmen",
+                                                                                        "clearFilterText": "Clear - D",
+                                                                                        "doneBtnText": "Fertig"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "sort": {
+                                                                        "enabled": "true",
+                                                                        "defaultSort": "featured",
+                                                                        "options": [{"label":"Featured","sort":"featured"},{"label":"Title: (A - Z)","sort":"titleAsc"}]
+                                                                    },
+                                                                    "pagination": {
+                                                                        "enabled": "true",
+                                                                        "type": "loadMore",
+                                                                        "i18n": {
+                                                                            "loadMore": {
+                                                                                "btnText": "Some Load More Button Text",
+                                                                                "resultsQuantityText": "{start} of {end} total results"
+                                                                            },
+                                                                            "paginator": {
+                                                                                "resultsQuantityText": "{start} - {end} of {total} results",
+                                                                                "prevLabel": "Vorherige",
+                                                                                "nextLabel": "Weiter"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "bookmarks": {
+                                                                        "leftFilterPanel": {
+                                                                            "bookmarkOnlyCollection": "false",
+                                                                            "showBookmarksFilter": "true",
+                                                                            "selectBookmarksIcon": "/content/dam/wknd-spa-react/asset.jpg",
+                                                                            "unselectBookmarksIcon": "/content/dam/wknd-spa-react/board.svg"
+                                                                        },
+                                                                        "i18n": {
+                                                                            "leftFilterPanel": {
+                                                                                "filterTitle": "Some Filter Title"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "search": {
+                                                                        "enabled": "true",
+                                                                        "searchFields": ["contentArea.title","contentArea.description"],
+                                                                        "i18n": {
+                                                                            "noResultsTitle": "*** NO RESSULTSS ****",
+                                                                            "noResultsDescription": "NO RESSULTS {break} DESCRIPTION",
+                                                                            "leftFilterPanel": {
+                                                                                "searchTitle": "Some Search Box Title",
+                                                                                "searchPlaceholderText": "Some placeholder text"
+                                                                            },
+                                                                            "topFilterPanel": {
+                                                                                "searchPlaceholderText": "Some placeholder text"
+                                                                            },
+                                                                            "filterInfo": {
+                                                                                "searchPlaceholderText": "Some placeholder text"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "language": "de",
+                                                                    "country": "DE"
+                                                                }'>
+                                            </consonant-page-hook>
                                         </div>
                                     </div>
                                 </section>
