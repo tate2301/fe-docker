@@ -112,7 +112,6 @@ export const footerType = {
 };
 
 export const cardType = {
-    id: string,
     title: string,
     cardDate: string,
     styles: shape(stylesType),
@@ -120,6 +119,7 @@ export const cardType = {
     showCard: shape(showCardType),
     overlays: shape(overlaysType),
     tags: arrayOf(shape(tagsType)),
+    id: oneOfType([string, number]),
     footer: arrayOf(shape(footerType)),
     contentArea: shape(contentAreaType),
     appliesTo: arrayOf(shape(appliesToType)),

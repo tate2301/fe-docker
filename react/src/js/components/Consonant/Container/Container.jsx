@@ -11,7 +11,6 @@ import Search from '../Search/Search';
 import Loader from '../Loader/Loader';
 import {
     getByPath,
-    parseToPrimitive,
     saveBookmarksToLocalStorage,
     readBookmarksFromLocalStorage,
 } from '../Helpers/general';
@@ -25,8 +24,9 @@ import CardFilterer from '../Helpers/CardFilterer';
 import FiltersPanelTop from '../Filters/Top/Panel';
 import LeftFilterPanel from '../Filters/Left/Panel';
 import JsonProcessor from '../Helpers/JsonProcessor';
-import { useWindowDimensions, useURLState } from '../Helpers/hooks';
+import { parseConfig } from '../Helpers/decorators';
 import { Info as LeftInfo } from '../Filters/Left/Info';
+import { useWindowDimensions, useURLState } from '../Helpers/hooks';
 import {
     DESKTOP_MIN_WIDTH,
     FILTER_TYPES,
@@ -87,11 +87,7 @@ import {
 
 /* eslint-disable */
 
-const Container = (props) => {
-    const dataConfig = props.dataConfig;
-
-    const config = parseToPrimitive(dataConfig);
-
+const Container = ({ config }) => {
     const getConfig = makeConfigGetter(config);
 
     /**
@@ -894,4 +890,4 @@ Container.defaultProps = {
     config: {},
 };
 
-export default Container;
+export default parseConfig(Container);

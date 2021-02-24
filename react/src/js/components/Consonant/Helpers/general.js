@@ -159,12 +159,10 @@ export const parseToPrimitive = (value) => {
         return mapObject(value, parseToPrimitive);
     } else if (Array.isArray(value)) {
         return value.map(parseToPrimitive);
-    } else if (typeof value !== 'string') {
-        return value;
     }
 
     try {
-        return JSON.parse(value);
+        return parseToPrimitive(JSON.parse(value));
     } catch (e) {
         return value;
     }

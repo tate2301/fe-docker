@@ -6,6 +6,8 @@ import {
     bool,
     func,
     arrayOf,
+    number,
+    oneOfType,
 } from 'prop-types';
 
 import CardFooter from './CardFooter/CardFooter';
@@ -25,7 +27,6 @@ import {
 const aspectRatio3to2CardType = {
     isBookmarked: bool,
     dateFormat: string,
-    id: string.isRequired,
     lh: string,
     styles: shape(stylesType),
     disableBookmarkIco: bool,
@@ -33,6 +34,7 @@ const aspectRatio3to2CardType = {
     overlays: shape(overlaysType),
     footer: arrayOf(shape(footerType)),
     contentArea: shape(contentAreaType),
+    id: oneOfType([string, number]).isRequired,
 };
 
 const defaultProps = {
