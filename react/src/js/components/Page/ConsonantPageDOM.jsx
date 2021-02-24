@@ -35,6 +35,7 @@ class ConsonantPageModel extends DOMModel {
         this.getAttribute('data-search-results-label', 'searchResultsLabel');
         this.getAttribute('data-search-filter-label', 'searchFiltersLabel');
         this.getAttribute('data-pagination-label', 'paginationLabel');
+        this.getAttribute('data-config', 'dataConfig');
     }
 }
 
