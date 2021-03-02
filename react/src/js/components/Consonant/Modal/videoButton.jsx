@@ -10,7 +10,6 @@ const VideoButton = ({
     className,
     videoPolicy,
 }) => {
-    let videoModal;
     const modalContainer = document.querySelector('.modalContainer');
 
     const modalElement = useRef(null);
@@ -26,14 +25,12 @@ const VideoButton = ({
 
     useEffect(() => {
         if (isOpen && modalElement && modalElement.current) {
-            videoModal = new Modal(
+            const videoModal = new Modal(
                 modalElement.current,
                 { buttonClose: handleCloseModal },
             );
 
             videoModal.open();
-        } else if (videoModal) {
-            videoModal.close();
         }
     }, [isOpen, modalElement]);
 
