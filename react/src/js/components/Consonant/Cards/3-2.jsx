@@ -21,6 +21,7 @@ import {
     overlaysType,
     footerType,
 } from '../types/card';
+import VideoButton from '../Modal/videoButton';
 
 const aspectRatio3to2CardType = {
     isBookmarked: bool,
@@ -209,16 +210,7 @@ const AspectRatio3to2Card = (props) => {
                         {badgeText}
                     </span>
                 }
-                {videoURL &&
-                    <a
-                        href={videoURL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="consonant-aspect-ratio-3-2-card--video-ico"
-                        tabIndex="0">
-                        {videoURL}
-                    </a>
-                }
+                {videoURL && <VideoButton videoURL={videoURL} className="consonant-aspect-ratio-3-2-card--video-ico" /> }
                 {logoSrc &&
                     <div
                         style={({
