@@ -24,7 +24,7 @@ import CardFilterer from '../Helpers/CardFilterer';
 import FiltersPanelTop from '../Filters/Top/Panel';
 import LeftFilterPanel from '../Filters/Left/Panel';
 import JsonProcessor from '../Helpers/JsonProcessor';
-import { useWindowDimensions } from '../Helpers/hooks';
+import { useWindowDimensions, useURLState } from '../Helpers/hooks';
 import { Info as LeftInfo } from '../Filters/Left/Info';
 import {
     DESKTOP_MIN_WIDTH,
@@ -123,6 +123,20 @@ const Container = (props) => {
     /**
          **** Hooks ****
      */
+
+    /**
+     * @typedef {Object} urlState
+     * @description — object with url query values
+     *
+     * @typedef {Function} setUrlState
+     * @description - set url query value by key
+     *
+     * @typedef {Function} clearUrlState
+     * @description - clear whole url query state
+     *
+     * @type {[Object, Function, Function]} OpenDropdown
+     */
+    const [urlState, setUrlState, clearUrlState] = useURLState();
 
     /**
      * @typedef {Number} OpenDropdownState - Id of a selected dropdown
@@ -323,6 +337,8 @@ const Container = (props) => {
             const allFiltersClearedState = getAllFiltersClearedState(prevFilters);
             return allFiltersClearedState;
         });
+
+        clearUrlState();
     };
 
     /**
@@ -400,6 +416,26 @@ const Container = (props) => {
     };
 
     /**
+     * Will find and set needed filter to url
+     *
+     * @param {string} filterId - selected filter group id
+     * @param {string} itemId - selected filter item id
+     * @param {boolean} isChecked
+     * @returns {Void} - an updated url
+     */
+    const changeUrlState = (filterId, itemId, isChecked) => {
+        const { group, items } = filters.find(({ id }) => id === filterId);
+        const { label } = items.find(({ id }) => id === itemId);
+
+        const urlStateValue = urlState[group] || [];
+        const value = isChecked
+            ? [...urlStateValue, label]
+            : urlStateValue.filter(item => item !== label);
+
+        setUrlState(group, value);
+    };
+
+    /**
      * Handles what happens when a specific filter item (checkbox)
      * is clicked
      *
@@ -423,6 +459,8 @@ const Container = (props) => {
                 })),
             };
         }));
+
+        changeUrlState(filterId, itemId, isChecked);
     };
 
     /**
@@ -501,6 +539,29 @@ const Container = (props) => {
                 selected: false,
             })),
         })));
+    }, []);
+
+    /**
+    * Sets filters from url as tate
+    * @returns {Void} - an updated state
+    */
+
+    useEffect(() => {
+        setFilters(origin => origin.map((filter) => {
+            const { group, items } = filter;
+            const urlStateValue = urlState[group];
+
+            if (!urlStateValue) return filter;
+
+            return {
+                ...filter,
+                opened: true,
+                items: items.map(item => ({
+                    ...item,
+                    selected: urlStateValue.includes(String(item.label)),
+                })),
+            };
+        }));
     }, []);
 
     /**
