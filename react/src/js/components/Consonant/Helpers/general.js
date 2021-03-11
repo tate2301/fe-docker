@@ -433,4 +433,11 @@ export const qs = {
 
         return searchParams.toString();
     },
+    concat: (url, query) => {
+        if (!query || !url) return url;
+
+        const searchDelimeter = url.includes('?') ? '&' : '?';
+
+        return `${url}${searchDelimeter}${query}`;
+    },
 };

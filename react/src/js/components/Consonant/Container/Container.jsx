@@ -573,14 +573,13 @@ const Container = (props) => {
     */
     useEffect(() => {
         setLoading(true);
-
-        let url = collectionEndpoint;
+        let query;
 
         if (featuredCardUrls) {
-            const query = qs.stringify({ f: featuredCardUrls.split(',') });
-
-            url += `?${query}`;
+            query = qs.stringify({ f: featuredCardUrls.split(',') });
         }
+
+        const url = qs.concat(collectionEndpoint, query);
 
         window.fetch(url)
             .then(resp => resp.json())
