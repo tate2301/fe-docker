@@ -55,27 +55,27 @@ const Items = (props) => {
      * @type {String}
      */
     const clipFilterItemsClass = classNames({
-        'con-TopFilter-items': true,
-        'con-TopFilter-items--clipped': shouldClipItems,
+        'consonant-TopFilter-items': true,
+        'consonant-TopFilter-items--clipped': shouldClipItems,
     });
 
     return (
         <ul
-            data-testid="con-TopFilter-items"
+            data-testid="filter-group"
             className={clipFilterItemsClass}>
             {items.map(item => (
                 <li
                     key={item.id}
-                    data-testid="con-TopFilter-item"
-                    className="con-TopFilter-item">
+                    data-testid="filter-group-item"
+                    className="consonant-TopFilter-item">
                     {/* eslint-disable-next-line max-len */}
                     {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
                     <label
                         htmlFor={item.id}
-                        className="con-TopFilter-itemLabel"
+                        className="consonant-TopFilter-itemLabel"
                         onClick={stopPropagation}>
                         <input
-                            data-testid="con-TopFilter-itemCheckbox"
+                            data-testid="list-item-checkbox"
                             id={item.id}
                             value={item.id}
                             type="checkbox"
@@ -83,9 +83,9 @@ const Items = (props) => {
                             checked={item.selected}
                             tabIndex="0" />
                         <span
-                            className="con-TopFilter-itemCheckmark" />
+                            className="consonant-TopFilter-itemCheckmark" />
                         <span
-                            className="con-TopFilter-itemName">
+                            className="consonant-TopFilter-itemName">
                             {item.label}
                         </span>
                     </label>

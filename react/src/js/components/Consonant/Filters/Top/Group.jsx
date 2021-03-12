@@ -185,36 +185,36 @@ const Group = (props) => {
      * @type {String}
      */
     const containerClassname = classNames({
-        'con-TopFilter': true,
+        'consonant-TopFilter': true,
         'is-opened': filterGroupOpened,
         'is-selected': atleastOneFilterSelected && filterGroupNotOpened,
     });
 
     return (
         <div
-            data-testid="con-TopFilter"
+            data-testid="filter-item"
             className={containerClassname}>
             <div
-                className="con-TopFilter-inner">
+                className="consonant-TopFilter-inner">
                 <h3
-                    className="con-TopFilter-name">
+                    className="consonant-TopFilter-name">
                     <button
                         type="button"
-                        className="con-TopFilter-link"
-                        data-testid="con-TopFilter-link"
+                        className="consonant-TopFilter-link"
+                        data-testid="filter-group-btn"
                         onClick={handleToggle}
                         tabIndex="0">
                         {name}
                         <span
-                            className="con-TopFilter-selectedItemsQty">
+                            className="consonant-TopFilter-selectedItemsQty">
                             {selectedItemQtyText}
                         </span>
                     </button>
                 </h3>
                 <div
-                    className="con-TopFilter-selectedItems">
+                    className="consonant-TopFilter-selectedItems">
                     <div
-                        className="con-TopFilter-absoluteWrapper">
+                        className="consonant-TopFilter-absoluteWrapper">
                         {<Items
                             clipWrapperItemsCount={clipWrapperItemsCount}
                             handleCheck={handleCheck}
@@ -223,7 +223,7 @@ const Group = (props) => {
                         }
                         {shouldClipFilters &&
                             <aside
-                                className="con-TopFilter-bg" />
+                                className="consonant-TopFilter-bg" />
                         }
                         {<Footer
                             mobileFooterBtnText={mobileFooterBtnText}

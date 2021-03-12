@@ -206,8 +206,8 @@ const FiltersPanelTop = (props) => {
      * @type {String}
      */
     const showLimitedFiltersQtyClass = classNames({
-        'con-TopFilters-filters': true,
-        'con-TopFilters-filters--truncated': showLimitedFiltersQty,
+        'consonant-TopFilters-filters': true,
+        'consonant-TopFilters-filters--truncated': showLimitedFiltersQty,
     });
 
     /**
@@ -216,8 +216,8 @@ const FiltersPanelTop = (props) => {
      * @type {String}
      */
     const clearBtnWrapperClass = classNames({
-        'con-TopFilters-clearBtnWrapper': true,
-        'con-TopFilters-clearBtnWrapper--withBlur': blurMobileFilters && filters.length > 1,
+        'consonant-TopFilters-clearBtnWrapper': true,
+        'consonant-TopFilters-clearBtnWrapper--withBlur': blurMobileFilters && filters.length > 1,
     });
 
     /**
@@ -228,28 +228,28 @@ const FiltersPanelTop = (props) => {
 
     return (
         <div
-            data-testid="con-TopFilters"
-            className="con-TopFilters">
+            data-testid="consonant-filters__top"
+            className="consonant-TopFilters">
             {shouldDisplaySearchBar &&
                 <div
-                    data-testid="con-TopFilters-searchWrapper"
-                    className="con-TopFilters-searchWrapper">
+                    data-testid="top-filters__search-wrapper"
+                    className="consonant-TopFilters-searchWrapper">
                     {searchComponent}
                 </div>
             }
             <div
-                className="con-TopFilters-inner">
+                className="consonant-TopFilters-inner">
                 {shouldDisplayFilters &&
                     <div
-                        className="con-TopFilters-filtersWrapper">
+                        className="consonant-TopFilters-filtersWrapper">
                         {TABLET_OR_DESKTOP_SCREEN_SIZE &&
                             <strong
-                                className="con-TopFilters-title">
+                                className="consonant-TopFilters-title">
                                 {filterGroupLabel}
                             </strong>
                         }
                         <div
-                            data-testid="con-TopFilters-filters"
+                            data-testid="consonant-filters__top__filters"
                             className={showLimitedFiltersQtyClass}>
                             {filters.map(filter =>
                                 (<TopFilterItem
@@ -269,8 +269,8 @@ const FiltersPanelTop = (props) => {
                             {shouldDisplayMoreFiltersBtn &&
                                 <button
                                     type="button"
-                                    data-testid="con-TopFilters-moreBtn"
-                                    className="con-TopFilters-moreBtn"
+                                    data-testid="top-filter__more-button"
+                                    className="consonant-TopFilters-moreBtn"
                                     onClick={onShowAllClick}>
                                     {moreFiltersBtnText}
                                 </button>
@@ -278,13 +278,13 @@ const FiltersPanelTop = (props) => {
                         </div>
                         {shouldShowClearButtonWrapper &&
                             <div
-                                data-testid="con-TopFilters-clearButtonWrapper"
+                                data-testid="top-filter__clear-button-wrapper"
                                 className={clearBtnWrapperClass}>
                                 {atleastOneFilterSelected &&
                                     <button
                                         type="button"
-                                        data-testid="con-TopFilters-clearBt"
-                                        className="con-TopFilters-clearBtn"
+                                        data-testid="top-filter__clear-button"
+                                        className="consonant-TopFilters-clearBtn"
                                         onClick={onClearAllFilters}
                                         tabIndex="0">
                                         {clearAllFiltersText}
@@ -296,8 +296,8 @@ const FiltersPanelTop = (props) => {
                 }
                 {searchEnabled && TABLET_OR_DESKTOP_SCREEN_SIZE &&
                     <div
-                        data-testid="con-TopFilters-searchIcoWrapper"
-                        className="con-TopFilters-searchIcoWrapper">
+                        data-testid="filter-top-ico-wrapper"
+                        className="consonant-TopFilters-searchIcoWrapper">
                         {shouldShowSearchBar && searchComponent}
                         {TABLET_OR_DESKTOP_SCREEN_SIZE &&
                             <SearchIcon
@@ -307,24 +307,24 @@ const FiltersPanelTop = (props) => {
                 }
                 {shouldDisplaySortComponent &&
                     <div
-                        data-testid="con-TopFilters-selectWrapper"
-                        className="con-TopFilters-selectWrapper">
+                        data-testid="top-filters__sort-popup"
+                        className="consonant-TopFilters-selectWrapper">
                         {sortComponent}
                     </div>
                 }
                 {shouldDisplayCollectionInfo &&
-                    <div className="con-TopFilters-infoWrapper">
+                    <div className="consonant-TopFilters-infoWrapper">
                         {title &&
                             <h2
-                                data-testid="con-TopFilters-collectionTitle"
-                                className="con-TopFilters-collectionTitle">
+                                data-testid="title"
+                                className="consonant-TopFilters-collectionTitle">
                                 {title}
                             </h2>
                         }
                         {showTotalResults &&
                             <div
-                                data-testid="con-TopFilters-results"
-                                className="con-TopFilters-results">
+                                data-testid="results"
+                                className="consonant-TopFilters-results">
                                 {totalResultsHtml}
                             </div>
                         }

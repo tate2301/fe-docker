@@ -63,11 +63,11 @@ describe('Consonant/Container/Top Filters/Mobile', () => {
         configToUse.filterPanel.type = 'top';
         await act(async () => render(<Container config={configToUse} />));
 
-        await waitFor(() => screen.getAllByTestId('con-TopFilter'));
+        await waitFor(() => screen.getAllByTestId('filter-item'));
 
-        const [firstFilterItem] = screen.queryAllByTestId('con-TopFilter');
+        const [firstFilterItem] = screen.queryAllByTestId('filter-item');
 
-        const filterItemLink = getByTestId(firstFilterItem, 'con-TopFilter-link');
+        const filterItemLink = getByTestId(firstFilterItem, 'filter-group-btn');
 
         fireEvent.click(filterItemLink);
 
@@ -154,16 +154,16 @@ describe('Consonant/Container/Top Filters/Tablet', () => {
 
         await waitFor(() => screen.getByText(moreFiltersBtnText));
 
-        screen.queryAllByTestId('con-TopFilters-filters').forEach((element) => {
-            expect(element).toHaveClass('con-TopFilters-filters--truncated');
+        screen.queryAllByTestId('consonant-filters__top__filters').forEach((element) => {
+            expect(element).toHaveClass('consonant-TopFilters-filters--truncated');
         });
 
         const showMoreButton = screen.getByText(moreFiltersBtnText);
 
         fireEvent.click(showMoreButton);
 
-        screen.queryAllByTestId('con-TopFilters-filters').forEach((element) => {
-            expect(element).not.toHaveClass('con-TopFilters-filters--truncated');
+        screen.queryAllByTestId('consonant-filters__top__filters').forEach((element) => {
+            expect(element).not.toHaveClass('consonant-TopFilters-filters--truncated');
         });
     });
 });
@@ -176,7 +176,7 @@ describe('Consonant/Top Filters/Desktop', () => {
         await act(async () => render(<Container config={configToUse} />));
 
         // search for FilterPanelTop in the whole DOM tree
-        const filtersTopElement = screen.queryByTestId('con-TopFilters');
+        const filtersTopElement = screen.queryByTestId('consonant-filters__top');
 
         // search for FilterPanelTop and FilterInfo in the whole DOM tree
         const filtersLeftElement = screen.queryByTestId('consonant-filters__left');
@@ -226,11 +226,11 @@ describe('Consonant/Top Filters/Desktop', () => {
         configToUse.filterPanel.type = 'top';
         await act(async () => render(<Container config={configToUse} />));
 
-        await waitFor(() => screen.getAllByTestId('con-TopFilter'));
+        await waitFor(() => screen.getAllByTestId('filter-item'));
 
-        const [firstFilter] = screen.queryAllByTestId('con-TopFilter');
+        const [firstFilter] = screen.queryAllByTestId('filter-item');
 
-        const [firstFilterCheckbox] = queryAllByTestId(firstFilter, 'con-TopFilter-itemCheckbox');
+        const [firstFilterCheckbox] = queryAllByTestId(firstFilter, 'list-item-checkbox');
 
         fireEvent.click(firstFilterCheckbox);
 
@@ -243,10 +243,10 @@ describe('Consonant/Top Filters/Desktop', () => {
         configToUse.filterPanel.type = 'top';
         await act(async () => render(<Container config={configToUse} />));
 
-        await waitFor(() => screen.getAllByTestId('con-TopFilter'));
+        await waitFor(() => screen.getAllByTestId('filter-item'));
 
-        const [firstFilterItem, secondFilterItem] = screen.queryAllByTestId('con-TopFilter');
-        const [firstFilterLink, secondFilterLink] = screen.queryAllByTestId('con-TopFilter-link');
+        const [firstFilterItem, secondFilterItem] = screen.queryAllByTestId('filter-item');
+        const [firstFilterLink, secondFilterLink] = screen.queryAllByTestId('filter-group-btn');
 
         fireEvent.click(firstFilterLink);
 
@@ -265,12 +265,12 @@ describe('Consonant/Top Filters/Desktop', () => {
         const { clearAllFiltersText } = config.filterPanel.i18n.topPanel;
         await act(async () => render(<Container config={configToUse} />));
 
-        await waitFor(() => screen.getAllByTestId('con-TopFilter'));
+        await waitFor(() => screen.getAllByTestId('filter-item'));
 
-        const [firstFilter, secondFilter] = screen.queryAllByTestId('con-TopFilter');
+        const [firstFilter, secondFilter] = screen.queryAllByTestId('filter-item');
 
-        const [firstFilterCheckbox] = queryAllByTestId(firstFilter, 'con-TopFilter-itemCheckbox');
-        const [secondFilterCheckbox] = queryAllByTestId(secondFilter, 'con-TopFilter-itemCheckbox');
+        const [firstFilterCheckbox] = queryAllByTestId(firstFilter, 'list-item-checkbox');
+        const [secondFilterCheckbox] = queryAllByTestId(secondFilter, 'list-item-checkbox');
 
         fireEvent.click(firstFilterCheckbox);
         fireEvent.click(secondFilterCheckbox);
@@ -296,12 +296,12 @@ describe('Consonant/Top Filters/Desktop', () => {
         await act(async () => render(<Container config={configToUse} />));
 
 
-        await waitFor(() => screen.getAllByTestId('con-TopFilter'));
+        await waitFor(() => screen.getAllByTestId('filter-item'));
 
-        const [firstFilter, secondFilter] = screen.queryAllByTestId('con-TopFilter');
+        const [firstFilter, secondFilter] = screen.queryAllByTestId('filter-item');
 
-        const [firstFilterCheckbox] = queryAllByTestId(firstFilter, 'con-TopFilter-itemCheckbox');
-        const [secondFilterCheckbox] = queryAllByTestId(secondFilter, 'con-TopFilter-itemCheckbox');
+        const [firstFilterCheckbox] = queryAllByTestId(firstFilter, 'list-item-checkbox');
+        const [secondFilterCheckbox] = queryAllByTestId(secondFilter, 'list-item-checkbox');
 
         fireEvent.click(firstFilterCheckbox);
         fireEvent.click(secondFilterCheckbox);
@@ -329,7 +329,7 @@ describe('Consonant/Top Filters/Desktop', () => {
 
         await act(async () => render(<Container config={configToUse} />));
 
-        expect(screen.queryByTestId('con-TopFilters-results')).not.toBeNull();
+        expect(screen.queryByTestId('results')).not.toBeNull();
 
     });
 });
