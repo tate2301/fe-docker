@@ -1,66 +1,39 @@
 /* Available modifiers:
-- .consonant-btn-infobit_cta;
-- .consonant-btn-infobit--ico_last;
+- .consonant-BtnInfobit--cta;
+- .consonant-BtnInfobit-ico--last;
 */
 
-.consonant-btn-infobit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: @consonant-btn-infobit-min-width;
-    max-width: 100%;
-    height: @consonant-btn-infobit-max-height;
-    max-height: @consonant-btn-infobit-max-height;
-    margin-left: 16px;
-    padding-left: 16px;
-    padding-right: 16px;
-    text-decoration: none;
-    border: 2px solid @consonant-color-brown-grey;
-    border-radius: 16px;
-    background-color: @consonant-color-white;
-    cursor: pointer;
-    transition:
-        border-color @transition-time @transition-func,
-        background-color @transition-time @transition-func;
-
-    span {
-        .font(0.8235rem, 0.9375rem, 700, @consonant-color-brown-grey, center);
-        .line-clamp(2);
-
-        transition: color @transition-time @transition-func;
-    }
-
-    &:hover {
-        border-color: @consonant-color-light-grey-3;
-        background-color: @consonant-color-light-grey-3;
-    }
-
-    &:hover span {
-        color: @consonant-color-white;
-    }
-
-    &:active {
-        border-color: @consonant-color-dark-grey-7;
-        background-color: @consonant-color-dark-grey-7;
-    }
-
-    &:active span {
-        color: @consonant-color-white;
-    }
-
-    .focused;
-
-    &.consonant-btn-infobit_cta {
-        background-color: @consonant-color-blue-2;
-        border-color: @consonant-color-blue-2;
+.consonant {
+    &-BtnInfobit {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: @consonant-btn-infobit-min-width;
+        max-width: 100%;
+        height: @consonant-btn-infobit-max-height;
+        max-height: @consonant-btn-infobit-max-height;
+        margin-left: 16px;
+        padding-left: 16px;
+        padding-right: 16px;
+        text-decoration: none;
+        border: 2px solid @consonant-color-brown-grey;
+        border-radius: 16px;
+        background-color: @consonant-color-white;
+        cursor: pointer;
+        transition:
+            border-color @transition-time @transition-func,
+            background-color @transition-time @transition-func;
 
         span {
-            color: @consonant-color-white;
+            .font(0.8235rem, 0.9375rem, 700, @consonant-color-brown-grey, center);
+            .line-clamp(2);
+
+            transition: color @transition-time @transition-func;
         }
 
         &:hover {
-            background-color: @consonant-color-blue-3;
-            border-color: @consonant-color-blue-3;
+            border-color: @consonant-color-light-grey-3;
+            background-color: @consonant-color-light-grey-3;
         }
 
         &:hover span {
@@ -68,33 +41,62 @@
         }
 
         &:active {
-            background-color: @consonant-color-blue-4;
-            border-color: @consonant-color-blue-4;
+            border-color: @consonant-color-dark-grey-7;
+            background-color: @consonant-color-dark-grey-7;
         }
 
         &:active span {
             color: @consonant-color-white;
         }
-    }
 
-    .consonant-btn-infobit--ico {
-        width: auto;
-        height: auto;
-        max-width: @consonant-btn-infobit-ico-max-width;
-        max-height: @consonant-btn-infobit-ico-max-height;
-        margin-right: 8px;
-        overflow: hidden;
-        object-fit: cover;
-        user-select: none;
+        .focused;
 
-        &.consonant-btn-infobit--ico_last {
-            order: 1;
-            margin-left: 8px;
-            margin-right: 0;
+        &--cta {
+            background-color: @consonant-color-blue-2;
+            border-color: @consonant-color-blue-2;
+
+            span {
+                color: @consonant-color-white;
+            }
+
+            &:hover {
+                background-color: @consonant-color-blue-3;
+                border-color: @consonant-color-blue-3;
+            }
+
+            &:hover span {
+                color: @consonant-color-white;
+            }
+
+            &:active {
+                background-color: @consonant-color-blue-4;
+                border-color: @consonant-color-blue-4;
+            }
+
+            &:active span {
+                color: @consonant-color-white;
+            }
         }
 
-        &:only-child {
-            margin: 0;
+        &-ico {
+            width: auto;
+            height: auto;
+            max-width: @consonant-btn-infobit-ico-max-width;
+            max-height: @consonant-btn-infobit-ico-max-height;
+            margin-right: 8px;
+            overflow: hidden;
+            object-fit: cover;
+            user-select: none;
+
+            &--last {
+                order: 1;
+                margin-left: 8px;
+                margin-right: 0;
+            }
+
+            &:only-child {
+                margin: 0;
+            }
         }
     }
 }

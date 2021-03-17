@@ -49,12 +49,12 @@ const Button = ({
 }) => {
     const isCtaButton = style === BUTTON_STYLE.CTA;
     const buttonClass = className({
-        'consonant-btn-infobit': true,
-        'consonant-btn-infobit_cta': isCtaButton,
+        'consonant-BtnInfobit': true,
+        'consonant-BtnInfobit--cta': isCtaButton,
     });
     const iconClass = className({
-        'consonant-btn-infobit--ico': true,
-        'consonant-btn-infobit--ico_last': iconPos.toLowerCase() === 'aftertext',
+        'consonant-BtnInfobit-ico': true,
+        'consonant-BtnInfobit-ico--last': iconPos.toLowerCase() === 'aftertext',
     });
 
     return (

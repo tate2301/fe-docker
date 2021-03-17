@@ -13,14 +13,14 @@ describe('Consonant/Infobits/Type/Button', () => {
 
         const buttonElement = screen.getByTestId('consonant-btn-infobit');
 
-        expect(buttonElement).toHaveClass('consonant-btn-infobit_cta');
+        expect(buttonElement).toHaveClass('consonant-BtnInfobit--cta');
     });
     test('If no style is authored, render with the cta style', async () => {
         render(<Button {...{ style: '' }} />);
 
         const buttonElement = screen.getByTestId('consonant-btn-infobit');
 
-        expect(buttonElement).not.toHaveClass('consonant-btn-infobit_cta');
+        expect(buttonElement).not.toHaveClass('consonant-BtnInfobit--cta');
     });
     test('If an icon src is authored, render ite', async () => {
         render(<Button {...{ iconSrc: 'some-icon.svg' }} />);
