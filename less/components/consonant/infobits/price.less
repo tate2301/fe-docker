@@ -1,34 +1,36 @@
-.consonant-price-infobit {
-    display: flex;
-    justify-content: flex-start;
-    align-items: baseline;
-    min-width: 0;
-    max-width: 100%;
-    margin-left: 16px;
-}
+.consonant {
+    &-PriceInfobit {
+        display: flex;
+        justify-content: flex-start;
+        align-items: baseline;
+        min-width: 0;
+        max-width: 100%;
+        margin-left: 16px;
 
-.consonant-price-infobit--price {
-    max-width: 100%;
-    flex-shrink: 0;
+        &-price {
+            max-width: 100%;
+            flex-shrink: 0;
 
-    .font(1.125rem, 1.6875rem, 400, @consonant-color-dark-grey-2);
+            .font(1.125rem, 1.6875rem, 400, @consonant-color-dark-grey-2);
 
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
 
-.consonant-price-infobit--term {
-    position: relative;
-    flex-shrink: 1;
+        &-term {
+            position: relative;
+            flex-shrink: 1;
 
-    .font(0.875rem, 1.6875rem, 400, @consonant-color-light-grey-5);
+            .font(0.875rem, 1.6875rem, 400, @consonant-color-light-grey-5);
 
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
 
-    &:before {
-        content: '/';
+            &:before {
+                content: '/';
+            }
+        }
     }
 }
