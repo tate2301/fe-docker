@@ -1,33 +1,35 @@
-.consonant-link-with-ico-infobit {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    min-width: 0;
-    max-width: 100%;
-    margin-left: 16px;
-    text-decoration: none;
+.consonant {
+    &-LinkWithIcoInfobit {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        min-width: 0;
+        max-width: 100%;
+        margin-left: 16px;
+        text-decoration: none;
 
-    .focused;
-}
+        .focused;
 
-.consonant-link-with-ico-infobit span {
-    max-width: 100%;
-    max-height: 1rem * 2;
+        span {
+            max-width: 100%;
+            max-height: 1rem * 2;
 
-    .font(0.9375rem, 1rem, 700, @consonant-color-blue);
-    .line-clamp(2);
-}
+            .font(0.9375rem, 1rem, 700, @consonant-color-blue);
+            .line-clamp(2);
+        }
 
-.consonant-link-with-ico-infobit img:not(:last-child) {
-    margin-right: 8px;
-}
+        img {
+            display: block;
+            width: @consonant-link-with-ico-infobit-img-max-size;
+            height: auto;
+            max-width: @consonant-link-with-ico-infobit-img-max-size;
+            max-height: @consonant-link-with-ico-infobit-img-max-size;
+            object-fit: contain;
+            user-select: none;
 
-.consonant-link-with-ico-infobit img {
-    display: block;
-    width: @consonant-link-with-ico-infobit-img-max-size;
-    height: auto;
-    max-width: @consonant-link-with-ico-infobit-img-max-size;
-    max-height: @consonant-link-with-ico-infobit-img-max-size;
-    object-fit: contain;
-    user-select: none;
+            &:not(:last-child) {
+                margin-right: 8px;
+            }
+        }
+    }
 }
