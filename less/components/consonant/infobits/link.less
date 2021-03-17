@@ -1,26 +1,28 @@
-.consonant-link-infobit {
-    min-width: 0;
-    max-width: 100%;
-    max-height: 1rem * 2;
-    margin-left: 16px;
+.consonant {
+    &-LinkInfobit {
+        min-width: 0;
+        max-width: 100%;
+        max-height: 1rem * 2;
+        margin-left: 16px;
 
-    .font(0.9375rem, 1rem, 700, @consonant-color-blue, left);
-    .line-clamp(2);
+        .font(0.9375rem, 1rem, 700, @consonant-color-blue, left);
+        .line-clamp(2);
 
-    text-decoration: none;
-    transition: color @transition-time @transition-func;
+        text-decoration: none;
+        transition: color @transition-time @transition-func;
 
-    &:hover {
-        color: @consonant-color-blue-3;
+        &:hover {
+            color: @consonant-color-blue-3;
+        }
+
+        &:active {
+            color: @consonant-color-blue-4;
+        }
+
+        .focused;
     }
-
-    &:active {
-        color: @consonant-color-blue-4;
-    }
-
-    .focused;
 }
 
-*:not(:last-of-type):nth-child(2) > .consonant-link-infobit:only-child {
+*:not(:last-of-type):nth-child(2) > .consonant-LinkInfobit:only-child {
     margin-right: 0;
 }

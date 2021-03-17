@@ -29,7 +29,7 @@ const defaultProps = {
     text: String,
  * }
  * return (
- *   <LinkWithIcon {...props}/>
+ *   <Link {...props}/>
  * )
  */
 const Link = ({
@@ -41,7 +41,7 @@ const Link = ({
     const target = openInNewTab ? '_blank' : '_self';
     return (
         <a
-            className="consonant-link-infobit"
+            className="consonant-LinkInfobit"
             data-testid="link-infobit"
             href={href}
             target={target}
