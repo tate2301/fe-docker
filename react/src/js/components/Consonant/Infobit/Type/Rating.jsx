@@ -68,8 +68,8 @@ const Rating = ({
     starsFilled,
 }) => {
     const className = classNames({
-        'consonant-rating-infobit': true,
-        'consonant-rating-infobit_neg-margin': !label,
+        'consonant-RatingInfobit': true,
+        'consonant-RatingInfobit--negMargin': !label,
     });
 
     const ratingToDisplay = getRating(starsFilled, totalStars);
@@ -80,11 +80,11 @@ const Rating = ({
             data-stars={totalStars}>
             <span
                 data-testid="rating-star"
-                className="consonant-rating-infobit--stars"
+                className="consonant-RatingInfobit-stars"
                 data-rating={ratingToDisplay} />
             {label &&
                 <span
-                    className="consonant-rating-infobit--text">
+                    className="consonant-RatingInfobit-text">
                     {label}
                 </span>
             }
