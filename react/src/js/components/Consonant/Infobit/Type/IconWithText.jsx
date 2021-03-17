@@ -40,7 +40,7 @@ const IconWithText = ({
     text,
 }) => (
     <div
-        className="consonant-icon-with-text-infobit">
+        className="consonant-IconWithTextInfobit">
         {src &&
         <img
             src={src}
@@ -49,7 +49,7 @@ const IconWithText = ({
             loading="lazy" />
         }
         <span
-            className="consonant-icon-with-text-infobit--text">
+            className="consonant-IconWithTextInfobit-text">
             {text}
         </span>
     </div>
