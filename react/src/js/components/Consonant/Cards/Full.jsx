@@ -10,6 +10,7 @@ import {
     contentAreaType,
     overlaysType,
 } from '../types/card';
+import VideoButton from '../Modal/videoButton';
 
 const fullCardType = {
     ctaLink: string,
@@ -134,16 +135,8 @@ const FullCard = (props) => {
                         {badgeText}
                     </span>
                 }
-                {videoURL &&
-                    <a
-                        href={videoURL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="consonant-full-card--video-ico"
-                        tabIndex="0">
-                        {videoURL}
-                    </a>
-                }
+
+                {videoURL && <VideoButton videoURL={videoURL} className="consonant-full-card--video-ico" /> }
                 {logoSrc &&
                     <div
                         style={({
