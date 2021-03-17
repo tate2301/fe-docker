@@ -29,7 +29,7 @@ const Icon = ({
     alt,
 }) => (
     <img
-        className="consonant-icon-infobit"
+        className="consonant-IconInfobit"
         width="28"
         src={src}
         alt={alt}

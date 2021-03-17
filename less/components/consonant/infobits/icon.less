@@ -1,15 +1,17 @@
-.consonant-icon-infobit {
-    display: block;
-    min-width: @consonant-icon-infobit-size / 2;
-    width: auto;
-    height: auto;
-    max-width: @consonant-icon-infobit-size;
-    max-height: @consonant-icon-infobit-size;
-    margin-left: 16px;
-    object-fit: contain;
-    user-select: none;
-}
+.consonant {
+    &-IconInfobit {
+        display: block;
+        min-width: @consonant-icon-infobit-size / 2;
+        width: auto;
+        height: auto;
+        max-width: @consonant-icon-infobit-size;
+        max-height: @consonant-icon-infobit-size;
+        margin-left: 16px;
+        object-fit: contain;
+        user-select: none;
 
-.consonant-icon-infobit + .consonant-icon-infobit {
-    margin-left: 12px;
+        & + & {
+            margin-left: 12px;
+        }
+    }
 }
