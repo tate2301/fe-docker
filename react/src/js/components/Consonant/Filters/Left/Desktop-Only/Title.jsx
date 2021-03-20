@@ -28,7 +28,7 @@ const Title = (props) => {
 
     return (
         <h3
-            className="consonant-left-filters--desk-title">
+            className="consonant-LeftFilters-deskTitle">
             {panelHeader}
         </h3>
     );

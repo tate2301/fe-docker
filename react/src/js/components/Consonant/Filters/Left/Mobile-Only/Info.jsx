@@ -45,29 +45,29 @@ const Info = ({
      * @type {String}
      */
     const selectedFiltersQtyClassName = classNames({
-        'consonant-filters-info--btn': true,
-        'consonant-filters-info--btn_with-filters': atleastOneSelectedFilter,
+        'consonant-FiltersInfo-btn': true,
+        'consonant-FiltersInfo-btn--withFilters': atleastOneSelectedFilter,
     });
 
     return (
         <div
             data-testid="btn-wrapper"
-            className="consonant-filters-info--btn-wrapper">
+            className="consonant-FiltersInfo-btnWrapper">
             <button
                 type="button"
                 data-testid="info-btn"
                 className={selectedFiltersQtyClassName}
                 onClick={onMobileFiltersToggleClick}>
                 <span
-                    className="consonant-filters-info--btn-ico" />
+                    className="consonant-FiltersInfo-btnIco" />
                 <span
-                    className="consonant-filters-info--btn-text">
+                    className="consonant-FiltersInfo-btnText">
                     {mobileFilterBtnLabel}
                 </span>
                 {atleastOneSelectedFilter &&
                     <span
                         data-testid="btn-selected"
-                        className="consonant-filters-info--btn-selected">
+                        className="consonant-FiltersInfo-btnSelected">
                         {selectedFiltersQty}
                     </span>
                 }

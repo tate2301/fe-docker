@@ -34,12 +34,12 @@ const Title = (props) => {
 
     return (
         <div
-            className="consonant-left-filters--mob-title">
+            className="consonant-LeftFilters-mobTitle">
             <button
                 data-testid="mobile-back-btn"
                 type="button"
                 onClick={onClick}
-                className="consonant-left-filters--mob-back" />
+                className="consonant-LeftFilters-mobBack" />
             <span>
                 {leftPanelMobileHeader}
             </span>

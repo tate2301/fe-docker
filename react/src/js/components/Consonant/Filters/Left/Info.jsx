@@ -126,8 +126,8 @@ const Info = (props) => {
      * @type {String}
      */
     const containerClassName = classNames({
-        'consonant-filters-info': true,
-        'consonant-filters-info_no-filter-panel': !enableFilterPanel,
+        'consonant-FiltersInfo': true,
+        'consonant-FiltersInfo--noFilterPanel': !enableFilterPanel,
     });
 
     /**
@@ -137,8 +137,8 @@ const Info = (props) => {
      * @type {String}
      */
     const wrapperClassName = classNames({
-        'consonant-filters-info--wrapper': true,
-        'consonant-filters-info--wrapper_no-line': !sortEnabled || !sortOptions.length,
+        'consonant-FiltersInfo-wrapper': true,
+        'consonant-FiltersInfo-wrapper--noLine': !sortEnabled || !sortOptions.length,
     });
 
     return (
@@ -146,7 +146,7 @@ const Info = (props) => {
             data-testid="consonant-filters__info"
             className={containerClassName}>
             <div
-                className="consonant-filters-info--search">
+                className="consonant-FiltersInfo-search">
                 {shouldRenderSearch && searchComponent}
             </div>
             {shouldRenderMobileInfo &&
@@ -161,14 +161,14 @@ const Info = (props) => {
                 {title &&
                     <h2
                         data-testid="title"
-                        className="consonant-filters-info--title">
+                        className="consonant-FiltersInfo-title">
                         {title}
                     </h2>
                 }
                 {showTotalResults &&
                     <div
                         data-testid="results"
-                        className="consonant-filters-info--results">
+                        className="consonant-FiltersInfo-results">
                         {totalResultsHtml}
                     </div>
                 }

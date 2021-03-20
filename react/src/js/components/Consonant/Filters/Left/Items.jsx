@@ -34,15 +34,15 @@ const Items = (props) => {
     return (
         <ul
             data-testid="filter-group"
-            className="consonant-left-filter--items">
+            className="consonant-LeftFilter-items">
             {items.map(item => (
                 <li
                     key={item.id}
                     data-testid="filter-group-item"
-                    className="consonant-left-filter--items-item">
+                    className="consonant-LeftFilter-itemsItem">
                     <label
                         htmlFor={item.id}
-                        className="consonant-left-filter--items-item-label">
+                        className="consonant-LeftFilter-itemsItemLabel">
                         <input
                             data-testid="list-item-checkbox"
                             id={item.id}
@@ -52,9 +52,9 @@ const Items = (props) => {
                             checked={item.selected}
                             tabIndex="0" />
                         <span
-                            className="consonant-left-filter--items-item-checkmark" />
+                            className="consonant-LeftFilter-itemsItemCheckmark" />
                         <span
-                            className="consonant-left-filter--items-item-name">
+                            className="consonant-LeftFilter-itemsItemName">
                             {item.label}
                         </span>
                     </label>

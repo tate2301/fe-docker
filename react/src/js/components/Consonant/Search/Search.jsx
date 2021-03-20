@@ -115,15 +115,15 @@ const Search = ({
     return (
         <div
             data-testid={name}
-            className="consonant-search">
+            className="consonant-Search">
             <label
                 htmlFor={searchId}>
                 <span
-                    className="consonant-search--input-title">
+                    className="consonant-Search-inputTitle">
                     {leftPanelTitle}
                 </span>
                 <span
-                    className="consonant-search--input-wrapper">
+                    className="consonant-Search-inputWrapper">
                     <input
                         id={searchId}
                         data-testid="search-input"
@@ -133,13 +133,13 @@ const Search = ({
                         value={value}
                         onChange={handleSearch}
                         ref={textInput}
-                        className="consonant-search--input"
+                        className="consonant-Search-input"
                         required />
                     <button
                         data-testid="clear-search-button"
                         type="button"
                         title=""
-                        className="consonant-search--input-clear"
+                        className="consonant-Search-inputClear"
                         onClick={clearSearch}
                         tabIndex="0" />
                 </span>

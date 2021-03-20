@@ -1,165 +1,167 @@
-.consonant-search {
-    position: relative;
-    padding-bottom: 12px;
-
-    label {
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 100%;
-        cursor: pointer;
-        word-break: break-word;
-    }
-
-    .consonant-search--input-title {
-        .hide-all;
-
-        margin: 0 0 5px;
-
-        .font(0.75rem, 0.875rem, 400, @consonant-color-dark-grey-1);
-
-        cursor: pointer;
-    }
-
-    .consonant-search--input-wrapper {
+.consonant {
+    &-Search {
         position: relative;
-        display: block;
-        width: 100%;
+        padding-bottom: 12px;
 
-        &:after {
-            content: '';
-            width: @consonant-search-search-ico-size;
-            height: @consonant-search-search-ico-size;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 10px;
-            margin: auto;
-            background: transparent url(@consonant-search-search-ico-src) no-repeat 0 0;
-            background-size: cover;
-            z-index: 1;
-        }
-    }
-
-    input {
-        box-sizing: border-box;
-        min-height: @consonant-search-input-input-min-height;
-
-        .full-width;
-
-        padding: 0 8px 0 32px;
-
-        .font(@line-height: 1.875rem, @color: @consonant-color-brown-grey);
-
-        border: 1px solid @consonant-color-lightest-grey;
-        border-radius: 5px;
-        background-color: transparent;
-        transition:
-            border-color @transition-time @transition-func
-            background-color @transition-time @transition-func;
-        outline: 0;
-        box-shadow: none;
-
-        &::-webkit-search-decoration,
-        &::-webkit-search-cancel-button,
-        &::-webkit-search-results-button,
-        &::-webkit-search-results-decoration {
-            .hide-all;
+        label {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 100%;
+            cursor: pointer;
+            word-break: break-word;
         }
 
-        &::-ms-reveal,
-        &::-ms-clear {
+        &-inputTitle {
             .hide-all;
 
-            width: 0;
-            height: 0;
+            margin: 0 0 5px;
+
+            .font(0.75rem, 0.875rem, 400, @consonant-color-dark-grey-1);
+
+            cursor: pointer;
         }
 
-        &::placeholder {
-            font-style: italic;
-            color: @consonant-color-light-grey-2;
-            transition: opacity @transition-time @transition-func;
-        }
+        &-inputWrapper {
+            position: relative;
+            display: block;
+            width: 100%;
 
-        &:focus {
-            padding-right: 32px;
-            border-color: @consonant-color-blue-2;
-            background-color: @consonant-color-white;
-
-            &::placeholder {
-                opacity: 0;
+            &:after {
+                content: '';
+                width: @consonant-search-search-ico-size;
+                height: @consonant-search-search-ico-size;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 10px;
+                margin: auto;
+                background: transparent url(@consonant-search-search-ico-src) no-repeat 0 0;
+                background-size: cover;
+                z-index: 1;
             }
         }
 
-        &:valid + .consonant-search--input-clear {
+        input {
+            box-sizing: border-box;
+            min-height: @consonant-search-input-input-min-height;
+
+            .full-width;
+
+            padding: 0 8px 0 32px;
+
+            .font(@line-height: 1.875rem, @color: @consonant-color-brown-grey);
+
+            border: 1px solid @consonant-color-lightest-grey;
+            border-radius: 5px;
+            background-color: transparent;
+            transition:
+                border-color @transition-time @transition-func
+                background-color @transition-time @transition-func;
+            outline: 0;
+            box-shadow: none;
+
+            &::-webkit-search-decoration,
+            &::-webkit-search-cancel-button,
+            &::-webkit-search-results-button,
+            &::-webkit-search-results-decoration {
+                .hide-all;
+            }
+
+            &::-ms-reveal,
+            &::-ms-clear {
+                .hide-all;
+
+                width: 0;
+                height: 0;
+            }
+
+            &::placeholder {
+                font-style: italic;
+                color: @consonant-color-light-grey-2;
+                transition: opacity @transition-time @transition-func;
+            }
+
+            &:focus {
+                padding-right: 32px;
+                border-color: @consonant-color-blue-2;
+                background-color: @consonant-color-white;
+
+                &::placeholder {
+                    opacity: 0;
+                }
+            }
+        }
+
+        input:valid + &-inputClear {
             visibility: visible;
             opacity: 1;
             pointer-events: auto;
         }
-    }
 
-    .consonant-search--input-clear {
-        visibility: hidden;
-        opacity: 0;
-        position: absolute;
-        width: @consonant-search-input-clear-size;
-        height: @consonant-search-input-clear-size;
-        top: 0;
-        bottom: 0;
-        right: 6px;
-        margin: auto;
-        font-size: 0;
-        line-height: 0;
-        border: 0;
-        border-radius: 50%;
-        background-color: @consonant-color-lightest-grey-2;
-        outline: 0;
-        pointer-events: none;
-        transition: background-color @transition-time @transition-func;
-
-        &:before,
-        &:after {
-            content: '';
+        &-inputClear {
+            visibility: hidden;
+            opacity: 0;
             position: absolute;
-            width: 8px;
-            height: 1px;
-
-            .position-absolute-0;
-
+            width: @consonant-search-input-clear-size;
+            height: @consonant-search-input-clear-size;
+            top: 0;
+            bottom: 0;
+            right: 6px;
             margin: auto;
-            background-color: @consonant-color-dark-grey-1;
-            transform: rotate(45deg);
-        }
-
-        &:after {
-            transform: rotate(-45deg);
-        }
-
-        .focused;
-    }
-
-    @media @consonant-desktop-up {
-        order: -2;
-
-        .consonant-search--input-title {
-            display: block;
-        }
-
-        .consonant-search--input-clear {
-            width: @consonant-search-input-clear-size-1200-break;
-            height: @consonant-search-input-clear-size-1200-break;
+            font-size: 0;
+            line-height: 0;
+            border: 0;
+            border-radius: 50%;
+            background-color: @consonant-color-lightest-grey-2;
+            outline: 0;
+            pointer-events: none;
+            transition: background-color @transition-time @transition-func;
 
             &:before,
             &:after {
-                width: @consonant-search-input-clear-ico-size-1200-break;
+                content: '';
+                position: absolute;
+                width: 8px;
+                height: 1px;
+
+                .position-absolute-0;
+
+                margin: auto;
+                background-color: @consonant-color-dark-grey-1;
+                transform: rotate(45deg);
             }
 
-            &:hover {
-                background-color: @consonant-color-blue;
+            &:after {
+                transform: rotate(-45deg);
             }
 
-            &:hover:before,
-            &:hover:after {
-                background-color: @consonant-color-white;
+            .focused;
+        }
+
+        @media @consonant-desktop-up {
+            order: -2;
+
+            &-inputTitle {
+                display: block;
+            }
+
+            &-inputClear {
+                width: @consonant-search-input-clear-size-1200-break;
+                height: @consonant-search-input-clear-size-1200-break;
+
+                &:before,
+                &:after {
+                    width: @consonant-search-input-clear-ico-size-1200-break;
+                }
+
+                &:hover {
+                    background-color: @consonant-color-blue;
+                }
+
+                &:hover:before,
+                &:hover:after {
+                    background-color: @consonant-color-white;
+                }
             }
         }
     }

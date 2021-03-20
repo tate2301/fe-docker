@@ -91,11 +91,11 @@ describe('Consonant/Container/Left Filter', () => {
         const mobileFooterButton = screen.getByTestId('mobile-footer-btn');
         const filtersLeftElement = screen.getByTestId('consonant-filters__left');
 
-        expect(filtersLeftElement).not.toHaveClass('consonant-left-filters_opened');
+        expect(filtersLeftElement).not.toHaveClass('is-opened');
 
         fireEvent.click(mobileFooterButton);
 
-        expect(filtersLeftElement).toHaveClass('consonant-left-filters_opened');
+        expect(filtersLeftElement).toHaveClass('is-opened');
     });
 
 
@@ -136,12 +136,12 @@ describe('Consonant/Container/Left Filter', () => {
 
         fireEvent.click(firstFilterItem);
 
-        expect(firstFilterGroup).toHaveClass('consonant-left-filter_opened');
+        expect(firstFilterGroup).toHaveClass('is-opened');
 
         fireEvent.click(secondFilterItem);
 
-        expect(firstFilterGroup).toHaveClass('consonant-left-filter_opened');
-        expect(secondFilterGroup).toHaveClass('consonant-left-filter_opened');
+        expect(firstFilterGroup).toHaveClass('is-opened');
+        expect(secondFilterGroup).toHaveClass('is-opened');
     });
 });
 

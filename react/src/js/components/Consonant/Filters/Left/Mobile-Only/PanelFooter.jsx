@@ -70,11 +70,11 @@ const PanelFooter = (props) => {
 
     return (
         <div
-            className="consonant-left-filters--mobile-footer">
+            className="consonant-LeftFilters-mobileFooter">
             {showTotalResults &&
                 <span
                     data-testid="mobile-footer-total-res"
-                    className="consonant-left-filters--mobile-footer-total-res-qty">
+                    className="consonant-LeftFilters-mobileFooterTotalResQty">
                     {showTotalResultsText.replace('{total}', resQty)}
                 </span>
             }
@@ -82,7 +82,7 @@ const PanelFooter = (props) => {
                 <button
                     type="button"
                     data-testid="mobile-footer-clear"
-                    className="consonant-left-filters--mobile-footer-clear-btn"
+                    className="consonant-LeftFilters-mobileFooterClearBtn"
                     onClick={onClearAllFilters}>
                     {clearAllFiltersText}
                 </button>
@@ -90,7 +90,7 @@ const PanelFooter = (props) => {
             <button
                 type="button"
                 data-testid="mobile-footer-btn"
-                className="consonant-left-filters--mobile-footer-btn"
+                className="consonant-LeftFilters-mobileFooterBtn"
                 onClick={onMobileFiltersToggleClick}>
                 {buttonText}
             </button>

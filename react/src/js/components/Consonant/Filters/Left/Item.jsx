@@ -157,8 +157,8 @@ const Item = (props) => {
      * @type {String}
      */
     const leftFilterClassName = classNames({
-        'consonant-left-filter': true,
-        'consonant-left-filter_opened': isOpened,
+        'consonant-LeftFilter': true,
+        'consonant-LeftFilter is-opened': isOpened,
     });
 
     return (
@@ -166,9 +166,9 @@ const Item = (props) => {
             data-testid="filter-item"
             className={leftFilterClassName}>
             <div
-                className="consonant-left-filter--inner">
+                className="consonant-LeftFilter-inner">
                 <h3
-                    className="consonant-left-filter--name">
+                    className="consonant-LeftFilter-name">
                     {icon &&
                         <img
                             src={icon}
@@ -179,12 +179,12 @@ const Item = (props) => {
                     <button
                         type="button"
                         data-testid="filter-item-link"
-                        className="consonant-left-filter--link"
+                        className="consonant-LeftFilter-link"
                         onClick={handleClick}
                         tabIndex="0">
                         {name}
                         <div
-                            className="consonant-left-filter--selected-items-qty"
+                            className="consonant-LeftFilter-selectedItemsQty"
                             data-qty={dataQtyTxt}>
                             {mobileTagsSelectedText}
                         </div>

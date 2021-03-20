@@ -50,23 +50,23 @@ const GroupFooter = (props) => {
 
     return (
         <div
-            className="consonant-left-filter--footer">
+            className="consonant-LeftFilter-footer">
             <span
-                className="consonant-left-filter--footer-res-qty">
+                className="consonant-LeftFilter-footerResQty">
                 {mobileGroupTotalResultsText}
             </span>
             {numItemsSelected > 0 &&
                 <button
                     type="button"
                     onClick={handleClear}
-                    className="consonant-left-filter--footer-clear-btn">
+                    className="consonant-LeftFilter-footerClearBtn">
                     {clearFilterText}
                 </button>
             }
             <button
                 type="button"
                 onClick={handleClick}
-                className="consonant-left-filter--footer-btn">
+                className="consonant-LeftFilter-footerBtn">
                 {ctaText}
             </button>
         </div>

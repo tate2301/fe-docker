@@ -43,7 +43,7 @@ const SelectedItem = (props) => {
         <button
             data-testid="item-badge"
             type="button"
-            className="consonant-left-filter--item-badge"
+            className="consonant-LeftFilter-itemBadge"
             onClick={handleClear}
             tabIndex="0">
             {displayNumItemsSelected}

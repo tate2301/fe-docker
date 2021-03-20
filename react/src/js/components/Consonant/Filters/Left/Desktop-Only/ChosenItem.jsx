@@ -49,7 +49,7 @@ const ChosenFilterItem = (props) => {
             type="button"
             onClick={handleClick}
             data-testid="selected-filter"
-            className="consonant-chosen-filter"
+            className="consonant-ChosenFilter"
             tabIndex="0">
             {name}
         </button>
