@@ -100,25 +100,25 @@ const FullCard = (props) => {
     return (
         <div
             daa-lh={lh}
-            className="consonant-full-card"
+            className="consonant-FullCard"
             data-testid="consonant-full-card"
             id={id}>
             <div
                 data-testid="consonant-card--img"
-                className="consonant-full-card--img"
+                className="consonant-FullCard-img"
                 ref={imageRef}
                 style={{ backgroundImage: `url("${lazyLoadedImage}")` }}>
                 {bannerDescription && bannerFontColor && bannerBackgroundColor &&
                     <span
                         data-testid="consonant-card--banner"
-                        className="consonant-full-card--banner"
+                        className="consonant-FullCard-banner"
                         style={({
                             backgroundColor: bannerBackgroundColor,
                             color: bannerFontColor,
                         })}>
                         {bannerIcon &&
                             <div
-                                className="consonant-full-card--banner-icon-wrapper">
+                                className="consonant-FullCard-bannerIconWrapper">
                                 <img
                                     alt=""
                                     loading="lazy"
@@ -131,19 +131,19 @@ const FullCard = (props) => {
                 }
                 {badgeText &&
                     <span
-                        className="consonant-full-card--badge">
+                        className="consonant-FullCard-badge">
                         {badgeText}
                     </span>
                 }
 
-                {videoURL && <VideoButton videoURL={videoURL} className="consonant-full-card--video-ico" /> }
+                {videoURL && <VideoButton videoURL={videoURL} className="consonant-FullCard-videoIco" /> }
                 {logoSrc &&
                     <div
                         style={({
                             backgroundColor: logoBg,
                             borderColor: logoBorderBg,
                         })}
-                        className="consonant-full-card--logo">
+                        className="consonant-FullCard-logo">
                         <img
                             src={logoSrc}
                             alt={logoAlt}
@@ -157,16 +157,16 @@ const FullCard = (props) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 title=""
-                className="consonant-full-card--inner"
+                className="consonant-FullCard-inner"
                 tabIndex="0">
                 {label &&
                     <span
-                        className="consonant-full-card--label">
+                        className="consonant-FullCard-label">
                         {label}
                     </span>
                 }
                 <h2
-                    className="consonant-full-card--title">
+                    className="consonant-FullCard-title">
                     {title}
                 </h2>
             </a>

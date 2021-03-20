@@ -128,25 +128,25 @@ const AspectRatio1to1Card = (props) => {
     return (
         <div
             daa-lh={lh}
-            className="consonant-aspect-ratio-1-1-card"
+            className="consonant-AspectRatio1To1Card"
             data-testid="consonant-1-1-card"
             id={id}>
             <div
                 data-testid="consonant-card--img"
-                className="consonant-aspect-ratio-1-1-card--img"
+                className="consonant-AspectRatio1To1Card-img"
                 ref={imageRef}
                 style={{ backgroundImage: `url("${lazyLoadedImage}")` }}>
                 {bannerDescription && bannerFontColor && bannerBackgroundColor &&
                     <span
                         data-testid="consonant-card--banner"
-                        className="consonant-aspect-ratio-1-1-card--banner"
+                        className="consonant-AspectRatio1To1Card-banner"
                         style={({
                             backgroundColor: bannerBackgroundColor,
                             color: bannerFontColor,
                         })}>
                         {bannerIcon &&
                             <div
-                                className="consonant-aspect-ratio-1-1-card--banner-icon-wrapper">
+                                className="consonant-AspectRatio1To1Card-bannerIconWrapper">
                                 <img
                                     alt=""
                                     loading="lazy"
@@ -159,18 +159,18 @@ const AspectRatio1to1Card = (props) => {
                 }
                 {badgeText &&
                     <span
-                        className="consonant-aspect-ratio-1-1-card--badge">
+                        className="consonant-AspectRatio1To1Card-badge">
                         {badgeText}
                     </span>
                 }
-                {videoURL && <VideoButton videoURL={videoURL} className="consonant-aspect-ratio-1-1-card--video-ico" /> }
+                {videoURL && <VideoButton videoURL={videoURL} className="consonant-AspectRatio1To1Card-videoIco" /> }
                 {logoSrc &&
                     <div
                         style={({
                             backgroundColor: logoBg,
                             borderColor: logoBorderBg,
                         })}
-                        className="consonant-aspect-ratio-1-1-card--logo">
+                        className="consonant-AspectRatio1To1Card-logo">
                         <img
                             src={logoSrc}
                             alt={logoAlt}
@@ -184,26 +184,26 @@ const AspectRatio1to1Card = (props) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Click to open in a new tab"
-                className="consonant-aspect-ratio-1-1-card--inner"
+                className="consonant-AspectRatio1To1Card-inner"
                 tabIndex="0">
                 {detailText &&
                     <span
                         data-testid="1-1-card--label"
-                        className="consonant-aspect-ratio-1-1-card--label">
+                        className="consonant-AspectRatio1To1Card-label">
                         {detailText}
                     </span>
                 }
                 {
                     title &&
                     <h2
-                        className="consonant-aspect-ratio-1-1-card--title">
+                        className="consonant-AspectRatio1To1Card-title">
                         {title}
                     </h2>
                 }
                 {
                     description &&
                     <p
-                        className="consonant-aspect-ratio-1-1-card--text">
+                        className="consonant-AspectRatio1To1Card-text">
                         {description}
                     </p>
                 }
