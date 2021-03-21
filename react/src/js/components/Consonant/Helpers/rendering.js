@@ -14,7 +14,7 @@ export const HighlightSearchField = (text, value) => {
             (
                 <span
                     data-testid="consonant-search-result"
-                    className="consonant-search-result"
+                    className="consonant-SearchResult"
                     key={cuid()}>
                     {part}
                 </span>
