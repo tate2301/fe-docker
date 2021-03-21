@@ -19,7 +19,7 @@ const defaultProps = { text: '' };
  */
 const Tooltip = ({ text }) => (
     <span
-        className="consonant-tooltip">
+        className="consonant-Tooltip">
         {text}
     </span>
 );

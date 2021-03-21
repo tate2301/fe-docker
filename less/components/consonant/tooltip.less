@@ -3,7 +3,7 @@
     overflow: visible;
 
     @media @consonant-desktop-up {
-        &:hover .consonant-tooltip {
+        &:hover .consonant-Tooltip {
             z-index: 6000000;
             animation-name: fade-in-up;
             animation-duration: @transition-time;
@@ -14,38 +14,40 @@
     }
 }
 
-.consonant-tooltip {
-    position: absolute;
-    display: none;
-    width: @consonant-tooltip-width;
-    padding: 7px 14px;
-    bottom: calc(~ '100% + ' @consonant-tooltip-vert-pos-adder);
-    left: -72px;
-
-    .font(@size: 0.75rem, @align: center, @color: @consonant-color-white);
-
-    text-decoration: none;
-    border-radius: 8px;
-    background-color: @consonant-color-dark-grey-1;
-    z-index: -1;
-    user-select: text;
-    opacity: 0;
-
-    &:after {
-        content: '';
+.consonant {
+    &-Tooltip {
         position: absolute;
-        width: @consonant-tooltip-arr-width;
-        height: @consonant-tooltip-arr-width;
-        bottom: -3px;
-        left: 0;
-        right: 0;
-        margin: auto;
-        background-color: @consonant-color-dark-grey-1;
-        transform-origin: 50% 50%;
-        transform: rotate(45deg);
-    }
+        display: none;
+        width: @consonant-tooltip-width;
+        padding: 7px 14px;
+        bottom: calc(~ '100% + ' @consonant-tooltip-vert-pos-adder);
+        left: -72px;
 
-    @media @consonant-desktop-up {
-        display: block;
+        .font(@size: 0.75rem, @align: center, @color: @consonant-color-white);
+
+        text-decoration: none;
+        border-radius: 8px;
+        background-color: @consonant-color-dark-grey-1;
+        z-index: -1;
+        user-select: text;
+        opacity: 0;
+
+        &:after {
+            content: '';
+            position: absolute;
+            width: @consonant-tooltip-arr-width;
+            height: @consonant-tooltip-arr-width;
+            bottom: -3px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background-color: @consonant-color-dark-grey-1;
+            transform-origin: 50% 50%;
+            transform: rotate(45deg);
+        }
+
+        @media @consonant-desktop-up {
+            display: block;
+        }
     }
 }
