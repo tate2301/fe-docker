@@ -1,56 +1,58 @@
-.consonant-card-collection {
-    min-width: 83.333vw;
-    max-width: 83.333vw;
+.consonant {
+    &-CardCollection {
+        min-width: 83.333vw;
+        max-width: 83.333vw;
 
-    .margin-auto;
+        .margin-auto;
 
-    background-color: transparent;
+        background-color: transparent;
 
-    .consonant-card-collection--inner {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: stretch;
-        margin-right: -32px;
+        &-inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            margin-right: -32px;
 
-        & > div {
-            margin-right: 32px;
+            > div {
+                margin-right: 32px;
+            }
         }
-    }
 
-    .consonant-card-collection--placeholder {
-        flex: 1 1 0;
-        min-width: @consonant-card-min-width;
-        max-width: @consonant-card-max-width;
-        padding: 0;
-        border: 0;
+        &-placeholder {
+            flex: 1 1 0;
+            min-width: @consonant-card-min-width;
+            max-width: @consonant-card-max-width;
+            padding: 0;
+            border: 0;
 
-        .hide-overflow;
+            .hide-overflow;
 
-        @media @consonant-IE11-only {
-            flex-grow: 0;
-            flex-shrink: 0;
-            flex-basis: @consonant-card-min-width;
+            @media @consonant-IE11-only {
+                flex-grow: 0;
+                flex-shrink: 0;
+                flex-basis: @consonant-card-min-width;
+            }
         }
-    }
 
-    @media @consonant-tablet-up {
-        margin-top: -4px;
-    }
+        @media @consonant-tablet-up {
+            margin-top: -4px;
+        }
 
-    @media @consonant-desktop-up {
-        overflow: visible;
-    }
+        @media @consonant-desktop-up {
+            overflow: visible;
+        }
 
-    @media @consonant-big-desktop-up {
-        margin-bottom: 8px;
-        min-width: @consonant-width-desktop-min;
-        max-width: @consonant-width-desktop-min;
+        @media @consonant-big-desktop-up {
+            margin-bottom: 8px;
+            min-width: @consonant-width-desktop-min;
+            max-width: @consonant-width-desktop-min;
+        }
     }
 }
 
-// Left filter changes;
-.consonant-wrapper--left-filter-wrapper + div .consonant-card-collection {
+/* Left filter changes; */
+.consonant-Wrapper-leftFilterWrapper + div .consonant-CardCollection {
     @media @consonant-desktop-up {
         min-width: calc(83.333vw - @consonant-filters-1200-break-width ~ ' - 32px');
         max-width: calc(83.333vw - @consonant-filters-1200-break-width ~ ' - 32px');

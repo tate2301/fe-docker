@@ -736,7 +736,7 @@ const Container = (props) => {
                     className="consonant-wrapper">
                     <div className="consonant-wrapper--inner">
                         {displayLeftFilterPanel && (
-                            <div className="consonant-wrapper--left-filter-wrapper">
+                            <div className="consonant-Wrapper-leftFilterWrapper">
                                 <LeftFilterPanel
                                     filters={filters}
                                     selectedFiltersQty={selectedFiltersItemsQty}
