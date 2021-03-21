@@ -1,34 +1,31 @@
-/*Available modifiers:
-- .consonant-bookmark-infobit_active;
-- .consonant-bookmark-infobit_disabled;
-*/
+.consonant {
+    &-BookmarkInfobit {
+        margin-left: 16px;
+        padding: 0;
 
-.consonant-bookmark-infobit {
-    margin-left: 16px;
-    padding: 0;
+        .no-font;
+        .no-border-no-outline;
+        .focused;
 
-    .no-font;
-    .no-border-no-outline;
-    .focused;
+        background-color: transparent;
 
-    background-color: transparent;
+        &.is-active &-ico {
+            background-image: url(@consonant-bookmark-infobit-ico-filled-data);
+        }
 
-    &.consonant-bookmark-infobit_active .consonant-bookmark-infobit--ico {
-        background-image: url(@consonant-bookmark-infobit-ico-filled-data);
-    }
+        &.is-disabled {
+            pointer-events: none;
+            opacity: 0.5;
+        }
 
-    &.consonant-bookmark-infobit_disabled {
-        pointer-events: none;
-        opacity: 0.5;
-    }
-
-    .consonant-bookmark-infobit--ico {
-        display: block;
-        min-width: @consonant-bookmark-infobit-ico-width;
-        max-width: @consonant-bookmark-infobit-ico-width;
-        min-height: @consonant-bookmark-infobit-ico-height;
-        max-height: @consonant-bookmark-infobit-ico-height;
-        background: transparent url(@consonant-bookmark-infobit-ico-data) no-repeat 50% 50%;
-        background-size: contain;
+        &-ico {
+            display: block;
+            min-width: @consonant-bookmark-infobit-ico-width;
+            max-width: @consonant-bookmark-infobit-ico-width;
+            min-height: @consonant-bookmark-infobit-ico-height;
+            max-height: @consonant-bookmark-infobit-ico-height;
+            background: transparent url(@consonant-bookmark-infobit-ico-data) no-repeat 50% 50%;
+            background-size: contain;
+        }
     }
 }

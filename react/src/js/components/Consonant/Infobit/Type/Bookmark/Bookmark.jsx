@@ -59,9 +59,9 @@ const Bookmark = ({
     disableBookmarkIco,
 }) => {
     const bookmarkInfobitClass = classNames({
-        'consonant-bookmark-infobit': true,
-        'consonant-bookmark-infobit_active': isBookmarked,
-        'consonant-bookmark-infobit_disabled': disableBookmarkIco,
+        'consonant-BookmarkInfobit': true,
+        'is-active': isBookmarked,
+        'is-disabled': disableBookmarkIco,
     });
 
     const bookmarkIcon = () => {
@@ -69,7 +69,7 @@ const Bookmark = ({
         return (
             <span
                 data-testid="bookmarks--ico"
-                className="consonant-bookmark-infobit--ico"
+                className="consonant-BookmarkInfobit-ico"
                 style={{ backgroundImage: cardIcon ? `url(${cardIcon})` : '' }} />
         );
     };
