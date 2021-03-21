@@ -59,18 +59,18 @@ const LoadMore = ({
     return (shouldDisplayLoadMore) ? (
         <div
             data-testid="consonant-load-more"
-            className="consonant-load-more">
-            <div className="consonant-load-more--inner">
+            className="consonant-LoadMore">
+            <div className="consonant-LoadMore-inner">
                 <p
                     data-testid="consonant-load-more--text"
-                    className="consonant-load-more--text">
+                    className="consonant-LoadMore-text">
                     {summaryText}
                 </p>
                 {shouldDisplayLoadMoreBtn &&
                     <button
                         type="button"
                         data-testid="load-more__button"
-                        className="consonant-load-more--btn"
+                        className="consonant-LoadMore-btn"
                         onClick={onClick}
                         tabIndex="0">
                         {loadMoreButtonText}
