@@ -69,8 +69,8 @@ const Bookmarks = (props) => {
      * @type {String}
      */
     const bookmarkClass = classNames({
-        bookmarks: true,
-        bookmarks_selected: showBookmarks,
+        'consonant-Bookmarks': true,
+        'is-selected': showBookmarks,
     });
 
     return (
@@ -81,19 +81,19 @@ const Bookmarks = (props) => {
             className={bookmarkClass}
             tabIndex="0">
             <span
-                className="bookmarks--ico-wrapper">
+                className="consonant-Bookmarks-icoWrapper">
                 <span
                     style={iconStyles}
-                    className="bookmarks--ico"
+                    className="consonant-Bookmarks-ico"
                     data-testid="bookmarks--ico" />
                 <span
-                    className="bookmarks--title">
+                    className="consonant-Bookmarks-title">
                     {bookmarkTitle}
                 </span>
             </span>
             <span
                 data-testid="bookmarks--item-badge"
-                className="bookmarks--item-badge">
+                className="consonant-Bookmarks-itemBadge">
                 {savedCardsCount}
             </span>
         </button>

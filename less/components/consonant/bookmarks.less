@@ -1,122 +1,119 @@
-/* Available modifiers:
-- bookmarks_selected;
-*/
 
-.bookmarks {
-    position: relative;
-    padding: 19px 16px;
-    background-color: transparent;
-    order: 1;
-
-    .no-border-no-outline;
-
-    border-top: 1px solid @consonant-color-lightest-grey;
-
-    & + div:last-child {
-        margin-top: 0;
-    }
-
-    .bookmarks--item-badge {
-        display: block;
-        position: absolute;
-        min-width: @consonant-filters-item-badge-min-width;
-        max-width: @consonant-filters-item-badge-max-width;
-        height: @consonant-filters-item-badge-height;
-        margin: auto;
-        padding: 5px 7px;
-        top: 0;
-        bottom: 0;
-        right: 16px;
-
-        .font(0.875rem, 0.875rem, 700, @consonant-color-white, center);
-
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        border-radius: 15px;
-        background-color: @consonant-color-blue;
-        z-index: 1;
-        opacity: 1;
-
-        .no-border-no-outline;
-
-        transition: opacity @transition-time @transition-func;
-        transition-delay: 0.1s;
-        overflow: hidden;
-    }
-
-    .bookmarks--ico-wrapper {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        padding: 0;
+.consonant {
+    &-Bookmarks {
+        position: relative;
+        padding: 19px 16px;
         background-color: transparent;
+        order: 1;
 
         .no-border-no-outline;
-    }
 
-    .bookmarks--ico-wrapper .bookmarks--ico {
-        display: block;
-        min-width: @bookmarks-ico-wrapper-max-size;
-        min-height: @bookmarks-ico-wrapper-max-size;
-        max-height: @bookmarks-ico-wrapper-max-size;
-        margin-right: 6px;
-        background: transparent url(@consonant-filters-heart-data) no-repeat 50% 50%;
-        background-size: contain;
-    }
+        border-top: 1px solid @consonant-color-lightest-grey;
 
-    .bookmarks--title {
-        display: block;
-        padding-right: 55px;
-        padding-bottom: 1px;
+        + div:last-child {
+            margin-top: 0;
+        }
 
-        .font(@line-height: 1rem, @weight: 700, @color: @consonant-color-brown-grey);
+        &-itemBadge {
+            display: block;
+            position: absolute;
+            min-width: @consonant-filters-item-badge-min-width;
+            max-width: @consonant-filters-item-badge-max-width;
+            height: @consonant-filters-item-badge-height;
+            margin: auto;
+            padding: 5px 7px;
+            top: 0;
+            bottom: 0;
+            right: 16px;
 
-        transition: color @transition-time @transition-func;
-    }
+            .font(0.875rem, 0.875rem, 700, @consonant-color-white, center);
 
-    &.bookmarks_selected {
-        .bookmarks--ico {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            border-radius: 15px;
+            background-color: @consonant-color-blue;
+            z-index: 1;
+            opacity: 1;
+
+            .no-border-no-outline;
+
+            transition: opacity @transition-time @transition-func;
+            transition-delay: 0.1s;
+            overflow: hidden;
+        }
+
+        &-icoWrapper {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0;
+            background-color: transparent;
+
+            .no-border-no-outline;
+        }
+
+        &-icoWrapper &-ico {
+            display: block;
+            min-width: @bookmarks-ico-wrapper-max-size;
+            min-height: @bookmarks-ico-wrapper-max-size;
+            max-height: @bookmarks-ico-wrapper-max-size;
+            margin-right: 6px;
+            background: transparent url(@consonant-filters-heart-data) no-repeat 50% 50%;
+            background-size: contain;
+        }
+
+        &-title {
+            display: block;
+            padding-right: 55px;
+            padding-bottom: 1px;
+
+            .font(@line-height: 1rem, @weight: 700, @color: @consonant-color-brown-grey);
+
+            transition: color @transition-time @transition-func;
+        }
+
+        &.is-selected &-ico {
             background-image: url(@consonant-filters-heart-filled-data);
         }
-    }
 
-    @media @consonant-desktop-up {
-        position: relative;
-        display: flex;
-        margin-top: -1px;
-        padding: 14px 0;
-        border: 2px solid transparent;
-        order: 0;
+        @media @consonant-desktop-up {
+            position: relative;
+            display: flex;
+            margin-top: -1px;
+            padding: 14px 0;
+            border: 2px solid transparent;
+            order: 0;
 
-        &:focus {
-            border-color: @consonant-focus-color;
-        }
-
-        &:after {
-            content: '';
-            position: absolute;
-            display: block;
-            height: 1px;
-            width: 100%;
-            left: 0;
-            top: 0;
-            background-color: @consonant-color-lightest-grey;
-            z-index: 1;
-        }
-
-        .bookmarks--item-badge {
-            right: 30px;
-            font-size: 0.875rem;
-            line-height: 0.875rem;
-
-            &:hover,
-            &:active {
-                .font(@line-height: 0.875rem, @weight: 700, @color: @consonant-color-white, @align: center);
+            &:focus {
+                border-color: @consonant-focus-color;
             }
-        }
 
-        .bookmarks--title:hover {
-            color: @consonant-color-dark-grey-3;
+            &:after {
+                content: '';
+                position: absolute;
+                display: block;
+                height: 1px;
+                width: 100%;
+                left: 0;
+                top: 0;
+                background-color: @consonant-color-lightest-grey;
+                z-index: 1;
+            }
+
+            &-itemBadge {
+                right: 30px;
+                font-size: 0.875rem;
+                line-height: 0.875rem;
+
+                &:hover,
+                &:active {
+                    .font(@line-height: 0.875rem, @weight: 700, @color: @consonant-color-white, @align: center);
+                }
+            }
+
+            &-title:hover {
+                color: @consonant-color-dark-grey-3;
+            }
         }
     }
 }
