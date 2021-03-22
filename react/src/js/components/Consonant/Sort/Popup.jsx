@@ -82,13 +82,13 @@ const Popup = ({
     };
 
     const shouldAutoWidthSortClass = classNames({
-        'consonant-select': true,
-        'consonant-select_auto-width': autoWidth,
+        'consonant-Select': true,
+        'consonant-Select--autoWidth': autoWidth,
     });
 
     const openButtonClass = classNames({
-        'consonant-select--btn': true,
-        'consonant-select--btn_active': opened,
+        'consonant-Select-btn': true,
+        'is-active': opened,
     });
 
     return (
@@ -105,15 +105,15 @@ const Popup = ({
             { opened &&
                 <div
                     data-testid="consonant-select--options"
-                    className={`consonant-select--options consonant-select--options_${optionsAlignment}`}>
+                    className={`consonant-Select-options consonant-Select-options--${optionsAlignment}`}>
                     {values.map(item => (
                         <button
                             data-testid="select-option"
                             key={item.label}
                             type="button"
                             className={item.label === val.label ?
-                                'consonant-select--option consonant-select--option_selected' :
-                                'consonant-select--option'
+                                'consonant-Select-option is-selected' :
+                                'consonant-Select-option'
                             }
                             onClick={e => handleOptionClick(e, item)}
                             tabIndex={0}>

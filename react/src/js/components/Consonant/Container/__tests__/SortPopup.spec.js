@@ -29,10 +29,10 @@ describe('Consonant/Container/Sort Popup', () => {
         await waitFor(() => screen.getByTestId('select-button'));
         const selectButton = screen.getByTestId('select-button');
 
-        expect(selectButton).not.toHaveClass('consonant-select--btn_active');
+        expect(selectButton).not.toHaveClass('is-active');
 
         fireEvent.click(selectButton);
-        expect(selectButton).toHaveClass('consonant-select--btn_active');
+        expect(selectButton).toHaveClass('is-active');
     });
 
     test('should be able to feature sort cards', async () => {

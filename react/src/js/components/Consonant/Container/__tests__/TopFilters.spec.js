@@ -57,7 +57,7 @@ describe('Consonant/Container/Top Filters/Mobile', () => {
 
         const optionsList = screen.queryByTestId('consonant-select--options');
 
-        expect(optionsList).toHaveClass('consonant-select--options_left');
+        expect(optionsList).toHaveClass('consonant-Select-options--left');
     });
 
     test('Should close filters on blur', async () => {
@@ -205,7 +205,7 @@ describe('Consonant/Top Filters/Desktop', () => {
 
         const optionsList = screen.queryByTestId('consonant-select--options');
 
-        expect(optionsList).toHaveClass('consonant-select--options_right');
+        expect(optionsList).toHaveClass('consonant-Select-options--right');
     });
 
     test('should filter cards without sort select', async () => {
