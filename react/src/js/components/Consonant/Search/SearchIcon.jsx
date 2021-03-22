@@ -26,7 +26,7 @@ const SearchIcon = (props) => {
         <button
             data-testid="search-icon"
             type="button"
-            className="search-ico"
+            className="consonant-SearchIco"
             onClick={onClick}
             tabIndex="0">
             <span />
