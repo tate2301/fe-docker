@@ -40,14 +40,14 @@ const View = (props) => {
     return (
         <div
             data-testid="no-results-view"
-            className="consonant-no-results-view">
+            className="consonant-NoResultsView">
             <strong
-                className="consonant-no-results-view--title">
+                className="consonant-NoResultsView-title">
                 {title}
             </strong>
             {description &&
                 <div
-                    className="consonant-no-results-view--description">
+                    className="consonant-NoResultsView-description">
                     {displayMsg}
                 </div>
             }
