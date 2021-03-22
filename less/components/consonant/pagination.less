@@ -1,192 +1,180 @@
-/* Available modifiers:
-- .consonant-pagination--item_active;
-- .consonant-pagination_last;
-- .consonant-pagination_first;
-*/
-
-.consonant-pagination {
-    justify-content: space-between;
-    align-items: center;
-    min-width: 83.333vw;
-    max-width: 83.333vw;
-
-    .margin-auto;
-
-    margin-bottom: 50px;
-    user-select: none;
-
-    .consonant-pagination--paginator {
-        display: flex;
+.consonant {
+    &-Pagination {
         justify-content: space-between;
         align-items: center;
-        flex-grow: 1;
-        overflow-x: auto;
-    }
+        min-width: 83.333vw;
+        max-width: 83.333vw;
 
-    .consonant-pagination--btn {
-        padding-left: 0;
-        padding-right: 0;
+        .margin-auto;
 
-        .font(0.875rem, 1.1875rem, 700, @consonant-color-light-grey-3);
+        margin-bottom: 50px;
+        user-select: none;
 
-        white-space: nowrap;
-        text-transform: capitalize;
-        background-color: transparent;
-        border: 2px solid transparent;
-        outline: 0;
-        transition: border-color @transition-time @transition-func;
-
-        &:focus {
-            border-color: @consonant-focus-color;
-        }
-    }
-
-    .consonant-pagination--items {
-        display: flex;
-        align-items: center;
-        margin: 0;
-        padding: 0 12px 0 20px;
-        list-style-type: none;
-    }
-
-    .consonant-pagination--item {
-        margin-right: 7px;
-
-        &:hover .consonant-pagination--item-btn {
-            color: @consonant-color-dark-grey-2;
+        &-paginator {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-grow: 1;
+            overflow-x: auto;
         }
 
-        &:active .consonant-pagination--item-btn {
-            color: @consonant-color-dark-grey-2;
-            background-color: @consonant-color-lightest-grey-3;
-        }
+        &-btn {
+            padding-left: 0;
+            padding-right: 0;
 
-        &:hover .consonant-pagination--item-btn:disabled,
-        &:active .consonant-pagination--item-btn:disabled,
-        .consonant-pagination--item-btn:disabled {
-            color: @consonant-color-lightest-grey-4;
-            pointer-events: none;
+            .font(0.875rem, 1.1875rem, 700, @consonant-color-light-grey-3);
+
+            white-space: nowrap;
+            text-transform: capitalize;
             background-color: transparent;
+            border: 2px solid transparent;
+            outline: 0;
+            transition: border-color @transition-time @transition-func;
+
+            &:focus {
+                border-color: @consonant-focus-color;
+            }
         }
 
-        &.consonant-pagination--item_active {
-            .consonant-pagination--item-btn {
+        &-items {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0 12px 0 20px;
+            list-style-type: none;
+        }
+
+        &-item {
+            margin-right: 7px;
+
+            &:hover &Btn {
+                color: @consonant-color-dark-grey-2;
+            }
+
+            &:active &Btn {
+                color: @consonant-color-dark-grey-2;
+                background-color: @consonant-color-lightest-grey-3;
+            }
+
+            &:hover &Btn:disabled,
+            &:active &Btn:disabled,
+            &Btn:disabled {
+                color: @consonant-color-lightest-grey-4;
+                pointer-events: none;
+                background-color: transparent;
+            }
+
+            &.is-active &Btn {
                 background-color: @consonant-color-lightest-grey-3;
                 color: @consonant-color-light-grey-3;
             }
 
-            &:hover .consonant-pagination--item-btn,
-            &:active .consonant-pagination--item-btn {
+            &.is-active:hover &Btn,
+            &.is-active:active &Btn {
                 color: @consonant-color-dark-grey-2;
             }
 
-            .consonant-pagination--item-btn:disabled {
+            &.is-active &Btn:disabled {
                 color: @consonant-color-lightest-grey-4;
                 background-color: @consonant-color-lightest-grey;
             }
-        }
 
-        &:nth-of-type(n+5) {
-            display: none;
-        }
-    }
-
-    .consonant-pagination--item-btn {
-        position: relative;
-        min-width: @consonant-pagination-item-size;
-        min-height: @consonant-pagination-item-size;
-        max-width: @consonant-pagination-btn-max-width;
-        padding: 8px 10px;
-
-        .font(0.875rem, 0.875rem, 400, @consonant-color-light-grey-3, center);
-
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        border-radius: 16px;
-        outline: 0;
-        cursor: pointer;
-        background-color: transparent;
-        overflow: hidden;
-
-        &:after {
-            content: '';
-            position: absolute;
-
-            .position-absolute-0;
-
-            margin: auto;
-            border: 2px solid transparent;
-            border-radius: 30px;
-            z-index: 1;
-        }
-
-        &:focus:after {
-            border-color: @consonant-focus-color;
-        }
-    }
-
-    .consonant-pagination--summary {
-        display: none;
-        max-width: 30%;
-        align-items: center;
-
-        .font(0.875rem, 1.3125rem, 400, @consonant-color-brown-grey, right);
-
-        margin-left: auto;
-    }
-
-    &.consonant-pagination_first .consonant-pagination--btn:first-of-type,
-    &.consonant-pagination_last .consonant-pagination--btn:last-of-type {
-        color: @consonant-color-lightest-grey-4;
-        pointer-events: none;
-    }
-
-    @media @consonant-tablet-up {
-        .consonant-pagination--paginator {
-            justify-content: center;
-        }
-    }
-
-    @media @consonant-desktop-up {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 100px;
-
-        .consonant-pagination--paginator {
-            justify-content: flex-start;
-            margin: 0;
-        }
-
-        .consonant-pagination--btn {
-            max-width: 15%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .consonant-pagination--item {
             &:nth-of-type(n+5) {
-                display: list-item;
-            }
-
-            &:nth-of-type(n+11) {
                 display: none;
             }
+
+            &Btn {
+                position: relative;
+                min-width: @consonant-pagination-item-size;
+                min-height: @consonant-pagination-item-size;
+                max-width: @consonant-pagination-btn-max-width;
+                padding: 8px 10px;
+
+                .font(0.875rem, 0.875rem, 400, @consonant-color-light-grey-3, center);
+
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                border-radius: 16px;
+                outline: 0;
+                cursor: pointer;
+                background-color: transparent;
+                overflow: hidden;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+
+                    .position-absolute-0;
+
+                    margin: auto;
+                    border: 2px solid transparent;
+                    border-radius: 30px;
+                    z-index: 1;
+                }
+
+                &:focus:after {
+                    border-color: @consonant-focus-color;
+                }
+            }
         }
 
-        .consonant-pagination--summary {
-            display: block;
-        }
-    }
+        &-summary {
+            display: none;
+            max-width: 30%;
+            align-items: center;
 
-    @media @consonant-big-desktop-up {
-        min-width: @consonant-width-desktop-min;
-        max-width: @consonant-width-desktop-min;
+            .font(0.875rem, 1.3125rem, 400, @consonant-color-brown-grey, right);
+
+            margin-left: auto;
+        }
+
+        @media @consonant-tablet-up {
+            &-paginator {
+                justify-content: center;
+            }
+        }
+
+        @media @consonant-desktop-up {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 100px;
+
+            &-paginator {
+                justify-content: flex-start;
+                margin: 0;
+            }
+
+            &-btn {
+                max-width: 15%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            &-item {
+                &:nth-of-type(n+5) {
+                    display: list-item;
+                }
+
+                &:nth-of-type(n+11) {
+                    display: none;
+                }
+            }
+
+            &-summary {
+                display: block;
+            }
+        }
+
+        @media @consonant-big-desktop-up {
+            min-width: @consonant-width-desktop-min;
+            max-width: @consonant-width-desktop-min;
+        }
     }
 }
 
-// Left filter changes;
-.consonant-Wrapper-leftFilterWrapper + div > .consonant-pagination {
+/* Left filter changes; */
+.consonant-Wrapper-leftFilterWrapper + div > .consonant-Pagination {
     @media @consonant-desktop-up {
         min-width: calc(83.333vw - @consonant-filters-1200-break-width ~ ' - 32px');
         max-width: calc(83.333vw - @consonant-filters-1200-break-width ~ ' - 32px');
