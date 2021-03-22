@@ -1,39 +1,39 @@
-.consonant-wrapper {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    height: 100vh;
-    overflow-y: scroll;
+.consonant {
+    &-Wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        height: 100vh;
+        overflow-y: scroll;
 
-    .consonant-wrapper--inner {
-        max-width: @consonant-width-desktop-min;
+        &-inner {
+            max-width: @consonant-width-desktop-min;
 
-        .margin-auto;
+            .margin-auto;
 
-        & > *:last-of-type {
-            display: block;
-            min-height: @consonant-wrapper-min-height;
-            position: relative;
-            flex-grow: 1;
-        }
-    }
-
-    @media @consonant-tablet-up {
-        .consonant-wrapper--inner {
             > *:last-of-type {
+                display: block;
+                min-height: @consonant-wrapper-min-height;
+                position: relative;
+                flex-grow: 1;
+            }
+        }
+
+        @media @consonant-tablet-up {
+            &-inner > *:last-of-type {
                 min-height: 625px;
             }
         }
-    }
 
-    @media @consonant-desktop-up {
-        .consonant-wrapper--inner {
-            display: flex;
-            justify-content: center;
-            align-items: stretch;
+        @media @consonant-desktop-up {
+            &-inner {
+                display: flex;
+                justify-content: center;
+                align-items: stretch;
 
-            > *:last-of-type {
-                flex-grow: 0;
+                > *:last-of-type {
+                    flex-grow: 0;
+                }
             }
         }
     }

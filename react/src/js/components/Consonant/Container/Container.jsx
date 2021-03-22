@@ -733,8 +733,8 @@ const Container = (props) => {
                     daa-lh={collectionIdentifier}
                     daa-im={String(trackImpressions)}
                     onClick={handleWindowClick}
-                    className="consonant-wrapper">
-                    <div className="consonant-wrapper--inner">
+                    className="consonant-Wrapper">
+                    <div className="consonant-Wrapper-inner">
                         {displayLeftFilterPanel && (
                             <div className="consonant-Wrapper-leftFilterWrapper">
                                 <LeftFilterPanel
