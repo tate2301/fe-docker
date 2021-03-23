@@ -1,236 +1,232 @@
 [dir = rtl] {
-    /* Filters info */
-    .consonant-filters-info {
-        & > :last-child {
-            margin-left: 0;
-            margin-right: auto;
-        }
+    .consonant {
+        /* Filters info */
+        &-FiltersInfo {
+            > :last-child {
+                margin-left: 0;
+                margin-right: auto;
+            }
 
-        .consonant-filters-info--btn.consonant-filters-info--btn_with-filters {
-            padding-left: 0;
-        }
+            &-btn--withFilters {
+                padding-left: 0;
+            }
 
-        .consonant-filters-info--btn-text {
-            padding-left: 7px;
-            text-align: right;
-        }
+            &-btnText {
+                padding-left: 7px;
+                text-align: right;
+            }
 
-        .consonant-filters-info--btn .consonant-filters-info--btn-selected {
-            padding-right: 8px;
-            padding-left: 7px;
-            border-left: 0;
-            border-right: 1px solid @consonant-color-brown-grey;
-        }
+            &-btnSelected {
+                padding-right: 8px;
+                padding-left: 7px;
+                border-left: 0;
+                border-right: 1px solid @consonant-color-brown-grey;
+            }
 
-        .consonant-filters-info--results {
-            margin-left: 0;
-            margin-right: auto;
-            padding-left: 0;
-            text-align: right;
-        }
-    }
-
-    /* Left filter panel */
-    .consonant-left-filters {
-        .consonant-left-filters--mob-back {
-            margin-left: 13px;
-            margin-right: 0;
-            transform: scale(-1);
-        }
-
-        .consonant-left-filter--link {
-            padding-left: 36px;
-            padding-right: 6px;
-            text-align: right;
-        }
-
-        .consonant-left-filters--mobile-footer-btn {
-            flex-direction: row-reverse;
-        }
-
-        .consonant-left-filters--mob-title span,
-        .consonant-left-filters--mobile-footer-total-res-qty {
-            text-align: right;
-        }
-    }
-
-    /* Left filter */
-    .consonant-left-filter {
-        &:after {
-            left: 16px;
-            right: auto;
-            transform: scale(-1) rotate(-135deg);
-        }
-
-        .consonant-left-filter--items-item-name,
-        .consonant-left-filters--clear-link,
-        .consonant-left-filters--desk-title,
-        .consonant-left-filter--footer-clear-btn,
-        .consonant-left-filter--footer-res-qty {
-            text-align: right;
-        }
-
-        .consonant-left-filter--items-item-checkmark {
-            margin-left: 10px;
-            margin-right: 0;
-        }
-
-        .consonant-left-filter--selected-items-qty {
-            text-align: right;
-            padding-left: 18px;
-            padding-right: 0;
-
-            &:after {
-                left: 0;
-                right: auto;
+            &-results {
+                margin-left: 0;
+                margin-right: auto;
+                padding-left: 0;
+                text-align: right;
             }
         }
 
-        &.consonant-left-filter_opened {
-            .consonant-left-filter--name {
+        /* Left filter panel */
+        &-LeftFilters {
+            &-mobBack {
+                margin-left: 13px;
+                margin-right: 0;
+                transform: scale(-1);
+            }
+
+            &-mobileFooterBtn {
+                flex-direction: row-reverse;
+            }
+
+            &-clearLink,
+            &-deskTitle,
+            &-mobTitle span,
+            &-mobileFooterTotalResQty {
+                text-align: right;
+            }
+        }
+
+        /* Left filter */
+        &-LeftFilter {
+            &:after {
+                left: 16px;
+                right: auto;
+                transform: scale(-1) rotate(-135deg);
+            }
+
+            &-link {
+                padding-left: 36px;
+                padding-right: 6px;
+                text-align: right;
+            }
+
+            &-itemsItemName,
+            &-footerClearBtn,
+            &-footerResQty {
+                text-align: right;
+            }
+
+            &-itemsItemCheckmark {
+                margin-left: 10px;
+                margin-right: 0;
+            }
+
+            &-selectedItemsQty {
+                text-align: right;
+                padding-left: 18px;
+                padding-right: 0;
+
+                &:after {
+                    left: 0;
+                    right: auto;
+                }
+            }
+
+            &.is-opened .consonant-LeftFilter-name {
                 padding-left: 0;
                 padding-right: 20px;
             }
         }
-    }
 
-    /* Top filters panel */
-    .consonant-top-filters {
-        .consonant-top-filters--filters {
-            margin-right: 0;
-            margin-left: 17px;
-        }
-
-        .consonant-top-filters--clear-btn-wrapper {
-            left: 0;
-            right: auto;
-            margin-left: 0;
-            margin-right: 0;
-
-            &:empty {
-                margin-left: 0;
-                margin-right: -16px;
+        /* Top filters panel */
+        &-TopFilters {
+            &-filters {
+                margin-right: 0;
+                margin-left: 17px;
             }
 
-            &:after {
+            &-clearBtnWrapper {
+                left: 0;
                 right: auto;
-                left: 100%;
-                transform: scale(-1);
+                margin-left: 0;
+                margin-right: 0;
+
+                &:empty {
+                    margin-left: 0;
+                    margin-right: -16px;
+                }
+
+                &:after {
+                    right: auto;
+                    left: 100%;
+                    transform: scale(-1);
+                }
+            }
+
+            &-clearBtn {
+                text-align: right;
+            }
+
+            &-selectWrapper {
+                margin-right: 0;
+                margin-left: 8px;
             }
         }
 
-        .consonant-top-filters--clear-btn {
-            text-align: right;
-        }
-
-        .consonant-top-filters--select-wrapper {
+        /* Top filter */
+        &-TopFilter {
             margin-right: 0;
             margin-left: 8px;
-        }
-    }
 
-    /* Top filter */
-    .consonant-top-filter {
-        margin-right: 0;
-        margin-left: 8px;
-
-        &:last-of-type {
-            margin-left: 0;
-        }
-
-        .consonant-top-filter--items-item-checkmark {
-            margin-right: 0;
-            margin-left: 10px;
-        }
-
-        .consonant-top-filter--items-item-name,
-        .consonant-top-filter--footer-clear-btn,
-        .consonant-top-filter--footer-res-qty,
-        .consonant-top-filter--link {
-            text-align: right;
-        }
-
-        .consonant-top-filter--selcted-items-qty {
-            margin-right: 9px;
-            margin-left: 0;
-            text-align: right;
-
-            &:after {
-                left: auto;
-                right: 0;
+            &:last-of-type {
+                margin-left: 0;
             }
-        }
 
-        .consonant-top-filter--footer-res-qty {
-            margin-right: 0;
-            margin-left: auto;
-        }
+            &-itemCheckmark {
+                margin-right: 0;
+                margin-left: 10px;
+            }
 
-        .consonant-top-filter--footer-btn {
-            margin-left: 0;
-            margin-right: 0;
+            &-itemsItemName,
+            &-footerClearBtn,
+            &-footerResQty,
+            &-link {
+                text-align: right;
+            }
 
-            &:only-child {
+            &-selctedItemsQty {
+                margin-right: 9px;
+                margin-left: 0;
+                text-align: right;
+
+                &:after {
+                    left: auto;
+                    right: 0;
+                }
+            }
+
+            &-footerResQty {
+                margin-right: 0;
+                margin-left: auto;
+            }
+
+            &-footerBtn {
+                margin-left: 0;
+                margin-right: 0;
+
+                &:only-child {
+                    margin-right: auto;
+                }
+            }
+
+            &-footerClearBtn {
                 margin-right: auto;
+                margin-left: 17px;
             }
-        }
 
-        .consonant-top-filter--footer-clear-btn {
-            margin-right: auto;
-            margin-left: 17px;
-        }
-
-        &.consonant-top-filter_selected {
-            :not(.consonant-top-filter_opened) .consonant-top-filter--link {
+            &.is-selected:not(.is-opened) .consonant-TopFilter-link {
                 padding-left: 0;
                 padding-right: 12px;
             }
-        }
 
-        &.consonant-top-filter_opened {
-            .consonant-top-filter--link {
+            &.is-opened .consonant-TopFilter-link {
                 padding-right: 20px;
                 padding-left: 12px;
                 text-align: right;
             }
         }
-    }
 
-    /* Sort select */
-    .consonant-select {
-        &:after {
-            right: auto;
-            left: 12px;
-        }
-
-        .consonant-select--btn {
-            padding-left: 34px;
-            padding-right: 12px;
-            text-align: right;
-        }
-
-        .consonant-select--options {
-            left: 0;
-            right: auto;
-
-            &.consonant-select--options_left {
-                right: 0;
-                left: auto;
+        /* Sort select */
+        &-Select {
+            &:after {
+                right: auto;
+                left: 12px;
             }
-        }
 
-        .consonant-select--option {
-            text-align: right;
-            padding-left: 30px;
-            padding-right: 20px;
-
-            &.consonant-select--option_selected {
+            &-btn {
+                padding-left: 34px;
+                padding-right: 12px;
                 text-align: right;
             }
 
-            &.consonant-select--option_selected:after {
+            &-options {
+                left: 0;
                 right: auto;
-                left: 12px;
+
+                &--left {
+                    right: 0;
+                    left: auto;
+                }
+            }
+
+            &-option {
+                text-align: right;
+                padding-left: 30px;
+                padding-right: 20px;
+
+                &.is-selected {
+                    text-align: right;
+
+                    &:after {
+                        right: auto;
+                        left: 12px;
+                    }
+                }
             }
         }
     }
