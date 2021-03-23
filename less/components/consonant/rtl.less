@@ -39,8 +39,12 @@
                 transform: scale(-1);
             }
 
-            &-mobileFooterBtn {
+            &-mobileFooter {
                 flex-direction: row-reverse;
+            }
+
+            &-mobileFooterTotalResQty {
+                margin-right: auto;
             }
 
             &-clearLink,
@@ -85,6 +89,14 @@
                     left: 0;
                     right: auto;
                 }
+            }
+
+            &-footer {
+                flex-direction: row-reverse;
+            }
+
+            &-footerClearBtn {
+                margin-left: auto;
             }
 
             &.is-opened .consonant-LeftFilter-name {
@@ -229,330 +241,340 @@
                 }
             }
         }
-    }
 
-    /* Search */
-    .consonant-search {
-        input {
-            text-align: right;
-
-            &:focus {
-                padding-right: 8px;
-            }
-        }
-
-        .consonant-search--input-title {
-            text-align: right;
-        }
-
-        .consonant-search--input-clear {
-            display: none;
-        }
-    }
-
-    /* Cards */
-    .consonant-aspect-ratio-3-2-card .consonant-aspect-ratio-3-2-card--title,
-    .consonant-aspect-ratio-3-2-card .consonant-aspect-ratio-3-2-card--label,
-    .consonant-aspect-ratio-3-2-card .consonant-aspect-ratio-3-2-card--text,
-    .consonant-aspect-ratio-3-2-card .consonant-aspect-ratio-3-2-card--banner,
-    .consonant-aspect-ratio-3-2-card .consonant-aspect-ratio-3-2-card--badge,
-    .consonant-aspect-ratio-1-1-card .consonant-aspect-ratio-1-1-card--label,
-    .consonant-aspect-ratio-1-1-card .consonant-aspect-ratio-1-1-card--title,
-    .consonant-aspect-ratio-1-1-card .consonant-aspect-ratio-1-1-card--banner,
-    .consonant-aspect-ratio-1-1-card .consonant-aspect-ratio-1-1-card--badge,
-    .consonant-full-card .consonant-full-card--label,
-    .consonant-full-card .consonant-full-card--title,
-    .consonant-full-card .consonant-full-card--banner,
-    .consonant-full-card .consonant-full-card--badge {
-        text-align: right;
-    }
-
-    .consonant-aspect-ratio-3-2-card .consonant-aspect-ratio-3-2-card--video-ico,
-    .consonant-aspect-ratio-1-1-card .consonant-aspect-ratio-1-1-card--video-ico,
-    .consonant-full-card .consonant-full-card--video-ico {
-        transform: rotate(180deg);
-
-        &:hover {
-            transform: rotate(180deg) scale(1.1);
-        }
-    }
-
-    .consonant-aspect-ratio-1-1-card .consonant-aspect-ratio-1-1-card--banner,
-    .consonant-aspect-ratio-3-2-card .consonant-aspect-ratio-3-2-card--banner,
-    .consonant-full-card .consonant-full-card--banner {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-    }
-
-    .consonant-aspect-ratio-1-1-card .consonant-aspect-ratio-1-1-card--banner-icon-wrapper,
-    .consonant-aspect-ratio-3-2-card .consonant-aspect-ratio-3-2-card--banner-icon-wrapper,
-    .consonant-full-card .consonant-full-card--banner-icon-wrapper {
-        margin-left: 4px;
-        margin-right: 0;
-    }
-
-    /* Infobits */
-    .consonant-card-footer--cell {
-        &.consonant-card-footer--cell_left > *:first-child,
-        &.consonant-card-footer--cell_left > *:last-child {
-            margin-left: 16px;
-        }
-
-        &.consonant-card-footer--cell_left:last-child > *:last-child,
-        &.consonant-card-footer--cell_right:last-child > *:last-child {
-            margin-left: 0;
-        }
-    }
-
-    .consonant-date-interval-infobit,
-    .consonant-icon-with-text-infobit--text,
-    .consonant-link-with-ico-infobit span,
-    .consonant-link-infobit,
-    .consonant-price-infobit--price,
-    .consonant-price-infobit--term,
-    .consonant-progress-infobit--text,
-    .consonant-rating-infobit--text,
-    .consonant-text-infobit {
-        text-align: right;
-    }
-
-    .consonant-icon-with-text-infobit img {
-        margin-right: 0;
-        margin-left: 4px;
-    }
-
-    img + .consonant-text-infobit {
-        margin-right: -12px;
-    }
-
-    .consonant-rating-infobit--text {
-        margin-left: 0;
-        margin-right: 7px;
-    }
-
-    .consonant-progress-infobit--text:not(:last-child) {
-        padding-right: 0;
-        padding-left: 8px;
-    }
-
-    /* Button */
-    .consonant-btn-infobit {
-        .consonant-btn-infobit--ico {
-            width: auto;
-            height: auto;
-            max-width: @consonant-btn-infobit-ico-max-width;
-            max-height: @consonant-btn-infobit-ico-max-height;
-            margin-left: 8px;
-            overflow: hidden;
-            object-fit: cover;
-
-            &.consonant-btn-infobit--ico_last {
-                margin-left: 0;
-                margin-right: 8px;
-            }
-        }
-    }
-
-    /* Bookmarks */
-    .bookmarks {
-        .bookmarks--title {
-            padding-left: 55px;
-            padding-right: 0;
-            text-align: right;
-        }
-
-        .bookmarks--item-badge {
-            left: 16px;
-            right: auto;
-        }
-
-        .bookmarks--ico-wrapper .bookmarks--ico {
-            margin-left: 6px;
-            margin-right: 0;
-        }
-    }
-
-    /* Pagination */
-    .consonant-pagination {
-        .consonant-pagination--summary {
-            text-align: right;
-        }
-
-        .consonant-pagination--btn {
-            text-align: right;
-        }
-    }
-
-    /* Card collection */
-    .consonant-card-collection .consonant-card-collection--inner {
-        margin-left: @consonant-card-margin-right * -1;
-        margin-right: 0;
-    }
-
-    .consonant-card-collection .consonant-card-collection--inner > div {
-        margin-left: @consonant-card-margin-right;
-        margin-right: 0;
-    }
-
-    @media @consonant-tablet-up {
-        /* Top filters panel */
-        .consonant-top-filters {
-            .consonant-top-filters--filters-wrapper {
-                margin-right: 0;
-                margin-left: 16px;
-            }
-
-            .consonant-top-filters--select-wrapper {
-                margin-left: 0;
-                margin-right: 8px;
-            }
-
-            .consonant-top-filters--title {
-                text-align: right;
-                margin-left: 12px;
-                margin-right: 0;
-            }
-
-            .consonant-top-filters--filters {
-                &.consonant-top-filters--filters_truncated {
-                    .consonant-top-filters--more-btn {
-                        margin-left: 23px;
-                        margin-right: 0;
-                    }
-                }
-            }
-
-            .consonant-top-filters--res-qty {
+        /* Search */
+        &-Search {
+            input {
                 text-align: right;
 
-                &:after {
-                    right: auto;
-                    left: 0;
-                }
-            }
-
-            .consonant-top-filters--res-qty strong {
-                text-align: right;
-            }
-
-            .consonant-top-filters--search-ico-wrapper > div {
-                left: 20px;
-                right: auto;
-            }
-        }
-
-        /* Top filter */
-        .consonant-top-filter {
-            &.consonant-top-filter_opened {
-                margin-left: 8px;
-                margin-right: 0;
-
-                &:last-child {
-                    margin-left: 0;
-                }
-
-                .consonant-top-filter--link {
-                    margin-right: 0;
-                    padding-right: 17px;
-                }
-            }
-        }
-    }
-
-    @media @consonant-desktop-up {
-        /* Left filters panel */
-        .consonant-left-filters {
-            margin-right: 0;
-            margin-left: 32px;
-        }
-
-        /* Top filters panel */
-        .consonant-top-filters {
-            .consonant-top-filters--res-qty {
-                margin-left: 0;
-                margin-right: auto;
-            }
-
-            .consonant-top-filters--select-wrapper > div:first-child:after {
-                right: auto;
-                left: 12px;
-            }
-        }
-
-        /* Filters info */
-        .consonant-filters-info {
-            .consonant-filters-info--wrapper {
-                padding-right: 0;
-                padding-left: 32px;
-
-                &:after {
-                    right: auto;
-                    left: 16px;
-                }
-            }
-
-            .consonant-filters-info--search + .consonant-filters-info--wrapper:last-child {
-                padding-left: 0;
-            }
-
-            .consonant-filters-info--results {
-                text-align: left;
-            }
-        }
-
-        /* Left filter */
-        .consonant-left-filter {
-            &:after {
-                transform: scale(-1) rotate(135deg);
-            }
-
-            .consonant-left-filter--link {
-                padding-right: 6px;
-            }
-
-            .consonant-left-filter--item-badge {
-                left: 32px;
-                right: auto;
-            }
-
-            &.consonant-left-filter_opened {
-                .consonant-left-filter--name {
-                    padding-right: 0;
-                }
-
-                .consonant-left-filter--link {
+                &:focus {
                     padding-right: 8px;
                 }
             }
-        }
 
-        /* Top filter */
-        .consonant-top-filter {
-            .consonant-top-filter--absolute-wrapper {
-                left: auto;
-                right: 0;
+            &-inputTitle {
+                text-align: right;
+            }
+
+            &-inputClear {
+                display: none;
             }
         }
 
-        /* Chosen filter */
-        .consonant-chosen-filter {
-            margin-right: 0;
-            margin-left: 7px;
-            padding-left: 17px;
-            padding-right: 8px;
+        /* Cards */
+        &-AspectRatio3To2Card .consonant-AspectRatio3To2Card-title,
+        &-AspectRatio3To2Card .consonant-AspectRatio3To2Card-label,
+        &-AspectRatio3To2Card .consonant-AspectRatio3To2Card-text,
+        &-AspectRatio3To2Card .consonant-AspectRatio3To2Card-banner,
+        &-AspectRatio3To2Card .consonant-AspectRatio3To2Card-badge,
+        &-AspectRatio1To1Card .consonant-AspectRatio1To1Card-label,
+        &-AspectRatio1To1Card .consonant-AspectRatio1To1Card-title,
+        &-AspectRatio1To1Card .consonant-AspectRatio1To1Card-banner,
+        &-AspectRatio1To1Card .consonant-AspectRatio1To1Card-badge,
+        &-FullCard .consonant-FullCard-label,
+        &-FullCard .consonant-FullCard-title,
+        &-FullCard .consonant-FullCard-banner,
+        &-FullCard .consonant-FullCard-badge {
             text-align: right;
+        }
 
-            &:before,
-            &:after {
-                left: 8px;
-                right: auto;
+        &-AspectRatio3To2Card .consonant-AspectRatio3To2Card-videoIco,
+        &-AspectRatio1To1Card .consonant-AspectRatio1To1Card-videoIco,
+        &-FullCard .consonant-FullCard-videoIco {
+            transform: rotate(180deg);
+
+            &:hover {
+                transform: rotate(180deg) scale(1.1);
+            }
+        }
+
+        &-AspectRatio1To1Card .consonant-AspectRatio1To1Card-banner,
+        &-AspectRatio3To2Card .consonant-AspectRatio3To2Card-banner,
+        &-FullCard .consonant-FullCard-banner {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        &-AspectRatio1To1Card .consonant-AspectRatio1To1Card-bannerIconWrapper,
+        &-AspectRatio3To2Card .consonant-AspectRatio3To2Card-bannerIconWrapper,
+        &-FullCard .consonant-FullCard-bannerIconWrapper {
+            margin-left: 4px;
+            margin-right: 0;
+        }
+
+        /* Infobits */
+        &-CardFooter-cell {
+            &--left > *:first-child,
+            &--left > *:last-child {
+                margin-left: 16px;
+            }
+
+            &--left:last-child > *:last-child,
+            &--right:last-child > *:last-child {
+                margin-left: 0;
+            }
+        }
+
+        &-DateIntervalInfobit,
+        &-IconWithTextInfobit-text,
+        &-LinkWithIcoInfobit span,
+        &-LinkInfobit,
+        &-PriceInfobit-price,
+        &-PriceInfobit-term,
+        &-ProgressInfobit-text,
+        &-RatingInfobit-text,
+        &-TextInfobit {
+            text-align: right;
+        }
+
+        &-IconWithTextInfobit img {
+            margin-right: 0;
+            margin-left: 4px;
+        }
+
+        img + .consonant-TextInfobit {
+            margin-right: -12px;
+        }
+
+        &-RatingInfobit-text {
+            margin-left: 0;
+            margin-right: 7px;
+        }
+
+        &-ProgressInfobit-text:not(:last-child) {
+            padding-right: 0;
+            padding-left: 8px;
+        }
+
+        /* Button */
+        &-BtnInfobit {
+            &-ico {
+                width: auto;
+                height: auto;
+                max-width: @consonant-btn-infobit-ico-max-width;
+                max-height: @consonant-btn-infobit-ico-max-height;
+                margin-left: 8px;
+                overflow: hidden;
+                object-fit: cover;
+
+                &--last {
+                    margin-left: 0;
+                    margin-right: 8px;
+                }
             }
         }
 
         /* Bookmarks */
-        .bookmarks .bookmarks--item-badge {
-            left: 30px;
+        &-Bookmarks {
+            &-title {
+                padding-left: 55px;
+                padding-right: 0;
+                text-align: right;
+            }
+
+            &-itemBadge {
+                left: 16px;
+                right: auto;
+            }
+
+            &-icoWrapper .consonant-Bookmarks-ico {
+                margin-left: 6px;
+                margin-right: 0;
+            }
+        }
+
+        /* Pagination */
+        &-Pagination {
+            &-summary {
+                text-align: right;
+            }
+
+            &-btn {
+                text-align: right;
+            }
+        }
+
+        /* Card collection */
+        &-CardCollection {
+            &-inner {
+                margin-left: @consonant-card-margin-right * -1;
+                margin-right: 0;
+
+                > div {
+                    margin-left: @consonant-card-margin-right;
+                    margin-right: 0;
+                }
+            }
+        }
+
+        @media @consonant-tablet-up {
+            /* Top filters panel */
+            &-TopFilters {
+                &-filtersWrapper {
+                    margin-right: 0;
+                    margin-left: 16px;
+                }
+
+                &-selectWrapper {
+                    margin-left: 0;
+                    margin-right: 8px;
+                }
+
+                &-title {
+                    text-align: right;
+                    margin-left: 12px;
+                    margin-right: 0;
+                }
+
+                &-filters {
+                    &--truncated .consonant-TopFilters-moreBtn {
+                        margin-left: 23px;
+                        margin-right: 0;
+                    }
+                }
+
+                &-results {
+                    margin-left: auto;
+                    margin-right: auto;
+                    text-align: right;
+
+                    &:after {
+                        right: auto;
+                        left: 0;
+                    }
+
+                    strong {
+                        text-align: right;
+                    }
+                }
+
+                &-searchIcoWrapper {
+                    margin-left: 0;
+                    margin-right: auto;
+
+                    > div {
+                        left: 0;
+                        right: auto;
+                    }
+                }
+            }
+
+            /* Top filter */
+            &-TopFilter {
+                &.is-opened {
+                    margin-left: 8px;
+                    margin-right: 0;
+
+                    &:last-child {
+                        margin-left: 0;
+                    }
+
+                    .consonant-TopFilter-link {
+                        margin-right: 0;
+                        padding-right: 17px;
+                    }
+                }
+            }
+        }
+
+        @media @consonant-desktop-up {
+            /* Left filters panel */
+            &-LeftFilters {
+                margin-right: 0;
+                margin-left: 32px;
+            }
+
+            /* Top filters panel */
+            &-TopFilters {
+                &-results {
+                    margin-left: 0;
+                    margin-right: auto;
+                }
+
+                &-selectWrapper > div:first-child:after {
+                    right: auto;
+                    left: 12px;
+                }
+            }
+
+            /* Filters info */
+            &-FiltersInfo {
+                &-wrapper {
+                    padding-right: 0;
+                    padding-left: 32px;
+
+                    &:after {
+                        right: auto;
+                        left: 16px;
+                    }
+                }
+
+                &-search + .consonant-FiltersInfo-wrapper:last-child {
+                    padding-left: 0;
+                }
+
+                &-results {
+                    text-align: left;
+                }
+            }
+
+            /* Left filter */
+            &-LeftFilter {
+                &:after {
+                    transform: scale(-1) rotate(135deg);
+                }
+
+                &-link {
+                    padding-right: 6px;
+                }
+
+                &-itemBadge {
+                    left: 32px;
+                    right: auto;
+                }
+
+                &.is-opened .consonant-LeftFilter-name {
+                    padding-right: 0;
+                }
+
+                &.is-opened .consonant-LeftFilter-link {
+                    padding-right: 8px;
+                }
+            }
+
+            /* Top filter */
+            &-TopFilter .consonant-TopFilter-absoluteWrapper {
+                left: auto;
+                right: 0;
+            }
+
+            /* Chosen filter */
+            &-ChosenFilter {
+                margin-right: 0;
+                margin-left: 7px;
+                padding-left: 17px;
+                padding-right: 8px;
+                text-align: right;
+
+                &:before,
+                &:after {
+                    left: 8px;
+                    right: auto;
+                }
+            }
+
+            /* Bookmarks */
+            &-Bookmarks .consonant-Bookmarks-itemBadge {
+                left: 30px;
+            }
+
+            /* Select */
+            &-Select {
+                &-btn {
+                    padding-right: 0;
+                }
+            }
         }
     }
 }

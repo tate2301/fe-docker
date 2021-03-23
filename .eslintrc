@@ -51,5 +51,6 @@
     "indent": ["error", 4, {"SwitchCase": 1}],
     "class-methods-use-this": "off",
     "no-param-reassign": ["error", { "props": false }],
+    "linebreak-style": ["off", "windows"],
   }
 }
