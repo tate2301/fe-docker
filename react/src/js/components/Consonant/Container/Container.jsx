@@ -10,6 +10,7 @@ import Popup from '../Sort/Popup';
 import Search from '../Search/Search';
 import Loader from '../Loader/Loader';
 import {
+    qs,
     getByPath,
     saveBookmarksToLocalStorage,
     readBookmarksFromLocalStorage,
@@ -104,6 +105,7 @@ const Container = (props) => {
     const sortOptions = getConfig('sort', 'options');
     const defaultSortOption = getDefaultSortOption(config, getConfig('sort', 'defaultSort'));
     const featuredCards = getConfig('featuredCards', '');
+    const featuredCardUrls = getConfig('featuredCardUrls', '');
     const leftPanelSearchPlaceholder = getConfig('search', 'i18n.leftFilterPanel.searchPlaceholderText');
     const topPanelSearchPlaceholder = getConfig('search', 'i18n.topFilterPanel.searchPlaceholderText');
     const searchPlaceholderText = getConfig('search', 'i18n.filterInfo.searchPlaceholderText');
@@ -428,6 +430,7 @@ const Container = (props) => {
         const { label } = items.find(({ id }) => id === itemId);
 
         const urlStateValue = urlState[group] || [];
+
         const value = isChecked
             ? [...urlStateValue, label]
             : urlStateValue.filter(item => item !== label);
@@ -570,7 +573,15 @@ const Container = (props) => {
     */
     useEffect(() => {
         setLoading(true);
-        window.fetch(collectionEndpoint)
+        let query;
+
+        if (featuredCardUrls) {
+            query = qs.stringify({ f: featuredCardUrls.split(',') });
+        }
+
+        const url = qs.concat(collectionEndpoint, query);
+
+        window.fetch(url)
             .then(resp => resp.json())
             .then((payload) => {
                 setLoading(false);

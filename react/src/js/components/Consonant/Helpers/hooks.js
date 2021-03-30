@@ -134,7 +134,7 @@ export const useURLState = () => {
 
     const [urlState, setUrlState] = useState(qs.parse(search));
 
-    const handleSetQuery = useCallback((key, value) => {
+    const handleSetQuery = (key, value) => {
         setUrlState((origin) => {
             if (!value || (Array.isArray(value) && !value.length)) {
                 const cloneOrigin = { ...origin };
@@ -145,11 +145,11 @@ export const useURLState = () => {
 
             return { ...origin, [key]: value };
         });
-    }, []);
+    };
 
-    const handleClearQuery = useCallback(() => {
+    const handleClearQuery = () => {
         setUrlState({});
-    }, []);
+    };
 
     useEffect(() => {
         const searchString = qs.stringify(urlState, { array: 'comma' });
