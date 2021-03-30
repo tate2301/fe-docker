@@ -298,6 +298,7 @@
         }
     },
     "bookmarks": {
+        "showOnCards": "false",
         "leftFilterPanel": {
             "bookmarkOnlyCollection": false,
             "showBookmarksFilter": true,

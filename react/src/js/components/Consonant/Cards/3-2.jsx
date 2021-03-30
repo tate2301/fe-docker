@@ -114,6 +114,7 @@ const AspectRatio3to2Card = (props) => {
      */
     const i18nFormat = getConfig('collection', 'i18n.prettyDateIntervalFormat');
     const locale = getConfig('language', '');
+    const showOnCards = getConfig('bookmarks', 'showOnCards');
 
     /**
      * Creates a card image DOM reference
@@ -152,24 +153,29 @@ const AspectRatio3to2Card = (props) => {
     function extendFooterData(data) {
         if (!data) return [];
 
-        return data.map((infobit) => {
+        return data.reduce((accumulator, infobit) => {
             if (infobit.type === INFOBIT_TYPE.BOOKMARK) {
-                return {
-                    ...infobit,
-                    cardId: id,
-                    disableBookmarkIco,
-                    isBookmarked,
-                    onClick,
-                };
+                if (showOnCards) {
+                    accumulator.push({
+                        ...infobit,
+                        cardId: id,
+                        disableBookmarkIco,
+                        isBookmarked,
+                        onClick,
+                    });
+                }
             } else if (infobit.type === INFOBIT_TYPE.DATE) {
-                return {
+                accumulator.push({
                     ...infobit,
                     dateFormat,
                     locale,
-                };
+                });
+            } else {
+                accumulator.push({ ...infobit });
             }
-            return infobit;
-        });
+
+            return accumulator;
+        }, []);
     }
 
     return (
