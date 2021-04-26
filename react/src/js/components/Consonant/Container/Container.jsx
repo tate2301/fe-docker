@@ -24,7 +24,6 @@ import CardFilterer from '../Helpers/CardFilterer';
 import FiltersPanelTop from '../Filters/Top/Panel';
 import LeftFilterPanel from '../Filters/Left/Panel';
 import JsonProcessor from '../Helpers/JsonProcessor';
-import { parseConfig } from '../Helpers/decorators';
 import { Info as LeftInfo } from '../Filters/Left/Info';
 import { useWindowDimensions, useURLState } from '../Helpers/hooks';
 import {
@@ -890,4 +889,4 @@ Container.defaultProps = {
     config: {},
 };
 
-export default parseConfig(Container);
+export default Container;
