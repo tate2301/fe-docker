@@ -1,0 +1,83 @@
+/* Available modifiers:
+- .consonant-Grid--alignCenter;
+- .consonant-Grid--alignRight;
+- .consonant-Grid--alignMiddle;
+- .consonant-Grid--alignBottom;
+- .consonant-Grid--fill;
+- .consonant-Grid--fit;
+- .consonant-Grid--equalHeight;
+- .consonant-Grid--withGutter;
+- .consonant-Grid--small;
+- .consonant-Grid--medium;
+- .consonant-Grid--large;
+- .consonant-Grid--xLarge;
+*/
+
+.consonant {
+    &-Grid {
+        box-sizing: border-box;
+        display: flex;
+        flex-flow: row wrap;
+        margin: 0;
+        padding: 0;
+
+        > * {
+            box-sizing: inherit;
+            flex-basis: 100%;
+            min-width: 0;
+        }
+
+        /* Related to modifiers */
+        &--alignCenter {
+            justify-content: center;
+        }
+
+        &--alignRight {
+            justify-content: flex-end;
+        }
+
+        &--alignMiddle {
+            align-items: center;
+        }
+
+        &--alignBottom {
+            align-items: flex-end;
+        }
+
+        &--fill > * {
+            flex: 1 1 0%;
+        }
+
+        &--fit > * {
+            flex-basis: auto;
+        }
+
+        &--equalHeight > * {
+            display: flex;
+        }
+
+        &--withGutter {
+            margin: 0 calc(-0.5 * @consonant-grid-gutter-size);
+        }
+
+        &--withGutter > * {
+            padding: 0 calc(0.5 * @consonant-grid-gutter-size);
+        }
+
+        &--small > * {
+            flex-basis: 50%;
+        }
+
+        &--medium > * {
+            flex-basis: 33.333%;
+        }
+
+        &--large > * {
+            flex-basis: 25%;
+        }
+
+        &--xLarge > * {
+            flex-basis: 20%;
+        }
+    }
+}
