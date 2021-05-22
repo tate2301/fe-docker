@@ -1,0 +1,109 @@
+/* Available modificators:
+- consonant-DoubleWideCard--contentTop;
+*/
+
+.consonant {
+    &-DoubleWideCard {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        min-width: @consonant-card-double-wide-min-width;
+        max-width: @consonant-card-double-wide-max-width;
+        min-height: @consonant-card-height;
+        max-height: @consonant-card-height;
+
+        .no-font;
+
+        border: 1px solid @consonant-color-lightest-grey;
+        border-radius: 4px;
+        overflow: hidden;
+
+        &-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: @consonant-card-double-wide-img-height;
+            background-position: 50% 0;
+            background-size: cover;
+            z-index: -1;
+        }
+
+        &-footer {
+            display: flex;
+            flex-direction: column;
+            padding: 16px 16px 30px;
+            text-decoration: none;
+            background-color: @consonant-color-white;
+            transition: background-color @transition-time @transition-func;
+        }
+
+        &-title {
+            margin: 0 0 5px;
+            padding: 0;
+
+            .font(1.125rem, 1.375rem, 700, @consonant-color-dark-grey-2);
+            .line-clamp(1);
+
+            transition: color @transition-time @transition-func;
+
+            :only-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &-label {
+            display: block;
+            margin-bottom: 8px;
+
+            .font(0.875rem, 1.3125rem, 400, @consonant-color-light-grey-3);
+            .line-clamp(1);
+
+            transition: color @transition-time @transition-func;
+
+            :only-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &-text {
+            .no-margin;
+
+            padding: 0;
+
+            .font(0.875rem, 1.3125rem, 400, @consonant-color-light-grey-3);
+            .line-clamp(2);
+
+            transition: color @transition-time @transition-func;
+        }
+
+        &--contentTop {
+            flex-direction: column-reverse;
+        }
+
+        &--contentTop &-img {
+            height: auto;
+            bottom: 0;
+        }
+
+        &--contentTop &-footer {
+            background-color: transparent;
+        }
+    }
+}
+
+/* Dark mode theming */
+.consonant-u-darkMode {
+    .consonant-DoubleWideCard:not(.consonant-DoubleWideCard--contentTop) {
+        .consonant-DoubleWideCard-footer {
+            background-color: @consonant-color-dark-grey-8;
+        }
+
+        .consonant-DoubleWideCard-label,
+        .consonant-DoubleWideCard-title,
+        .consonant-DoubleWideCard-text {
+            color: @consonant-color-white;
+        }
+    }
+}
