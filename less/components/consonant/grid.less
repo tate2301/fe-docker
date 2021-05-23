@@ -7,10 +7,14 @@
 - .consonant-Grid--fit;
 - .consonant-Grid--equalHeight;
 - .consonant-Grid--withGutter;
+- .consonant-Grid--withGutter2x;
+- .consonant-Grid--withGutter3x;
+- .consonant-Grid--withGutter4x;
 - .consonant-Grid--small;
 - .consonant-Grid--medium;
 - .consonant-Grid--large;
 - .consonant-Grid--xLarge;
+- .consonant-Grid--resizeCards;
 */
 
 .consonant {
@@ -25,12 +29,10 @@
             box-sizing: inherit;
             flex-basis: 100%;
             min-width: 0;
-
-            /* Temporary, @TODO remove */
-            margin-bottom: 32px;
         }
 
         /* Related to modifiers */
+
         &--alignCenter {
             justify-content: center;
         }
@@ -59,28 +61,62 @@
             display: flex;
         }
 
-        &--withGutter {
-            margin: 0 calc(-0.5 * @consonant-grid-gutter-size);
+        /* No gutter applied */
+
+        .generate-no-gutters-flex-basis(1);
+
+        /* Generate gutters logic */
+
+        .generate-grid-columns-with-gutters(@consonant-grid-gutter-qty);
+
+        /* Resize cards for grid with more than 4 items in a row */
+
+        &--resizeCards&--large > * {
+            min-width: @consonant-card-grid-4x-min-width;
+            max-width: @consonant-card-grid-4x-max-width;
+            min-height: @consonant-card-grid-4x-height;
+
+            &.consonant-AspectRatio1To1Card .consonant-AspectRatio1To1Card-img {
+                min-height: @consonant-card-grid-4x-img-1-1-height;
+            }
+
+            &.consonant-AspectRatio3To2Card .consonant-AspectRatio3To2Card-img {
+                min-height: @consonant-card-grid-4x-img-3-2-height;
+            }
+
+            &.consonant-HalfHeightCard {
+                min-height: @consonant-card-grid-4x-half-height;
+                max-height: @consonant-card-grid-4x-half-height;
+            }
+
+            &.consonant-DoubleWideCard {
+                min-width: @consonant-card-double-wide-max-width;
+                max-width: @consonant-card-double-wide-max-width;
+            }
         }
 
-        &--withGutter > * {
-            padding: 0 calc(0.5 * @consonant-grid-gutter-size);
-        }
+        &--resizeCards&--xLarge > * {
+            min-width: @consonant-card-grid-5x-min-width;
+            max-width: @consonant-card-grid-5x-max-width;
+            min-height: @consonant-card-grid-5x-height;
 
-        &--small > * {
-            flex-basis: 50%;
-        }
+            &.consonant-AspectRatio1To1Card .consonant-AspectRatio1To1Card-img {
+                min-height: @consonant-card-grid-5x-img-1-1-height;
+            }
 
-        &--medium > * {
-            flex-basis: 33.333%;
-        }
+            &.consonant-AspectRatio3To2Card .consonant-AspectRatio3To2Card-img {
+                min-height: @consonant-card-grid-5x-img-3-2-height;
+            }
 
-        &--large > * {
-            flex-basis: 25%;
-        }
+            &.consonant-HalfHeightCard {
+                min-height: @consonant-card-grid-5x-half-height;
+                max-height: @consonant-card-grid-5x-half-height;
+            }
 
-        &--xLarge > * {
-            flex-basis: 20%;
+            &.consonant-DoubleWideCard {
+                min-width: @consonant-card-double-wide-max-width;
+                max-width: @consonant-card-double-wide-max-width;
+            }
         }
     }
 }
