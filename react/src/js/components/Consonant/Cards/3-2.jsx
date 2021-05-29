@@ -175,25 +175,25 @@ const AspectRatio3to2Card = (props) => {
     return (
         <div
             daa-lh={lh}
-            className="consonant-AspectRatio3To2Card"
+            className="consonant-OneHalfCard"
             data-testid="consonant-card-3-2"
             id={id}>
             <div
                 data-testid="consonant-card--img"
-                className="consonant-AspectRatio3To2Card-img"
+                className="consonant-OneHalfCard-img"
                 ref={imageRef}
                 style={{ backgroundImage: `url("${lazyLoadedImage}")` }}>
                 {bannerDescription && bannerFontColor && bannerBackgroundColor &&
                     <span
                         data-testid="consonant-card--banner"
-                        className="consonant-AspectRatio3To2Card-banner"
+                        className="consonant-OneHalfCard-banner"
                         style={({
                             backgroundColor: bannerBackgroundColor,
                             color: bannerFontColor,
                         })}>
                         {bannerIcon &&
                             <div
-                                className="consonant-AspectRatio3To2Card-bannerIconWrapper">
+                                className="consonant-OneHalfCard-bannerIconWrapper">
                                 <img
                                     alt=""
                                     loading="lazy"
@@ -206,18 +206,18 @@ const AspectRatio3to2Card = (props) => {
                 }
                 {badgeText &&
                     <span
-                        className="consonant-AspectRatio3To2Card-badge">
+                        className="consonant-OneHalfCard-badge">
                         {badgeText}
                     </span>
                 }
-                {videoURL && <VideoButton videoURL={videoURL} className="consonant-AspectRatio3To2Card-videoIco" /> }
+                {videoURL && <VideoButton videoURL={videoURL} className="consonant-OneHalfCard-videoIco" /> }
                 {logoSrc &&
                     <div
                         style={({
                             backgroundColor: logoBg,
                             borderColor: logoBorderBg,
                         })}
-                        className="consonant-AspectRatio3To2Card-logo">
+                        className="consonant-OneHalfCard-logo">
                         <img
                             src={logoSrc}
                             alt={logoAlt}
@@ -227,22 +227,22 @@ const AspectRatio3to2Card = (props) => {
                 }
             </div>
             <div
-                className="consonant-AspectRatio3To2Card-inner">
+                className="consonant-OneHalfCard-inner">
                 {detailText &&
                     <span
                         data-testid="3-2-card--label"
-                        className="consonant-AspectRatio3To2Card-label">
+                        className="consonant-OneHalfCard-label">
                         {detailText}
                     </span>
                 }
                 <h2
-                    className="consonant-AspectRatio3To2Card-title">
+                    className="consonant-OneHalfCard-title">
                     {title}
                 </h2>
                 {
                     description &&
                     <p
-                        className="consonant-AspectRatio3To2Card-text">
+                        className="consonant-OneHalfCard-text">
                         {description}
                     </p>
                 }

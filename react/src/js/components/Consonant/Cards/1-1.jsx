@@ -128,25 +128,25 @@ const AspectRatio1to1Card = (props) => {
     return (
         <div
             daa-lh={lh}
-            className="consonant-AspectRatio1To1Card"
+            className="consonant-ThreeFourthCard"
             data-testid="consonant-1-1-card"
             id={id}>
             <div
                 data-testid="consonant-card--img"
-                className="consonant-AspectRatio1To1Card-img"
+                className="consonant-ThreeFourthCard-img"
                 ref={imageRef}
                 style={{ backgroundImage: `url("${lazyLoadedImage}")` }}>
                 {bannerDescription && bannerFontColor && bannerBackgroundColor &&
                     <span
                         data-testid="consonant-card--banner"
-                        className="consonant-AspectRatio1To1Card-banner"
+                        className="consonant-ThreeFourthCard-banner"
                         style={({
                             backgroundColor: bannerBackgroundColor,
                             color: bannerFontColor,
                         })}>
                         {bannerIcon &&
                             <div
-                                className="consonant-AspectRatio1To1Card-bannerIconWrapper">
+                                className="consonant-ThreeFourthCard-bannerIconWrapper">
                                 <img
                                     alt=""
                                     loading="lazy"
@@ -159,18 +159,18 @@ const AspectRatio1to1Card = (props) => {
                 }
                 {badgeText &&
                     <span
-                        className="consonant-AspectRatio1To1Card-badge">
+                        className="consonant-ThreeFourthCard-badge">
                         {badgeText}
                     </span>
                 }
-                {videoURL && <VideoButton videoURL={videoURL} className="consonant-AspectRatio1To1Card-videoIco" /> }
+                {videoURL && <VideoButton videoURL={videoURL} className="consonant-ThreeFourthCard-videoIco" /> }
                 {logoSrc &&
                     <div
                         style={({
                             backgroundColor: logoBg,
                             borderColor: logoBorderBg,
                         })}
-                        className="consonant-AspectRatio1To1Card-logo">
+                        className="consonant-ThreeFourthCard-logo">
                         <img
                             src={logoSrc}
                             alt={logoAlt}
@@ -184,26 +184,26 @@ const AspectRatio1to1Card = (props) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Click to open in a new tab"
-                className="consonant-AspectRatio1To1Card-inner"
+                className="consonant-ThreeFourthCard-inner"
                 tabIndex="0">
                 {detailText &&
                     <span
                         data-testid="1-1-card--label"
-                        className="consonant-AspectRatio1To1Card-label">
+                        className="consonant-ThreeFourthCard-label">
                         {detailText}
                     </span>
                 }
                 {
                     title &&
                     <h2
-                        className="consonant-AspectRatio1To1Card-title">
+                        className="consonant-ThreeFourthCard-title">
                         {title}
                     </h2>
                 }
                 {
                     description &&
                     <p
-                        className="consonant-AspectRatio1To1Card-text">
+                        className="consonant-ThreeFourthCard-text">
                         {description}
                     </p>
                 }
