@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import Card from '../1-1';
+import Card from '../ThreeFourth';
 
 import { DEFAULT_PROPS_1_1 } from '../../Testing/Constants/Card';
 
