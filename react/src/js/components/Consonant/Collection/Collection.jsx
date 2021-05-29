@@ -10,8 +10,8 @@ import FullCard from '../Cards/Full';
 import { cardType } from '../types/card';
 import { getByPath } from '../Helpers/general';
 import { useConfig } from '../Helpers/hooks';
-import AspectRatio1to1Card from '../Cards/1-1';
-import AspectRatio3to2Card from '../Cards/3-2';
+import ThreeFourthCard from '../Cards/ThreeFourth';
+import OneHalfCard from '../Cards/OneHalf';
 import {
     CARD_STYLES,
     DEFAULT_SHOW_ITEMS_PER_PAGE,
@@ -118,14 +118,14 @@ const Collection = (props) => {
                         );
                     } else if (cardStyle === CARD_STYLES.SQUARE) {
                         return (
-                            <AspectRatio1to1Card
+                            <ThreeFourthCard
                                 lh={`Card ${index} | ${card.contentArea.title}`}
                                 key={card.id}
                                 {...card} />
                         );
                     }
                     return (
-                        <AspectRatio3to2Card
+                        <OneHalfCard
                             lh={`Card ${index} | ${card.contentArea.title}`}
                             key={card.id}
                             {...card}

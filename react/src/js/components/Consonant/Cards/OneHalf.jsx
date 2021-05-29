@@ -1,10 +1,16 @@
 import React from 'react';
+import cuid from 'cuid';
 import {
     string,
     shape,
+    bool,
+    func,
+    arrayOf,
 } from 'prop-types';
 
+import CardFooter from './CardFooter/CardFooter';
 import prettyFormatDate from '../Helpers/prettyFormat';
+import { INFOBIT_TYPE } from '../Helpers/constants';
 import {
     useConfig,
     useLazyLoading,
@@ -13,28 +19,36 @@ import {
     stylesType,
     contentAreaType,
     overlaysType,
+    footerType,
 } from '../types/card';
 import VideoButton from '../Modal/videoButton';
 
-const aspectRatio1to1CardType = {
-    ctaLink: string,
+const oneHalfCardType = {
+    isBookmarked: bool,
+    dateFormat: string,
     id: string.isRequired,
     lh: string,
     styles: shape(stylesType),
+    disableBookmarkIco: bool,
+    onClick: func.isRequired,
     overlays: shape(overlaysType),
+    footer: arrayOf(shape(footerType)),
     contentArea: shape(contentAreaType),
 };
 
 const defaultProps = {
+    footer: [],
     styles: {},
-    ctaLink: '',
     overlays: {},
+    dateFormat: '',
     contentArea: {},
     lh: '',
+    isBookmarked: false,
+    disableBookmarkIco: false,
 };
 
 /**
- * 1:1 aspect ratio card
+ * 1/2 image aspect ratio card
  *
  * @component
  * @example
@@ -46,25 +60,30 @@ const defaultProps = {
     overlays: Object,
  * }
  * return (
- *   <AspectRatio1to1Card {...props}/>
+ *   <OneHalfCard {...props}/>
  * )
  */
-const AspectRatio1to1Card = (props) => {
+const OneHalfCard = (props) => {
     const {
         id,
-        ctaLink,
+        footer,
         lh,
+        disableBookmarkIco,
+        isBookmarked,
+        onClick,
+        dateFormat,
         styles: {
             backgroundImage: image,
         },
         contentArea: {
             title,
-            description,
             detailText: label,
+            description,
             dateDetailText: {
                 startTime,
                 endTime,
             },
+
         },
         overlays: {
             banner: {
@@ -125,28 +144,56 @@ const AspectRatio1to1Card = (props) => {
      */
     const detailText = prettyDate || label;
 
+    /**
+     * Extends infobits with the configuration data
+     * @param {Array} data - Array of the infobits
+     * @return {Array} - Array of the infobits with the configuration data added
+     */
+    function extendFooterData(data) {
+        if (!data) return [];
+
+        return data.map((infobit) => {
+            if (infobit.type === INFOBIT_TYPE.BOOKMARK) {
+                return {
+                    ...infobit,
+                    cardId: id,
+                    disableBookmarkIco,
+                    isBookmarked,
+                    onClick,
+                };
+            } else if (infobit.type === INFOBIT_TYPE.DATE) {
+                return {
+                    ...infobit,
+                    dateFormat,
+                    locale,
+                };
+            }
+            return infobit;
+        });
+    }
+
     return (
         <div
             daa-lh={lh}
-            className="consonant-ThreeFourthCard"
-            data-testid="consonant-1-1-card"
+            className="consonant-OneHalfCard"
+            data-testid="consonant-card-3-2"
             id={id}>
             <div
                 data-testid="consonant-card--img"
-                className="consonant-ThreeFourthCard-img"
+                className="consonant-OneHalfCard-img"
                 ref={imageRef}
                 style={{ backgroundImage: `url("${lazyLoadedImage}")` }}>
                 {bannerDescription && bannerFontColor && bannerBackgroundColor &&
                     <span
                         data-testid="consonant-card--banner"
-                        className="consonant-ThreeFourthCard-banner"
+                        className="consonant-OneHalfCard-banner"
                         style={({
                             backgroundColor: bannerBackgroundColor,
                             color: bannerFontColor,
                         })}>
                         {bannerIcon &&
                             <div
-                                className="consonant-ThreeFourthCard-bannerIconWrapper">
+                                className="consonant-OneHalfCard-bannerIconWrapper">
                                 <img
                                     alt=""
                                     loading="lazy"
@@ -159,18 +206,18 @@ const AspectRatio1to1Card = (props) => {
                 }
                 {badgeText &&
                     <span
-                        className="consonant-ThreeFourthCard-badge">
+                        className="consonant-OneHalfCard-badge">
                         {badgeText}
                     </span>
                 }
-                {videoURL && <VideoButton videoURL={videoURL} className="consonant-ThreeFourthCard-videoIco" /> }
+                {videoURL && <VideoButton videoURL={videoURL} className="consonant-OneHalfCard-videoIco" /> }
                 {logoSrc &&
                     <div
                         style={({
                             backgroundColor: logoBg,
                             borderColor: logoBorderBg,
                         })}
-                        className="consonant-ThreeFourthCard-logo">
+                        className="consonant-OneHalfCard-logo">
                         <img
                             src={logoSrc}
                             alt={logoAlt}
@@ -179,40 +226,41 @@ const AspectRatio1to1Card = (props) => {
                     </div>
                 }
             </div>
-            <a
-                href={ctaLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Click to open in a new tab"
-                className="consonant-ThreeFourthCard-inner"
-                tabIndex="0">
+            <div
+                className="consonant-OneHalfCard-inner">
                 {detailText &&
                     <span
-                        data-testid="1-1-card--label"
-                        className="consonant-ThreeFourthCard-label">
+                        data-testid="3-2-card--label"
+                        className="consonant-OneHalfCard-label">
                         {detailText}
                     </span>
                 }
-                {
-                    title &&
-                    <h2
-                        className="consonant-ThreeFourthCard-title">
-                        {title}
-                    </h2>
-                }
+                <h2
+                    className="consonant-OneHalfCard-title">
+                    {title}
+                </h2>
                 {
                     description &&
                     <p
-                        className="consonant-ThreeFourthCard-text">
+                        className="consonant-OneHalfCard-text">
                         {description}
                     </p>
                 }
-            </a>
+                {footer.map(footerItem => (
+                    <CardFooter
+                        divider={footerItem.divider}
+                        isFluid={footerItem.isFluid}
+                        key={cuid()}
+                        left={extendFooterData(footerItem.left)}
+                        center={extendFooterData(footerItem.center)}
+                        right={extendFooterData(footerItem.right)} />
+                ))}
+            </div>
         </div>
     );
 };
 
-AspectRatio1to1Card.propTypes = aspectRatio1to1CardType;
-AspectRatio1to1Card.defaultProps = defaultProps;
+OneHalfCard.propTypes = oneHalfCardType;
+OneHalfCard.defaultProps = defaultProps;
 
-export default AspectRatio1to1Card;
+export default OneHalfCard;

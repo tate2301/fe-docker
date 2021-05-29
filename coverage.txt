@@ -24,8 +24,8 @@ All files                                   |       50 |     59.4 |    52.12 |  
   Select.jsx                                |      100 |      100 |      100 |      100 |                   |
   Tooltip.jsx                               |      100 |      100 |      100 |      100 |                   |
  js/components/Consonant/Cards              |    71.88 |       46 |       50 |    78.57 |                   |
-  1-1.jsx                                   |       60 |        0 |        0 |       60 |             16,18 |
-  3-2.jsx                                   |    77.27 |    76.67 |       75 |    88.89 |             31,32 |
+  ThreeFourth.jsx                           |       60 |        0 |        0 |       60 |             16,18 |
+  OneHalf.jsx                               |    77.27 |    76.67 |       75 |    88.89 |             31,32 |
   Full.jsx                                  |       60 |        0 |        0 |       60 |             16,18 |
  js/components/Consonant/Filters/left       |    87.27 |    71.43 |    84.21 |     87.5 |                   |
   ChosenItem.jsx                            |      100 |      100 |      100 |      100 |                   |
