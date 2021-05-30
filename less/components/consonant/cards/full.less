@@ -13,9 +13,9 @@
         max-height: @consonant-card-height;
         padding: 0;
         text-align: left;
-        border: 1px solid @consonant-color-lightest-grey;
+        border: 1px solid @consonantColorGray300;
         border-radius: 4px;
-        background-color: @consonant-color-white;
+        background-color: @consonantColorBase;
         overflow: hidden;
 
         &-inner {
@@ -43,8 +43,8 @@
                 bottom: 32px;
                 width: 12px;
                 height: 12px;
-                border: 1px solid @consonant-color-white;
-                box-shadow: 1px 1px 0 0 @consonant-color-white;
+                border: 1px solid @consonantColorBase;
+                box-shadow: 1px 1px 0 0 @consonantColorBase;
                 border-top: 0;
                 border-left: 0;
                 transform: rotate(-45deg);
@@ -56,7 +56,7 @@
             width: 100%;
             height: auto;
             max-height: none;
-            background-color: @consonant-color-lightest-grey;
+            background-color: @consonantColorGray300;
             background-position: 50% 50%;
             background-repeat: no-repeat;
             background-size: cover;
@@ -128,10 +128,9 @@
             max-width: 100%;
             margin-bottom: 5px;
 
-            .font(@color: @consonant-color-brown-grey);
+            .font(@color: @consonantColorBase);
 
             text-decoration: none;
-            color: @consonant-color-white;
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
@@ -145,7 +144,7 @@
             margin: 0;
             padding-right: 24px;
 
-            .font(1.125rem, 1.375rem, 700, @consonant-color-light-grey-4);
+            .font(1.125rem, 1.375rem, 700, @consonantColorGray400);
 
             text-decoration: none;
             word-break: break-word;
@@ -164,14 +163,14 @@
             right: 0;
             padding: 8px 13px 7px;
 
-            .font(0.75rem, 1.0625rem, 700, @consonant-color-white);
+            .font(0.75rem, 1.0625rem, 700, @consonantColorBase);
 
             letter-spacing: 0.72px;
             text-transform: uppercase;
             border-top-left-radius: 4px;
             border-bottom-left-radius: 4px;
             z-index: 1;
-            background-color: @consonant-color-blue;
+            background-color: @consonantColorBlue600;
             user-select: none;
             overflow-y: auto;
 
@@ -185,7 +184,7 @@
             }
         }
 
-        .consonant-full-card--badge {
+        &-badge {
             position: absolute;
             display: block;
             max-width: 34%;
@@ -194,11 +193,11 @@
             left: 24px;
             padding: 4px 11px;
 
-            .font(0.75rem, 1rem, 400, @consonant-color-dark-grey-1);
+            .font(0.75rem, 1rem, 400, @consonantColorGray700);
 
-            border: 1px solid @consonant-color-light-grey-2;
+            border: 1px solid @consonantColorGray600;
             border-radius: 4px;
-            background-color: @consonant-color-white;
+            background-color: @consonantColorBase;
             overflow-y: auto;
             z-index: 1;
         }
@@ -215,7 +214,7 @@
                 outline: 0;
 
                 &:focus {
-                    border-color: @consonant-focus-color;
+                    border-color: @consonantColorBlue600;
                 }
             }
         }
