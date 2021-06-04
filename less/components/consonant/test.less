@@ -1,0 +1,60 @@
+/* Available modifiers:
+- .test-Grid--alignCenter;
+- .test-Grid--alignRight;
+- .test-Grid--alignMiddle;
+- .test-Grid--alignBottom;
+- .test-Grid--fill;
+- .test-Grid--fit;
+- .test-Grid--equalHeight;
+- .test-Grid--with1xGutter;
+- .test-Grid--with2xGutter;
+- .test-Grid--with3xGutter;
+- .test-Grid--with4xGutter;
+- .test-Grid--small;
+- .test-Grid--medium;
+- .test-Grid--large;
+- .test-Grid--xLarge;
+*/
+
+.test {
+    &-Grid {
+        display: grid;
+        border: 1px solid red;
+
+        &--small {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &--medium {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        &--large {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        &--xLarge {
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        &--with1xGutter {
+            gap: 8px;
+        }
+
+        &--with2xGutter {
+            gap: 16px;
+        }
+
+        &--with3xGutter {
+            gap: 24px;
+        }
+
+        &--with4xGutter {
+            gap: 32px;
+        }
+
+        & > * {
+            margin: auto;
+        }
+    }
+}
