@@ -13,9 +13,9 @@
         max-height: @consonant-card-height;
         padding: 0;
         text-align: left;
-        border: 1px solid @consonantColorGray300;
+        border: 1px solid @consonantGray300;
         border-radius: 4px;
-        background-color: @consonantColorBaseLight;
+        background-color: @consonantBaseColor;
         overflow: hidden;
 
         &-inner {
@@ -43,8 +43,8 @@
                 bottom: 32px;
                 width: 12px;
                 height: 12px;
-                border: 1px solid @consonantColorBaseLight;
-                box-shadow: 1px 1px 0 0 @consonantColorBaseLight;
+                border: 1px solid @consonantBaseColor;
+                box-shadow: 1px 1px 0 0 @consonantBaseColor;
                 border-top: 0;
                 border-left: 0;
                 transform: rotate(-45deg);
@@ -56,7 +56,7 @@
             width: 100%;
             height: auto;
             max-height: none;
-            background-color: @consonantColorGray300;
+            background-color: @consonantGray300;
             background-position: 50% 50%;
             background-repeat: no-repeat;
             background-size: cover;
@@ -128,7 +128,7 @@
             max-width: 100%;
             margin-bottom: 5px;
 
-            .font(@color: @consonantColorBaseLight);
+            .font(@color: @consonantBaseColor);
 
             text-decoration: none;
             white-space: nowrap;
@@ -144,7 +144,7 @@
             margin: 0;
             padding-right: 24px;
 
-            .font(1.125rem, 1.375rem, 700, @consonantColorGray400);
+            .font(1.125rem, 1.375rem, 700, @consonantGray400);
 
             text-decoration: none;
             word-break: break-word;
@@ -163,14 +163,14 @@
             right: 0;
             padding: 8px 13px 7px;
 
-            .font(0.75rem, 1.0625rem, 700, @consonantColorBaseLight);
+            .font(0.75rem, 1.0625rem, 700, @consonantBaseColor);
 
             letter-spacing: 0.72px;
             text-transform: uppercase;
             border-top-left-radius: 4px;
             border-bottom-left-radius: 4px;
             z-index: 1;
-            background-color: @consonantColorBlue600;
+            background-color: @consonantBlue600;
             user-select: none;
             overflow-y: auto;
 
@@ -193,11 +193,11 @@
             left: 24px;
             padding: 4px 11px;
 
-            .font(0.75rem, 1rem, 400, @consonantColorGray700);
+            .font(0.75rem, 1rem, 400, @consonantGray700);
 
-            border: 1px solid @consonantColorGray600;
+            border: 1px solid @consonantGray600;
             border-radius: 4px;
-            background-color: @consonantColorBaseLight;
+            background-color: @consonantBaseColor;
             overflow-y: auto;
             z-index: 1;
         }
@@ -214,7 +214,7 @@
                 outline: 0;
 
                 &:focus {
-                    border-color: @consonantColorBlue600;
+                    border-color: @consonantBlue600;
                 }
             }
         }
