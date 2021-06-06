@@ -59,6 +59,7 @@ const ThreeFourthCard = (props) => {
         },
         contentArea: {
             title,
+            description,
             detailText: label,
             dateDetailText: {
                 startTime,
@@ -198,6 +199,13 @@ const ThreeFourthCard = (props) => {
                         className="consonant-ThreeFourthCard-title">
                         {title}
                     </h2>
+                }
+                {
+                    description &&
+                    <p
+                        className="consonant-ThreeFourthCard-text">
+                        {description}
+                    </p>
                 }
             </a>
         </div>
