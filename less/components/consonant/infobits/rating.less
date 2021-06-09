@@ -11,13 +11,13 @@
         margin-left: 16px;
 
         &--negMargin {
-            margin-right: @consonant-rating-text-min-width * -1;
+            margin-right: @consonant-RatingInfobit-textMinWidth * -1;
         }
 
         &-stars {
             display: block;
             position: relative;
-            height: @consonant-rating-star-heigth;
+            height: @consonant-RatingInfobit-starHeigth;
             max-width: 100%;
             white-space: nowrap;
 
@@ -25,9 +25,9 @@
                 content: '';
                 display: block;
                 position: relative;
-                height: @consonant-rating-star-heigth;
+                height: @consonant-RatingInfobit-starHeigth;
                 background: transparent url("data:image/svg+xml;base64,PHN2ZyBpZD0nTGF5ZXJfMScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB2aWV3Qm94PScwIDAgMTcgMTUnPjxzdHlsZT4uc3Qwe2ZpbGw6bm9uZX0uc3Qxe2ZpbGw6I2Q0ZDZkYn08L3N0eWxlPjxnIGlkPSdTaGFwZSc+PHBhdGggY2xhc3M9J3N0MCcgZD0nTTguNi43Yy0uMSAwLS4zLjEtLjMuMkw2LjQgNS43bC01LjIuMmMtLjIgMC0uMy4yLS4zLjQgMCAuMSAwIC4yLjEuMmw0IDMuMi0xLjQgNWMwIC4yLjEuMy4yLjRoLjFjLjEgMCAuMSAwIC4yLS4xbDQuMy0yLjggNC4zIDIuOGMuMS4xLjMuMS40LS4xIDAtLjEuMS0uMiAwLS4zbC0xLjQtNSA0LTMuMmMuMS0uMS4yLS4zIDAtLjQuMyAwIC4yLS4xLjEtLjFsLTUuMi0uMkw4LjkuOUM4LjguOCA4LjcuNyA4LjYuN3onIHRyYW5zZm9ybT0ndHJhbnNsYXRlKC0uMDI5IC0uNDEyKScvPjxwYXRoIGNsYXNzPSdzdDEnIGQ9J004LjYgMi4yTDcuMSA2bC0uMi40aC0uNWwtNCAuMiAzLjIgMi41LjQuMy0uMi41LTEuMSAzLjkgMy40LTIuMi40LS4zLjQuMyAzLjQgMi4yLTEuMS0zLjktLjEtLjUuNC0uMyAzLjItMi41LTQtLjJoLS41TDEwIDYgOC42IDIuMm0wLTEuNWMuMSAwIC4yLjEuMy4ybDEuOCA0LjggNS4yLjJjLjEgMCAuMi4xLjMuMiAwIC4xIDAgLjMtLjEuM2wtNCAzLjIgMS40IDV2LjFjMCAuMS0uMS4yLS4yLjNoLS4yYy0uMSAwLS4xIDAtLjItLjFsLTQuMy0yLjgtNC4zIDIuOGMtLjEgMC0uMS4xLS4yLjFINGMtLjEgMC0uMi0uMS0uMi0uMSAwLS4xLS4xLS4yIDAtLjJsMS40LTVMMSA2LjVjLS4xLS4xLS4xLS4yLS4xLS4zLjEtLjIuMi0uMy4zLS4zbDUuMi0uMkw4LjMuOWMwLS4xLjEtLjIuMy0uMnonIHRyYW5zZm9ybT0ndHJhbnNsYXRlKC0uMDI5IC0uNDEyKScvPjwvZz48L3N2Zz4=") repeat-x 0 0;
-                background-size: @consonant-rating-star-width @consonant-rating-star-heigth;
+                background-size: @consonant-RatingInfobit-starWidth @consonant-RatingInfobit-starHeigth;
                 z-index: 1;
                 overflow: hidden;
             }
@@ -36,9 +36,9 @@
                 content: '';
                 display: block;
                 position: absolute;
-                height: @consonant-rating-star-heigth;
+                height: @consonant-RatingInfobit-starHeigth;
                 background: transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGlkPSdMYXllcl8xJyB2aWV3Qm94PScwIDAgMTcgMTUnPjxzdHlsZT4uc3Qwe2ZpbGw6IzE0NzNlNn08L3N0eWxlPjxnIGlkPSdTaGFwZSc+PHBhdGggY2xhc3M9J3N0MCcgZD0nTTguNi43Yy0uMSAwLS4zLjEtLjMuMkw2LjQgNS43bC01LjIuMmMtLjIgMC0uMy4yLS4zLjQgMCAuMSAwIC4yLjEuMmw0IDMuMi0xLjQgNWMwIC4yLjEuMy4yLjRoLjFjLjEgMCAuMSAwIC4yLS4xbDQuMy0yLjggNC4zIDIuOGMuMS4xLjMuMS40LS4xIDAtLjEuMS0uMiAwLS4zbC0xLjQtNSA0LTMuMmMuMS0uMS4yLS4zIDAtLjQuMyAwIC4yLS4xLjEtLjFsLTUuMi0uMkw4LjkuOUM4LjguOCA4LjcuNyA4LjYuN3onIHRyYW5zZm9ybT0ndHJhbnNsYXRlKC0uMDI5IC0uNDEyKScvPjxwYXRoIGNsYXNzPSdzdDAnIGQ9J004LjYgMi4yTDcuMSA2bC0uMi40aC0uNWwtNCAuMiAzLjIgMi41LjQuMy0uMi41LTEuMSAzLjkgMy40LTIuMi40LS4zLjQuMyAzLjQgMi4yLTEuMS0zLjktLjEtLjUuNC0uMyAzLjItMi41LTQtLjJoLS41TDEwIDYgOC42IDIuMm0wLTEuNWMuMSAwIC4yLjEuMy4ybDEuOCA0LjggNS4yLjJjLjEgMCAuMi4xLjMuMiAwIC4xIDAgLjMtLjEuM2wtNCAzLjIgMS40IDV2LjFjMCAuMS0uMS4yLS4yLjNoLS4yYy0uMSAwLS4xIDAtLjItLjFsLTQuMy0yLjgtNC4zIDIuOGMtLjEgMC0uMS4xLS4yLjFINGMtLjEgMC0uMi0uMS0uMi0uMSAwLS4xLS4xLS4yIDAtLjJsMS40LTVMMSA2LjVjLS4xLS4xLS4xLS4yLS4xLS4zLjEtLjIuMi0uMy4zLS4zbDUuMi0uMkw4LjMuOWMwLS4xLjEtLjIuMy0uMnonIHRyYW5zZm9ybT0ndHJhbnNsYXRlKC0uMDI5IC0uNDEyKScvPjwvZz48L3N2Zz4=") repeat-x 0 0;
-                background-size: @consonant-rating-star-width @consonant-rating-star-heigth;
+                background-size: @consonant-RatingInfobit-starWidth @consonant-RatingInfobit-starHeigth;
                 z-index: 2;
                 left: 0;
                 top: 0;
@@ -51,7 +51,7 @@
             max-width: 35%;
             margin-left: 7px;
 
-            .font(0.875rem, 1.375rem, 400, @consonant-color-dark-grey-6);
+            .font(0.875rem, 1.375rem, 400, @consonantDarkGrey6);
 
             white-space: nowrap;
             text-overflow: ellipsis;
@@ -60,6 +60,6 @@
     }
 }
 
-.set-rating-width(@consonant-rating-max-star-qty);
-.set-rating(@consonant-rating-steps);
-.set-rating-stars-as-cover(@consonant-rating-stars-as-cover);
+.set-rating-width(@consonant-RatingInfobit-maxStarsQty);
+.set-rating(@consonant-RatingInfobit-stepsQty);
+.set-rating-stars-as-cover(@consonant-RatingInfobit-starsAsCover);

@@ -1,7 +1,7 @@
 .consonant {
     &-LeftFilter {
         position: relative;
-        border-bottom: 1px solid @consonant-color-lightest-grey;
+        border-bottom: 1px solid @consonantLightestGrey;
         outline: 0;
         cursor: pointer;
 
@@ -14,7 +14,7 @@
             margin: auto;
             width: 8px;
             height: 8px;
-            border: 2px solid @consonant-color-light-grey;
+            border: 2px solid @consonantLightGrey;
             transform: rotate(-135deg);
             border-top: 0;
             border-right: 0;
@@ -34,7 +34,7 @@
             .full-width;
 
             max-height: 90vh;
-            background-color: @consonant-color-white;
+            background-color: @consonantWhite;
             border-radius: 5px;
         }
 
@@ -62,7 +62,7 @@
             padding-bottom: 17px;
             padding-right: 36px;
 
-            .font(1rem, 1.1875rem, 700, @consonant-color-brown-grey);
+            .font(1rem, 1.1875rem, 700, @consonantBrownGrey);
 
             text-transform: capitalize;
             text-decoration: none;
@@ -77,7 +77,7 @@
             margin-top: 4px;
             padding-right: 18px;
 
-            .font(@color: @consonant-color-light-grey-2);
+            .font(@color: @consonantLightGrey2);
 
             white-space: nowrap;
             text-overflow: ellipsis;
@@ -88,7 +88,7 @@
                 right: 12px;
                 content: attr(data-qty);
                 font-weight: 700;
-                background-color: @consonant-color-white;
+                background-color: @consonantWhite;
             }
 
             &:empty {
@@ -99,25 +99,25 @@
         &-itemBadge {
             display: none;
             position: absolute;
-            min-width: @consonant-filters-item-badge-min-width;
-            max-width: @consonant-filters-item-badge-max-width;
-            height: @consonant-filters-item-badge-height;
+            min-width: @consonant-LeftFilter-itemBadge-minWidth;
+            max-width: @consonant-LeftFilter-itemBadge-maxWidth;
+            height: @consonant-LeftFilter-itemBadge-height;
             padding: 5px 7px;
             top: 12px;
             right: 30px;
 
-            .font(0.875rem, 0.875rem, 700, @consonant-color-white, center);
+            .font(0.875rem, 0.875rem, 700, @consonantWhite, center);
 
             white-space: nowrap;
             text-overflow: ellipsis;
             border-radius: 15px;
-            background-color: @consonant-color-blue;
+            background-color: @consonantBlue;
             z-index: 1;
             opacity: 1;
 
             .no-border-no-outline;
 
-            transition: opacity @transition-time @transition-func;
+            transition: opacity @consonantTransitionTime @consonantTransitionFunc;
             transition-delay: 0.1s;
             overflow: hidden;
 
@@ -131,16 +131,16 @@
             &:after {
                 content: '';
                 position: absolute;
-                width: @consonant-filters-item-badge-line-width;
+                width: @consonant-LeftFilter-itemBadge-lineWidth;
                 height: 2px;
 
                 .position-absolute-0;
 
                 margin: auto;
-                background-color: @consonant-color-white;
+                background-color: @consonantWhite;
                 z-index: 1;
                 opacity: 0;
-                transition: opacity @transition-time @transition-func;
+                transition: opacity @consonantTransitionTime @consonantTransitionFunc;
                 transition-delay: 0.1s;
                 transform: rotate(45deg);
             }
@@ -164,17 +164,17 @@
             margin: auto 0 0;
             padding: 0;
             list-style-type: none;
-            border-top: 1px solid @consonant-color-lightest-grey;
+            border-top: 1px solid @consonantLightestGrey;
             overflow-y: auto;
         }
 
         &-itemsItem {
             display: flex;
             align-items: baseline;
-            transition: background-color @transition-time @transition-func;
+            transition: background-color @consonantTransitionTime @consonantTransitionFunc;
 
             &:hover {
-                background-color: @consonant-color-lightest-grey-2;
+                background-color: @consonantLightestGrey2;
             }
 
             &:nth-of-type(n+10):last-of-type {
@@ -206,8 +206,8 @@
         }
 
         input[type = checkbox]:checked + &-itemsItemCheckmark {
-            background-color: @consonant-color-blue-2;
-            border-color: @consonant-color-blue-2;
+            background-color: @consonantBlue2;
+            border-color: @consonantBlue2;
 
             &:after {
                 display: block;
@@ -217,15 +217,15 @@
         &-itemsItemCheckmark {
             position: relative;
             display: block;
-            min-width: @consonant-filters-checkmark-size;
-            width: @consonant-filters-checkmark-size;
-            height: @consonant-filters-checkmark-size;
+            min-width: @consonant-LeftFilter-itemsItemCheckmark-size;
+            width: @consonant-LeftFilter-itemsItemCheckmark-size;
+            height: @consonant-LeftFilter-itemsItemCheckmark-size;
             margin-right: 10px;
-            border: 2px solid @consonant-color-light-grey-2;
+            border: 2px solid @consonantLightGrey2;
             border-radius: 3px;
             transition:
-                border-color @transition-time @transition-func,
-                background-color @transition-time @transition-func;
+                border-color @consonantTransitionTime @consonantTransitionFunc,
+                background-color @consonantTransitionTime @consonantTransitionFunc;
             pointer-events: none;
 
             &:after {
@@ -236,9 +236,9 @@
                 .position-absolute-0;
 
                 margin: auto;
-                width: @consonant-filters-checkmark-width;
-                height: @consonant-filters-checkmark-height;
-                border: 2px solid @consonant-color-white;
+                width: @consonant-LeftFilter-itemCheckmark-width;
+                height: @consonant-LeftFilter-itemCheckmark-height;
+                border: 2px solid @consonantWhite;
                 border-top: 0;
                 border-right: 0;
                 border-radius: 2px;
@@ -251,7 +251,7 @@
 
             .font(
                 @line-height: 1.1875rem,
-                @color: @consonant-color-brown-grey
+                @color: @consonantBrownGrey
             );
 
             text-transform: capitalize;
@@ -268,7 +268,7 @@
             margin-top: auto;
             align-items: center;
             padding: 16px;
-            border-top: 1px solid @consonant-color-lightest-grey;
+            border-top: 1px solid @consonantLightestGrey;
         }
 
         &-footerResQty {
@@ -277,7 +277,7 @@
 
             .font(
                 @weight: 700,
-                @color: @consonant-color-brown-grey
+                @color: @consonantBrownGrey
             );
 
             text-transform: capitalize;
@@ -290,7 +290,7 @@
 
             .font(
                 @weight: 700,
-                @color: @consonant-color-blue
+                @color: @consonantBlue
             );
 
             background-color: transparent;
@@ -303,18 +303,18 @@
         }
 
         &-footerBtn {
-            min-width: @consonant-filters-mobile-footer-btn-min-width;
+            min-width: @consonant-LeftFilters-mobileFooterBtn-minWidth;
             margin-left: auto;
             padding: 8px 16px 8px;
 
             .font(
                 @weight: 700,
-                @color: @consonant-color-white,
+                @color: @consonantWhite,
                 @align: center
             );
 
             text-transform: capitalize;
-            background-color: @consonant-color-blue;
+            background-color: @consonantBlue;
             border-radius: 20px;
 
             .no-border-no-outline;
@@ -336,8 +336,8 @@
             .position-absolute-0;
 
             margin: auto;
-            z-index: @consonant-left-filter-item-opened-z-index;
-            background-color: fade(@consonant-color-brown-grey, 80%);
+            z-index: 4;
+            background-color: fade(@consonantBrownGrey, 80%);
 
             &:after {
                 .hide-all;
@@ -346,8 +346,8 @@
 
         &.is-opened &-inner {
             position: relative;
-            box-shadow: 0 3px 15px fade(@consonant-color-brown-grey, 80%);
-            border: 1px solid @consonant-color-lightest-grey;
+            box-shadow: 0 3px 15px fade(@consonantBrownGrey, 80%);
+            border: 1px solid @consonantLightestGrey;
             border-radius: 4px;
 
             &:after {
@@ -357,11 +357,11 @@
 
                 .full-width;
 
-                height: @consonant-filters-item-inner-after-height;
-                bottom: @consonant-filters-item-inner-after-pos-bottom;
+                height: @consonant-LeftFilter-innerPseudoEl-isOpened-height;
+                bottom: @consonant-LeftFilter-innerPseudoEl-isOpened-posBottom;
                 left: 0;
                 right: 0;
-                background: transparent linear-gradient(180deg, fade(@consonant-color-white, 80%) 0%, @consonant-color-white 100%) no-repeat 0% 0%;
+                background: transparent linear-gradient(180deg, fade(@consonantWhite, 80%) 0%, @consonantWhite 100%) no-repeat 0% 0%;
                 z-index: 1;
                 pointer-events: none;
             }
@@ -395,7 +395,7 @@
             &:after {
                 display: block;
                 right: 13px;
-                border-color: @consonant-color-grey;
+                border-color: @consonantGrey;
                 transform: rotate(-45deg);
             }
 
@@ -419,7 +419,7 @@
             }
 
             input[type = checkbox]:focus + &-itemsItemCheckmark {
-                outline: 2px solid @consonant-focus-color;
+                outline: 2px solid @consonantFocusedColor;
             }
 
             &-itemsItem:nth-of-type(n+10):last-of-type {
@@ -443,15 +443,15 @@
                 font-size: 0.875rem;
                 line-height: 1rem;
                 word-break: break-word;
-                transition: color @transition-time @transition-func;
+                transition: color @consonantTransitionTime @consonantTransitionFunc;
                 border: 2px solid transparent;
 
                 &:hover {
-                    color: @consonant-color-dark-grey-3;
+                    color: @consonantDarkGrey3;
                 }
 
                 &:focus {
-                    border-color: @consonant-focus-color;
+                    border-color: @consonantFocusedColor;
                 }
             }
 
@@ -473,7 +473,7 @@
                     display: block;
                     top: 24px;
                     bottom: auto;
-                    border-color: @consonant-color-light-grey-2;
+                    border-color: @consonantLightGrey2;
                     transform: rotate(135deg);
                 }
             }
@@ -505,7 +505,7 @@
 
             &.is-opened &-link {
                 padding-right: 36px;
-                color: @consonant-color-dark-grey-3;
+                color: @consonantDarkGrey3;
             }
 
             &.is-opened &-items {

@@ -6,9 +6,9 @@
         &:hover .consonant-Tooltip {
             z-index: 6000000;
             animation-name: fade-in-up;
-            animation-duration: @transition-time;
+            animation-duration: @consonantTransitionTime;
             animation-delay: 0.2s;
-            animation-timing-function: @transition-func;
+            animation-timing-function: @consonantTransitionFunc;
             animation-fill-mode: forwards;
         }
     }
@@ -18,16 +18,16 @@
     &-Tooltip {
         position: absolute;
         display: none;
-        width: @consonant-tooltip-width;
+        width: @consonant-Tooltip-width;
         padding: 7px 14px;
-        bottom: calc(~ '100% + ' @consonant-tooltip-vert-pos-adder);
+        bottom: calc(~ '100% + ' @consonant-Tooltip-vertPosition);
         left: -72px;
 
-        .font(@size: 0.75rem, @align: center, @color: @consonant-color-white);
+        .font(@size: 0.75rem, @align: center, @color: @consonantWhite);
 
         text-decoration: none;
         border-radius: 8px;
-        background-color: @consonant-color-dark-grey-1;
+        background-color: @consonantDarkGrey1;
         z-index: -1;
         user-select: text;
         opacity: 0;
@@ -35,13 +35,13 @@
         &:after {
             content: '';
             position: absolute;
-            width: @consonant-tooltip-arr-width;
-            height: @consonant-tooltip-arr-width;
+            width: @consonant-TooltipPseudoEl-width;
+            height: @consonant-TooltipPseudoEl-width;
             bottom: -3px;
             left: 0;
             right: 0;
             margin: auto;
-            background-color: @consonant-color-dark-grey-1;
+            background-color: @consonantDarkGrey1;
             transform-origin: 50% 50%;
             transform: rotate(45deg);
         }

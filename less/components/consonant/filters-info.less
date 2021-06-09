@@ -35,15 +35,15 @@
         &-btn {
             display: inline-flex;
             align-items: center;
-            min-width: @consonant-filters-info-btn-min-width;
+            min-width: @consonant-FiltersInfo-btn-minWidth;
             max-width: 100%;
             margin-bottom: 10px;
             padding: 0 0 0 11px;
-            border: 1px solid @consonant-color-brown-grey;
+            border: 1px solid @consonantBrownGrey;
             border-radius: 5px;
             overflow: hidden;
 
-            .font(0.875rem, 1.875rem, 700, @consonant-color-brown-grey);
+            .font(0.875rem, 1.875rem, 700, @consonantBrownGrey);
 
             text-transform: capitalize;
             background-color: transparent;
@@ -55,25 +55,25 @@
                 max-width: 40%;
                 padding-left: 8px;
                 padding-right: 7px;
-                border-left: 1px solid @consonant-color-brown-grey;
+                border-left: 1px solid @consonantBrownGrey;
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 overflow: hidden;
             }
 
             &--withFilters {
-                background-color: @consonant-color-lightest-grey-2;
-                color: @consonant-color-dark-grey-4;
+                background-color: @consonantLightestGrey2;
+                color: @consonantDarkGrey4;
             }
         }
 
         &-btnIco {
             display: block;
-            min-width: @consonant-filters-info-btn-ico-size;
-            width: @consonant-filters-info-btn-ico-size;
-            height: @consonant-filters-info-btn-ico-size;
+            min-width: @consonant-FiltersInfo-btnIco-size;
+            width: @consonant-FiltersInfo-btnIco-size;
+            height: @consonant-FiltersInfo-btnIco-size;
             margin-right: 8px;
-            background: transparent url(@consonant-filters-info-btn-ico-src) no-repeat 0 0;
+            background: transparent url(@consonant-FiltersInfo-btnIco-src) no-repeat 0 0;
         }
 
         &-btnText {
@@ -96,10 +96,10 @@
         }
 
         &-title {
-            max-width: @consonant-filters-info-title-width;
+            max-width: @consonant-FiltersInfo-title-width;
             margin: 0;
 
-            .font(1.125rem, 1.375rem, 700, @consonant-color-dark-grey-2);
+            .font(1.125rem, 1.375rem, 700, @consonantDarkGrey2);
         }
 
         &-results {
@@ -107,7 +107,7 @@
             margin-left: auto;
             padding-left: 12px;
 
-            .font(0.875rem, 1.3125rem, 400, @consonant-color-brown-grey, right);
+            .font(0.875rem, 1.3125rem, 400, @consonantBrownGrey, right);
 
             strong {
                 font-weight: 700;
@@ -119,7 +119,7 @@
             max-width: calc(83.333vw - @consonant-filters-1200-break-width ~ ' - 32px');
             flex-wrap: nowrap;
             align-items: flex-start;
-            min-height: @consonant-filters-info-1200-break-height;
+            min-height: @consonant-FiltersInfo-1200BreakpointHeight;
             margin-left: auto;
             margin-right: auto;
             padding: 67px 0 28px;
@@ -139,7 +139,7 @@
                     position: absolute;
                     width: 1px;
                     height: 32px;
-                    background-color: @consonant-color-lightest-grey-3;
+                    background-color: @consonantLightestGrey3;
                     top: 0;
                     right: 16px;
                     margin: auto;
@@ -171,16 +171,16 @@
         }
 
         @media @consonant-big-desktop-up {
-            min-width: calc(@consonant-width-desktop-min - @consonant-filters-1200-break-width ~ ' - 32px');
-            max-width: calc(@consonant-width-desktop-min - @consonant-filters-1200-break-width ~ ' - 32px');
+            min-width: calc(@consonantDesktopMinWidth - @consonant-filters-1200-break-width ~ ' - 32px');
+            max-width: calc(@consonantDesktopMinWidth - @consonant-filters-1200-break-width ~ ' - 32px');
 
             &--noFilterPanel {
-                min-width: @consonant-width-desktop-min;
-                max-width: @consonant-width-desktop-min;
+                min-width: @consonantDesktopMinWidth;
+                max-width: @consonantDesktopMinWidth;
             }
 
             &-title {
-                max-width: @consonant-filters-info-title-1440-break-width;
+                max-width: @consonant-FiltersInfo-title-1440BreakpointWidth;
             }
         }
     }

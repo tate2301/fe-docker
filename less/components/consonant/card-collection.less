@@ -21,8 +21,8 @@
 
         &-placeholder {
             flex: 1 1 0;
-            min-width: @consonant-card-min-width;
-            max-width: @consonant-card-max-width;
+            min-width: @consonantCardMinWidth;
+            max-width: @consonantCardMaxWidth;
             padding: 0;
             border: 0;
 
@@ -31,7 +31,7 @@
             @media @consonant-IE11-only {
                 flex-grow: 0;
                 flex-shrink: 0;
-                flex-basis: @consonant-card-min-width;
+                flex-basis: @consonantCardMinWidth;
             }
         }
 
@@ -45,8 +45,8 @@
 
         @media @consonant-big-desktop-up {
             margin-bottom: 8px;
-            min-width: @consonant-width-desktop-min;
-            max-width: @consonant-width-desktop-min;
+            min-width: @consonantDesktopMinWidth;
+            max-width: @consonantDesktopMinWidth;
         }
     }
 }
@@ -59,7 +59,7 @@
     }
 
     @media @consonant-big-desktop-up {
-        min-width: calc(@consonant-width-desktop-min - @consonant-filters-1200-break-width ~ ' - 32px');
-        max-width: calc(@consonant-width-desktop-min - @consonant-filters-1200-break-width ~ ' - 32px');
+        min-width: calc(@consonantDesktopMinWidth - @consonant-filters-1200-break-width ~ ' - 32px');
+        max-width: calc(@consonantDesktopMinWidth - @consonant-filters-1200-break-width ~ ' - 32px');
     }
 }

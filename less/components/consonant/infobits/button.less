@@ -8,81 +8,81 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        min-width: @consonant-btn-infobit-min-width;
+        min-width: @consonant-BtnInfobit-minWidth;
         max-width: 100%;
-        height: @consonant-btn-infobit-max-height;
-        max-height: @consonant-btn-infobit-max-height;
+        height: @consonant-BtnInfobit-maxHeight;
+        max-height: @consonant-BtnInfobit-maxHeight;
         margin-left: 16px;
         padding-left: 16px;
         padding-right: 16px;
         text-decoration: none;
-        border: 2px solid @consonant-color-brown-grey;
+        border: 2px solid @consonantBrownGrey;
         border-radius: 16px;
-        background-color: @consonant-color-white;
+        background-color: @consonantWhite;
         cursor: pointer;
         transition:
-            border-color @transition-time @transition-func,
-            background-color @transition-time @transition-func;
+            border-color @consonantTransitionTime @consonantTransitionFunc,
+            background-color @consonantTransitionTime @consonantTransitionFunc;
 
         span {
-            .font(0.8235rem, 0.9375rem, 700, @consonant-color-brown-grey, center);
+            .font(0.8235rem, 0.9375rem, 700, @consonantBrownGrey, center);
             .line-clamp(2);
 
-            transition: color @transition-time @transition-func;
+            transition: color @consonantTransitionTime @consonantTransitionFunc;
         }
 
         &:hover {
-            border-color: @consonant-color-light-grey-3;
-            background-color: @consonant-color-light-grey-3;
+            border-color: @consonantLightGrey3;
+            background-color: @consonantLightGrey3;
         }
 
         &:hover span {
-            color: @consonant-color-white;
+            color: @consonantWhite;
         }
 
         &:active {
-            border-color: @consonant-color-dark-grey-7;
-            background-color: @consonant-color-dark-grey-7;
+            border-color: @consonantDarkGrey7;
+            background-color: @consonantDarkGrey7;
         }
 
         &:active span {
-            color: @consonant-color-white;
+            color: @consonantWhite;
         }
 
         .focused;
 
         &--cta {
-            background-color: @consonant-color-blue-2;
-            border-color: @consonant-color-blue-2;
+            background-color: @consonantBlue2;
+            border-color: @consonantBlue2;
 
             span {
-                color: @consonant-color-white;
+                color: @consonantWhite;
             }
 
             &:hover {
-                background-color: @consonant-color-blue-3;
-                border-color: @consonant-color-blue-3;
+                background-color: @consonantBlue3;
+                border-color: @consonantBlue3;
             }
 
             &:hover span {
-                color: @consonant-color-white;
+                color: @consonantWhite;
             }
 
             &:active {
-                background-color: @consonant-color-blue-4;
-                border-color: @consonant-color-blue-4;
+                background-color: @consonantBlue4;
+                border-color: @consonantBlue4;
             }
 
             &:active span {
-                color: @consonant-color-white;
+                color: @consonantWhite;
             }
         }
 
         &-ico {
             width: auto;
             height: auto;
-            max-width: @consonant-btn-infobit-ico-max-width;
-            max-height: @consonant-btn-infobit-ico-max-height;
+            max-width: @consonant-BtnInfobit-ico-maxWidth;
+            max-height: @consonant-BtnInfobit-ico-maxHeight;
             margin-right: 8px;
             overflow: hidden;
             object-fit: cover;

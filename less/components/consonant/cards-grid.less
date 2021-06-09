@@ -14,74 +14,74 @@
         justify-content: center;
         width: 100%;
         max-width: 100%;
-        grid-template-columns: repeat(auto-fit, minmax(@consonant-card-min-width, max-content));
+        grid-template-columns: repeat(auto-fit, minmax(@consonantCardMinWidth, max-content));
 
         /* Spacing variations */
 
         &--with1xGutter {
-            gap: @consonant-grid-gutter-size;
+            gap: @consonant-CardsGrid-gutterSize;
         }
 
         &--with2xGutter {
-            gap: @consonant-grid-gutter-size * 2;
+            gap: @consonant-CardsGrid-gutterSize * 2;
         }
 
         &--with3xGutter {
-            gap: @consonant-grid-gutter-size * 3;
+            gap: @consonant-CardsGrid-gutterSize * 3;
         }
 
         &--with4xGutter {
-            gap: @consonant-grid-gutter-size * 4;
+            gap: @consonant-CardsGrid-gutterSize * 4;
         }
 
         /* Cards variations */
 
         &--smallerCards:not(&--doubleWideCards) {
-            grid-template-columns: repeat(auto-fit, minmax(@consonant-card-grid-smaller-min-width, max-content));
+            grid-template-columns: repeat(auto-fit, minmax(@consonant-CardsGrid-smallerCardMinWidth, max-content));
 
             .consonant-ThreeFourthCard,
             .consonant-OneHalfCard,
             .consonant-HalfHeightCard,
             .consonant-FullCard {
-                min-width: @consonant-card-grid-smaller-min-width;
-                max-width: @consonant-card-grid-smaller-max-width;
-                min-height: @consonant-card-grid-smaller-height;
-                max-height: @consonant-card-grid-smaller-height;
+                min-width: @consonant-CardsGrid-smallerCardMinWidth;
+                max-width: @consonant-CardsGrid-smallerCardMaxWidth;
+                min-height: @consonant-CardsGrid-smallerCardheight;
+                max-height: @consonant-CardsGrid-smallerCardheight;
             }
 
             .consonant-ThreeFourthCard .consonant-ThreeFourthCard-img {
-                min-height: @consonant-card-grid-smaller-img-3-4-height;
+                min-height: @consonant-CardsGrid-smallerCardImgThreeFourthHeight;
             }
 
             .consonant-OneHalfCard .consonant-OneHalfCard-img {
-                min-height: @consonant-card-grid-smaller-img-1-2-height;
+                min-height: @consonant-CardsGrid-smallerCardImgOneHalfHeight;
             }
 
             .consonant-HalfHeightCard {
-                min-height: @consonant-card-half-height;
-                max-height: @consonant-card-half-height;
+                min-height: @consonant-OneHalfCard-height;
+                max-height: @consonant-OneHalfCard-height;
             }
         }
 
         &--smallestCards:not(&--doubleWideCards) {
-            grid-template-columns: repeat(auto-fit, minmax(@consonant-card-grid-smallest-min-width, max-content));
+            grid-template-columns: repeat(auto-fit, minmax(@consonant-CardsGrid-smallestCardMinWidth, max-content));
 
             .consonant-ThreeFourthCard,
             .consonant-OneHalfCard,
             .consonant-HalfHeightCard,
             .consonant-FullCard {
-                min-width: @consonant-card-grid-smallest-min-width;
-                max-width: @consonant-card-grid-smallest-max-width;
-                min-height: @consonant-card-grid-smallest-height;
-                max-height: @consonant-card-grid-smallest-height;
+                min-width: @consonant-CardsGrid-smallestCardMinWidth;
+                max-width: @consonant-CardsGrid-smallestCardMaxWidth;
+                min-height: @consonant-CardsGrid-smallestCardHeight;
+                max-height: @consonant-CardsGrid-smallestCardHeight;
             }
 
             .consonant-ThreeFourthCard .consonant-ThreeFourthCard-img {
-                min-height: @consonant-card-grid-smallest-img-3-4-height;
+                min-height: @consonant-CardsGrid-smallestCardImgThreeFourthHeight;
             }
 
             .consonant-OneHalfCard .consonant-OneHalfCard-img {
-                min-height: @consonant-card-grid-smallest-img-1-2-height;
+                min-height: @consonant-CardsGrid-smallestCardImgOneHalfHeight;
             }
 
             .consonant-OneHalfCard .consonant-OneHalfCard-label {
@@ -94,14 +94,14 @@
             }
 
             .consonant-HalfHeightCard {
-                min-height: @consonant-card-half-height;
-                max-height: @consonant-card-half-height;
+                min-height: @consonant-OneHalfCard-height;
+                max-height: @consonant-OneHalfCard-height;
             }
         }
 
         @media @consonant-desktop-up {
             &--doubleWideCards {
-                grid-template-columns: repeat(auto-fit, minmax(@consonant-card-double-wide-desktop-min-width, max-content));
+                grid-template-columns: repeat(auto-fit, minmax(@consonant-DoubleWideCard-desktopMinWidth, max-content));
             }
         }
     }

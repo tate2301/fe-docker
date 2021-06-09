@@ -22,17 +22,17 @@
             padding-left: 0;
             padding-right: 0;
 
-            .font(0.875rem, 1.1875rem, 700, @consonant-color-light-grey-3);
+            .font(0.875rem, 1.1875rem, 700, @consonantLightGrey3);
 
             white-space: nowrap;
             text-transform: capitalize;
             background-color: transparent;
             border: 2px solid transparent;
             outline: 0;
-            transition: border-color @transition-time @transition-func;
+            transition: border-color @consonantTransitionTime @consonantTransitionFunc;
 
             &:focus {
-                border-color: @consonant-focus-color;
+                border-color: @consonantFocusedColor;
             }
         }
 
@@ -48,35 +48,35 @@
             margin-right: 7px;
 
             &:hover &Btn {
-                color: @consonant-color-dark-grey-2;
+                color: @consonantDarkGrey2;
             }
 
             &:active &Btn {
-                color: @consonant-color-dark-grey-2;
-                background-color: @consonant-color-lightest-grey-3;
+                color: @consonantDarkGrey2;
+                background-color: @consonantLightestGrey3;
             }
 
             &:hover &Btn:disabled,
             &:active &Btn:disabled,
             &Btn:disabled {
-                color: @consonant-color-lightest-grey-4;
+                color: @consonantLightestGrey4;
                 pointer-events: none;
                 background-color: transparent;
             }
 
             &.is-active &Btn {
-                background-color: @consonant-color-lightest-grey-3;
-                color: @consonant-color-light-grey-3;
+                background-color: @consonantLightestGrey3;
+                color: @consonantLightGrey3;
             }
 
             &.is-active:hover &Btn,
             &.is-active:active &Btn {
-                color: @consonant-color-dark-grey-2;
+                color: @consonantDarkGrey2;
             }
 
             &.is-active &Btn:disabled {
-                color: @consonant-color-lightest-grey-4;
-                background-color: @consonant-color-lightest-grey;
+                color: @consonantLightestGrey4;
+                background-color: @consonantLightestGrey;
             }
 
             &:nth-of-type(n+5) {
@@ -85,12 +85,12 @@
 
             &Btn {
                 position: relative;
-                min-width: @consonant-pagination-item-size;
-                min-height: @consonant-pagination-item-size;
-                max-width: @consonant-pagination-btn-max-width;
+                min-width: @consonant-Pagination-itemBtn-size;
+                min-height: @consonant-Pagination-itemBtn-size;
+                max-width: @consonant-Pagination-itemBtn-maxWidth;
                 padding: 8px 10px;
 
-                .font(0.875rem, 0.875rem, 400, @consonant-color-light-grey-3, center);
+                .font(0.875rem, 0.875rem, 400, @consonantLightGrey3, center);
 
                 white-space: nowrap;
                 text-overflow: ellipsis;
@@ -113,7 +113,7 @@
                 }
 
                 &:focus:after {
-                    border-color: @consonant-focus-color;
+                    border-color: @consonantFocusedColor;
                 }
             }
         }
@@ -123,7 +123,7 @@
             max-width: 30%;
             align-items: center;
 
-            .font(0.875rem, 1.3125rem, 400, @consonant-color-brown-grey, right);
+            .font(0.875rem, 1.3125rem, 400, @consonantBrownGrey, right);
 
             margin-left: auto;
         }
@@ -167,8 +167,8 @@
         }
 
         @media @consonant-big-desktop-up {
-            min-width: @consonant-width-desktop-min;
-            max-width: @consonant-width-desktop-min;
+            min-width: @consonantDesktopMinWidth;
+            max-width: @consonantDesktopMinWidth;
         }
     }
 }
@@ -181,7 +181,7 @@
     }
 
     @media @consonant-big-desktop-up {
-        min-width: calc(@consonant-width-desktop-min - @consonant-filters-1200-break-width ~ ' - 32px');
-        max-width: calc(@consonant-width-desktop-min - @consonant-filters-1200-break-width ~ ' - 32px');
+        min-width: calc(@consonantDesktopMinWidth - @consonant-filters-1200-break-width ~ ' - 32px');
+        max-width: calc(@consonantDesktopMinWidth - @consonant-filters-1200-break-width ~ ' - 32px');
     }
 }

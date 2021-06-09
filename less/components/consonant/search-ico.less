@@ -11,20 +11,20 @@
         border: 0;
         outline: 0;
         background-color: transparent;
-        transition: background-color @transition-time / 2 @transition-func;
+        transition: background-color @consonantTransitionTime / 2 @consonantTransitionFunc;
 
         .no-font;
 
         &:active,
         &:hover {
-            background-color: fade(@consonant-color-lightest-grey, 30%);
+            background-color: fade(@consonantLightestGrey, 30%);
         }
 
         span {
             display: block;
-            width: @consonant-search-ico-size;
-            height: @consonant-search-ico-size;
-            background: transparent url(@consonant-search-ico-data) no-repeat 0 0;
+            width: @consonant-SearchIco-size;
+            height: @consonant-SearchIco-size;
+            background: transparent url(@consonant-SearchIco-data) no-repeat 0 0;
             background-size: contain;
         }
 
@@ -34,7 +34,7 @@
             border: 2px solid transparent;
 
             &:focus {
-                border-color: @consonant-focus-color;
+                border-color: @consonantFocusedColor;
             }
         }
     }

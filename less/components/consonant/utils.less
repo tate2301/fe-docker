@@ -2,7 +2,7 @@
     @size: 0.875rem,
     @line-height: 1rem,
     @weight: normal,
-    @color: @consonant-color-dark-grey-1,
+    @color: @consonantDarkGrey1,
     @align: left
 ) {
     font-family: adobe-clean, "Segoe UI", Roboto, sans-serif;
@@ -63,19 +63,19 @@
 
     @media @consonant-desktop-up {
         &:focus {
-            outline: 2px solid @consonant-focus-color;
+            outline: 2px solid @consonantFocusedColor;
         }
     }
 }
 
 .set-rating-width (@i) when (@i > 0) {
     .consonant-RatingInfobit[data-stars = "@{i}"] {
-        min-width: @i * @consonant-rating-star-width + @consonant-rating-text-min-width;
+        min-width: @i * @consonant-RatingInfobit-starWidth + @consonant-RatingInfobit-textMinWidth;
     }
 
     .consonant-RatingInfobit[data-stars = "@{i}"] .consonant-RatingInfobit-stars:before {
-        min-width: @i * @consonant-rating-star-width;
-        max-width: @i * @consonant-rating-star-width;
+        min-width: @i * @consonant-RatingInfobit-starWidth;
+        max-width: @i * @consonant-RatingInfobit-starWidth;
     }
 
     .set-rating-width (@i - 1);

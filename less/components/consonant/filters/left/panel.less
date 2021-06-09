@@ -7,7 +7,7 @@
         .full-width;
         .position-absolute-0;
 
-        background-color: @consonant-color-white;
+        background-color: @consonantWhite;
         overflow: visible;
         user-select: none;
 
@@ -29,7 +29,7 @@
             .full-width;
 
             padding: 14px 12px;
-            border-bottom: 1px solid @consonant-color-lightest-grey;
+            border-bottom: 1px solid @consonantLightestGrey;
         }
 
         &-deskTitle {
@@ -38,7 +38,7 @@
 
             max-width: 70%;
 
-            .font(1rem, 1.1875rem, 700, @consonant-color-dark-grey-2);
+            .font(1rem, 1.1875rem, 700, @consonantDarkGrey2);
         }
 
         &-mobTitle {
@@ -49,22 +49,22 @@
                 .font(
                     @size: 1rem,
                     @line-height: 1.1875rem,
-                    @color: @consonant-color-brown-grey
+                    @color: @consonantBrownGrey
                 );
             }
         }
 
         &-mobBack {
             display: block;
-            width: @consonant-filters-mob-back-size;
-            height: @consonant-filters-mob-back-size;
+            width: @consonant-LeftFilters-mobBack-size;
+            height: @consonant-LeftFilters-mobBack-size;
             margin-right: 13px;
 
             .no-font;
 
             border: 1px solid #eaeaea;
             border-radius: 50%;
-            background: #fff url(@consonant-filters-mob-back-data) no-repeat 50% 50%;
+            background: #fff url(@consonant-LeftFilters-mobBack-data) no-repeat 50% 50%;
             background-position: contain;
             outline: 0;
         }
@@ -74,7 +74,7 @@
 
             padding: 0;
 
-            .font(0.875rem, 1rem, 700, @consonant-color-grey);
+            .font(0.875rem, 1rem, 700, @consonantGrey);
 
             text-transform: capitalize;
             background-color: transparent;
@@ -96,7 +96,7 @@
             display: none;
             align-items: center;
             padding: 16px;
-            border-top: 1px solid @consonant-color-lightest-grey;
+            border-top: 1px solid @consonantLightestGrey;
             order: 2;
         }
 
@@ -107,7 +107,7 @@
 
             .font(
                 @weight: 700,
-                @color: @consonant-color-brown-grey
+                @color: @consonantBrownGrey
             );
 
             text-transform: capitalize;
@@ -120,7 +120,7 @@
 
             .font(
                 @weight: 700,
-                @color: @consonant-color-blue
+                @color: @consonantBlue
             );
 
             background-color: transparent;
@@ -137,18 +137,18 @@
         }
 
         &-mobileFooterBtn {
-            min-width: @consonant-filters-mobile-footer-btn-min-width;
+            min-width: @consonant-LeftFilters-mobileFooterBtn-minWidth;
             margin-left: auto;
             padding: 8px 16px 8px;
 
             .font(
                 @weight: 700,
-                @color: @consonant-color-white,
+                @color: @consonantWhite,
                 @align: center
             );
 
             text-transform: capitalize;
-            background-color: @consonant-color-blue;
+            background-color: @consonantBlue;
             border-radius: 20px;
 
             .no-border-no-outline;
@@ -158,7 +158,7 @@
 
         &.is-opened {
             position: fixed;
-            z-index: @consonant-left-filters-opened-z-index;
+            z-index: 10;
             display: flex;
 
             & > button {
@@ -215,7 +215,7 @@
                 display: block;
                 margin-bottom: 0;
                 padding: 0;
-                border-top: 1px solid @consonant-color-lightest-grey;
+                border-top: 1px solid @consonantLightestGrey;
                 overflow: hidden;
                 z-index: 1;
             }
@@ -228,7 +228,7 @@
                 display: flex;
                 margin-top: -6px;
                 padding: 0 0 24px;
-                border-bottom: 1px solid @consonant-color-lightest-grey;
+                border-bottom: 1px solid @consonantLightestGrey;
                 order: -3;
             }
 
@@ -248,11 +248,11 @@
 
             &-clearLink {
                 display: block;
-                transition: color @transition-time @transition-func;
+                transition: color @consonantTransitionTime @consonantTransitionFunc;
 
                 &:hover,
                 &:active {
-                    color: @consonant-color-blue;
+                    color: @consonantBlue;
                 }
             }
 

@@ -8,7 +8,7 @@
 
         .no-border-no-outline;
 
-        border-top: 1px solid @consonant-color-lightest-grey;
+        border-top: 1px solid @consonantLightestGrey;
 
         + div:last-child {
             margin-top: 0;
@@ -17,27 +17,27 @@
         &-itemBadge {
             display: block;
             position: absolute;
-            min-width: @consonant-filters-item-badge-min-width;
-            max-width: @consonant-filters-item-badge-max-width;
-            height: @consonant-filters-item-badge-height;
+            min-width: @consonant-Bookmarks-itemBadge-width;
+            max-width: @consonant-Bookmarks-itemBadge-maxWidth;
+            height: @consonant-Bookmarks-itemBadge-height;
             margin: auto;
             padding: 5px 7px;
             top: 0;
             bottom: 0;
             right: 16px;
 
-            .font(0.875rem, 0.875rem, 700, @consonant-color-white, center);
+            .font(0.875rem, 0.875rem, 700, @consonantWhite, center);
 
             white-space: nowrap;
             text-overflow: ellipsis;
             border-radius: 15px;
-            background-color: @consonant-color-blue;
+            background-color: @consonantBlue;
             z-index: 1;
             opacity: 1;
 
             .no-border-no-outline;
 
-            transition: opacity @transition-time @transition-func;
+            transition: opacity @consonantTransitionTime @consonantTransitionFunc;
             transition-delay: 0.1s;
             overflow: hidden;
         }
@@ -54,11 +54,11 @@
 
         &-icoWrapper &-ico {
             display: block;
-            min-width: @bookmarks-ico-wrapper-max-size;
-            min-height: @bookmarks-ico-wrapper-max-size;
-            max-height: @bookmarks-ico-wrapper-max-size;
+            min-width: @consonant-Bookmarks-ico-maxSize;
+            min-height: @consonant-Bookmarks-ico-maxSize;
+            max-height: @consonant-Bookmarks-ico-maxSize;
             margin-right: 6px;
-            background: transparent url(@consonant-filters-heart-data) no-repeat 50% 50%;
+            background: transparent url(@consonant-Bookmarks-ico-data) no-repeat 50% 50%;
             background-size: contain;
         }
 
@@ -67,13 +67,13 @@
             padding-right: 55px;
             padding-bottom: 1px;
 
-            .font(@line-height: 1rem, @weight: 700, @color: @consonant-color-brown-grey);
+            .font(@line-height: 1rem, @weight: 700, @color: @consonantBrownGrey);
 
-            transition: color @transition-time @transition-func;
+            transition: color @consonantTransitionTime @consonantTransitionFunc;
         }
 
         &.is-selected &-ico {
-            background-image: url(@consonant-filters-heart-filled-data);
+            background-image: url(@consonant-Bookmarks-isSelected-ico-data);
         }
 
         @media @consonant-desktop-up {
@@ -85,7 +85,7 @@
             order: 0;
 
             &:focus {
-                border-color: @consonant-focus-color;
+                border-color: @consonantFocusedColor;
             }
 
             &:after {
@@ -96,7 +96,7 @@
                 width: 100%;
                 left: 0;
                 top: 0;
-                background-color: @consonant-color-lightest-grey;
+                background-color: @consonantLightestGrey;
                 z-index: 1;
             }
 
@@ -107,12 +107,12 @@
 
                 &:hover,
                 &:active {
-                    .font(@line-height: 0.875rem, @weight: 700, @color: @consonant-color-white, @align: center);
+                    .font(@line-height: 0.875rem, @weight: 700, @color: @consonantWhite, @align: center);
                 }
             }
 
             &-title:hover {
-                color: @consonant-color-dark-grey-3;
+                color: @consonantDarkGrey3;
             }
         }
     }

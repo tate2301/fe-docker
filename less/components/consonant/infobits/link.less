@@ -5,18 +5,18 @@
         max-height: 1rem * 2;
         margin-left: 16px;
 
-        .font(0.9375rem, 1rem, 700, @consonant-color-blue, left);
+        .font(0.9375rem, 1rem, 700, @consonantBlue, left);
         .line-clamp(2);
 
         text-decoration: none;
-        transition: color @transition-time @transition-func;
+        transition: color @consonantTransitionTime @consonantTransitionFunc;
 
         &:hover {
-            color: @consonant-color-blue-3;
+            color: @consonantBlue3;
         }
 
         &:active {
-            color: @consonant-color-blue-4;
+            color: @consonantBlue4;
         }
 
         .focused;

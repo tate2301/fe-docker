@@ -8,10 +8,10 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        min-width: @consonant-card-double-wide-mobile-min-width;
-        max-width: @consonant-card-double-wide-max-width;
-        min-height: @consonant-card-height;
-        max-height: @consonant-card-height;
+        min-width: @consonant-DoubleWideCard-mobileMinWidth;
+        max-width: @consonant-DoubleWideCard-maxWidth;
+        min-height: @consonantCardHeight;
+        max-height: @consonantCardHeight;
 
         .no-font;
 
@@ -24,7 +24,7 @@
             top: 0;
             left: 0;
             right: 0;
-            height: @consonant-card-double-wide-img-height;
+            height: @consonant-DoubleWideCard-imgHeight;
             background-position: 50% 0;
             background-size: cover;
             z-index: -1;
@@ -85,7 +85,7 @@
         }
 
         @media @consonant-desktop-up {
-            min-width: @consonant-card-double-wide-desktop-min-width;
+            min-width: @consonant-DoubleWideCard-desktopMinWidth;
         }
     }
 }

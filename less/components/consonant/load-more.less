@@ -20,7 +20,7 @@
             max-width: 75%;
             margin: 0 0 14px;
 
-            .font(@line-height: 1.1875rem, @color: @consonant-color-brown-grey, @align: center);
+            .font(@line-height: 1.1875rem, @color: @consonantBrownGrey, @align: center);
         }
 
         &-btn {
@@ -28,22 +28,22 @@
             box-sizing: border-box;
             padding: 5px 13px;
 
-            .font(@line-height: 1.1875rem, @color: @consonant-color-brown-grey, @align: center);
+            .font(@line-height: 1.1875rem, @color: @consonantBrownGrey, @align: center);
 
             text-transform: capitalize;
             background-color: transparent;
-            border: 2px solid @consonant-color-brown-grey;
+            border: 2px solid @consonantBrownGrey;
             border-radius: 30px;
             outline: 0;
             user-select: none;
             transition:
-                color @transition-time @transition-func,
-                background-color @transition-time @transition-func;
+                color @consonantTransitionTime @consonantTransitionFunc,
+                background-color @consonantTransitionTime @consonantTransitionFunc;
 
             &:hover,
             &:active {
-                background-color: @consonant-color-light-grey-3;
-                color: @consonant-color-white;
+                background-color: @consonantLightGrey3;
+                color: @consonantWhite;
             }
 
             .focused;
@@ -54,8 +54,8 @@
         }
 
         @media @consonant-big-desktop-up {
-            min-width: @consonant-width-desktop-min;
-            max-width: @consonant-width-desktop-min;
+            min-width: @consonantDesktopMinWidth;
+            max-width: @consonantDesktopMinWidth;
             padding-bottom: 140px;
         }
     }
@@ -69,7 +69,7 @@
     }
 
     @media @consonant-big-desktop-up {
-        min-width: calc(@consonant-width-desktop-min - @consonant-filters-1200-break-width ~ ' - 32px');
-        max-width: calc(@consonant-width-desktop-min - @consonant-filters-1200-break-width ~ ' - 32px');
+        min-width: calc(@consonantDesktopMinWidth - @consonant-filters-1200-break-width ~ ' - 32px');
+        max-width: calc(@consonantDesktopMinWidth - @consonant-filters-1200-break-width ~ ' - 32px');
     }
 }

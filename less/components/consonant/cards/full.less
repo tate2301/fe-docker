@@ -7,10 +7,10 @@
 
         position: relative;
         flex: 1 1 0;
-        min-width: @consonant-card-min-width;
-        max-width: @consonant-card-max-width;
-        min-height: @consonant-card-height;
-        max-height: @consonant-card-height;
+        min-width: @consonantCardMinWidth;
+        max-width: @consonantCardMaxWidth;
+        min-height: @consonantCardHeight;
+        max-height: @consonantCardHeight;
         padding: 0;
         text-align: left;
         border: 1px solid @consonantGray300;
@@ -23,7 +23,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            min-height: @consonant-card-full-inner-min-height;
+            min-height: @consonant-FullCard-innerMinHeight;
             margin-top: auto;
             padding: 0 24px 24px;
             text-decoration: none;
@@ -67,27 +67,27 @@
 
         &-videoIco {
             position: absolute;
-            width: @consonant-card-video-ico-size;
-            height: @consonant-card-video-ico-size;
+            width: @consonantCardVideoIcoSize;
+            height: @consonantCardVideoIcoSize;
             right: 24px;
             bottom: 124px;
 
             .no-font;
 
-            background: transparent url(@consonant-card-play-ico-data) no-repeat 0 0;
+            background: transparent url(@consonantCardPlayIcoData) no-repeat 0 0;
             background-size: cover;
             z-index: 3;
             cursor: pointer;
             transform-origin: 50% 50%;
             opacity: 0;
-            transition: opacity @transition-time @transition-func;
-            transition-delay: @transition-time * 2;
+            transition: opacity @consonantTransitionTime @consonantTransitionFunc;
+            transition-delay: @consonantTransitionTime * 2;
 
             &:hover,
             &:active {
                 opacity: 1;
                 transform: scale(1.1);
-                transition: transform @transition-time @transition-func;
+                transition: transform @consonantTransitionTime @consonantTransitionFunc;
                 transition-delay: 0;
             }
 
@@ -116,8 +116,8 @@
             img {
                 width: auto;
                 height: auto;
-                max-width: @consonant-card-logo-img-max-widht;
-                max-height: @consonant-card-logo-img-max-height;
+                max-width: @consonantCardLogoImgMaxWidth;
+                max-height: @consonant-cardLogoImgMaxHeight;
                 object-fit: contain;
                 user-select: none;
             }
@@ -205,7 +205,7 @@
         @media @consonant-IE11-only {
             flex-grow: 0;
             flex-shrink: 0;
-            flex-basis: @consonant-card-min-width;
+            flex-basis: @consonantCardMinWidth;
         }
 
         @media @consonant-desktop-up {

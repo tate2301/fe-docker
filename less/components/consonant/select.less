@@ -6,19 +6,19 @@
 .consonant {
     &-Select {
         position: relative;
-        width: @consonant-select-width;
+        width: @consonant-Select-width;
         margin-bottom: 10px;
 
         &:after {
             content: '';
             position: absolute;
-            width: @consonant-select-width-arr-size;
-            height: @consonant-select-width-arr-size;
+            width: @consonant-SelectPseudoEl-size;
+            height: @consonant-SelectPseudoEl-size;
             top: 0;
             bottom: 0;
             right: 12px;
             margin: auto;
-            border: 1px solid @consonant-color-dark-grey-4;
+            border: 1px solid @consonantDarkGrey4;
             z-index: 1;
             transform: rotate(-45deg) translate3d(-1px, -2px, 0);
             border-top: 0;
@@ -30,15 +30,15 @@
             box-sizing: border-box;
             display: block;
             width: 100%;
-            max-width: @consonant-select-width;
+            max-width: @consonant-Select-width;
             padding: 0 34px 0 12px;
 
-            .font(0.875rem, 1.875rem, 400, @consonant-color-brown-grey, left);
+            .font(0.875rem, 1.875rem, 400, @consonantBrownGrey, left);
 
             text-transform: capitalize;
             white-space: nowrap;
             cursor: pointer;
-            border: 1px solid @consonant-color-lightest-grey;
+            border: 1px solid @consonantLightestGrey;
             border-radius: 5px;
             background-color: transparent;
             overflow: hidden;
@@ -59,10 +59,10 @@
             top: calc(~ '100% + 6px');
             right: 0;
             word-break: break-word;
-            border: 1px solid @consonant-color-lightest-grey;
-            background-color: @consonant-color-white;
-            box-shadow: 0 3px 15px fade(@consonant-color-brown-grey, 10%);
-            transition: opacity @transition-time @transition-func;
+            border: 1px solid @consonantLightestGrey;
+            background-color: @consonantWhite;
+            box-shadow: 0 3px 15px fade(@consonantBrownGrey, 10%);
+            transition: opacity @consonantTransitionTime @consonantTransitionFunc;
             z-index: 2;
             border-radius: 5px;
             overflow: hidden;
@@ -83,34 +83,34 @@
             max-width: 100%;
             padding: 9px 30px 9px 20px;
 
-            .font(@color: @consonant-color-brown-grey);
+            .font(@color: @consonantBrownGrey);
 
             white-space: nowrap;
             text-overflow: ellipsis;
-            background-color: @consonant-color-white;
-            transition: background-color @transition-time @transition-func;
+            background-color: @consonantWhite;
+            transition: background-color @consonantTransitionTime @consonantTransitionFunc;
             outline: 0;
             overflow: hidden;
 
             &:hover {
-                background-color: @consonant-color-lightest-grey-2;
+                background-color: @consonantLightestGrey2;
             }
 
             &.is-selected {
                 position: relative;
 
-                .font(@weight: 700; @color: @consonant-color-blue-2);
+                .font(@weight: 700; @color: @consonantBlue2);
 
                 &:after {
                     content: '';
                     position: absolute;
-                    width: @consonant-select-option-selected-width;
-                    height: @consonant-select-option-selected-width / 2;
+                    width: @consonant-Select-optionPseudoEl-isSelected-width;
+                    height: @consonant-Select-optionPseudoEl-isSelected-width / 2;
                     top: 0;
                     bottom: 0;
                     right: 16px;
                     margin: auto;
-                    border: 2px solid @consonant-color-blue;
+                    border: 2px solid @consonantBlue;
                     border-top: 0;
                     border-right: 0;
                     transform: rotate(-45deg) translate3d(1px, -2px, 0);
@@ -127,12 +127,12 @@
             &:after {
                 width: 4px;
                 height: 4px;
-                border-color: @consonant-color-brown-grey;
+                border-color: @consonantBrownGrey;
             }
         }
 
         &--autoWidth &-options {
-            min-width: @consonant-select-width;
+            min-width: @consonant-Select-width;
         }
 
         &--autoWidth &-btn {
@@ -151,7 +151,7 @@
         }
 
         @media @consonant-desktop-up {
-            width: @consonant-select-1200-break-width;
+            width: @consonant-Select-1200BreakpointWidth;
             margin-bottom: 0;
 
             &:after {
@@ -159,7 +159,7 @@
             }
 
             &-options {
-                min-width: @consonant-select-options-1200-break-width;
+                min-width: @consonant-Select-options-1200BreakpointWidth;
             }
 
             &-option {
@@ -168,7 +168,7 @@
                 border: 2px solid transparent;
 
                 &:focus {
-                    border-color: @consonant-focus-color;
+                    border-color: @consonantFocusedColor;
                 }
             }
 

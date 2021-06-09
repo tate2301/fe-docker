@@ -9,8 +9,8 @@
         box-sizing: border-box;
         display: inline-block;
         position: relative;
-        width: @consonant-loader-size;
-        height: @consonant-loader-size;
+        width: @consonant-Loader-size;
+        height: @consonant-Loader-size;
         border-radius: 50%;
         overflow: hidden;
 
@@ -20,7 +20,7 @@
             .position-absolute-0;
 
             margin: auto;
-            z-index: @consonant-loader-z-index;
+            z-index: 10;
         }
 
         &:after {
@@ -30,7 +30,7 @@
 
             .position-absolute-0;
 
-            border: 2px solid @consonant-color-lightest-grey;
+            border: 2px solid @consonantLightestGrey;
             border-radius: 50%;
             z-index: 0;
         }
@@ -39,13 +39,13 @@
             box-sizing: border-box;
             display: block;
             position: absolute;
-            width: @consonant-loader-size;
-            height: @consonant-loader-size;
-            border: 2px solid @consonant-color-blue-2;
+            width: @consonant-Loader-size;
+            height: @consonant-Loader-size;
+            border: 2px solid @consonantBlue2;
             border-radius: 100%;
             animation: circle 1s ease-in infinite;
             transform-origin: 50% 50%;
-            border-color: @consonant-color-blue-2 transparent transparent transparent;
+            border-color: @consonantBlue2 transparent transparent transparent;
             z-index: 2;
             opacity: 1;
             overflow: visible;
@@ -64,25 +64,25 @@
         }
 
         &--medium {
-            width: @consonant-loader-md-size;
-            height: @consonant-loader-md-size;
+            width: @consonant-Loader--medium-size;
+            height: @consonant-Loader--medium-size;
 
             &:after,
             div {
-                width: @consonant-loader-md-size;
-                height: @consonant-loader-md-size;
+                width: @consonant-Loader--medium-size;
+                height: @consonant-Loader--medium-size;
                 border-width: 4px;
             }
         }
 
         &--big {
-            width: @consonant-loader-big-size;
-            height: @consonant-loader-big-size;
+            width: @consonant-Loader--big-size;
+            height: @consonant-Loader--big-size;
 
             &:after,
             div {
-                width: @consonant-loader-big-size;
-                height: @consonant-loader-big-size;
+                width: @consonant-Loader--big-size;
+                height: @consonant-Loader--big-size;
                 border-width: 5px;
             }
         }
