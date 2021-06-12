@@ -18,32 +18,32 @@ describe('Consonant/Filters/Left/Filters Info', () => {
     test('should be able to render without title', () => {
         renderFiltersInfo({}, { collection: { i18n: { title: '' } } });
 
-        const titleElement = screen.queryByTestId('title');
+        const titleElement = screen.queryByTestId('consonant-FiltersInfo-title');
 
         expect(titleElement).toBeNull();
     });
     test('should render without total result', () => {
         renderFiltersInfo({}, { collection: { showTotalResults: false } });
 
-        const resultsElement = screen.queryByTestId('results');
+        const resultsElement = screen.queryByTestId('consonant-FiltersInfo-results');
 
         expect(resultsElement).toBeNull();
     });
     test('should not render selected filters', () => {
         renderFiltersInfo();
 
-        const selectedFiltersWrapper = screen.queryByTestId('selected-filters');
+        const selectedFiltersWrapper = screen.queryByTestId('consonant-ChosenFilters');
 
         expect(selectedFiltersWrapper).toBeNull();
     });
     test('should be able to render a mobile button', () => {
         renderFiltersInfo({ windowWidth: NON_DESKTOP_WIDTH, selectedFiltersQty: 1, filtersQty: 1 });
 
-        const btnWrapperElement = screen.queryByTestId('btn-wrapper');
+        const btnWrapperElement = screen.queryByTestId('consonant-FiltersInfo-btnWrapper');
 
         expect(btnWrapperElement).not.toBeNull();
 
-        const btnSelectedElement = screen.queryByTestId('btn-selected');
+        const btnSelectedElement = screen.queryByTestId('consonant-FiltersInfo-btnSelected');
 
         expect(btnSelectedElement).not.toBeNull();
         expect(btnSelectedElement).toHaveTextContent('1');
@@ -52,7 +52,7 @@ describe('Consonant/Filters/Left/Filters Info', () => {
     test('should be able to render the sort component', () => {
         renderFiltersInfo({ sortOptions: [{ sort: 'featured' }] });
 
-        const sortElement = screen.queryByTestId('filters-info__sort-component');
+        const sortElement = screen.queryByTestId('consonant-Select');
 
         expect(sortElement).not.toBeNull();
     });
@@ -63,7 +63,7 @@ describe('Consonant/Filters/Left/Filters Info', () => {
             windowWidth: NON_DESKTOP_WIDTH,
         });
 
-        const buttonElement = screen.queryByTestId('info-btn');
+        const buttonElement = screen.queryByTestId('consonant-FiltersInfo-btn');
 
         expect(buttonElement).not.toBeNull();
 

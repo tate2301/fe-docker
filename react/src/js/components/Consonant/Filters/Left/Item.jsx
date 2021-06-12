@@ -163,7 +163,7 @@ const Item = (props) => {
 
     return (
         <div
-            data-testid="filter-item"
+            data-testid="consonant-LeftFilter"
             className={leftFilterClassName}>
             <div
                 className="consonant-LeftFilter-inner">
@@ -178,7 +178,7 @@ const Item = (props) => {
                     }
                     <button
                         type="button"
-                        data-testid="filter-item-link"
+                        data-testid="consonant-LeftFilter-link"
                         className="consonant-LeftFilter-link"
                         onClick={handleClick}
                         tabIndex="0">

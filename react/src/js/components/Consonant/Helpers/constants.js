@@ -191,8 +191,8 @@ export const DEFAULT_SHOW_ITEMS_PER_PAGE = 8;
  * @type {Object}
  */
 export const CARD_STYLES = {
-    WIDE: '3:2',
-    SQUARE: '1:1',
+    WIDE: 'one-half',
+    SQUARE: 'three-fourth',
     FULL: 'full-card',
 };
 

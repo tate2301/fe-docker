@@ -89,7 +89,7 @@ describe('utils/CardFilterer', () => {
 
             const { container } = render(filteredCards.map(({ title }) => title || null));
 
-            const highlightElement = queryByTestId(container, 'consonant-search-result');
+            const highlightElement = queryByTestId(container, 'consonant-SearchResult');
 
             expect(highlightElement).not.toBeNull();
             expect(highlightElement).toHaveTextContent('name');

@@ -11,7 +11,7 @@ describe('Consonant/Search', () => {
     test('Should be able to handle focus and blur events', () => {
         renderSearch({ onBlur: null });
 
-        const inputElement = screen.getByTestId('search-input');
+        const inputElement = screen.getByTestId('consonant-Search-input');
 
         fireEvent.focus(inputElement);
         fireEvent.blur(inputElement);
@@ -19,7 +19,7 @@ describe('Consonant/Search', () => {
     test('Should be able to handle searches', () => {
         const { props: { onSearch } } = renderSearch({ value: 'First Search Query' });
 
-        const inputElement = screen.getByTestId('search-input');
+        const inputElement = screen.getByTestId('consonant-Search-input');
 
         expect(inputElement.value).toBe('First Search Query');
 
@@ -33,7 +33,7 @@ describe('Consonant/Search', () => {
     test('Should be able to clear search values', () => {
         const { props: { onSearch } } = renderSearch();
 
-        const buttonElement = screen.queryByTestId('clear-search-button');
+        const buttonElement = screen.queryByTestId('consonant-Search-inputClear');
 
         fireEvent.click(buttonElement);
 

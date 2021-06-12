@@ -51,11 +51,11 @@ const Info = ({
 
     return (
         <div
-            data-testid="btn-wrapper"
+            data-testid="consonant-FiltersInfo-btnWrapper"
             className="consonant-FiltersInfo-btnWrapper">
             <button
                 type="button"
-                data-testid="info-btn"
+                data-testid="consonant-FiltersInfo-btn"
                 className={selectedFiltersQtyClassName}
                 onClick={onMobileFiltersToggleClick}>
                 <span
@@ -66,7 +66,7 @@ const Info = ({
                 </span>
                 {atleastOneSelectedFilter &&
                     <span
-                        data-testid="btn-selected"
+                        data-testid="consonant-FiltersInfo-btnSelected"
                         className="consonant-FiltersInfo-btnSelected">
                         {selectedFiltersQty}
                     </span>

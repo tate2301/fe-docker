@@ -16,7 +16,7 @@ describe('Consonant/Infobits/Type/Rating', () => {
         };
         render(<Rating {...props} />);
 
-        const [stars] = screen.getAllByTestId('rating-star');
+        const [stars] = screen.getAllByTestId('consonant-RatingInfobit-stars');
 
         expect(stars.dataset.rating).toBe('0');
     });
@@ -29,7 +29,7 @@ describe('Consonant/Infobits/Type/Rating', () => {
         };
         render(<Rating {...props} />);
 
-        const [stars] = screen.getAllByTestId('rating-star');
+        const [stars] = screen.getAllByTestId('consonant-RatingInfobit-stars');
 
         expect(stars.dataset.rating).toBe('0');
     });
@@ -42,7 +42,7 @@ describe('Consonant/Infobits/Type/Rating', () => {
         };
         render(<Rating {...props} />);
 
-        const [stars] = screen.getAllByTestId('rating-star');
+        const [stars] = screen.getAllByTestId('consonant-RatingInfobit-stars');
 
         expect(stars.dataset.rating).toBe('0');
     });

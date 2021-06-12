@@ -24,8 +24,8 @@ describe('Consonant/Card/1:1', () => {
             },
         } = renderCard();
 
-        const bannerElement = screen.getByTestId('consonant-card--banner');
-        const bannerIconElement = screen.getByTestId('consonant-card--banner-icon');
+        const bannerElement = screen.getByTestId('consonant-ThreeFourthCard-banner');
+        const bannerIconElement = screen.getByTestId('consonant-Card-bannerImg');
 
         expect(bannerElement).toHaveStyle({
             color: bannerFontColor,
@@ -61,7 +61,7 @@ describe('Consonant/Card/1:1', () => {
             },
         });
 
-        const labelElement = screen.queryByTestId('1-1-card--label');
+        const labelElement = screen.queryByTestId('consonant-ThreeFourthCard-label');
 
         expect(labelElement).not.toBeNull();
     });
@@ -91,7 +91,7 @@ describe('Consonant/Card/1:1', () => {
             },
         });
 
-        const labelElement = screen.queryByTestId('1-1-card--label');
+        const labelElement = screen.queryByTestId('consonant-ThreeFourthCard-label');
 
         expect(labelElement)
             .toBeNull();

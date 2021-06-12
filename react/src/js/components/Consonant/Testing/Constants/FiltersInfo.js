@@ -16,7 +16,7 @@ export const DEFAULT_PROPS = {
 
     onMobileFiltersToggleClick: jest.fn(),
 
-    searchComponent: <div data-testid="filters-info__search-component" />,
-    sortComponent: <div data-testid="filters-info__sort-component" />,
+    searchComponent: <div data-testid="consonant-FiltersInfo-search" />,
+    sortComponent: <div data-testid="consonant-Select" />,
     sortOptions: [],
 };

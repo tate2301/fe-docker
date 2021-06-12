@@ -41,7 +41,7 @@ const SelectedItem = (props) => {
 
     return (
         <button
-            data-testid="item-badge"
+            data-testid="consonant-LeftFilter-itemBadge"
             type="button"
             className="consonant-LeftFilter-itemBadge"
             onClick={handleClear}

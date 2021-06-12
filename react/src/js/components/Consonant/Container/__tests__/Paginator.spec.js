@@ -28,11 +28,11 @@ describe('Consonant/Container/Paginator', () => {
         const configToUse = config;
         await act(async () => render(<Container config={configToUse} />));
 
-        await waitFor(() => screen.getByTestId('pagination--summary'));
-        const paginationElement = screen.getByTestId('pagination--summary');
+        await waitFor(() => screen.getByTestId('consonant-Pagination-summary'));
+        const paginationElement = screen.getByTestId('consonant-Pagination-summary');
 
-        const prevButton = screen.getByTestId('btn_prev');
-        const nextButton = screen.getByTestId('btn_next');
+        const prevButton = screen.getByTestId('consonant-Pagination-btn--prev');
+        const nextButton = screen.getByTestId('consonant-Pagination-btn--next');
 
         expect(paginationElement).toHaveTextContent('1 10');
 

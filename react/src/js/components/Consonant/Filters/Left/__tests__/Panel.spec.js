@@ -18,7 +18,7 @@ describe('Consonant/Left/Panel', () => {
     test('should be able to render all filters', () => {
         const { props: { filters } } = renderFilterPanel();
 
-        const filterGroupElements = screen.queryAllByTestId('filter-group');
+        const filterGroupElements = screen.queryAllByTestId('consonant-LeftFilter-items');
 
         expect(filterGroupElements).toHaveLength(filters.length);
     });
@@ -28,7 +28,7 @@ describe('Consonant/Left/Panel', () => {
             windowWidth: NON_DESKTOP_WIDTH,
         });
 
-        const footerTotalResElement = screen.queryByTestId('mobile-footer-total-res');
+        const footerTotalResElement = screen.queryByTestId('consonant-LeftFilters-mobileFooterTotalResQty');
         expect(footerTotalResElement).not.toBeNull();
     });
 
@@ -42,17 +42,17 @@ describe('Consonant/Left/Panel', () => {
             windowWidth: NON_DESKTOP_WIDTH,
         });
 
-        const mobileFooterClearElement = screen.queryByTestId('mobile-footer-clear');
+        const mobileFooterClearElement = screen.queryByTestId('consonant-LeftFilters-mobileFooterClearBtn');
         expect(mobileFooterClearElement).not.toBeNull();
 
-        const mobileFooterBtnElement = screen.queryByTestId('mobile-footer-btn');
+        const mobileFooterBtnElement = screen.queryByTestId('consonant-LeftFilters-mobileFooterBtn');
         expect(mobileFooterBtnElement).toHaveTextContent(applyBtnText);
     });
 
     test('Should be able to select a filter', () => {
         const { props: { onFilterClick } } = renderFilterPanel();
 
-        const [filterItemElement] = screen.queryAllByTestId('filter-item-link');
+        const [filterItemElement] = screen.queryAllByTestId('consonant-LeftFilter-link');
         expect(filterItemElement).toBeDefined();
 
         fireEvent.click(filterItemElement);
@@ -61,7 +61,7 @@ describe('Consonant/Left/Panel', () => {
     test('Should be able to clear all filters', () => {
         const { props: { onClearAllFilters } } = renderFilterPanel();
 
-        const clearButtonElement = screen.queryByTestId('left-filter-panel-clear-all-btn');
+        const clearButtonElement = screen.queryByTestId('consonant-LeftFilters-clearLink');
         expect(clearButtonElement).not.toBeNull();
 
         fireEvent.click(clearButtonElement);
@@ -75,7 +75,7 @@ describe('Consonant/Left/Panel', () => {
             windowWidth: NON_DESKTOP_WIDTH,
         });
 
-        const mobileFooterClearElement = screen.queryByTestId('mobile-footer-clear');
+        const mobileFooterClearElement = screen.queryByTestId('consonant-LeftFilters-mobileFooterClearBtn');
         expect(mobileFooterClearElement).not.toBeNull();
 
         fireEvent.click(mobileFooterClearElement);
@@ -88,13 +88,13 @@ describe('Consonant/Left/Panel', () => {
             windowWidth: NON_DESKTOP_WIDTH,
         });
 
-        const mobileButtonBackElement = screen.queryByTestId('mobile-back-btn');
+        const mobileButtonBackElement = screen.queryByTestId('consonant-LeftFilters-mobBack');
         expect(mobileButtonBackElement).not.toBeNull();
 
         fireEvent.click(mobileButtonBackElement);
         expect(onMobileFiltersToggleClick).toHaveBeenCalledTimes(1);
 
-        const mobileFooterBtnElement = screen.queryByTestId('mobile-footer-btn');
+        const mobileFooterBtnElement = screen.queryByTestId('consonant-LeftFilters-mobileFooterBtn');
         expect(mobileFooterBtnElement).not.toBeNull();
 
         fireEvent.click(mobileFooterBtnElement);

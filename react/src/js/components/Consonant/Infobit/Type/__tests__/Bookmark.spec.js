@@ -18,7 +18,7 @@ describe('Consonant/Infobits/Types/Bookmarks', () => {
     test('When a bookmark icon is clicked, the appropriate event handler should be called', () => {
         render(<Bookmark {...props} />);
 
-        const boorkmarksElement = screen.getByTestId('bookmark-button');
+        const boorkmarksElement = screen.getByTestId('consonant-BookmarkInfobit');
 
         fireEvent.click(boorkmarksElement);
 

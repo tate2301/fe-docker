@@ -40,12 +40,12 @@ describe('Consonant/Container/Left Filter', () => {
         await act(async () => render(<Container config={configToUse} />));
 
         // Top Filter Panel Should NOT Exist
-        const filtersTopElement = screen.queryByTestId('consonant-filters__top');
+        const filtersTopElement = screen.queryByTestId('consonant-TopFilters');
         expect(filtersTopElement).toBeNull();
 
         // Grab thee Left Filter Panel and Info Bar
-        const filtersLeftElement = screen.queryByTestId('consonant-filters__left');
-        const filtersInfoElement = screen.queryByTestId('consonant-filters__info');
+        const filtersLeftElement = screen.queryByTestId('consonant-LeftFilters');
+        const filtersInfoElement = screen.queryByTestId('consonant-FiltersInfo');
 
         expect(filtersLeftElement).not.toBeNull();
         expect(filtersInfoElement).not.toBeNull();
@@ -55,9 +55,9 @@ describe('Consonant/Container/Left Filter', () => {
         const configToUse = config;
 
         await act(async () => render(<Container config={configToUse} />));
-        await waitFor(() => screen.getByTestId('consonant-collection'));
+        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
 
-        expect(screen.getByTestId('consonant-collection')).not.toBeNull();
+        expect(screen.getByTestId('consonant-CardCollection')).not.toBeNull();
     });
 
     test('Should allow users to check filter checkboxes', async () => {
@@ -65,10 +65,10 @@ describe('Consonant/Container/Left Filter', () => {
         configToUse.filterPanel.filterLogic = 'xor';
 
         await act(async () => render(<Container config={configToUse} />));
-        await waitFor(() => screen.getAllByTestId('list-item-checkbox'));
+        await waitFor(() => screen.getAllByTestId('consonant-LeftFilter-itemsItemCheckbox'));
 
-        const filtersLeftElement = screen.getByTestId('consonant-filters__left');
-        const [firstCheckbox] = queryAllByTestId(filtersLeftElement, 'list-item-checkbox');
+        const filtersLeftElement = screen.getByTestId('consonant-LeftFilters');
+        const [firstCheckbox] = queryAllByTestId(filtersLeftElement, 'consonant-LeftFilter-itemsItemCheckbox');
 
         expect(firstCheckbox.checked).toBeFalsy();
 
@@ -88,8 +88,8 @@ describe('Consonant/Container/Left Filter', () => {
         await act(async () => render(<Container config={configToUse} />));
         global.innerWidth = TABLET_MIN_WIDTH;
 
-        const mobileFooterButton = screen.getByTestId('mobile-footer-btn');
-        const filtersLeftElement = screen.getByTestId('consonant-filters__left');
+        const mobileFooterButton = screen.getByTestId('consonant-LeftFilters-mobileFooterBtn');
+        const filtersLeftElement = screen.getByTestId('consonant-LeftFilters');
 
         expect(filtersLeftElement).not.toHaveClass('is-opened');
 
@@ -104,19 +104,19 @@ describe('Consonant/Container/Left Filter', () => {
         configToUse.filterPanel.filterLogic = 'xor';
         await act(async () => render(<Container config={configToUse} />));
 
-        await waitFor(() => screen.getByTestId('consonant-collection'));
+        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
 
-        const searchInput = screen.getByTestId('search-input');
+        const searchInput = screen.getByTestId('consonant-Search-input');
 
         fireEvent.change(searchInput, { target: { value: 'Some Title 5' } });
 
-        await waitFor(() => screen.getByTestId('consonant-collection'));
+        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
 
-        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(1);
+        expect(screen.queryAllByTestId('consonant-OneHalfCard')).toHaveLength(1);
 
-        const [firstFilter] = screen.queryAllByTestId('filter-item');
+        const [firstFilter] = screen.queryAllByTestId('consonant-LeftFilter');
 
-        const [firstFilterCheckbox] = queryAllByTestId(firstFilter, 'list-item-checkbox');
+        const [firstFilterCheckbox] = queryAllByTestId(firstFilter, 'consonant-LeftFilter-itemsItemCheckbox');
 
         fireEvent.click(firstFilterCheckbox);
 
@@ -129,10 +129,10 @@ describe('Consonant/Container/Left Filter', () => {
         configToUse.filterPanel.filterLogic = 'xor';
         await act(async () => render(<Container config={configToUse} />));
 
-        await waitFor(() => screen.getAllByTestId('filter-item'));
+        await waitFor(() => screen.getAllByTestId('consonant-LeftFilter'));
 
-        const [firstFilterGroup, secondFilterGroup] = screen.queryAllByTestId('filter-item');
-        const [firstFilterItem, secondFilterItem] = screen.queryAllByTestId('filter-item-link');
+        const [firstFilterGroup, secondFilterGroup] = screen.queryAllByTestId('consonant-LeftFilter');
+        const [firstFilterItem, secondFilterItem] = screen.queryAllByTestId('consonant-LeftFilter-link');
 
         fireEvent.click(firstFilterItem);
 
@@ -154,17 +154,17 @@ describe('Consonant/Left Filter/Selected Filter Pills', () => {
 
         await act(async () => render(<Container config={configToUse} />));
         // Need to wait for all checkboxes to render
-        await waitFor(() => screen.getAllByTestId('list-item-checkbox'));
+        await waitFor(() => screen.getAllByTestId('consonant-LeftFilter-itemsItemCheckbox'));
 
-        const filterElements = screen.getAllByTestId('consonant-filters__left');
+        const filterElements = screen.getAllByTestId('consonant-LeftFilter');
         const firstFilterElement = filterElements[0];
 
-        const [firstCheckbox] = queryAllByTestId(firstFilterElement, 'list-item-checkbox');
+        const [firstCheckbox] = queryAllByTestId(firstFilterElement, 'consonant-LeftFilter-itemsItemCheckbox');
 
         fireEvent.click(firstCheckbox);
 
-        await waitFor(() => screen.getAllByTestId('selected-filter'));
-        const [selectedFilter] = screen.getAllByTestId('selected-filter');
+        await waitFor(() => screen.getAllByTestId('consonant-ChosenFilter'));
+        const [selectedFilter] = screen.getAllByTestId('consonant-ChosenFilter');
 
         expect(selectedFilter).not.toBeNull();
     });

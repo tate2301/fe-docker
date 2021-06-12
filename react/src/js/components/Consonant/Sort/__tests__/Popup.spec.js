@@ -10,20 +10,20 @@ const renderSortPopup = setup(Popup, DEFAULT_PROPS);
 describe('Consonant/Sort/Popup', () => {
     test('Should show all sort options', async () => {
         const { props: { values } } = renderSortPopup();
-        const sortPopup = screen.getByTestId('select-button');
+        const sortPopup = screen.getByTestId('consonant-Select-btn');
 
         fireEvent.click(sortPopup);
 
-        const optionElements = screen.getAllByTestId('select-option');
+        const optionElements = screen.getAllByTestId('consonant-Select-option');
         expect(optionElements).toHaveLength(values.length);
     });
 
     test('Click handler should work', () => {
         const { props: { onSelect } } = renderSortPopup();
-        const sortPopup = screen.getByTestId('select-button');
+        const sortPopup = screen.getByTestId('consonant-Select-btn');
 
         fireEvent.click(sortPopup);
-        const [optionElement] = screen.getAllByTestId('select-option');
+        const [optionElement] = screen.getAllByTestId('consonant-Select-option');
         fireEvent.click(optionElement);
 
         expect(onSelect).toBeCalled();

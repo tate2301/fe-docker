@@ -12,8 +12,8 @@ export const DEFAULT_PROPS = {
 };
 
 export const COLLECTION_PROPS = [
-    '3:2',
-    '1:1',
+    'one-half',
+    'three-fourth',
     'none',
     'full-card',
 ].map(cardStyle => ({ ...collection, cardStyle }));

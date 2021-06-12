@@ -13,7 +13,7 @@ export const HighlightSearchField = (text, value) => {
         part.toLowerCase() === value ?
             (
                 <span
-                    data-testid="consonant-search-result"
+                    data-testid="consonant-SearchResult"
                     className="consonant-SearchResult"
                     key={cuid()}>
                     {part}

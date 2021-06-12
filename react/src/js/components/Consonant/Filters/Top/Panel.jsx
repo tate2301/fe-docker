@@ -228,11 +228,11 @@ const FiltersPanelTop = (props) => {
 
     return (
         <div
-            data-testid="consonant-filters__top"
+            data-testid="consonant-TopFilters"
             className="consonant-TopFilters">
             {shouldDisplaySearchBar &&
                 <div
-                    data-testid="top-filters__search-wrapper"
+                    data-testid="consonant-TopFilters-searchWrapper"
                     className="consonant-TopFilters-searchWrapper">
                     {searchComponent}
                 </div>
@@ -249,7 +249,7 @@ const FiltersPanelTop = (props) => {
                             </strong>
                         }
                         <div
-                            data-testid="consonant-filters__top__filters"
+                            data-testid="consonant-TopFilters-filters"
                             className={showLimitedFiltersQtyClass}>
                             {filters.map(filter =>
                                 (<TopFilterItem
@@ -269,7 +269,7 @@ const FiltersPanelTop = (props) => {
                             {shouldDisplayMoreFiltersBtn &&
                                 <button
                                     type="button"
-                                    data-testid="top-filter__more-button"
+                                    data-testid="consonant-TopFilters-moreBtn"
                                     className="consonant-TopFilters-moreBtn"
                                     onClick={onShowAllClick}>
                                     {moreFiltersBtnText}
@@ -278,12 +278,12 @@ const FiltersPanelTop = (props) => {
                         </div>
                         {shouldShowClearButtonWrapper &&
                             <div
-                                data-testid="top-filter__clear-button-wrapper"
+                                data-testid="consonant-TopFilters-clearBtnWrapper"
                                 className={clearBtnWrapperClass}>
                                 {atleastOneFilterSelected &&
                                     <button
                                         type="button"
-                                        data-testid="top-filter__clear-button"
+                                        data-testid="consonant-TopFilters-clearBtn"
                                         className="consonant-TopFilters-clearBtn"
                                         onClick={onClearAllFilters}
                                         tabIndex="0">
@@ -296,7 +296,7 @@ const FiltersPanelTop = (props) => {
                 }
                 {searchEnabled && TABLET_OR_DESKTOP_SCREEN_SIZE &&
                     <div
-                        data-testid="filter-top-ico-wrapper"
+                        data-testid="consonant-TopFilters-searchIcoWrapper"
                         className="consonant-TopFilters-searchIcoWrapper">
                         {shouldShowSearchBar && searchComponent}
                         {TABLET_OR_DESKTOP_SCREEN_SIZE &&
@@ -307,7 +307,7 @@ const FiltersPanelTop = (props) => {
                 }
                 {shouldDisplaySortComponent &&
                     <div
-                        data-testid="top-filters__sort-popup"
+                        data-testid="consonant-TopFilters-selectWrapper"
                         className="consonant-TopFilters-selectWrapper">
                         {sortComponent}
                     </div>
@@ -316,14 +316,14 @@ const FiltersPanelTop = (props) => {
                     <div className="consonant-TopFilters-infoWrapper">
                         {title &&
                             <h2
-                                data-testid="title"
+                                data-testid="consonant-TopFilters-collectionTitle"
                                 className="consonant-TopFilters-collectionTitle">
                                 {title}
                             </h2>
                         }
                         {showTotalResults &&
                             <div
-                                data-testid="results"
+                                data-testid="consonant-TopFilters-results"
                                 className="consonant-TopFilters-results">
                                 {totalResultsHtml}
                             </div>

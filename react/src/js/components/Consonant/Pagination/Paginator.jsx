@@ -125,7 +125,7 @@ const Paginator = (props) => {
             <div
                 className="consonant-Pagination-paginator">
                 <button
-                    data-testid="btn_prev"
+                    data-testid="consonant-Pagination-btn--prev"
                     onClick={handleClick}
                     type="button"
                     className="consonant-Pagination-btn consonant-Pagination-btn--prev"
@@ -143,7 +143,7 @@ const Paginator = (props) => {
                                     'consonant-Pagination-item'
                             }>
                             <button
-                                data-testid="btn_page"
+                                data-testid="consonant-Pagination-itemBtn"
                                 onClick={handleClick}
                                 type="button"
                                 className="consonant-Pagination-itemBtn"
@@ -154,7 +154,7 @@ const Paginator = (props) => {
                     ))}
                 </ul>
                 <button
-                    data-testid="btn_next"
+                    data-testid="consonant-Pagination-btn--next"
                     onClick={handleClick}
                     type="button"
                     className="consonant-Pagination-btn consonant-Pagination-btn--next"
@@ -163,7 +163,7 @@ const Paginator = (props) => {
                 </button>
             </div>
             <div
-                data-testid="pagination--summary"
+                data-testid="consonant-Pagination-summary"
                 className="consonant-Pagination-summary">
                 <strong>
                     {paginationSummary}

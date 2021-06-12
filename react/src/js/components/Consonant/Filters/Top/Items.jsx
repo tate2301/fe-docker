@@ -61,12 +61,12 @@ const Items = (props) => {
 
     return (
         <ul
-            data-testid="filter-group"
+            data-testid="consonant-TopFilter-items"
             className={clipFilterItemsClass}>
             {items.map(item => (
                 <li
                     key={item.id}
-                    data-testid="filter-group-item"
+                    data-testid="consonant-TopFilter-item"
                     className="consonant-TopFilter-item">
                     {/* eslint-disable-next-line max-len */}
                     {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
@@ -75,7 +75,7 @@ const Items = (props) => {
                         className="consonant-TopFilter-itemLabel"
                         onClick={stopPropagation}>
                         <input
-                            data-testid="list-item-checkbox"
+                            data-testid="consonant-TopFilter-itemCheckbox"
                             id={item.id}
                             value={item.id}
                             type="checkbox"

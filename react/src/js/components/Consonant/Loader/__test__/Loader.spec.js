@@ -14,7 +14,7 @@ describe('Consonant/Loader', () => {
         };
         render(<Loader {...props} />);
 
-        const loader = screen.queryByTestId('consonant-loader');
+        const loader = screen.queryByTestId('consonant-Loader');
 
         expect(loader).not.toBeNull()
     });

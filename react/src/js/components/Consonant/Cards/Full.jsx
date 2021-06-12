@@ -101,16 +101,16 @@ const FullCard = (props) => {
         <div
             daa-lh={lh}
             className="consonant-FullCard"
-            data-testid="consonant-full-card"
+            data-testid="consonant-FullCard"
             id={id}>
             <div
-                data-testid="consonant-card--img"
+                data-testid="consonant-FullCard-img"
                 className="consonant-FullCard-img"
                 ref={imageRef}
                 style={{ backgroundImage: `url("${lazyLoadedImage}")` }}>
                 {bannerDescription && bannerFontColor && bannerBackgroundColor &&
                     <span
-                        data-testid="consonant-card--banner"
+                        data-testid="consonant-FullCard-banner"
                         className="consonant-FullCard-banner"
                         style={({
                             backgroundColor: bannerBackgroundColor,
@@ -122,8 +122,8 @@ const FullCard = (props) => {
                                 <img
                                     alt=""
                                     loading="lazy"
-                                    src={bannerIcon}
-                                    data-testid="consonant-card--banner-icon" />
+                                    data-testid="consonant-Card-bannerImg"
+                                    src={bannerIcon} />
                             </div>
                         }
                         <span>{bannerDescription}</span>

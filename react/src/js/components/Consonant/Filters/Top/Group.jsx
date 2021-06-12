@@ -192,7 +192,7 @@ const Group = (props) => {
 
     return (
         <div
-            data-testid="filter-item"
+            data-testid="consonant-TopFilter"
             className={containerClassname}>
             <div
                 className="consonant-TopFilter-inner">
@@ -201,7 +201,7 @@ const Group = (props) => {
                     <button
                         type="button"
                         className="consonant-TopFilter-link"
-                        data-testid="filter-group-btn"
+                        data-testid="consonant-TopFilter-link"
                         onClick={handleToggle}
                         tabIndex="0">
                         {name}

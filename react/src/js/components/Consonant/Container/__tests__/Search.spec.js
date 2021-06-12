@@ -29,9 +29,9 @@ describe('Consonant/Container/Search', () => {
         configToUse.filterPanel.filterLogic = 'xor';
         await act(async () => render(<Container config={configToUse} />));
 
-        await waitFor(() => screen.getByTestId('search-input'));
+        await waitFor(() => screen.getByTestId('consonant-Search-input'));
 
-        const searchInput = screen.getByTestId('search-input');
+        const searchInput = screen.getByTestId('consonant-Search-input');
 
         expect(searchInput.value).toEqual('');
 
@@ -46,9 +46,9 @@ describe('Consonant/Container/Search', () => {
         await act(async () => render(<Container config={configToUse} />));
 
 
-        await waitFor(() => screen.getByTestId('search-input'));
+        await waitFor(() => screen.getByTestId('consonant-Search-input'));
 
-        const searchInput = screen.getByTestId('search-input');
+        const searchInput = screen.getByTestId('consonant-Search-input');
 
         expect(searchInput.value).toEqual('');
 
@@ -61,9 +61,9 @@ describe('Consonant/Container/Search', () => {
         configToUse.sort = null;
         await act(async () => render(<Container config={configToUse} />));
 
-        await waitFor(() => screen.getByTestId('search-input'));
+        await waitFor(() => screen.getByTestId('consonant-Search-input'));
 
-        const searchInput = screen.getByTestId('search-input');
+        const searchInput = screen.getByTestId('consonant-Search-input');
 
         expect(searchInput.value).toEqual('');
 
@@ -78,9 +78,9 @@ describe('Consonant/Container/Search', () => {
         await act(async () => render(<Container config={configToUse} />));
 
 
-        await waitFor(() => screen.getByTestId('search-input'));
+        await waitFor(() => screen.getByTestId('consonant-Search-input'));
 
-        const searchInput = screen.getByTestId('search-input');
+        const searchInput = screen.getByTestId('consonant-Search-input');
 
         expect(searchInput.value).toEqual('');
 
@@ -94,14 +94,14 @@ describe('Consonant/Container/Search', () => {
         configToUse.filterPanel.filterLogic = 'xor';
         await act(async () => render(<Container config={configToUse} />));
 
-        await waitFor(() => screen.getByTestId('consonant-collection'));
+        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
 
-        const searchInput = screen.getByTestId('search-input');
+        const searchInput = screen.getByTestId('consonant-Search-input');
 
         fireEvent.change(searchInput, { target: { value: 'Some Title 5' } });
 
-        await waitFor(() => screen.getByTestId('consonant-collection'));
+        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
 
-        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(1);
+        expect(screen.queryAllByTestId('consonant-OneHalfCard')).toHaveLength(1);
     });
 });

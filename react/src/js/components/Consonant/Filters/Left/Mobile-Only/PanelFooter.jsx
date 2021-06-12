@@ -73,7 +73,7 @@ const PanelFooter = (props) => {
             className="consonant-LeftFilters-mobileFooter">
             {showTotalResults &&
                 <span
-                    data-testid="mobile-footer-total-res"
+                    data-testid="consonant-LeftFilters-mobileFooterTotalResQty"
                     className="consonant-LeftFilters-mobileFooterTotalResQty">
                     {showTotalResultsText.replace('{total}', resQty)}
                 </span>
@@ -81,7 +81,7 @@ const PanelFooter = (props) => {
             {someFiltersAreSelected &&
                 <button
                     type="button"
-                    data-testid="mobile-footer-clear"
+                    data-testid="consonant-LeftFilters-mobileFooterClearBtn"
                     className="consonant-LeftFilters-mobileFooterClearBtn"
                     onClick={onClearAllFilters}>
                     {clearAllFiltersText}
@@ -89,7 +89,7 @@ const PanelFooter = (props) => {
             }
             <button
                 type="button"
-                data-testid="mobile-footer-btn"
+                data-testid="consonant-LeftFilters-mobileFooterBtn"
                 className="consonant-LeftFilters-mobileFooterBtn"
                 onClick={onMobileFiltersToggleClick}>
                 {buttonText}

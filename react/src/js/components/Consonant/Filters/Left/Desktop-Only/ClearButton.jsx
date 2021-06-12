@@ -40,7 +40,7 @@ const ClearBtn = (props) => {
     return (
         <button
             type="button"
-            data-testid="left-filter-panel-clear-all-btn"
+            data-testid="consonant-LeftFilters-clearLink"
             className="consonant-LeftFilters-clearLink"
             onClick={onClearAllFilters}
             tabIndex="0">

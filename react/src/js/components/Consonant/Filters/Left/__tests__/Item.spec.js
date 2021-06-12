@@ -16,7 +16,7 @@ describe('Consonant/Filters/Left/Item', () => {
     test('should be able to render without an item count badge', () => {
         renderItemComponent();
 
-        const badgeElement = screen.queryByTestId('item-badge');
+        const badgeElement = screen.queryByTestId('consonant-LeftFilter-itemBadge');
 
         expect(badgeElement).toBeNull();
     });
@@ -24,7 +24,7 @@ describe('Consonant/Filters/Left/Item', () => {
     test('should be able to render with an item count badge', () => {
         renderItemComponent(selectedAllItems);
 
-        const badgeElement = screen.queryByTestId('item-badge');
+        const badgeElement = screen.queryByTestId('consonant-LeftFilter-itemBadge');
 
         expect(badgeElement).not.toBeNull();
 
@@ -34,7 +34,7 @@ describe('Consonant/Filters/Left/Item', () => {
     test('should be able to render all list items', () => {
         const { props: { items } } = renderItemComponent();
 
-        const filterItemElement = screen.queryAllByTestId('filter-group-item');
+        const filterItemElement = screen.queryAllByTestId('consonant-LeftFilter-itemsItem');
 
         expect(filterItemElement).toHaveLength(items.length);
     });
@@ -42,7 +42,7 @@ describe('Consonant/Filters/Left/Item', () => {
     test('Checking a checkbox for a filter item should work', () => {
         const { props: { onCheck } } = renderItemComponent();
 
-        const [checkboxElement] = screen.queryAllByTestId('list-item-checkbox');
+        const [checkboxElement] = screen.queryAllByTestId('consonant-LeftFilter-itemsItemCheckbox');
 
         expect(checkboxElement).toBeDefined();
 
@@ -66,7 +66,7 @@ describe('Consonant/Filters/Left/Item', () => {
     test('Should be able to clear all filters', () => {
         const { props: { onClearAll } } = renderItemComponent(selectedAllItems);
 
-        const badgeElement = screen.queryByTestId('item-badge');
+        const badgeElement = screen.queryByTestId('consonant-LeftFilter-itemBadge');
 
         expect(badgeElement).not.toBeNull();
 

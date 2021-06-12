@@ -95,7 +95,7 @@ const Popup = ({
         <div
             className={shouldAutoWidthSortClass}>
             <button
-                data-testid="select-button"
+                data-testid="consonant-Select-btn"
                 type="button"
                 onClick={handleToggle}
                 className={openButtonClass}
@@ -104,11 +104,11 @@ const Popup = ({
             </button>
             { opened &&
                 <div
-                    data-testid="consonant-select--options"
+                    data-testid="consonant-Select-options"
                     className={`consonant-Select-options consonant-Select-options--${optionsAlignment}`}>
                     {values.map(item => (
                         <button
-                            data-testid="select-option"
+                            data-testid="consonant-Select-option"
                             key={item.label}
                             type="button"
                             className={item.label === val.label ?

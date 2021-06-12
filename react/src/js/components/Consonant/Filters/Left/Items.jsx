@@ -33,18 +33,18 @@ const Items = (props) => {
 
     return (
         <ul
-            data-testid="filter-group"
+            data-testid="consonant-LeftFilter-items"
             className="consonant-LeftFilter-items">
             {items.map(item => (
                 <li
                     key={item.id}
-                    data-testid="filter-group-item"
+                    data-testid="consonant-LeftFilter-itemsItem"
                     className="consonant-LeftFilter-itemsItem">
                     <label
                         htmlFor={item.id}
                         className="consonant-LeftFilter-itemsItemLabel">
                         <input
-                            data-testid="list-item-checkbox"
+                            data-testid="consonant-LeftFilter-itemsItemCheckbox"
                             id={item.id}
                             value={item.id}
                             type="checkbox"

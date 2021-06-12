@@ -24,26 +24,26 @@ describe('Consonant/Container/Card Styles', () => {
         const configToUse = config;
         configToUse.collection.cardStyle = 'full-card';
         await act(async () => render(<Container config={configToUse} />));
-        const fullCards = screen.queryAllByTestId('consonant-full-card');
+        const fullCards = screen.queryAllByTestId('consonant-FullCard');
         expect(fullCards).not.toBeNull();
     });
 
     test('can render the 1:1 card style', async () => {
         const configToUse = config;
-        configToUse.collection.cardStyle = '1:1';
+        configToUse.collection.cardStyle = 'three-fourth';
         await act(async () => render(<Container config={configToUse} />));
-        const oneByOneCards = screen.queryAllByTestId('consonant-1-1-card');
+        const oneByOneCards = screen.queryAllByTestId('consonant-ThreeFourthCard');
         expect(oneByOneCards).not.toBeNull();
     });
 
     test('should show all cards in case an invalid pagination type is authored', async () => {
         const configToUse = config;
         configToUse.pagination.type = 'not-valid';
-        config.collection.cardStyle = '3:2';
+        config.collection.cardStyle = 'one-half';
         const { featuredCards } = config;
         await act(async () => render(<Container config={configToUse} />));
         const totalCards = cards.length + featuredCards.length;
-        expect(screen.queryAllByTestId('consonant-card--img')).toHaveLength(totalCards);
+        expect(screen.queryAllByTestId('consonant-Card-bannerImg')).toHaveLength(totalCards);
     });
 
     test('can render a mixed card collection', async () => {
@@ -56,6 +56,6 @@ describe('Consonant/Container/Card Styles', () => {
         const { featuredCards } = config;
         await act(async () => render(<Container config={configToUse} />));
         const totalCards = cards.length + featuredCards.length;
-        expect(screen.queryAllByTestId('consonant-card--img')).toHaveLength(totalCards);
+        expect(screen.queryAllByTestId('consonant-Card-bannerImg')).toHaveLength(totalCards);
     });
 });

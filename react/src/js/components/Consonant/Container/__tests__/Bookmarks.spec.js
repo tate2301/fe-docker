@@ -24,53 +24,53 @@ describe('Consonant/Container/Bookmarks', () => {
     test('should be able to save cards to bookmarks', async () => {
         const { resultsPerPage } = config.collection;
         const configToUse = config;
-        configToUse.collection.cardStyle = '3:2';
+        configToUse.collection.cardStyle = 'one-half';
 
         await act(async () => render(<Container config={configToUse} />));
-        await waitFor(() => screen.getByTestId('consonant-collection'));
+        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
 
-        const [bookmarkButton] = screen.queryAllByTestId('bookmark-button');
+        const [bookmarkButton] = screen.queryAllByTestId('consonant-BookmarkInfobit');
 
-        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(resultsPerPage);
+        expect(screen.queryAllByTestId('consonant-OneHalfCard')).toHaveLength(resultsPerPage);
 
-        const [saveBookmarkButton] = screen.queryAllByTestId('bookmark-button');
+        const [saveBookmarkButton] = screen.queryAllByTestId('consonant-BookmarkInfobit');
 
         expect(saveBookmarkButton).toBeDefined();
 
         fireEvent.click(saveBookmarkButton);
         fireEvent.click(bookmarkButton);
 
-        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(10);
+        expect(screen.queryAllByTestId('consonant-OneHalfCard')).toHaveLength(10);
 
         fireEvent.click(bookmarkButton);
 
-        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(resultsPerPage);
+        expect(screen.queryAllByTestId('consonant-OneHalfCard')).toHaveLength(resultsPerPage);
 
-        const [unsaveBookmarkButton] = screen.queryAllByTestId('bookmark-button');
+        const [unsaveBookmarkButton] = screen.queryAllByTestId('consonant-BookmarkInfobit');
 
         expect(unsaveBookmarkButton).toBeDefined();
 
         fireEvent.click(unsaveBookmarkButton);
         fireEvent.click(bookmarkButton);
 
-        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(10);
+        expect(screen.queryAllByTestId('consonant-OneHalfCard')).toHaveLength(10);
 
         fireEvent.click(bookmarkButton);
 
-        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(resultsPerPage);
+        expect(screen.queryAllByTestId('consonant-OneHalfCard')).toHaveLength(resultsPerPage);
     });
 
     test('Should not show bookmarked cards if a user did not save any cards', async () => {
         const configToUse = config;
-        configToUse.collection.cardStyle = '3:2';
+        configToUse.collection.cardStyle = 'one-half';
 
         await act(async () => render(<Container config={configToUse} />));
-        await waitFor(() => screen.getByTestId('consonant-collection'));
+        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
 
-        const bookmarksItemsBadge = screen.getByTestId('bookmarks--item-badge');
+        const bookmarksItemsBadge = screen.getByTestId('consonant-Bookmarks-itemBadge');
         expect(bookmarksItemsBadge.innerHTML).toEqual('0');
 
-        const [bookmarksFilter] = screen.queryAllByTestId('bookmarks');
+        const [bookmarksFilter] = screen.queryAllByTestId('consonant-Bookmarks');
 
         fireEvent.click(bookmarksFilter);
         expect(screen.queryAllByTestId('consonant-card')).toHaveLength(0);

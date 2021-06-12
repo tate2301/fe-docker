@@ -26,8 +26,8 @@ describe('Consonant/Container/Sort Popup', () => {
     test('should be able to open the sort popup', async () => {
         const configToUse = config;
         await act(async () => render(<Container config={configToUse} />));
-        await waitFor(() => screen.getByTestId('select-button'));
-        const selectButton = screen.getByTestId('select-button');
+        await waitFor(() => screen.getByTestId('consonant-Select-btn'));
+        const selectButton = screen.getByTestId('consonant-Select-btn');
 
         expect(selectButton).not.toHaveClass('is-active');
 
@@ -68,14 +68,14 @@ describe('Consonant/Container/Sort Popup', () => {
         }, { defaultLabel: 'Please select' });
 
         // We need to wait for the api response and state updates
-        await waitFor(() => screen.getByTestId('consonant-collection'));
+        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
 
         // Gets Sort Popup input
-        const selectButton = screen.getByTestId('select-button');
+        const selectButton = screen.getByTestId('consonant-Select-btn');
         fireEvent.click(selectButton);
 
         // Gets needed sort options
-        const selectOptions = screen.getByTestId('consonant-select--options');
+        const selectOptions = screen.getByTestId('consonant-Select-options');
 
         const featuredOption = getByText(selectOptions, featured);
 
@@ -121,14 +121,14 @@ describe('Consonant/Container/Sort Popup', () => {
         }, { defaultLabel: 'Please select' });
 
         // We need to wait for api response and state updates
-        await waitFor(() => screen.getByTestId('consonant-collection'));
+        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
 
         // Get The Sort Popup Input
-        const selectButton = screen.getByTestId('select-button');
+        const selectButton = screen.getByTestId('consonant-Select-btn');
         fireEvent.click(selectButton);
 
         // Gets all sort options
-        const selectOptions = screen.getByTestId('consonant-select--options');
+        const selectOptions = screen.getByTestId('consonant-Select-options');
 
         const descOption = getByText(selectOptions, dateDesc);
 
@@ -174,14 +174,14 @@ describe('Consonant/Container/Sort Popup', () => {
         }, { defaultLabel: 'Please select' });
 
         // We need to wait for the api response and state updates
-        await waitFor(() => screen.getByTestId('consonant-collection'));
+        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
 
         // Gets The Sort Popup input
-        const selectButton = screen.getByTestId('select-button');
+        const selectButton = screen.getByTestId('consonant-Select-btn');
         fireEvent.click(selectButton);
 
         // Gets the different sort options
-        const selectOptions = screen.getByTestId('consonant-select--options');
+        const selectOptions = screen.getByTestId('consonant-Select-options');
         const dateAscEndingOption = getByText(selectOptions, dateAscEnding);
 
         // Checks if defaultSort was selected
@@ -198,9 +198,9 @@ describe('Consonant/Container/Sort Popup', () => {
         configToUse.sort.defaultSort = 'notPresentSortOption';
         await act(async () => render(<Container config={configToUse} />));
 
-        await waitFor(() => screen.getByTestId('consonant-collection'));
+        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
 
-        const selectButton = screen.getByTestId('select-button');
+        const selectButton = screen.getByTestId('consonant-Select-btn');
 
         expect(selectButton).toHaveTextContent('Featured');
     });

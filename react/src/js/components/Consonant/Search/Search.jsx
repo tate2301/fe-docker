@@ -126,7 +126,7 @@ const Search = ({
                     className="consonant-Search-inputWrapper">
                     <input
                         id={searchId}
-                        data-testid="search-input"
+                        data-testid="consonant-Search-input"
                         type="search"
                         placeholder={placeholderText}
                         onClick={e => e.stopPropagation()}
@@ -136,7 +136,7 @@ const Search = ({
                         className="consonant-Search-input"
                         required />
                     <button
-                        data-testid="clear-search-button"
+                        data-testid="consonant-Search-inputClear"
                         type="button"
                         title=""
                         className="consonant-Search-inputClear"

@@ -68,7 +68,7 @@ const Bookmark = ({
         const cardIcon = isBookmarked ? saveCardIcon : unsaveCardIcon;
         return (
             <span
-                data-testid="bookmarks--ico"
+                data-testid="consonant-BookmarkInfobit-ico"
                 className="consonant-BookmarkInfobit-ico"
                 style={{ backgroundImage: cardIcon ? `url(${cardIcon})` : '' }} />
         );
@@ -84,7 +84,7 @@ const Bookmark = ({
 
     return (
         <button
-            data-testid="bookmark-button"
+            data-testid="consonant-BookmarkInfobit"
             data-tooltip-wrapper
             type="button"
             className={bookmarkInfobitClass}
@@ -92,7 +92,7 @@ const Bookmark = ({
             tabIndex="0">
             {bookmarkIcon()}
             <Tooltip
-                data-testid="bookmark-tooltip"
+                data-testid="consonant-Tooltip"
                 text={tooltipText} />
         </button>
     );

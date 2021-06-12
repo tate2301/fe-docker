@@ -67,7 +67,7 @@ const Footer = (props) => {
             </span>
             {shouldShowClearButton &&
             <button
-                data-testid="clear-btn"
+                data-testid="consonant-TopFilter-footerClearBtn"
                 type="button"
                 onClick={handleClear}
                 className="consonant-TopFilter-footerClearBtn"

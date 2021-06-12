@@ -19,7 +19,7 @@ describe('Consonant/Infobits/Type/Link', () => {
         const propsToUse = props;
         const { getByText } = render(<Link {...propsToUse} />);
 
-        const linkWithIcon = screen.getByTestId('link-infobit');
+        const linkWithIcon = screen.getByTestId('consonant-LinkInfobit');
         expect(linkWithIcon).not.toBeNull();
         expect(linkWithIcon.target).toBe('_self');
         expect(getByText('Click Here').innerHTML).toContain('Click Here');
@@ -31,7 +31,7 @@ describe('Consonant/Infobits/Type/Link', () => {
         propsToUse.openInNewTab = true;
         render(<Link {...propsToUse} />);
 
-        const linkWithIcon = screen.getByTestId('link-infobit');
+        const linkWithIcon = screen.getByTestId('consonant-LinkInfobit');
 
         expect(linkWithIcon.target).toBe('_blank');
     });

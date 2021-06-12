@@ -39,7 +39,7 @@ const View = (props) => {
 
     return (
         <div
-            data-testid="no-results-view"
+            data-testid="consonant-NoResultsView"
             className="consonant-NoResultsView">
             <strong
                 className="consonant-NoResultsView-title">

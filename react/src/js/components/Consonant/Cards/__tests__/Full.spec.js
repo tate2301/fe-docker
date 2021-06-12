@@ -24,8 +24,8 @@ describe('Consonant/Card/Full-Card', () => {
             },
         } = renderCard();
 
-        const bannerElement = screen.getByTestId('consonant-card--banner');
-        const bannerIconElement = screen.getByTestId('consonant-card--banner-icon');
+        const bannerElement = screen.getByTestId('consonant-FullCard-banner');
+        const bannerIconElement = screen.getByTestId('consonant-Card-bannerImg');
 
         expect(bannerElement).toHaveStyle({
             color: bannerFontColor,

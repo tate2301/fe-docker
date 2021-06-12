@@ -144,7 +144,7 @@ describe('utils/Helpers', () => {
 
             const { container } = render(title);
 
-            const highlightElement = queryByTestId(container, 'consonant-search-result');
+            const highlightElement = queryByTestId(container, 'consonant-SearchResult');
 
             expect(highlightElement).not.toBeNull();
             expect(highlightElement).toHaveTextContent('name');
@@ -162,7 +162,7 @@ describe('utils/Helpers', () => {
 
             const { container } = render(title);
 
-            const highlightElement = queryByTestId(container, 'consonant-search-result');
+            const highlightElement = queryByTestId(container, 'consonant-SearchResult');
 
             expect(highlightElement).toBeNull();
         });

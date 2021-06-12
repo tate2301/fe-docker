@@ -50,7 +50,7 @@ const LinkWithIcon = ({
 }) => (
     <a
         href={href}
-        data-testid="link-with-icon"
+        data-testid="consonant-LinkWithIcoInfobit"
         target={openInNewTab ? '_blank' : '_self'}
         className="consonant-LinkWithIcoInfobit"
         title={linkHint}

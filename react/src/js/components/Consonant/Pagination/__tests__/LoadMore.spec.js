@@ -24,7 +24,7 @@ describe('Consonant/Pagination/Load More', () => {
     test('Click handler should work', () => {
         const { props: { onClick } } = renderLoadMore();
 
-        const buttonElement = screen.getByTestId('load-more__button');
+        const buttonElement = screen.getByTestId('consonant-LoadMore-btn');
 
         fireEvent.click(buttonElement);
 

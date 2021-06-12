@@ -42,7 +42,7 @@ const Link = ({
     return (
         <a
             className="consonant-LinkInfobit"
-            data-testid="link-infobit"
+            data-testid="consonant-LinkInfobit"
             href={href}
             target={target}
             title={linkHint}

@@ -60,14 +60,14 @@ const Button = ({
     return (
         <a
             className={buttonClass}
-            data-testid="consonant-btn-infobit"
+            data-testid="consonant-BtnInfobit"
             tabIndex="0"
             rel="noopener noreferrer"
             target="_blank"
             href={href}>
             {iconSrc &&
             <img
-                data-testid="img-for-button-infobit"
+                data-testid="consonant-BtnInfobit-ico"
                 src={iconSrc}
                 width="20"
                 height="20"

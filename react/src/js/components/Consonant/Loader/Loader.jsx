@@ -43,7 +43,7 @@ const Loader = ({ size, hidden, absolute }) => {
 
     return !hidden && (
         <div
-            data-testid="consonant-loader"
+            data-testid="consonant-Loader"
             className={className}>
             <div />
             <div />

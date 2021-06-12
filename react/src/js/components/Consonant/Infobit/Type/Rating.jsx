@@ -79,7 +79,7 @@ const Rating = ({
             className={className}
             data-stars={totalStars}>
             <span
-                data-testid="rating-star"
+                data-testid="consonant-RatingInfobit-stars"
                 className="consonant-RatingInfobit-stars"
                 data-rating={ratingToDisplay} />
             {label &&

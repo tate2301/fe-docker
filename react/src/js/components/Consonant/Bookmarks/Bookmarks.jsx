@@ -75,7 +75,7 @@ const Bookmarks = (props) => {
 
     return (
         <button
-            data-testid="bookmarks"
+            data-testid="consonant-Bookmarks"
             type="button"
             onClick={onClick}
             className={bookmarkClass}
@@ -85,14 +85,14 @@ const Bookmarks = (props) => {
                 <span
                     style={iconStyles}
                     className="consonant-Bookmarks-ico"
-                    data-testid="bookmarks--ico" />
+                    data-testid="consonant-Bookmarks-ico" />
                 <span
                     className="consonant-Bookmarks-title">
                     {bookmarkTitle}
                 </span>
             </span>
             <span
-                data-testid="bookmarks--item-badge"
+                data-testid="consonant-Bookmarks-itemBadge"
                 className="consonant-Bookmarks-itemBadge">
                 {savedCardsCount}
             </span>

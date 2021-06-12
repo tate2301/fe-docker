@@ -17,14 +17,14 @@ describe('Consonant/Filters/Top/Item', () => {
     test('Should be able to render without an item count badge', () => {
         renderTopFilterItem();
 
-        const badgeElement = screen.queryByTestId('item-badge');
+        const badgeElement = screen.queryByTestId('consonant-TopFilter-itemBadge');
         expect(badgeElement).toBeNull();
     });
 
     test('Should be able to render all list items', () => {
         const { props: { items } } = renderTopFilterItem();
 
-        const filterItemElement = screen.queryAllByTestId('filter-group-item');
+        const filterItemElement = screen.queryAllByTestId('consonant-TopFilter-item');
         expect(filterItemElement).toHaveLength(items.length);
     });
 
@@ -34,14 +34,14 @@ describe('Consonant/Filters/Top/Item', () => {
 
         renderTopFilterItem({ items: defaultItems });
 
-        const filterGroupElement = screen.getByTestId('filter-group');
+        const filterGroupElement = screen.getByTestId('consonant-TopFilter-items');
         expect(filterGroupElement).not.toHaveClass('consonant-TopFilter-items--clipped');
     });
 
     test('Clicking filter checkboxes should work', () => {
         const { props: { onCheck } } = renderTopFilterItem();
 
-        const [checkboxElement] = screen.queryAllByTestId('list-item-checkbox');
+        const [checkboxElement] = screen.queryAllByTestId('consonant-TopFilter-itemCheckbox');
         expect(checkboxElement).toBeDefined();
 
         fireEvent.click(checkboxElement);
@@ -51,7 +51,7 @@ describe('Consonant/Filters/Top/Item', () => {
     test('Clicking the clear all button should work', () => {
         const { props: { onClearAll } } = renderTopFilterItem(selectedAllItems);
 
-        const clearBtn = screen.queryByTestId('clear-btn');
+        const clearBtn = screen.queryByTestId('consonant-TopFilter-footerClearBtn');
         expect(clearBtn).not.toBeNull();
 
         fireEvent.click(clearBtn);

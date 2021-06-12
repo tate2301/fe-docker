@@ -36,7 +36,7 @@ const Title = (props) => {
         <div
             className="consonant-LeftFilters-mobTitle">
             <button
-                data-testid="mobile-back-btn"
+                data-testid="consonant-LeftFilters-mobBack"
                 type="button"
                 onClick={onClick}
                 className="consonant-LeftFilters-mobBack" />

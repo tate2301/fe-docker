@@ -25,9 +25,9 @@ describe('Consonant/Container/Results Per Page', () => {
         configToUse.collection.resultsPerPage = null;
 
         await act(async () => render(<Container config={configToUse} />));
-        await waitFor(() => screen.getByTestId('consonant-collection'));
+        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
 
-        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(9);
+        expect(screen.queryAllByTestId('consonant-OneHalfCard')).toHaveLength(9);
     });
 
     test('should render 1 card if authored to do so', async () => {
@@ -35,9 +35,9 @@ describe('Consonant/Container/Results Per Page', () => {
         configToUse.collection.resultsPerPage = 1;
 
         await act(async () => render(<Container config={configToUse} />));
-        await waitFor(() => screen.getByTestId('consonant-collection'));
+        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
 
-        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(1);
+        expect(screen.queryAllByTestId('consonant-OneHalfCard')).toHaveLength(1);
     });
 
     test('should render all cards if limit > total cards count', async () => {
@@ -45,10 +45,10 @@ describe('Consonant/Container/Results Per Page', () => {
         configToUse.collection.resultsPerPage = 100;
 
         await act(async () => render(<Container config={configToUse} />));
-        await waitFor(() => screen.getByTestId('consonant-collection'));
+        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
 
         const allCards = cards.length;
         const featuredCardsLength = config.featuredCards.length;
-        expect(screen.queryAllByTestId('consonant-card-3-2')).toHaveLength(allCards + featuredCardsLength);
+        expect(screen.queryAllByTestId('consonant-OneHalfCard')).toHaveLength(allCards + featuredCardsLength);
     });
 });

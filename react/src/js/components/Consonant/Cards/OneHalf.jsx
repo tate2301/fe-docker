@@ -176,16 +176,16 @@ const OneHalfCard = (props) => {
         <div
             daa-lh={lh}
             className="consonant-OneHalfCard"
-            data-testid="consonant-card-3-2"
+            data-testid="consonant-OneHalfCard"
             id={id}>
             <div
-                data-testid="consonant-card--img"
+                data-testid="consonant-OneHalfCard-img"
                 className="consonant-OneHalfCard-img"
                 ref={imageRef}
                 style={{ backgroundImage: `url("${lazyLoadedImage}")` }}>
                 {bannerDescription && bannerFontColor && bannerBackgroundColor &&
                     <span
-                        data-testid="consonant-card--banner"
+                        data-testid="consonant-OneHalfCard-banner"
                         className="consonant-OneHalfCard-banner"
                         style={({
                             backgroundColor: bannerBackgroundColor,
@@ -198,7 +198,7 @@ const OneHalfCard = (props) => {
                                     alt=""
                                     loading="lazy"
                                     src={bannerIcon}
-                                    data-testid="consonant-card--banner-icon" />
+                                    data-testid="consonant-Card-bannerImg" />
                             </div>
                         }
                         <span>{bannerDescription}</span>
@@ -230,7 +230,7 @@ const OneHalfCard = (props) => {
                 className="consonant-OneHalfCard-inner">
                 {detailText &&
                     <span
-                        data-testid="3-2-card--label"
+                        data-testid="consonant-OneHalfCard-label"
                         className="consonant-OneHalfCard-label">
                         {detailText}
                     </span>

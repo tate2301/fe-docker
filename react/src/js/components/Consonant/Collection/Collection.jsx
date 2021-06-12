@@ -102,7 +102,7 @@ const Collection = (props) => {
 
     return cardsToshow.length > 0 && (
         <div
-            data-testid="consonant-collection"
+            data-testid="consonant-CardCollection"
             className="consonant-CardCollection">
             <div className="consonant-CardCollection-inner">
                 {cardsToshow.map((card, index) => {

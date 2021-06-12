@@ -15,7 +15,7 @@ describe('Consonant/Left/Selected Filters', () => {
         };
 
         render(<SelectedItem {...props} />);
-        const itemBadge = screen.queryByTestId('item-badge');
+        const itemBadge = screen.queryByTestId('consonant-LeftFilter-itemBadge');
         expect(itemBadge.innerHTML).toBe('');
     });
 });

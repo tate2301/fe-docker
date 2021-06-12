@@ -36,7 +36,7 @@ describe('Consonant/Pagination/Paginator', () => {
             const summary = resultsQuantityText
                 .replace(/\{(\w*)}/gi, (_, matchedKey) => itemsToDisplay[matchedKey]);
 
-            const paginationSummaryElement = screen.getByTestId('pagination--summary');
+            const paginationSummaryElement = screen.getByTestId('consonant-Pagination-summary');
             expect(paginationSummaryElement).toHaveTextContent(summary);
 
             wrapper.unmount();
@@ -45,9 +45,9 @@ describe('Consonant/Pagination/Paginator', () => {
     test('Should be able to go navigate and forward', () => {
         const { props: { onClick } } = renderComponent();
 
-        const prevButton = screen.getByTestId('btn_prev');
-        const nextButton = screen.getByTestId('btn_next');
-        const pageButton = screen.queryAllByTestId('btn_page')[0];
+        const prevButton = screen.getByTestId('consonant-Pagination-btn--prev');
+        const nextButton = screen.getByTestId('consonant-Pagination-btn--next');
+        const pageButton = screen.queryAllByTestId('consonant-Pagination-itemBtn')[0];
 
         fireEvent.click(nextButton);
         expect(onClick).toHaveBeenCalledWith(2);
@@ -61,28 +61,28 @@ describe('Consonant/Pagination/Paginator', () => {
     });
     test('Should be able to handle invalid current page and reset back to a valid page', () => {
         const { props: { onClick } } = renderComponent({ currentPageNumber: 0 });
-        const prevButton = screen.getByTestId('btn_prev');
+        const prevButton = screen.getByTestId('consonant-Pagination-btn--prev');
 
         fireEvent.click(prevButton);
         expect(onClick).toHaveBeenCalledWith(1);
     });
     test('Should be able to go one page forward', () => {
         const { props: { onClick } } = renderComponent({ currentPageNumber: 2, totalPages: 1 });
-        const nextButton = screen.getByTestId('btn_next');
+        const nextButton = screen.getByTestId('consonant-Pagination-btn--next');
 
         fireEvent.click(nextButton);
         expect(onClick).toHaveBeenCalledWith(1);
     });
     test('Should be able to go back a page', () => {
         const { props: { onClick } } = renderComponent({ currentPageNumber: 5 });
-        const prevButton = screen.getByTestId('btn_prev');
+        const prevButton = screen.getByTestId('consonant-Pagination-btn--prev');
 
         fireEvent.click(prevButton);
         expect(onClick).toHaveBeenCalledWith(4);
     });
     test('If on page one and previous is clicked, we should not go to page 0', () => {
         const { props: { onClick } } = renderComponent({ currentPageNumber: 1 });
-        const prevButton = screen.getByTestId('btn_prev');
+        const prevButton = screen.getByTestId('consonant-Pagination-btn--prev');
 
         fireEvent.click(prevButton);
         expect(onClick).toHaveBeenCalledWith(1);

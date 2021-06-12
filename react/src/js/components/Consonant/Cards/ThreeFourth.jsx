@@ -129,16 +129,16 @@ const ThreeFourthCard = (props) => {
         <div
             daa-lh={lh}
             className="consonant-ThreeFourthCard"
-            data-testid="consonant-1-1-card"
+            data-testid="consonant-ThreeFourthCard"
             id={id}>
             <div
-                data-testid="consonant-card--img"
+                data-testid="consonant-ThreeFourthCard-img"
                 className="consonant-ThreeFourthCard-img"
                 ref={imageRef}
                 style={{ backgroundImage: `url("${lazyLoadedImage}")` }}>
                 {bannerDescription && bannerFontColor && bannerBackgroundColor &&
                     <span
-                        data-testid="consonant-card--banner"
+                        data-testid="consonant-ThreeFourthCard-banner"
                         className="consonant-ThreeFourthCard-banner"
                         style={({
                             backgroundColor: bannerBackgroundColor,
@@ -151,7 +151,7 @@ const ThreeFourthCard = (props) => {
                                     alt=""
                                     loading="lazy"
                                     src={bannerIcon}
-                                    data-testid="consonant-card--banner-icon" />
+                                    data-testid="consonant-Card-bannerImg" />
                             </div>
                         }
                         <span>{bannerDescription}</span>
@@ -188,7 +188,7 @@ const ThreeFourthCard = (props) => {
                 tabIndex="0">
                 {detailText &&
                     <span
-                        data-testid="1-1-card--label"
+                        data-testid="consonant-ThreeFourthCard-label"
                         className="consonant-ThreeFourthCard-label">
                         {detailText}
                     </span>

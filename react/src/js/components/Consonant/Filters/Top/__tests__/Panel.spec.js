@@ -39,13 +39,13 @@ describe('Consonant/Filters/Top/Panel', () => {
             filters: selectedAllFilters,
         });
 
-        const filterGroupElements = screen.queryAllByTestId('filter-group');
+        const filterGroupElements = screen.queryAllByTestId('consonant-TopFilter-items');
         expect(filterGroupElements).toHaveLength(filters.length);
     });
     test('Should be able to display total results if authored', () => {
         renderTopFilterPanel({ displayTotalResults: true });
 
-        const footerTotalResElement = screen.queryByTestId('results');
+        const footerTotalResElement = screen.queryByTestId('consonant-TopFilters-results');
         expect(footerTotalResElement).not.toBeNull();
     });
 
@@ -55,19 +55,19 @@ describe('Consonant/Filters/Top/Panel', () => {
             searchComponent: CHILD_COMPONENTS.search,
         });
 
-        const footerTotalResElement = screen.queryByTestId('top-filters__search-wrapper');
+        const footerTotalResElement = screen.queryByTestId('consonant-TopFilters-searchWrapper');
         expect(footerTotalResElement).not.toBeNull();
     });
     test('Should be able to render correctly without search', () => {
         renderTopFilterPanel({ searchComponent: CHILD_COMPONENTS.search });
 
-        const footerTotalResElement = screen.queryByTestId('top-filters__search-wrapper');
+        const footerTotalResElement = screen.queryByTestId('consonant-TopFilters-searchWrapper');
         expect(footerTotalResElement).toBeNull();
     });
     test('Should be able to show the Sort Popup', () => {
         renderTopFilterPanel({ sortComponent: CHILD_COMPONENTS.select });
 
-        const footerTotalResElement = screen.queryByTestId('top-filters__sort-popup');
+        const footerTotalResElement = screen.queryByTestId('consonant-TopFilters-selectWrapper');
         expect(footerTotalResElement).not.toBeNull();
     });
 
@@ -88,14 +88,14 @@ describe('Consonant/Filters/Top/Panel', () => {
             showLimitedFiltersQty: true,
         });
 
-        const footerTotalResElement = screen.queryByTestId('top-filter__more-button');
+        const footerTotalResElement = screen.queryByTestId('consonant-TopFilters-moreBtn');
         expect(footerTotalResElement).toHaveTextContent(moreFiltersBtnText);
     });
 
     test('Should be able to show the Filter Group Button', () => {
         renderTopFilterPanel({ filterPanelEnabled: true });
 
-        const [filterGroupBtn] = screen.queryAllByTestId('filter-group-btn');
+        const [filterGroupBtn] = screen.queryAllByTestId('consonant-TopFilter-link');
         expect(filterGroupBtn).toBeDefined();
     });
 
@@ -106,7 +106,7 @@ describe('Consonant/Filters/Top/Panel', () => {
             showLimitedFiltersQty: true,
         });
 
-        const clearButtonElement = screen.queryByTestId('top-filter__clear-button');
+        const clearButtonElement = screen.queryByTestId('consonant-TopFilters-clearBtn');
         expect(clearButtonElement).not.toBeNull();
     });
 
@@ -121,7 +121,7 @@ describe('Consonant/Filters/Top/Panel', () => {
             showLimitedFiltersQty: true,
         });
 
-        const clearButtonElement = screen.queryByTestId('top-filter__clear-button');
+        const clearButtonElement = screen.queryByTestId('consonant-TopFilters-clearBtn');
 
         fireEvent.click(clearButtonElement);
         expect(onClearAllFilters).toBeCalled();

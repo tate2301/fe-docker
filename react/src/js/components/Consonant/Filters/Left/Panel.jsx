@@ -161,7 +161,7 @@ const LeftFilterPanel = ({
 
     return (
         <div
-            data-testid="consonant-filters__left"
+            data-testid="consonant-LeftFilters"
             className={filtersClass}>
             <div
                 className="consonant-LeftFilters-header">

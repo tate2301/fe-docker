@@ -31,10 +31,10 @@ describe('Consonant/Container/Load More Button', () => {
         await act(async () => render(<Container config={configToUse} />));
 
         // Need wait for api response and state updating
-        await waitFor(() => screen.getByTestId('consonant-collection'));
+        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
 
         // find the LoadMore button
-        const loadMoreElement = screen.queryByTestId('consonant-load-more');
+        const loadMoreElement = screen.queryByTestId('consonant-LoadMore');
 
         expect(loadMoreElement).not.toBeNull();
     });
@@ -50,12 +50,12 @@ describe('Consonant/Container/Load More Button', () => {
 
         const allCardsCount = cards.length + featuredCards.length;
 
-        await waitFor(() => screen.getByTestId('consonant-collection'));
+        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
 
-        const loadMoreElement = screen.queryByTestId('consonant-load-more');
+        const loadMoreElement = screen.queryByTestId('consonant-LoadMore');
 
         const loadMoreButton = getByText(loadMoreElement, btnText);
-        const loadMoreText = getByTestId(loadMoreElement, 'consonant-load-more--text');
+        const loadMoreText = getByTestId(loadMoreElement, 'consonant-LoadMore-text');
 
         expect(loadMoreText).toHaveTextContent(`${resultsPerPage} ${allCardsCount}`);
 

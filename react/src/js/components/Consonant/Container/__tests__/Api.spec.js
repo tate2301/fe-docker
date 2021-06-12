@@ -34,9 +34,9 @@ describe('Consonant/Container/Api', () => {
 
             const configToUse = config;
             await act(async () => render(<Container config={configToUse} />));
-            await waitFor(() => screen.queryByTestId('consonant-collection'));
-            expect(screen.queryByTestId('consonant-collection')).toBeNull();
-            expect(screen.queryByTestId('no-results-view')).not.toBeNull();
+            await waitFor(() => screen.queryByTestId('consonant-CardCollection'));
+            expect(screen.queryByTestId('consonant-CardCollection')).toBeNull();
+            expect(screen.queryByTestId('consonant-NoResultsView')).not.toBeNull();
         });
     });
 
@@ -46,9 +46,9 @@ describe('Consonant/Container/Api', () => {
 
             const configToUse = config;
             await act(async () => render(<Container config={configToUse} />));
-            await waitFor(() => screen.queryByTestId('consonant-collection'));
-            expect(screen.queryByTestId('consonant-collection')).toBeNull();
-            expect(screen.queryByTestId('no-results-view')).not.toBeNull();
+            await waitFor(() => screen.queryByTestId('consonant-CardCollection'));
+            expect(screen.queryByTestId('consonant-CardCollection')).toBeNull();
+            expect(screen.queryByTestId('consonant-NoResultsView')).not.toBeNull();
         });
     });
 
@@ -57,27 +57,27 @@ describe('Consonant/Container/Api', () => {
             server.use(rest.get(endpoint, (req, res, ctx) => res(ctx.status(401))));
             const configToUse = config;
             await act(async () => render(<Container config={configToUse} />));
-            await waitFor(() => screen.queryByTestId('consonant-collection'));
-            expect(screen.queryByTestId('consonant-collection')).toBeNull();
-            expect(screen.queryByTestId('no-results-view')).not.toBeNull();
+            await waitFor(() => screen.queryByTestId('consonant-CardCollection'));
+            expect(screen.queryByTestId('consonant-CardCollection')).toBeNull();
+            expect(screen.queryByTestId('consonant-NoResultsView')).not.toBeNull();
         });
 
         test('If 404 Response -- display no results view', async () => {
             server.use(rest.get(endpoint, (req, res, ctx) => res(ctx.status(404))));
             const configToUse = config;
             await act(async () => render(<Container config={configToUse} />));
-            await waitFor(() => screen.queryByTestId('consonant-collection'));
-            expect(screen.queryByTestId('consonant-collection')).toBeNull();
-            expect(screen.queryByTestId('no-results-view')).not.toBeNull();
+            await waitFor(() => screen.queryByTestId('consonant-CardCollection'));
+            expect(screen.queryByTestId('consonant-CardCollection')).toBeNull();
+            expect(screen.queryByTestId('consonant-NoResultsView')).not.toBeNull();
         });
 
         test('If 410 Response -- display no results view', async () => {
             server.use(rest.get(endpoint, (req, res, ctx) => res(ctx.status(410))));
             const configToUse = config;
             await act(async () => render(<Container config={configToUse} />));
-            await waitFor(() => screen.queryByTestId('consonant-collection'));
-            expect(screen.queryByTestId('consonant-collection')).toBeNull();
-            expect(screen.queryByTestId('no-results-view')).not.toBeNull();
+            await waitFor(() => screen.queryByTestId('consonant-CardCollection'));
+            expect(screen.queryByTestId('consonant-CardCollection')).toBeNull();
+            expect(screen.queryByTestId('consonant-NoResultsView')).not.toBeNull();
         });
     });
 
@@ -86,18 +86,18 @@ describe('Consonant/Container/Api', () => {
             server.use(rest.get(endpoint, (req, res, ctx) => res(ctx.status(500))));
             const configToUse = config;
             await act(async () => render(<Container config={configToUse} />));
-            await waitFor(() => screen.queryByTestId('consonant-collection'));
-            expect(screen.queryByTestId('consonant-collection')).toBeNull();
-            expect(screen.queryByTestId('no-results-view')).not.toBeNull();
+            await waitFor(() => screen.queryByTestId('consonant-CardCollection'));
+            expect(screen.queryByTestId('consonant-CardCollection')).toBeNull();
+            expect(screen.queryByTestId('consonant-NoResultsView')).not.toBeNull();
         });
 
         test('If 502 Response -- display no results view', async () => {
             server.use(rest.get(endpoint, (req, res, ctx) => res(ctx.status(502))));
             const configToUse = config;
             await act(async () => render(<Container config={configToUse} />));
-            await waitFor(() => screen.queryByTestId('consonant-collection'));
-            expect(screen.queryByTestId('consonant-collection')).toBeNull();
-            expect(screen.queryByTestId('no-results-view')).not.toBeNull();
+            await waitFor(() => screen.queryByTestId('consonant-CardCollection'));
+            expect(screen.queryByTestId('consonant-CardCollection')).toBeNull();
+            expect(screen.queryByTestId('consonant-NoResultsView')).not.toBeNull();
         });
     });
 });

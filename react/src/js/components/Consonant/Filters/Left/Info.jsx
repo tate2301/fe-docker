@@ -143,7 +143,7 @@ const Info = (props) => {
 
     return (
         <aside
-            data-testid="consonant-filters__info"
+            data-testid="consonant-FiltersInfo"
             className={containerClassName}>
             <div
                 className="consonant-FiltersInfo-search">
@@ -160,14 +160,14 @@ const Info = (props) => {
                 className={wrapperClassName}>
                 {title &&
                     <h2
-                        data-testid="title"
+                        data-testid="consonant-FiltersInfo-title"
                         className="consonant-FiltersInfo-title">
                         {title}
                     </h2>
                 }
                 {showTotalResults &&
                     <div
-                        data-testid="results"
+                        data-testid="consonant-FiltersInfo-results"
                         className="consonant-FiltersInfo-results">
                         {totalResultsHtml}
                     </div>
