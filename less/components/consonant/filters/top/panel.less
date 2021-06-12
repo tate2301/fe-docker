@@ -6,8 +6,7 @@
 .consonant {
     &-TopFilters {
         display: block;
-        min-width: 83.333vw;
-        max-width: 83.333vw;
+        width: 83.333vw;
         margin: 0 auto;
         padding: 14px 0 16px;
 
@@ -156,8 +155,7 @@
 
         &-selectWrapper {
             display: block;
-            min-width: @consonant-Select-width * 0.85;
-            max-width: @consonant-Select-width * 0.85;
+            width: @consonant-Select-width * 0.85;
             margin-right: 8px;
             order: -1;
             overflow: visible;
@@ -261,7 +259,6 @@
                 align-items: center;
                 min-width: calc(@consonant-SearchIco-size ~ ' + 40px');
                 min-height: 32px;
-                height: 32px;
 
                 & > div {
                     position: absolute;
@@ -330,8 +327,7 @@
         }
 
         @media @consonant-big-desktop-up {
-            min-width: @consonantDesktopMinWidth;
-            max-width: @consonantDesktopMinWidth;
+            width: @consonantDesktopMinWidth;
         }
     }
 }

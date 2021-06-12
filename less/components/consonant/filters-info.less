@@ -9,8 +9,7 @@
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
-        min-width: 83.333vw;
-        max-width: 83.333vw;
+        width: 83.333vw;
 
         .margin-auto;
 
@@ -115,8 +114,7 @@
         }
 
         @media @consonant-desktop-up {
-            min-width: calc(83.333vw - @consonant-filters-1200-break-width ~ ' - 32px');
-            max-width: calc(83.333vw - @consonant-filters-1200-break-width ~ ' - 32px');
+            width: calc(83.333vw - @consonant-filters-1200-break-width ~ ' - 32px');
             flex-wrap: nowrap;
             align-items: flex-start;
             min-height: @consonant-FiltersInfo-1200BreakpointHeight;
@@ -125,8 +123,7 @@
             padding: 67px 0 28px;
 
             &--noFilterPanel {
-                min-width: 83.333vw;
-                max-width: 83.333vw;
+                width: 83.333vw;
             }
 
             &-wrapper {
@@ -171,12 +168,10 @@
         }
 
         @media @consonant-big-desktop-up {
-            min-width: calc(@consonantDesktopMinWidth - @consonant-filters-1200-break-width ~ ' - 32px');
-            max-width: calc(@consonantDesktopMinWidth - @consonant-filters-1200-break-width ~ ' - 32px');
+            width: calc(@consonantDesktopMinWidth - @consonant-filters-1200-break-width ~ ' - 32px');
 
             &--noFilterPanel {
-                min-width: @consonantDesktopMinWidth;
-                max-width: @consonantDesktopMinWidth;
+                width: @consonantDesktopMinWidth;
             }
 
             &-title {
