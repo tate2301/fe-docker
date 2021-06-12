@@ -16,7 +16,7 @@
         padding-left: 16px;
         padding-right: 16px;
         text-decoration: none;
-        border: 2px solid @consonantBrownGrey;
+        border: 2px solid @consonantDarkGrey400;
         border-radius: 16px;
         background-color: @consonantWhite;
         cursor: pointer;
@@ -25,15 +25,15 @@
             background-color @consonantTransitionTime @consonantTransitionFunc;
 
         span {
-            .font(0.8235rem, 0.9375rem, 700, @consonantBrownGrey, center);
+            .font(0.8235rem, 0.9375rem, 700, @consonantDarkGrey400, center);
             .line-clamp(2);
 
             transition: color @consonantTransitionTime @consonantTransitionFunc;
         }
 
         &:hover {
-            border-color: @consonantLightGrey3;
-            background-color: @consonantLightGrey3;
+            border-color: @consonantDarkGrey500;
+            background-color: @consonantDarkGrey500;
         }
 
         &:hover span {
@@ -41,8 +41,8 @@
         }
 
         &:active {
-            border-color: @consonantDarkGrey7;
-            background-color: @consonantDarkGrey7;
+            border-color: @consonantDarkGrey700;
+            background-color: @consonantDarkGrey700;
         }
 
         &:active span {
@@ -52,16 +52,16 @@
         .focused;
 
         &--cta {
-            background-color: @consonantBlue2;
-            border-color: @consonantBlue2;
+            background-color: @consonantLightBlue200;
+            border-color: @consonantLightBlue200;
 
             span {
                 color: @consonantWhite;
             }
 
             &:hover {
-                background-color: @consonantBlue3;
-                border-color: @consonantBlue3;
+                background-color: @consonantLightBlue300;
+                border-color: @consonantLightBlue300;
             }
 
             &:hover span {
@@ -69,8 +69,8 @@
             }
 
             &:active {
-                background-color: @consonantBlue4;
-                border-color: @consonantBlue4;
+                background-color: @consonantLightBlue400;
+                border-color: @consonantLightBlue400;
             }
 
             &:active span {

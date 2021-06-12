@@ -18,7 +18,7 @@
             bottom: 0;
             right: 12px;
             margin: auto;
-            border: 1px solid @consonantDarkGrey4;
+            border: 1px solid @consonantDarkGrey600;
             z-index: 1;
             transform: rotate(-45deg) translate3d(-1px, -2px, 0);
             border-top: 0;
@@ -33,12 +33,12 @@
             max-width: @consonant-Select-width;
             padding: 0 34px 0 12px;
 
-            .font(0.875rem, 1.875rem, 400, @consonantBrownGrey, left);
+            .font(0.875rem, 1.875rem, 400, @consonantDarkGrey400, left);
 
             text-transform: capitalize;
             white-space: nowrap;
             cursor: pointer;
-            border: 1px solid @consonantLightestGrey;
+            border: 1px solid @consonantLightGrey200;
             border-radius: 5px;
             background-color: transparent;
             overflow: hidden;
@@ -59,9 +59,9 @@
             top: calc(~ '100% + 6px');
             right: 0;
             word-break: break-word;
-            border: 1px solid @consonantLightestGrey;
+            border: 1px solid @consonantLightGrey200;
             background-color: @consonantWhite;
-            box-shadow: 0 3px 15px fade(@consonantBrownGrey, 10%);
+            box-shadow: 0 3px 15px fade(@consonantDarkGrey400, 10%);
             transition: opacity @consonantTransitionTime @consonantTransitionFunc;
             z-index: 2;
             border-radius: 5px;
@@ -83,7 +83,7 @@
             max-width: 100%;
             padding: 9px 30px 9px 20px;
 
-            .font(@color: @consonantBrownGrey);
+            .font(@color: @consonantDarkGrey400);
 
             white-space: nowrap;
             text-overflow: ellipsis;
@@ -93,13 +93,13 @@
             overflow: hidden;
 
             &:hover {
-                background-color: @consonantLightestGrey2;
+                background-color: @consonantLightGrey100;
             }
 
             &.is-selected {
                 position: relative;
 
-                .font(@weight: 700; @color: @consonantBlue2);
+                .font(@weight: 700; @color: @consonantLightBlue200);
 
                 &:after {
                     content: '';
@@ -110,7 +110,7 @@
                     bottom: 0;
                     right: 16px;
                     margin: auto;
-                    border: 2px solid @consonantBlue;
+                    border: 2px solid @consonantLightBlue100;
                     border-top: 0;
                     border-right: 0;
                     transform: rotate(-45deg) translate3d(1px, -2px, 0);
@@ -127,7 +127,7 @@
             &:after {
                 width: 4px;
                 height: 4px;
-                border-color: @consonantBrownGrey;
+                border-color: @consonantDarkGrey400;
             }
         }
 

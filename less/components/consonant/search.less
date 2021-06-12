@@ -16,7 +16,7 @@
 
             margin: 0 0 5px;
 
-            .font(0.75rem, 0.875rem, 400, @consonantDarkGrey1);
+            .font(0.75rem, 0.875rem, 400, @consonantDarkGrey200);
 
             cursor: pointer;
         }
@@ -49,9 +49,9 @@
 
             padding: 0 8px 0 32px;
 
-            .font(@line-height: 1.875rem, @color: @consonantBrownGrey);
+            .font(@line-height: 1.875rem, @color: @consonantDarkGrey400);
 
-            border: 1px solid @consonantLightestGrey;
+            border: 1px solid @consonantLightGrey200;
             border-radius: 5px;
             background-color: @consonantWhite;
             transition:
@@ -77,13 +77,13 @@
 
             &::placeholder {
                 font-style: italic;
-                color: @consonantLightGrey2;
+                color: @consonantLightGrey800;
                 transition: opacity @consonantTransitionTime @consonantTransitionFunc;
             }
 
             &:focus {
                 padding-right: 32px;
-                border-color: @consonantBlue2;
+                border-color: @consonantLightBlue200;
                 background-color: @consonantWhite;
 
                 &::placeholder {
@@ -112,7 +112,7 @@
             line-height: 0;
             border: 0;
             border-radius: 50%;
-            background-color: @consonantLightestGrey2;
+            background-color: @consonantLightGrey100;
             outline: 0;
             pointer-events: none;
             transition: background-color @consonantTransitionTime @consonantTransitionFunc;
@@ -127,7 +127,7 @@
                 .position-absolute-0;
 
                 margin: auto;
-                background-color: @consonantDarkGrey1;
+                background-color: @consonantDarkGrey200;
                 transform: rotate(45deg);
             }
 
@@ -155,7 +155,7 @@
                 }
 
                 &:hover {
-                    background-color: @consonantBlue;
+                    background-color: @consonantLightBlue100;
                 }
 
                 &:hover:before,
