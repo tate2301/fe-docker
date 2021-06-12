@@ -2,7 +2,7 @@
 
 /* Configuration */
 
-@consonantThemes: light, dark, darkest;
+@consonantThemes: Light, Dark, Darkest;
 
 /* Default theme colors */
 
@@ -52,7 +52,7 @@
 
 /* Light theme colors */
 
-.themeDefs(light) {
+.themeDefs(Light) {
     @consonantBaseColor: #fff;
 
     /* Gray */
@@ -99,7 +99,7 @@
 
 /* Dark theme colors */
 
-.themeDefs(dark) {
+.themeDefs(Dark) {
     @consonantBaseColor: #323232;
 
     /* Gray */
@@ -147,7 +147,7 @@
 
 /* Darkest theme colors */
 
-.themeDefs(darkest) {
+.themeDefs(Darkest) {
     @consonantBaseColor: #1e1e1e;
 
     /* Gray */
@@ -198,7 +198,7 @@
 .buildThemes(@index) when (@index < length(@consonantThemes) + 1) {
     @name: extract(@consonantThemes, @index);
 
-    .consonant-theme-@{name} {
+    .consonant-u-theme@{name} {
         .themeDefs(@name);
 
         .consonant {
@@ -377,8 +377,8 @@
 
 /* Add appropriate linear gradients based on the theme applied  */
 
-.consonant-theme-dark .consonant-FullCard-inner,
-.consonant-theme-darkest .consonant-FullCard-inner {
+.consonant-u-themeDark .consonant-FullCard-inner,
+.consonant-u-themeDarkest .consonant-FullCard-inner {
     background:
         transparent
         linear-gradient(
@@ -389,8 +389,8 @@
         ) 0% 0% no-repeat padding-box;
 }
 
-.consonant-theme-dark .consonant-HalfHeightCard-img:after,
-.consonant-theme-darkest .consonant-HalfHeightCard-img:after {
+.consonant-u-themeDark .consonant-HalfHeightCard-img:after,
+.consonant-u-themeDarkest .consonant-HalfHeightCard-img:after {
     background:
         transparent
         linear-gradient(
