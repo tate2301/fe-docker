@@ -31,6 +31,10 @@
                 grid-template-columns: 204px auto;
                 justify-content: center;
                 gap: 32px;
+
+                > *:only-child {
+                    grid-column: ~ "1/-1";
+                }
             }
         }
     }
