@@ -50,7 +50,7 @@ describe('Consonant/Container/Top Filters/Mobile', () => {
         await act(async () => render(<Container config={configToUse} />));
 
         // Need wait for api response and state updating
-        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
+        await waitFor(() => screen.getByTestId('consonant-CardsGrid'));
 
         const sortPopup = screen.getByTestId('consonant-Select-btn');
         fireEvent.click(sortPopup);
@@ -198,7 +198,7 @@ describe('Consonant/Top Filters/Desktop', () => {
         await act(async () => render(<Container config={configToUse} />));
 
         // Need to wait for the api response and state updating
-        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
+        await waitFor(() => screen.getByTestId('consonant-CardsGrid'));
 
         const sortPopup = screen.getByTestId('consonant-Select-btn');
         fireEvent.click(sortPopup);
@@ -215,7 +215,7 @@ describe('Consonant/Top Filters/Desktop', () => {
         configToUse.filterPanel.type = 'top';
         await act(async () => render(<Container config={configToUse} />));
 
-        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
+        await waitFor(() => screen.getByTestId('consonant-CardsGrid'));
 
         const optionsList = screen.queryByTestId('consonant-Select-options');
 

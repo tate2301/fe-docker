@@ -34,8 +34,8 @@ describe('Consonant/Container/Api', () => {
 
             const configToUse = config;
             await act(async () => render(<Container config={configToUse} />));
-            await waitFor(() => screen.queryByTestId('consonant-CardCollection'));
-            expect(screen.queryByTestId('consonant-CardCollection')).toBeNull();
+            await waitFor(() => screen.queryByTestId('consonant-CardsGrid'));
+            expect(screen.queryByTestId('consonant-CardsGrid')).toBeNull();
             expect(screen.queryByTestId('consonant-NoResultsView')).not.toBeNull();
         });
     });
@@ -46,8 +46,8 @@ describe('Consonant/Container/Api', () => {
 
             const configToUse = config;
             await act(async () => render(<Container config={configToUse} />));
-            await waitFor(() => screen.queryByTestId('consonant-CardCollection'));
-            expect(screen.queryByTestId('consonant-CardCollection')).toBeNull();
+            await waitFor(() => screen.queryByTestId('consonant-CardsGrid'));
+            expect(screen.queryByTestId('consonant-CardsGrid')).toBeNull();
             expect(screen.queryByTestId('consonant-NoResultsView')).not.toBeNull();
         });
     });
@@ -57,8 +57,8 @@ describe('Consonant/Container/Api', () => {
             server.use(rest.get(endpoint, (req, res, ctx) => res(ctx.status(401))));
             const configToUse = config;
             await act(async () => render(<Container config={configToUse} />));
-            await waitFor(() => screen.queryByTestId('consonant-CardCollection'));
-            expect(screen.queryByTestId('consonant-CardCollection')).toBeNull();
+            await waitFor(() => screen.queryByTestId('consonant-CardsGrid'));
+            expect(screen.queryByTestId('consonant-CardsGrid')).toBeNull();
             expect(screen.queryByTestId('consonant-NoResultsView')).not.toBeNull();
         });
 
@@ -66,8 +66,8 @@ describe('Consonant/Container/Api', () => {
             server.use(rest.get(endpoint, (req, res, ctx) => res(ctx.status(404))));
             const configToUse = config;
             await act(async () => render(<Container config={configToUse} />));
-            await waitFor(() => screen.queryByTestId('consonant-CardCollection'));
-            expect(screen.queryByTestId('consonant-CardCollection')).toBeNull();
+            await waitFor(() => screen.queryByTestId('consonant-CardsGrid'));
+            expect(screen.queryByTestId('consonant-CardsGrid')).toBeNull();
             expect(screen.queryByTestId('consonant-NoResultsView')).not.toBeNull();
         });
 
@@ -75,8 +75,8 @@ describe('Consonant/Container/Api', () => {
             server.use(rest.get(endpoint, (req, res, ctx) => res(ctx.status(410))));
             const configToUse = config;
             await act(async () => render(<Container config={configToUse} />));
-            await waitFor(() => screen.queryByTestId('consonant-CardCollection'));
-            expect(screen.queryByTestId('consonant-CardCollection')).toBeNull();
+            await waitFor(() => screen.queryByTestId('consonant-CardsGrid'));
+            expect(screen.queryByTestId('consonant-CardsGrid')).toBeNull();
             expect(screen.queryByTestId('consonant-NoResultsView')).not.toBeNull();
         });
     });
@@ -86,8 +86,8 @@ describe('Consonant/Container/Api', () => {
             server.use(rest.get(endpoint, (req, res, ctx) => res(ctx.status(500))));
             const configToUse = config;
             await act(async () => render(<Container config={configToUse} />));
-            await waitFor(() => screen.queryByTestId('consonant-CardCollection'));
-            expect(screen.queryByTestId('consonant-CardCollection')).toBeNull();
+            await waitFor(() => screen.queryByTestId('consonant-CardsGrid'));
+            expect(screen.queryByTestId('consonant-CardsGrid')).toBeNull();
             expect(screen.queryByTestId('consonant-NoResultsView')).not.toBeNull();
         });
 
@@ -95,8 +95,8 @@ describe('Consonant/Container/Api', () => {
             server.use(rest.get(endpoint, (req, res, ctx) => res(ctx.status(502))));
             const configToUse = config;
             await act(async () => render(<Container config={configToUse} />));
-            await waitFor(() => screen.queryByTestId('consonant-CardCollection'));
-            expect(screen.queryByTestId('consonant-CardCollection')).toBeNull();
+            await waitFor(() => screen.queryByTestId('consonant-CardsGrid'));
+            expect(screen.queryByTestId('consonant-CardsGrid')).toBeNull();
             expect(screen.queryByTestId('consonant-NoResultsView')).not.toBeNull();
         });
     });

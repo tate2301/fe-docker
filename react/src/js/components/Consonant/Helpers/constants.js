@@ -105,6 +105,10 @@ export const INFOBIT_TYPE = {
  */
 export const DEFAULT_CONFIG = {
     collection: {
+        layout: {
+            type: '3up',
+            gutter: '4x',
+        },
         resultsPerPage: 9,
         endpoint: '',
         title: '',
@@ -191,8 +195,8 @@ export const DEFAULT_SHOW_ITEMS_PER_PAGE = 8;
  * @type {Object}
  */
 export const CARD_STYLES = {
-    WIDE: 'one-half',
-    SQUARE: 'three-fourth',
+    WIDE: '1:2',
+    SQUARE: '3:4',
     FULL: 'full-card',
 };
 

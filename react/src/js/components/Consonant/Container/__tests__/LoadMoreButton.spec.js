@@ -31,7 +31,7 @@ describe('Consonant/Container/Load More Button', () => {
         await act(async () => render(<Container config={configToUse} />));
 
         // Need wait for api response and state updating
-        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
+        await waitFor(() => screen.getByTestId('consonant-CardsGrid'));
 
         // find the LoadMore button
         const loadMoreElement = screen.queryByTestId('consonant-LoadMore');
@@ -50,7 +50,7 @@ describe('Consonant/Container/Load More Button', () => {
 
         const allCardsCount = cards.length + featuredCards.length;
 
-        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
+        await waitFor(() => screen.getByTestId('consonant-CardsGrid'));
 
         const loadMoreElement = screen.queryByTestId('consonant-LoadMore');
 

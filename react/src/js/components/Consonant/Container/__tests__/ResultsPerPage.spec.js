@@ -25,7 +25,7 @@ describe('Consonant/Container/Results Per Page', () => {
         configToUse.collection.resultsPerPage = null;
 
         await act(async () => render(<Container config={configToUse} />));
-        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
+        await waitFor(() => screen.getByTestId('consonant-CardsGrid'));
 
         expect(screen.queryAllByTestId('consonant-OneHalfCard')).toHaveLength(9);
     });
@@ -35,7 +35,7 @@ describe('Consonant/Container/Results Per Page', () => {
         configToUse.collection.resultsPerPage = 1;
 
         await act(async () => render(<Container config={configToUse} />));
-        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
+        await waitFor(() => screen.getByTestId('consonant-CardsGrid'));
 
         expect(screen.queryAllByTestId('consonant-OneHalfCard')).toHaveLength(1);
     });
@@ -45,7 +45,7 @@ describe('Consonant/Container/Results Per Page', () => {
         configToUse.collection.resultsPerPage = 100;
 
         await act(async () => render(<Container config={configToUse} />));
-        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
+        await waitFor(() => screen.getByTestId('consonant-CardsGrid'));
 
         const allCards = cards.length;
         const featuredCardsLength = config.featuredCards.length;

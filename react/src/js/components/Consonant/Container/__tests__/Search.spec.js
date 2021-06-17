@@ -94,13 +94,13 @@ describe('Consonant/Container/Search', () => {
         configToUse.filterPanel.filterLogic = 'xor';
         await act(async () => render(<Container config={configToUse} />));
 
-        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
+        await waitFor(() => screen.getByTestId('consonant-CardsGrid'));
 
         const searchInput = screen.getByTestId('consonant-Search-input');
 
         fireEvent.change(searchInput, { target: { value: 'Some Title 5' } });
 
-        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
+        await waitFor(() => screen.getByTestId('consonant-CardsGrid'));
 
         expect(screen.queryAllByTestId('consonant-OneHalfCard')).toHaveLength(1);
     });

@@ -27,7 +27,7 @@ describe('Consonant/Container/Bookmarks', () => {
         configToUse.collection.cardStyle = 'one-half';
 
         await act(async () => render(<Container config={configToUse} />));
-        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
+        await waitFor(() => screen.getByTestId('consonant-CardsGrid'));
 
         const [bookmarkButton] = screen.queryAllByTestId('consonant-BookmarkInfobit');
 
@@ -65,7 +65,7 @@ describe('Consonant/Container/Bookmarks', () => {
         configToUse.collection.cardStyle = 'one-half';
 
         await act(async () => render(<Container config={configToUse} />));
-        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
+        await waitFor(() => screen.getByTestId('consonant-CardsGrid'));
 
         const bookmarksItemsBadge = screen.getByTestId('consonant-Bookmarks-itemBadge');
         expect(bookmarksItemsBadge.innerHTML).toEqual('0');

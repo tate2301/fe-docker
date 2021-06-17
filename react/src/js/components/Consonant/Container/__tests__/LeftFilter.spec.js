@@ -55,9 +55,9 @@ describe('Consonant/Container/Left Filter', () => {
         const configToUse = config;
 
         await act(async () => render(<Container config={configToUse} />));
-        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
+        await waitFor(() => screen.getByTestId('consonant-CardsGrid'));
 
-        expect(screen.getByTestId('consonant-CardCollection')).not.toBeNull();
+        expect(screen.getByTestId('consonant-CardsGrid')).not.toBeNull();
     });
 
     test('Should allow users to check filter checkboxes', async () => {
@@ -104,13 +104,13 @@ describe('Consonant/Container/Left Filter', () => {
         configToUse.filterPanel.filterLogic = 'xor';
         await act(async () => render(<Container config={configToUse} />));
 
-        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
+        await waitFor(() => screen.getByTestId('consonant-CardsGrid'));
 
         const searchInput = screen.getByTestId('consonant-Search-input');
 
         fireEvent.change(searchInput, { target: { value: 'Some Title 5' } });
 
-        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
+        await waitFor(() => screen.getByTestId('consonant-CardsGrid'));
 
         expect(screen.queryAllByTestId('consonant-OneHalfCard')).toHaveLength(1);
 

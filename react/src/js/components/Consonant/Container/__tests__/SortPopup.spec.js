@@ -68,7 +68,7 @@ describe('Consonant/Container/Sort Popup', () => {
         }, { defaultLabel: 'Please select' });
 
         // We need to wait for the api response and state updates
-        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
+        await waitFor(() => screen.getByTestId('consonant-CardsGrid'));
 
         // Gets Sort Popup input
         const selectButton = screen.getByTestId('consonant-Select-btn');
@@ -121,7 +121,7 @@ describe('Consonant/Container/Sort Popup', () => {
         }, { defaultLabel: 'Please select' });
 
         // We need to wait for api response and state updates
-        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
+        await waitFor(() => screen.getByTestId('consonant-CardsGrid'));
 
         // Get The Sort Popup Input
         const selectButton = screen.getByTestId('consonant-Select-btn');
@@ -174,7 +174,7 @@ describe('Consonant/Container/Sort Popup', () => {
         }, { defaultLabel: 'Please select' });
 
         // We need to wait for the api response and state updates
-        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
+        await waitFor(() => screen.getByTestId('consonant-CardsGrid'));
 
         // Gets The Sort Popup input
         const selectButton = screen.getByTestId('consonant-Select-btn');
@@ -198,7 +198,7 @@ describe('Consonant/Container/Sort Popup', () => {
         configToUse.sort.defaultSort = 'notPresentSortOption';
         await act(async () => render(<Container config={configToUse} />));
 
-        await waitFor(() => screen.getByTestId('consonant-CardCollection'));
+        await waitFor(() => screen.getByTestId('consonant-CardsGrid'));
 
         const selectButton = screen.getByTestId('consonant-Select-btn');
 

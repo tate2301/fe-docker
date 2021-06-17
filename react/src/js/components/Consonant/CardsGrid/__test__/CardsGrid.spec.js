@@ -1,17 +1,17 @@
 import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import Collection from '../Collection';
+import CardsGrid from '../CardsGrid';
 
-import { DEFAULT_PROPS } from '../../Testing/Constants/Collection';
+import { DEFAULT_PROPS } from '../../Testing/Constants/CardsGrid';
 
 import setup from '../../Testing/Utils/Settings';
 
-const renderCollection = setup(Collection, DEFAULT_PROPS);
+const renderCardsGrid = setup(CardsGrid, DEFAULT_PROPS);
 
-describe('Consonant/Collection', () => {
+describe('Consonant/Grid', () => {
     test('should render 1 card if on page 1 and 1 card rendered per page', () => {
-        renderCollection({ page: 1 });
+        renderCardsGrid({ page: 1 });
 
         const cardElementList = screen.queryAllByTestId('consonant-OneHalfCard');
 
@@ -20,7 +20,7 @@ describe('Consonant/Collection', () => {
     test('should be able to render all cards', () => {
         const {
             props: { cards },
-        } = renderCollection({ resultsPerPage: Number.MAX_SAFE_INTEGER }, { pagination: { type: 'loadMore' } });
+        } = renderCardsGrid({ resultsPerPage: Number.MAX_SAFE_INTEGER }, { pagination: { type: 'loadMore' } });
 
         const threeByTwoCards = screen.queryAllByTestId('consonant-OneHalfCard');
         const oneByOneCards = screen.queryAllByTestId('consonant-ThreeFourthCard');

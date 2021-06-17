@@ -19,7 +19,7 @@ import NoResultsView from '../NoResults/View';
 import LoadMore from '../Pagination/LoadMore';
 import Bookmarks from '../Bookmarks/Bookmarks';
 import Paginator from '../Pagination/Paginator';
-import Collection from '../Collection/Collection';
+import CardsGrid from '../CardsGrid/CardsGrid';
 import CardFilterer from '../Helpers/CardFilterer';
 import FiltersPanelTop from '../Filters/Top/Panel';
 import LeftFilterPanel from '../Filters/Left/Panel';
@@ -645,19 +645,19 @@ const Container = (props) => {
      * Subset of cards to show the user
      * @type {Array}
      */
-    const collectionCards = filteredCards;
+    const gridCards = filteredCards;
 
     /**
      * Total pages (used by Paginator Component)
      * @type {Number}
      */
-    const totalPages = getTotalPages(resultsPerPage, collectionCards.length);
+    const totalPages = getTotalPages(resultsPerPage, gridCards.length);
 
     /**
      * Number of cards to show (used by Load More component)
      * @type {Number}
      */
-    const numCardsToShow = getNumCardsToShow(resultsPerPage, currentPage, collectionCards.length);
+    const numCardsToShow = getNumCardsToShow(resultsPerPage, currentPage, gridCards.length);
 
     /**
      * How many filters were selected - (used by Left Filter Panel)
@@ -672,7 +672,7 @@ const Container = (props) => {
     const displayPagination = shouldDisplayPaginator(
         paginationIsEnabled,
         totalCardLimit,
-        collectionCards.length,
+        gridCards.length,
     );
     /**
      * Conditions to display the Load More Button
@@ -696,7 +696,7 @@ const Container = (props) => {
      * Whether at lease one card was returned by Card Filterer
      * @type {Boolean}
      */
-    const atLeastOneCard = collectionCards.length > 0;
+    const atLeastOneCard = gridCards.length > 0;
 
     /**
      * Where to place the Sort Popup (either left or right)
@@ -748,7 +748,7 @@ const Container = (props) => {
                                     onMobileFiltersToggleClick={handleMobileFiltersToggle}
                                     onSelectedFilterClick={handleCheckBoxChange}
                                     showMobileFilters={showMobileFilters}
-                                    resQty={collectionCards.length}
+                                    resQty={gridCards.length}
                                     bookmarkComponent={(
                                         <Bookmarks
                                             showBookmarks={showBookmarks}
@@ -765,14 +765,14 @@ const Container = (props) => {
                                     )} />
                             </div>
                         )}
-                        <div>
+                        <div className="consonant-Wrapper-collection">
                             {
                                 isTopFilterPanel &&
                                 <FiltersPanelTop
                                     filterPanelEnabled={filterPanelEnabled}
                                     filters={filters}
                                     windowWidth={windowWidth}
-                                    resQty={collectionCards.length}
+                                    resQty={gridCards.length}
                                     onCheckboxClick={handleCheckBoxChange}
                                     onFilterClick={handleFilterGroupClick}
                                     onClearFilterItems={clearFilterItem}
@@ -804,7 +804,7 @@ const Container = (props) => {
                                     enabled={filterPanelEnabled}
                                     filtersQty={filters.length}
                                     filters={filters}
-                                    cardsQty={collectionCards.length}
+                                    cardsQty={gridCards.length}
                                     selectedFiltersQty={selectedFiltersItemsQty}
                                     windowWidth={windowWidth}
                                     onMobileFiltersToggleClick={handleMobileFiltersToggle}
@@ -830,16 +830,16 @@ const Container = (props) => {
                             }
                             {atLeastOneCard ?
                                 <Fragment>
-                                    <Collection
+                                    <CardsGrid
                                         resultsPerPage={resultsPerPage}
                                         pages={currentPage}
-                                        cards={collectionCards}
+                                        cards={gridCards}
                                         onCardBookmark={handleCardBookmarking} />
                                     {displayLoadMore && (
                                         <LoadMore
                                             onClick={onLoadMoreClick}
                                             show={numCardsToShow}
-                                            total={collectionCards.length} />
+                                            total={gridCards.length} />
                                     )}
                                     {displayPaginator &&
                                         <Paginator
@@ -847,7 +847,7 @@ const Container = (props) => {
                                             currentPageNumber={currentPage}
                                             totalPages={totalPages}
                                             showItemsPerPage={resultsPerPage}
-                                            totalResults={collectionCards.length}
+                                            totalResults={gridCards.length}
                                             onClick={setCurrentPage} />
                                     }
                                 </Fragment> : (

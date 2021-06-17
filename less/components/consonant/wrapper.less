@@ -19,6 +19,27 @@
             }
         }
 
+        &-collection {
+            width: 83.333vw;
+
+            .margin-auto;
+
+            background-color: transparent;
+
+            @media @consonant-tablet-up {
+                margin-top: -4px;
+            }
+
+            @media @consonant-desktop-up {
+                overflow: visible;
+            }
+
+            @media @consonant-big-desktop-up {
+                margin-bottom: 8px;
+                width: @consonantDesktopMinWidth;
+            }
+        }
+
         @media @consonant-tablet-up {
             &-inner > *:last-of-type {
                 min-height: 625px;
@@ -34,9 +55,21 @@
 
                 > *:only-child {
                     grid-column: ~ "1/-1";
-                    width: 100vw;
+                    width: 100%;
                 }
             }
         }
+    }
+}
+
+/* Left filter changes */
+
+.consonant-Wrapper-leftFilterWrapper + .consonant-Wrapper-collection {
+    @media @consonant-desktop-up {
+        width: calc(83.333vw - @consonant-filters-1200-break-width ~ ' - 32px');
+    }
+
+    @media @consonant-big-desktop-up {
+        width: calc(@consonantDesktopMinWidth - @consonant-filters-1200-break-width ~ ' - 32px');
     }
 }

@@ -59,9 +59,22 @@ const Collection = (props) => {
      */
     const getConfig = useConfig();
     const collectionStyleOverride = getConfig('collection', 'cardStyle');
+    const cardsGridLayout = getConfig('collection', 'layout.type');
+    const cardsGridGutter = getConfig('collection', 'layout.gutter');
     const dateFormat = getConfig('collection', 'i18n.prettyDateIntervalFormat');
     const locale = getConfig('language', '');
     const paginationType = getConfig('pagination', 'type');
+
+    /**
+     * Class name for the cards grid:
+     * whether the grid should show 2, 3, 4 or 5 cards in a row;
+     * whether the grid should have a gutter of 8px, 16px, 24px or 32px;
+     * @type {String}
+     */
+    const gridClass = `
+        consonant-CardsGrid
+        consonant-CardsGrid--${cardsGridLayout}
+        consonant-CardsGrid--with${cardsGridGutter}Gutter`;
 
     /**
      * Whether the paginator component is being used
@@ -102,41 +115,37 @@ const Collection = (props) => {
 
     return cardsToshow.length > 0 && (
         <div
-            data-testid="consonant-CardCollection"
-            className="consonant-CardCollection">
-            <div className="consonant-CardCollection-inner">
-                {cardsToshow.map((card, index) => {
-                    const cardStyleOverride = getByPath(card, 'styles.typeOverride');
-                    const cardStyle = collectionStyleOverride || cardStyleOverride;
+            data-testid="consonant-CardsGrid"
+            className={gridClass}>
+            {cardsToshow.map((card, index) => {
+                const cardStyleOverride = getByPath(card, 'styles.typeOverride');
+                const cardStyle = collectionStyleOverride || cardStyleOverride;
 
-                    if (cardStyle === CARD_STYLES.FULL) {
-                        return (
-                            <FullCard
-                                lh={`Card ${index} | ${card.contentArea.title}`}
-                                key={card.id}
-                                {...card} />
-                        );
-                    } else if (cardStyle === CARD_STYLES.SQUARE) {
-                        return (
-                            <ThreeFourthCard
-                                lh={`Card ${index} | ${card.contentArea.title}`}
-                                key={card.id}
-                                {...card} />
-                        );
-                    }
+                if (cardStyle === CARD_STYLES.FULL) {
                     return (
-                        <OneHalfCard
+                        <FullCard
                             lh={`Card ${index} | ${card.contentArea.title}`}
                             key={card.id}
-                            {...card}
-                            onClick={onCardBookmark}
-                            dateFormat={dateFormat}
-                            locale={locale} />
+                            {...card} />
                     );
-                })}
-                <div className="consonant-CardCollection-placeholder" />
-                <div className="consonant-CardCollection-placeholder" />
-            </div>
+                } else if (cardStyle === CARD_STYLES.SQUARE) {
+                    return (
+                        <ThreeFourthCard
+                            lh={`Card ${index} | ${card.contentArea.title}`}
+                            key={card.id}
+                            {...card} />
+                    );
+                }
+                return (
+                    <OneHalfCard
+                        lh={`Card ${index} | ${card.contentArea.title}`}
+                        key={card.id}
+                        {...card}
+                        onClick={onCardBookmark}
+                        dateFormat={dateFormat}
+                        locale={locale} />
+                );
+            })}
         </div>
     );
 };
@@ -145,4 +154,3 @@ Collection.propTypes = collectionType;
 Collection.defaultProps = defaultProps;
 
 export default Collection;
-
