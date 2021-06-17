@@ -18,7 +18,7 @@ import {
 } from '../Helpers/constants';
 
 
-const collectionType = {
+const cardsGridType = {
     pages: number,
     resultsPerPage: number,
     cards: arrayOf(shape(cardType)),
@@ -32,7 +32,7 @@ const defaultProps = {
 };
 
 /**
- * Contains a collection of cards (of different styles)
+ * Contains a grid of cards (of different styles)
  *
  * @component
  * @example
@@ -43,10 +43,10 @@ const defaultProps = {
     cards: [],
  * }
  * return (
- *   <Collection {...props}/>
+ *   <CardsGrid {...props}/>
  * )
  */
-const Collection = (props) => {
+const CardsGrid = (props) => {
     const {
         resultsPerPage,
         pages,
@@ -150,7 +150,7 @@ const Collection = (props) => {
     );
 };
 
-Collection.propTypes = collectionType;
-Collection.defaultProps = defaultProps;
+CardsGrid.propTypes = cardsGridType;
+CardsGrid.defaultProps = defaultProps;
 
-export default Collection;
+export default CardsGrid;
