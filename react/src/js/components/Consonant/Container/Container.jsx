@@ -115,7 +115,7 @@ const Container = (props) => {
     const apiFailureDescription = getConfig('collection', 'i18n.onErrorDescription');
     const trackImpressions = getConfig('analytics', 'trackImpressions');
     const collectionIdentifier = getConfig('analytics', 'collectionIdentifier');
-    const authoredTheme = getConfig('collection', 'mode');
+    const authoredMode = getConfig('collection', 'mode');
 
     /**
      **** Constants ****
@@ -129,9 +129,9 @@ const Container = (props) => {
      * @type {String}
      */
     const themeClass = classNames({
-        'consonant-u-themeLight': authoredTheme === THEME_TYPE.LIGHT,
-        'consonant-u-themeDark': authoredTheme === THEME_TYPE.DARK,
-        'consonant-u-themeDarkest': authoredTheme === THEME_TYPE.DARKEST,
+        'consonant-u-themeLight': authoredMode === THEME_TYPE.LIGHT,
+        'consonant-u-themeDark': authoredMode === THEME_TYPE.DARK,
+        'consonant-u-themeDarkest': authoredMode === THEME_TYPE.DARKEST,
     });
 
     /**
