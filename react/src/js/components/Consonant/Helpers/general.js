@@ -397,40 +397,46 @@ export const qs = {
         const searchParams = new URLSearchParams(string);
 
         return [...searchParams.keys()].reduce((accumulator, key) => {
-            if (!accumulator[key]) {
-                let value = searchParams.getAll(key);
-
-                if (value.length === 1) {
-                    const [firstItem] = value;
-
-                    if (firstItem.includes(',')) {
-                        value = firstItem.split(',');
-                    }
+            try {
+                if (!accumulator[key]) {
+                    const value = JSON.parse(searchParams.getAll(key));                
+                    accumulator[key] = value;
                 }
-
-                accumulator[key] = value;
+    
+                return accumulator;
+            } catch {
+                if (!accumulator[key]) {
+                    let value = searchParams.getAll(key);
+    
+                    if (value.length === 1) {
+                        const [firstItem] = value;
+    
+                        if (firstItem.includes(',')) {
+                            value = firstItem.split(',');
+                        }
+                    }
+    
+                    accumulator[key] = value;
+                }
+    
+                return accumulator;
             }
-
-            return accumulator;
         }, {});
     },
     stringify: (obj, { array } = {}) => {
         const searchParams = new URLSearchParams();
 
         Object.entries(obj).forEach(([key, value]) => {
-            if (Array.isArray(value)) {
-                if (array === 'comma') {
-                    searchParams.append(key, value);
-                } else {
-                    value.forEach((valueItem) => {
-                        searchParams.append(key, valueItem);
-                    });
-                }
-            } else {
-                searchParams.append(key, value);
-            }
+            searchParams.set(key, JSON.stringify(value));
         });
 
         return searchParams.toString();
+    },
+    concat: (url, query) => {
+        if (!query || !url) return url;
+
+        const searchDelimeter = url.includes('?') ? '&' : '?';
+
+        return `${url}${searchDelimeter}${query}`;
     },
 };
