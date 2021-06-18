@@ -400,12 +400,9 @@ export const qs = {
             if (!accumulator[key]) {
                 let value = searchParams.getAll(key);
 
-                if (value.length === 1) {
-                    const [firstItem] = value;
 
-                    if (firstItem.includes(',')) {
-                        value = firstItem.split(',');
-                    }
+                if (value.length === 1) {
+                    value = JSON.parse(decodeURIComponent(value[0]));
                 }
 
                 accumulator[key] = value;
@@ -420,7 +417,7 @@ export const qs = {
         Object.entries(obj).forEach(([key, value]) => {
             if (Array.isArray(value)) {
                 if (array === 'comma') {
-                    searchParams.append(key, value);
+                    searchParams.set(key, JSON.stringify(value));
                 } else {
                     value.forEach((valueItem) => {
                         searchParams.append(key, valueItem);

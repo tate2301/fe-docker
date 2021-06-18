@@ -3,6 +3,7 @@ import {
     useContext,
     useEffect,
     useState,
+    useRef,
 } from 'react';
 
 import { debounce, qs } from './general';
@@ -151,11 +152,17 @@ export const useURLState = () => {
         setUrlState({});
     }, []);
 
-    useEffect(() => {
-        const searchString = qs.stringify(urlState, { array: 'comma' });
-        const urlString = `${pathname}${searchString ? '?' : ''}${searchString}`;
+    const initialRender = useRef(true);
 
-        window.history.replaceState(null, '', urlString);
+    useEffect(() => {
+        if (initialRender.current) {
+            initialRender.current = false;
+        } else {
+            const searchString = qs.stringify(urlState, { array: 'comma' });
+            const urlString = `${pathname}${searchString ? '?' : ''}${searchString}`;
+
+            window.history.replaceState(null, '', urlString);
+        }
     }, [urlState]);
 
     return [urlState, handleSetQuery, handleClearQuery];
