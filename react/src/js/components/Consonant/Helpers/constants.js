@@ -100,11 +100,22 @@ export const INFOBIT_TYPE = {
 };
 
 /**
+ * Available themes class names
+ * @type {Object}
+ */
+export const THEME_TYPE = {
+    LIGHT: 'light',
+    DARK: 'dark',
+    DARKEST: 'darkest',
+};
+
+/**
  * Default authoring constants
  * @type {Object}
  */
 export const DEFAULT_CONFIG = {
     collection: {
+        mode: '',
         layout: {
             type: '3up',
             gutter: '4x',

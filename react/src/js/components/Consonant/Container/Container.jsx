@@ -3,6 +3,7 @@ import React, {
     useEffect,
     useState,
 } from 'react';
+import classNames from 'classnames';
 import 'whatwg-fetch';
 import { shape } from 'prop-types';
 
@@ -35,6 +36,7 @@ import {
     TABLET_MIN_WIDTH,
     TRUNCATE_TEXT_QTY,
     SORT_POPUP_LOCATION,
+    THEME_TYPE,
 } from '../Helpers/constants';
 import {
     ConfigContext,
@@ -113,12 +115,24 @@ const Container = (props) => {
     const apiFailureDescription = getConfig('collection', 'i18n.onErrorDescription');
     const trackImpressions = getConfig('analytics', 'trackImpressions');
     const collectionIdentifier = getConfig('analytics', 'collectionIdentifier');
+    const authoredTheme = getConfig('collection', 'mode');
 
     /**
      **** Constants ****
      */
     const DESKTOP_SCREEN_SIZE = window.innerWidth >= DESKTOP_MIN_WIDTH;
     const isXorFilter = filterLogic.toLowerCase().trim() === FILTER_TYPES.XOR;
+
+    /**
+     * Class name for the authored theme:
+     * light, dark, darkest;
+     * @type {String}
+     */
+    const themeClass = classNames({
+        'consonant-u-themeLight': authoredTheme === THEME_TYPE.LIGHT,
+        'consonant-u-themeDark': authoredTheme === THEME_TYPE.DARK,
+        'consonant-u-themeDarkest': authoredTheme === THEME_TYPE.DARKEST,
+    });
 
     /**
          **** Hooks ****
@@ -733,7 +747,7 @@ const Container = (props) => {
                     daa-lh={collectionIdentifier}
                     daa-im={String(trackImpressions)}
                     onClick={handleWindowClick}
-                    className="consonant-Wrapper">
+                    className={`consonant-Wrapper ${themeClass}`}>
                     <div className="consonant-Wrapper-inner">
                         {displayLeftFilterPanel && (
                             <div className="consonant-Wrapper-leftFilterWrapper">
