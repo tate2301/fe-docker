@@ -392,6 +392,7 @@ export const mergeDeep = (target, ...sources) => {
 /**
  * methods to create/parse queryString
  */
+
 export const qs = {
     parse: (string) => {
         const searchParams = new URLSearchParams(string);
@@ -399,31 +400,28 @@ export const qs = {
         return [...searchParams.keys()].reduce((accumulator, key) => {
             try {
                 if (!accumulator[key]) {
-                    const value = JSON.parse(searchParams.getAll(key));                
+                    const value = JSON.parse(searchParams.getAll(key));
                     accumulator[key] = value;
                 }
-    
+
                 return accumulator;
-            } catch {
+            } catch (error) {
                 if (!accumulator[key]) {
                     let value = searchParams.getAll(key);
-    
+
                     if (value.length === 1) {
                         const [firstItem] = value;
-    
                         if (firstItem.includes(',')) {
                             value = firstItem.split(',');
                         }
                     }
-    
                     accumulator[key] = value;
                 }
-    
                 return accumulator;
             }
         }, {});
     },
-    stringify: (obj, { array } = {}) => {
+    stringify: (obj) => {
         const searchParams = new URLSearchParams();
 
         Object.entries(obj).forEach(([key, value]) => {
