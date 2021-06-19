@@ -400,10 +400,17 @@ export const qs = {
         return [...searchParams.keys()].reduce((accumulator, key) => {
             try {
                 if (!accumulator[key]) {
-                    const value = JSON.parse(searchParams.getAll(key));
+                    let value = JSON.parse(searchParams.getAll(key));
                     accumulator[key] = value;
+
+                    if (Array.isArray(value) && value.length === 1 && key !== 'Topic') {
+                        const [newValue] = value;
+                        value = newValue;
+                        accumulator[key] = value;
+                    }
                 }
 
+                console.log({ accumulator });
                 return accumulator;
             } catch (error) {
                 if (!accumulator[key]) {
@@ -415,17 +422,29 @@ export const qs = {
                             value = firstItem.split(',');
                         }
                     }
+
                     accumulator[key] = value;
                 }
+
                 return accumulator;
             }
         }, {});
     },
-    stringify: (obj) => {
+    stringify: (obj, { array } = {}) => {
         const searchParams = new URLSearchParams();
 
         Object.entries(obj).forEach(([key, value]) => {
-            searchParams.set(key, JSON.stringify(value));
+            if (Array.isArray(value)) {
+                if (array === 'comma') {
+                    searchParams.set(key, JSON.stringify(value));
+                } else {
+                    value.forEach((valueItem) => {
+                        searchParams.append(key, valueItem);
+                    });
+                }
+            } else {
+                searchParams.append(key, value);
+            }
         });
 
         return searchParams.toString();
