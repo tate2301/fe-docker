@@ -410,7 +410,6 @@ export const qs = {
                     }
                 }
 
-                console.log({ accumulator });
                 return accumulator;
             } catch (error) {
                 if (!accumulator[key]) {
