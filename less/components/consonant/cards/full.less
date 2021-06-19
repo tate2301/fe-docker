@@ -34,6 +34,7 @@
                     rgba(0, 0, 0, 0.501) 36%,
                     rgba(0, 0, 0, 0.701) 100%
                 ) 0% 0% no-repeat padding-box;
+            outline: 0;
 
             &:after {
                 content: '';
@@ -209,11 +210,18 @@
 
         @media @consonant-desktop-up {
             &-inner {
-                border: 2px solid transparent;
+                position: relative;
                 outline: 0;
 
-                &:focus {
-                    border-color: @consonantBlue600;
+                &:focus:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    border: 2px solid @consonantBlue600;
+                    z-index: 1;
                 }
             }
         }

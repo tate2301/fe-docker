@@ -92,13 +92,12 @@
                 min-height: @consonant-CardsGrid-smallerCardImgThreeFourthHeight;
             }
 
-            .consonant-OneHalfCard .consonant-OneHalfCard-img {
-                min-height: @consonant-CardsGrid-smallerCardImgOneHalfHeight;
+            .consonant-OneHalfCard {
+                height: auto;
             }
 
-            .consonant-OneHalfCard .consonant-OneHalfCard-inner {
-                padding-bottom: 20px;
-                padding-top: 14px;
+            .consonant-OneHalfCard .consonant-OneHalfCard-img {
+                min-height: @consonant-CardsGrid-smallerCardImgOneHalfHeight;
             }
 
             .consonant-HalfHeightCard {
@@ -127,17 +126,12 @@
                 min-height: @consonant-CardsGrid-smallestCardImgThreeFourthHeight;
             }
 
+            .consonant-OneHalfCard {
+                height: auto;
+            }
+
             .consonant-OneHalfCard .consonant-OneHalfCard-img {
                 min-height: @consonant-CardsGrid-smallestCardImgOneHalfHeight;
-            }
-
-            .consonant-OneHalfCard .consonant-OneHalfCard-text {
-                display: none;
-            }
-
-            .consonant-OneHalfCard .consonant-OneHalfCard-inner {
-                padding-bottom: 20px;
-                padding-top: 14px;
             }
 
             .consonant-HalfHeightCard {
@@ -156,7 +150,7 @@
             }
         }
 
-        @media @consonant-tablet-up {
+        @media @consonant-desktop-up {
             &--2up {
                 grid-template-columns: repeat(auto-fit, minmax(@consonant-DoubleWideCard-desktopMinWidth, max-content));
 

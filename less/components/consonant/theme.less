@@ -283,9 +283,9 @@
             /* consonant-DoubleWideCard */
 
             &-DoubleWideCard {
-                border-color: @consonantGray300;
+                border-color: @consonantGray500;
 
-                &-footer {
+                &-inner {
                     background-color: @consonantBaseColor;
                 }
 
@@ -305,7 +305,7 @@
             /* consonant-FullCard */
 
             &-FullCard {
-                border-color: @consonantGray300;
+                border-color: @consonantGray500;
                 background-color: @consonantBaseColor;
 
                 &-inner {
@@ -375,7 +375,7 @@
     .buildThemes(@index + 1);
 }
 
-/* Add appropriate linear gradients based on the theme applied  */
+/* Theme-specific styles  */
 
 .consonant-u-themeDark .consonant-FullCard-inner,
 .consonant-u-themeDarkest .consonant-FullCard-inner {
@@ -383,9 +383,10 @@
         transparent
         linear-gradient(
             180deg,
-            rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.501) 36%,
-            rgba(255, 255, 255, 0.701) 100%
+            transparent 0%,
+            rgba(255, 255, 255, 0.5) 15%,
+            rgba(255, 255, 255, 0.8) 40%,
+            rgba(255, 255, 255, 1) 100%
         ) 0% 0% no-repeat padding-box;
 }
 
@@ -395,8 +396,9 @@
         transparent
         linear-gradient(
             180deg,
-            rgba(255, 255, 255, 0.1) 40%,
-            rgba(255, 255, 255, 0.5) 95%
+            rgba(255, 255, 255, 0.01) 35%,
+            rgba(255, 255, 255, 0.75) 60%,
+            rgba(255, 255, 255, 0.85) 100%
         ) 0 0% no-repeat;
 }
 

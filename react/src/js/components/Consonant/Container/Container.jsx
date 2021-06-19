@@ -124,17 +124,6 @@ const Container = (props) => {
     const isXorFilter = filterLogic.toLowerCase().trim() === FILTER_TYPES.XOR;
 
     /**
-     * Class name for the authored theme:
-     * light, dark, darkest;
-     * @type {String}
-     */
-    const themeClass = classNames({
-        'consonant-u-themeLight': authoredMode === THEME_TYPE.LIGHT,
-        'consonant-u-themeDark': authoredMode === THEME_TYPE.DARK,
-        'consonant-u-themeDarkest': authoredMode === THEME_TYPE.DARKEST,
-    });
-
-    /**
          **** Hooks ****
      */
 
@@ -737,6 +726,31 @@ const Container = (props) => {
      */
     const isLeftFilterPanel = filterPanelType === FILTER_PANEL.LEFT;
 
+    /**
+     **** Class names ****
+     */
+
+    /**
+     * Class name for the authored theme:
+     * light, dark, darkest;
+     * @type {String}
+     */
+    const themeClass = classNames({
+        'consonant-u-themeLight': authoredMode === THEME_TYPE.LIGHT,
+        'consonant-u-themeDark': authoredMode === THEME_TYPE.DARK,
+        'consonant-u-themeDarkest': authoredMode === THEME_TYPE.DARKEST,
+    });
+
+    /**
+     * Class name for the consonant wrapper:
+     * whether consonant wrapper contains left filter;
+     * @type {String}
+     */
+    const wrapperClass = classNames({
+        'consonant-Wrapper': true,
+        'consonant-Wrapper--withLeftFilter': isLeftFilterPanel,
+    });
+
     return (
         <ConfigContext.Provider value={config}>
             <ExpandableContext.Provider value={{ value: openDropdown, setValue: setOpenDropdown }} >
@@ -747,7 +761,7 @@ const Container = (props) => {
                     daa-lh={collectionIdentifier}
                     daa-im={String(trackImpressions)}
                     onClick={handleWindowClick}
-                    className={`consonant-Wrapper ${themeClass}`}>
+                    className={`${wrapperClass} ${themeClass}`}>
                     <div className="consonant-Wrapper-inner">
                         {displayLeftFilterPanel && (
                             <div className="consonant-Wrapper-leftFilterWrapper">

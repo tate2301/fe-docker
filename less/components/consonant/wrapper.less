@@ -1,3 +1,9 @@
+/* Available modifiers:
+- .consonant-Wrapper--withLeftFilter;
+- .consonant-Wrapper--1200MaxWidth;
+- .consonant-Wrapper--fullWidth;
+*/
+
 .consonant {
     &-Wrapper {
         position: relative;
@@ -40,6 +46,20 @@
             }
         }
 
+        &--1200MaxWidth &-collection {
+            width: 100%;
+        }
+
+        &--fullWidth &-inner {
+            max-width: unset;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        &--fullWidth &-collection {
+            width: 100%;
+        }
+
         @media @consonant-tablet-up {
             &-inner > *:last-of-type {
                 min-height: 625px;
@@ -47,16 +67,11 @@
         }
 
         @media @consonant-desktop-up {
-            &-inner {
+            &--withLeftFilter &-inner {
                 display: grid;
                 grid-template-columns: 204px auto;
                 justify-content: center;
                 gap: 32px;
-
-                > *:only-child {
-                    grid-column: ~ "1/-1";
-                    width: 100%;
-                }
             }
         }
     }

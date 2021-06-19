@@ -53,13 +53,13 @@
             collection: {
                 mode: "", // Can be empty, "light", "dark", "darkest";
                 layout: {
-                    type: '5up', // Can be "2up", "3up", "4up", "5up";
+                    type: '2up', // Can be "2up", "3up", "4up", "5up";
                     gutter: '4x', // Can be "2x", "3x", "4x";
                 },
                 resultsPerPage: '5',
                 endpoint: "https://caas-chimera.s3-us-west-1.amazonaws.com/tests/card-collection/json-response-tests/smoke-tests/all-art-board-15-cards-show.json",
                 totalCardsToShow: '100',
-                cardStyle: "half-height", // available options: "1:2", "3:4", "full-card", "half-height";
+                cardStyle: "1:2", // available options: "1:2", "3:4", "full-card", "half-height";
                 showTotalResults: 'true',
                 i18n: {
                     prettyDateIntervalFormat: '{LLL} {dd} | {timeRange} {timeZone}',
@@ -149,7 +149,7 @@
             }],
             filterPanel: {
                 enabled: 'true',
-                type: 'left',
+                type: 'top',
                 filters: [
                     {
                         "group": "Topic",
