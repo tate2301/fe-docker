@@ -209,6 +209,7 @@ export const CARD_STYLES = {
     WIDE: '1:2',
     SQUARE: '3:4',
     FULL: 'full-card',
+    HALF_HEIGHT: 'half-height',
 };
 
 /**

@@ -12,6 +12,7 @@ import { getByPath } from '../Helpers/general';
 import { useConfig } from '../Helpers/hooks';
 import ThreeFourthCard from '../Cards/ThreeFourth';
 import OneHalfCard from '../Cards/OneHalf';
+import HalfHeightCard from '../Cards/HalfHeight';
 import {
     CARD_STYLES,
     DEFAULT_SHOW_ITEMS_PER_PAGE,
@@ -131,6 +132,13 @@ const CardsGrid = (props) => {
                 } else if (cardStyle === CARD_STYLES.SQUARE) {
                     return (
                         <ThreeFourthCard
+                            lh={`Card ${index} | ${card.contentArea.title}`}
+                            key={card.id}
+                            {...card} />
+                    );
+                } else if (cardStyle === CARD_STYLES.HALF_HEIGHT) {
+                    return (
+                        <HalfHeightCard
                             lh={`Card ${index} | ${card.contentArea.title}`}
                             key={card.id}
                             {...card} />

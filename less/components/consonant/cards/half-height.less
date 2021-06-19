@@ -114,5 +114,14 @@
         &--labelTop &-title {
             margin-bottom: 0;
         }
+
+        @media @consonant-desktop-up {
+            border: 2px solid transparent;
+            outline: 0;
+
+            &:focus {
+                border-color: @consonantBlue600;
+            }
+        }
     }
 }
