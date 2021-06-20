@@ -210,6 +210,7 @@ export const CARD_STYLES = {
     SQUARE: '3:4',
     FULL: 'full-card',
     HALF_HEIGHT: 'half-height',
+    CUSTOM: 'custom-card',
 };
 
 /**
