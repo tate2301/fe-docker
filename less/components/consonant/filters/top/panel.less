@@ -6,7 +6,6 @@
 .consonant {
     &-TopFilters {
         display: block;
-        width: 83.333vw;
         margin: 0 auto;
         padding: 14px 0 16px;
 
@@ -69,7 +68,7 @@
         }
 
         &-filters&-filters--truncated {
-            // Make each filter white-space nowrap;
+            /* Make each filter white-space nowrap; */
             & > div h3 button {
                 white-space: nowrap;
             }
@@ -282,6 +281,7 @@
 
         @media @consonant-desktop-up {
             /* Hide search input label; */
+
             &-searchIcoWrapper label > span:first-child {
                 display: none;
             }
@@ -300,6 +300,7 @@
                 }
 
                 /* Add paddings for sort select; */
+
                 & > div:first-child {
                     &:after {
                         right: 12px;
@@ -324,10 +325,6 @@
             .is-opened {
                 margin-bottom: 8px;
             }
-        }
-
-        @media @consonant-big-desktop-up {
-            width: @consonantDesktopMinWidth;
         }
     }
 }

@@ -1,7 +1,6 @@
 .consonant {
     &-LoadMore {
         display: block;
-        width: 83.333vw;
 
         .margin-auto;
 
@@ -53,19 +52,7 @@
         }
 
         @media @consonant-big-desktop-up {
-            width: @consonantDesktopMinWidth;
             padding-bottom: 140px;
         }
-    }
-}
-
-/* Left filter changes; */
-.consonant-Wrapper-leftFilterWrapper + div .consonant-LoadMore {
-    @media @consonant-desktop-up {
-        width: calc(83.333vw - @consonant-filters-1200-break-width ~ ' - 32px');
-    }
-
-    @media @consonant-big-desktop-up {
-        width: calc(@consonantDesktopMinWidth - @consonant-filters-1200-break-width ~ ' - 32px');
     }
 }

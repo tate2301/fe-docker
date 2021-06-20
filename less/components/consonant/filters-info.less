@@ -6,10 +6,10 @@
 .consonant {
     &-FiltersInfo {
         display: flex;
+        width: 100%;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
-        width: 83.333vw;
 
         .margin-auto;
 
@@ -114,7 +114,6 @@
         }
 
         @media @consonant-desktop-up {
-            width: calc(83.333vw - @consonant-filters-1200-break-width ~ ' - 32px');
             flex-wrap: nowrap;
             align-items: flex-start;
             min-height: @consonant-FiltersInfo-1200BreakpointHeight;
@@ -123,7 +122,7 @@
             padding: 67px 0 28px;
 
             &--noFilterPanel {
-                width: 83.333vw;
+                width: 83.3vw;
             }
 
             &-wrapper {
@@ -168,8 +167,6 @@
         }
 
         @media @consonant-big-desktop-up {
-            width: calc(@consonantDesktopMinWidth - @consonant-filters-1200-break-width ~ ' - 32px');
-
             &--noFilterPanel {
                 width: @consonantDesktopMinWidth;
             }
