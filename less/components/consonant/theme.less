@@ -212,7 +212,7 @@
                     background-color: @consonantBaseColor;
 
                     @media @consonant-desktop-up {
-                        &:focus {
+                        &:focus:after {
                             border-color: @consonantBlue600;
                         }
                     }
@@ -287,6 +287,12 @@
 
                 &-inner {
                     background-color: @consonantBaseColor;
+
+                    @media @consonant-desktop-up {
+                        &:focus:after {
+                            border-color: @consonantBlue600;
+                        }
+                    }
                 }
 
                 &-title {
@@ -310,12 +316,12 @@
 
                 &-inner {
                     @media @consonant-desktop-up {
-                        &:focus {
+                        &:focus:after {
                             border-color: @consonantBlue600;
                         }
                     }
 
-                    &:after {
+                    &:before {
                         border-color: @consonantBaseColor;
                         box-shadow: 1px 1px 0 0 @consonantBaseColor;
                     }
@@ -359,6 +365,12 @@
                 &-banner {
                     color: @consonantBaseColor;
                     background-color: @consonantBlue600;
+                }
+
+                @media @consonant-desktop-up {
+                    &:focus:after {
+                        border-color: @consonantBlue600;
+                    }
                 }
             }
 
