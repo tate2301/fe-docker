@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import {
     func,
     shape,
@@ -14,9 +15,12 @@ import { useConfig } from '../Helpers/hooks';
 import ThreeFourthCard from '../Cards/ThreeFourth';
 import OneHalfCard from '../Cards/OneHalf';
 import HalfHeightCard from '../Cards/HalfHeight';
+import DoubleWideCard from '../Cards/DoubleWide';
 import {
     CARD_STYLES,
     DEFAULT_SHOW_ITEMS_PER_PAGE,
+    GRID_TYPE,
+    GUTTER_SIZE,
 } from '../Helpers/constants';
 
 
@@ -74,10 +78,18 @@ const CardsGrid = (props) => {
      * whether the grid should have a gutter of 8px, 16px, 24px or 32px;
      * @type {String}
      */
-    const gridClass = `
-        consonant-CardsGrid
-        consonant-CardsGrid--${cardsGridLayout}
-        consonant-CardsGrid--with${cardsGridGutter}Gutter`;
+    const gridClass = classNames({
+        'consonant-CardsGrid': true,
+        'consonant-CardsGrid--2up': cardsGridLayout === GRID_TYPE.TWO_UP,
+        'consonant-CardsGrid--3up': cardsGridLayout === GRID_TYPE.THREE_UP,
+        'consonant-CardsGrid--4up': cardsGridLayout === GRID_TYPE.FOUR_UP,
+        'consonant-CardsGrid--5up': cardsGridLayout === GRID_TYPE.FIVE_UP,
+        'consonant-CardsGrid--with1xGutter': cardsGridGutter === GUTTER_SIZE.GUTTER_1_X,
+        'consonant-CardsGrid--with2xGutter': cardsGridGutter === GUTTER_SIZE.GUTTER_2_X,
+        'consonant-CardsGrid--with3xGutter': cardsGridGutter === GUTTER_SIZE.GUTTER_3_X,
+        'consonant-CardsGrid--with4xGutter': cardsGridGutter === GUTTER_SIZE.GUTTER_4_X,
+        'consonant-CardsGrid--doubleWideCards': collectionStyleOverride === CARD_STYLES.DOUBLE_WIDE,
+    });
 
     /**
      * Whether the paginator component is being used
@@ -141,6 +153,13 @@ const CardsGrid = (props) => {
                 } else if (cardStyle === CARD_STYLES.HALF_HEIGHT) {
                     return (
                         <HalfHeightCard
+                            lh={`Card ${index} | ${card.contentArea.title}`}
+                            key={card.id}
+                            {...card} />
+                    );
+                } else if (cardStyle === CARD_STYLES.DOUBLE_WIDE) {
+                    return (
+                        <DoubleWideCard
                             lh={`Card ${index} | ${card.contentArea.title}`}
                             key={card.id}
                             {...card} />

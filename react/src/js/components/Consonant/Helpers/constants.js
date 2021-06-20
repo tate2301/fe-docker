@@ -119,6 +119,7 @@ export const DEFAULT_CONFIG = {
         layout: {
             type: '3up',
             gutter: '4x',
+            container: '32Margin',
         },
         resultsPerPage: 9,
         endpoint: '',
@@ -210,7 +211,26 @@ export const CARD_STYLES = {
     SQUARE: '3:4',
     FULL: 'full-card',
     HALF_HEIGHT: 'half-height',
+    DOUBLE_WIDE: 'double-wide',
     CUSTOM: 'custom-card',
+};
+
+/**
+ * Available grid types
+ * @type {Object}
+ */
+export const GRID_TYPE = {
+    TWO_UP: '2up',
+    THREE_UP: '3up',
+    FOUR_UP: '4up',
+    FIVE_UP: '5up',
+};
+
+export const GUTTER_SIZE = {
+    GUTTER_1_X: '1x',
+    GUTTER_2_X: '2x',
+    GUTTER_3_X: '3x',
+    GUTTER_4_X: '4x',
 };
 
 /**

@@ -119,15 +119,11 @@ const HalfHeightCard = (props) => {
                 style={{ backgroundImage: `url("${lazyLoadedImage}")` }} />
             <div className="consonant-HalfHeightCard-inner">
                 {label &&
-                    <span
-                        className="consonant-HalfHeightCard-label">
-                        {label}
-                    </span>
+                    <span className="consonant-HalfHeightCard-label">{label}</span>
                 }
-                <h2
-                    className="consonant-HalfHeightCard-title">
-                    {title}
-                </h2>
+                {title &&
+                    <h2 className="consonant-HalfHeightCard-title">{title}</h2>
+                }
             </div>
         </a>
     );
