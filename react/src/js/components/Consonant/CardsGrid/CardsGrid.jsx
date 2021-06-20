@@ -5,6 +5,7 @@ import {
     number,
     arrayOf,
 } from 'prop-types';
+import parseHTML from 'html-react-parser';
 
 import FullCard from '../Cards/Full';
 import { cardType } from '../types/card';
@@ -65,6 +66,7 @@ const CardsGrid = (props) => {
     const dateFormat = getConfig('collection', 'i18n.prettyDateIntervalFormat');
     const locale = getConfig('language', '');
     const paginationType = getConfig('pagination', 'type');
+    const customCard = getConfig('customCard');
 
     /**
      * Class name for the cards grid:
@@ -143,6 +145,8 @@ const CardsGrid = (props) => {
                             key={card.id}
                             {...card} />
                     );
+                } else if (cardStyle === CARD_STYLES.CUSTOM) {
+                    return parseHTML(customCard(card));
                 }
                 return (
                     <OneHalfCard
