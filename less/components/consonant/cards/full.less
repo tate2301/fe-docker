@@ -36,7 +36,7 @@
                 ) 0% 0% no-repeat padding-box;
             outline: 0;
 
-            &:after {
+            &:before {
                 content: '';
                 position: absolute;
                 right: 24px;
@@ -210,19 +210,9 @@
 
         @media @consonant-desktop-up {
             &-inner {
-                position: relative;
                 outline: 0;
 
-                &:focus:before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    left: 0;
-                    right: 0;
-                    border: 2px solid @consonantBlue600;
-                    z-index: 1;
-                }
+                .focus-pseudo-element;
             }
         }
     }

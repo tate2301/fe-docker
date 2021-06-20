@@ -213,6 +213,16 @@ export const CARD_STYLES = {
 };
 
 /**
+ * Available layout container types
+ * @type {Object}
+ */
+export const LAYOUT_CONTAINER = {
+    SIZE_83_VW: '83Percent',
+    SIZE_1200_PX: '1200MaxWidth',
+    SIZE_100_VW_32_MARGIN: '32Margin',
+};
+
+/**
  * Available loader sizes
  * @type {Object}
  */

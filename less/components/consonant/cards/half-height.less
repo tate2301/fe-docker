@@ -48,7 +48,7 @@
         &-inner {
             display: flex;
             flex-direction: column;
-            padding: 8px 24px 24px;
+            padding: 8px 24px 32px;
             text-decoration: none;
         }
 
@@ -117,12 +117,9 @@
         }
 
         @media @consonant-desktop-up {
-            border: 2px solid transparent;
             outline: 0;
 
-            &:focus {
-                border-color: @consonantBlue600;
-            }
+            .focus-pseudo-element;
         }
     }
 }

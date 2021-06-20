@@ -68,6 +68,22 @@
     }
 }
 
+.focus-pseudo-element {
+    position: relative;
+
+    &:focus:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border: 2px solid @consonantBlue600;
+        z-index: 1;
+    }
+}
+
 .set-rating-width (@i) when (@i > 0) {
     .consonant-RatingInfobit[data-stars = "@{i}"] {
         min-width: @i * @consonant-RatingInfobit-starWidth + @consonant-RatingInfobit-textMinWidth;

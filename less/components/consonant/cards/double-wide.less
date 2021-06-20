@@ -32,7 +32,7 @@
         &-inner {
             display: flex;
             flex-direction: column;
-            padding: 16px 24px 30px;
+            padding: 16px 24px 28px;
             text-decoration: none;
             background-color: @consonantBaseColor;
             outline: 0;
@@ -88,12 +88,9 @@
             min-width: @consonant-DoubleWideCard-desktopMinWidth;
 
             &-inner {
-                border: 2px solid transparent;
                 outline: 0;
 
-                &:focus {
-                    border-color: @consonantBlue600;
-                }
+                .focus-pseudo-element;
             }
         }
     }

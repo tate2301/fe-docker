@@ -37,6 +37,7 @@ import {
     TRUNCATE_TEXT_QTY,
     SORT_POPUP_LOCATION,
     THEME_TYPE,
+    LAYOUT_CONTAINER,
 } from '../Helpers/constants';
 import {
     ConfigContext,
@@ -116,6 +117,7 @@ const Container = (props) => {
     const trackImpressions = getConfig('analytics', 'trackImpressions');
     const collectionIdentifier = getConfig('analytics', 'collectionIdentifier');
     const authoredMode = getConfig('collection', 'mode');
+    const authoredLayoutContainer = getConfig('collection', 'layout.container');
 
     /**
      **** Constants ****
@@ -748,6 +750,9 @@ const Container = (props) => {
      */
     const wrapperClass = classNames({
         'consonant-Wrapper': true,
+        'consonant-Wrapper--32MarginContainer': authoredLayoutContainer === LAYOUT_CONTAINER.SIZE_100_VW_32_MARGIN,
+        'consonant-Wrapper--83PercentContainier': authoredLayoutContainer === LAYOUT_CONTAINER.SIZE_83_VW,
+        'consonant-Wrapper--1200MaxWidth': authoredLayoutContainer === LAYOUT_CONTAINER.SIZE_1200_PX,
         'consonant-Wrapper--withLeftFilter': isLeftFilterPanel,
     });
 

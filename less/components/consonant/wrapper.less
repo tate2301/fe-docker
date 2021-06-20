@@ -1,7 +1,8 @@
 /* Available modifiers:
 - .consonant-Wrapper--withLeftFilter;
 - .consonant-Wrapper--1200MaxWidth;
-- .consonant-Wrapper--fullWidth;
+- .consonant-Wrapper--83PercentContainier;
+- .consonant-Wrapper--32MarginContainer;
 */
 
 .consonant {
@@ -13,10 +14,6 @@
         overflow-y: scroll;
 
         &-inner {
-            max-width: @consonantDesktopMinWidth;
-
-            .margin-auto;
-
             > *:last-of-type {
                 display: block;
                 min-height: @consonant-Wrapper-minHeight;
@@ -26,43 +23,37 @@
         }
 
         &-collection {
-            width: 83.333vw;
-
-            .margin-auto;
-
             background-color: transparent;
-
-            @media @consonant-tablet-up {
-                margin-top: -4px;
-            }
-
-            @media @consonant-desktop-up {
-                overflow: visible;
-            }
-
-            @media @consonant-big-desktop-up {
-                margin-bottom: 8px;
-                width: @consonantDesktopMinWidth;
-            }
         }
 
-        &--1200MaxWidth &-collection {
-            width: 100%;
+        /* Modifiers */
+
+        &--1200MaxWidth &-inner {
+            width: 83.33%;
+            max-width: @consonantDesktopMinWidth;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        &--fullWidth &-inner {
+        &--83PercentContainier &-inner {
+            width: 83.33%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        &--32MarginContainer &-inner {
             max-width: unset;
-            margin-left: 0;
-            margin-right: 0;
-        }
-
-        &--fullWidth &-collection {
-            width: 100%;
+            margin-left: @consonant-Wrapper-horizontalMargin;
+            margin-right: @consonant-Wrapper-horizontalMargin;
         }
 
         @media @consonant-tablet-up {
             &-inner > *:last-of-type {
                 min-height: 625px;
+            }
+
+            &-collection {
+                margin-top: -4px;
             }
         }
 
@@ -70,21 +61,18 @@
             &--withLeftFilter &-inner {
                 display: grid;
                 grid-template-columns: 204px auto;
-                justify-content: center;
                 gap: 32px;
             }
+
+            &-collection {
+                overflow: visible;
+            }
         }
-    }
-}
 
-/* Left filter changes */
-
-.consonant-Wrapper-leftFilterWrapper + .consonant-Wrapper-collection {
-    @media @consonant-desktop-up {
-        width: calc(83.333vw - @consonant-filters-1200-break-width ~ ' - 32px');
-    }
-
-    @media @consonant-big-desktop-up {
-        width: calc(@consonantDesktopMinWidth - @consonant-filters-1200-break-width ~ ' - 32px');
+        @media @consonant-big-desktop-up {
+            &-collection {
+                margin-bottom: 8px;
+            }
+        }
     }
 }
