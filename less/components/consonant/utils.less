@@ -84,6 +84,37 @@
     }
 }
 
+.card-hover {
+    &:hover {
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        transition: box-shadow @consonantTransitionTime @consonantTransitionFunc;
+    }
+}
+
+.card-hover-img {
+    [class *= "-img"] {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            content: '';
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: 0;
+            background-color: rgba(0, 0, 0, 0.35);
+            opacity: 0;
+            transition: opacity @consonantTransitionTime @consonantTransitionFunc;
+        }
+    }
+
+    &:hover [class *= "-img"]:after {
+        opacity: 1;
+    }
+}
+
 .set-rating-width (@i) when (@i > 0) {
     .consonant-RatingInfobit[data-stars = "@{i}"] {
         min-width: @i * @consonant-RatingInfobit-starWidth + @consonant-RatingInfobit-textMinWidth;

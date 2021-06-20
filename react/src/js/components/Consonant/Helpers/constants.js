@@ -226,6 +226,10 @@ export const GRID_TYPE = {
     FIVE_UP: '5up',
 };
 
+/**
+ * Available gutter sizes
+ * @type {Object}
+ */
 export const GUTTER_SIZE = {
     GUTTER_1_X: '1x',
     GUTTER_2_X: '2x',

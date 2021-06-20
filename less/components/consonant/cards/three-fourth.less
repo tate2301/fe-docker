@@ -16,6 +16,9 @@
         background-color: @consonantBaseColor;
         overflow: hidden;
 
+        .card-hover;
+        .card-hover-img;
+
         &-inner {
             display: flex;
             flex-grow: 1;
@@ -24,6 +27,10 @@
             text-decoration: none;
             background-color: @consonantBaseColor;
             outline: 0;
+
+            & > :last-child {
+                margin-bottom: 0;
+            }
         }
 
         &-img {
@@ -54,7 +61,8 @@
             transition-delay: @consonantTransitionTime * 2;
 
             &:hover,
-            &:active {
+            &:active,
+            &:focus {
                 opacity: 1;
                 transform: scale(1.1);
                 transition: transform @consonantTransitionTime @consonantTransitionFunc;
@@ -94,7 +102,7 @@
         &-label {
             display: block;
             max-width: 100%;
-            margin-bottom: 10px;
+            margin-bottom: 4px;
 
             .font(@color: @consonantGray800);
 
@@ -157,6 +165,12 @@
             .line-clamp(5);
         }
 
+        &-label + &-title + &-text {
+            max-height: 1rem;
+
+            .line-clamp(1);
+        }
+
         &-banner {
             position: absolute;
             display: flex;
@@ -214,7 +228,6 @@
 
         @media @consonant-desktop-up {
             &-inner {
-                padding-bottom: 6px;
                 outline: 0;
 
                 .focus-pseudo-element;
