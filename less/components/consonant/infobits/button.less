@@ -16,65 +16,65 @@
         padding-left: 16px;
         padding-right: 16px;
         text-decoration: none;
-        border: 2px solid @consonantDarkGrey400;
+        border: 2px solid @consonantGray800;
         border-radius: 16px;
-        background-color: @consonantWhite;
+        background-color: @consonantBaseColor;
         cursor: pointer;
         transition:
             border-color @consonantTransitionTime @consonantTransitionFunc,
             background-color @consonantTransitionTime @consonantTransitionFunc;
 
         span {
-            .font(0.8235rem, 0.9375rem, 700, @consonantDarkGrey400, center);
+            .font(0.8235rem, 0.9375rem, 700, @consonantGray800, center);
             .line-clamp(2);
 
             transition: color @consonantTransitionTime @consonantTransitionFunc;
         }
 
         &:hover {
-            border-color: @consonantDarkGrey500;
-            background-color: @consonantDarkGrey500;
+            border-color: @consonantGray800;
+            background-color: @consonantGray800;
         }
 
         &:hover span {
-            color: @consonantWhite;
+            color: @consonantBaseColor;
         }
 
         &:active {
-            border-color: @consonantDarkGrey700;
-            background-color: @consonantDarkGrey700;
+            border-color: @consonantGray900;
+            background-color: @consonantGray900;
         }
 
         &:active span {
-            color: @consonantWhite;
+            color: @consonantBaseColor;
         }
 
         .focused;
 
         &--cta {
-            background-color: @consonantLightBlue200;
-            border-color: @consonantLightBlue200;
+            background-color: @consonantBlue500;
+            border-color: @consonantBlue500;
 
             span {
-                color: @consonantWhite;
+                color: @consonantBaseColor;
             }
 
             &:hover {
-                background-color: @consonantLightBlue300;
-                border-color: @consonantLightBlue300;
+                background-color: @consonantBlue600;
+                border-color: @consonantBlue600;
             }
 
             &:hover span {
-                color: @consonantWhite;
+                color: @consonantBaseColor;
             }
 
             &:active {
-                background-color: @consonantLightBlue400;
-                border-color: @consonantLightBlue400;
+                background-color: @consonantBlue700;
+                border-color: @consonantBlue700;
             }
 
             &:active span {
-                color: @consonantWhite;
+                color: @consonantBaseColor;
             }
         }
 

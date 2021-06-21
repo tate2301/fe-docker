@@ -382,6 +382,200 @@
                 }
             }
         }
+
+        /* consonant-BookmarkInfobit */
+
+        .consonant-BookmarkInfobit {
+            @url: extract(@consonant-BookmarkInfobit-bookmarks, @index + 1);
+            @urlFilled: extract(@consonant-BookmarkInfobit-filled-bookmarks, @index + 1);
+
+            &.is-active .consonant-BookmarkInfobit-ico {
+                background-image: url(@urlFilled);
+            }
+
+            &-ico {
+                background-image: url(@url);
+            }
+
+            @media @consonant-desktop-up {
+                &:focus {
+                    outline-color: @consonantBlue600;
+                }
+            }
+        }
+
+        /* consonant-Tooltip */
+
+        .consonant-Tooltip {
+            color: @consonantBaseColor;
+            background-color: @consonantGray700;
+
+            &:after {
+                background-color: @consonantGray700;
+            }
+        }
+
+        /* .consonant-BtnInfobit */
+
+        .consonant-BtnInfobit {
+            border-color: @consonantGray800;
+            background-color: @consonantBaseColor;
+
+            span {
+                color: @consonantGray800;
+            }
+
+            &:hover {
+                border-color: @consonantGray800;
+                background-color: @consonantGray800;
+            }
+
+            &:hover span {
+                color: @consonantBaseColor;
+            }
+
+            &:active {
+                border-color: @consonantGray900;
+                background-color: @consonantGray900;
+            }
+
+            &:active span {
+                color: @consonantBaseColor;
+            }
+
+            &:focus {
+                outline-color: @consonantBlue600;
+            }
+
+            &--cta {
+                border-color: @consonantBlue500;
+                background-color: @consonantBlue500;
+
+                span {
+                    color: @consonantBaseColor;
+                }
+
+                &:hover {
+                    border-color: @consonantBlue600;
+                    background-color: @consonantBlue600;
+                }
+
+                &:hover span {
+                    color: @consonantBaseColor;
+                }
+
+                &:active {
+                    border-color: @consonantBlue700;
+                    background-color: @consonantBlue700;
+                }
+
+                &:active span {
+                    color: @consonantBaseColor;
+                }
+            }
+        }
+
+        /* consonant-DateIntervalInfobit */
+
+        .consonant-DateIntervalInfobit {
+            color: @consonantGray700;
+        }
+
+        /* consonant-IconWithTextInfobit */
+
+        .consonant-IconWithTextInfobit {
+            &-text {
+                color: @consonantGray700;
+            }
+        }
+
+        /* consonant-LinkWithIcoInfobit */
+
+        .consonant-LinkWithIcoInfobit {
+            &:focus {
+                outline-color: @consonantBlue600;
+            }
+
+            span {
+                color: @consonantBlue500;
+            }
+
+            &:hover span {
+                color: @consonantBlue600;
+            }
+
+            &:active span {
+                color: @consonantBlue700;
+            }
+        }
+
+        /* consonant-LinkInfobit */
+
+        .consonant-LinkInfobit {
+            color: @consonantBlue500;
+
+            &:hover {
+                color: @consonantBlue600;
+            }
+
+            &:active {
+                color: @consonantBlue700;
+            }
+
+            &:focus {
+                outline-color: @consonantBlue600;
+            }
+        }
+
+        /* consonant-PriceInfobit */
+
+        .consonant-PriceInfobit {
+            &-price {
+                color: @consonantGray900;
+            }
+
+            &-term {
+                color: @consonantGray600;
+            }
+        }
+
+        /* consonant-ProgressInfobit */
+
+        .consonant-ProgressInfobit {
+            &-text {
+                color: @consonantGray700;
+            }
+
+            &-el {
+                background-color: @consonantBaseColor;
+                border-color: @consonantGray400;
+            }
+        }
+
+        /* consonant-RatingInfobit */
+
+        .consonant-RatingInfobit {
+            @empty-star: extract(@consonant-RatingInfobit-empty-stars, @index + 1);
+            @filled-star: extract(@consonant-RatingInfobit-filled-stars, @index + 1);
+
+            &-stars:before {
+                background-image: url(@empty-star);
+            }
+
+            &-stars:after {
+                background-image: url(@filled-star);
+            }
+
+            &-text {
+                color: @consonantGray600;
+            }
+        }
+
+        /* consonant-TextInfobit */
+
+        .consonant-TextInfobit {
+            color: @consonantGray700;
+        }
     }
 
     .buildThemes(@index + 1);

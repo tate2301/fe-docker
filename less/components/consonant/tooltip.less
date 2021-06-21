@@ -23,11 +23,11 @@
         bottom: calc(~ '100% + ' @consonant-Tooltip-vertPosition);
         left: -72px;
 
-        .font(@size: 0.75rem, @align: center, @color: @consonantWhite);
+        .font(@size: 0.75rem, @align: center, @color: @consonantBaseColor);
 
         text-decoration: none;
         border-radius: 8px;
-        background-color: @consonantDarkGrey200;
+        background-color: @consonantGray700;
         z-index: -1;
         user-select: text;
         opacity: 0;
@@ -41,7 +41,7 @@
             left: 0;
             right: 0;
             margin: auto;
-            background-color: @consonantDarkGrey200;
+            background-color: @consonantGray700;
             transform-origin: 50% 50%;
             transform: rotate(45deg);
         }
