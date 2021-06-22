@@ -343,7 +343,7 @@
             customCard: (data) => {
                 /* example custom card */
                 if (data) {
-                    return `<div>${data.contentArea.title} </div>`;
+                    return `<div key="${data.id}">${data.contentArea.title} </div>`;
                 } else {
                     return `<div> There no data to display </div>`;
                 }
