@@ -72,7 +72,6 @@ const Info = (props) => {
      **** Authored Configs ****
      */
     const title = getConfig('collection', 'i18n.title');
-    const enableFilterPanel = getConfig('filterPanel', 'enabled');
     const showTotalResults = getConfig('collection', 'showTotalResults');
     const showTotalResultsText = getConfig('collection', 'i18n.totalResultsText');
     const searchEnabled = getConfig('search', 'enabled');
@@ -121,16 +120,6 @@ const Info = (props) => {
     const shouldRenderMobileInfo = NOT_DESKTOP_SCREEN_SIZE && filtersQty > 0 && enabled;
 
     /**
-     * Class name for the left filters info:
-     * whether the left filters info block should share width with left filters panel
-     * @type {String}
-     */
-    const containerClassName = classNames({
-        'consonant-FiltersInfo': true,
-        'consonant-FiltersInfo--noFilterPanel': !enableFilterPanel,
-    });
-
-    /**
      * Class name for the left filters info inner wrapper:
      * whether the left filters info inner wrapper should display a vertical separator
      * after the block with the quantity of the filtered cards
@@ -144,7 +133,7 @@ const Info = (props) => {
     return (
         <aside
             data-testid="consonant-FiltersInfo"
-            className={containerClassName}>
+            className="consonant-FiltersInfo">
             <div
                 className="consonant-FiltersInfo-search">
                 {shouldRenderSearch && searchComponent}

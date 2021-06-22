@@ -138,6 +138,12 @@
                 margin-right: 0;
                 margin-left: 8px;
             }
+
+            &-results {
+                margin-left: 0;
+                margin-right: auto;
+                padding-left: 0;
+            }
         }
 
         /* Top filter */
@@ -440,8 +446,6 @@
                 }
 
                 &-results {
-                    margin-left: auto;
-                    margin-right: auto;
                     text-align: right;
 
                     &:after {
@@ -462,6 +466,11 @@
                         left: 0;
                         right: auto;
                     }
+                }
+
+                &-inner > *:not(&-filtersWrapper):first-child {
+                    margin-left: 0;
+                    margin-right: auto;
                 }
             }
 

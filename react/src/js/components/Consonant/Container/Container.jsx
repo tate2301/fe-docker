@@ -753,7 +753,7 @@ const Container = (props) => {
         'consonant-Wrapper--32MarginContainer': authoredLayoutContainer === LAYOUT_CONTAINER.SIZE_100_VW_32_MARGIN,
         'consonant-Wrapper--83PercentContainier': authoredLayoutContainer === LAYOUT_CONTAINER.SIZE_83_VW,
         'consonant-Wrapper--1200MaxWidth': authoredLayoutContainer === LAYOUT_CONTAINER.SIZE_1200_PX,
-        'consonant-Wrapper--withLeftFilter': isLeftFilterPanel,
+        'consonant-Wrapper--withLeftFilter': filterPanelEnabled && isLeftFilterPanel,
     });
 
     return (
