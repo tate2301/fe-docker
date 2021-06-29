@@ -20,7 +20,7 @@ import NoResultsView from '../NoResults/View';
 import LoadMore from '../Pagination/LoadMore';
 import Bookmarks from '../Bookmarks/Bookmarks';
 import Paginator from '../Pagination/Paginator';
-import CardsGrid from '../CardsGrid/CardsGrid';
+import Grid from '../Grid/Grid';
 import CardFilterer from '../Helpers/CardFilterer';
 import FiltersPanelTop from '../Filters/Top/Panel';
 import LeftFilterPanel from '../Filters/Left/Panel';
@@ -863,7 +863,7 @@ const Container = (props) => {
                             }
                             {atLeastOneCard ?
                                 <Fragment>
-                                    <CardsGrid
+                                    <Grid
                                         resultsPerPage={resultsPerPage}
                                         pages={currentPage}
                                         cards={gridCards}

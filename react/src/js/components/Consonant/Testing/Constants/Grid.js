@@ -11,7 +11,7 @@ export const DEFAULT_PROPS = {
     onCardBookmark: jest.fn(),
 };
 
-export const CARDS_GRID_PROPS = [
+export const GRID_PROPS = [
     'one-half',
     'three-fourth',
     'none',

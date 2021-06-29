@@ -1,13 +1,13 @@
 import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import CardsGrid from '../CardsGrid';
+import Grid from '../Grid';
 
-import { DEFAULT_PROPS } from '../../Testing/Constants/CardsGrid';
+import { DEFAULT_PROPS } from '../../Testing/Constants/Grid';
 
 import setup from '../../Testing/Utils/Settings';
 
-const renderCardsGrid = setup(CardsGrid, DEFAULT_PROPS);
+const renderCardsGrid = setup(Grid, DEFAULT_PROPS);
 
 describe('Consonant/Grid', () => {
     test('should render 1 card if on page 1 and 1 card rendered per page', () => {

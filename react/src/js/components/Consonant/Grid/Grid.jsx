@@ -52,7 +52,7 @@ const defaultProps = {
  *   <CardsGrid {...props}/>
  * )
  */
-const CardsGrid = (props) => {
+const Grid = (props) => {
     const {
         resultsPerPage,
         pages,
@@ -181,7 +181,7 @@ const CardsGrid = (props) => {
     );
 };
 
-CardsGrid.propTypes = cardsGridType;
-CardsGrid.defaultProps = defaultProps;
+Grid.propTypes = cardsGridType;
+Grid.defaultProps = defaultProps;
 
-export default CardsGrid;
+export default Grid;
