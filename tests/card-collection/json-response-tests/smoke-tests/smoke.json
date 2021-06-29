@@ -1,4 +1,5 @@
-[
+{
+  "cards":[
   {
     "id": "6d6438c8-5aa2-36be-bfd0-18a9f6e4cd9c",
     "showCard": {
@@ -7,13 +8,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       },
       {
-        "id": "namespace:topic/digital-trends"
+        "id": "adobe-com-enterprise:topic/digital-trends"
       }
     ],
     "overlays": {
@@ -29,8 +30,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Xelobepoh.",
-      "description": "Cib. Nodaje lorovutab da.",
+      "title": "Bebudegedo rugemanolo kecigaxico ru. Maco vebuc muqelohur terex repec heludem pepam do regisa vec noleviwur puladabu. Ho zuduno nerakema pufe.",
+      "description": "Toverah nabili. Rarohapudi mamik neneh bor ti tado do. Decede de cebimolona moba yoten malizo norunecac ca mubun cun lube nek tebabi dezekexi pulu pa dunubec varec cet livo. Dibeloj ko reradir nomemason cinotojub bucicib qimabadal peponecig lepudonob besoku.",
       "dateDetailText": {}
     },
     "styles": {
@@ -75,13 +76,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       },
       {
-        "id": "namespace:topic/Stock"
+        "id": "adobe-com-enterprise:topic/Stock"
       }
     ],
     "overlays": {
@@ -97,8 +98,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Xuculuf cemonolir cepamu reb lada puraz ho nan cenoweno dekoden perub baneb direj so. Bot pudu molorepu lawepida.",
-      "description": "Cobom. Baqocut jipu dimad domed ridega di xirarina bicidorin nelonog zadi cepibiguvo halaz ceminubir. Zo tutikurox sibim vihiloda go go. Barip temikihano. Pawayurubi banatoro ce. Bipuvo merite repatidice pi razular pekibezeba duhoresidi. Racud petunacic cige pudicib nebol luvob legitocavo kebu gun. Febe gurinikamu les yamicohon kabulayab doduzanapu qu. Bobar do bobecofe selid micucola nohid wom refenocum po curubod mada xubapakara deqireha mavago humucino. Rudacaqed gule me tuled zuhocu zada mubanoh pepijarib tihomi birecarop gucedaje. Didapafud.",
+      "title": "No sanoken pore.",
+      "description": "Bopibi ducipasa torureda za rotiludona lupo denos jemo pipupekeb putobepal dare yucidekina lu tamiha no. Cabohanus lujesir tonagico paxudigatu banunejo. Bab heben bareze cimelob giced kalu dubetu bogo. Lecole ni rido mami nanoc muwulobu nobiniyas moxotuqa yej ti cofirupu ci buharal perocin.",
       "dateDetailText": {}
     },
     "styles": {
@@ -143,13 +144,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       },
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       }
     ],
     "overlays": {
@@ -165,8 +166,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Nim hetimi lubugak kubepi momu tu. Ridan kubu cuhobucilu bu hecufebe kunutice renalud. Wodayubelu cuc.",
-      "description": "Ni limujide. Wad liki rab. Celabiti kirubup romom capinomoba robem buquc riyamad dicapebada. Nobelinoka midib wa nipiremutu duco du. Kilanapem cobiheqod cake. Dilup derolap boqocamipo codu wocone momidu ki sep wasicemi dapim lic rux bumobabebu makiyir kil mapoler lib dajowib rib. Ruyah zehamipoki qebijerim nizulipaco romo juret liboluboz. Jiqen ruma jevobomin bota gupih ne limov.",
+      "title": "Nafucoz cipagehu cope wo lidumoq. Rubotixore tol melec dagamicadi nadurijo sohehax pup lapunijew royi nehecoro sedic mabuk ducej ribide.",
+      "description": "Bareg. Xekileb qi rapobumo bar dabiq remorugib bigiromo yulodobere detubur. Dugemubilu koyibepire. Do bikebopi kiluhe. Mexuralucu ro pu peb.",
       "dateDetailText": {}
     },
     "styles": {
@@ -211,13 +212,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       },
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       }
     ],
     "overlays": {
@@ -233,8 +234,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Hile kiw ridiv ged derucapaki dadacubila. Ce nurib vifor kerubal goxixiq pepulac numopoc nid tasi rucecal.",
-      "description": "Pe. Ri rod nat rapahorov bu polenitem mulafena bulohuyube peweb vocebadi puliponu qu kovoceji hipoyabon demonapo kubu mido balib nabedoxo mozosoluk.",
+      "title": "Zapiv rebucu rup nubahareja pu dad cunu muna.",
+      "description": "Korubopep pana.",
       "dateDetailText": {}
     },
     "styles": {
@@ -279,13 +280,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       }
     ],
     "overlays": {
@@ -301,8 +302,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Pe mos kanonocup cicig codehocito cun cetenala qag.",
-      "description": "Bape daw muda nijinodi zapi mixitebo gilezik dodajuq gujeboco nucohabape gudoyu luxerirobe tacelagum nocura cewularer. Yored. Riw celacev gipexin rehu cu yitidet borurefu ra. Bopo xec laricebib fire soxanunud buguni. Nesobunino dirinono momepibi mobubuveno re bolimip kinora nemide. Riromerile nurogicu pisinox rocey movinoceb ronet pica qarireg hetiliboro cebo puza carupak. Kipexo ci tebihiso laz mebupekaci lacijib pejuso zebiko.",
+      "title": "Gi.",
+      "description": "Momicucil bogoruwi werari ner minib cicicinu lemu ceb. Dugunirik tibape zaligumoju. Vobura teyeru tonip ci. Doconim topuc toderita bekag. Pecul rimohep..",
       "dateDetailText": {}
     },
     "styles": {
@@ -347,13 +348,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/business-continuity"
+        "id": "adobe-com-enterprise:topic/business-continuity"
       }
     ],
     "overlays": {
@@ -369,8 +370,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Pulepelop fuguce pahoquya. Cilifejan..",
-      "description": "Pekobiha lafi bib lasuk bodicopo bilufa macewe kon. Yeb levunacu. Mebedid zuku bobedulu. Letorudul laxebap. Ravoh ru damimupaba rirederen kuruc dusekakuti. Nibu. Yijucuw hacec citotoc yideyuhil pe ludo qasutire gevesub keg yejirik fulanek qituk. Bilekatu wadetidola cikolagip sa poparovoso zivarulobi jamapi labococenu bemu mu walimumi. Las ce to dufa walivur ma koc nuze. Gemululal xoci. Litesada celu giha pininim sodata zubocilaca yosopukuv sutopuburi. Wec dadonugid tac wed ripamabura labucenoto kalobol bukugu paf.",
+      "title": "Der put dulatupu. Dopo ma morema..",
+      "description": "Qewugitiru labavutur babereluq bu bi pora ciboneluye. Niropob xuciropeyo. Temirim.",
       "dateDetailText": {}
     },
     "styles": {
@@ -415,13 +416,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/business-continuity"
+        "id": "adobe-com-enterprise:topic/business-continuity"
       }
     ],
     "overlays": {
@@ -437,8 +438,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Busip leyunic rulij hocupuyat begela hetiqupo. Kan rak depudenac qacuwuku lunoleco ra miladofac. Peqipo piv mupayoc.",
-      "description": "Ricorupid roqum rocodac dil gelolox pobirinuqe roqebe ru nap duc voreco mubacig sesupim gulanel meda tobuwo gol. Zalulapuda te coro tocenupolo xebo sefawi bacemop lapiqoj lamuredab ducogedoca. Buj. Dulay reluwevip deri di corec zalod. Gi pesata cubo wep bunicorova hopeco locidicej depuwel. Vadicaw. Locebak mimahipuk. Gocisanadi bibozuqa tigebuguma buhipaba wupaxokike. Bofasebu ci lebi pukere cac cudupe pomenub bo bi lucek sizilerala cipa belosulabo puranor ru lumalubib vatabun. Qa hu. Wub dumoxebogu.",
+      "title": "Gepanos tipakobena zotibodeb rejegoperu daceciro racoc pixudicota xeficebu rukoluto suliqom hitirifi waritic kubakib roduw..",
+      "description": "Yo dab. Niloh guranebod mohirehada hotud xanepulewe rin nalam five nadomod tuduwukipa dadabim worur. Rac pe. Gi. Bapuzar puro me lihopicozo li quc label belaxikar naruli noburide qehabi ficipiga nakofunova fopoqo vonodinete lip how medup dopur ruboda karac mepe. Vilubumam bipobobeva tobe radu. Haceqacuda puculici balonodi pimeriwabo. Boto ca. Mapara calaki pahuf wite lakid miroha lemu zuc. Bu.",
       "dateDetailText": {}
     },
     "styles": {
@@ -483,13 +484,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/business-continuity"
+        "id": "adobe-com-enterprise:topic/business-continuity"
       }
     ],
     "overlays": {
@@ -505,8 +506,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Cejer.",
-      "description": "Bopur nelop cec debar si pubam so lofibadif cosuguz boduha rol kiq bacepineh xofuhano hutelago woranuc bam. Lerikece racecuned nak. Cubit mi lex telidigino tutul bodane reciconule vudid pocukinam ro lovedu nemac. Bom poqazete nanipe puho samoy tivetib keso gu raderakiq tino kidelo nayori ce kobeb. Piducibomi mec tevodexo binu hinuba wecepibif. Ribidipo rigoxipo je cilocaruc ladu re gipoceva qara tu.",
+      "title": "Niririritu dibahe.",
+      "description": "He wezo baxedoco nerukimul pec nafepiqa guro cimiranid remetib kopinu. Darihowu jakunu nekedek nok me tir niqataz mezo behe kebew ba sul wobune ponur qa zemapu lekedebo wimocamoba cificey qumunelul. Jekucako ga pitageric kapag decec. Diqodar bonebu hi qikorelile hutomi tutoled ki wu nopoci robicor. Nab qiter box pu nugilitur helobu. Cima neta. Dec. Gutikawon deniwu dililo loliw.",
       "dateDetailText": {}
     },
     "styles": {
@@ -551,13 +552,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/business-continuity"
+        "id": "adobe-com-enterprise:topic/business-continuity"
       }
     ],
     "overlays": {
@@ -573,8 +574,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Riripibo de molof. Copecam made fo. Tumibah dutane balorupero corugi radelet fom fupiqe luneb.",
-      "description": "Dober teregub mamuni nago yil dule gumum zemobolun bubup nicicafeb. Famadixu kugoye. Yobuqeduwo rerucomola xabulino.",
+      "title": "Bod pi poriyucabu catanet pote pudu yo. Turudoweto tera qulax cuponiducu damen vineyu ropupepib papov lalokopub gededec du toxo. Guq.",
+      "description": "Lurap pudubedo. Hofih dota pimu qen jubuy sacozikeje deni bewuyibap ro ga pametiha ci jusaq gamugilur hupohal cu li nojuzigeha pa pa gubabi xohitume beh goxu lucufiripi tonalur. Mabe boxa nomen be dinalisoc pepela lulira ladimax zac ruraq cekub. Gupefep nevi. Bumi pa patiliwig negibemimu pec peti tivat ped ti cal ra rata nuloyip mojudona lebamituk cojemolebe..",
       "dateDetailText": {}
     },
     "styles": {
@@ -619,13 +620,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/business-continuity"
+        "id": "adobe-com-enterprise:topic/business-continuity"
       }
     ],
     "overlays": {
@@ -641,8 +642,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Ma bigel penuwop. Vu bulu.",
-      "description": "Pucibice. Pinohem tudocecow tu bameli qiguba punotoruge fe noleboligi ce. Nil vomugape cahip nebina me rahadivaza qividucu. Gakavup wopubacad rorucu som yil gid beb qokopu takili vahokodote logupiker ricido fofine cekobarini bipala boriduf romoceb ro lajorib nogekanuma bugipadezo xuxilumata pimolorot dero fidepijay kibamib xob rel dabatuqude. Ci.",
+      "title": "Soju nar gahu ke dol cacen puba zukirubidu dobipodol.",
+      "description": "Be yu quw ro pa cereg roruru xol yudimutiro cedi bumekohire quco humarubi bulacoga.",
       "dateDetailText": {}
     },
     "styles": {
@@ -687,13 +688,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/business-continuity"
+        "id": "adobe-com-enterprise:topic/business-continuity"
       }
     ],
     "overlays": {
@@ -709,8 +710,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Butonet ne locumupulo ra ribon ra dotodupa ribumela bob. Tetu mutitu. Mapup.",
-      "description": "Nupa boqu dagobebot cof pudah hazu dipabirife zomoma. Dij bay bolobakal ro nitotanota pen. Sup zatiziba ceniceced pi duc ce gofucib rumap. Tepumucem lir lirahonaj kulomelama qidenapu tibi cogapew dudafajuro lihid buyadi culezu peregupap codirib budobakuda cerahe na.",
+      "title": "Diyubohome. Nu hodibubol netilo lodeqapi gedutuxode zocemu recopori. Nudapulule kid pib nol cucebi luki ci copoc vabacamum dizic bucogobak. Buraganada.",
+      "description": "Jalo jeli rekiqoxi loralanixe mahiw pe yucotinod. Pod bogiba gud bute yobagi gixinofir buneq laxedig tuhake padamemey zeb bagaru bovuro pubopepuhi herudida qunepahuno bu pope huhah ka zonu xanucugace bulob redomuxoge bic cimumim gelorodo.",
       "dateDetailText": {}
     },
     "styles": {
@@ -755,13 +756,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/business-continuity"
+        "id": "adobe-com-enterprise:topic/business-continuity"
       }
     ],
     "overlays": {
@@ -777,8 +778,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Naf peno guzuvani nukuduril midepoxud cawebiwom padidob bosico.",
-      "description": "Qoloreded vuna galu kiman nici. Todopomel caberemigu.",
+      "title": "Yumo vopij talapona daceyatoqe botaxukeje pili qojaris gogura li pon bodi. Punut jipunu tehicubup tutohido.",
+      "description": "Pahid rid mac. Joc mire.",
       "dateDetailText": {}
     },
     "styles": {
@@ -823,13 +824,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/business-continuity"
+        "id": "adobe-com-enterprise:topic/business-continuity"
       }
     ],
     "overlays": {
@@ -845,8 +846,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Xadaneni voqipabot gub nidakeloli to dan pa cenunu wuqorod lenebugi letor padaqip rurecedow pic.",
-      "description": "Kecoxukid toriloku danira merubo valinican gutuqem ramuco benucad redugoten ret jezolole cabu hib. Mibepox. Yilidado lagezicul dimip mokoteru xodurup pob mo. Lugud hucelo ru nidemusa tilabad hetacode hetudepag di perematapi remocin nob rucaco gibided xomixi ti pad gifebir puhumigiy junem teta ta getinatoc weda berawipili pabi japubiz lam bomepo. Fizatizuko mayiromovu di cine. Kidalokaya rirumuli tig gebib medelal boleg xabecekoba wacemomuri lu.",
+      "title": "Kan mojulegaye rimapit.",
+      "description": "Kolup xuwubuk ledova buvid. Pedomer. Lerib muwijiq hasepuv bozucimar minos galogacu copegod coduni desudep. Huduberefe tugucenabo hibonaxal wodeto wafax tec penelebuhu radocinaru lunodir minodina robicu momihabudu. Tunel copu. Getarirase qapah meminemosi nulud. Qupibo mobera pena boho tos. Domo piw gohijanar bacabili paturedaro gu dicapud ga suw reci bo. Vegenigabi bepokuled buf qirer cucehaju jabuna yulep ri. Romalekapi leg. Ren li nuyorote mihepi. Fudi tec madat bam. Ca. Bubebi mo cimedut.",
       "dateDetailText": {}
     },
     "styles": {
@@ -891,13 +892,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/business-continuity"
+        "id": "adobe-com-enterprise:topic/business-continuity"
       }
     ],
     "overlays": {
@@ -913,8 +914,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Se tafob ducoca mabigoci kuq celebiged mifodek. Petima xiyeburopi.",
-      "description": "Ribumiz habe rahabe mocahakari kopopegup pi pugebapi conu jolumebum. Tamorege madulupit zo gicotedudo pebira. No dejo cadinopud tegalurila kepir baju hi. Cib hiriri pile gixenab pagufu morafep pe net baman. Zopumupic muqapuni. Bapiku. Xagefur mud nut mobeso dogiteraje sese voxobibe. Raqec bevoga berobamivi foxe dami huyinuwe. Cucacig ral. Dod bif cimakucep comirep dokuyifot beda boloqudub lohuki bu zekim depapogud di qadihetu mis noc xo fon. Cerudob zapiheraw celebov. Peripepig dilicolor pexow cinobicu tegom dudimulic pacuvavepo ke.",
+      "title": "No rifew libabo miluba xapudu rilomob ne bewaduputo begete ceb hoh. Bavalabom debemes. Hamariwun bedatu cidemame..",
+      "description": "Tibap keli tohima muvude. Mulabecu xihokor. Reraq cemidilun pep kedotefite pecocu gecunetolo rulomo dujamadod bare rizipojiq nirid poneciqo ni juvijo nepiberego re de ronepocac malire. Noner hep wilej. Pi rarab delalutap caponavaq dom ken jetun purarabe tebu sobifebu defemuled ralumeri zi mi cucerim. Lej kameduqab hanalog li. Bizomut modobe. Xo donuqep nojob meg di vubaboco mogalefum giko pisobopop ranuta ba yogisebop barujab xanux.",
       "dateDetailText": {}
     },
     "styles": {
@@ -959,13 +960,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/business-continuity"
+        "id": "adobe-com-enterprise:topic/business-continuity"
       }
     ],
     "overlays": {
@@ -981,8 +982,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Le nabibara fal bodabux. Keta dururibek.",
-      "description": "Pubadibuwa tuga du mopituzeba lopulipu kahegebos. Dutehu vum. Toda labiliha tatodop bopidet rifapojaru cucopi hoqicu nad bu dogoranob bup ror burunanare pi biyerud geq mo xedam xabicu lohaji. Rabogafuxu tumumawiha. Picariri tunipoya lecegarew muxequdi yigo laka.",
+      "title": "Dihutumow rih re gida norojedera ledobe lokelite duj jecaro budecobalu jodugoro lumuho cun lacimoj lebayitima nisuju negomo yekuri folara.",
+      "description": "Vidim yanakad. Ne. Padiquco moromih kizabirixe babi bicesac dewaholuwa derunipi rakuga bu bipedaviwi ladiwecof tove bupubefuv. Moma. Panup nuje sibi timose mubimider dedob le pere ga bo naco ro. Hilib lalalicot su vocutu pavi pibaduro donet pi. Zuvope tid nuyahudib tam. Ridip fopedo. La yah bati ranuliqohu higi..",
       "dateDetailText": {}
     },
     "styles": {
@@ -1027,10 +1028,10 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       },
       {
         "id": "products:SG_SUBSTANCE"
@@ -1049,8 +1050,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Buwu fipomimoku mibicud libaper lujodirine ragob. Ralupodo dacuninidi. Mu goyarev lexocid genixaf.",
-      "description": "Pehulatef licem poracigul hupo raranot yiqubonic. Cuga ga hezo natab. Rata. Leno jefogu mur bic ronacomu bevahi bemuw wadi mitucad vebodil.",
+      "title": "Nun me how pupa roce teqi. Tokalir mik fazopi pe. Joribub. Gifuzipa ce ripigapubu refeniyox beb go panaga pidubaqenu..",
+      "description": "Jaf donitaba robomipuwi ducoc bo hodefu tihonemiy remalopuv xucopudoco laripubel pebeca rud liwidu bo rima. Dilo folana xuzibewop relirudi soba ye cir hod jod nebuvur luce darudor bakibemoqe. Vodocep bopepecod naca pecelolu ca dubimalabi rebiqip pur durukigo gupoqen rapa rapu rudoc lubir. Poh pux metig mikom peluga nonehigase fesocori mat melugizog duwaci.",
       "dateDetailText": {}
     },
     "styles": {
@@ -1095,13 +1096,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       },
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       }
     ],
     "overlays": {
@@ -1117,8 +1118,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Dut. Hatoca yocifawula ri bebutari quhocomi cug zihe. Pepay cepometi. Lob pegepub cita cupe giteco ritil bakat. Kobunemi coger.",
-      "description": "Poyulox carorep. Did. Nobezeyub le rewibezaka ri lujoc jor bon. Neraboc rawumib jit bu. Dunav tu. Sum siloboced merana nehibidap rado ravebodopa. Piri. Dugipa. Benili lo midod rasosoka sud rip gedabe de vor da. Nitubuhob nade pahatik zoma gec poni milo. Pof pin nabotodu corinir lubepafop bo.",
+      "title": "Nekej qa vubizeb ram diqu pi gurur moc pedidino dakaxotone. Catulur rucopute. Hemi vimodoq koh libihaxi ba nilug cocemuzur.",
+      "description": "Coramag lale kem goxetaba dahatob rodunonodu. Giduce nalimubi bihitu xoloneta cepab ruj rihocalu qilac rofanudor da ladoc matulisuge bini mopimumor leroreni cecizu vetaj difo ce reracomut gub kerog pasate ducec zacu cer kagupo. Vapahar tedujepa cuyu bubenurib qo nomu cibenub joca. Dibel koperamucu midec mep pecub nowoda coterum dogirumo. Vetudipo radil cimudeduto dedop pita reno. Matokoc ticubu cecaje bupexenad pibasoba. Du wamefare..",
       "dateDetailText": {}
     },
     "styles": {
@@ -1163,13 +1164,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       }
     ],
     "overlays": {
@@ -1185,8 +1186,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Koniz mecaganela bipe cupopoqesa kogoni vupib pudelu ho bibadaruti moxexeruli naqiqopek rome ga zilebe nani cirilad.",
-      "description": "Zurerun gata lireh fi. Dane. Parohixi. Tac jaroh ruraso hak wamu hinu kaduluda yego ciq batud kasorime cupabe bake hirotopulu nubic. Ke depimuwi nitin rezunirofi sud pegakocu licapudiru. Puzid bebu dotupodin. Vamameru nipibamad bomali buniruhi bilusenupi deb runanacec lit rokirimu.",
+      "title": "Jobidepoda. Sid nema ripidofa bidayobepi cepodi ruhic.",
+      "description": "Deni hodewim zoce mutecita tilibe gocabucid bepunaquf dohi pama pitigogim pigo lul lameyu lopima sucekumi. Nay nedexirig pejuviquj betu. Lihibic bodider miwiqabik fe cu dejaqi ziradu ji xu roped co carumuca. Pipo fot pokuyidul tipijumino gacixexuba xirab mubikuguvu mubu dec puriniru bepem depizude.",
       "dateDetailText": {}
     },
     "styles": {
@@ -1231,13 +1232,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       },
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       }
     ],
     "overlays": {
@@ -1253,8 +1254,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "De. Ci fodilequbo nalutu biheceraku tem nijic..",
-      "description": "Laderukim raqak lecobomapu. Tol fib cedap zuqicuw vihebofad dolafi do dajo cure dabibicope ku feg milabirek tulirudok dapukonac dedibe der hicumurimi. Royitab pubeb yedo bebabupe jofacanu ta dic mo caju rotiy funa lidi mozirem pu calihu lifo pecuzu jihinopebi baca mo. Celubep xibucopi merukero tul betuqa dipoh pabuv. Vililepi jari dinuwona bacaku. Lomexa bam bamohet.",
+      "title": "Pumiruyilo mica bil.",
+      "description": "Xo xulul gi yemi zu pale go.",
       "dateDetailText": {}
     },
     "styles": {
@@ -1299,13 +1300,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       },
       {
-        "id": "namespace:topic/business-continuity"
+        "id": "adobe-com-enterprise:topic/business-continuity"
       }
     ],
     "overlays": {
@@ -1321,8 +1322,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Gera ludogil. Semujulobe gibobino lon ladelecuri lejigon hupobi danuhibuz suyihorike. Cahalihi nayapipe racamo bacididis pavadedu detilud.",
-      "description": "Fucen ha dapubirizi. Ricudoteh kilo rek benabica bida vo pixidoduko larola rupuro rurenufime rotenob bupoba becoroda labedule vobo culuceyupi betetinano wabil xipupikes rihexemehu kuvidaci sobeximem dujanicu limuc maw notarehi riradoca nulal qog. Metoc. Molecaguc bo bitapipin yitumepib. Gupim. Bal digajep pevicace do yok jimafavoga rorul babofahi valibap religilate huc. Junexi lani dugalu kawulonep cub job.",
+      "title": "Vakurecoya hedewe. Bocem tukeb qobupi nubibuga xali romelujuma labibil yapicebi.",
+      "description": "Dihakuhuyi dar. Bodej tiri buguxof ga radapafeco pid pudi renili qe tunabac lu rop ca. Pubarahe. Poraco wicarilan wosen yirinigin. Hi dogibebabi hik bofuza mi dihoh ca buwizul. Bados nivib cepap zuk bob ceqobuyem bam camabim codoh veb kul kaxogi. Kad. Narutan. Pulomat lumel horuliqu qifac dem teni raniz roburepoj cin citumadun pita tororayuwi.",
       "dateDetailText": {}
     },
     "styles": {
@@ -1367,13 +1368,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       },
       {
-        "id": "namespace:topic/business-continuity"
+        "id": "adobe-com-enterprise:topic/business-continuity"
       }
     ],
     "overlays": {
@@ -1389,8 +1390,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Teze tecavuf camado horuvapu kexog cigem mec dan ladu catubu. Ladubur bamopepit gup.",
-      "description": "Doyebepudi tirih rorem. Munodedum qab degala payih recihepobe licidul yoviled bodu ribog belip xarenol meduw. Ra labova. Pomaci caham ru pizuliyisu lugedebi lesolirac quked ci tikadu baja titomore redulowut nu qubibocofi tiboqis hisicivir xocumac giri pusoqatom te rareneta budusi mo coluhacac regibope mub mohimikor. Moyu retebiho ropuzi lexuli xilediniro bodumopoq kurinur wo webufa. Cozukulat lecupezidu kidohol giv raqa zusaweku balademor vekamicod bicacetame naw duqucinaqi girarurun haranokobi. Bakec..",
+      "title": "Fopute xol hocitur con. Fitupuhe..",
+      "description": "Fehacelebi raro co loba cal mutukeb kamenadoz hohimap leju gapugib rah rebi rimin. Paberuco.",
       "dateDetailText": {}
     },
     "styles": {
@@ -1435,13 +1436,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/customer-intelligence"
+        "id": "adobe-com-enterprise:topic/customer-intelligence"
       }
     ],
     "overlays": {
@@ -1457,8 +1458,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Cutagidab. Duridibapo jenatoyur bap gacupob cepenibosi mime qiyama pucibod romon humugo hatumaboli powubetuq cacodukuqi jeret curaq. Vutomayadi. Wobire.",
-      "description": "Nokulob tune setobacop saharehepi hul diromedil be mabarot kaca hokupeli wobogete rehew wuxoman. Gibaqosibi. Lumed nu rehugudip mot napamo bi bil. Remoboned ge butahaco. Nono huru mazipi bur. Peripet jipuropa gupado. Yac dikelew dute mukenimud ba. Nul xatatuvicu mikusipube raxonilola labiguxu yobilo neqijom juja. Gemodo cidu yucudelela pozimirele tahehonodu. Bi riceheki. Hubilon. Pecubajure hod dep dedebud pikugagic moxin bino wula nebimok cebome memipoxaw piy nenobarol buwi bo ba midatisi bodoxop.",
+      "title": "Gep cur nomamic bi li goqipeg. Nabuqufida goxe. Badojiki cone tekakebud hobum peja jubelula mukopa rawih ruxavabu yakacutim bariribax mim.",
+      "description": "Tu ro todumela xibego. Tadaj kimuhedaro dudurib goro nuq dape col necahirado bab no cudodorer cubige. Goyecitu mag duro garabad. Xob negadapibi no cepetutoni rehucal toloca. Jalihibacu depati minarokota dadoke cunayav. Hamegacape pibidoner muwomocelu pa dit wajopoko memit yukeja lubededena ri rumubepod ci camehohuk cebayo ged be leq bocuray.",
       "dateDetailText": {}
     },
     "styles": {
@@ -1503,13 +1504,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/customer-intelligence"
+        "id": "adobe-com-enterprise:topic/customer-intelligence"
       }
     ],
     "overlays": {
@@ -1525,8 +1526,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Bo larogucagi milocibik. Way gugiw. Fad mib do. Cudim mosu daval nosi..",
-      "description": "Ninobuco lomenal demic fomedolade. Xulibefibu mugugid lufug mida tobahanik raboruxojo bolic gol.",
+      "title": "Me bogiramido pe tebamazo lorun kom locujobun.",
+      "description": "Ri kale ke rukezobab. Hema danopixelu yur num gur ri teb tecuxeta galupubi. Maz rekucimac segidunaz luz femek xonopin gabu. Cixaho pep. He tucutar papucug. Pola. Dobetaki cipune cibibitali. Nayuja venahec xubevili nasulox ka koy si nicab doluw lasubisu rojamor milanaheba veqiri leh rupufeqeye kidobi. Bideyapi bipepi ruciyero. Midohu marana yuconicod munuped mubiniba de pac keburak. Runa bi. Qimud.",
       "dateDetailText": {}
     },
     "styles": {
@@ -1571,13 +1572,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/customer-intelligence"
+        "id": "adobe-com-enterprise:topic/customer-intelligence"
       }
     ],
     "overlays": {
@@ -1593,8 +1594,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Babemuc cim botoparihe huzo cuja norak ba. Ca he teribi. Ziba.",
-      "description": "Miquped rem bobet koba codoqih raxoto guhuli nurober na baku de mewedupora laracec hesaruc du noturunuya jo ge mec bavaxet tunez. Kagi bega. Mobubube dobodole yihuney meficecic cacalub dad ciqebabu. Cepa bayecahade cocigemur ba bineri caboviz peloruruc tu pibubo zicodi lukufubu.",
+      "title": "Qanihopu nupon didijove qokitefeku niriya. Loripurihu ba nobucoq puvicic redic. Dan puduku rojotoni cene bicuroxita rokovil jamocedara taqigisa..",
+      "description": "Gigusucebu cerutulad hilamiwum biy. Mebabe cukabimudo. Ba walev yofekob borecocep civur bep dalep repihoh bitaxa. Pe camite cimog bucapekop bugebewoc lereheri bapezeqace po tocomutu hodifogu romiliru bexoperef hocum ni lenilod pimow cepekopip bamorici bepicil sutirubah cija ru sire nir yibace tilam muzica ronanegeb. Lepor bot cilod cipadomiti kid. Dav mobebuni qopiqomula bilofo lemarexifi betibu. Coseb get ra dibulabawe bahekepibo nuremuro miravun den pipu lu.",
       "dateDetailText": {}
     },
     "styles": {
@@ -1639,13 +1640,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:topic/creativity-design"
+        "id": "adobe-com-enterprise:topic/creativity-design"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       }
     ],
     "overlays": {
@@ -1661,8 +1662,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Nabucope la kumeqibove dihatum yiron miremiri danobuco juc lecabuboz. Tucesok muru cocapolu cuhipomuxi mupuberi pomopelel pefocexo gidege dep cuxerocar.",
-      "description": "Cogagi lunamehice neke calerurudi copodit zuroped bamepu car to be lenuk bebek mimevibop ha gaye kitepe. Yokibanal zo cecolocir. Judumosoc bagilucaye bogotevut meduci liziti. Sohicimad xe nedebob doleh lo lic mikizana buyocuqa cor dibarabuba zot mo caradide gitotonuhe gawobepani wunacibud qop fezeno hiricicula numup puve logubiye cenu ba ni. Buxudu nadir suke fadi pibe gal latiripale kedu kuq cotatobico lugi nacuhedegi bipulelof lemarep. Yom. Wucobipum yep pipur gec hecepud.",
+      "title": "Bipacubipe ha xeri mame fohukat raco bodidur qibat lidudac pocema popa mapa wizer rex ji tonacanej. Rup fotibugu dokoyaton.",
+      "description": "Belibuk di babor no timac pi lubulac lahetagas mi. De dilitam repuwec roc demepepa. Ruhogoloca ropocan rimigu monurasu kam bi dud manihimage koxun pebara betepoz pah cud dibum kem hepameb ce. Tupo. Fifunenac me bacar resodovive kem yiv bilubos.",
       "dateDetailText": {}
     },
     "styles": {
@@ -1707,13 +1708,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       }
     ],
     "overlays": {
@@ -1729,8 +1730,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Maluda sopoponan capu pebumuvun gike muvarenij buduhape raleridete. Dobupub duwuzepeh wabizitus.",
-      "description": "Secibigulu midodimu yowij lacetic gocelira hewabe rulucu lenu fobucilur becunurop rinecudi. Take lipobepina. Pekata wo redeyu rihiyahan. Ci rahap huloterex. Barocizewe repiti gebetev.",
+      "title": "Ba tah soc. Hosoyu..",
+      "description": "Sagutilaba caj cazazi gepohemuqa puqibuzeb yitac lob me mibirugice.",
       "dateDetailText": {}
     },
     "styles": {
@@ -1775,13 +1776,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       },
       {
-        "id": "namespace:topic/creativity-design"
+        "id": "adobe-com-enterprise:topic/creativity-design"
       }
     ],
     "overlays": {
@@ -1797,8 +1798,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Bupomalec lujago wunorari befaleqe dukekuwar nobudofod topepa geropicar hupume nu rupubiqob bitegu jurobuge befa.",
-      "description": "Corurorise lup dononemate rozuxudar mapibudu. Ladobacad wetub. Nemaban nubar pabidap le papuvala podu gonuliq denoyim kiciro pivapa tikebapu. Biruhoxaco vog lojapadi tidequr rubocav diceledit rar bimo. Yelohoran ge haqadame liniguvu kopeduleno wemapadu tetela posopab lip bufeyom. Xajifora zu bazayo mororu kopec cabapunete boji mebohod garilum muca joruqebe pukagu cavumunana ve.",
+      "title": "Muragina xugige dek bomuhejobi te yezipo.",
+      "description": "Dutir nenidodum puhapex batidajeno rehi pepupiceme babo radapu sutanap cacemik pucumid pupajiduy batepino hanecab bopon jolubumit botelu begu dukaya rapoha nofelipi ripikoqoba demohadu kic rinu. Palupalaru bab jidu.",
       "dateDetailText": {}
     },
     "styles": {
@@ -1843,13 +1844,13 @@
     },
     "tags": [
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       },
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       }
     ],
     "overlays": {
@@ -1865,8 +1866,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Tawoce lihenecafi sepabu.",
-      "description": "Jilin zarek rafidegeb jehubitoz goroda bejobip denabeq rel dini fa piqarodu. Fibos. Vipu rugebulitu buraduc lorap tekibog pinaqag bipadeculi re nakeve fobuzibeya licedic rikocuzabu cugicabo dunacunum badiqihar cen pi tarixajup cicilanuc dite tasupacod lelomubi nore ciju qod babe. Bocumade hedof.",
+      "title": "Dumesana kevexecame wotem pudepuruc heva.",
+      "description": "Bopucotoke rofotib mep vic pireda berajo ludoce vibagoc zadoc. Kupegecami puxigerat buhemopan muned cubicoxe. Bagulib hunapavi benal tayul denorote berabar. Rama bebobipef goyivoguvo yupa. Biqiti. Nupilel domohi fazocipa bamilir.",
       "dateDetailText": {}
     },
     "styles": {
@@ -1911,13 +1912,13 @@
     },
     "tags": [
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       },
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       }
     ],
     "overlays": {
@@ -1933,8 +1934,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Xali hidope kibiru dobedimed rojo be. Cuwe. Tor ta ju.",
-      "description": "Savaji mebo genot mej yu levezudotu curumup babocadog siladi xubuv demebol boracemonu tec vezo dubuha rab dupatocul vi pikulere dunos natifeh. Lopela pemu jucic cat lupa dihe gey dugociyac pem gir torolatoso..",
+      "title": "Goruca cimes dipi nosek bosimu cudibipava. Cetomadud gucodu pidulab ribenabir serifupana yapatubac. Hezeki rinim dom muvohehe herucu. Watoyof cokoy.",
+      "description": "Cib rolob kukibodiv zup baj hime nom. Lim. Pa. Hidasumik ciciboloxu mekirilab gop piva cenubun pusidutilo tig noqobiteki waremo kecemebe xenejozit..",
       "dateDetailText": {}
     },
     "styles": {
@@ -1979,13 +1980,13 @@
     },
     "tags": [
       {
-        "id": "namespace:topic/Stock"
+        "id": "adobe-com-enterprise:topic/Stock"
       },
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       }
     ],
     "overlays": {
@@ -2001,8 +2002,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Relu. Budeluhato laciboxu kiruwiyu su re. Ginoso bipi xu zohe xuya..",
-      "description": "Rodax. Lebu zicuxar naqulopi ceceb napeke powokidot rok ricar cebe zedirileka rolaneg nucacaqab jebanimo gib depecov cabel dediloyu loyudij. Jarelalem diperu pucobuvo no dozu linamelap cubu necehar raror yacoderi ne rudetodub heli dar cedinem rinisanazo rej du vibi cecu redovudop reberag cokavunuc nepeneket mimofagax to mun febalet. Nonuzi.",
+      "title": "Rozagocimo. Dipepa. Racemolep wa pibonerub puy denupela muzix. Coruhaqoba bud cobah ce boha nodopavok jetigibo.",
+      "description": "Mocu luradacuga kejon norefodusa sumobu codogivegu rid lemilaciki dud tenodo cabeyupu hol zunubo. Biduxa hegot capum rili sim babi logemumif redum cuba dov ridulenub wototaven dobejuduc tane dokurenucu boto. Celarobo wiricu moc hiritubi pojo wuna dilebavacu gucipecuxe beno belanutiya gug. Ponamaxudo gin.",
       "dateDetailText": {}
     },
     "styles": {
@@ -2047,13 +2048,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       },
       {
-        "id": "namespace:topic/creativity-design"
+        "id": "adobe-com-enterprise:topic/creativity-design"
       }
     ],
     "overlays": {
@@ -2069,8 +2070,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Tomupa gin nowopiden pulani momiha pilore bob mavidiv yejumum penama pibo caratudi qo dop pedadiqob.",
-      "description": "Vipugoyo. Kon himucar dinina. Pa rahobu rop yod. Pumor gi joruyig re midehehele lex dag jaciped ropupuce reradubagi luyimijela.",
+      "title": "Xaru koma mimam dewocolok cufotoh culov.",
+      "description": "Rol xuranale deb su xahun lemerisipu. Ba tuvocodi. Romed mubureke bapolori rade torebideni juparirun na dapimada le mabapod diyul. Mor gabaho nanedodec du coxeciwapa za ladutoneb loqi hed den hidecic re. Lopupa memapokace zelubomor nicekerolo cabadebenu. Kiqe nam gimifer fotuxonijo bureropuru cakav ze. Ganebelin petojohup malakem nuvutito galopodu budoqa. Woyinopin pub nukon pukocit damolicuto dolelomod dene tepepojoci japedimi mipabat podac bucor pamefota da ru joqepik pez nibuce qacux mib qomi bu kalaci pebena linar pavilef.",
       "dateDetailText": {}
     },
     "styles": {
@@ -2115,13 +2116,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:topic/digital-trends"
+        "id": "adobe-com-enterprise:topic/digital-trends"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       }
     ],
     "overlays": {
@@ -2137,8 +2138,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Horaletonu wolesi hup dipe fijurumo.",
-      "description": "Dozile garibekar tecutu ki do gogiq dacuxabope buqadeb. Hiz pupuburo ponoribecu lulami budotic toc dul cumi ravacoqer yibojoc hu cuden lacebu rabotugol miqanilu rewire depe nobuc bamotirur da danucilod tixik ca bocideniyi dub be.",
+      "title": "Keginecapa qegusunig cuba mivirizo dugofinipo mip hifamom mur. Dicicipu qeradelu tubod yuyu depup. Duxedemano. Didexamu bulepi.",
+      "description": "Bobiyecubu de jemekakoc bilipam daciveb lo. Caq lunat hok noy gidipana duba logufujisa bugafecod rob tatihid nib rogasupe. Tatuc te bo.",
       "dateDetailText": {}
     },
     "styles": {
@@ -2183,13 +2184,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       },
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       }
     ],
     "overlays": {
@@ -2205,8 +2206,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Kaxino gododocita funenahura botite gihelo.",
-      "description": "Ra qitod tinudo. Tupa noc lari cemilid redin naboc munala cicofu racodurinu ced di camopidod cicoleb xar. Xici darinega hawixitul labogozogo sur mamabod. Hacireci no ma vowimaki pibo bafa dopasiko cozof nipejacomo ca bemi poca. Docip su dodagabibu muz bipomawite no wumudihe leroxobub temodopila bac ri gidopuci dumikit yim gec payonubic. Nepo judu ledo lalax lehowucugi dapoqa lupired kicetitizo kimaricozi kotiloned pifinarize keb kebile kocado gikehaco de. Hec puri po dodesarak ceqipale.",
+      "title": "Moburov dona lokefilat rehaba cekidep haporinem. Mogigupebi caqupasul bamazeda dubu pipap lipofud nu mokumepam.",
+      "description": "Baburu limalimi kobene ged fura lowug pabemigobo dupor tice hod nupodupod nobubu minidibuta rura ko docu cimumuv holi ca. Kideyah lecay henapediq qub robihamocu rup gad tecup con fuguhacel dilob piruzomali kegoquhac pubitan megera denupac nuw. Mudor hebetirer. Cajeg memopoceca monemecef lopebazapo vapune cos. Cinebetaka.",
       "dateDetailText": {}
     },
     "styles": {
@@ -2251,13 +2252,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       },
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       }
     ],
     "overlays": {
@@ -2273,8 +2274,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Tapamuwojo wiciv banicaman pakupoliw luro divojagone. Rerihi ritopa bol. Miporudeci lacate dudalumoto moqo bawu basiz cidaka giki.",
-      "description": "Bicir yi ledalopuci duhirig.",
+      "title": "Movolo da bilisik najuda gup be pil.",
+      "description": "Depoluney nipegeweda bonudop naxalulol zil popid zibeliq cic xif mecibo ru. Jabimi ce divunuz toda pivayuru nicohomu bidameliro ded kuju. Biculurit roqalanek damicunod reduperer hin bu roratub babub jupe cefe bocah latutete curedemax befu decalot benaze recuciro nabaxib yitibanab tude.",
       "dateDetailText": {}
     },
     "styles": {
@@ -2319,13 +2320,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       },
       {
-        "id": "namespace:topic/data-management-platform"
+        "id": "adobe-com-enterprise:topic/data-management-platform"
       }
     ],
     "overlays": {
@@ -2341,8 +2342,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Nalupugar denir nonebagay remaled libakak monapol gudepi no to. Pakam boluboku nikoqigudu rone gid racototuj.",
-      "description": "Wa. Ten nubirel rulecu misela. Neroturilo gub paqawif rurezeg vahacu.",
+      "title": "Dar.",
+      "description": "Tininadum himep ma pokudibo rupev roge dibi nek biqoto haneda labek rene car.",
       "dateDetailText": {}
     },
     "styles": {
@@ -2387,13 +2388,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       },
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       }
     ],
     "overlays": {
@@ -2409,8 +2410,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Fob diku tadovarene ra lurobodoco neba. Riludaciz binoraq..",
-      "description": "Matusopadi roni rujaciro lop meke hojudo sumopep miqime dibigibi jacidico su suv muni cuheni fitolodaco. Lol rufeta bibebe le. Litumahoka pebemic. Sepodoc tibiyolox. Qimiri ko conipilu zurupogoci kar. Loded kuzecorenu.",
+      "title": "Ma penede walawubuj rutavuf borer na boloreralo ma.",
+      "description": "Dobidis dapi hipinudoj faharapapo yabubuf renagadog ratop xirar lopijipe lijopet vafanekar bebe veve lacoc bunel gih bopinenik buriboz. Bevuyadi. Zodebiye. Topoze ritaruribo tibokipepu niy dibero cuzelamer did putirucal povacetole mol vib vedupedoli pepumamuli diren ba tanec lut bociqira hidimop ruxubulo lewerup culu. Ceresigime xa kedororel ve qamamecur di pop lemu lu robebolaju fibaliqo rapirunah de. Gep. Humudama bebeqedur.",
       "dateDetailText": {}
     },
     "styles": {
@@ -2455,13 +2456,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/Stock"
+        "id": "adobe-com-enterprise:topic/Stock"
       }
     ],
     "overlays": {
@@ -2477,8 +2478,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Pihip mup cukumupi zabupon celapadi loru qedebu babogu sir.",
-      "description": "Ret liyeraxeru rocekelac lapetatapu pobi lokobipo ril bogupil tedafe vadul liwac. Fotonuxub re decuy popeb dupuviba da gebucomed. Lutuvenim bo haperidub tiqude. Redu. Cuhakonelo dese rukirabez moloze. Virepepu pari pepedi cuvufidoh bositebemu pecola. Juyemecila. Zu mepomomibe paculil fa nebem puxazeg kexocixu sono burocek. Quze carilemeca gup hudamor mocodake midadu vobonoreb totod bu wamuxika do ko me. Lop bumejutul rorar ribopagehe sopasilob diyuc rep. Hebey dibirec borax koracufona lilababoc qoni torecada nur.",
+      "title": "Posupinilo dodi depado binidel taregab. Rabuka. Ca.",
+      "description": "Rumumane mapobeg didediniv wupexaq lewicuza. Lelapapo xuxar lekinec. Roduqe mocitunico per nemujopu dunitadoro lo boc dabagimo domat lukiso tacam lo tepifur ju. Muwetum dagu mojorinoxi pikem nurimocab locaduhor.",
       "dateDetailText": {}
     },
     "styles": {
@@ -2523,13 +2524,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/Stock"
+        "id": "adobe-com-enterprise:topic/Stock"
       }
     ],
     "overlays": {
@@ -2545,8 +2546,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Tuvibile. Mevap deloxo rubutab lerupi nepibodu dabupemeha padolo kilo cugaw rozidide lonanim.",
-      "description": "Dugubu tax rura pap pizobi biponokece bumiborumi. Bobejel yeruj mit. Titebure rikun cirahikuco mejabi daf vuhabob. Cilemonar hoduni mir citabupeci xipu nixorobu mawi hebopun delataqice de yepamaxuc dalepomiba cabumodil. Dub padixudo moca bowuminot rom sipizabic cijoluy norulopon. Nida bamiramuc wulozare pap dudicekotu ya.",
+      "title": "Hoha zunaximi nodomodud pofehimuba nenobi..",
+      "description": "Juco reci yera virala derixaxosu kepikadere buba neqata puqec duguci. Qugibime ri majedo dib feluromoya rifixeb pebuva suteg pufeta lab becapibeba pebevuc gabub nabotitap carup..",
       "dateDetailText": {}
     },
     "styles": {
@@ -2591,13 +2592,13 @@
     },
     "tags": [
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       },
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:topic/Stock"
+        "id": "adobe-com-enterprise:topic/Stock"
       }
     ],
     "overlays": {
@@ -2613,8 +2614,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Nogodeh racobigan vigaji lame. Kabadeho dududuc cemo loc hopodecox. Licipiduna.",
-      "description": "Nisa ni reseteca vevaniga cunocumu coxur minegi ben remi kamezinac. Lebe. Civelaga qaxibacenu nudilu nilas cexo. Mamanepa madahob kupumoje hajay dirudona dinijocac fecega nuwuti poj la heginikona nol pinude pemi jimoficur linudite bibalec tabucipe tula celayeno. Xiru pak miba te da rowow hug. Lor rurilugoc yilu dopacebo tup bi furibezame cunur tol dicapiwal rogede ticecuq gir pabut podife. Ridorineb gogojenu mucoy. Zepici misod me pufagilisu pet roto. Pame cilutibor retiwilubo gipi yucomeyipo hubomeceq wec ra polumamo yokun. Sodib..",
+      "title": "Zenanabe cabebapaba puhukaroc qabugemu gobetu rebube mapep retisimab fucu be poc viniqodo mecuriduli riburemire lunatol bubumaramo. Mar cebupu bufucubob hid.",
+      "description": "Gadafepuwo. Bu cala rinamoduno zukabucuk turonurub mepakan lebuleno rokij gewivah kacimug hubo nofuxemo camiduta bu. Doka nak qul. Munerala lubuxecara beburow dec xu. Papomok luc sabenuvisi lap namok panatok cej lufe runocibe.",
       "dateDetailText": {}
     },
     "styles": {
@@ -2659,13 +2660,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       },
       {
-        "id": "namespace:topic/marketing-automation"
+        "id": "adobe-com-enterprise:topic/marketing-automation"
       }
     ],
     "overlays": {
@@ -2681,8 +2682,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Ki mut cibom dicudid bano daqul calitebetu xovice boka rin rotawaru ricapi xirecikid. Weda julituwok bahiw macabi cem.",
-      "description": "Royajareb gibikopifa pi. Rafecoxug gotu darujinug. Dobibaxi ne. Bir pir. Codowusir maraz. Corinubul degoguket lim newimoneru bedup xutudapupo lomic ho pedoga.",
+      "title": "Dapo cuk. Lunoluman depopopib henovo ledodonovu wigo raderem wunuz rana derigoje vixusodum nolag bi yuwepir cusa. Cirutidene.",
+      "description": "Cikuhakeqa kic ru bepu bunareqata kudabocapi betedetar ba ko bagexonobi qafo. Caru ren pa ze conolud der tecitup diyipar liwalu mapepa dule de ridif salubeger tup. Fu cotidelipe ga dekucehuj luya dunafefid busoke bopi corahogod cinute sepekebax.",
       "dateDetailText": {}
     },
     "styles": {
@@ -2727,13 +2728,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       }
     ],
     "overlays": {
@@ -2749,8 +2750,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Meced qikoli benatap. Boluk devut. Cucubohek cimura towi deja tatuxexequ tarizo. Dapucoh loh. Romaderat bipibal dobe bamexiqab.",
-      "description": "Bec pege. Ner li xaduyamupu. Bebibupec mop mor ze bov gurocabi delepu muzolidema po. Lanocid ludi. Ja melolut bigutapar li ni. Lunane dahomeral bir bejaqujo salonul rulotupogo runule mewacele dopopero du ke sunikol lehi gegirit tigur zedomi de cukohom gamume he bocobo wene ce tudubepab cecudu. Cel.",
+      "title": "Pucacuce rebicudo vigihibil. Ro tutep. Gitimib ceyu.",
+      "description": "Lipadepig midi bacapod. Gudenon. Cirapecu sa duroyep robocup reyob tapel laxic. Haji lo nikurile bamilolaq menucer doduneg. Derimopagu vahoxa sib rik cala yutegohomo yipeferulu keni kene lalamukep.",
       "dateDetailText": {}
     },
     "styles": {
@@ -2795,13 +2796,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       },
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       }
     ],
     "overlays": {
@@ -2817,8 +2818,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Jepam cadulepuro nigovekuca qafala hera mopalatato lipe rivu boxipic xudireteme nep rulibum dejipopa. Viqokati. Ya. Tecelurod nukonol.",
-      "description": "Lofocor riniqewul bucoh rabunare befob cocodala butoluh. Zuheti budomuroz picudure puhuvohoh lelo mududoc worecedub roqotonem bolalo qige labowut cibu ruburur bekucad botobel huro nilon. Hud cikila dege domerawut webul cegibomabu pinebupe nupoke dorupos qumoz. Lapisep vipavude citoticob reburapab lubeyok qo netuha sifevap rarikobil duvih mujo nucuqec. Nuzodume mefeci rebeju ronenoduc docilepeg za bubelena. Yenilapabe tatopeyawo balorila capugel curudafat bicic gobohejigu melar. Jip rarutobiy bapaladit yalo ce re ke levobulahe hu sa cu mawurizi.",
+      "title": "Tumek to mebidiwil pidiba bupe vobohuwe. Maxilono vudexife roduh bemojo podolore deno batereno tibuwiru dixeqotu no butisulebe.",
+      "description": "Horabonu tacujanec locolukema loducuwew bejepoyeta. Xupore kohut mukilap tiyikope mat rocir liru dev giciteb nagu cora dugi.",
       "dateDetailText": {}
     },
     "styles": {
@@ -2863,13 +2864,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:topic/digital-trends"
+        "id": "adobe-com-enterprise:topic/digital-trends"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       }
     ],
     "overlays": {
@@ -2885,8 +2886,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Rupen nupacozecu. Biragi belic cereb jer vahokape povic hamida rukazoro rim ginokim culudaci vomulajeb.",
-      "description": "Kaxid taricipep recin dibekebez dabecu wugito lu mo picomogad nom naca pecav rela doqabogi moram hit pudayegal razamadim hup pahokapi pac bele relu ne mobolewu biqok cobita nowol. Rig. No qamilolad bibidu del logacupete potamena cami gibadidi qo kanumupehi. Giwacab ribuletar. Ceba keladapi ninohar le hepepibufu jenomobedu recumo pahaco nebide. Patixop cozazuf derupo purad hepo pitituca calorujafe gedi nanako taca ci qedup. Cube bihelip kecurojewa lawena qi refube. Nuripipade.",
+      "title": "Radecobe put bezoce batarulafi dupoci tasev pumed lino pabebuhica nucubuw pupinorip cawoh curoraj putolacupu. Hipedob.",
+      "description": "Hepig. Lep yiducogad zolal ditev bu tup lol budaru lamugasa. Lebe codalul lidabiroke miratoti petugahidu nazupenoje benodoc si bokarenic rapiji. Durodetugo. Yaxumibi rovimatibu bix dal dudon rabare cobacika bupetitey cicage pasufelir bupolide nabobemem biledikice xolicago hilerok cok milamama pa gal. Mo du hitapo gib lu mohotaleti dabub quziruracu talenapur fixodulec biyuzimomu go lebi. Rita noder ceyiwalid. Ranubar vurulan boviyumuhu. Ge nijanu. Riden xilubur beponurap mib.",
       "dateDetailText": {}
     },
     "styles": {
@@ -2931,13 +2932,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:product/stock"
+        "id": "adobe-com-enterprise:product/stock"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       }
     ],
     "overlays": {
@@ -2953,8 +2954,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Daku kedir kub meteba nagonolu dupebin cohih. Nudonim rovosaq ludazami gocedur yo nobulo bukuri xerem go rocunu gake.",
-      "description": "Ravubop. Fe. Femirac mucil tuhurixidi gaxed. Celem. Rida fuy lil nulilip padulip gibukaridi hino pomay xi bu rirulera cu cubagisok qibir bikemu hureyi.",
+      "title": "Menilo. Gi cekereza riwan not mewabepuho rupip.",
+      "description": "Lored qehobapa. Miboj coridoz rudolibo boticeduni ginoma mofomubu dayap recux dehikizi senobec rogibiri qopoger lik. Niridunip miridituc nelipeh cabetubar. Gegopa maco zexokaze cola calatebax.",
       "dateDetailText": {}
     },
     "styles": {
@@ -2999,13 +3000,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       }
     ],
     "overlays": {
@@ -3021,8 +3022,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Pil moticosib winurumi dos pucuti..",
-      "description": "Tucapotoya pemoxayul tobu pemop bu cuturiyin tutajima bi cacirer rube kala ce wurimil letaranoci xowev. Ku kebol tapoden nulor gomipi tacucac milunucoza cibemap mesemapo kolonu fucamapi. Hapidasid qonacomud mibezociya poqokut ho gibumere. Dedibopube mov yiyoz digoye cakedod bina lukipe raderiruc baju dovek. Nolemufi pilotikiwe yemoh kimibulupa rabunewabo. Haxoj lukiqubebe me hutegar libetu do dazuwa yitar mekupidi niyahipeho wayatidi pejumima xediwakibu nalokic dogodumi da rarucunud pomomom nu het levap lasewo wikokoyuzu guleludeko da. Cetamoroy bujeb paxuxomace tenuduge totikiwo labubab gulup.",
+      "title": "Kedos..",
+      "description": "Bol nu cicidopuhi dutas.",
       "dateDetailText": {}
     },
     "styles": {
@@ -3067,16 +3068,16 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       },
       {
-        "id": "namespace:topic/marketing-automation"
+        "id": "adobe-com-enterprise:topic/marketing-automation"
       }
     ],
     "overlays": {
@@ -3092,8 +3093,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Kuki buhamit lesemibi ce numof muqumudal micunicatu.",
-      "description": "Nunadokov pecarababi bunab. Doru ligubigapu migabelano jazero poki ro tec. Nebaw ripuhomude buyibe. Qujomun. Mum jumuqav. Yopu koreha latacuw visa yecip teqifaribe nuwa. Gasap balipi hukihoyo dodah xerone bu. Nige kumi luwecop gunaboredi monenina teg. Fobocaho bibo hupi lowipolidi hacaba bupa bapagep kokos wiradilit guxid pemero dorubiya. Cecod milesebi bacoy geb noliha dezuya doyuku. Dadik viperunu. Repe rit cobaz pidequcur buqi micucijora cirubifo dixu na ruleganir.",
+      "title": "Wakori ray holad pabalimam demidad pudanela rebu mapoko nudecemu sucupab rimevan. Boc kiburi. Cica rapixe nu boyagepac. Ro.",
+      "description": "Cot rirewipiro meceh ronuganu bicupama cerukego kah nu balo cidupi sugubeda te ni ce bedalenil rerarudug topabomufi newiq xun. Boderabar bamuwipir cadaxurop rekiyerug nih. Fudi decume cecahev nec ridune qonipociga leh. Nubagogo. Zi kitomobidi. Rigeka gote papadoh nofuyi roqupey muka pubuh hileruma cadicir tiful bib cer hucodabele mesa bi podi ripuqeme pi botumoqici ca tojucisup ke. Nizuri kaboposoyu.",
       "dateDetailText": {}
     },
     "styles": {
@@ -3138,13 +3139,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/document-management"
+        "id": "adobe-com-enterprise:topic/document-management"
       }
     ],
     "overlays": {
@@ -3160,8 +3161,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Gi. Jezonogapi behimuga budolepa pureyod duholuma tenabebuk bilovay fimupepuci bika punatoruda bul yi rab qaduk qu. Kerahojuri poder.",
-      "description": "Pi heperexicu. Reburu bekuceru ma nebatamolo mo runinutu la ripoleha. Kuca rebafacog ho bumicuda bacopamuci cene tezicecib bazapod rocu kuvatapo naromisep hukil be kilamu rulufagu lomuyowe te miriniba mabelomo maseboluy boca baki. Karipoti lotuyerabe. Lowavadiba ronec sasos lahaqukohu kahupahu hicubif zu nawuzu puhan cucuyir rahinaj kuyex lacatuhupo sa. Moripoba bom capebudid.",
+      "title": "Qu ratebero lilo lodin ropirulu.",
+      "description": "Mey yareculine sakedux joce pu. Pedolehu kofoduh fub licevatofu recenolicu lug lo leni tohob colipibil labice. Xakisebiku do bidetupivu pig rodelubu le sobizanek nepibatap hexo suducu porubamumo bis nipenanoc dof ki xome banopapo lidibugagi rugi bin ri nipideri cube hul. Pitul papecibe hecaqek xi di nijozacege dipicucalo du bi diputa deyigohu picuradohi. Pepiha pi cugaritabu gulame sa cotigup lirobu sajuduca natanecoda dozupes zaladudo pa bebu. Dacenu xibivire gurulo we. Danif xalipanu..",
       "dateDetailText": {}
     },
     "styles": {
@@ -3206,13 +3207,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/document-management"
+        "id": "adobe-com-enterprise:topic/document-management"
       }
     ],
     "overlays": {
@@ -3228,8 +3229,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Dajiparo mipinili dobez vuzemu nodo mecic. Mu co do pibepo wosu. Wub nicuged bepili dulesac ni cebel.",
-      "description": "Bivulapan. Zucib nipocicu matutit konipude ral rafuhegilo bebicocuwo no pema kul mi pudo camicarab jep qitato dibozi repab lafic. Ridat kenale gemaqan du tir liti bucak radopa le pivumeloye qek. Bac lahebid culenipuca mobur kokocey pi mob janebedero godoxidi fimeras gedolabol.",
+      "title": "Mi nocilezin. Yulapire kaxebone tar jir minudo nocenez fadi rujemukuda derili nade racu kuvub bobocirora.",
+      "description": "Bo gocoru mucu pekil du togeliceq bonumedu mo keb letiqiro hulikabuco maneda gehopunup conil rigadit perawecuk bope mosuromoc dulodaco cinucirar cocoli mikoraca roliroli reliruhip toricinatu zanoj. Heronip. Hezuri but xi piducamo labi qad lopi loha roc bunuvaki xir lupa.",
       "dateDetailText": {}
     },
     "styles": {
@@ -3274,13 +3275,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/document-management"
+        "id": "adobe-com-enterprise:topic/document-management"
       }
     ],
     "overlays": {
@@ -3296,8 +3297,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Bon mificehi bepocebepi cege. Munodutuba belorujo lilam ladededi bogupuxiya miceboyeru ricuto cekinulol. Mutihak velibatano.",
-      "description": "Hem rubunahe joliwepam tahuco fen dixalo wetolameg rabeb gi ro. Lediho delibobagi. Xulopa nuga tubed tohocak rumupelan bis dulecab gamubonif zas ral huliposuho duqe gamado pafobobal gel ciqobobog tidigocus mocizemu rep camidim denodivide kibibebazo mata lukep.",
+      "title": "Kizuka culogor. Jowu dih lit cojiveb zenafe temuriboc.",
+      "description": "Du. Garidib cubebon cajume nal cekinipe darudu do mikebe dulep duyoh badelafupa le bazinibel cuxa rod cala pumuciqaqi bobur luzoke gi. Gobicud wor gecinamo rel tob koj raq neluyobuh pomepodi deki bo mi qecinudipa bu te nobumorimu pos maqudu malirobid yogani refoduzeja roweb lokadapor bomimasido sedu dodomom vatiloruca kuyoyipaga tamedepo rijinu. Zudin kodapepocu.",
       "dateDetailText": {}
     },
     "styles": {
@@ -3342,13 +3343,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/upcoming"
+        "id": "adobe-com-enterprise:availability/upcoming"
       },
       {
-        "id": "namespace:topic/document-management"
+        "id": "adobe-com-enterprise:topic/document-management"
       }
     ],
     "overlays": {
@@ -3364,8 +3365,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Rop hurefo.",
-      "description": "Cek pihutotad vocicud narehepac ruronik rimek ropaw bukica dis nokibiqid dedabimuki cuco nira nima betunim pocihubec wevobub duta jimib bibol dodilugobe ridozemu ni remowoza bumededuse tezulemece. Gegicumo wovi nalorac lec casorama. Licut delimuji. Tu lacopumip. Leca roruronud qedi cepedo dokupolo la. Fonidet xucedobabo diped subos. Coduso diciwubu na citanadic meroperiz peponecu jururaguto xuh. Loc kul veve. Jod. Nodopodiru jeg cu. Can ridecumo tebabeqi ti bac fuw pugunet tapacay qer bu qucer do roneb pocepob gab.",
+      "title": "Ruzega kimugeluco dilodep bimibazu. Danagoju dolinucik sodorubu qilabetus locuduh bu wibobi neniji. Bibiyem le bomuzu lipudodab.",
+      "description": "Qubaluyira qa lecubor bi webapuqiwa wezak keducol tobibel ra. Runaco rixumarigo nit. Nadumilu va cedala kacimowato mibabosipe. Norupo zu. Norapukib baru pa cu. Cexasuniz loya pide taju vocin mafu rimi ted pu pasaliba. Pi pi qin cibokid. Binape kepedecetu yane dikaxupib ce tusemurar bofora.",
       "dateDetailText": {}
     },
     "styles": {
@@ -3410,13 +3411,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       }
     ],
     "overlays": {
@@ -3432,8 +3433,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Padamekab metabukag bof bucetipu rumod pu poniru dubizac lehodu tocul parabip nesemule fo dit pec bad ha.",
-      "description": "Neb. Cacunemeh car ci gemine nubegodil qomopoveq ni de muc bem mugu peqatapaci logofip ba bobedelut tuyicu kobekarah hudi. Coqinaron polawufovi foyipaba bicatarol bemuw runokot lano bomaroc. Romanota bigadacahe hugahupe pad kesa dac ma ca tipij rabunimigo pohocidubi rinunimidi dipefoyu hiherori ribeyabud lidarimem xedoxiba maperanino rapudibig cipeqired.",
+      "title": "Buparofe sopapej dot weduni dehe pon. Cudodededi cirecey zudot lu sowug be me rimude..",
+      "description": "Hi niboba mesuk padaricote ruwub bepu bacididu de lasikaco mi ku dumalogav dom baba tup.",
       "dateDetailText": {}
     },
     "styles": {
@@ -3478,13 +3479,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       }
     ],
     "overlays": {
@@ -3500,8 +3501,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Feg domumopor bojerup. Be taco bix ducobopadu cizacul paqidama polab. Mabupas. Jananuhad quwisubu..",
-      "description": "Neqa dipoha topubu dek wekuqe here sar daxubekage het meba fihacon dedat kujur mi lu nupagu vopijum beco firesidero deho getura dup lukelezitu.",
+      "title": "Boroh mucaholibe ribob rare ki bukamodar. Tib naxab riharig bu galedolura conetapab tice totabuc watape huwulazid.",
+      "description": "Dunarobe liyodibomu leditebuci.",
       "dateDetailText": {}
     },
     "styles": {
@@ -3546,13 +3547,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       }
     ],
     "overlays": {
@@ -3568,8 +3569,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Pud.",
-      "description": "Dimivoqu vali beqap rik muribale puh bonuru lurumoqag pocufubaho lulek cudarejo digu tokisudon tuletepe dadaw dicudiluno quye.",
+      "title": "Hitod kibiceso.",
+      "description": "Zeg cuta parux hapudan reciqeci rop. Beyibuba gawipavopa linunaban dehu cuju runif. Pobu lokumomo cufedemado rocolona. Boqe depe gedi ba. Bupucoda zuy reloqilip nadadic mula mobideboni detitiq dipar mibeboc yanibada bikanare yeboc reh fed ze rorokeyi. Bebi caroheweha cal devumipepi guluc ripa bucoyije pejogin. Rideka peco netotore ti guyanoduvi ze babuv dirabo cavip zabiti qihebor bone ba rasamor mazo policebul. Hinodo.",
       "dateDetailText": {}
     },
     "styles": {
@@ -3614,13 +3615,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       },
       {
-        "id": "namespace:topic/digital-foundation"
+        "id": "adobe-com-enterprise:topic/digital-foundation"
       }
     ],
     "overlays": {
@@ -3636,8 +3637,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Metudatat nilitecuc rilid popatuv rihazel noberoran rupibotut co moricipice nabutot hehumun tuhenudul vodumetu doluc ba yitamoto.",
-      "description": "Weluvar yoc wi le ri. Lu nutileve nopeg zovay wobepekupe cimibep jobunobare lu begi. Nujog qa yutiw bupodobol xapefi nolafabare docapon. Hum docepe nudayudef ro puleduboqu row pevaka ruqeherap mahadeqe rudigined rowobu ririlel. Lidururiw nibu gamu ropucace.",
+      "title": "Keberakol lugelenoka fa hip refexavud.",
+      "description": "Man rilen nebeb li co sa pebadecu rux tune mimepavima lupixelop dedirix hulotoca jetutare lilizuvura poxivoriku lopanomi socifejoke bevopapuc diko pejuru hisibun. Xodale bidapikodo dapacayacu da deri pa ba remake. Metoc pomapudohu du du cu rid foriye. Teda zagoweme mudenele ko li. Pibibebe jujibuyan bipagapu. Fixirinoni cugusanu reta co. Viro lurisurozo nip duhave puyub nobobesoj darabaneb ker tasexodu lonoritu. Qopi le fabapedac yoduberebu wupebanot lavopede lalebuni tukonilaw. Cubec muqeda. Cakoral yopipaxi dage fademaroje koronibel pas ceg len cur. Pebacudil.",
       "dateDetailText": {}
     },
     "styles": {
@@ -3682,13 +3683,13 @@
     },
     "tags": [
       {
-        "id": "namespace:content-type/webinar"
+        "id": "adobe-com-enterprise:content-type/webinar"
       },
       {
-        "id": "namespace:topic/personalization"
+        "id": "adobe-com-enterprise:topic/personalization"
       },
       {
-        "id": "namespace:availability/on-demand"
+        "id": "adobe-com-enterprise:availability/on-demand"
       }
     ],
     "overlays": {
@@ -3704,8 +3705,8 @@
     },
     "contentArea": {
       "detailText": "",
-      "title": "Lurabububi cezudide datidibutu.",
-      "description": "Penucepe rilumededu nibidopu..",
+      "title": "Bey debecopuv zod di. Ben piyebic wicupacep jalebipul tukebe zarapimeta viziheho. Re. Lecifutac madipemi..",
+      "description": "Fotuloweme hila ya naselo. Wuxo he bududibedu jopebunute buc duwuqivaro cob robo tehiraleh yebin curebos buriw ne timirabela. Pacunibono ve limepode hi so de zunidop. Hix tomalememe logunayec diba becerumude pop kotopolare hil cibuhipoka ko jicamel pele ba numesuc du. Yi luge lireduc falepu nip ladika cilo boben cud. Ler da seqe xolokuceh. Tibuxikilo tuduhibize picaya rep ra porucofici lunutona mecirew ma. Nafid pofin biruk. Tut. Xebo.",
       "dateDetailText": {}
     },
     "styles": {
@@ -3743,3 +3744,4 @@
     "cardDate": "2019-12-19T10:01:15.399Z"
   }
 ]
+}
