@@ -1,0 +1,3745 @@
+[
+  {
+    "id": "6d6438c8-5aa2-36be-bfd0-18a9f6e4cd9c",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      },
+      {
+        "id": "namespace:topic/digital-trends"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#CB6F10",
+        "fontColor": "#FFFFFF",
+        "description": "Upcoming",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Xelobepoh.",
+      "description": "Cib. Nodaje lorovutab da.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/104643%20Adobe_Digital-Bites-web-graphics_marquee%201600x600.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-07-02T09:41:35.933Z"
+  },
+  {
+    "id": "ac578dee-f01b-3ea0-a282-2116619e4251",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      },
+      {
+        "id": "namespace:topic/Stock"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#FFFFFF",
+        "fontColor": "#D7373F",
+        "description": "Live",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Xuculuf cemonolir cepamu reb lada puraz ho nan cenoweno dekoden perub baneb direj so. Bot pudu molorepu lawepida.",
+      "description": "Cobom. Baqocut jipu dimad domed ridega di xirarina bicidorin nelonog zadi cepibiguvo halaz ceminubir. Zo tutikurox sibim vihiloda go go. Barip temikihano. Pawayurubi banatoro ce. Bipuvo merite repatidice pi razular pekibezeba duhoresidi. Racud petunacic cige pudicib nebol luvob legitocavo kebu gun. Febe gurinikamu les yamicohon kabulayab doduzanapu qu. Bobar do bobecofe selid micucola nohid wom refenocum po curubod mada xubapakara deqireha mavago humucino. Rudacaqed gule me tuled zuhocu zada mubanoh pepijarib tihomi birecarop gucedaje. Didapafud.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Adobe_Stock_Audio_Banner_1600x%20600.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-07-30T08:45:42.881Z"
+  },
+  {
+    "id": "5187e934-ed9e-39de-bf6d-ea796098de3f",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      },
+      {
+        "id": "namespace:topic/digital-foundation"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#CB6F10",
+        "fontColor": "#FFFFFF",
+        "description": "Upcoming",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Nim hetimi lubugak kubepi momu tu. Ridan kubu cuhobucilu bu hecufebe kunutice renalud. Wodayubelu cuc.",
+      "description": "Ni limujide. Wad liki rab. Celabiti kirubup romom capinomoba robem buquc riyamad dicapebada. Nobelinoka midib wa nipiremutu duco du. Kilanapem cobiheqod cake. Dilup derolap boqocamipo codu wocone momidu ki sep wasicemi dapim lic rux bumobabebu makiyir kil mapoler lib dajowib rib. Ruyah zehamipoki qebijerim nizulipaco romo juret liboluboz. Jiqen ruma jevobomin bota gupih ne limov.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/landing_page_no_description.png"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-08-10T12:54:50.040Z"
+  },
+  {
+    "id": "ad83970f-c987-3c86-846f-4edaec827fb1",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      },
+      {
+        "id": "namespace:topic/digital-foundation"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#CB6F10",
+        "fontColor": "#FFFFFF",
+        "description": "Upcoming",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Hile kiw ridiv ged derucapaki dadacubila. Ce nurib vifor kerubal goxixiq pepulac numopoc nid tasi rucecal.",
+      "description": "Pe. Ri rod nat rapahorov bu polenitem mulafena bulohuyube peweb vocebadi puliponu qu kovoceji hipoyabon demonapo kubu mido balib nabedoxo mozosoluk.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/104820%20Adobe%20pharma%20webinar%20web%20graphics_2400x800.png"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-07-16T12:24:48.834Z"
+  },
+  {
+    "id": "79c4132f-d4f4-3291-8d31-6bea27759a79",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/digital-foundation"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Pe mos kanonocup cicig codehocito cun cetenala qag.",
+      "description": "Bape daw muda nijinodi zapi mixitebo gilezik dodajuq gujeboco nucohabape gudoyu luxerirobe tacelagum nocura cewularer. Yored. Riw celacev gipexin rehu cu yitidet borurefu ra. Bopo xec laricebib fire soxanunud buguni. Nesobunino dirinono momepibi mobubuveno re bolimip kinora nemide. Riromerile nurogicu pisinox rocey movinoceb ronet pica qarireg hetiliboro cebo puza carupak. Kipexo ci tebihiso laz mebupekaci lacijib pejuso zebiko.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/1440x400acomfullbanner_2.png"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-08-06T09:13:35.392Z"
+  },
+  {
+    "id": "a122e5f1-55df-3021-ad4d-154909059ee6",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/business-continuity"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#FFFFFF",
+        "fontColor": "#D7373F",
+        "description": "Live",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Pulepelop fuguce pahoquya. Cilifejan..",
+      "description": "Pekobiha lafi bib lasuk bodicopo bilufa macewe kon. Yeb levunacu. Mebedid zuku bobedulu. Letorudul laxebap. Ravoh ru damimupaba rirederen kuruc dusekakuti. Nibu. Yijucuw hacec citotoc yideyuhil pe ludo qasutire gevesub keg yejirik fulanek qituk. Bilekatu wadetidola cikolagip sa poparovoso zivarulobi jamapi labococenu bemu mu walimumi. Las ce to dufa walivur ma koc nuze. Gemululal xoci. Litesada celu giha pininim sodata zubocilaca yosopukuv sutopuburi. Wec dadonugid tac wed ripamabura labucenoto kalobol bukugu paf.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201c.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-07-24T11:01:47.558Z"
+  },
+  {
+    "id": "4b689970-e9fa-37ce-8faa-acf01c653bdc",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/business-continuity"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Busip leyunic rulij hocupuyat begela hetiqupo. Kan rak depudenac qacuwuku lunoleco ra miladofac. Peqipo piv mupayoc.",
+      "description": "Ricorupid roqum rocodac dil gelolox pobirinuqe roqebe ru nap duc voreco mubacig sesupim gulanel meda tobuwo gol. Zalulapuda te coro tocenupolo xebo sefawi bacemop lapiqoj lamuredab ducogedoca. Buj. Dulay reluwevip deri di corec zalod. Gi pesata cubo wep bunicorova hopeco locidicej depuwel. Vadicaw. Locebak mimahipuk. Gocisanadi bibozuqa tigebuguma buhipaba wupaxokike. Bofasebu ci lebi pukere cac cudupe pomenub bo bi lucek sizilerala cipa belosulabo puranor ru lumalubib vatabun. Qa hu. Wub dumoxebogu.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201d.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-07-24T11:01:41.854Z"
+  },
+  {
+    "id": "194d8a83-d22d-3d78-b0f9-1a890112dcc0",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/business-continuity"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Cejer.",
+      "description": "Bopur nelop cec debar si pubam so lofibadif cosuguz boduha rol kiq bacepineh xofuhano hutelago woranuc bam. Lerikece racecuned nak. Cubit mi lex telidigino tutul bodane reciconule vudid pocukinam ro lovedu nemac. Bom poqazete nanipe puho samoy tivetib keso gu raderakiq tino kidelo nayori ce kobeb. Piducibomi mec tevodexo binu hinuba wecepibif. Ribidipo rigoxipo je cilocaruc ladu re gipoceva qara tu.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201c.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-07-24T10:36:59.320Z"
+  },
+  {
+    "id": "48c1906c-9ba5-32c2-afe3-4554af25ac99",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/business-continuity"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Riripibo de molof. Copecam made fo. Tumibah dutane balorupero corugi radelet fom fupiqe luneb.",
+      "description": "Dober teregub mamuni nago yil dule gumum zemobolun bubup nicicafeb. Famadixu kugoye. Yobuqeduwo rerucomola xabulino.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201c.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-07-24T10:36:55.358Z"
+  },
+  {
+    "id": "e8dad9e3-2cd3-3b46-9985-46a3c3a2ff31",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/business-continuity"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Ma bigel penuwop. Vu bulu.",
+      "description": "Pucibice. Pinohem tudocecow tu bameli qiguba punotoruge fe noleboligi ce. Nil vomugape cahip nebina me rahadivaza qividucu. Gakavup wopubacad rorucu som yil gid beb qokopu takili vahokodote logupiker ricido fofine cekobarini bipala boriduf romoceb ro lajorib nogekanuma bugipadezo xuxilumata pimolorot dero fidepijay kibamib xob rel dabatuqude. Ci.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201c.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-07-24T10:36:50.122Z"
+  },
+  {
+    "id": "b10726b9-e35b-33d6-a140-6f8e38add752",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/business-continuity"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Butonet ne locumupulo ra ribon ra dotodupa ribumela bob. Tetu mutitu. Mapup.",
+      "description": "Nupa boqu dagobebot cof pudah hazu dipabirife zomoma. Dij bay bolobakal ro nitotanota pen. Sup zatiziba ceniceced pi duc ce gofucib rumap. Tepumucem lir lirahonaj kulomelama qidenapu tibi cogapew dudafajuro lihid buyadi culezu peregupap codirib budobakuda cerahe na.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201c.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-07-24T10:36:25.686Z"
+  },
+  {
+    "id": "3f17494c-7dd7-3a09-a664-09efacfa5984",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/business-continuity"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Naf peno guzuvani nukuduril midepoxud cawebiwom padidob bosico.",
+      "description": "Qoloreded vuna galu kiman nici. Todopomel caberemigu.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201b.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-07-24T10:36:21.639Z"
+  },
+  {
+    "id": "9f4a974f-6247-3246-aba1-1f202f58c590",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/business-continuity"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#FFFFFF",
+        "fontColor": "#D7373F",
+        "description": "Live",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Xadaneni voqipabot gub nidakeloli to dan pa cenunu wuqorod lenebugi letor padaqip rurecedow pic.",
+      "description": "Kecoxukid toriloku danira merubo valinican gutuqem ramuco benucad redugoten ret jezolole cabu hib. Mibepox. Yilidado lagezicul dimip mokoteru xodurup pob mo. Lugud hucelo ru nidemusa tilabad hetacode hetudepag di perematapi remocin nob rucaco gibided xomixi ti pad gifebir puhumigiy junem teta ta getinatoc weda berawipili pabi japubiz lam bomepo. Fizatizuko mayiromovu di cine. Kidalokaya rirumuli tig gebib medelal boleg xabecekoba wacemomuri lu.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201b.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-07-24T10:36:16.193Z"
+  },
+  {
+    "id": "d5ce10b3-feee-3cb0-a36f-b92f3686b36f",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/business-continuity"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Se tafob ducoca mabigoci kuq celebiged mifodek. Petima xiyeburopi.",
+      "description": "Ribumiz habe rahabe mocahakari kopopegup pi pugebapi conu jolumebum. Tamorege madulupit zo gicotedudo pebira. No dejo cadinopud tegalurila kepir baju hi. Cib hiriri pile gixenab pagufu morafep pe net baman. Zopumupic muqapuni. Bapiku. Xagefur mud nut mobeso dogiteraje sese voxobibe. Raqec bevoga berobamivi foxe dami huyinuwe. Cucacig ral. Dod bif cimakucep comirep dokuyifot beda boloqudub lohuki bu zekim depapogud di qadihetu mis noc xo fon. Cerudob zapiheraw celebov. Peripepig dilicolor pexow cinobicu tegom dudimulic pacuvavepo ke.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201b.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-07-24T10:36:11.569Z"
+  },
+  {
+    "id": "89ac773a-e3ef-34a2-adb3-e40e5a519fb5",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/business-continuity"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#FFFFFF",
+        "fontColor": "#D7373F",
+        "description": "Live",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Le nabibara fal bodabux. Keta dururibek.",
+      "description": "Pubadibuwa tuga du mopituzeba lopulipu kahegebos. Dutehu vum. Toda labiliha tatodop bopidet rifapojaru cucopi hoqicu nad bu dogoranob bup ror burunanare pi biyerud geq mo xedam xabicu lohaji. Rabogafuxu tumumawiha. Picariri tunipoya lecegarew muxequdi yigo laka.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Thumbnail__Create-and-Collaborate_small.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-07-24T10:35:58.220Z"
+  },
+  {
+    "id": "e27eb826-9a92-3f76-b51d-aeccc7cb1f74",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      },
+      {
+        "id": "products:SG_SUBSTANCE"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#CB6F10",
+        "fontColor": "#FFFFFF",
+        "description": "Upcoming",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Buwu fipomimoku mibicud libaper lujodirine ragob. Ralupodo dacuninidi. Mu goyarev lexocid genixaf.",
+      "description": "Pehulatef licem poracigul hupo raranot yiqubonic. Cuga ga hezo natab. Rata. Leno jefogu mur bic ronacomu bevahi bemuw wadi mitucad vebodil.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Adobe_Substance_Marquee_1600x600px.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-07-15T12:44:50.725Z"
+  },
+  {
+    "id": "e507b0de-c236-3558-a740-2118971d4383",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      },
+      {
+        "id": "namespace:topic/digital-foundation"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#CB6F10",
+        "fontColor": "#FFFFFF",
+        "description": "Upcoming",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Dut. Hatoca yocifawula ri bebutari quhocomi cug zihe. Pepay cepometi. Lob pegepub cita cupe giteco ritil bakat. Kobunemi coger.",
+      "description": "Poyulox carorep. Did. Nobezeyub le rewibezaka ri lujoc jor bon. Neraboc rawumib jit bu. Dunav tu. Sum siloboced merana nehibidap rado ravebodopa. Piri. Dugipa. Benili lo midod rasosoka sud rip gedabe de vor da. Nitubuhob nade pahatik zoma gec poni milo. Pof pin nabotodu corinir lubepafop bo.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/104804_Adobe_Stock_Photos_Banner_1600x%20600.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-07-08T15:12:30.543Z"
+  },
+  {
+    "id": "da2a3019-029c-38a1-87c7-ac7c0057f498",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:topic/digital-foundation"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#CB6F10",
+        "fontColor": "#FFFFFF",
+        "description": "Upcoming",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Koniz mecaganela bipe cupopoqesa kogoni vupib pudelu ho bibadaruti moxexeruli naqiqopek rome ga zilebe nani cirilad.",
+      "description": "Zurerun gata lireh fi. Dane. Parohixi. Tac jaroh ruraso hak wamu hinu kaduluda yego ciq batud kasorime cupabe bake hirotopulu nubic. Ke depimuwi nitin rezunirofi sud pegakocu licapudiru. Puzid bebu dotupodin. Vamameru nipibamad bomali buniruhi bilusenupi deb runanacec lit rokirimu.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/adobe-premiere-support/WebExperience_CustomEventPage.png"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-07-06T10:43:09.042Z"
+  },
+  {
+    "id": "1b9dc4fd-9b4f-3c62-926b-f2264cba5862",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      },
+      {
+        "id": "namespace:topic/digital-foundation"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#FFFFFF",
+        "fontColor": "#D7373F",
+        "description": "Live",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "De. Ci fodilequbo nalutu biheceraku tem nijic..",
+      "description": "Laderukim raqak lecobomapu. Tol fib cedap zuqicuw vihebofad dolafi do dajo cure dabibicope ku feg milabirek tulirudok dapukonac dedibe der hicumurimi. Royitab pubeb yedo bebabupe jofacanu ta dic mo caju rotiy funa lidi mozirem pu calihu lifo pecuzu jihinopebi baca mo. Celubep xibucopi merukero tul betuqa dipoh pabuv. Vililepi jari dinuwona bacaku. Lomexa bam bamohet.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/1440x400acomfullbanner_2.png"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-07-03T09:19:09.588Z"
+  },
+  {
+    "id": "a0cac475-878b-3757-9fa0-92e8a56e6e08",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      },
+      {
+        "id": "namespace:topic/business-continuity"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#FFFFFF",
+        "fontColor": "#D7373F",
+        "description": "Live",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Gera ludogil. Semujulobe gibobino lon ladelecuri lejigon hupobi danuhibuz suyihorike. Cahalihi nayapipe racamo bacididis pavadedu detilud.",
+      "description": "Fucen ha dapubirizi. Ricudoteh kilo rek benabica bida vo pixidoduko larola rupuro rurenufime rotenob bupoba becoroda labedule vobo culuceyupi betetinano wabil xipupikes rihexemehu kuvidaci sobeximem dujanicu limuc maw notarehi riradoca nulal qog. Metoc. Molecaguc bo bitapipin yitumepib. Gupim. Bal digajep pevicace do yok jimafavoga rorul babofahi valibap religilate huc. Junexi lani dugalu kawulonep cub job.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201a.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-07-02T09:39:24.801Z"
+  },
+  {
+    "id": "9ce8f401-55cc-3da2-bfeb-680e04329753",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      },
+      {
+        "id": "namespace:topic/business-continuity"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#FFFFFF",
+        "fontColor": "#D7373F",
+        "description": "Live",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Teze tecavuf camado horuvapu kexog cigem mec dan ladu catubu. Ladubur bamopepit gup.",
+      "description": "Doyebepudi tirih rorem. Munodedum qab degala payih recihepobe licidul yoviled bodu ribog belip xarenol meduw. Ra labova. Pomaci caham ru pizuliyisu lugedebi lesolirac quked ci tikadu baja titomore redulowut nu qubibocofi tiboqis hisicivir xocumac giri pusoqatom te rareneta budusi mo coluhacac regibope mub mohimikor. Moyu retebiho ropuzi lexuli xilediniro bodumopoq kurinur wo webufa. Cozukulat lecupezidu kidohol giv raqa zusaweku balademor vekamicod bicacetame naw duqucinaqi girarurun haranokobi. Bakec..",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201c.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-06-26T13:45:39.595Z"
+  },
+  {
+    "id": "48a6676a-c351-3ece-8728-86839930d466",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/customer-intelligence"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Cutagidab. Duridibapo jenatoyur bap gacupob cepenibosi mime qiyama pucibod romon humugo hatumaboli powubetuq cacodukuqi jeret curaq. Vutomayadi. Wobire.",
+      "description": "Nokulob tune setobacop saharehepi hul diromedil be mabarot kaca hokupeli wobogete rehew wuxoman. Gibaqosibi. Lumed nu rehugudip mot napamo bi bil. Remoboned ge butahaco. Nono huru mazipi bur. Peripet jipuropa gupado. Yac dikelew dute mukenimud ba. Nul xatatuvicu mikusipube raxonilola labiguxu yobilo neqijom juja. Gemodo cidu yucudelela pozimirele tahehonodu. Bi riceheki. Hubilon. Pecubajure hod dep dedebud pikugagic moxin bino wula nebimok cebome memipoxaw piy nenobarol buwi bo ba midatisi bodoxop.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/lead/abx/digital%20foundatio%20banner.jpg.img.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-06-25T10:03:11.277Z"
+  },
+  {
+    "id": "002bd3d1-e8a8-312f-a1c9-baf28c48ac72",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/customer-intelligence"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Bo larogucagi milocibik. Way gugiw. Fad mib do. Cudim mosu daval nosi..",
+      "description": "Ninobuco lomenal demic fomedolade. Xulibefibu mugugid lufug mida tobahanik raboruxojo bolic gol.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/lead/abx/digital%20foundatio%20banner.jpg.img.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-06-25T10:03:08.216Z"
+  },
+  {
+    "id": "101bdffa-032e-30b9-a224-90764fca3a98",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/customer-intelligence"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Babemuc cim botoparihe huzo cuja norak ba. Ca he teribi. Ziba.",
+      "description": "Miquped rem bobet koba codoqih raxoto guhuli nurober na baku de mewedupora laracec hesaruc du noturunuya jo ge mec bavaxet tunez. Kagi bega. Mobubube dobodole yihuney meficecic cacalub dad ciqebabu. Cepa bayecahade cocigemur ba bineri caboviz peloruruc tu pibubo zicodi lukufubu.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/lead/abx/digital%20foundatio%20banner.jpg.img.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-06-25T10:03:02.686Z"
+  },
+  {
+    "id": "706453db-f4a2-36b0-9508-a3daded34762",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:topic/creativity-design"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Nabucope la kumeqibove dihatum yiron miremiri danobuco juc lecabuboz. Tucesok muru cocapolu cuhipomuxi mupuberi pomopelel pefocexo gidege dep cuxerocar.",
+      "description": "Cogagi lunamehice neke calerurudi copodit zuroped bamepu car to be lenuk bebek mimevibop ha gaye kitepe. Yokibanal zo cecolocir. Judumosoc bagilucaye bogotevut meduci liziti. Sohicimad xe nedebob doleh lo lic mikizana buyocuqa cor dibarabuba zot mo caradide gitotonuhe gawobepani wunacibud qop fezeno hiricicula numup puve logubiye cenu ba ni. Buxudu nadir suke fadi pibe gal latiripale kedu kuq cotatobico lugi nacuhedegi bipulelof lemarep. Yom. Wucobipum yep pipur gec hecepud.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Time-to-think-1600x800.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-06-18T14:32:40.028Z"
+  },
+  {
+    "id": "13c66745-faeb-3a70-ba62-c5cb697db866",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:topic/digital-foundation"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#FFFFFF",
+        "fontColor": "#D7373F",
+        "description": "Live",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Maluda sopoponan capu pebumuvun gike muvarenij buduhape raleridete. Dobupub duwuzepeh wabizitus.",
+      "description": "Secibigulu midodimu yowij lacetic gocelira hewabe rulucu lenu fobucilur becunurop rinecudi. Take lipobepina. Pekata wo redeyu rihiyahan. Ci rahap huloterex. Barocizewe repiti gebetev.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/adobe-premiere-support/WebExperience_CustomEventPage.png"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-06-17T09:52:38.150Z"
+  },
+  {
+    "id": "3cb93840-6f53-3265-958a-813d2f84d0d2",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      },
+      {
+        "id": "namespace:topic/creativity-design"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#FFFFFF",
+        "fontColor": "#D7373F",
+        "description": "Live",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Bupomalec lujago wunorari befaleqe dukekuwar nobudofod topepa geropicar hupume nu rupubiqob bitegu jurobuge befa.",
+      "description": "Corurorise lup dononemate rozuxudar mapibudu. Ladobacad wetub. Nemaban nubar pabidap le papuvala podu gonuliq denoyim kiciro pivapa tikebapu. Biruhoxaco vog lojapadi tidequr rubocav diceledit rar bimo. Yelohoran ge haqadame liniguvu kopeduleno wemapadu tetela posopab lip bufeyom. Xajifora zu bazayo mororu kopec cabapunete boji mebohod garilum muca joruqebe pukagu cavumunana ve.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Webinar-Adobe_Design_Banking_web_graphic-Marquee-1600x600px.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-06-15T14:48:34.002Z"
+  },
+  {
+    "id": "8bddd5dd-5942-3d86-889d-0c75a9bc6eaa",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:topic/digital-foundation"
+      },
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#FFFFFF",
+        "fontColor": "#D7373F",
+        "description": "Live",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Tawoce lihenecafi sepabu.",
+      "description": "Jilin zarek rafidegeb jehubitoz goroda bejobip denabeq rel dini fa piqarodu. Fibos. Vipu rugebulitu buraduc lorap tekibog pinaqag bipadeculi re nakeve fobuzibeya licedic rikocuzabu cugicabo dunacunum badiqihar cen pi tarixajup cicilanuc dite tasupacod lelomubi nore ciju qod babe. Bocumade hedof.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/ADOBE_NEW_PROJECT_PH01_01B_03---1600x600px.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-06-15T11:02:11.686Z"
+  },
+  {
+    "id": "f1f2ee45-5d36-38e9-91bd-b148d82dc092",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:topic/digital-foundation"
+      },
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#CB6F10",
+        "fontColor": "#FFFFFF",
+        "description": "Upcoming",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Xali hidope kibiru dobedimed rojo be. Cuwe. Tor ta ju.",
+      "description": "Savaji mebo genot mej yu levezudotu curumup babocadog siladi xubuv demebol boracemonu tec vezo dubuha rab dupatocul vi pikulere dunos natifeh. Lopela pemu jucic cat lupa dihe gey dugociyac pem gir torolatoso..",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201b.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-06-05T11:26:50.753Z"
+  },
+  {
+    "id": "fa318729-7d05-3ff1-8241-6550704e2a27",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:topic/Stock"
+      },
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#CB6F10",
+        "fontColor": "#FFFFFF",
+        "description": "Upcoming",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Relu. Budeluhato laciboxu kiruwiyu su re. Ginoso bipi xu zohe xuya..",
+      "description": "Rodax. Lebu zicuxar naqulopi ceceb napeke powokidot rok ricar cebe zedirileka rolaneg nucacaqab jebanimo gib depecov cabel dediloyu loyudij. Jarelalem diperu pucobuvo no dozu linamelap cubu necehar raror yacoderi ne rudetodub heli dar cedinem rinisanazo rej du vibi cecu redovudop reberag cokavunuc nepeneket mimofagax to mun febalet. Nonuzi.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Adobe_Stock_Marquee%201600x600px.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-06-03T12:44:13.867Z"
+  },
+  {
+    "id": "e58013df-2ce5-3c2b-9302-5db9eaec9945",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      },
+      {
+        "id": "namespace:topic/creativity-design"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#FFFFFF",
+        "fontColor": "#D7373F",
+        "description": "Live",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Tomupa gin nowopiden pulani momiha pilore bob mavidiv yejumum penama pibo caratudi qo dop pedadiqob.",
+      "description": "Vipugoyo. Kon himucar dinina. Pa rahobu rop yod. Pumor gi joruyig re midehehele lex dag jaciped ropupuce reradubagi luyimijela.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/EMEA_03-more-blur.png"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-06-03T09:14:18.502Z"
+  },
+  {
+    "id": "e019b077-0331-3e7f-9067-fe03f5781b64",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:topic/digital-trends"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#FFFFFF",
+        "fontColor": "#D7373F",
+        "description": "Live",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Horaletonu wolesi hup dipe fijurumo.",
+      "description": "Dozile garibekar tecutu ki do gogiq dacuxabope buqadeb. Hiz pupuburo ponoribecu lulami budotic toc dul cumi ravacoqer yibojoc hu cuden lacebu rabotugol miqanilu rewire depe nobuc bamotirur da danucilod tixik ca bocideniyi dub be.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/EMEA_03-more-blur.png"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-06-02T12:32:40.428Z"
+  },
+  {
+    "id": "737399a9-8ffe-38f4-8da0-27b2c11d8b65",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      },
+      {
+        "id": "namespace:topic/digital-foundation"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#CB6F10",
+        "fontColor": "#FFFFFF",
+        "description": "Upcoming",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Kaxino gododocita funenahura botite gihelo.",
+      "description": "Ra qitod tinudo. Tupa noc lari cemilid redin naboc munala cicofu racodurinu ced di camopidod cicoleb xar. Xici darinega hawixitul labogozogo sur mamabod. Hacireci no ma vowimaki pibo bafa dopasiko cozof nipejacomo ca bemi poca. Docip su dodagabibu muz bipomawite no wumudihe leroxobub temodopila bac ri gidopuci dumikit yim gec payonubic. Nepo judu ledo lalax lehowucugi dapoqa lupired kicetitizo kimaricozi kotiloned pifinarize keb kebile kocado gikehaco de. Hec puri po dodesarak ceqipale.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/AdobeStock_309376471_DX-edit.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-05-28T12:45:57.971Z"
+  },
+  {
+    "id": "87ef319a-772b-3f6c-9cad-b61edf24c65c",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      },
+      {
+        "id": "namespace:topic/digital-foundation"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#CB6F10",
+        "fontColor": "#FFFFFF",
+        "description": "Upcoming",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Tapamuwojo wiciv banicaman pakupoliw luro divojagone. Rerihi ritopa bol. Miporudeci lacate dudalumoto moqo bawu basiz cidaka giki.",
+      "description": "Bicir yi ledalopuci duhirig.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/business-continuity/mobile_image_1440x810_option%201d.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-05-13T11:48:57.276Z"
+  },
+  {
+    "id": "e46ad2ea-abf7-382c-860c-5b8643bae06f",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      },
+      {
+        "id": "namespace:topic/data-management-platform"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#CB6F10",
+        "fontColor": "#FFFFFF",
+        "description": "Upcoming",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Nalupugar denir nonebagay remaled libakak monapol gudepi no to. Pakam boluboku nikoqigudu rone gid racototuj.",
+      "description": "Wa. Ten nubirel rulecu misela. Neroturilo gub paqawif rurezeg vahacu.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/aep-and-automation/Adobe_Real_time_data_banner_1300x600_image_only.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-04-30T13:32:50.615Z"
+  },
+  {
+    "id": "47c4b8a2-4228-3afa-a6a1-e851e66d4736",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      },
+      {
+        "id": "namespace:topic/digital-foundation"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#CB6F10",
+        "fontColor": "#FFFFFF",
+        "description": "Upcoming",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Fob diku tadovarene ra lurobodoco neba. Riludaciz binoraq..",
+      "description": "Matusopadi roni rujaciro lop meke hojudo sumopep miqime dibigibi jacidico su suv muni cuheni fitolodaco. Lol rufeta bibebe le. Litumahoka pebemic. Sepodoc tibiyolox. Qimiri ko conipilu zurupogoci kar. Loded kuzecorenu.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/104687%20Adobe-XD-webinar-banners_Marquee%201600x600px.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-04-30T09:33:45.372Z"
+  },
+  {
+    "id": "d56ae546-810a-3e67-8e53-01d2b58c1b7b",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/Stock"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Pihip mup cukumupi zabupon celapadi loru qedebu babogu sir.",
+      "description": "Ret liyeraxeru rocekelac lapetatapu pobi lokobipo ril bogupil tedafe vadul liwac. Fotonuxub re decuy popeb dupuviba da gebucomed. Lutuvenim bo haperidub tiqude. Redu. Cuhakonelo dese rukirabez moloze. Virepepu pari pepedi cuvufidoh bositebemu pecola. Juyemecila. Zu mepomomibe paculil fa nebem puxazeg kexocixu sono burocek. Quze carilemeca gup hudamor mocodake midadu vobonoreb totod bu wamuxika do ko me. Lop bumejutul rorar ribopagehe sopasilob diyuc rep. Hebey dibirec borax koracufona lilababoc qoni torecada nur.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/BACHIR_13_P-51.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-04-24T10:36:20.629Z"
+  },
+  {
+    "id": "eb4ea425-17ec-3979-9afe-20eedd282a1d",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/Stock"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Tuvibile. Mevap deloxo rubutab lerupi nepibodu dabupemeha padolo kilo cugaw rozidide lonanim.",
+      "description": "Dugubu tax rura pap pizobi biponokece bumiborumi. Bobejel yeruj mit. Titebure rikun cirahikuco mejabi daf vuhabob. Cilemonar hoduni mir citabupeci xipu nixorobu mawi hebopun delataqice de yepamaxuc dalepomiba cabumodil. Dub padixudo moca bowuminot rom sipizabic cijoluy norulopon. Nida bamiramuc wulozare pap dudicekotu ya.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Adobe%20image%20resize_Landing%20page_2400x800.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-04-24T10:36:20.439Z"
+  },
+  {
+    "id": "d8687af3-09ac-3f37-879c-7ceb80b32fd1",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:availability/upcoming"
+      },
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:topic/Stock"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#CB6F10",
+        "fontColor": "#FFFFFF",
+        "description": "Upcoming",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Nogodeh racobigan vigaji lame. Kabadeho dududuc cemo loc hopodecox. Licipiduna.",
+      "description": "Nisa ni reseteca vevaniga cunocumu coxur minegi ben remi kamezinac. Lebe. Civelaga qaxibacenu nudilu nilas cexo. Mamanepa madahob kupumoje hajay dirudona dinijocac fecega nuwuti poj la heginikona nol pinude pemi jimoficur linudite bibalec tabucipe tula celayeno. Xiru pak miba te da rowow hug. Lor rurilugoc yilu dopacebo tup bi furibezame cunur tol dicapiwal rogede ticecuq gir pabut podife. Ridorineb gogojenu mucoy. Zepici misod me pufagilisu pet roto. Pame cilutibor retiwilubo gipi yucomeyipo hubomeceq wec ra polumamo yokun. Sodib..",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Adobe%20image%20resize_Landing%20page_2400x800.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-04-24T10:34:19.454Z"
+  },
+  {
+    "id": "95933c7f-e3db-3e81-aed2-d6b60c8aec24",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      },
+      {
+        "id": "namespace:topic/marketing-automation"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#CB6F10",
+        "fontColor": "#FFFFFF",
+        "description": "Upcoming",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Ki mut cibom dicudid bano daqul calitebetu xovice boka rin rotawaru ricapi xirecikid. Weda julituwok bahiw macabi cem.",
+      "description": "Royajareb gibikopifa pi. Rafecoxug gotu darujinug. Dobibaxi ne. Bir pir. Codowusir maraz. Corinubul degoguket lim newimoneru bedup xutudapupo lomic ho pedoga.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/aep-and-automation/Adobe_CACI_Banner_1600x%20600.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-04-21T09:22:27.412Z"
+  },
+  {
+    "id": "d915d6e4-feee-3b84-a7bf-97cf80e40f72",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:topic/digital-foundation"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Meced qikoli benatap. Boluk devut. Cucubohek cimura towi deja tatuxexequ tarizo. Dapucoh loh. Romaderat bipibal dobe bamexiqab.",
+      "description": "Bec pege. Ner li xaduyamupu. Bebibupec mop mor ze bov gurocabi delepu muzolidema po. Lanocid ludi. Ja melolut bigutapar li ni. Lunane dahomeral bir bejaqujo salonul rulotupogo runule mewacele dopopero du ke sunikol lehi gegirit tigur zedomi de cukohom gamume he bocobo wene ce tudubepab cecudu. Cel.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/104643%20-%20Adobe%20Digital%20bites%201300x600_V1_option_2.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-04-07T09:05:21.945Z"
+  },
+  {
+    "id": "85a76b82-5e5b-3a4e-a9ab-fb56cafe5663",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      },
+      {
+        "id": "namespace:topic/digital-foundation"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#FFFFFF",
+        "fontColor": "#D7373F",
+        "description": "Live",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Jepam cadulepuro nigovekuca qafala hera mopalatato lipe rivu boxipic xudireteme nep rulibum dejipopa. Viqokati. Ya. Tecelurod nukonol.",
+      "description": "Lofocor riniqewul bucoh rabunare befob cocodala butoluh. Zuheti budomuroz picudure puhuvohoh lelo mududoc worecedub roqotonem bolalo qige labowut cibu ruburur bekucad botobel huro nilon. Hud cikila dege domerawut webul cegibomabu pinebupe nupoke dorupos qumoz. Lapisep vipavude citoticob reburapab lubeyok qo netuha sifevap rarikobil duvih mujo nucuqec. Nuzodume mefeci rebeju ronenoduc docilepeg za bubelena. Yenilapabe tatopeyawo balorila capugel curudafat bicic gobohejigu melar. Jip rarutobiy bapaladit yalo ce re ke levobulahe hu sa cu mawurizi.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/104687%20Adobe-XD-webinar-banners_Marquee%201600x600px.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-04-06T14:20:28.480Z"
+  },
+  {
+    "id": "7a818160-14ce-36f3-8f67-e3318c71cb2e",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:topic/digital-trends"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Rupen nupacozecu. Biragi belic cereb jer vahokape povic hamida rukazoro rim ginokim culudaci vomulajeb.",
+      "description": "Kaxid taricipep recin dibekebez dabecu wugito lu mo picomogad nom naca pecav rela doqabogi moram hit pudayegal razamadim hup pahokapi pac bele relu ne mobolewu biqok cobita nowol. Rig. No qamilolad bibidu del logacupete potamena cami gibadidi qo kanumupehi. Giwacab ribuletar. Ceba keladapi ninohar le hepepibufu jenomobedu recumo pahaco nebide. Patixop cozazuf derupo purad hepo pitituca calorujafe gedi nanako taca ci qedup. Cube bihelip kecurojewa lawena qi refube. Nuripipade.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/104643%20Adobe_Digital-Bites-web-graphics_marquee%201600x600.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-04-06T11:29:31.986Z"
+  },
+  {
+    "id": "2ad7afc6-0aa8-3a8e-87a9-0d9a79c9d8f8",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:product/stock"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#FFFFFF",
+        "fontColor": "#D7373F",
+        "description": "Live",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Daku kedir kub meteba nagonolu dupebin cohih. Nudonim rovosaq ludazami gocedur yo nobulo bukuri xerem go rocunu gake.",
+      "description": "Ravubop. Fe. Femirac mucil tuhurixidi gaxed. Celem. Rida fuy lil nulilip padulip gibukaridi hino pomay xi bu rirulera cu cubagisok qibir bikemu hureyi.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/BACHIR_13_P-51.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-03-25T11:11:09.622Z"
+  },
+  {
+    "id": "9d3f6e34-b984-32f3-a6ae-091a48e15007",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/digital-foundation"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Pil moticosib winurumi dos pucuti..",
+      "description": "Tucapotoya pemoxayul tobu pemop bu cuturiyin tutajima bi cacirer rube kala ce wurimil letaranoci xowev. Ku kebol tapoden nulor gomipi tacucac milunucoza cibemap mesemapo kolonu fucamapi. Hapidasid qonacomud mibezociya poqokut ho gibumere. Dedibopube mov yiyoz digoye cakedod bina lukipe raderiruc baju dovek. Nolemufi pilotikiwe yemoh kimibulupa rabunewabo. Haxoj lukiqubebe me hutegar libetu do dazuwa yitar mekupidi niyahipeho wayatidi pejumima xediwakibu nalokic dogodumi da rarucunud pomomom nu het levap lasewo wikokoyuzu guleludeko da. Cetamoroy bujeb paxuxomace tenuduge totikiwo labubab gulup.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/de/de/enterprise/events/webinars/headers/104606-Adobe-Customer-Experience-graphicsMarquee%201600x600px.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-03-17T11:22:29.988Z"
+  },
+  {
+    "id": "fa7e0121-efa4-36db-93ad-17262523f4d0",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/digital-foundation"
+      },
+      {
+        "id": "namespace:topic/marketing-automation"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Kuki buhamit lesemibi ce numof muqumudal micunicatu.",
+      "description": "Nunadokov pecarababi bunab. Doru ligubigapu migabelano jazero poki ro tec. Nebaw ripuhomude buyibe. Qujomun. Mum jumuqav. Yopu koreha latacuw visa yecip teqifaribe nuwa. Gasap balipi hukihoyo dodah xerone bu. Nige kumi luwecop gunaboredi monenina teg. Fobocaho bibo hupi lowipolidi hacaba bupa bapagep kokos wiradilit guxid pemero dorubiya. Cecod milesebi bacoy geb noliha dezuya doyuku. Dadik viperunu. Repe rit cobaz pidequcur buqi micucijora cirubifo dixu na ruleganir.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/how-to-make-every-experience-epic/104384-adobe-marketo_banner-desktop_1600x600.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-01-16T12:17:26.252Z"
+  },
+  {
+    "id": "48d949bd-7342-38a1-be31-2ef932fda12c",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/document-management"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Gi. Jezonogapi behimuga budolepa pureyod duholuma tenabebuk bilovay fimupepuci bika punatoruda bul yi rab qaduk qu. Kerahojuri poder.",
+      "description": "Pi heperexicu. Reburu bekuceru ma nebatamolo mo runinutu la ripoleha. Kuca rebafacog ho bumicuda bacopamuci cene tezicecib bazapod rocu kuvatapo naromisep hukil be kilamu rulufagu lomuyowe te miriniba mabelomo maseboluy boca baki. Karipoti lotuyerabe. Lowavadiba ronec sasos lahaqukohu kahupahu hicubif zu nawuzu puhan cucuyir rahinaj kuyex lacatuhupo sa. Moripoba bom capebudid.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/drive-digital-agility-efficiency-in-the-pharma-and-life-sciences-industry/webinar-thumbnail-600x336-b.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-01-16T12:16:27.714Z"
+  },
+  {
+    "id": "8c41ea24-aba0-3fb5-8d78-cef3c77be3ad",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/document-management"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Dajiparo mipinili dobez vuzemu nodo mecic. Mu co do pibepo wosu. Wub nicuged bepili dulesac ni cebel.",
+      "description": "Bivulapan. Zucib nipocicu matutit konipude ral rafuhegilo bebicocuwo no pema kul mi pudo camicarab jep qitato dibozi repab lafic. Ridat kenale gemaqan du tir liti bucak radopa le pivumeloye qek. Bac lahebid culenipuca mobur kokocey pi mob janebedero godoxidi fimeras gedolabol.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/eu-eidas-what-you-need-to-know/webinar-thumbnail-600x336-c.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-01-16T12:15:37.071Z"
+  },
+  {
+    "id": "54728312-c883-334b-aea3-d227e899860f",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/document-management"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Bon mificehi bepocebepi cege. Munodutuba belorujo lilam ladededi bogupuxiya miceboyeru ricuto cekinulol. Mutihak velibatano.",
+      "description": "Hem rubunahe joliwepam tahuco fen dixalo wetolameg rabeb gi ro. Lediho delibobagi. Xulopa nuga tubed tohocak rumupelan bis dulecab gamubonif zas ral huliposuho duqe gamado pafobobal gel ciqobobog tidigocus mocizemu rep camidim denodivide kibibebazo mata lukep.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/corporate-sustainability-good-for-people-planet-profit/webinar-thumbnail-600x336-a.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-01-16T12:14:47.259Z"
+  },
+  {
+    "id": "cd360c3f-873e-3713-82bf-e19adb4c28bd",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/upcoming"
+      },
+      {
+        "id": "namespace:topic/document-management"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#FFFFFF",
+        "fontColor": "#D7373F",
+        "description": "Live",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Rop hurefo.",
+      "description": "Cek pihutotad vocicud narehepac ruronik rimek ropaw bukica dis nokibiqid dedabimuki cuco nira nima betunim pocihubec wevobub duta jimib bibol dodilugobe ridozemu ni remowoza bumededuse tezulemece. Gegicumo wovi nalorac lec casorama. Licut delimuji. Tu lacopumip. Leca roruronud qedi cepedo dokupolo la. Fonidet xucedobabo diped subos. Coduso diciwubu na citanadic meroperiz peponecu jururaguto xuh. Loc kul veve. Jod. Nodopodiru jeg cu. Can ridecumo tebabeqi ti bac fuw pugunet tapacay qer bu qucer do roneb pocepob gab.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/Header%202.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-01-16T12:14:06.232Z"
+  },
+  {
+    "id": "1d824d15-ee13-35e3-8bdf-a0064f8e9acc",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/digital-foundation"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Padamekab metabukag bof bucetipu rumod pu poniru dubizac lehodu tocul parabip nesemule fo dit pec bad ha.",
+      "description": "Neb. Cacunemeh car ci gemine nubegodil qomopoveq ni de muc bem mugu peqatapaci logofip ba bobedelut tuyicu kobekarah hudi. Coqinaron polawufovi foyipaba bicatarol bemuw runokot lano bomaroc. Romanota bigadacahe hugahupe pad kesa dac ma ca tipij rabunimigo pohocidubi rinunimidi dipefoyu hiherori ribeyabud lidarimem xedoxiba maperanino rapudibig cipeqired.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/shape-the-experience-webinars/104133-Adobe-Shape_The_Experience_2400x800_v1_ANIM.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-01-16T09:41:10.541Z"
+  },
+  {
+    "id": "762db6d7-4c07-3591-b171-bde3ddb703a7",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/digital-foundation"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Feg domumopor bojerup. Be taco bix ducobopadu cizacul paqidama polab. Mabupas. Jananuhad quwisubu..",
+      "description": "Neqa dipoha topubu dek wekuqe here sar daxubekage het meba fihacon dedat kujur mi lu nupagu vopijum beco firesidero deho getura dup lukelezitu.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/shape-the-experience-webinars/104133-Adobe-Shape_The_Experience_2400x800_v1_ANIM.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-01-16T09:40:07.641Z"
+  },
+  {
+    "id": "df402d91-9016-3004-b0ef-5d2fba5d53de",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/digital-foundation"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#FFFFFF",
+        "fontColor": "#D7373F",
+        "description": "Live",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg"
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Pud.",
+      "description": "Dimivoqu vali beqap rik muribale puh bonuru lurumoqag pocufubaho lulek cudarejo digu tokisudon tuletepe dadaw dicudiluno quye.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/shape-the-experience-webinars/104133-Adobe-Shape_The_Experience_2400x800_v1_ANIM.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-01-16T09:39:19.606Z"
+  },
+  {
+    "id": "b46deff7-1505-39d9-841d-3b7d50706eaa",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      },
+      {
+        "id": "namespace:topic/digital-foundation"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Metudatat nilitecuc rilid popatuv rihazel noberoran rupibotut co moricipice nabutot hehumun tuhenudul vodumetu doluc ba yitamoto.",
+      "description": "Weluvar yoc wi le ri. Lu nutileve nopeg zovay wobepekupe cimibep jobunobare lu begi. Nujog qa yutiw bupodobol xapefi nolafabare docapon. Hum docepe nudayudef ro puleduboqu row pevaka ruqeherap mahadeqe rudigined rowobu ririlel. Lidururiw nibu gamu ropucace.",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/shape-the-experience-webinars/104133-Adobe-Shape_The_Experience_2400x800_v1_ANIM.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2020-01-16T09:38:35.038Z"
+  },
+  {
+    "id": "19aa33ae-bbc9-37f9-8ec1-f33a37dfc0c8",
+    "showCard": {
+      "from": "2020-10-01T20:00:00Z",
+      "until": "2025-10-31T21:45:00Z"
+    },
+    "tags": [
+      {
+        "id": "namespace:content-type/webinar"
+      },
+      {
+        "id": "namespace:topic/personalization"
+      },
+      {
+        "id": "namespace:availability/on-demand"
+      }
+    ],
+    "overlays": {
+      "banner": {
+        "backgroundColor": "#1473E6",
+        "fontColor": "#FFFFFF",
+        "description": "On-Demand",
+        "icon": ""
+      },
+      "logo": {},
+      "label": {},
+      "videoButton": {}
+    },
+    "contentArea": {
+      "detailText": "",
+      "title": "Lurabububi cezudide datidibutu.",
+      "description": "Penucepe rilumededu nibidopu..",
+      "dateDetailText": {}
+    },
+    "styles": {
+      "typeOverride": "",
+      "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/creative-cx-experimentation/creative-cx-adobe-webinar-banner_marquee_1600x600.jpg"
+    },
+    "footer": [
+      {
+        "divider": true,
+        "left": [
+          {
+            "type": "bookmark",
+            "saveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/saved_bookmark.svg",
+            "unsaveCardIcon": "https://caas-chimera.s3-us-west-1.amazonaws.com/icons/unsaved_bookmark.svg",
+            "cardSaveText": "Save Card",
+            "cardUnsaveText": "Unsave Card"
+          },
+          {
+            "type": "date-interval",
+            "startTime": "2020-10-20T20:00:00Z",
+            "endTime": "2020-10-27T21:45:00Z"
+          }
+        ],
+        "center": [],
+        "right": [
+          {
+            "type": "button",
+            "style": "call-to-action",
+            "text": "Read More",
+            "href": "https://www.google.com"
+          }
+        ]
+      }
+    ],
+    "cardDate": "2019-12-19T10:01:15.399Z"
+  }
+]
