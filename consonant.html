@@ -53,101 +53,24 @@
             collection: {
                 mode: "darkest", // Can be empty, "light", "dark", "darkest";
                 layout: {
-                    type: '4up', // Can be "2up", "3up", "4up", "5up";
+                    type: '3up', // Can be "2up", "3up", "4up", "5up";
                     gutter: '4x', // Can be "2x", "3x", "4x";
                     container: '1200MaxWidth', // Can be "83Percent", "1200MaxWidth", "32Margin";
                 },
                 resultsPerPage: '20',
-                endpoint: "https://caas-chimera.s3.us-west-1.amazonaws.com/tests/card-collection/json-response-tests/smoke-tests/smoke.json",
+                endpoint: "./tests/card-collection/json-response-tests/smoke-tests/speakers.json",
                 totalCardsToShow: '100',
                 cardStyle: "1:2", // available options: "1:2", "3:4", "full-card", "half-height", "custom-card", "double-wide";
                 showTotalResults: 'true',
                 i18n: {
                     prettyDateIntervalFormat: '{LLL} {dd} | {timeRange} {timeZone}',
                     totalResultsText: '{total} Results',
-                    title: 'Your Favorite Cards',
+                    title: 'Speakers',
                     onErrorTitle: 'Sorry there was a system error.',
                     onErrorDescription: 'Please try reloading the page or try coming back to the page another time.',
                 }
             },
-            featuredCards: [{
-                "id": "n",
-                "showCard": {
-                    "from": "2020-10-01T20:00:00Z",
-                    "until": "2021-10-31T21:45:00Z"
-                },
-                "tags": [
-                    {
-                        "id": "adobe-com-enterprise:content-type/webinar"
-                    },
-                    {
-                        "id": "adobe-com-enterprise:availability/upcoming"
-                    },
-                    {
-                        "id": "adobe-com-enterprise:topic/digital-trends"
-                    }
-                ],
-                "overlays": {
-                    "banner": {
-                        "backgroundColor": "#CB6F10",
-                        "fontColor": "#FFFFFF",
-                        "description": "Upcoming",
-                        "icon": ""
-                    },
-                    "logo": {
-
-                    },
-                    "label": {
-
-                    },
-                    "videoButton": {
-
-                    }
-                },
-                "contentArea": {
-                    "detailText": "",
-                    "title": "n",
-                    "description": "This month and next will be devoted exclusively to you — making you a true expert in creating agile, creative, and consistent experiences. The kinds of experiences your customers demand (and will love). Over the next few months, we’re going to focus on modernizing the nuts and bolts of your operation.",
-                    "dateDetailText": {
-
-                    }
-                },
-                "styles": {
-                    "typeOverride": "",
-                    "backgroundImage": "https://adobe.com/content/dam/www/uk/en/enterprise/events/webinars/marquee's/104643%20Adobe_Digital-Bites-web-graphics_marquee%201600x600.jpg"
-                },
-                "footer": [
-                    {
-                        "divider": true,
-                        "left": [
-                            {
-                                "type": "bookmark",
-                                "saveCardIcon": "",
-                                "unsaveCardIcon": "",
-                                "cardSaveText": "Save Card",
-                                "cardUnsaveText": "Unsave Card"
-                            },
-                            {
-                                "type": "date-interval",
-                                "startTime": "2020-10-20T20:00:00Z",
-                                "endTime": "2020-10-27T21:45:00Z"
-                            }
-                        ],
-                        "center": [
-
-                        ],
-                        "right": [
-                            {
-                                "type": "button",
-                                "style": "call-to-action",
-                                "text": "Read More",
-                                "href": "https://www.google.com"
-                            }
-                        ]
-                    }
-                ],
-                "cardDate": "2020-07-02T09:41:35.933Z"
-            }],
+            featuredCards: [],
             filterPanel: {
                 enabled: 'false',
                 type: 'left',
