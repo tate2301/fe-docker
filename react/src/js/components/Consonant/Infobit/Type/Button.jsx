@@ -53,11 +53,7 @@ const Button = ({
     const getConfig = useConfig();
     const buttonStyle = getConfig('collection', 'button');
 
-    const isCtaButton = style === BUTTON_STYLE.CTA;
-    const buttonClass = className({
-        'consonant-BtnInfobit': true,
-        'consonant-BtnInfobit--cta': isCtaButton,
-    });
+    const isCtaButton = style === BUTTON_STYLE.CTA ? 'cta' : 'primary';
 
     const iconClass = className({
         'consonant-BtnInfobit-ico': true,
@@ -66,17 +62,15 @@ const Button = ({
 
     return (
         <ButtonSpectrum
-            variant={buttonStyle.style || 'cta'}
+            {...buttonStyle}
+            variant={buttonStyle.style || isCtaButton}
             type="button"
-            className={buttonClass}
             data-testid="consonant-BtnInfobit"
             tabIndex="0"
+            UNSAFE_style={{ cursor: 'pointer' }}
             rel="noopener noreferrer"
             target="_blank"
-            href={href}
-            isQuiet={buttonStyle.modifier === 'isQuiet'}
-            isDisabled={buttonStyle.state === 'disabled'}
-            {...buttonStyle.props}>
+            href={href}>
             {iconSrc &&
                 <img
                     data-testid="consonant-BtnInfobit-ico"
